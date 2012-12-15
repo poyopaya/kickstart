@@ -29,7 +29,7 @@ var self = this, 									// Used to set context in $.ajax
     universalsSet = false,
     readyFired = false,  					// Prevents multiple ajax calls from calling the ks.ready() fxs
     appCheck = false, 						// Prevents a false positive for ks.ready()
-    thisVersion = "1.2.0 Beta", 	// Don't change this! Used to check for updates with updater app
+    thisVersion = "1.3.0", 	// Don't change this! Used to check for updates with updater app
     diagnosticMsgs = []; 					// Array of helpful messages for user to use in diagnosing errors
     
 var rootDir,											// We'll set these to their namespaced counterparts later for legacy support.
@@ -452,7 +452,6 @@ function initKickstrap() {
 			var scriptString = formatString($(appendees[i]).css(contentHack.selector), true);
 			if (scriptString == 'ndefine' || scriptString == 'on') {scriptString = '<script></script>'}; 
 			// (above) Prevents "[u]ndefine[d]" from being printed when the appended script is removed.
-			console.log(scriptString);
 			$('body').append(scriptString);
 			
 		}
@@ -468,7 +467,7 @@ function initKickstrap() {
 	  }
 	  // Remove duplicates from array
 	  // Thanks http://stackoverflow.com/questions/9229645/remove-duplicates-from-javascript-array
-      if ( ver != 8 ) { // Blanks out ks.apps in IE8 :(
+      if ( ver != 8 && ver != 7) { // Blanks out ks.apps in IE8 :(
          ks.apps = ks.apps.filter(function(elem, pos) {
              return ks.apps.indexOf(elem) == pos;
          })
@@ -550,7 +549,13 @@ function app(x) {
 		    resourcesRequired.splice(resourcesRequired.indexOf(resourcesRequired[i]), 1);
 			}
 		}	// Commented items removed, finalize the required items in the app object.
-		window[x].resourcesRequired = resourcesRequired;
+
+		// Support lazy-loading apps.
+		var me
+		if (typeof window[x] == 'object') me = window[x]
+		else me = this
+
+		me.resourcesRequired = resourcesRequired;
 		// Now look for dependent items.
 		if (resources[1]) {
 			var resourcesDependent = resources[1].splitCSV();
@@ -559,11 +564,11 @@ function app(x) {
 			    resourcesDependent.splice(resourcesDependent.indexOf(resourcesDependent[i]), 1);
 				}
 			}
-			window[x].resourcesDependent = resourcesDependent;
+			me.resourcesDependent = resourcesDependent;
 		}
-		appArray.push(window[x]);
+		appArray.push(me);
 		if(!universalsSet) {loadResources()}
-    // Test to see if the resources we loaded are equal to the resources we've found.
+    	// Test to see if the resources we loaded are equal to the resources we've found.
 		if(appArray.length == ks.apps.length) {loadResources();}
 	}
 	
