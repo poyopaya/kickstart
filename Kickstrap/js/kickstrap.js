@@ -29,7 +29,7 @@ var self = this, 									// Used to set context in $.ajax
     universalsSet = false,
     readyFired = false,  					// Prevents multiple ajax calls from calling the ks.ready() fxs
     appCheck = false, 						// Prevents a false positive for ks.ready()
-    thisVersion = "1.3.0", 	// Don't change this! Used to check for updates with updater app
+    thisVersion = "1.2.4", 	// Don't change this! Used to check for updates with updater app
     diagnosticMsgs = []; 					// Array of helpful messages for user to use in diagnosing errors
     
 var rootDir,											// We'll set these to their namespaced counterparts later for legacy support.
