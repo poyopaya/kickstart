@@ -1,7 +1,5 @@
-//
+// Journal 2.2.2
 // Variables
-// Swatch: Journal
-// Version: 2.1.1
 // --------------------------------------------------
 
 
@@ -13,7 +11,7 @@
 // -------------------------
 @black:                 #000;
 @grayDarker:            #222;
-@grayDark:              #888;
+@grayDark:              #777;
 @gray:                  #999;
 @grayLight:             #bbb;
 @grayLighter:           #eee;
@@ -60,13 +58,29 @@
 @headingsColor:         @black; // empty to use BS default, @textColor
 
 
+// Component sizing
+// -------------------------
+// Based on 14px font-size and 20px line-height
+
+@fontSizeLarge:         @baseFontSize * 1.25; // ~18px
+@fontSizeSmall:         @baseFontSize * 0.85; // ~12px
+@fontSizeMini:          @baseFontSize * 0.75; // ~11px
+
+@paddingLarge:          11px 19px; // 44px
+@paddingSmall:          2px 10px;  // 26px
+@paddingMini:           0px 6px;   // 22px
+
+@baseBorderRadius:      4px;
+@borderRadiusLarge:     6px;
+@borderRadiusSmall:     3px;
+
+
 // Tables
 // -------------------------
 @tableBackground:                   transparent; // overall background-color
 @tableBackgroundAccent:             #f5f5f5; // for striping
 @tableBackgroundHover:              @grayLighter; // for hover
 @tableBorder:                       #ddd; // table and cell border
-
 
 // Buttons
 // -------------------------
@@ -97,9 +111,11 @@
 // -------------------------
 @inputBackground:               @white;
 @inputBorder:                   #ccc;
-@inputBorderRadius:             3px;
+@inputBorderRadius:             @baseBorderRadius;
 @inputDisabledBackground:       @grayLighter;
 @formActionsBackground:         @grayLighter;
+@inputHeight:                   @baseLineHeight + 10px; // base line-height + 8px vertical padding + 2px top/bottom border
+
 
 // Dropdowns
 // -------------------------
@@ -109,17 +125,17 @@
 @dropdownDividerBottom:         @grayLighter;
 
 @dropdownLinkColor:             @headingsColor;
-
 @dropdownLinkColorHover:        @headingsColor;
-@dropdownLinkBackgroundHover:   @grayLighter;
+@dropdownLinkColorActive:       @headingsColor;
 
-@dropdownLinkColorActive:       @dropdownLinkColor;
 @dropdownLinkBackgroundActive:  @dropdownLinkBackgroundHover;
+@dropdownLinkBackgroundHover:   @grayLighter;
 
 
 
 // COMPONENT VARIABLES
 // --------------------------------------------------
+
 
 // Z-index master list
 // -------------------------
@@ -149,6 +165,11 @@
 @hrBorder:                @grayLighter;
 
 
+// Horizontal forms & lists
+// -------------------------
+@horizontalComponentOffset:       180px;
+
+
 // Wells
 // -------------------------
 @wellBackground:                  @grayLighter;
@@ -157,10 +178,11 @@
 // Navbar
 // -------------------------
 @navbarCollapseWidth:             979px;
+@navbarCollapseDesktopWidth:      @navbarCollapseWidth + 1;
 
 @navbarHeight:                    60px;
-@navbarBackground:                @bodyBackground;
 @navbarBackgroundHighlight:       @bodyBackground;
+@navbarBackground:                @bodyBackground;
 @navbarBorder:                    darken(@navbarBackground, 12%);
 
 @navbarText:                      @textColor;

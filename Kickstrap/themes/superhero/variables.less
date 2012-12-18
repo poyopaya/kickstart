@@ -1,7 +1,9 @@
-//
+// Superhero 2.2.2
 // Variables
-// Swatch: Superhero
-// Version: 2.1.1
+// --------------------------------------------------
+
+
+// Global values
 // --------------------------------------------------
 
 
@@ -56,13 +58,29 @@
 @headingsColor:         @orange; // empty to use BS default, @textColor
 
 
+// Component sizing
+// -------------------------
+// Based on 14px font-size and 20px line-height
+
+@fontSizeLarge:         @baseFontSize * 1.25; // ~18px
+@fontSizeSmall:         @baseFontSize * 0.85; // ~12px
+@fontSizeMini:          @baseFontSize * 0.75; // ~11px
+
+@paddingLarge:          11px 19px; // 44px
+@paddingSmall:          2px 10px;  // 26px
+@paddingMini:           0px 6px;   // 22px
+
+@baseBorderRadius:      4px;
+@borderRadiusLarge:     6px;
+@borderRadiusSmall:     3px;
+
+
 // Tables
 // -------------------------
 @tableBackground:                   darken(@blue, 3%); // overall background-color
 @tableBackgroundAccent:             @blue; // for striping
 @tableBackgroundHover:              lighten(@blue, 5%); // for hover
 @tableBorder:                       transparent; // table and cell border
-
 
 // Buttons
 // -------------------------
@@ -93,9 +111,11 @@
 // -------------------------
 @inputBackground:               @white;
 @inputBorder:                   #ccc;
-@inputBorderRadius:             3px;
+@inputBorderRadius:             @baseBorderRadius;
 @inputDisabledBackground:       @grayLighter;
 @formActionsBackground:         transparent;
+@inputHeight:                   @baseLineHeight + 10px; // base line-height + 8px vertical padding + 2px top/bottom border
+
 
 // Dropdowns
 // -------------------------
@@ -105,17 +125,17 @@
 @dropdownDividerBottom:         @blue;
 
 @dropdownLinkColor:             @textColor;
-
 @dropdownLinkColorHover:        @white;
-@dropdownLinkBackgroundHover:   @dropdownLinkBackgroundActive;
+@dropdownLinkColorActive:       @white;
 
-@dropdownLinkColorActive:       @dropdownLinkColor;
 @dropdownLinkBackgroundActive:  @linkColor;
+@dropdownLinkBackgroundHover:   @dropdownLinkBackgroundActive;
 
 
 
 // COMPONENT VARIABLES
 // --------------------------------------------------
+
 
 // Z-index master list
 // -------------------------
@@ -145,6 +165,11 @@
 @hrBorder:                transparent;
 
 
+// Horizontal forms & lists
+// -------------------------
+@horizontalComponentOffset:       180px;
+
+
 // Wells
 // -------------------------
 @wellBackground:                  @blue;
@@ -153,10 +178,11 @@
 // Navbar
 // -------------------------
 @navbarCollapseWidth:             979px;
+@navbarCollapseDesktopWidth:      @navbarCollapseWidth + 1;
 
 @navbarHeight:                    70px;
-@navbarBackground:                @blueDark;
 @navbarBackgroundHighlight:       @navbarBackground;
+@navbarBackground:                @blueDark;
 @navbarBorder:                    darken(@navbarBackground, 5%);
 
 @navbarText:                      @grayLight;

@@ -1,7 +1,5 @@
-//
+// Amelia 2.2.2
 // Variables
-// Swatch: Amelia
-// Version: 2.1.1
 // --------------------------------------------------
 
 
@@ -60,13 +58,29 @@
 @headingsColor:         inherit; // empty to use BS default, @textColor
 
 
+// Component sizing
+// -------------------------
+// Based on 14px font-size and 20px line-height
+
+@fontSizeLarge:         @baseFontSize * 1.25; // ~18px
+@fontSizeSmall:         @baseFontSize * 0.85; // ~12px
+@fontSizeMini:          @baseFontSize * 0.75; // ~11px
+
+@paddingLarge:          20px 24px; // 58px
+@paddingSmall:          8px 12px;  // 34px
+@paddingMini:           4px 8px;   // 28px
+
+@baseBorderRadius:      0;
+@borderRadiusLarge:     6px;
+@borderRadiusSmall:     3px;
+
+
 // Tables
 // -------------------------
 @tableBackground:                   lighten(#147E88, 10%); // overall background-color
 @tableBackgroundAccent:             lighten(#147E88, 15%); // for striping
 @tableBackgroundHover:              rgba(255, 255, 255, 0.4); // for hover
 @tableBorder:                       lighten(#147E88, 12%); // table and cell border
-
 
 // Buttons
 // -------------------------
@@ -75,7 +89,7 @@
 @btnBorder:                         rgba(0, 0, 0, 0);
 
 @btnPrimaryBackground:              @navbarBackground;
-@btnPrimaryBackgroundHighlight:     spin(@btnPrimaryBackground, 15%);
+@btnPrimaryBackgroundHighlight:     @navbarBackground;
 
 @btnInfoBackground:                 @purple;
 @btnInfoBackgroundHighlight:        @purple;
@@ -97,9 +111,11 @@
 // -------------------------
 @inputBackground:               @white;
 @inputBorder:                   transparent;
-@inputBorderRadius:             0;
+@inputBorderRadius:             @baseBorderRadius;
 @inputDisabledBackground:       @grayLighter;
 @formActionsBackground:         transparent;
+@inputHeight:                   @baseLineHeight + 10px; // base line-height + 8px vertical padding + 2px top/bottom border
+
 
 // Dropdowns
 // -------------------------
@@ -109,17 +125,17 @@
 @dropdownDividerBottom:         @white;
 
 @dropdownLinkColor:             @grayDark;
-
 @dropdownLinkColorHover:        @white;
-@dropdownLinkBackgroundHover:   @red;
+@dropdownLinkColorActive:       @white;
 
-@dropdownLinkColorActive:       @dropdownLinkColor;
 @dropdownLinkBackgroundActive:  @red;
+@dropdownLinkBackgroundHover:   @red;
 
 
 
 // COMPONENT VARIABLES
 // --------------------------------------------------
+
 
 // Z-index master list
 // -------------------------
@@ -149,6 +165,11 @@
 @hrBorder:                transparent;
 
 
+// Horizontal forms & lists
+// -------------------------
+@horizontalComponentOffset:       180px;
+
+
 // Wells
 // -------------------------
 @wellBackground:                  #3CB9C6;
@@ -157,10 +178,11 @@
 // Navbar
 // -------------------------
 @navbarCollapseWidth:             979px;
+@navbarCollapseDesktopWidth:      @navbarCollapseWidth + 1;
 
 @navbarHeight:                    50px;
-@navbarBackground:                @red;
 @navbarBackgroundHighlight:       @red;
+@navbarBackground:                @red;
 @navbarBorder:                    darken(@navbarBackground, 12%);
 
 @navbarText:                      @white;

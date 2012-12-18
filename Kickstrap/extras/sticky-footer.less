@@ -11,16 +11,10 @@
       min-height: 100%;
       height: auto !important;
       height: 100%; // For IE.
-	  margin: 0 auto -@footerHeight;
+	   margin: 0 auto -@footerHeight;
 	  
    }
-   #push {height: @footerHeight;}
-   #footer {
-      position: relative;
-      margin-top: -@footerHeight + 7em;
-      height: @footerHeight;
-      clear:both;
-   }
+   #push, #footer {height: @footerHeight;}
 
    // Opera Fix
    body:before { // Thanks to Maleika (Kohoutec)
