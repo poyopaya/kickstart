@@ -1,32 +1,47 @@
+// VARIABLES
+// =========
 var apps,
-  ks
+  ks = {
+    opts: { console: true },
+    apps: []
+  },
+  tempObj
+// FUNCTIONS
+// =========
 
-// Create the ajaxRequest function to be used for jQuery-less ajax calls.
-function ajaxRequest()
-{
-  var xmlHttp
+// CONSOLELOG()
+function consoleLog(msg, msgType, objName) {
+  var prefix = 'KS: '
+  if (ks.opts.console && window.console) {
+    if (objName) console.log([msg, objName])
+    else {
+      switch (msgType) {
+        case 'warn':
+        console.warn(prefix + msg)
+        break
 
-  try
-  {
-    //Firefox, Opera 8.0+, Safari
-    xmlHttp = new XMLHttpRequest();
-  }
-  catch(e)
-  {
-    //Internet Explorer
-    try
-    {
-      xmlHttp = new ActiveXObject("Msxml2.XMLHTTP");
-    }
-    catch(e)
-    {
-      try
-      {
-        xmlHttp = new ActiveXObject("Microsoft.XMLHTTP");
+        case 'error':
+        console.error(prefix + msg)
+        break
+
+        default:
+        console.log(prefix + msg)
+        break
       }
-      catch(e)
-      {
-        alert("Your browser does not support AJAX!")
+    }
+  }
+}
+
+// AJAX Call
+function ajaxRequest() {
+  var xmlHttp
+  try { xmlHttp = new XMLHttpRequest(); }
+  catch(e) {
+    try { xmlHttp = new ActiveXObject("Msxml2.XMLHTTP"); }
+    catch(e) {
+      try { xmlHttp = new ActiveXObject("Microsoft.XMLHTTP"); }
+      catch(e) {
+        console.log("Your browser does not support AJAX!")
         return false;
       }
     }
@@ -34,42 +49,54 @@ function ajaxRequest()
   return xmlHttp;
 }
 
-var getApps = new ajaxRequest()
+// LET THE KICKSTRAP SITE BEGIN
+// ============================
 
-getApps.onreadystatechange = function(){
- if (getApps.readyState == 4){
-  if (getApps.status == 200){
-   var xmldata = getApps.responseText
-   //var xmldata = eval("(" + getApps.responseText + ")")
-   apps = xmldata
-   initRequireJs()
+// 1. APP-GETTER
+// Returns the apps the ks object--ks.apps
+var getApps = new ajaxRequest() 
+getApps.onreadystatechange = function() {
+  if (getApps.readyState == 4) {
+    if (getApps.status == 200) {
+      var xmldata = getApps.responseText
+      ks.apps = eval(xmldata)
+      readJSONs()
+    }
+    else { alert("Could not get apps.js") }
   }
-  else{
-   alert("Could not get apps.js")
-  }
- }
 }
-
 getApps.open("GET", "kickstrap/apps.js", true)
 getApps.send(null)
 
-// Eek, do we need rjs stuff to be global?
-function initRequireJs() {
-
-	eval(apps)
-	requirejs.config({
-	  baseUrl: 'kickstrap/_core/js/lib',
-	  paths: {
-	    app: '../../apps'
-	  }
-	})
-
-	requirejs(ks.apps,
-	function ($) {
-	
-	})
+// 2. PACKAGE.JSON READER
+// Now that we have the app names, we have their paths. In the paths, we can
+// read their package.json files.
+function readJSONs() {
+  for (var i = 0; i < ks.apps.length; i++) {
+    // The URL to the package.json file for this app
+    var url = "kickstrap/apps/" + String(ks.apps[i]) + "/package.json"
+    console.log(url)
+    consoleLog('Getting JSONs')
+    var getAppJSONs = new ajaxRequest()
+    getAppJSONs.onreadystatechange = function() {
+      if (getAppJSONs.readyState == 4) {
+        if (getAppJSONs.status == 200) {
+          var xmldata = getAppJSONs.responseText
+          ks.apps[i] = JSON.parse(xmldata)
+        }
+      }
+      else { consoleLog('Could not find package.json file for app "' + String(ks.apps[i]) + '"') }
+    }
+    getAppJSONs.open("GET", url, true)
+    getAppJSONs.send(null)
+  }
 }
 
-
-
-
+// Eek, do we need rjs stuff to be global?
+function initRequireJs() {
+	requirejs.config({
+	  baseUrl: 'kickstrap/apps',
+	  paths: { lib: '../_core/js/lib' }
+	}) 
+	requirejs(ks.apps, function() { /* ks.readyFire() */ })
+}

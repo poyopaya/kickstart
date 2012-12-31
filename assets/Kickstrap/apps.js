@@ -1,3 +1,6 @@
-ks = { apps: [
-  'jquery',
-]}
+{ 
+  apps: [
+    'pinesnotify',
+    'testapp',
+  ]
+}
