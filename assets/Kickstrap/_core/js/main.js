@@ -1,3 +1,5 @@
+var rv;
+
 requirejs.config({
     // By default load any module IDs from js/lib
     baseUrl: 'kickstrap/_core/js/lib',
@@ -6,12 +8,28 @@ requirejs.config({
     // config is relative to the baseUrl, and
     // never includes a ".js" extension since
     // the paths config could be for a directory.
-    paths: { app: '../app' }
+    paths: { run: '../run' }
 });
 
+// Those with IE shall be marked.
+var ver = getInternetExplorerVersion();
+function getInternetExplorerVersion() {
+  rv = -1; // Return value assumes failure.
+  if (navigator.appName == 'Microsoft Internet Explorer') {
+    var ua = navigator.userAgent;
+    var re  = new RegExp("MSIE ([0-9]{1,}[\.0-9]{0,})");
+    if (re.exec(ua) != null)
+      rv = parseFloat( RegExp.$1 );
+  }
+  return rv;
+}
+
+var requireList = ['jquery', '_kickstrap']
+// IE users will receive the HTML5 shiv
+if ( rv > -1 ) requireList.push('html5shiv')
+
 // Start the main app logic.
-requirejs(['jquery', 'kickstrap'],
-function   ($, ks) {
-    // jQuery, canvas and the app/sub module are all
-    // loaded and can be used here now.
+requirejs(requireList,
+function   ($) {
+
 });
