@@ -55,12 +55,11 @@ prod:
 	@rm -rf product/kickstrap/bootstrap/.git product/kickstrap/bootstrap/.[a-z]*
 	@rm -rf tests/kickstrap/bootstrap/.git tests/kickstrap/bootstrap/.[a-z]*
 	@echo "Spring cleaning"
-	@rm product/kickstrap/_core/js/sample.js
 	@rm -r product/kickstrap/apps/universal/ks-window
 	@node build.js production
 	@rm product/lab.html
 
-	@uglifyjs product/kickstrap/_core/js/kickstrap.js -mc > product/kickstrap/_core/js/kickstrap.min.js 
+	@uglifyjs product/kickstrap/_core/js/lib/kickstrap.js -mc > product/kickstrap/_core/js/lib/kickstrap.js 
 	@echo "Build complete."
 
 test: 
