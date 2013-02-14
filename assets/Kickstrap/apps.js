@@ -1,6 +1,6 @@
 { 
   apps: [
-    'pinesnotify',
-    'testapp',
+    'pinesnotify'
+    , 'testapp'
   ]
 }
