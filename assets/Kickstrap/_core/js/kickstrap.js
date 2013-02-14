@@ -375,13 +375,14 @@ var code =null;
 
 $('body').append('<footer class="kickstrap"></footer>');
 $('footer.kickstrap').append('<div class="cli"></div>');
-$('footer.kickstrap div.cli').append('<p>Status: Unknown</p>');
-$('footer.kickstrap div.cli').append('<span>&gt;&nbsp;</span><input type="text" />');
+$('footer.kickstrap div.cli').append('<p>Status: Unknown</p>')
+	.append('<span>&gt;&nbsp;</span><input type="text" />')
+	.append('<div class="pull-right"><i class="glyphicon-info-sign"></i></div>')
 
 // Mouseover reveal 
 $('div.cli').mouseover(function() {
-	$('div.cli p').fadeOut('fast');
-	$('div.cli input, div.cli span').fadeIn('fast');
+	$('div.cli p').hide();
+	$('div.cli input, div.cli span').show();
 	$('div.cli input').focus();
 })
 $('div.cli input').blur(function() {
