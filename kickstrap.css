@@ -1,0 +1,42 @@
+footer.kickstrap {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: #333;
+  height: 15px;
+  padding: 4px;
+  color: white;
+  font-family: 'helvetica neue', helvetica, sans-serif;
+  font-size: 14px;
+}
+footer.kickstrap p {
+  margin: 0;
+}
+.hover-grp .show-hover {
+  display: none;
+}
+.hover-grp .cloak-hover {
+  zoom: 1;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+  filter: alpha(opacity=0);
+  -moz-opacity: 0;
+  -khtml-opacity: 0;
+  opacity: 0;
+}
+.hover-grp:hover .hide-hover {
+  display: none;
+}
+.hover-grp:hover .show-hover {
+  display: inherit;
+}
+.hover-grp:hover .cloak-hover {
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=1)";
+  filter: alpha(opacity=1);
+  -moz-opacity: 1;
+  -khtml-opacity: 1;
+  opacity: 1;
+}
+html.lt-ie8 .hover-grp:hover .show-hover {
+  display: inline-block;
+}
