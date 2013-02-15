@@ -1,6 +1,4 @@
-{ 
-  apps: [
-    'pinesnotify'
-    , 'testapp'
-  ]
-}
+ks.apps = [
+	'pinesnotify'
+	, 'bootstrap'	
+]

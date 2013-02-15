@@ -1,3 +1,13 @@
+// VARIABLES
+// =========
+
+var commandChain = [],
+  commandChainLevel = 0,
+  code = null;
+
+// JQUERY DEPENDENT CODE
+// =====================
+
 define(['jquery'],
     function($) {
 
@@ -7,9 +17,6 @@ define(['jquery'],
       // Create Kickstrap Debug UI
       // -------------------------
 
-      var commandChain = [];
-      var commandChainLevel = 0;
-      var code =null;
 
       $('body').append('<footer class="kickstrap"></footer>');
       $('footer.kickstrap').append('<div class="cli"></div>');
