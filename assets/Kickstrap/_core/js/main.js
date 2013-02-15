@@ -5,6 +5,12 @@ var ks = new Object(),
 
 requirejs.config({
     baseUrl: 'kickstrap',
+    map: {
+      '*': {
+        'css': '_core/js/require-css/css', 
+        'less': '_core/js/require-less/less'
+      }
+    },
     paths: { 
         core : '_core/js/lib',
         jquery: [
@@ -20,7 +26,7 @@ requirejs.config({
     }
 });
 requirejs(['apps'],
-function   () {
+function   ($) {
     // Create paths to each app's config.js based on keyword
     for ( var i=0; i < ks.apps.length; i++ ) {
         ks.apps[i] = 'apps/' + ks.apps[i] + '/config'

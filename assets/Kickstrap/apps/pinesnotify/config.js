@@ -1,1 +1,4 @@
-console.log('wheeee, I\'m pines notify.');
+define([
+	'apps/pinesnotify/pinesnotify'
+	, 'less!apps/pinesnotify/jquery.pnotify.default'
+], function() {})
