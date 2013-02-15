@@ -1,1 +1,3 @@
-console.log('sup, I\'m bootstrap.')
+define([
+	'apps/bootstrap/bootstrap.min'
+], function() {})

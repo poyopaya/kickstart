@@ -1,7 +1,5 @@
-// Set this up so the ks object can be extended immediately
-var ks = new Object(),
     // We'll start with this and add the user-defined apps once retrieved
-    resourceArray = ['core/_kickstrap']
+var resourceArray = ['core/_kickstrap']
 
 requirejs.config({
     baseUrl: 'kickstrap',
