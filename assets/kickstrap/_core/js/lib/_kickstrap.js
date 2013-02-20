@@ -22,7 +22,7 @@ define(['jquery'],
         .append('<nav class="console"></nav>')
         .append('<nav class="input"></nav>')
       $('nav.input')
-        .append('&gt;<span class="input"></span>')
+        .append('&gt;&nbsp;<span class="input"></span>')
         .append('<span class="cursor"></span>')
       $('span.cursor').append('&#9612;')
 
@@ -91,7 +91,11 @@ define(['jquery'],
 
         var command = request.split(' ');
         if (typeof kbash[(command[0])] == "function") {
-          kbash[command[0]]() 
+          var commandTree = { 
+            rootCommand: command[0]
+            , params: command.slice(1,command.length)
+          }
+          kbash[commandTree.rootCommand](commandTree.params) 
         }
         else {
           setConsole('-kbash: ' + request + ': Command not found.') 
@@ -125,6 +129,17 @@ define(['jquery'],
       function setRequest(request) {
          // TODO: Parse for flags, commands, arguments and options.
          getResponse(request);
+      }
+
+      // SAMPLE KBASH EXTENSION
+      // ======================
+
+      kbash.say = function(params) {
+         setConsole('what would you like me to say?')
+         console.log(params)
+         for(var i; i<params.length; i++) {
+           setConsole(String(params[i]))
+         }
       }
 
     }
