@@ -88,8 +88,10 @@ define(['jquery'],
         return commandArray[index] 
       }
       function getResponse(request) {
-        if (typeof kbash[request] == "function") {
-          kbash[request]() 
+
+        var command = request.split(' ');
+        if (typeof kbash[(command[0])] == "function") {
+          kbash[command[0]]() 
         }
         else {
           setConsole('-kbash: ' + request + ': Command not found.') 
