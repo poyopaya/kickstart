@@ -7,6 +7,19 @@ var cursorSpot = 0,
   , mouseIn = false
   , kbash = new Object()
 
+// LIBRARY FUNCTIONS
+// =================
+
+// Array Remove - By John Resig (MIT Licensed)
+Array.prototype.remove = function(from, to) {
+  var rest = this.slice((to || from) + 1 || this.length);
+  this.length = from < 0 ? this.length + from : from;
+  return this.push.apply(this, rest);
+};
+
+// Quick lookup of flags, args, and opts.
+Array.prototype.have = function (value) { return this.indexOf(value) > 0 ? true : false; }
+
 // JQUERY DEPENDENT CODE
 // =====================
 
@@ -24,7 +37,7 @@ define(['jquery'],
       $('nav.input')
         .append('&gt;&nbsp;<span class="input"></span>')
         .append('<span class="cursor"></span>')
-      $('span.cursor').append('&#9612;')
+      $('span.cursor').append('&#9617;')
 
       // VARIABLES (JQ DEPENDENT)
       // ========================
@@ -97,20 +110,56 @@ define(['jquery'],
           // Strip args and flags from main command as "params"
           var params = command.slice(1,command.length)
 
-          console.log('params: ' + params)
-
-          // Create command tree from parsed values.
+          // Create command tree.
           var commandTree = { 
             rootCommand: command[0]
-            , args: ''
-            , flags: ''
+            , args: []
+            , flags: []
+            , opts: []
+            , props: { 
+              empty: 'false' 
+            }
           }
-          kbash[commandTree.rootCommand](commandTree.args, commandTree.flags) 
+
+          for ( var i = 0; i < params.length; i++ ) {
+            // Remove opts ("--option") from params
+            // Remove flags ("-f") from params
+            if (params[i].substr(0,1) == "-") {
+              if (params[i].substr(0,2) == "--") {
+                commandTree.opts.push(params[i].substring(2,params[i].length))
+              }
+              else {
+                commandTree.flags = commandTree.flags.concat((params[i].substring(1,params[i].length)).split(''))
+              }
+              params.remove(i)
+              i--
+            }
+          }
+
+          // We assume everything left are arguments.
+          commandTree.args = params;
+
+          // Set some properties for quick access.
+          if ( 
+            commandTree.args.length == 0
+            && commandTree.flags.length == 0
+            && commandTree.opts.length == 0
+          ) {
+            commandTree.props.empty = true;
+          }
+
+          // Ready to send the flags and args to the root command
+          kbash[commandTree.rootCommand](
+            commandTree.args
+            , commandTree.flags
+            , commandTree.opts
+            , commandTree.props
+          ) 
         }
 
         // Invalid command
         else {
-          setConsole('-kbash: ' + request + ': Command not found.') 
+          console.kbash('-kbash: ' + request + ': Command not found.') 
         }
       }
 
@@ -124,12 +173,12 @@ define(['jquery'],
       }
       function setCommandArray(item) {
         commandArray = commandArray.concat(item)
-        setConsole('> ' + item)
+        console.kbash('> ' + item)
         setRequest(item)
         $(input).val('')
         setCursor()
       }
-      function setConsole(string) {
+      console.kbash = function (string) {
          $(mainConsole).append('<p>' + string +'</p>').scrollTop($(mainConsole)[0].scrollHeight)
       }
       function setCursor(spot) {
@@ -143,16 +192,18 @@ define(['jquery'],
          getResponse(request);
       }
 
-      // SAMPLE KBASH EXTENSION
-      // ======================
+      // SAMPLE KBASH EXTENSIONS
+      // =======================
 
-      kbash.say = function(args, flags) {
-         setConsole('what would you like me to say?')
-         console.log(args)
-         console.log(flags)
-         for(var i; i<params.length; i++) {
-           setConsole(String(params[i]))
-         }
+      kbash.say = function(args, flags, opts, props) {
+        console.log(args)
+        console.log(flags)
+        console.log(opts)
+        if (props.empty == true) { console.kbash('Please supply an argument') }
+        else {
+          console.kbash(flags.have('v'))
+          console.kbash(flags.have('v') ? 'Hello, it is very good to see you this fine day.' : 'Hi')
+        }
       }
 
     }
