@@ -1,9 +1,11 @@
 // VARIABLES
 // =========
 
-var commandChain = [],
-  commandChainLevel = 0,
-  code = null;
+var cursorSpot = 0,
+  commandArray = ['help']
+  , commandSpot = 0
+  , mouseIn = false
+  , kbash = new Object()
 
 // JQUERY DEPENDENT CODE
 // =====================
@@ -14,46 +16,114 @@ define(['jquery'],
       // DOM CREATION
       // ============
 
-      // Create Kickstrap Debug UI
-      // -------------------------
+      $('body').append('<footer class="debug"></footer>');
+      $('footer.debug')
+        .append('<input>')
+        .append('<nav class="console"></nav>')
+        .append('<nav class="input"></nav>')
+      $('nav.input')
+        .append('&gt;<span class="input"></span>')
+        .append('<span class="cursor"></span>')
+      $('span.cursor').append('&#9612;')
 
+      // VARIABLES (JQ DEPENDENT)
+      // ========================
 
-      $('body').append('<footer class="kickstrap"></footer>');
-      $('footer.kickstrap').append('<div class="cli"></div>');
-      $('footer.kickstrap div.cli').append('<p>Status: Unknown</p>')
-      	.append('<span>&gt;&nbsp;</span><input type="text" />')
-      	.append('<div class="pull-right"><i class="glyphicon-info-sign"></i></div>')
+      var nav = $('footer.debug nav')
+      , input = $('input')
+      , span = $('span.cursor')
+      , mainConsole = $('nav.console')
+      , fakeInput = $('span.input')
 
-      // Mouseover reveal 
-      $('div.cli').mouseover(function() {
-      	$('div.cli p').hide();
-      	$('div.cli input, div.cli span').show();
-      	$('div.cli input').focus();
-      })
-      $('div.cli input').blur(function() {
-      	$('div.cli p').fadeIn('fast');
-      	$('div.cli input, div.cli span').fadeOut('fast');
-      })
+      // NAV -> INPUT CLICK DEFERMENT
+      // ============================
 
-      // Enter key actions 
-      $('div.cli input').keypress(function(e) {
-        code = (e.keyCode ? e.keyCode : e.which);
-        if (code == 13) {
-        	// Add to the command history
-        	commandChain.push($('div.cli input').val())
-        	eval($('div.cli input').val())
-        	$('div.cli input').val('')
-        	commandChainLevel = 0;
-        	e.preventDefault();
-        }
-        if (code == 38) {
-        	if (commandChainLevel != commandChain.length) commandChainLevel++;
-        	console.log(commandChainLevel)
-        	$('div.cli input').val(commandChain[commandChain.length - commandChainLevel])
-        	e.preventDefault();
-        }
-        else { return; }
+      $(nav).click(function() {
+        $(input).focus()
+        $(span).html('&#9612;')
+        $(mainConsole).fadeIn('fast')
       });
+      $(input).on('blur', function() {
+        $(span).html('&#9617;')
+        if (!mouseIn) $(mainConsole).fadeOut('fast')
+      })
+
+      // Don't hide the console if we're trying to drag on it.
+      $(mainConsole).hover(
+        function() { mouseIn = true; },
+        function() { mouseIn = false; }
+      )
+
+      // KEY-READING
+      // ===========
+
+      $(input).keyup(function(e) {
+          setCursor(0)
+          // Enter key
+          if( e.keyCode == 13 ) {
+            e.preventDefault();
+            if ($(input).val().length > 0) {
+              setCommandArray( $(input).val() )
+              commandSpot = 0
+            }
+          }
+      });
+      $(input).keydown(function(e) {
+        if (e.keyCode == 38) { // Up arrow
+          // TODO: Set lower limit
+          commandSpot--
+          setInput()
+        }
+        if (e.keyCode == 40) { // Down arrow
+          // TODO: Set upper limit
+          commandSpot++
+          setInput()
+        }
+      });
+
+      // GETTERS
+      // =======
+
+      function getCommandArray(index) {
+        return commandArray[index] 
+      }
+      function getResponse(request) {
+        if (typeof kbash[request] == "function") {
+          kbash[request]() 
+        }
+        else {
+          setConsole('-kbash: ' + request + ': Command not found.') 
+        }
+      }
+
+      // SETTERS
+      // =======
+
+      function setInput() {
+        var newString = getCommandArray((commandArray.length + commandSpot))
+        $(input).val(newString)
+        setCursor()
+      }
+      function setCommandArray(item) {
+        commandArray = commandArray.concat(item)
+        setConsole('> ' + item)
+        setRequest(item)
+        $(input).val('')
+        setCursor()
+      }
+      function setConsole(string) {
+         $(mainConsole).append('<p>' + string +'</p>').scrollTop($(mainConsole)[0].scrollHeight)
+      }
+      function setCursor(spot) {
+        // Write in the nav
+        spot = (spot || cursorSpot)  
+        $(fakeInput).html($(input).val());
+        // TODO: Allow the user to control cursor with arrow keys.
+      }
+      function setRequest(request) {
+         // TODO: Parse for flags, commands, arguments and options.
+         getResponse(request);
+      }
 
     }
 );
