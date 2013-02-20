@@ -90,13 +90,25 @@ define(['jquery'],
       function getResponse(request) {
 
         var command = request.split(' ');
+
+        // Determine if this is even valid before we do anything else.
         if (typeof kbash[(command[0])] == "function") {
+
+          // Strip args and flags from main command as "params"
+          var params = command.slice(1,command.length)
+
+          console.log('params: ' + params)
+
+          // Create command tree from parsed values.
           var commandTree = { 
             rootCommand: command[0]
-            , params: command.slice(1,command.length)
+            , args: ''
+            , flags: ''
           }
-          kbash[commandTree.rootCommand](commandTree.params) 
+          kbash[commandTree.rootCommand](commandTree.args, commandTree.flags) 
         }
+
+        // Invalid command
         else {
           setConsole('-kbash: ' + request + ': Command not found.') 
         }
@@ -134,9 +146,10 @@ define(['jquery'],
       // SAMPLE KBASH EXTENSION
       // ======================
 
-      kbash.say = function(params) {
+      kbash.say = function(args, flags) {
          setConsole('what would you like me to say?')
-         console.log(params)
+         console.log(args)
+         console.log(flags)
          for(var i; i<params.length; i++) {
            setConsole(String(params[i]))
          }
