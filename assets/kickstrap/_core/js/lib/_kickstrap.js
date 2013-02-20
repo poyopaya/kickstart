@@ -18,13 +18,46 @@ Array.prototype.remove = function(from, to) {
 };
 
 // Quick lookup of flags, args, and opts.
-Array.prototype.have = function (value) { return this.indexOf(value) > 0 ? true : false; }
+Array.prototype.have = function (value) { return this.indexOf(value) > -1 ? true : false; }
+
 
 // JQUERY DEPENDENT CODE
 // =====================
 
 define(['jquery'],
     function($) {
+
+      (function($)
+      {
+          jQuery.fn.putCursorAtEnd = function()
+          {
+          return this.each(function()
+          {
+              $(this).focus()
+
+              // If this function exists...
+              if (this.setSelectionRange)
+              {
+              // ... then use it
+              // (Doesn't work in IE)
+
+              // Double the length because Opera is inconsistent about whether a carriage return is one character or two. Sigh.
+              var len = $(this).val().length * 2;
+              this.setSelectionRange(len, len);
+              }
+              else
+              {
+              // ... otherwise replace the contents with itself
+              // (Doesn't work in Google Chrome)
+              $(this).val($(this).val());
+              }
+
+              // Scroll to the bottom, in case we're in a tall textarea
+              // (Necessary for Firefox and Google Chrome)
+              this.scrollTop = 999999;
+          });
+          };
+      })(jQuery);
 
       // DOM CREATION
       // ============
@@ -43,7 +76,7 @@ define(['jquery'],
       // ========================
 
       var nav = $('footer.debug nav')
-      , input = $('input')
+      , input = $('footer.debug input')
       , span = $('span.cursor')
       , mainConsole = $('nav.console')
       , fakeInput = $('span.input')
@@ -84,11 +117,13 @@ define(['jquery'],
       $(input).keydown(function(e) {
         if (e.keyCode == 38) { // Up arrow
           // TODO: Set lower limit
+          e.preventDefault();
           commandSpot--
           setInput()
         }
         if (e.keyCode == 40) { // Down arrow
           // TODO: Set upper limit
+          e.preventDefault();
           commandSpot++
           setInput()
         }
@@ -117,20 +152,16 @@ define(['jquery'],
             , flags: []
             , opts: []
             , props: { 
-              empty: 'false' 
+              empty: true 
             }
           }
 
           for ( var i = 0; i < params.length; i++ ) {
-            // Remove opts ("--option") from params
-            // Remove flags ("-f") from params
             if (params[i].substr(0,1) == "-") {
-              if (params[i].substr(0,2) == "--") {
-                commandTree.opts.push(params[i].substring(2,params[i].length))
-              }
-              else {
-                commandTree.flags = commandTree.flags.concat((params[i].substring(1,params[i].length)).split(''))
-              }
+              // Remove opts ("--option") from params
+              if (params[i].substr(0,2) == "--") { commandTree.opts.push(params[i].substring(2,params[i].length)) }
+              // Remove flags ("-f") from params
+              else { commandTree.flags = commandTree.flags.concat((params[i].substring(1,params[i].length)).split('')) }
               params.remove(i)
               i--
             }
@@ -141,11 +172,11 @@ define(['jquery'],
 
           // Set some properties for quick access.
           if ( 
-            commandTree.args.length == 0
-            && commandTree.flags.length == 0
-            && commandTree.opts.length == 0
+            commandTree.args.length > 0
+            || commandTree.flags.length > 0
+            || commandTree.opts.length > 0
           ) {
-            commandTree.props.empty = true;
+            commandTree.props.empty = false;
           }
 
           // Ready to send the flags and args to the root command
@@ -159,7 +190,7 @@ define(['jquery'],
 
         // Invalid command
         else {
-          console.kbash('-kbash: ' + request + ': Command not found.') 
+          console.kbash('-kbash: ' + request + ': command not found.') 
         }
       }
 
@@ -170,6 +201,8 @@ define(['jquery'],
         var newString = getCommandArray((commandArray.length + commandSpot))
         $(input).val(newString)
         setCursor()
+        $('body').focus();
+        $(input).putCursorAtEnd();
       }
       function setCommandArray(item) {
         commandArray = commandArray.concat(item)
@@ -196,14 +229,22 @@ define(['jquery'],
       // =======================
 
       kbash.say = function(args, flags, opts, props) {
-        console.log(args)
-        console.log(flags)
-        console.log(opts)
         if (props.empty == true) { console.kbash('Please supply an argument') }
         else {
-          console.kbash(flags.have('v'))
-          console.kbash(flags.have('v') ? 'Hello, it is very good to see you this fine day.' : 'Hi')
+          var msg = ''
+          if (args.have('hello')) {
+            msg = (flags.have('v') ? 'Hello, it is very good to see you this fine day' : 'Hi')
+            if (opts.have('polite')) msg = msg + ('...good sir/madaam')
+            if (opts.have('rude')) msg = msg + ('...you big dumb jerk')
+          }
+          else { msg = ('I don\'t know how to say that. Ask me to say "hello"') }
+          console.kbash(msg)
         }
+      }
+
+      kbash.help = function(args, flags, opts, props) {
+        msg = flags.have('v') ? 'try "say hello [-v] [--polite] [--rude]"' : 'Try "say hello" (or "help -v" for more options)'
+        console.kbash(msg)
       }
 
     }
