@@ -9,13 +9,14 @@
 -------------------------------------------------- */
 
 body {
+  padding-top: 54px;
   position: relative; /* For scrollyspy */
-  padding-top: 62px; /* Default height of navbar */
+  /* We add the padding to the body for >768px only */
 }
 
 /*  */
-body > .container,
-.footer .container {
+.bs-docs-body > .container,
+.bs-docs-footer .container {
   padding-left:  15px;
   padding-right: 15px;
 }
@@ -106,23 +107,23 @@ section > ul li {
 /* Marketing section of Overview
 -------------------------------------------------- */
 
-.marketing {
+.bs-docs-marketing {
   text-align: center;
   color: #5a5a5a;
 }
-.marketing h1 {
+.bs-docs-marketing h1 {
   margin: 60px 0 10px;
   font-size: 50px;
   line-height: 1;
 }
-.marketing h2 {
+.bs-docs-marketing h2 {
   margin-bottom: 5px;
 }
-.marketing p {
+.bs-docs-marketing p {
   font-size: 16px;
   line-height: 1.4;
 }
-.marketing .marketing-byline {
+.bs-docs-marketing .marketing-byline {
   margin-bottom: 40px;
   font-size: 21px;
   font-weight: 300;
@@ -198,6 +199,8 @@ section > ul li {
   padding: 39px 14px 14px;
   margin-bottom: -1px;
   border: 1px solid #ddd;
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
 }
 /* Echo out a label for the example */
 .bs-docs-example:after {
@@ -211,10 +214,13 @@ section > ul li {
   color: #9da0a4;
   background-color: #f5f5f5;
   border: 1px solid #ddd;
+  border-top-left-radius: 4px;
+  border-bottom-right-radius: 4px;
 }
 
 /* Tweak display of the examples */
-.bs-docs-example + .prettyprint {
+.bs-docs-example + .prettyprint,
+.bs-docs-example + .highlight {
   margin-top: 0;
   border-top-left-radius: 0;
   border-top-right-radius: 0;
@@ -290,6 +296,25 @@ section > ul li {
   margin-right: auto;
 }
 
+/* Example dropdowns */
+.bs-docs-example > .dropdown > .dropdown-menu,
+.bs-docs-example-submenu > .pull-left > .dropup > .dropdown-menu,
+.bs-docs-example-submenu > .pull-left > .dropdown > .dropdown-menu {
+  position: static;
+  display: block;
+  margin-bottom: 5px;
+}
+.bs-docs-example-submenu {
+  min-height: 180px;
+}
+.bs-docs-example-submenu > .pull-left + .pull-left {
+  margin-left: 20px;
+}
+
+/* Example tabbable tabs */
+.bs-docs-example-tabs .nav-tabs {
+  margin-bottom: 15px;
+}
 
 
 /* Example templates
@@ -326,7 +351,7 @@ section > ul li {
   -webkit-box-sizing: border-box;
   margin: 0 -1px -1px 0;
 }
-.the-icons [class^="glyphicon-"] {
+.the-icons .glyphicon {
   display: block;
   margin: 5px auto;
   vertical-align: middle;
@@ -417,13 +442,13 @@ section > ul li {
 /* Footer
 -------------------------------------------------- */
 
-.footer {
+.bs-docs-footer {
   text-align: center;
   padding: 30px 0;
   margin-top: 100px;
   border-top: 1px solid #e5e5e5;
 }
-.footer p {
+.bs-docs-footer p {
   margin-bottom: 0;
   color: #777;
 }
@@ -485,13 +510,41 @@ input.focused {
   overflow: auto;
 }
 
+.highlight {
+  padding: 9px 14px;
+  margin-bottom: 14px;
+  background-color: #f7f7f9;
+  border: 1px solid #e1e1e8;
+  border-radius: 4px;
+  box-shadow: inset 40px 0 0 #fbfbfc, inset 41px 0 0 #ececf0;
+}
+.highlight pre {
+  padding: 0;
+  margin-bottom: 0;
+  background-color: transparent;
+  border: 0;
+}
+.highlight pre code {
+  font-size: inherit;
+  color: #333; /* Effectively the base text color */
+}
+.highlight pre .lineno {
+  display: inline-block;
+  width: 18px;
+  padding-right: 5px;
+  margin-right: 10px;
+  text-align: right;
+  color: #bebec5;
+}
+
 
 
 /* Docs gallery
 -------------------------------------------------- */
 
 .bs-docs-gallery .thumbnail {
-  margin-bottom: 20px;
+  max-width: 400px;
+  margin: 0 auto 20px;
 }
 
 
@@ -501,9 +554,9 @@ input.focused {
 /* Tablets and up */
 @media screen and (min-width: 768px) {
 
-  /* Account for fixed navbar */
+  /* Account for fixed navbar (which is static to start) */
   body {
-    padding-top: 50px;
+    padding-top: 50px; /* Default height of navbar */
   }
 
   /* Tweak display of docs jumbotrons */

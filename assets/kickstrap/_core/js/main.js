@@ -14,14 +14,19 @@ requirejs.config({
         jquery: [
             '//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min', // cdn
             'core/jquery' // fallback
+        ],
+        kickstrap: [
+            'core/_kickstrap'
         ]
-    },
-    shim: {
+    }
+    /*
+    , shim: {
         'core/_kickstrap': {
             deps: ['core/jquery'],
             exports: 'core/_kickstrap'
         },
     }
+    */
 });
 requirejs(['apps'],
 function   ($) {

@@ -3,118 +3,107 @@
 var cColor;
 var colorOutput;
 var toggleCount = 1;
-var lastView;
 // Forgiveness for the omission of quotes for these.
 var rgb = 'rgb';var hsl = 'hsl';var hsv = 'hsv';var hex = 'hex';var filter = 'filter';
 /* $('#ksp-one').live('click', function() {
 	togglePreview();
 }); */
 
+// KBASH routing
+// =============
 
-function togglePreview() {
-	toggleCount++;
-	if (toggleCount % 2 == 1) {
-		$('#ks-previewer').fadeOut();
-	}
-	else {
-		$('#ks-previewer').fadeIn();
-	}
+kbash.color = function(args, flags, opts, props) {
+  if (props.empty) console.kbash('Use the --help option if you need assistance.')
+  if (args.length > 0) {
+    if (flags.length == 0) { 
+      for ( var i = 0; i < args.length; i++ ) {
+        setColor(args[i]) 
+      }
+    }
+    else { 
+      for ( var i = 0; i < args.length; i ++ ) {
+        setColor(args[i])
+        if (flags.have('h')) get('hex')
+        if (flags.have('v')) get('hsv')
+        if (flags.have('l')) get('hsl')
+        if (flags.have('r')) get('rgb')
+      }
+    }
+    if (opts.length > 0 && !opts.have('help')) {
+      if (opts.have('split')) getSplit(null, flags)
+      if (opts.have('tetrad')) getTetrad(null, flags)
+      if (opts.have('triad')) getTriad(null, flags)
+      if (opts.have('mono')) getMono(null, flags)
+      if (opts.have('analog')) getAnalogous(null, flags)
+    }
+    if (opts.length > 1 && !opts.have('help')) {
+      console.kbash('Please select just one color to retrieve a pattern')
+    }
+  }
+  if (opts.have('help')) {
+    console.kbash('HELP')
+    console.kbash('====')
+    console.kbash('Type "color" and the name of a color in either hex, hsl, hsv, rgb, or plain-text')
+    console.kbash('&nbsp;')
+
+    conosle.kbash('FLAGS')
+    console.kbash('=====')
+    console.kbash('-h: Show hex')
+    console.kbash('-v: Show hsv')
+    console.kbash('-l: Show hsl')
+    console.kbash('-r: Show rgb')
+  }
 }
 
-// Quick adjustments
-$('#ksp-lum-plus').live('click', function() {
-	setColor(tinycolor.lighten(cColor));
-});
-$('#ksp-lum-minus').live('click', function() {
-	setColor(tinycolor.darken(cColor));
-});
-$('#ksp-sat-plus').live('click', function() {
-	setColor(tinycolor.saturate(cColor));
-});
-$('#ksp-sat-minus').live('click', function() {
-	setColor(tinycolor.desaturate(cColor));
-});
-// End quick adjustments
+function setSquare(color) {
+  console.kbash('<span style="float: left; height: 14px; width: 14px; background-color: ' + tinycolor(color).toHexString() + ';"></span><div style="clear:both"></div>')
+}
 
 // Allow the user to set the user once and quickly output in a variety of ways.
 function setColor(inputColor) {
 
 	cColor = tinycolor(inputColor);
+    console.kbash('&nbsp;')
+    setSquare(cColor)
 	if((cColor.toName())) {
-		consoleLog(cColor.toName() + ' is now the color.');
+		console.kbash(cColor.toName());
 	}
 	else {
-		consoleLog(cColor + ' is now the color.');
+		console.kbash(cColor);
 	}
-	
-	switch(lastView) {
-		case 'triad':
-		getTriad();
-		break;
-		
-		case 'tetrad':
-		getTetrad();
-		break;
-		
-		case 'split':
-		getSplit();
-		break;
-		
-		case 'mono':
-		getMono();
-		break;
-		
-		case 'analogous':
-		getAnalogous();
-		break;
-			
-		default:
-		showPreview('',tinycolor(cColor).toHexString());
-		break;
-	}
-	$('#ksp-lum-plus').css('background-color',tinycolor.lighten(cColor));
-	$('#ksp-sat-plus').css('background-color',tinycolor.saturate(cColor));
-	$('#ksp-lum-minus').css('background-color',tinycolor.darken(cColor));
-	$('#ksp-sat-minus').css('background-color',tinycolor.desaturate(cColor));
-
 }
 
 // Return sets of colors
-function getTriad(outputType) {
+function getTriad(outputType, flags) {
 	var Colors = tinycolor.triad(cColor);
-	churnColor(outputType, Colors);
-	lastView = 'triad';
+	churnColor(outputType, Colors, flags);
 }
 
-function getTetrad(outputType) {
+function getTetrad(outputType, flags) {
 	var Colors = tinycolor.tetrad(cColor);
-	churnColor(outputType, Colors);
-	lastView = 'tetrad';
+	churnColor(outputType, Colors, flags);
 }
 
-function getSplit(outputType) {
+function getSplit(outputType, flags) {
 	var Colors = tinycolor.splitcomplement(cColor);
-	churnColor(outputType, Colors);
-	lastView = 'split';
+	churnColor(outputType, Colors, flags);
 }
 
-function getMono(outputType) {
+function getMono(outputType, flags) {
 	var Colors = tinycolor.monochromatic(cColor);
-	churnColor(outputType, Colors);
-	lastView = 'mono';
+	churnColor(outputType, Colors, flags);
 }
 
-function getAnalogous(outputType) {
+function getAnalogous(outputType, flags) {
 	var Colors = tinycolor.analogous(cColor);
-	churnColor(outputType, Colors);
-	lastView = 'analogous';
+	churnColor(outputType, Colors, flags);
 }
 
 // Translate one color formate to another.
 function get(outputType) {
 	if(!cColor) {
-		consoleLog('First choose a color using setColor().', 'error');
-		consoleLog('Example: setColor("white")');
+		console.kbash('First choose a color using setColor().', 'error');
+		console.kbash('Example: setColor("white")');
 	}
 	else {
 		switch(outputType) {
@@ -138,14 +127,13 @@ function get(outputType) {
 			Color = tinycolor(cColor).toHslString();
 			break;
 		}
-		lastView = 'single';
-		consoleLog(Color);
+		console.kbash(outputType + ': ' + Color);
 	}
 	showPreview('',Color);
 }
 
 // Output color or colors to the console
-function churnColor(outputType, Colors) {
+function churnColor(outputType, Colors, flags) {
 
   for (var i = 0; i < Colors.length; i++) {
 		if(outputType) {
@@ -174,24 +162,15 @@ function churnColor(outputType, Colors) {
 		else {
 			colorOutput = Colors[i].toHslString();
 		}
-		consoleLog(colorOutput);
+		if (flags.length == 0) console.kbash(colorOutput);
+        kbash.color([colorOutput], flags, [], [])
 	}
 	showPreview(Colors);
 
 }
 
 function showPreview(cValues, singleColor) {
-	$('#ks-previewer div').fadeOut('fast');
 
-	var engNum = Array('one','two','three','four', 'five', 'six');
-	if(singleColor) {
-		$('#ks-previewer div#ksp-one').fadeIn('fast').css('background-color', singleColor);
-	}
-	else {
-		for (i = 0; i< cValues.length; i++) {
-			$('#ks-previewer div#ksp-'+engNum[i]).fadeIn('fast').css('background-color', cValues[i].toHexString());
-		}
-	}
 }
 
 (function(window) {
