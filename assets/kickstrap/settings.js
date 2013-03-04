@@ -1,10 +1,21 @@
+var ks = new Object()
+
+// BASIC SITE SETTINGS
+// ===================
+
+ks.settings = {
+	root: '/'
+}
+
 // APPS
 // ====
 
-var ks = new Object()
 ks.apps = [
 	'pinesnotify'
 	, 'bootstrap'	
 	, 'colorschemer'
 	, 'ping'
 ]
+
+// INITIATE REQUIRE.JS
+// ===================

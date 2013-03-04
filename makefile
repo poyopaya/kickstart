@@ -19,6 +19,9 @@ prod:
 		@echo "-Bootstrap"
 		@cp -r assets/kickstrap/apps/bootstrap product/kickstrap/apps/
 	
+		@echo "-Ember.js"
+		@cp -r assets/kickstrap/apps/ember product/kickstrap/apps/
+
 		@echo "-Ping"
 		@cp -r assets/kickstrap/apps/ping product/kickstrap/apps/
 	

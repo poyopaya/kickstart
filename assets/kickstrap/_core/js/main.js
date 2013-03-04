@@ -2,7 +2,7 @@
 var resourceArray = ['core/_kickstrap']
 
 requirejs.config({
-    baseUrl: 'kickstrap',
+    baseUrl: '/kickstrap',
     map: {
       '*': {
         'css': '_core/js/require-css/css', 
@@ -28,7 +28,7 @@ requirejs.config({
     }
     */
 });
-requirejs(['apps'],
+requirejs(['settings', 'jquery'],
 function   ($) {
     // Create paths to each app's config.js based on keyword
     for ( var i=0; i < ks.apps.length; i++ ) {
