@@ -1,43 +1,55 @@
-    // We'll start with this and add the user-defined apps once retrieved
+// Let LESS use our production setting as well.
+
 var resourceArray = ['core/_kickstrap']
 
 requirejs.config({
-    baseUrl: '/kickstrap',
-    map: {
-      '*': {
-        'css': '_core/js/require-css/css', 
-        'less': '_core/js/require-less/less'
-      }
-    },
+    // baseUrl: ( ks.settings.root || '' ),
+    baseUrl: '',
+    // TODO: Pull in from ks.settings.root
+
     paths: { 
-        core : '_core/js/lib',
+        core : 'kickstrap/_core/js',
         jquery: [
             '//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min', // cdn
             'core/jquery' // fallback
         ],
-        kickstrap: [
-            'core/_kickstrap'
-        ]
+        apps: 'kickstrap/apps'
+    },
+    map: {
+      '*': {
+        'css': 'core/require-css/css', 
+        'less': 'core/require-less/less'
+      }
     }
-    /*
-    , shim: {
-        'core/_kickstrap': {
-            deps: ['core/jquery'],
-            exports: 'core/_kickstrap'
-        },
-    }
-    */
 });
-requirejs(['settings', 'jquery'],
-function   ($) {
-    // Create paths to each app's config.js based on keyword
-    for ( var i=0; i < ks.apps.length; i++ ) {
-        ks.apps[i] = 'apps/' + ks.apps[i] + '/config'
-    }
-    resourceArray = resourceArray.concat(ks.apps)
-    // Start the main app logic.
-    requirejs(resourceArray,
-    function   ($) {
 
-    });
-});
+// Create the ks object before getting settings
+var ks = new Object()
+
+requirejs(['kickstrap/settings', 'jquery'],
+function   ($) {
+
+/*    $.ajax({
+        url: 'kickstrap/settings.js'
+        , success: function(data) { */
+
+            less = { env: ks.settings.mode }
+            console.kbash = function() {}
+
+            // Create paths to each app's config.js based on keyword
+            for ( var i=0; i < ks.apps.length; i++ ) {
+                ks.apps[i] = 'apps/' + ks.apps[i] + '/config'
+            }
+            resourceArray = resourceArray.concat(ks.apps)
+            // Start the main app logic.
+            requirejs(resourceArray,
+            function   ($) {
+
+            });
+        });
+
+   /* }
+})*/
+
+ks.readyFxs = []
+ks.ready = function(fx) { ks.readyFxs = ks.readyFxs.concat(fx) }

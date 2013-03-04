@@ -47,7 +47,7 @@ pages.forEach(function (name) {
     body: page
   })
 
-  fs.writeFileSync(__dirname + '/' + publishDir + '/' + name.replace(/mustache$/, 'html'), page, 'utf-8')
+  fs.writeFileSync(__dirname + '/' + publishDir + '/kickstrap/_examples/' + name.replace(/mustache$/, 'html'), page, 'utf-8')
 })
 
 // iterate over less templates

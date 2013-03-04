@@ -63,9 +63,10 @@ prod:
 	@echo "Spring cleaning"
 	@rm -r product/kickstrap/apps/universal/ks-window
 	@node build.js production
-	@rm product/lab.html
+	@echo "Moving in default index file"
+	@cp product/kickstrap/_examples/index.html product/
 
-	@uglifyjs product/kickstrap/_core/js/lib/kickstrap.js -mc > product/kickstrap/_core/js/lib/kickstrap.js 
+	@uglifyjs product/kickstrap/_core/js/kickstrap.js -mc > product/kickstrap/_core/js/kickstrap.min.js 
 	@echo "Build complete."
 
 test: 
