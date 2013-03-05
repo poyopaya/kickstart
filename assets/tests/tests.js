@@ -1,5 +1,4 @@
-module('kickstrap tree')
-
+module('kickstrap tree') 
 /* Kickstrap tree should contain the following elements:
  * - opts
  *   - apps
