@@ -1,12 +1,3 @@
-var ks = new Object()
-
-// BASIC SITE SETTINGS
-// ===================
-
-ks.settings = {
-	root: '/'
-}
-
 // APPS
 // ====
 
@@ -17,5 +8,16 @@ ks.apps = [
 	, 'ping'
 ]
 
-// INITIATE REQUIRE.JS
+// BASIC SITE SETTINGS
 // ===================
+
+ks.settings = {
+
+	root: ''
+	// Location of the "kickstrap" folder.
+
+	, mode: 'development'
+	// Choose "development" or "production"
+
+}
+
