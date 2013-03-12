@@ -66,6 +66,7 @@ prod:
 	@echo "Moving in default index file"
 	@cp product/kickstrap/_examples/index.html product/
 
+	@uglifyjs product/kickstrap/_core/js/less-1.4.0.js -mc > product/kickstrap/_core/js/less-1.4.0.min.js
 	@uglifyjs product/kickstrap/_core/js/kickstrap.js -mc > product/kickstrap/_core/js/kickstrap.min.js 
 	@echo "Build complete."
 
