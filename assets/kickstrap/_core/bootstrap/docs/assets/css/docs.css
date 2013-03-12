@@ -42,6 +42,22 @@ section > ul li {
 
 
 
+/* Navbar
+-------------------------------------------------- */
+
+.bs-docs-navbar {
+  background-color: #fff;
+  border-bottom: 1px solid #ccc; /* IE8 */
+  border-bottom: 1px solid rgba(0,0,0,.1);
+}
+.bs-docs-navbar .nav > .active > a,
+.bs-docs-navbar .nav > .active > a:hover {
+  font-weight: 500;
+  background-color: transparent;
+}
+
+
+
 /* Jumbotrons
 -------------------------------------------------- */
 
@@ -242,6 +258,31 @@ section > ul li {
 .bs-docs-example > .alert:last-child {
   margin-bottom: 0;
 }
+
+/* Typography */
+.bs-docs-example-type .table td {
+  color: #999;
+  vertical-align: middle;
+  border-color: ;
+}
+.bs-docs-example-type .table td,
+.bs-docs-example-type .table th {
+  padding: 15px 0;
+  border-color: #eee;
+}
+.bs-docs-example-type .table tr:first-child td,
+.bs-docs-example-type .table tr:first-child th {
+  border-top: 0;
+}
+.bs-docs-example-type h1,
+.bs-docs-example-type h2,
+.bs-docs-example-type h3,
+.bs-docs-example-type h4,
+.bs-docs-example-type h5,
+.bs-docs-example-type h6 {
+  margin: 0;
+}
+
 
 /* Navbar examples */
 .bs-navbar-top-example,
@@ -550,6 +591,16 @@ input.focused {
 
 /* Responsive variations
 -------------------------------------------------- */
+
+/* Hide code snippets on mobile devices */
+@media screen and (max-width: 480px) {
+  .bs-docs-example {
+    border-radius: 4px;
+  }
+  .highlight {
+    display: none;
+  }
+}
 
 /* Tablets and up */
 @media screen and (min-width: 768px) {
