@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-var hogan = require('./assets/hogan/lib/hogan.js')
+var hogan = require('./lib/hogan/lib/hogan.js')
   , fs    = require('fs')
   , prod  = process.argv[2] == 'production'
   , test  = process.argv[2] == 'test'
@@ -8,23 +8,23 @@ var hogan = require('./assets/hogan/lib/hogan.js')
 var layout, pages, less, publishDir
 
 // compile layout template
-layout = fs.readFileSync(__dirname + '/assets/templates/layout.mustache', 'utf-8')
+layout = fs.readFileSync(__dirname + '/lib/templates/layout.mustache', 'utf-8')
 layout = hogan.compile(layout, { sectionTags: [{o:'_i', c:'i'}] })
 
 // retrieve pages
-pages = fs.readdirSync(__dirname + '/assets/templates/pages')
+pages = fs.readdirSync(__dirname + '/lib/templates/pages')
 
 // retrieve .less templates
-lesses = fs.readdirSync(__dirname + '/assets/templates/less')
+lesses = fs.readdirSync(__dirname + '/lib/templates/less')
 
-test ? publishDir = 'tests' : publishDir = 'product'
+test ? publishDir = 'tests' : publishDir = 'dist'
 
 // iterate over pages
 pages.forEach(function (name) {
 
   if (!name.match(/\.mustache$/)) return
 
-  var page = fs.readFileSync(__dirname  + '/assets/templates/pages/' + name, 'utf-8')
+  var page = fs.readFileSync(__dirname  + '/lib/templates/pages/' + name, 'utf-8')
     , context = {}
 
   context[name.replace(/\.mustache$/, '')] = 'active'
@@ -56,7 +56,7 @@ lesses.forEach(function (name) {
 
   if (!name.match(/\.mustache$/)) return
 
-  var less = fs.readFileSync(__dirname  + '/assets/templates/less/' + name, 'utf-8')
+  var less = fs.readFileSync(__dirname  + '/lib/templates/less/' + name, 'utf-8')
     , context = {}
 
   context[name.replace(/\.mustache$/, '')] = 'active'

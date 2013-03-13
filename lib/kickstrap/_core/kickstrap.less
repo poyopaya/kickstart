@@ -1,0 +1,24 @@
+@import "bootstrap/less/bootstrap.less";
+
+// Glyphicons path fix
+// ===================
+
+@glyphicons-font-path: "bootstrap/fonts";
+@font-face {
+  font-family: 'Glyphicons Halflings';
+  src: url('@{glyphicons-font-path}/glyphiconshalflings-regular.eot');
+  src: url('@{glyphicons-font-path}/glyphiconshalflings-regular.eot?#iefix') format('embedded-opentype'),
+       url('@{glyphicons-font-path}/glyphiconshalflings-regular.woff') format('woff'),
+       url('@{glyphicons-font-path}/glyphiconshalflings-regular.ttf') format('truetype'),
+       url('@{glyphicons-font-path}/glyphiconshalflings-regular.svg#glyphicons_halflingsregular') format('svg');
+  font-style: normal;
+  font-weight: normal;
+}
+
+@import "../settings.less";
+
+.theme() {
+  @import "themes/@{theme}/variables.less";
+  @import "themes/@{theme}/theme.less";
+}
+

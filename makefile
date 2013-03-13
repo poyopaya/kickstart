@@ -4,70 +4,70 @@ build:
 	@make test
 
 prod: 
-	@echo "Making our product and tests folders if they don't already exist"
-	@mkdir -p product tests
+	@echo "Making our dist and tests folders if they don't already exist"
+	@mkdir -p dist tests
 	@echo "Clearing out previous folder..."
-	@rm -rf product/*
+	@rm -rf dist/*
 	@echo "Copying kickstrap folder..."
-	@mkdir product/kickstrap
-	@cp -r assets/kickstrap/* product/kickstrap/
+	@mkdir dist/kickstrap
+	@cp -r lib/kickstrap/* dist/kickstrap/
 	@echo "Delete contents of apps folder and individually select apps..."
-	@rm -rf product/kickstrap/apps/*
+	@rm -rf dist/kickstrap/apps/*
 		@echo "-Animate.CSS"
-		@cp -r assets/kickstrap/apps/animatecss product/kickstrap/apps/
+		@cp -r lib/kickstrap/apps/animatecss dist/kickstrap/apps/
 		
 		@echo "-Bootstrap"
-		@cp -r assets/kickstrap/apps/bootstrap product/kickstrap/apps/
+		@cp -r lib/kickstrap/apps/bootstrap dist/kickstrap/apps/
 	
 		@echo "-Ember.js"
-		@cp -r assets/kickstrap/apps/ember product/kickstrap/apps/
+		@cp -r lib/kickstrap/apps/ember dist/kickstrap/apps/
 
 		@echo "-Ping"
-		@cp -r assets/kickstrap/apps/ping product/kickstrap/apps/
+		@cp -r lib/kickstrap/apps/ping dist/kickstrap/apps/
 	
 		@echo "-Knockout.js"
-		@cp -r assets/kickstrap/apps/knockout product/kickstrap/apps/
+		@cp -r lib/kickstrap/apps/knockout dist/kickstrap/apps/
 	
 		@echo "-Chosen"
-		@cp -r assets/kickstrap/apps/chosen product/kickstrap/apps/
+		@cp -r lib/kickstrap/apps/chosen dist/kickstrap/apps/
 	
 		@echo "-Color Schemer"
-		@cp -r assets/kickstrap/apps/colorschemer product/kickstrap/apps/
+		@cp -r lib/kickstrap/apps/colorschemer dist/kickstrap/apps/
 	
 		@echo "-Pines Notify"
-		@cp -r assets/kickstrap/apps/pinesnotify product/kickstrap/apps/
+		@cp -r lib/kickstrap/apps/pinesnotify dist/kickstrap/apps/
 	
 		@echo "-jQuery Lint"
-		@cp -r assets/kickstrap/apps/jquerylint product/kickstrap/apps/
+		@cp -r lib/kickstrap/apps/jquerylint dist/kickstrap/apps/
 	
 		@echo "-Updater"
-		@cp -r assets/kickstrap/apps/updater product/kickstrap/apps/
+		@cp -r lib/kickstrap/apps/updater dist/kickstrap/apps/
 		
 		@echo "-Firebug Lite"
-		@cp -r assets/kickstrap/apps/firebuglite product/kickstrap/apps/
+		@cp -r lib/kickstrap/apps/firebuglite dist/kickstrap/apps/
 	
 		@echo "-Universal"
-		@cp -r assets/kickstrap/apps/universal product/kickstrap/apps/
+		@cp -r lib/kickstrap/apps/universal dist/kickstrap/apps/
 	
 	@echo "Removing some themes not ready for prime time..."
 	@find . -name .DS_Store -exec rm -f {} \;
-	@rm -r product/kickstrap/themes/smallworld/*
-	@rmdir product/kickstrap/themes/smallworld
-	@rm -r product/kickstrap/themes/smallworld.less
-	@rm -rf product/kickstrap/themes/confetti/*
-	@rmdir product/kickstrap/themes/confetti
-	@rm -r product/kickstrap/themes/confetti.less
+	@rm -r dist/kickstrap/themes/smallworld/*
+	@rmdir dist/kickstrap/themes/smallworld
+	@rm -r dist/kickstrap/themes/smallworld.less
+	@rm -rf dist/kickstrap/themes/confetti/*
+	@rmdir dist/kickstrap/themes/confetti
+	@rm -r dist/kickstrap/themes/confetti.less
 	@echo "Removing .git directory from Bootstrap"
-	@rm -rf product/kickstrap/bootstrap/.git product/kickstrap/bootstrap/.[a-z]*
+	@rm -rf dist/kickstrap/bootstrap/.git dist/kickstrap/bootstrap/.[a-z]*
 	@rm -rf tests/kickstrap/bootstrap/.git tests/kickstrap/bootstrap/.[a-z]*
 	@echo "Spring cleaning"
-	@rm -r product/kickstrap/apps/universal/ks-window
-	@node build.js production
+	@rm -r dist/kickstrap/apps/universal/ks-window
+	@node build.js distion
 	@echo "Moving in default index file"
-	@cp product/kickstrap/_examples/index.html product/
+	@cp dist/kickstrap/_examples/index.html dist/
 
-	@uglifyjs product/kickstrap/_core/js/less-1.4.0.js -mc > product/kickstrap/_core/js/less-1.4.0.min.js
-	@uglifyjs product/kickstrap/_core/js/kickstrap.js -mc > product/kickstrap/_core/js/kickstrap.min.js 
+	@uglifyjs dist/kickstrap/_core/js/less-1.4.0.js -mc > dist/kickstrap/_core/js/less-1.4.0.min.js
+	@uglifyjs dist/kickstrap/_core/js/kickstrap.js -mc > dist/kickstrap/_core/js/kickstrap.min.js 
 	@echo "Build complete."
 
 test: 
@@ -76,7 +76,7 @@ test:
 	@rm -rf tests/*
 	@echo "Copying kickstrap folder..."
 	@mkdir tests/kickstrap
-	@cp -r assets/kickstrap/* tests/kickstrap/
-	@cp -r assets/tests/* tests/
+	@cp -r lib/kickstrap/* tests/kickstrap/
+	@cp -r lib/tests/* tests/
 	@node build.js test
 	@echo "Build complete."
