@@ -13,11 +13,25 @@ ks.apps = [
 
 ks.settings = {
 
-	root: ''
-	// Location of the "kickstrap" folder.
-
-	, mode: 'development'
+	mode: 'development'
 	// Choose "development" or "production"
 
+// CUSTOM DIRECTORIES
+// ==================
+
+	, dir: {
+		
+		root: '/'
+		// Location of the "kickstrap" folder relative to site's root.
+		
+		, apps: ks.settings.root + 'kickstrap/apps/'
+		// Apps path
+		
+		// Themes and extras paths should be set in settings.less
+		
+	}
+
 }
+
+
 
