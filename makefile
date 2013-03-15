@@ -34,9 +34,9 @@ prod:
 		@echo "-Color Schemer"
 		@cp -r lib/kickstrap/apps/colorschemer dist/kickstrap/apps/
 	
-		@echo "-Pines Notify"
-		@cp -r lib/kickstrap/apps/pinesnotify dist/kickstrap/apps/
-	
+		@echo "-TinyGrowl"
+		@cp -r lib/repos/tinygrowl dist/kickstrap/apps/
+		
 		@echo "-jQuery Lint"
 		@cp -r lib/kickstrap/apps/jquerylint dist/kickstrap/apps/
 	
