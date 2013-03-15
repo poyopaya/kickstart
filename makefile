@@ -4,6 +4,11 @@ build:
 	@make test
 
 prod: 
+
+	@echo "Updating repos"
+	cd lib/repos/tinygrowl;git pull;
+	cd lib/repos/bootstrap;git pull;
+
 	@echo "Making our dist and tests folders if they don't already exist"
 	@mkdir -p dist tests
 	@echo "Clearing out previous folder..."
@@ -16,8 +21,11 @@ prod:
 		@echo "-Animate.CSS"
 		@cp -r lib/kickstrap/apps/animatecss dist/kickstrap/apps/
 		
-		@echo "-Bootstrap"
+		@echo "-Bootstrap app references"
 		@cp -r lib/kickstrap/apps/bootstrap dist/kickstrap/apps/
+
+			@echo "Bootstrap files"
+			@cp -r lib/repos/bootstrap dist/kickstrap/_core/
 	
 		@echo "-Ember.js"
 		@cp -r lib/kickstrap/apps/ember dist/kickstrap/apps/
