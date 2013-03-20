@@ -7,7 +7,7 @@ prod:
 
 	@echo "Updating repos"
 	cd lib/repos/tinygrowl;git pull;
-	cd lib/repos/bootstrap;git pull;
+	cd lib/repos/bootstrap;git pull origin 3.0.0-wip;
 
 	@echo "Making our dist and tests folders if they don't already exist"
 	@mkdir -p dist tests
