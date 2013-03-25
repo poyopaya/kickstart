@@ -16,6 +16,13 @@ prod:
 	@echo "Copying kickstrap folder..."
 	@mkdir dist/kickstrap
 	@cp -r lib/kickstrap/* dist/kickstrap/
+
+	@echo "Copying in extras"
+	@cp -r lib/kickstrap/extras/* dist/kickstrap/extras
+
+	@echo "Copying in themes"
+	@cp -r lib/kickstrap/themes/* dist/kickstrap/themes/
+
 	@echo "Delete contents of apps folder and individually select apps..."
 	@rm -rf dist/kickstrap/apps/*
 		@echo "-Animate.CSS"

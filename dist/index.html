@@ -9,6 +9,7 @@
 </head>
 <body>
 
+  <a class="btn btn-primary">Hello</a>
   
   <script src="http://dev.jspm.co/require.js"></script>
   <script>
@@ -23,6 +24,7 @@
       , 'apps/tinygrowl/tinygrowl'
     ],
       function($) {
+        require(['apps/bootstrap/bootstrap'])
         $.growl({
           title: '<i class="icon-magic"></i> Welcome to Kickstrap'
           , text: 'Now start hacking!'
