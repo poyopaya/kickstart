@@ -25,20 +25,22 @@
             </div>
           </h4>
         </div>
-        <table class="table">
+        <script type="text/x-handlebars" data-template-name="index">
+          <table class="table">
           <thead>
-            <tr>
-              <th></th>
-            </tr>
+          <tr>
+          <th>Item</th>
+          </tr>
           </thead>
-          <tbody>
-             
-            {{#each item in content}}
-            <tr>
-              <td> </td>
-            </tr>
+          <tbody> 
+          {{#each item in content}}
+          <tr>
+          <td>{{item}}</td>
+          </tr>
+          {{/each}}
           </tbody>
-        </table>
+          </table>
+        </script>
         <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
         <script src="//cdnjs.cloudflare.com/ajax/libs/handlebars.js/1.0.0-rc.3/handlebars.min.js"></script>
         <script src="//cdnjs.cloudflare.com/ajax/libs/ember.js/1.0.0-rc.1/ember.min.js"></script>

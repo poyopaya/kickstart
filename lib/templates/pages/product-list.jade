@@ -1,14 +1,22 @@
 extends ../layout
 
 block content
-  table.table
-    thead
-      tr
-        th
-    tbody 
-      {{#each item in content}}
-      tr
-        td 
+  script(type="text/x-handlebars", data-template-name="index")
+    <table class="table">
+    <thead>
+    <tr>
+    <th>Item</th>
+    </tr>
+    </thead>
+    <tbody> 
+    {{#each item in content}}
+    <tr>
+    <td>{{item}}</td>
+    </tr>
+    {{/each}}
+    </tbody>
+    </table>
+
   script(src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.9.1/jquery.min.js")
   script(src="//cdnjs.cloudflare.com/ajax/libs/handlebars.js/1.0.0-rc.3/handlebars.min.js")
   script(src="//cdnjs.cloudflare.com/ajax/libs/ember.js/1.0.0-rc.1/ember.min.js")
