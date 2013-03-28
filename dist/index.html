@@ -1,37 +1,88 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>Kickstrap 2.0</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet/less" type="text/css" href="kickstrap/_core/kickstrap.less">
-  <script>var less = { env: 'development' }</script>
-  <script src="kickstrap/_core/js/less-1.4.0.min.js"></script>
-</head>
-<body>
-
-  <a class="btn btn-primary">Hello</a>
-  
-  <script src="http://dev.jspm.co/require.js"></script>
-  <script>
-    require.config({
-      paths: {
-        "apps": "/kickstrap/apps"
-      },
-    });
-    require([
-      'jquery'
-      , 'kickstrap/badge'
-      , 'apps/tinygrowl/tinygrowl'
-    ],
-      function($) {
-        require(['apps/bootstrap/bootstrap'])
-        $.growl({
-          title: '<i class="icon-magic"></i> Welcome to Kickstrap'
-          , text: 'Now start hacking!'
-          , type: 'info'
-        })
-      }
-    )
-  </script>
-</body>
+  <head>
+    <title>Kickstrap 2.0.0 Alpha</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet/less" type="text/css" href="/kickstrap/_core/kickstrap.less">
+    <script>var less = { env: 'development' }</script>
+    <script src="/kickstrap/_core/js/less-1.4.0.min.js"></script>
+    <link rel="stylesheet" href="/kickstrap/_examples/assets/example.css">
+  </head>
+  <body>
+    <div class="sf-wrapper">
+      <div class="container">
+        <div class="masthead">
+          <h4 class="muted">Kickstrap
+            <div class="navbar">
+              <div class="navbar-inner">
+                <div class="container">
+                  <ul class="nav">
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/kickstrap/_examples/product-list.html">Products</a></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </h4>
+        </div>
+        <div class="jumbotron">
+          <h1>Welcome to Kickstrap</h1>
+          <p class="lead">Create a new file from scratch or start hacking this one.</p><a href="#" class="btn btn-large btn-success">Get Started</a>
+        </div>
+        <hr>
+        <div class="row-fluid">
+          <div class="span4">
+            <h2>Heading</h2>
+            <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+            <p><a href="#" class="btn"></a>
+              <View>Details</View>
+            </p>
+          </div>
+          <div class="span4">
+            <h2>Heading</h2>
+            <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+            <p><a href="#" class="btn"></a>
+              <View>Details</View>
+            </p>
+          </div>
+          <div class="span4">
+            <h2>Heading</h2>
+            <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+            <p><a href="#" class="btn"></a>
+              <View>Details</View>
+            </p>
+          </div>
+          <script src="http://dev.jspm.io/require.js"></script>
+          <script>
+            require.config({
+             paths: {
+              "apps": "/kickstrap/apps"
+             },
+            });
+            require([
+             'jquery'
+             , 'kickstrap/badge'
+             , 'apps/tinygrowl/tinygrowl'
+            ],
+             function($) {
+              require(['apps/bootstrap/bootstrap'])
+              $.growl({
+               title: '<i class="icon-magic"></i> Welcome to Kickstrap'
+               , text: 'Now start hacking!'
+               , type: 'info'
+              })
+             }
+            )
+          </script>
+        </div>
+        <hr>
+        <div class="push"></div>
+      </div>
+      <div class="container">
+        <div class="footer">
+          <p>© Company 2013</p>
+        </div>
+      </div>
+    </div>
+  </body>
 </html>

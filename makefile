@@ -75,9 +75,11 @@ prod:
 	@rm -rf tests/kickstrap/bootstrap/.git tests/kickstrap/bootstrap/.[a-z]*
 	@echo "Spring cleaning"
 	@rm -r dist/kickstrap/apps/universal/ks-window
-	@node build.js distion
+	@jade lib/templates/pages/*.jade -O ./dist/kickstrap/_examples/ --pretty
 	@echo "Moving in default index file"
 	@cp dist/kickstrap/_examples/index.html dist/
+	@echo "Moving in example assets"
+	@cp lib/kickstrap/_examples/assets/* dist/kickstrap/_examples/assets
 
 	@uglifyjs dist/kickstrap/_core/js/less-1.4.0.js -mc > dist/kickstrap/_core/js/less-1.4.0.min.js
 	@uglifyjs dist/kickstrap/_core/js/kickstrap.js -mc > dist/kickstrap/_core/js/kickstrap.min.js 
@@ -91,5 +93,5 @@ test:
 	@mkdir tests/kickstrap
 	@cp -r lib/kickstrap/* tests/kickstrap/
 	@cp -r lib/tests/* tests/
-	@node build.js test
+	@echo Skipping test creation for now.
 	@echo "Build complete."

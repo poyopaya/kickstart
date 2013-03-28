@@ -1,0 +1,31 @@
+!!!
+html
+  head
+    title Kickstrap 2.0.0 Alpha
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    link(rel="stylesheet/less", type="text/css", href="/kickstrap/_core/kickstrap.less")
+    script
+      var less = { env: 'development' }
+    script(src="/kickstrap/_core/js/less-1.4.0.min.js")
+    link(rel="stylesheet", href="/kickstrap/_examples/assets/example.css")
+  body
+    div.sf-wrapper
+      div.container
+        div.masthead
+          h4.muted Kickstrap
+            div.navbar
+              div.navbar-inner
+                div.container
+                  ul.nav
+                    li
+                      a(href="/") Home
+                    li
+                      a(href="/kickstrap/_examples/product-list.html") Products
+
+        block content
+
+        hr
+        div.push
+      div.container
+        div.footer
+          p © Company 2013
