@@ -1,7 +1,9 @@
 extends ../layout
 
 block content
-  h2 Your seat reservations
+  h2 
+    i(class="icon-shopping-cart") 
+    | Shopping Cart
   button(data-bind="click:addSeat, enable: seats().length < 5") Reserve another seat
   table.table
     thead
@@ -20,10 +22,9 @@ block content
           a(href="#", data-bind="click: $root.removeSeat") Remove
   h3(data-bind="visible: totalSurcharge() > 0") Total surcharge: $
     span(data-bind="text: totalSurcharge().toFixed(2)")
-  h2
-    Your seat reservations (
+  h3
+    Total Items: 
       span(data-bind="text: seats().length")
-    )
 
   script(src="//cdnjs.cloudflare.com/ajax/libs/knockout/2.2.1/knockout-min.js")
   script(src="/kickstrap/_examples/assets/app.js")
