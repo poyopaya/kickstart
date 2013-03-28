@@ -1,23 +1,29 @@
 extends ../layout
 
 block content
-  script(type="text/x-handlebars", data-template-name="index")
-    <table class="table">
-    <thead>
-    <tr>
-    <th>Item</th>
-    </tr>
-    </thead>
-    <tbody> 
-    {{#each item in content}}
-    <tr>
-    <td>{{item}}</td>
-    </tr>
-    {{/each}}
-    </tbody>
-    </table>
+  h2 Your seat reservations
+  button(data-bind="click:addSeat, enable: seats().length < 5") Reserve another seat
+  table.table
+    thead
+      tr
+        th Passenger Name
+        th Meal
+        th Surcharge
+    tbody(data-bind="foreach: seats")
+      tr
+        td
+          input(data-bind="value: name")
+        td
+          select(data-bind="option: $root.availableMeals, value: meal, optionsText: 'mealName'")
+        td(data-bind="text: formattedPrice")
+        td
+          a(href="#", data-bind="click: $root.removeSeat") Remove
+  h3(data-bind="visible: totalSurcharge() > 0") Total surcharge: $
+    span(data-bind="text: totalSurcharge().toFixed(2)")
+  h2
+    Your seat reservations (
+      span(data-bind="text: seats().length")
+    )
 
-  script(src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.9.1/jquery.min.js")
-  script(src="//cdnjs.cloudflare.com/ajax/libs/handlebars.js/1.0.0-rc.3/handlebars.min.js")
-  script(src="//cdnjs.cloudflare.com/ajax/libs/ember.js/1.0.0-rc.1/ember.min.js")
+  script(src="//cdnjs.cloudflare.com/ajax/libs/knockout/2.2.1/knockout-min.js")
   script(src="/kickstrap/_examples/assets/app.js")

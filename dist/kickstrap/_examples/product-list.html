@@ -27,25 +27,34 @@
             </div>
           </h4>
         </div>
-        <script type="text/x-handlebars" data-template-name="index">
-          <table class="table">
+        <h2>Your seat reservations</h2>
+        <button data-bind="click:addSeat, enable: seats().length &lt; 5">Reserve another seat</button>
+        <table class="table">
           <thead>
-          <tr>
-          <th>Item</th>
-          </tr>
+            <tr>
+              <th>Passenger Name</th>
+              <th>Meal</th>
+              <th>Surcharge</th>
+            </tr>
           </thead>
-          <tbody> 
-          {{#each item in content}}
-          <tr>
-          <td>{{item}}</td>
-          </tr>
-          {{/each}}
+          <tbody data-bind="foreach: seats">
+            <tr>
+              <td>
+                <input data-bind="value: name">
+              </td>
+              <td>
+                <select data-bind="option: $root.availableMeals, value: meal, optionsText: 'mealName'"></select>
+              </td>
+              <td data-bind="text: formattedPrice"></td>
+              <td><a href="#" data-bind="click: $root.removeSeat">Remove</a></td>
+            </tr>
           </tbody>
-          </table>
-        </script>
-        <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-        <script src="//cdnjs.cloudflare.com/ajax/libs/handlebars.js/1.0.0-rc.3/handlebars.min.js"></script>
-        <script src="//cdnjs.cloudflare.com/ajax/libs/ember.js/1.0.0-rc.1/ember.min.js"></script>
+        </table>
+        <h3 data-bind="visible: totalSurcharge() &gt; 0">Total surcharge: $<span data-bind="text: totalSurcharge().toFixed(2)"></span></h3>
+        <h2>
+          <Your>seat reservations (<span data-bind="text: seats().length"></span></Your>)
+        </h2>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/knockout/2.2.1/knockout-min.js"></script>
         <script src="/kickstrap/_examples/assets/app.js"></script>
         <hr>
         <div class="push"></div>
