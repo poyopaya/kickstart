@@ -4,6 +4,7 @@
 !!!
 html
   head
+    base(href="/")
     title Kickstrap 2.0.0 Alpha
     meta(name="viewport", content="width=device-width, initial-scale=1.0")
     link(rel="stylesheet/less", type="text/css", href="/kickstrap/_core/kickstrap.less")
@@ -21,9 +22,12 @@ html
             div.container
               ul.nav
                 li
-                  a(href="/") Home
+                  a(href=".") Home
                 li
-                  a(href="/kickstrap/_examples/product-list.html") Products
+                  a(href="kickstrap/_examples/product-list.html") Products
+                li
+                  a(href="kickstrap/_examples/cart.html")
+                    i(class="icon-shopping-cart")
 
         block content
 

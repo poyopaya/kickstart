@@ -3,6 +3,7 @@
 <!-- https://github.com/visionmedia/jade--><!DOCTYPE html>
 <html>
   <head>
+    <base href="/">
     <title>Kickstrap 2.0.0 Alpha</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet/less" type="text/css" href="/kickstrap/_core/kickstrap.less">
@@ -14,48 +15,38 @@
     <div class="sf-wrapper">
       <div class="container">
         <div class="masthead">
-          <h4 class="muted">Kickstrap
-            <div class="navbar">
-              <div class="navbar-inner">
-                <div class="container">
-                  <ul class="nav">
-                    <li><a href="/">Home</a></li>
-                    <li><a href="/kickstrap/_examples/product-list.html">Products</a></li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-          </h4>
+          <h4 class="muted">Kickstrap</h4>
         </div>
-        <h2>Your seat reservations</h2>
-        <button data-bind="click:addSeat, enable: seats().length &lt; 5">Reserve another seat</button>
+        <div class="navbar">
+          <div class="navbar-inner">
+            <div class="container">
+              <ul class="nav">
+                <li><a href=".">Home</a></li>
+                <li><a href="kickstrap/_examples/product-list.html">Products</a></li>
+                <li><a href="kickstrap/_examples/cart.html"><i class="icon-shopping-cart"></i></a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <h2>All Items</h2>
         <table class="table">
           <thead>
             <tr>
-              <th>Passenger Name</th>
-              <th>Meal</th>
-              <th>Surcharge</th>
+              <th>Product</th>
+              <th>Description</th>
+              <th>Price</th>
             </tr>
           </thead>
           <tbody data-bind="foreach: seats">
             <tr>
-              <td>
-                <input data-bind="value: name">
-              </td>
-              <td>
-                <select data-bind="options: $root.availableMeals, value: meal, optionsText: 'mealName'"></select>
-              </td>
-              <td data-bind="text: formattedPrice"></td>
-              <td><a href="#" data-bind="click: $root.removeSeat">Remove</a></td>
+              <td><img src=""></td>
+              <td>eBook</td>
+              <td>$0.00</td>
             </tr>
           </tbody>
         </table>
-        <h3 data-bind="visible: totalSurcharge() &gt; 0">Total surcharge: $<span data-bind="text: totalSurcharge().toFixed(2)"></span></h3>
-        <h2>
-          <Your>seat reservations (<span data-bind="text: seats().length"></span></Your>)
-        </h2>
         <script src="//cdnjs.cloudflare.com/ajax/libs/knockout/2.2.1/knockout-min.js"></script>
-        <script src="/kickstrap/_examples/assets/app.js"></script>
+        <script src="/kickstrap/_examples/assets/product-list.js"></script>
         <hr>
         <div class="push"></div>
       </div>

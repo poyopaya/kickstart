@@ -2,29 +2,35 @@ extends ../layout
 
 block content
   h2 
-    i(class="icon-shopping-cart") 
-    | Shopping Cart
-  button(data-bind="click:addSeat, enable: seats().length < 5") Reserve another seat
+    i.icon-shopping-cart 
+    | Shopping Cart (
+    span(data-bind="text: seats().length") 
+    |)   
   table.table
     thead
       tr
-        th Passenger Name
-        th Meal
-        th Surcharge
+        th(colspan="2") Product
+        th Price
     tbody(data-bind="foreach: seats")
       tr
-        td
-          input(data-bind="value: name")
+        td(style="width: 150px;")
+          img(data-bind="attr:{ src: 'http://api.rethumb.com/v1/width/150/' + meal().photo }")
         td
           select(data-bind="options: $root.availableMeals, value: meal, optionsText: 'mealName'")
         td(data-bind="text: formattedPrice")
         td
           a(href="#", data-bind="click: $root.removeSeat") Remove
+  button.btn(data-bind="click:addSeat, enable: seats().length < 5") 
+    i.icon-plus-sign 
+    | Add another product
   h3(data-bind="visible: totalSurcharge() > 0") Total surcharge: $
     span(data-bind="text: totalSurcharge().toFixed(2)")
   h3
     Total Items: 
       span(data-bind="text: seats().length")
+  a.btn.btn-primary.pull-right
+    i.icon-check
+    |&nbsp;Check Out
 
   script(src="//cdnjs.cloudflare.com/ajax/libs/knockout/2.2.1/knockout-min.js")
-  script(src="/kickstrap/_examples/assets/app.js")
+  script(src="/kickstrap/_examples/assets/cart.js")
