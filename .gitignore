@@ -11,3 +11,5 @@ assets/Kickstrap/bootstrap/.[a-z]*
 
 assets/Kickstrap/qunit/.git
 assets/Kickstrap/qunit/.[a-z]*
+
+_gh_pages
