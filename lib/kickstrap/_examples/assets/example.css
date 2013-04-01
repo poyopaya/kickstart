@@ -36,3 +36,7 @@
       .marketing p + h4 {
         margin-top: 28px;
       } 
+
+div.panel.panel-primary a {
+  color: white;
+}
