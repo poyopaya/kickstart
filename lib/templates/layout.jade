@@ -1,12 +1,12 @@
-// Written in Jade
-// https://github.com/visionmedia/jade
+//- Written in Jade
+//- https://github.com/visionmedia/jade
 
 block link
   -var selected = 'Home' //default
 
 !!!
 html
-  -var menu = { 'Home': '/.', 'Products': '/kickstrap/_examples/product-list.html', 'Shopping Cart': '/kickstrap/_examples/cart.html' };
+  -var menu = { 'Home': '/.', 'Blog': '/kickstrap/_examples/blog-all.html', 'Contacts': '/kickstrap/_examples/contacts.html', 'Products': '/kickstrap/_examples/product-list.html', 'Shopping Cart': '/kickstrap/_examples/cart.html' };
 
   head
     base(href="/")
@@ -20,24 +20,33 @@ html
   body
     div.sf-wrapper
       div.container
-        div.masthead
-          h4.muted Kickstrap
-        div.navbar
-          div.navbar-inner
-            div.container
-              ul.nav
-                each val, key in menu
-                  if selected === key
-                    li.active
-                      a(href=val)= key
-                  else
-                    li
-                      a(href=val)= key
+        div.navbar.navbar-inverse
+          a.navbar-toggle(data-toggle="collapse", data-target=".nav-collapse")
+            span.icon-bar
+            span.icon-bar
+            span.icon-bar
+          a.navbar-brand(href="#") Kickstrap
+          div.nav-collapse.collapse
+            ul.nav
+              each val, key in menu
+                if selected === key
+                  li.active
+                    a(href=val)= key
+                else
+                  li
+                    a(href=val)= key
+            form.navbar-form.pull-right
+              input(type="text", placeholder="search")
+            ul.pull-right.nav
+              li
+                a(href="/kickstrap/_examples/login.html") 
+                  i.icon-key
+                  |&nbsp;Login
 
         block content
 
         hr
         div.push
+    div.footer
       div.container
-        div.footer
-          p © Company 2013
+        p © Company 2013

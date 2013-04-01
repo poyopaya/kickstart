@@ -75,7 +75,7 @@ prod:
 	@rm -rf tests/kickstrap/bootstrap/.git tests/kickstrap/bootstrap/.[a-z]*
 	@echo "Spring cleaning"
 	@rm -r dist/kickstrap/apps/universal/ks-window
-	@jade lib/templates/pages/*.jade -O ./dist/kickstrap/_examples/ --pretty
+	@make jade
 	@echo "Moving in default index file"
 	@cp dist/kickstrap/_examples/index.html dist/
 	@echo "Moving in example assets"
@@ -95,3 +95,6 @@ test:
 	@cp -r lib/tests/* tests/
 	@echo Skipping test creation for now.
 	@echo "Build complete."
+
+jade: 
+	@jade lib/templates/pages/*.jade -O ./dist/kickstrap/_examples/ --pretty

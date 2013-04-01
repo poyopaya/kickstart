@@ -1,6 +1,4 @@
-
-<!-- Written in Jade-->
-<!-- https://github.com/visionmedia/jade--><!DOCTYPE html>
+<!DOCTYPE html>
 <html>
   <head>
     <base href="/">
@@ -14,18 +12,21 @@
   <body>
     <div class="sf-wrapper">
       <div class="container">
-        <div class="masthead">
-          <h4 class="muted">Kickstrap</h4>
-        </div>
-        <div class="navbar">
-          <div class="navbar-inner">
-            <div class="container">
-              <ul class="nav">
-                <li class="active"><a href="/.">Home</a></li>
-                <li><a href="/kickstrap/_examples/product-list.html">Products</a></li>
-                <li><a href="/kickstrap/_examples/cart.html">Shopping Cart</a></li>
-              </ul>
-            </div>
+        <div class="navbar navbar-inverse"><a data-toggle="collapse" data-target=".nav-collapse" class="navbar-toggle"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></a><a href="#" class="navbar-brand">Kickstrap</a>
+          <div class="nav-collapse collapse">
+            <ul class="nav">
+              <li class="active"><a href="/.">Home</a></li>
+              <li><a href="/kickstrap/_examples/blog-all.html">Blog</a></li>
+              <li><a href="/kickstrap/_examples/contacts.html">Contacts</a></li>
+              <li><a href="/kickstrap/_examples/product-list.html">Products</a></li>
+              <li><a href="/kickstrap/_examples/cart.html">Shopping Cart</a></li>
+            </ul>
+            <form class="navbar-form pull-right">
+              <input type="text" placeholder="search">
+            </form>
+            <ul class="pull-right nav">
+              <li><a href="/kickstrap/_examples/login.html"> <i class="icon-key"></i>&nbsp;Login</a></li>
+            </ul>
           </div>
         </div>
         <div class="jumbotron">
@@ -34,26 +35,20 @@
         </div>
         <hr>
         <div class="row">
-          <div class="span4">
+          <div class="col-span-4">
             <h2>Heading</h2>
             <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-            <p><a href="#" class="btn"></a>
-              <View>Details</View>
-            </p>
+            <p><a href="#" class="btn">View Details</a></p>
           </div>
-          <div class="span4">
+          <div class="col-span-4">
             <h2>Heading</h2>
             <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-            <p><a href="#" class="btn"></a>
-              <View>Details</View>
-            </p>
+            <p><a href="#" class="btn">View Details</a></p>
           </div>
-          <div class="span4">
+          <div class="col-span-4">
             <h2>Heading</h2>
             <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-            <p><a href="#" class="btn"></a>
-              <View>Details</View>
-            </p>
+            <p><a href="#" class="btn">View Details</a></p>
           </div>
           <script src="http://dev.jspm.io/require.js"></script>
           <script>
@@ -82,10 +77,10 @@
         <hr>
         <div class="push"></div>
       </div>
+    </div>
+    <div class="footer">
       <div class="container">
-        <div class="footer">
-          <p>© Company 2013</p>
-        </div>
+        <p>© Company 2013</p>
       </div>
     </div>
   </body>
