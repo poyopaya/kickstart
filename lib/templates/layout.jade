@@ -14,18 +14,31 @@ html
     meta(name="viewport", content="width=device-width, initial-scale=1.0")
     link(rel="stylesheet/less", type="text/css", href="/kickstrap/_core/kickstrap.less")
     script
-      var less = { env: 'development' }
+      // var less = { env: 'development' }
+      // Uncomment the above line to prevent caching.
     script(src="/kickstrap/_core/js/less-1.4.0.min.js")
     link(rel="stylesheet", href="/kickstrap/_examples/assets/example.css")
   body
     div.sf-wrapper
       div.container
+        div.page-header.main
+          h1
+            a.pull-left(href="#") Kickstrap
+            h4.pull-right
+              ul.list-unstyled.list-inline
+                li
+                  img(src="http://api.rethumb.com/v1/width/25/https://graph.facebook.com/63203497/picture")
+                li
+                  a.icon-envelope-alt 
+                  span.badge 2
+                li
+                  a.icon-user
+            div.clearfix
         div.navbar.navbar-inverse
           a.navbar-toggle(data-toggle="collapse", data-target=".nav-collapse")
             span.icon-bar
             span.icon-bar
             span.icon-bar
-          a.navbar-brand(href="#") Kickstrap
           div.nav-collapse.collapse
             ul.nav
               each val, key in menu
