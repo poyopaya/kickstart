@@ -1,8 +1,13 @@
 // Written in Jade
 // https://github.com/visionmedia/jade
 
+block link
+  -var selected = 'Home' //default
+
 !!!
 html
+  -var menu = { 'Home': '/.', 'Products': '/kickstrap/_examples/product-list.html', 'Shopping Cart': '/kickstrap/_examples/cart.html' };
+
   head
     base(href="/")
     title Kickstrap 2.0.0 Alpha
@@ -21,13 +26,13 @@ html
           div.navbar-inner
             div.container
               ul.nav
-                li
-                  a(href=".") Home
-                li
-                  a(href="kickstrap/_examples/product-list.html") Products
-                li
-                  a(href="kickstrap/_examples/cart.html")
-                    i(class="icon-shopping-cart")
+                each val, key in menu
+                  if selected === key
+                    li.active
+                      a(href=val)= key
+                  else
+                    li
+                      a(href=val)= key
 
         block content
 
