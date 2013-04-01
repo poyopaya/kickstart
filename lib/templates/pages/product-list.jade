@@ -5,18 +5,22 @@ block link
 
 block content
   h2 All Items
+  input(data-bind="value: filterTerm, valueUpdate: 'afterkeydown'")
   table.table
     thead
       tr
+        th Image 
         th Product
         th Description
         th Price
-    tbody(data-bind="foreach: seats")
+    tbody(data-bind="foreach: filteredItems")
       tr
         td
-          img(src="")
-        td eBook
-        td $0.00
+          img(data-bind="attr:{ src: 'http://api.rethumb.com/v1/width/150/http://upload.wikimedia.org/wikipedia/commons/' + img }")
+        td(data-bind="text: title") 
+        td(data-bind="text: desc")
+        td(data-bind="text: price")
 
   script(src="//cdnjs.cloudflare.com/ajax/libs/knockout/2.2.1/knockout-min.js")
+  script(src="/kickstrap/_examples/assets/products.js")
   script(src="/kickstrap/_examples/assets/product-list.js")

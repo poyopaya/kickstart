@@ -17,7 +17,7 @@ block content
     tbody(data-bind="foreach: seats")
       tr
         td(style="width: 150px;")
-          img(data-bind="attr:{ src: 'http://api.rethumb.com/v1/width/150/' + meal().photo }")
+          img(data-bind="attr:{ src: 'http://api.rethumb.com/v1/width/150/http://upload.wikimedia.org/wikipedia/commons/' + meal().photo }")
         td
           select(data-bind="options: $root.availableMeals, value: meal, optionsText: 'mealName'")
         td(data-bind="text: formattedPrice")
