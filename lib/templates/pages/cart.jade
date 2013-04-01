@@ -7,33 +7,34 @@ block content
   h2 
     i.icon-shopping-cart 
     | Shopping Cart (
-    span(data-bind="text: seats().length") 
+    span(data-bind="text: items().length") 
     |)   
   table.table
     thead
       tr
         th(colspan="2") Product
         th Price
-    tbody(data-bind="foreach: seats")
+    tbody(data-bind="foreach: items")
       tr
         td(style="width: 150px;")
-          img(data-bind="attr:{ src: 'http://api.rethumb.com/v1/width/150/http://upload.wikimedia.org/wikipedia/commons/' + meal().photo }")
+          img(data-bind="attr:{ src: 'http://api.rethumb.com/v1/width/150/http://upload.wikimedia.org/wikipedia/commons/' + product().photo }")
         td
-          select(data-bind="options: $root.availableMeals, value: meal, optionsText: 'mealName'")
+          select(data-bind="options: $root.products, value: product, optionsText: 'title'")
         td(data-bind="text: formattedPrice")
         td
           a(href="#", data-bind="click: $root.removeSeat") Remove
-  button.btn(data-bind="click:addSeat, enable: seats().length < 5") 
+  button.btn(data-bind="click:addSeat, enable: items().length < 5") 
     i.icon-plus-sign 
     | Add another product
   h3(data-bind="visible: totalSurcharge() > 0") Total surcharge: $
     span(data-bind="text: totalSurcharge().toFixed(2)")
   h3
     Total Items: 
-      span(data-bind="text: seats().length")
+      span(data-bind="text: items().length")
   a.btn.btn-primary.pull-right
     i.icon-check
     |&nbsp;Check Out
 
   script(src="//cdnjs.cloudflare.com/ajax/libs/knockout/2.2.1/knockout-min.js")
+  script(src="/kickstrap/_examples/assets/products.js")
   script(src="/kickstrap/_examples/assets/cart.js")
