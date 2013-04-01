@@ -4,9 +4,13 @@ block link
   -var selected = 'Products'
 
 block content
-  h2 All Items
-  input(data-bind="value: filterTerm, valueUpdate: 'afterkeydown'")
-  table.table
+  div.row
+    div.col-span-9
+      h2 All Items
+    div.col-span-3
+      h2
+        input(placeholder="Filter", type="text", data-bind="value: filterTerm, valueUpdate: 'afterkeydown'")
+  table.table.table-hover
     thead
       tr
         th Image 
