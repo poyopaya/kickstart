@@ -13,15 +13,14 @@ block content
   table.table.table-hover
     thead
       tr
-        th Image 
+        th(width="80px") Image 
         th First Name
         th Last Name
         th Email
     tbody(data-bind="foreach: filteredItems")
-      tr
+      tr(data-bind="click: $parent.showModal", href="#currentContact", data-toggle="modal", style="cursor: pointer")
         td
-          a(data-bind="click: $parent.showModal", href="#currentContact", data-toggle="modal")
-            img(data-bind="attr:{ src: 'http://api.rethumb.com/v1/width/60/height/60/http://upload.wikimedia.org/wikipedia/commons/' + img }")
+          img(data-bind="attr:{ src: 'http://api.rethumb.com/v1/width/60/height/60/http://upload.wikimedia.org/wikipedia/commons/' + img }")
         td(data-bind="text: fName") 
         td(data-bind="text: lName")
         td(data-bind="text: email")
@@ -45,4 +44,5 @@ block content
   script(src="//code.jquery.com/jquery-1.9.1.min.js")
   script(src="//cdnjs.cloudflare.com/ajax/libs/knockout/2.2.1/knockout-min.js")
   script(src="/kickstrap/_examples/assets/contacts.js")
+  script(src="/kickstrap/_examples/assets/contact-list.js")
   script(src="/kickstrap/apps/bootstrap/bootstrap.js")

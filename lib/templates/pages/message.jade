@@ -2,3 +2,49 @@ extends ../layout
 
 block link
   -var selected = 'Inbox'
+
+block content
+  div.row
+    div.page-header
+      div.col-span-9
+        h1 Inbox 
+      div.col-span-3
+        h1
+          input(placeholder="Filter", type="text", data-bind="value: filterTerm, valueUpdate: 'afterkeydown'")
+      div.clearfix
+  table.table.table-hover
+    thead
+      tr
+        th(width="80px") Image 
+        th First Name
+        th Last Name
+        th Email
+    tbody(data-bind="foreach: filteredItems")
+      tr(data-bind="click: $parent.showModal", href="#currentContact", data-toggle="modal", style="cursor: pointer")
+        td
+          img(data-bind="attr:{ src: 'http://api.rethumb.com/v1/width/60/height/60/http://upload.wikimedia.org/wikipedia/commons/' + img }")
+        td(data-bind="text: fName") 
+        td(data-bind="text: lName")
+        td(data-bind="text: email")
+  div.modal#currentContact
+    div.modal-dialog
+      div.modal-content
+        div.modal-header
+          button(type="button", class="close", data-dismiss="moda", aria-hidden="true") &times;
+          h4.modal-title Contact View
+        div.modal-body
+          div.row
+            div.col-span-4
+              img(data-bind="attr:{ src: 'http://api.rethumb.com/v1/width/150/http://upload.wikimedia.org/wikipedia/commons/' + currentContact.img() }")
+            div.col-span-8
+              h3(data-bind="text: currentContact.fName()")
+              h4(data-bind="text: currentContact.lName()")
+              a(data-bind="attr:{href: 'mailto:' + currentContact.email() }, text: currentContact.email()")
+        div.modal-footer
+          a.close(href="#")
+
+  script(src="//code.jquery.com/jquery-1.9.1.min.js")
+  script(src="//cdnjs.cloudflare.com/ajax/libs/knockout/2.2.1/knockout-min.js")
+  script(src="/kickstrap/_examples/assets/contacts.js")
+  script(src="/kickstrap/_examples/assets/inbox.js")
+  script(src="/kickstrap/apps/bootstrap/bootstrap.js")
