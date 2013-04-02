@@ -1,79 +1,39 @@
-extends ../layout
+extends blog-layout
 
-block link
-  -var selected = 'Blog'
-
-block content
-  div.row
-    div.col-span-12
-      div.page-header
-        h1 Blog
-          small &nbsp;Get up to date on what's happening at Kickstrap
-  div.row
-    div.col-span-9
-      div.panel.panel-primary
-        a
-          div.panel-heading 
-            Kickstrap 2.0 Released!
-        img.img-thumbnail(src="http://api.rethumb.com/v1/width/150/http://upload.wikimedia.org/wikipedia/commons/b/b4/Ludwig_van_Beethoven.jpg")
-        p Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. 
-        hr
-        small
-          p.text-muted
-            em By
-              a  Adam Kochanowicz
-              &nbsp;on 
-              a  1, January 2014
-            br
-            em Tagged
-              a  announcements
-              ,
-              a  kickstrap 
-      div.panel
-        a
-          div.panel-heading 
-            Kickstrap 2.0 Released!
-        img.img-thumbnail(src="http://api.rethumb.com/v1/width/150/http://upload.wikimedia.org/wikipedia/commons/b/b4/Ludwig_van_Beethoven.jpg")
-        p Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. 
-        hr
-        small
-          p.text-muted
-            em By
-              a  Adam Kochanowicz
-               on 
-              a  1, January 2014
-            br
-            em Tagged
-              a  announcements
-              ,
-              a  kickstrap 
-    div.col-span-3
-      .panel.panel-info
-        .panel-heading
-          ul.list-unstyled.list-inline
-            li 
-              a
-                i.icon-rss
-            li 
-              a
-                i.icon-facebook
-            li 
-              a
-                i.icon-twitter
-            li
-              a
-                i.icon-github
-            li
-              a
-                i.icon-linkedin
-            li
-              a 
-                i.icon-google-plus
-        img.thumbnail.pull-right(src="http://api.rethumb.com/v1/width/50/https://graph.facebook.com/63203497/picture")
-        h4 About me
-        p
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod        
-      hr
-      h4 Archives
-      p
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+block blog-content
+  div.panel.panel-primary
+    a(href="kickstrap/_examples/blog-single.html")
+      div.panel-heading 
+        Kickstrap 2.0 Released!
+    img.img-thumbnail(src="http://api.rethumb.com/v1/width/150/http://upload.wikimedia.org/wikipedia/commons/b/b4/Ludwig_van_Beethoven.jpg")
+    p Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. 
+    hr
+    small
+      p.text-muted
+        em By
+          a  Adam Kochanowicz
+          &nbsp;on 
+          a  1, January 2014
+        br
+        em Tagged
+          a  announcements
+          ,
+          a  kickstrap 
+  div.panel
+    a(href="kickstrap/_examples/blog-single.html")
+      div.panel-heading 
+        Kickstrap 2.0 Released!
+    img.img-thumbnail(src="http://api.rethumb.com/v1/width/150/http://upload.wikimedia.org/wikipedia/commons/b/b4/Ludwig_van_Beethoven.jpg")
+    p Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. 
+    hr
+    small
+      p.text-muted
+        em By
+          a  Adam Kochanowicz
+           on 
+          a  1, January 2014
+        br
+        em Tagged
+          a  announcements
+          ,
+          a  kickstrap 

@@ -35,6 +35,7 @@
 
       .page-header.main {
         border-bottom: 0px;
+        margin-bottom: 0px;
       }
       .page-header.main a {
         color: #222;

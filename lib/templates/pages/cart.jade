@@ -17,13 +17,13 @@ block content
     tbody(data-bind="foreach: items")
       tr
         td(style="width: 150px;")
-          img(data-bind="attr:{ src: 'http://api.rethumb.com/v1/width/150/http://upload.wikimedia.org/wikipedia/commons/' + product().photo }")
+          img(data-bind="attr:{ src: 'http://api.rethumb.com/v1/width/150/http://upload.wikimedia.org/wikipedia/commons/' + product().img}")
         td
           select(data-bind="options: $root.products, value: product, optionsText: 'title'")
         td(data-bind="text: formattedPrice")
         td
-          a(href="#", data-bind="click: $root.removeSeat") Remove
-  button.btn(data-bind="click:addSeat, enable: items().length < 5") 
+          a(href="#", data-bind="click: $root.removeItem") Remove
+  button.btn(data-bind="click:addItem, enable: items().length < 5") 
     i.icon-plus-sign 
     | Add another product
   h3(data-bind="visible: totalSurcharge() > 0") Total surcharge: $
@@ -35,6 +35,6 @@ block content
     i.icon-check
     |&nbsp;Check Out
 
-  script(src="//cdnjs.cloudflare.com/ajax/libs/knockout/2.2.1/knockout-min.js")
+  script(src="/kickstrap/apps/knockout/knockout.min.js")
   script(src="/kickstrap/_examples/assets/products.js")
   script(src="/kickstrap/_examples/assets/cart.js")
