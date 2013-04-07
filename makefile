@@ -98,3 +98,6 @@ test:
 
 jade: 
 	@jade lib/templates/pages/*.jade -O ./dist/kickstrap/_examples/ --pretty
+
+jade-watch: 
+	@jade lib/templates/pages/*.jade -O ./dist/kickstrap/_examples/ --pretty --watch

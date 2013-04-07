@@ -1,0 +1,30 @@
+//- Written in Jade
+//- https://github.com/visionmedia/jade
+
+block link
+   -var selected = 'Home' //default
+
+!!!
+html
+   -var menu = { 'Home': '/.', 'Blog': '/kickstrap/_examples/blog-all.html', 'Contacts': '/kickstrap/_examples/contacts.html', 'Products': '/kickstrap/_examples/product-list.html', 'Shopping Cart': '/kickstrap/_examples/cart.html' };
+
+   head
+      base(href="/")
+      title Kickstrap 2.0.0 Alpha
+      meta(name="viewport", content="width=device-width, initial-scale=1.0")
+      link(rel="stylesheet/less", type="text/css", href="/kickstrap/_core/kickstrap.less")
+      script
+         // var less = { env: 'development' }
+         // Uncomment the above line to prevent caching.
+      script(src="/kickstrap/_core/js/less-1.4.0.min.js")
+      link(rel="stylesheet", href="/kickstrap/_examples/assets/example.css")
+   body
+      div.sf-wrapper
+
+         block base
+
+         hr
+         div.push
+      div.footer
+         div.container
+            p © Company 2013
