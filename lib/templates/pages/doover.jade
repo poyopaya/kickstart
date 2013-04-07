@@ -12,7 +12,15 @@ html
       script(src="/kickstrap/_core/js/less-1.4.0.min.js")
    body
       div.container      
+         header#brand.hidden-phone
+            div.row
+               div.col-span-12
+                  h1 Company title.
          section#sidebar
             h1 sidebar
          section#main
-            h1 main
+            div.row
+               div.col-span-12
+                  h1 main
+                  button.btn.btn-primary(onclick="$('.container').toggleClass('toggle')") Toggle
+      script(src="http://code.jquery.com/jquery-1.9.1.min.js")
