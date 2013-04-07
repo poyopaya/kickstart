@@ -29,20 +29,17 @@
 .container { 
    max-width: 1200px; 
    overflow-x: hidden;
-   &.toggle {
-      section#sidebar   { margin-left: ( @sidebarToggleWidth - 100% ) }
-      section#main      { margin-right: -@sidebarToggleWidth; }
+   width: 200%;
+   &.toggle { 
+      
    }
 }
 section#sidebar, section#main {
    float: left;
-   width: 100%;
-   .transition(margin 0.10s linear);
+   width: 50%;
 }
 section#sidebar { 
-   margin-left: -100%;   
    background-color: orange;
-   padding-left: ( 100% - @sidebarToggleWidth );
 }
 section#main {
    background-color: blue;
