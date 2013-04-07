@@ -34,6 +34,9 @@ prod:
 			@echo "Bootstrap files"
 			@cp -r lib/repos/bootstrap dist/kickstrap/_core/
 	
+		@echo "-Waypoints"
+		@cp -r lib/kickstrap/apps/waypoints dist/kickstrap/apps/
+
 		@echo "-Ember.js"
 		@cp -r lib/kickstrap/apps/ember dist/kickstrap/apps/
 

@@ -1,0 +1,42 @@
+// (Write your custom CSS/LESS here.)
+
+@sidebarToggleWidth: 80%;
+
+html
+, body
+, .container { overflow-x: hidden; }
+.container { 
+   max-width: 1200px; 
+   width: 200%;
+   margin-left: -100%;
+   .transition(margin 0.1s ease-out);
+   &.toggle { margin-left: (@sidebarToggleWidth - 100%); }
+}
+header#brand { height: 120px; }
+section#main {
+   float: left;
+   width: 50%;
+}
+.sticky-wrapper { 
+   float: left; 
+   width: 50%;
+   padding-left: 10%; 
+}
+
+@media (min-width: 768px) {
+   .container
+   , .container.toggle { 
+      margin: 0px auto; 
+      width: 100%;
+   }
+   .sticky-wrapper { 
+      width: 25%; 
+      padding-left: 0px;
+   }
+   section#sidebar {
+      padding: 0px;
+      width: 100%;
+      float: left;
+   }
+   section#main { width: 75%; }
+}
