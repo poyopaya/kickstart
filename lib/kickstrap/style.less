@@ -1,12 +1,12 @@
 // (Write your custom CSS/LESS here.)
 
+// Default styles, mobile-first, all viewports
 @sidebarToggleWidth: 80%;
 
 html
 , body
 , .container { overflow-x: hidden; }
 .container { 
-   max-width: 1200px; 
    width: 200%;
    margin-left: -100%;
    .transition(margin 0.1s ease-out);
@@ -23,7 +23,9 @@ section#main {
    padding-left: 10%; 
 }
 
+// Anything larger than a phone
 @media (min-width: 768px) {
+   html, body, .container { overflow-x: visible; }
    .container
    , .container.toggle { 
       margin: 0px auto; 
@@ -37,6 +39,30 @@ section#main {
       padding: 0px;
       width: 100%;
       float: left;
+      &.stuck { 
+         position: fixed;
+         top: 0;
+         bottom: 0;
+      }
    }
    section#main { width: 75%; }
 }
+
+// Tablets
+@media (min-width: 767px) and (max-width: 979px) { 
+   .container { max-width: 767px; }   
+   section#sidebar.stuck { width: 192px; }
+}
+
+// Small-Medium-sized desktops
+@media (min-width: 980px) and (max-width: 1199px) { 
+   .container { max-width: 980px; }
+   section#sidebar.stuck { width: 245px; }
+}
+
+// Extra-large monitors
+@media (min-width: 1200px) {
+   .container { max-width: 1200px; }
+   section#sidebar.stuck { width: 300px; }
+}
+
