@@ -2,29 +2,38 @@
 html
 
    head
-      base(href="/")
       title Kickstrap 2.0.0 Alpha
       meta(name="viewport", content="width=device-width, initial-scale=1.0")
-      link(rel="stylesheet/less", type="text/css", href="/kickstrap/_core/kickstrap.less")
+      link(rel="stylesheet/less", type="text/css", href="../_core/kickstrap.less")
       script
          // var less = { env: 'development' }
          // Uncomment the above line to prevent caching.
-      script(src="/kickstrap/_core/js/less-1.4.0.min.js")
+      script(src="../_core/js/less-1.4.0.min.js")
+      //if lt IE 10
+         script(src="http://html5shiv.googlecode.com/svn/trunk/html5.js")
    body
       div.container      
          header#brand.hidden-phone
             div.row
                div.col-span-12
                   h1 Company title.
-         section#sidebar.panel
+         section#sidebar
             div.row
                div.col-span-12
-                  h4 New at Acme
-                  p
-                     span.label.label-success New
-                     a &nbsp;Summer tips
-                  p
-                     a How to keep your budget balanced in the new economy
+                  aside.panel.panel-primary
+                     header.panel-heading New at Acme
+                     p
+                        span.label.label-success New
+                        a &nbsp;Summer tips
+                     p
+                        a How to keep your budget balanced in the new economy
+                  aside.panel
+                     header.panel-heading New at Acme
+                     p
+                        span.label.label-success New
+                        a &nbsp;Summer tips
+                     p
+                        a How to keep your budget balanced in the new economy
          section#main
             div.row
                div.col-span-12
@@ -56,7 +65,7 @@ html
                   p Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.  
                   p Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.  
       script(src="http://code.jquery.com/jquery-1.9.1.min.js")
-      script(src="kickstrap/apps/waypoints/waypoints.min.js")
-      script(src="kickstrap/apps/waypoints/shortcuts/sticky-elements/waypoints-sticky.min.js")
+      script(src="../apps/waypoints/waypoints.min.js")
+      script(src="../apps/waypoints/shortcuts/sticky-elements/waypoints-sticky.min.js")
       script
          $('section#sidebar').waypoint('sticky');
