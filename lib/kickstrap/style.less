@@ -23,8 +23,8 @@ section#main {
    padding-left: 10%; 
 }
 
-// Anything larger than a phone
-@media (min-width: 768px) {
+// Anything larger than an iPad in portrait mode 
+@media (min-width: 979px) {
    html, body, .container { overflow-x: visible; }
    .container
    , .container.toggle { 
@@ -50,13 +50,7 @@ section#main {
    section#main { width: 75%; }
 }
 
-// Tablets
-@media (min-width: 767px) and (max-width: 979px) { 
-   .container { max-width: 767px; }   
-   section#sidebar.stuck { width: 192px; }
-}
-
-// Small-Medium-sized desktops
+// Tablets-Medium-sized desktops
 @media (min-width: 980px) and (max-width: 1199px) { 
    .container { max-width: 980px; }
    section#sidebar.stuck { width: 245px; }
