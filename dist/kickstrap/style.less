@@ -1,0 +1,76 @@
+// (Write your custom CSS/LESS here.)
+
+// Default styles, mobile-first, all viewports
+@sidebarToggleWidth: 80%;
+
+html
+, body
+, .container { overflow-x: hidden; }
+.container { 
+   width: 200%;
+   margin-left: -100%;
+   .transition(margin 0.1s ease-out);
+   &.toggle { margin-left: (@sidebarToggleWidth - 100%); }
+   max-width: none;
+}
+section#main {
+   float: left;
+   width: 50%;
+}
+section#sidebar { 
+   // min-height: 700px;
+   border-right: 1px solid #DDD;
+   margin-top: 15px;
+   overflow-y: auto;
+}
+.sticky-wrapper { 
+   float: left; 
+   width: 50%;
+   padding-left: 10%; 
+}
+ul.breadcrumb
+, .navbar { 
+   margin: 0px; 
+   .border-top-radius(0px);
+   .border-bottom-radius(0px);
+}
+
+// Anything larger than an iPad in portrait mode 
+@media (min-width: 979px) {
+   html, body, .container { overflow-x: visible; }
+   .container
+   , .container.toggle { 
+      margin: 0px auto; 
+      width: 100%;
+   }
+   .sticky-wrapper { 
+      width: 25%; 
+      padding-left: 0px;
+   }
+   section#sidebar {
+      padding: 0px;
+      width: 100%;
+      float: left;
+      &.stuck { 
+         position: fixed;
+         top: 0;
+         bottom: 0;
+         .panel.panel-primary,
+         .panel.panel-primary .panel-heading { .border-top-radius(0px); }
+      }
+   }
+   section#main { width: 75%; }
+}
+
+// Tablets-Medium-sized desktops
+@media (min-width: 980px) and (max-width: 1199px) { 
+   .container { max-width: 980px; }
+   section#sidebar.stuck { width: 245px; }
+}
+
+// Extra-large monitors
+@media (min-width: 1200px) {
+   .container { max-width: 1200px; }
+   section#sidebar.stuck { width: 300px; }
+}
+
