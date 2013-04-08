@@ -12,7 +12,7 @@ html
       meta(name="viewport", content="width=device-width, initial-scale=1.0")
       link(rel="stylesheet/less", type="text/css", href="#{ksdir}/_core/kickstrap.less")
       script
-         var less = { env: 'development' }
+         // var less = { env: 'development' }
          // Uncomment the above line to prevent caching.
       script(src="#{ksdir}/_core/js/less-1.4.0.min.js")
       //if lt IE 10
@@ -20,7 +20,7 @@ html
    body
       div.navbar.navbar-inverse
          div.container
-            button.navbar-toggle.pull-left(type="button", data-toggle="collapse", onclick="$('.container').toggleClass('toggle')")
+            button.navbar-toggle.pull-left(type="button", data-toggle="collapse", onclick="$('.container#page').toggleClass('toggle')")
                span.icon-double-angle-left
             button.navbar-toggle(type="button", data-toggle="collapse", data-target=".navbar-responsive-collapse")
                span.icon-bar
@@ -39,7 +39,7 @@ html
       div.container#body
          ul.breadcrumb.visible-desktop
             block breadcrumbs
-      div.container      
+      div.container#page      
       
          block body
 

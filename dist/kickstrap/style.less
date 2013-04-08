@@ -14,6 +14,12 @@ html
    &.toggle { 
       margin-left: (@sidebarToggleWidth - 100%); 
       section#main { opacity: 0.5 }
+      section#sidebar { 
+         position: fixed;
+         right: 20%;
+         bottom: 0;
+         top: 54px;
+      }
    }
    &#body { margin-top: 54px; }
 }
@@ -23,11 +29,15 @@ html
    left: 0;
    right: 0;
    z-index: 1;
-   .container { margin-left: -50%; }
+   padding-left: 50%;
    .navbar-toggle.pull-left {
       left: 10px;
       right: auto;
-      .icon-double-angle-left { color: white; }
+      padding: 3px 20px;
+      span[class^="icon"] { 
+         color: white; 
+         font-size: 18pt;
+      }
    }
 }
 section#main {
@@ -72,10 +82,12 @@ article {
       margin: 0px auto; 
       width: 100%;
       section#main { opacity: 1; }
+      section#sidebar { position: static; }
    }
    .container#body { margin-top: 0px; }
    .navbar {
       position: static;
+      padding-left: 15px;
       .container { margin-left: 0%; }
    }
    .sticky-wrapper { 
