@@ -1,0 +1,41 @@
+extends base
+
+block base
+   div.container
+      div.page-header.main
+         h1
+            a.pull-left(href="#") Kickstrap
+         h4.pull-right
+            ul.list-unstyled.list-inline
+               li
+                  img(src="http://api.rethumb.com/v1/width/25/https://graph.facebook.com/63203497/picture")
+               li
+                  a.icon-envelope-alt(href="/kickstrap/_examples/message.html") 
+                  span.badge 2
+               li
+                  a.icon-user
+         div.clearfix
+   div.navbar.navbar-inverse
+      a.navbar-toggle(data-toggle="collapse", data-target=".nav-collapse")
+         span.icon-bar
+         span.icon-bar
+         span.icon-bar
+      div.nav-collapse.collapse
+         ul.nav
+            each val, key in menu
+               if selected === key
+                  li.active
+                     a(href=val)= key
+               else
+                  li
+                     a(href=val)= key
+         form.navbar-form.pull-right
+            input(type="text", placeholder="Search")
+         ul.pull-right.nav
+            li
+               a(href="/kickstrap/_examples/login.html") 
+               i.icon-key
+               |&nbsp;Login
+
+   div.container
+      block content

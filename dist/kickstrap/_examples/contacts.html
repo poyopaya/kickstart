@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Kickstrap 2.0.0 Alpha</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet/less" type="text/css" href="../_core/kickstrap.less">
+    <script>
+      var less = { env: 'development' }
+      // Uncomment the above line to prevent caching.
+    </script>
+    <script src="../_core/js/less-1.4.0.min.js"></script><!--[if lt IE 10]>
+    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  </head>
+  <body>
+    <div class="navbar navbar-inverse visible-desktop">
+      <div class="container"><a class="navbar-brand">Acme Industries</a>
+        <div class="nav-collapse collapse">
+          <ul class="nav">
+            <li><a href="/.">Home</a></li>
+            <li><a href="/kickstrap/_examples/blog-all.html">Blog</a></li>
+            <li class="active"><a href="/kickstrap/_examples/contacts.html">Contacts</a></li>
+            <li><a href="/kickstrap/_examples/product-list.html">Products</a></li>
+            <li><a href="/kickstrap/_examples/cart.html">Shopping Cart</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      <ul class="breadcrumb visible-desktop">
+        <li> <a href="../../">Home</a></li>
+        <li class="active">Contacts</li>
+      </ul>
+    </div>
+    <div class="container">     
+      <section id="sidebar">
+        <div class="row">
+          <div class="col-span-12">
+            <h4>My Contacts</h4>
+            <input placeholder="Filter" type="text" data-bind="value: filterTerm, valueUpdate: 'afterkeydown'">
+            <table class="table table-hover">
+              <tbody data-bind="foreach: filteredItems">
+                <tr data-bind="click: $parent.showModal" href="#currentContact" data-toggle="modal" style="cursor: pointer">
+                  <td><img data-bind="attr:{ src: 'http://api.rethumb.com/v1/width/60/height/60/http://upload.wikimedia.org/wikipedia/commons/' + img }"></td>
+                  <td data-bind="text: lName"></td>
+                  <td data-bind="text: fName"> </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+      <section id="main">
+        <div class="row">
+          <div class="col-span-8 col-offset-2">
+            <h3 data-bind="text: currentContact.fName() + ' ' + currentContact.lName()"></h3><img data-bind="attr:{ src: 'http://api.rethumb.com/v1/width/150/http://upload.wikimedia.org/wikipedia/commons/' + currentContact.img() }" class="img-thumbnail pull-left">
+            <p data-bind="text: currentContact.bio()"></p>
+            <p> <a href="#" class="btn"> <i class="icon-user"></i>&nbsp;Profile</a></p>
+            <p><a href="#" class="btn btn-primary"> <i class="icon-envelope"></i>&nbsp;Message</a></p>
+            <p>Email: <a data-bind="attr:{href: 'mailto:' + currentContact.email() }, text: currentContact.email()"></a></p>
+          </div>
+        </div>
+      </section>
+    </div>
+    <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+    <script src="../apps/waypoints/waypoints.min.js"></script>
+    <script src="../apps/waypoints/shortcuts/sticky-elements/waypoints-sticky.min.js"></script>
+    <script>$('section#sidebar').waypoint('sticky');</script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/knockout/2.2.1/knockout-min.js"></script>
+    <script src="/kickstrap/_examples/assets/contacts.js"></script>
+    <script src="/kickstrap/_examples/assets/contact-list.js"></script>
+    <script src="/kickstrap/apps/bootstrap/bootstrap.js"></script>
+  </body>
+</html>

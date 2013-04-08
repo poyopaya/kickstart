@@ -105,6 +105,7 @@ jade:
 	@jade lib/templates/pages/blog-all.jade -O ./dist/kickstrap/_examples/ --pretty
 	@jade lib/templates/pages/blog-single.jade -O ./dist/kickstrap/_examples/ --pretty
 	@jade lib/templates/pages/blank.jade -O ./dist/kickstrap/_examples/ --pretty
+	@jade lib/templates/pages/contacts.jade -O ./dist/kickstrap/_examples/ --pretty
 
 jade-watch: 
 	@jade lib/templates/pages/*.jade -O ./dist/kickstrap/_examples/ --pretty --watch
