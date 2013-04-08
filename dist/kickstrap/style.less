@@ -21,13 +21,14 @@ html
          top: 54px;
       }
    }
-   &#body { margin-top: 54px; }
+   &#page { 
+      position: fixed;
+      top: 50px;
+      bottom: 0;
+      -webkit-overflow-scrolling: touch;
+   }
 }
 .navbar {
-   position: fixed;
-   top: 0;
-   left: 0;
-   right: 0;
    z-index: 1;
    padding-left: 50%;
    .navbar-toggle.pull-left {
@@ -83,13 +84,9 @@ article {
       width: 100%;
       section#main { opacity: 1; }
       section#sidebar { position: static; }
+      &#page { position: static; }
    }
-   .container#body { margin-top: 0px; }
-   .navbar {
-      position: static;
-      padding-left: 15px;
-      .container { margin-left: 0%; }
-   }
+   .navbar { padding-left: 15px; }
    .sticky-wrapper { 
       width: 25%; 
       padding-left: 0px;
@@ -115,7 +112,19 @@ article {
    }
 }
 
-// Tablets-Medium-sized desktops
+@media (min-width: 768px) and (max-width: 979px) {
+   .navbar {
+      > .container { padding-left: 60px; }
+      .navbar-toggle.pull-left { 
+         display: block;
+         position: absolute;
+         top: 10px;
+      }
+   }
+   .container#body { margin-top: 0px; }
+}
+
+// Large tablets-Medium-sized desktops
 @media (min-width: 980px) and (max-width: 1199px) { 
    .container { max-width: 980px; }
    section#sidebar.stuck { width: 245px; }

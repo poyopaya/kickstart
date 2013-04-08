@@ -2,17 +2,17 @@ block vars
    -var selected = 'Home' //default 
    -var ksdir = './kickstrap'
 
--var menu = { 'Home': '#{ksdir}/../', 'Blog': '/kickstrap/_examples/blog-all.html', 'Contacts': '/kickstrap/_examples/contacts.html', 'Products': '/kickstrap/_examples/product-list.html', 'Shopping Cart': '/kickstrap/_examples/cart.html' };
+-var menu = { 'Home': ksdir + '/../', 'Blog': ksdir + '/_examples/blog-all.html', 'Contacts': ksdir + '/_examples/contacts.html', 'Products': ksdir + '/_examples/product-list.html', 'Shopping Cart': ksdir + '/_examples/cart.html' };
 
 !!!
 html
 
    head
       title Kickstrap 2.0.0 Alpha
-      meta(name="viewport", content="width=device-width, initial-scale=1.0")
+      meta(name="viewport", content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=no")
       link(rel="stylesheet/less", type="text/css", href="#{ksdir}/_core/kickstrap.less")
       script
-         // var less = { env: 'development' }
+         var less = { env: 'development' }
          // Uncomment the above line to prevent caching.
       script(src="#{ksdir}/_core/js/less-1.4.0.min.js")
       //if lt IE 10
