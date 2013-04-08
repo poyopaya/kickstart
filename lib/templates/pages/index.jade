@@ -1,49 +1,110 @@
-extends ../layout
+extends ../layout-sidebar
 
-block link
-	-var selected = 'Home'
+block breadcrumbs
+   li.active Home
 
-block content
-	div.jumbotron
-		h1 Welcome to Kickstrap
-		p.lead Create a new file from scratch or start hacking this one.
-		a.btn.btn-large.btn-success(href="#") Get Started
-	hr
-	div.row
-		div.col-span-4
-			h2 Heading
-			p Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. 
-			p
-				a.btn(href="#") View Details
-		div.col-span-4
-			h2 Heading
-			p Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. 
-			p
-				a.btn(href="#") View Details
-		div.col-span-4
-			h2 Heading
-			p Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. 
-			p
-				a.btn(href="#") View Details
-		script(src="http://dev.jspm.io/require.js")
-		script
-			require.config({
-				paths: {
-					"apps": "/kickstrap/apps"
-				},
-			});
-			require([
-				'jquery'
-				, 'kickstrap/badge'
-				, 'apps/tinygrowl/tinygrowl'
-			],
-				function($) {
-					require(['apps/bootstrap/bootstrap'])
-					$.growl({
-						title: '<i class="icon-magic"></i> Welcome to Kickstrap'
-						, text: 'Now start hacking!'
-						, type: 'info'
-					})
-				}
-			)
-
+block sidebar
+   div.row
+      div.col-span-12
+         h4 International 
+         aside.media
+            a.pull-left(href="#")
+               img.media-object(src="http://lorempixel.com/62/62/business/")
+            div.media-body
+               h4.media-heading 
+                  a(href="#") Tensions Mount in Foreign Country
+               | Officials are concerned tensions in FC will lead to continued destruction of bordering... 
+         br
+         ul.list-unstyled
+            li
+               a(href="#") Prime Ministers to Negotiate Affairs 
+            li
+               a(href="#") Diplomats to Initiate Peace Talks 
+            li
+               a(href="#") Ambassador Indicted in Scandal 
+            li
+               a(href="#") Hostages Freed Unharmed 
+         h4 Lifestyle 
+         aside.media
+            a.pull-left(href="#")
+               img.media-object(src="http://lorempixel.com/62/62/nature/")
+            div.media-body
+               h4.media-heading 
+                  a(href="#") Top 5 Kitchen Cleaning Tips 
+               | Fast and easy ways to get the clean kitchen you've always wanted... 
+         br
+         ul.list-unstyled
+            li
+               a(href="#") Exclusive Tropical Getaways
+            li
+               a(href="#") DIY Repairs with Tools you Already Own
+            li
+               a(href="#") Hottest Books of the Season
+            li
+               a(href="#") Green Tea Health Rumors: Fact v. Fiction
+         h4 Politics 
+         aside.media
+            a.pull-left(href="#")
+               img.media-object(src="http://lorempixel.com/62/62/abstract/")
+            div.media-body
+               h4.media-heading 
+                  a(href="#") Elections Heating up Pending Debate 
+               | Official analysts are reporting a growing excitement over the upcoming... 
+         br
+         ul.list-unstyled
+            li
+               a(href="#") Gun Control: A Nation Divided 
+            li
+               a(href="#") Supreme Court Legislation Called "Historic" 
+            li
+               a(href="#") OP ED: Candidate Dead Wrong. 
+            li
+               a(href="#") Elections in Numbers 
+         h4 Tech 
+         aside.media
+            a.pull-left(href="#")
+               img.media-object(src="http://lorempixel.com/62/62/technics/")
+            div.media-body
+               h4.media-heading 
+                  a(href="#") Top 5 Gadgets this Season 
+               | Our top 5 pick of some of the coolest, and strangest gadgets to come out...
+               br
+         ul.list-unstyled
+            li
+               a(href="#") Benchmarks on the New PC/Mac Lineup
+            li
+               a(href="#") Hottest Cameras under $300 
+            li
+               a(href="#") Upgrading your Media Player 
+            li
+               a(href="#") Wearable Gadgets Gaining Traction 
+         h4 Fashion 
+         aside.media
+            a.pull-left(href="#")
+               img.media-object(src="http://lorempixel.com/62/62/fashion/")
+            div.media-body
+               h4.media-heading 
+                  a(href="#") Dress Shirt Faux Pas 
+               | It's hard to believe something so simple as an ordinary dress shirt could... 
+         br
+         ul.list-unstyled
+            li
+               a(href="#") Stylish Canvas Shoes under $40 
+            li
+               a(href="#") Vegan Belts and Shoes 
+            li
+               a(href="#") European-Inspired Sunglasses  
+            li
+               a(href="#") Get the Right Look for your Canine 
+block main
+   div.row
+      div.col-span-12
+         h1 Getting started
+         button.btn.btn-primary.hidden-desktop(onclick="$('.container').toggleClass('toggle')") Toggle
+         p.lead Playing with and hacking the example templates.
+         p
+            small.text-muted
+               em By Adam Kochanowicz, April 8, 2013.
+         p Bootstrap takes care of the UI elements for your site, but what about the application design itself?
+         p We've assembled pre-built, hackable templates for common application page types. To browse through them, simply click around and use this page like a regular website.
+         p You'll notice we've included some advanced website features like responsive design and sidebar fixing out-of-box.

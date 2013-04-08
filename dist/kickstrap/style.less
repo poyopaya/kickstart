@@ -10,7 +10,10 @@ html
    width: 200%;
    margin-left: -100%;
    .transition(margin 0.1s ease-out);
-   &.toggle { margin-left: (@sidebarToggleWidth - 100%); }
+   &.toggle { 
+      margin-left: (@sidebarToggleWidth - 100%); 
+      section#main { opacity: 0.5 }
+   }
    max-width: none;
 }
 section#main {
@@ -19,9 +22,13 @@ section#main {
 }
 section#sidebar { 
    // min-height: 700px;
-   border-right: 1px solid #DDD;
-   margin-top: 15px;
+   border-right: 1px solid;
+   border-color: transparent;
+   padding-top: 15px;
    overflow-y: auto;
+   border-color: #DDD;
+   .box-shadow(2px 2px 5px #EEE);
+   .transition(border-color 1s ease);
 }
 .sticky-wrapper { 
    float: left; 
@@ -34,6 +41,11 @@ ul.breadcrumb
    .border-top-radius(0px);
    .border-bottom-radius(0px);
 }
+img.img-thumbnail.pull-left { margin-right: 10px; }
+article { 
+   margin-bottom: 50px; 
+   overflow: hidden;
+}
 
 // Anything larger than an iPad in portrait mode 
 @media (min-width: 979px) {
@@ -42,19 +54,23 @@ ul.breadcrumb
    , .container.toggle { 
       margin: 0px auto; 
       width: 100%;
+      section#main { opacity: 1; }
    }
    .sticky-wrapper { 
       width: 25%; 
       padding-left: 0px;
    }
    section#sidebar {
-      padding: 0px;
       width: 100%;
       float: left;
+      border-color: transparent;
+      .box-shadow(0px 0px 0px);
       &.stuck { 
          position: fixed;
          top: 0;
          bottom: 0;
+         border-color: #DDD;
+         .box-shadow(2px 2px 5px #EEE);
          .panel.panel-primary,
          .panel.panel-primary .panel-heading { .border-top-radius(0px); }
       }

@@ -1,68 +1,79 @@
 extends blog-layout
 
+block breadcrumbs
+   li
+      a(href="../../") Home
+   li 
+      a(href="blog-single.html") Blog
+   li.active Kickstrap 2.0 Released!
+
 block blog-content
-	div.panel.panel-primary
-		a(href="kickstrap/_examples/blog-single.html")
-			div.panel-heading 
-				Kickstrap 2.0 Released!
-		img.img-thumbnail(src="http://api.rethumb.com/v1/width/150/http://upload.wikimedia.org/wikipedia/commons/b/b4/Ludwig_van_Beethoven.jpg")
-		p Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. 
-		hr
-		small
-			p.text-muted
-				em By
-					a  Adam Kochanowicz
-					&nbsp;on 
-					a  1, January 2014
-				br
-				em Tagged
-					a  announcements
-					,
-					a  kickstrap 
-	ul.media-list
-		li.media
-			a.pull-left(href="#")
-				img.media-object(src="http://api.rethumb.com/v1/width/60/height/60/http://upload.wikimedia.org/wikipedia/commons/d/d4/Jane_Austen_coloured_version.jpg")
-			div.media-body
-				h4.media-heading Jane Austen
-				p Really looking forward to using this. By the way, thanks for all your help on my new book, Adam. Couldn't have done it without you.
-				p
-					a(href="#") 
-						em Reply
-				div.media
-					a.pull-left(href="#")
-						img.media-object(src="http://api.rethumb.com/v1/width/60/height/60/http://upload.wikimedia.org/wikipedia/commons/d/d4/Jane_Austen_coloured_version.jpg")
-					div.media-body
-						h4.media-heading Jane Austen	
-						p first.		
-						p
-							a(href="#") 
-								em Reply
-		li.media
-			a.pull-left(href="#")
-				img.media-object(src="http://api.rethumb.com/v1/width/60/height/60/http://upload.wikimedia.org/wikipedia/commons/b/b4/Hw-shakespeare.jpg")
-			div.media-body
-				h4.media-heading William Shakespeare
-				p If this were play'd upon a stage now, I could condemn it as an improbable fiction.
-				p
-					a(href="#") 
-						em Reply
-				div.media
-					a.pull-left(href="#")
-						img.media-object(src="http://api.rethumb.com/v1/width/60/height/60/http://upload.wikimedia.org/wikipedia/commons/8/86/Charlotte_Bronte_coloured_drawing.png")
-					div.media-body
-						h4.media-heading Charlotte Bronte	
-						p !!! I make over $5,000 a week using this simple trick! You won't believe how easy it is. 
-							a(href="http://getkickstrap.com") http://scam.freecash4u.ru.co.uk/ezmoney
-						p
-							a(href="#") 
-								em Reply
-						div.media
-							a.pull-left(href="#")
-								img.media-object(src="http://api.rethumb.com/v1/width/60/height/60/http://upload.wikimedia.org/wikipedia/commons/4/44/Washington_Irving.jpg")
-							div.media-body
-								h4.media-heading Washington Irving	
-								p Ohh. Looks like Charlotte got hacked.
-								p
-									a(href="#") 
-										em Reply
+   article
+      a(href="blog-single.html")
+         h3 Kickstrap 2.0 Released!
+      p.lead The world's most advanced front-end kit is even better.
+      img.img-thumbnail.pull-left(src="http://api.rethumb.com/v1/width/150/http://upload.wikimedia.org/wikipedia/commons/b/b4/Ludwig_van_Beethoven.jpg")
+      p Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. 
+      hr
+      small
+         p.text-muted
+            em By
+               a  Adam Kochanowicz
+               &nbsp;on 
+               a  1, January 2014
+            br
+            em Tagged
+               a  announcements
+               ,
+               a  kickstrap 
+   .row
+      .col-span-8.col-offset-2
+         h3 Comments
+         hr
+         ul.media-list
+            li.media
+               a.pull-left(href="#")
+                  img.media-object(src="http://api.rethumb.com/v1/width/60/height/60/http://upload.wikimedia.org/wikipedia/commons/d/d4/Jane_Austen_coloured_version.jpg")
+               div.media-body
+                  h4.media-heading Jane Austen
+                  p Really looking forward to using this. By the way, thanks for all your help on my new book, Adam. Couldn't have done it without you.
+                  p
+                     a(href="#") 
+                        em Reply
+                  div.media
+                     a.pull-left(href="#")
+                        img.media-object(src="http://api.rethumb.com/v1/width/60/height/60/http://upload.wikimedia.org/wikipedia/commons/d/d4/Jane_Austen_coloured_version.jpg")
+                     div.media-body
+                        h4.media-heading Jane Austen	
+                        p first.		
+                        p
+                           a(href="#") 
+                              em Reply
+            li.media
+               a.pull-left(href="#")
+                  img.media-object(src="http://api.rethumb.com/v1/width/60/height/60/http://upload.wikimedia.org/wikipedia/commons/b/b4/Hw-shakespeare.jpg")
+               div.media-body
+                  h4.media-heading William Shakespeare
+                  p If this were play'd upon a stage now, I could condemn it as an improbable fiction.
+                  p
+                     a(href="#") 
+                        em Reply
+                  div.media
+                     a.pull-left(href="#")
+                        img.media-object(src="http://api.rethumb.com/v1/width/60/height/60/http://upload.wikimedia.org/wikipedia/commons/8/86/Charlotte_Bronte_coloured_drawing.png")
+                     div.media-body
+                        h4.media-heading Charlotte Bronte	
+                        p !!! I make over $5,000 a week using this simple trick! You won't believe how easy it is. 
+                        a(href="http://getkickstrap.com") http://scam.freecash4u.ru.co.uk/ezmoney
+                        p
+                           a(href="#") 
+                              em Reply
+                        div.media
+                           a.pull-left(href="#")
+                              img.media-object(src="http://api.rethumb.com/v1/width/60/height/60/http://upload.wikimedia.org/wikipedia/commons/4/44/Washington_Irving.jpg")
+                           div.media-body
+                              h4.media-heading Washington Irving	
+                              p Ohh. Looks like Charlotte got hacked.
+                              p
+                                 a(href="#") 
+                                    em Reply

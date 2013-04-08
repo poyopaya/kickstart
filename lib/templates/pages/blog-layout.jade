@@ -1,48 +1,62 @@
-extends ../layout
+extends ../layout-sidebar
 
-block link
-  -var selected = 'Blog'
+block vars 
+   -var selected = 'Blog'
+   -var ksdir = '..'
 
-block content
-  div.row
-    div.col-span-12
-      div.page-header
-        h1 Blog
-          small &nbsp;Get up to date on what's happening at Kickstrap
-  div.row
-    div.col-span-9
+block main 
+   .row
+      .col-span-12 
+         block blog-content
 
-      block blog-content
-
-    div.col-span-3
-      .panel.panel-info
-        .panel-heading
-          ul.list-unstyled.list-inline
+block sidebar
+   .row
+      .col-span-12
+         h4 Most Popular Posts
+         ul.list-unstyled
             li 
-              a
-                i.icon-rss
+               a(href="blog-single.html") Kickstrap 2.0 Released
             li 
-              a
-                i.icon-facebook
+               a(href="#") 20 Minute Vegan Cookie Recipe
+            li
+               a(href="#") Time-Saving Tricks to Use Around the House
+         .media
+            a.pull-left(href="#")
+               img.media-object.thumbnail(src="http://api.rethumb.com/v1/width/50/https://graph.facebook.com/63203497/picture")
+            div.media-body 
+               h4.media-heading About me 
+               p Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+         ul.list-unstyled.list-inline
             li 
-              a
-                i.icon-twitter
+               a
+                  i.icon-rss
+            li 
+               a
+                  i.icon-facebook
+            li 
+               a
+                  i.icon-twitter
             li
-              a
-                i.icon-github
+               a
+                  i.icon-github
             li
-              a
-                i.icon-linkedin
+               a
+                  i.icon-linkedin
             li
-              a 
-                i.icon-google-plus
-        div.media
-          a.pull-left(href="#")
-            img.media-object.thumbnail(src="http://api.rethumb.com/v1/width/50/https://graph.facebook.com/63203497/picture")
-          div.media-body 
-            h4.media-heading About me 
-            p Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-      hr
-      h4 Archives
-      p
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+               a 
+                  i.icon-google-plus
+         br
+         h4 Archives
+         ul.list-unstyled
+            li
+               a(href="#") January 
+            li
+               a(href="#") February 
+            li
+               a(href="#") March 
+            li
+               a(href="#") April 
+            li
+               a(href="#") May 
+            li
+               a(href="#") June 

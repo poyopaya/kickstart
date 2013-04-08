@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Kickstrap 2.0.0 Alpha</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet/less" type="text/css" href="../_core/kickstrap.less">
+    <script>
+      var less = { env: 'development' }
+      // Uncomment the above line to prevent caching.
+    </script>
+    <script src="../_core/js/less-1.4.0.min.js"></script><!--[if lt IE 10]>
+    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  </head>
+  <body>
+    <div class="navbar navbar-inverse visible-desktop">
+      <div class="container"><a class="navbar-brand">Acme Industries</a>
+        <div class="nav-collapse collapse">
+          <ul class="nav">
+            <li class="active"><a href="/.">Home</a></li>
+            <li><a href="/kickstrap/_examples/blog-all.html">Blog</a></li>
+            <li><a href="/kickstrap/_examples/contacts.html">Contacts</a></li>
+            <li><a href="/kickstrap/_examples/product-list.html">Products</a></li>
+            <li><a href="/kickstrap/_examples/cart.html">Shopping Cart</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      <ul class="breadcrumb visible-desktop">
+        <li class="active"><a href="#">Page</a></li>
+      </ul>
+    </div>
+    <div class="container">     
+      <section id="sidebar">
+        <div class="row">
+          <div class="col-span-12">
+            <p>Hello world.</p>
+          </div>
+        </div>
+      </section>
+      <section id="main">
+        <div class="row">
+          <div class="col-span-12">
+            <p>Hello world.</p>
+          </div>
+        </div>
+      </section>
+    </div>
+    <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+    <script src="../apps/waypoints/waypoints.min.js"></script>
+    <script src="../apps/waypoints/shortcuts/sticky-elements/waypoints-sticky.min.js"></script>
+    <script>$('section#sidebar').waypoint('sticky');</script>
+  </body>
+</html>
