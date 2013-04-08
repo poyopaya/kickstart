@@ -13,15 +13,26 @@ html
    &.toggle { margin-left: (@sidebarToggleWidth - 100%); }
    max-width: none;
 }
-header#brand { height: 120px; }
 section#main {
    float: left;
    width: 50%;
+}
+section#sidebar { 
+   // min-height: 700px;
+   border-right: 1px solid #DDD;
+   margin-top: 15px;
+   overflow-y: auto;
 }
 .sticky-wrapper { 
    float: left; 
    width: 50%;
    padding-left: 10%; 
+}
+ul.breadcrumb
+, .navbar { 
+   margin: 0px; 
+   .border-top-radius(0px);
+   .border-bottom-radius(0px);
 }
 
 // Anything larger than an iPad in portrait mode 
