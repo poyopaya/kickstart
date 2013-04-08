@@ -12,9 +12,11 @@
     <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
   </head>
   <body>
-    <div class="navbar navbar-inverse visible-desktop">
-      <div class="container"><a class="navbar-brand">Acme Industries</a>
-        <div class="nav-collapse collapse">
+    <div class="navbar navbar-inverse">
+      <div class="container">
+        <button type="button" data-toggle="collapse" onclick="$('.container').toggleClass('toggle')" class="navbar-toggle pull-left"><span class="icon-double-angle-left"></span></button>
+        <button type="button" data-toggle="collapse" data-target=".navbar-responsive-collapse" class="navbar-toggle"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button><a class="navbar-brand">Acme Industries</a>
+        <div class="nav-collapse collapse navbar-responsive-collapse">
           <ul class="nav">
             <li class="active"><a href="/.">Home</a></li>
             <li><a href="/kickstrap/_examples/blog-all.html">Blog</a></li>
@@ -25,7 +27,7 @@
         </div>
       </div>
     </div>
-    <div class="container">
+    <div id="body" class="container">
       <ul class="breadcrumb visible-desktop">
         <li class="active">Home</li>
       </ul>
@@ -101,7 +103,6 @@
         <div class="row">
           <div class="col-span-12">
             <h1>Getting started</h1>
-            <button onclick="$('.container').toggleClass('toggle')" class="btn btn-primary hidden-desktop">Toggle</button>
             <p class="lead">Playing with and hacking the example templates.</p>
             <p><small class="text-muted"><em>By Adam Kochanowicz, April 8, 2013.</em></small></p>
             <p>Bootstrap takes care of the UI elements for your site, but what about the application design itself?</p>
@@ -112,6 +113,7 @@
       </section>
     </div>
     <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+    <script src="./kickstrap/_core/bootstrap/js/bootstrap-collapse.js"></script>
     <script src="./kickstrap/apps/waypoints/waypoints.min.js"></script>
     <script src="./kickstrap/apps/waypoints/shortcuts/sticky-elements/waypoints-sticky.min.js"></script>
     <script>$('section#sidebar').waypoint('sticky');</script>

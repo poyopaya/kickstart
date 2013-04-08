@@ -12,9 +12,11 @@
     <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
   </head>
   <body>
-    <div class="navbar navbar-inverse visible-desktop">
-      <div class="container"><a class="navbar-brand">Acme Industries</a>
-        <div class="nav-collapse collapse">
+    <div class="navbar navbar-inverse">
+      <div class="container">
+        <button type="button" data-toggle="collapse" onclick="$('.container').toggleClass('toggle')" class="navbar-toggle pull-left"><span class="icon-double-angle-left"></span></button>
+        <button type="button" data-toggle="collapse" data-target=".navbar-responsive-collapse" class="navbar-toggle"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button><a class="navbar-brand">Acme Industries</a>
+        <div class="nav-collapse collapse navbar-responsive-collapse">
           <ul class="nav">
             <li><a href="/.">Home</a></li>
             <li class="active"><a href="/kickstrap/_examples/blog-all.html">Blog</a></li>
@@ -25,7 +27,7 @@
         </div>
       </div>
     </div>
-    <div class="container">
+    <div id="body" class="container">
       <ul class="breadcrumb visible-desktop">
         <li><a href="../../">Home</a></li>
         <li> <a href="blog-single.html">Blog</a></li>
@@ -130,6 +132,7 @@
       </section>
     </div>
     <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+    <script src="../_core/bootstrap/js/bootstrap-collapse.js"></script>
     <script src="../apps/waypoints/waypoints.min.js"></script>
     <script src="../apps/waypoints/shortcuts/sticky-elements/waypoints-sticky.min.js"></script>
     <script>$('section#sidebar').waypoint('sticky');</script>

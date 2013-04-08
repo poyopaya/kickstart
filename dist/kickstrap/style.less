@@ -10,11 +10,25 @@ html
    width: 200%;
    margin-left: -100%;
    .transition(margin 0.1s ease-out);
+   max-width: none;
    &.toggle { 
       margin-left: (@sidebarToggleWidth - 100%); 
       section#main { opacity: 0.5 }
    }
-   max-width: none;
+   &#body { margin-top: 54px; }
+}
+.navbar {
+   position: fixed;
+   top: 0;
+   left: 0;
+   right: 0;
+   z-index: 1;
+   .container { margin-left: -50%; }
+   .navbar-toggle.pull-left {
+      left: 10px;
+      right: auto;
+      .icon-double-angle-left { color: white; }
+   }
 }
 section#main {
    float: left;
@@ -58,6 +72,11 @@ article {
       margin: 0px auto; 
       width: 100%;
       section#main { opacity: 1; }
+   }
+   .container#body { margin-top: 0px; }
+   .navbar {
+      position: static;
+      .container { margin-left: 0%; }
    }
    .sticky-wrapper { 
       width: 25%; 

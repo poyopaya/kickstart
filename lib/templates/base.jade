@@ -20,8 +20,14 @@ html
    body
       div.navbar.navbar-inverse
          div.container
+            button.navbar-toggle.pull-left(type="button", data-toggle="collapse", onclick="$('.container').toggleClass('toggle')")
+               span.icon-double-angle-left
+            button.navbar-toggle(type="button", data-toggle="collapse", data-target=".navbar-responsive-collapse")
+               span.icon-bar
+               span.icon-bar
+               span.icon-bar
             a.navbar-brand Acme Industries
-            div.nav-collapse.collapse
+            div.nav-collapse.collapse.navbar-responsive-collapse
                ul.nav
                   each val, key in menu
                      if selected === key
@@ -30,7 +36,7 @@ html
                      else
                         li
                            a(href=val)= key
-      div.container
+      div.container#body
          ul.breadcrumb.visible-desktop
             block breadcrumbs
       div.container      
@@ -38,6 +44,7 @@ html
          block body
 
       script(src="http://code.jquery.com/jquery-1.9.1.min.js")
+      script(src="#{ksdir}/_core/bootstrap/js/bootstrap-collapse.js")
       script(src="#{ksdir}/apps/waypoints/waypoints.min.js")
       script(src="#{ksdir}/apps/waypoints/shortcuts/sticky-elements/waypoints-sticky.min.js")
       script
