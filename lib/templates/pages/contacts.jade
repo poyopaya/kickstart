@@ -17,7 +17,7 @@ block sidebar
          input(placeholder="Filter", type="text", data-bind="value: filterTerm, valueUpdate: 'afterkeydown'")
          table.table.table-hover
             tbody(data-bind="foreach: filteredItems")
-               tr(data-bind="click: $parent.showModal", href="#currentContact", data-toggle="modal", style="cursor: pointer")
+               tr(data-bind="click: $parent.showModal", style="cursor: pointer")
                   td
                      img(style="width: 60px;height:60px", data-bind="attr:{ src: 'http://api.rethumb.com/v1/width/120/height/120/http://upload.wikimedia.org/wikipedia/commons/' + img }")
                   td(data-bind="text: lName") 

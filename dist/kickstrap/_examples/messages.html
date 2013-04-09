@@ -14,12 +14,13 @@
   <body>
     <div class="navbar navbar-inverse">
       <div class="container">
+        <button type="button" data-toggle="collapse" onclick="$('.container#page').toggleClass('toggle')" class="navbar-toggle pull-left"><span class="icon-double-angle-left"></span></button>
         <button type="button" data-toggle="collapse" data-target=".navbar-responsive-collapse" class="navbar-toggle"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button><a class="navbar-brand">Acme Industries</a>
         <div class="nav-collapse collapse navbar-responsive-collapse">
           <ul class="nav">
             <li><a href="../../">Home</a></li>
             <li><a href="../_examples/blog-all.html">Blog</a></li>
-            <li class="active"><a href="../_examples/contacts.html">Contacts</a></li>
+            <li><a href="../_examples/contacts.html">Contacts</a></li>
             <li><a href="../_examples/product-list.html">Products</a></li>
           </ul>
           <ul class="nav pull-right">
@@ -33,47 +34,34 @@
     </div>
     <div id="body" class="container">
       <ul class="breadcrumb visible-desktop">
-        <li> <a href="../../">Home</a></li>
-        <li class="active">Contacts</li>
+        <li><a href="../">Home</a></li>
+        <li class="active">Messages</li>
       </ul>
     </div>
     <div id="page" class="container">     
       <section id="sidebar">
-        <div class="row">
-          <div class="col-span-12">
-            <h4>My Contacts</h4>
+        <div class="panel">
+          <div class="panel-heading">
             <input placeholder="Filter" type="text" data-bind="value: filterTerm, valueUpdate: 'afterkeydown'">
-            <table class="table table-hover">
-              <tbody data-bind="foreach: filteredItems">
-                <tr data-bind="click: $parent.showModal" style="cursor: pointer">
-                  <td><img style="width: 60px;height:60px" data-bind="attr:{ src: 'http://api.rethumb.com/v1/width/120/height/120/http://upload.wikimedia.org/wikipedia/commons/' + img }"></td>
-                  <td data-bind="text: lName"> </td>
-                </tr>
-              </tbody>
-            </table>
           </div>
+          <table class="table table-hover">
+            <tbody data-bind="foreach: filteredItems">
+              <tr data-bind="click: $parent.showThread" style="cursor: pointer">
+                <td>
+                  <div data-bind="click: $parent.showThread" style="cursor: pointer" class="media"> <a href="#" class="pull-left"><img data-bind="attr:{ src: 'http://api.rethumb.com/v1/width/60/height/60/http://upload.wikimedia.org/wikipedia/commons/' + img }" style="width: 60px;height:60px;" src="http://api.rethumb.com/v1/width/120/height/120/http://upload.wikimedia.org/wikipedia/commons/8/86/Charlotte_Bronte_coloured_drawing.png" class="media-object"></a>
+                    <div class="media-body">
+                      <h4 data-bind="text: name" class="media-heading"> </h4><span data-bind="text: text"> </span>
+                    </div>
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
         </div>
       </section>
       <section id="main">
         <div class="row">
-          <div class="col-span-8 col-offset-2">
-            <h3 data-bind="text: currentContact.fName() + ' ' + currentContact.lName()"></h3>
-            <div class="row">
-              <div style="overflow: hidden" class="col-span-3"><img data-bind="attr:{ src: 'http://api.rethumb.com/v1/width/150/http://upload.wikimedia.org/wikipedia/commons/' + currentContact.img() }" class="img-thumbnail pull-left"></div>
-              <div class="col-span-9">
-                <p> <a href="#" class="btn"> <i class="icon-user"></i>&nbsp;View Complete Profile</a></p>
-                <p><a href="#" class="btn btn-primary"> <i class="icon-envelope"></i>&nbsp;Message</a></p>
-                <div class="panel">
-                  <div class="panel-heading">Bio</div>
-                  <p data-bind="text: currentContact.bio()"></p>
-                </div>
-                <div class="panel">
-                  <div class="panel-heading">Contact</div>
-                  <p>Email: </p><a data-bind="attr:{href: 'mailto:' + currentContact.email() }, text: currentContact.email()"></a>
-                </div>
-              </div>
-            </div>
-          </div>
+          <div class="col-span-8 col-offset-2"></div>
         </div>
       </section>
     </div>
@@ -84,7 +72,8 @@
     <script>$('section#sidebar').waypoint('sticky');</script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/knockout/2.2.1/knockout-min.js"></script>
     <script src="/kickstrap/_examples/assets/contacts.js"></script>
-    <script src="/kickstrap/_examples/assets/contact-list.js"></script>
+    <script src="/kickstrap/_examples/assets/messages.js"></script>
+    <script src="/kickstrap/_examples/assets/message-list.js"></script>
     <script src="/kickstrap/apps/bootstrap/bootstrap.js"></script>
   </body>
 </html>

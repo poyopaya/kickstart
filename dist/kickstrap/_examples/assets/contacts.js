@@ -5,6 +5,7 @@ var allContacts = [
 		, fName: 'Charlotte'
 		, lName: 'Bronte'
 		, email: 'c.bronte@slampoets.jam' 
+      , id: 000000001
 	}
 	,{ 
 		img: '8/85/Dantealighieri.PNG'
@@ -12,6 +13,7 @@ var allContacts = [
 		, fName: 'Dante'
 		, lName: 'Alighieri'
 		, email: 'd.alighieri@gmail.com' 
+      , id: 000000002
 	}
 	,{ 
 		img: '8/87/Dolley-madison.jpg'
@@ -19,6 +21,7 @@ var allContacts = [
 		, fName: 'Dolley'
 		, lName: 'Madison'
 		, email: 'd.madison@gmail.com' 
+      , id: 000000003
 	}
 	,{ 
 		img: '4/44/Washington_Irving.jpg'
@@ -26,6 +29,7 @@ var allContacts = [
 		, fName: 'Washington'
 		, lName: 'Irving'
 		, email: 'w.irving@yahoo.com' 
+      , id: 000000004
 	}
 	,{ 
 		img: 'd/d4/Jane_Austen_coloured_version.jpg'
@@ -33,6 +37,7 @@ var allContacts = [
 		, fName: 'Jane'
 		, lName: 'Austen'
 		, email: 'j.austen@myfreeemailaccount.ru'
+      , id: 000000005
 	}
 	,{ 
 		img: 'b/b4/Hw-shakespeare.jpg'
@@ -40,5 +45,6 @@ var allContacts = [
 		, fName: 'William'
 		, lName: 'Shakespeare'
 		, email: 'w.shakespeare@googlemail.co.uk'
+      , id: 000000006
 	}
 ]
