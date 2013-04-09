@@ -75,6 +75,29 @@ article {
    overflow: hidden;
 }
 
+// iPad in portrait mode
+@media (min-width: 768px) and (max-width: 978px) {
+   .navbar {
+      > .container { padding-left: 60px; }
+      .navbar-toggle.pull-left { 
+         display: block;
+         position: absolute;
+         top: 10px;
+      }
+   }
+   .container {
+      #body { margin-top: 0px; }
+      &.toggle { 
+         margin-left: -60%; 
+         section#sidebar { 
+            right: 60%; 
+            padding-left: 1%;
+            left: 0;
+         }
+      }
+   }
+}
+
 // Anything larger than an iPad in portrait mode 
 @media (min-width: 979px) {
    html, body, .container { overflow-x: visible; }
@@ -101,6 +124,7 @@ article {
          top: 0;
          bottom: 0;
          border-color: #DDD;
+         width: 25%;
          .box-shadow(2px 2px 5px #EEE);
          .panel.panel-primary,
          .panel.panel-primary .panel-heading { .border-top-radius(0px); }
@@ -112,22 +136,17 @@ article {
    }
 }
 
-@media (min-width: 768px) and (max-width: 979px) {
-   .navbar {
-      > .container { padding-left: 60px; }
-      .navbar-toggle.pull-left { 
-         display: block;
-         position: absolute;
-         top: 10px;
-      }
-   }
-   .container#body { margin-top: 0px; }
+// Exclusively phones
+@media (max-width: 768px) { 
+   ul.nav.pull-right { 
+      float: none; 
+      margin-top: 0px;
+   } 
 }
 
 // Large tablets-Medium-sized desktops
 @media (min-width: 980px) and (max-width: 1199px) { 
-   .container { max-width: 980px; }
-   section#sidebar.stuck { width: 245px; }
+   // .container { max-width: 980px; }
 }
 
 // Extra-large monitors

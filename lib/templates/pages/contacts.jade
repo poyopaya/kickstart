@@ -18,26 +18,32 @@ block sidebar
             tbody(data-bind="foreach: filteredItems")
                tr(data-bind="click: $parent.showModal", href="#currentContact", data-toggle="modal", style="cursor: pointer")
                   td
-                     img(data-bind="attr:{ src: 'http://api.rethumb.com/v1/width/60/height/60/http://upload.wikimedia.org/wikipedia/commons/' + img }")
-                  td(data-bind="text: lName")
-                  td(data-bind="text: fName") 
+                     img(style="width: 60px;height:60px", data-bind="attr:{ src: 'http://api.rethumb.com/v1/width/120/height/120/http://upload.wikimedia.org/wikipedia/commons/' + img }")
+                  td(data-bind="text: lName") 
 
 block main
    .row
       .col-span-8.col-offset-2
          h3(data-bind="text: currentContact.fName() + ' ' + currentContact.lName()")
-         img.img-thumbnail.pull-left(data-bind="attr:{ src: 'http://api.rethumb.com/v1/width/150/http://upload.wikimedia.org/wikipedia/commons/' + currentContact.img() }")
-         p(data-bind="text: currentContact.bio()")
-         p 
-            a.btn(href="#") 
-               i.icon-user
-               &nbsp;Profile
-         p
-            a.btn.btn-primary(href="#") 
-               i.icon-envelope
-               &nbsp;Message
-         p Email: 
-            a(data-bind="attr:{href: 'mailto:' + currentContact.email() }, text: currentContact.email()")
+         .row
+            .col-span-3(style="overflow: hidden:")
+               img.img-thumbnail.pull-left(data-bind="attr:{ src: 'http://api.rethumb.com/v1/width/150/http://upload.wikimedia.org/wikipedia/commons/' + currentContact.img() }")
+            .col-span-9
+               p 
+                  a.btn(href="#") 
+                     i.icon-user
+                     &nbsp;View Complete Profile
+               p
+                  a.btn.btn-primary(href="#") 
+                     i.icon-envelope
+                     &nbsp;Message
+               .panel
+                  .panel-heading Bio
+                  p(data-bind="text: currentContact.bio()")
+               .panel
+                  .panel-heading Contact
+                  p Email: 
+                  a(data-bind="attr:{href: 'mailto:' + currentContact.email() }, text: currentContact.email()")
 
 block javascript
   script(src="//cdnjs.cloudflare.com/ajax/libs/knockout/2.2.1/knockout-min.js")

@@ -22,7 +22,12 @@
             <li><a href="../_examples/blog-all.html">Blog</a></li>
             <li class="active"><a href="../_examples/contacts.html">Contacts</a></li>
             <li><a href="../_examples/product-list.html">Products</a></li>
-            <li><a href="../_examples/cart.html">Shopping Cart</a></li>
+          </ul>
+          <ul class="nav pull-right">
+            <li><a href="../_examples/cart.html"> <i class="icon-shopping-cart"></i><span class="visible-phone">
+                  <Shopping>Cart</Shopping></span><span class="badge">2</span></a></li>
+            <li><a href="../_examples/messages.html"> <i class="icon-envelope-alt"></i><span class="visible-phone">
+                  <Messages> </Messages></span><span class="badge">1</span></a></li>
           </ul>
         </div>
       </div>
@@ -42,9 +47,8 @@
             <table class="table table-hover">
               <tbody data-bind="foreach: filteredItems">
                 <tr data-bind="click: $parent.showModal" href="#currentContact" data-toggle="modal" style="cursor: pointer">
-                  <td><img data-bind="attr:{ src: 'http://api.rethumb.com/v1/width/60/height/60/http://upload.wikimedia.org/wikipedia/commons/' + img }"></td>
-                  <td data-bind="text: lName"></td>
-                  <td data-bind="text: fName"> </td>
+                  <td><img style="width: 60px;height:60px" data-bind="attr:{ src: 'http://api.rethumb.com/v1/width/120/height/120/http://upload.wikimedia.org/wikipedia/commons/' + img }"></td>
+                  <td data-bind="text: lName"> </td>
                 </tr>
               </tbody>
             </table>
@@ -54,11 +58,22 @@
       <section id="main">
         <div class="row">
           <div class="col-span-8 col-offset-2">
-            <h3 data-bind="text: currentContact.fName() + ' ' + currentContact.lName()"></h3><img data-bind="attr:{ src: 'http://api.rethumb.com/v1/width/150/http://upload.wikimedia.org/wikipedia/commons/' + currentContact.img() }" class="img-thumbnail pull-left">
-            <p data-bind="text: currentContact.bio()"></p>
-            <p> <a href="#" class="btn"> <i class="icon-user"></i>&nbsp;Profile</a></p>
-            <p><a href="#" class="btn btn-primary"> <i class="icon-envelope"></i>&nbsp;Message</a></p>
-            <p>Email: <a data-bind="attr:{href: 'mailto:' + currentContact.email() }, text: currentContact.email()"></a></p>
+            <h3 data-bind="text: currentContact.fName() + ' ' + currentContact.lName()"></h3>
+            <div class="row">
+              <div style="overflow: hidden:" class="col-span-3"><img data-bind="attr:{ src: 'http://api.rethumb.com/v1/width/150/http://upload.wikimedia.org/wikipedia/commons/' + currentContact.img() }" class="img-thumbnail pull-left"></div>
+              <div class="col-span-9">
+                <p> <a href="#" class="btn"> <i class="icon-user"></i>&nbsp;View Complete Profile</a></p>
+                <p><a href="#" class="btn btn-primary"> <i class="icon-envelope"></i>&nbsp;Message</a></p>
+                <div class="panel">
+                  <div class="panel-heading">Bio</div>
+                  <p data-bind="text: currentContact.bio()"></p>
+                </div>
+                <div class="panel">
+                  <div class="panel-heading">Contact</div>
+                  <p>Email: </p><a data-bind="attr:{href: 'mailto:' + currentContact.email() }, text: currentContact.email()"></a>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
