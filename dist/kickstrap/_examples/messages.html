@@ -40,28 +40,48 @@
     </div>
     <div id="page" class="container">     
       <section id="sidebar">
-        <div class="panel">
-          <div class="panel-heading">
-            <input placeholder="Filter" type="text" data-bind="value: filterTerm, valueUpdate: 'afterkeydown'">
+        <div class="row">
+          <div class="col-span-12">
+            <div class="panel">
+              <input placeholder="Filter" type="text" data-bind="value: filterTerm, valueUpdate: 'afterkeydown'">
+            </div>
           </div>
-          <table class="table table-hover">
-            <tbody data-bind="foreach: filteredItems">
-              <tr data-bind="click: $parent.showThread" style="cursor: pointer">
-                <td>
-                  <div data-bind="click: $parent.showThread" style="cursor: pointer" class="media"> <a href="#" class="pull-left"><img data-bind="attr:{ src: 'http://api.rethumb.com/v1/width/60/height/60/http://upload.wikimedia.org/wikipedia/commons/' + img }" style="width: 60px;height:60px;" src="http://api.rethumb.com/v1/width/120/height/120/http://upload.wikimedia.org/wikipedia/commons/8/86/Charlotte_Bronte_coloured_drawing.png" class="media-object"></a>
-                    <div class="media-body">
-                      <h4 data-bind="text: name" class="media-heading"> </h4><span data-bind="text: text"> </span>
-                    </div>
-                  </div>
-                </td>
-              </tr>
-            </tbody>
-          </table>
         </div>
+        <table class="table table-hover">
+          <tbody data-bind="foreach: filteredItems">
+            <tr data-bind="click: $parent.showThread" style="cursor: pointer">
+              <td>
+                <div data-bind="click: $parent.showThread" style="cursor: pointer" class="media"> <a href="#" class="pull-left"><img data-bind="attr:{ src: 'http://api.rethumb.com/v1/width/60/height/60/http://upload.wikimedia.org/wikipedia/commons/' + img }" style="width: 60px;height:60px;" src="http://api.rethumb.com/v1/width/120/height/120/http://upload.wikimedia.org/wikipedia/commons/8/86/Charlotte_Bronte_coloured_drawing.png" class="media-object"></a>
+                  <div class="media-body">
+                    <h4 data-bind="text: name" class="media-heading"> </h4><span data-bind="text: subject"> </span>
+                  </div>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
       </section>
       <section id="main">
         <div class="row">
-          <div class="col-span-8 col-offset-2"></div>
+          <div class="col-span-8 col-offset-2">
+            <h3 data-bind="text: currentSubject">Please select a conversation from the sidebar. </h3>
+            <p class="lead"> </p>
+            <div data-bind="foreach: currentThread">
+              <div class="panel">
+                <div class="media"><a href="#" class="pull-left"><img style="width: 60px; height:60px" data-bind="attr:{ src: 'http://api.rethumb.com/v1/width/60/height/60/http://upload.wikimedia.org/wikipedia/commons/' + img }" class="img-thumbnail"></a>
+                  <div class="media-body">
+                    <h4 data-bind="text: name" class="media-heading"> </h4><span data-bind="text: text"> </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div data-bind="visible: !isEmpty()">
+              <div class="panel panel-primary">
+                <div class="panel-heading">Reply</div>
+                <textarea class="textarea"></textarea><a href="#" class="btn btn-primary"><i class="icon-reply"></i>&nbsp;Reply</a>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
     </div>

@@ -11,26 +11,41 @@ block breadcrumbs
    li.active Messages
 
 block sidebar
-   .panel
-      .panel-heading
-         input(placeholder="Filter", type="text", data-bind="value: filterTerm, valueUpdate: 'afterkeydown'")
-      table.table.table-hover
-         tbody(data-bind="foreach: filteredItems")
-            tr(data-bind="click: $parent.showThread", style="cursor: pointer")
-               td
-                  .media(data-bind="click: $parent.showThread", style="cursor: pointer") 
-                     a.pull-left(href="#")
-                        img.media-object(data-bind="attr:{ src: 'http://api.rethumb.com/v1/width/60/height/60/http://upload.wikimedia.org/wikipedia/commons/' + img }", style="width: 60px;height:60px;", src="http://api.rethumb.com/v1/width/120/height/120/http://upload.wikimedia.org/wikipedia/commons/8/86/Charlotte_Bronte_coloured_drawing.png")
-                     .media-body
-                        h4.media-heading(data-bind="text: name") 
-                        span(data-bind="text: text") 
+   .row
+      .col-span-12
+         .panel
+            input(placeholder="Filter", type="text", data-bind="value: filterTerm, valueUpdate: 'afterkeydown'")
+   table.table.table-hover
+      tbody(data-bind="foreach: filteredItems")
+         tr(data-bind="click: $parent.showThread", style="cursor: pointer")
+            td
+               .media(data-bind="click: $parent.showThread", style="cursor: pointer") 
+                  a.pull-left(href="#")
+                     img.media-object(data-bind="attr:{ src: 'http://api.rethumb.com/v1/width/60/height/60/http://upload.wikimedia.org/wikipedia/commons/' + img }", style="width: 60px;height:60px;", src="http://api.rethumb.com/v1/width/120/height/120/http://upload.wikimedia.org/wikipedia/commons/8/86/Charlotte_Bronte_coloured_drawing.png")
+                  .media-body
+                     h4.media-heading(data-bind="text: name") 
+                     span(data-bind="text: subject") 
 
 block main 
    .row
       .col-span-8.col-offset-2
-         .panel
-            img.img-thumbnail.pull-left(style="width: 60px; height:60px, src="")
-            I was curious about that.
+         h3(data-bind="text: currentSubject") Please select a conversation from the sidebar. 
+         p.lead 
+         div(data-bind="foreach: currentThread")
+            .panel
+               .media
+                  a.pull-left(href="#")
+                     img.img-thumbnail(style="width: 60px; height:60px", data-bind="attr:{ src: 'http://api.rethumb.com/v1/width/60/height/60/http://upload.wikimedia.org/wikipedia/commons/' + img }")
+                  .media-body
+                     h4.media-heading(data-bind="text: name") 
+                     span(data-bind="text: text") 
+         div(data-bind="visible: !isEmpty()")
+            .panel.panel-primary
+               .panel-heading Reply
+               textarea.textarea
+               a(href="#").btn.btn-primary
+                  i.icon-reply
+                  | &nbsp;Reply
    
 block javascript
    script(src="//cdnjs.cloudflare.com/ajax/libs/knockout/2.2.1/knockout-min.js")
