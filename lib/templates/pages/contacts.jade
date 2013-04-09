@@ -3,6 +3,7 @@ extends ../layout-sidebar
 block vars 
   -var selected = 'Contacts'
   -var ksdir = '..'
+  -var sidebar = false
 
 block breadcrumbs
    li 
@@ -26,7 +27,7 @@ block main
       .col-span-8.col-offset-2
          h3(data-bind="text: currentContact.fName() + ' ' + currentContact.lName()")
          .row
-            .col-span-3(style="overflow: hidden:")
+            .col-span-3(style="overflow: hidden")
                img.img-thumbnail.pull-left(data-bind="attr:{ src: 'http://api.rethumb.com/v1/width/150/http://upload.wikimedia.org/wikipedia/commons/' + currentContact.img() }")
             .col-span-9
                p 

@@ -3,42 +3,45 @@ extends ../layout-no-sidebar
 block vars 
    -var selected = 'Shopping Cart'
    -var ksdir = '..'
+   -var sidebar = false 
 
 block breadcrumbs
    li
-      a(href="#") Home
+      a(href="../../") Home
    li Shopping Cart
 
 block main 
-   h2 
-      i.icon-shopping-cart 
-      | Shopping Cart (
-      span(data-bind="text: items().length") 
-      |)   
-   table.table
-      thead
-         tr
-            th(colspan="2") Product
-            th Price
-      tbody(data-bind="foreach: items")
-         tr
-            td(style="width: 150px;")
-               img(data-bind="attr:{ src: 'http://api.rethumb.com/v1/width/150/http://upload.wikimedia.org/wikipedia/commons/' + product().img}")
-            td
-               select(data-bind="options: $root.products, value: product, optionsText: 'title'")
-            td(data-bind="text: formattedPrice")
-            td
-               a(href="#", data-bind="click: $root.removeItem") Remove
-   button.btn(data-bind="click:addItem, enable: items().length < 5") 
-      i.icon-plus-sign 
-      | Add another product
-   h3(data-bind="visible: totalSurcharge() > 0") Total surcharge: $
-   span(data-bind="text: totalSurcharge().toFixed(2)")
-   h3 Total Items: 
-      span(data-bind="text: items().length")
-   a.btn.btn-primary.pull-right
-      i.icon-check
-      |&nbsp;Check Out
+   .row
+      .col-span-12
+         h2 
+            i.icon-shopping-cart 
+            | Shopping Cart (
+            span(data-bind="text: items().length") 
+            |)   
+         table.table
+            thead
+               tr
+                  th(colspan="2") Product
+                  th Price
+            tbody(data-bind="foreach: items")
+               tr
+                  td(style="width: 150px;")
+                     img(data-bind="attr:{ src: 'http://api.rethumb.com/v1/width/150/http://upload.wikimedia.org/wikipedia/commons/' + product().img}")
+                  td
+                     select(data-bind="options: $root.products, value: product, optionsText: 'title'")
+                  td(data-bind="text: formattedPrice")
+                  td
+                     a(href="#", data-bind="click: $root.removeItem") Remove
+         button.btn(data-bind="click:addItem, enable: items().length < 5") 
+            i.icon-plus-sign 
+            | Add another product
+         h3(data-bind="visible: totalSurcharge() > 0") Total surcharge: $
+            span(data-bind="text: totalSurcharge().toFixed(2)")
+         h3 Total Items: 
+            span(data-bind="text: items().length")
+         a.btn.btn-primary.pull-right
+            i.icon-check
+            |&nbsp;Check Out
 
 block javascript
   script(src="/kickstrap/apps/knockout/knockout.min.js")

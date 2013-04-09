@@ -1,6 +1,7 @@
 block vars
    -var selected = 'Home' //default 
    -var ksdir = './kickstrap'
+   -var sidebar = true;
 
 -var menu = { 'Home': ksdir + '/../', 'Blog': ksdir + '/_examples/blog-all.html', 'Contacts': ksdir + '/_examples/contacts.html', 'Products': ksdir + '/_examples/product-list.html'};
 
@@ -20,8 +21,9 @@ html
    body
       div.navbar.navbar-inverse
          div.container
-            button.navbar-toggle.pull-left(type="button", data-toggle="collapse", onclick="$('.container#page').toggleClass('toggle')")
-               span.icon-double-angle-left
+            if sidebar === true
+               button.navbar-toggle.pull-left(type="button", data-toggle="collapse", onclick="$('.container#page').toggleClass('toggle')")
+                  span.icon-double-angle-left
             button.navbar-toggle(type="button", data-toggle="collapse", data-target=".navbar-responsive-collapse")
                span.icon-bar
                span.icon-bar

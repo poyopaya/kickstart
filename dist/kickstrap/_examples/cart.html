@@ -14,7 +14,6 @@
   <body>
     <div class="navbar navbar-inverse">
       <div class="container">
-        <button type="button" data-toggle="collapse" onclick="$('.container#page').toggleClass('toggle')" class="navbar-toggle pull-left"><span class="icon-double-angle-left"></span></button>
         <button type="button" data-toggle="collapse" data-target=".navbar-responsive-collapse" class="navbar-toggle"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button><a class="navbar-brand">Acme Industries</a>
         <div class="nav-collapse collapse navbar-responsive-collapse">
           <ul class="nav">
@@ -34,34 +33,38 @@
     </div>
     <div id="body" class="container">
       <ul class="breadcrumb visible-desktop">
-        <li><a href="#">Home</a></li>
+        <li><a href="../../">Home</a></li>
         <li>Shopping Cart</li>
       </ul>
     </div>
     <div id="page" class="container">     
       <section id="main">
-        <h2> <i class="icon-shopping-cart"> </i>Shopping Cart (<span data-bind="text: items().length"> </span>)   </h2>
-        <table class="table">
-          <thead>
-            <tr>
-              <th colspan="2">Product</th>
-              <th>Price</th>
-            </tr>
-          </thead>
-          <tbody data-bind="foreach: items">
-            <tr>
-              <td style="width: 150px;"><img data-bind="attr:{ src: 'http://api.rethumb.com/v1/width/150/http://upload.wikimedia.org/wikipedia/commons/' + product().img}"></td>
-              <td>
-                <select data-bind="options: $root.products, value: product, optionsText: 'title'"></select>
-              </td>
-              <td data-bind="text: formattedPrice"></td>
-              <td><a href="#" data-bind="click: $root.removeItem">Remove</a></td>
-            </tr>
-          </tbody>
-        </table>
-        <button data-bind="click:addItem, enable: items().length &lt; 5" class="btn"> <i class="icon-plus-sign"> </i>Add another product</button>
-        <h3 data-bind="visible: totalSurcharge() &gt; 0">Total surcharge: $</h3><span data-bind="text: totalSurcharge().toFixed(2)"></span>
-        <h3>Total Items: <span data-bind="text: items().length"></span></h3><a class="btn btn-primary pull-right"><i class="icon-check"></i>&nbsp;Check Out</a>
+        <div class="row">
+          <div class="col-span-12">
+            <h2> <i class="icon-shopping-cart"> </i>Shopping Cart (<span data-bind="text: items().length"> </span>)   </h2>
+            <table class="table">
+              <thead>
+                <tr>
+                  <th colspan="2">Product</th>
+                  <th>Price</th>
+                </tr>
+              </thead>
+              <tbody data-bind="foreach: items">
+                <tr>
+                  <td style="width: 150px;"><img data-bind="attr:{ src: 'http://api.rethumb.com/v1/width/150/http://upload.wikimedia.org/wikipedia/commons/' + product().img}"></td>
+                  <td>
+                    <select data-bind="options: $root.products, value: product, optionsText: 'title'"></select>
+                  </td>
+                  <td data-bind="text: formattedPrice"></td>
+                  <td><a href="#" data-bind="click: $root.removeItem">Remove</a></td>
+                </tr>
+              </tbody>
+            </table>
+            <button data-bind="click:addItem, enable: items().length &lt; 5" class="btn"> <i class="icon-plus-sign"> </i>Add another product</button>
+            <h3 data-bind="visible: totalSurcharge() &gt; 0">Total surcharge: $<span data-bind="text: totalSurcharge().toFixed(2)"></span></h3>
+            <h3>Total Items: <span data-bind="text: items().length"></span></h3><a class="btn btn-primary pull-right"><i class="icon-check"></i>&nbsp;Check Out</a>
+          </div>
+        </div>
       </section>
     </div>
     <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>

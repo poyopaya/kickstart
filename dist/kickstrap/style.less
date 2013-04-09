@@ -11,9 +11,10 @@ html
    margin-left: -100%;
    .transition(margin 0.1s ease-out);
    max-width: none;
+   section#main { margin-left: 50%; }
    &.toggle { 
       margin-left: (@sidebarToggleWidth - 100%); 
-      section#main { opacity: 0.5 }
+      section#main { opacity: 0.5; }
       section#sidebar { 
          position: fixed;
          right: 20%;
@@ -41,9 +42,10 @@ html
       }
    }
 }
-section#main {
+div.sticky-wrapper + section#main {
    float: left;
    width: 50%;
+   margin-left: 0%;
 }
 section#sidebar { 
    // min-height: 700px;
@@ -105,7 +107,10 @@ article {
    , .container.toggle { 
       margin: 0px auto; 
       width: 100%;
-      section#main { opacity: 1; }
+      section#main { 
+         opacity: 1; 
+         margin-left: 0;
+      }
       section#sidebar { position: static; }
       &#page { position: static; }
    }
@@ -130,7 +135,7 @@ article {
          .panel.panel-primary .panel-heading { .border-top-radius(0px); }
       }
    }
-   section#main { 
+   div.sticky-wrapper + section#main { 
       width: 75%; 
       padding-left: 25px;
    }
