@@ -1,9 +1,15 @@
-extends ../layout
+extends ../layout-no-sidebar
 
-block link
+block vars 
   -var selected = 'Shopping Cart'
+  -var ksdir = '..'
 
-block content
+block breadcrumbs
+   li
+      a(href="#") Home
+   li Shopping Cart
+
+block main 
   h2 
     i.icon-shopping-cart 
     | Shopping Cart (
@@ -35,6 +41,7 @@ block content
     i.icon-check
     |&nbsp;Check Out
 
+block javascript
   script(src="/kickstrap/apps/knockout/knockout.min.js")
   script(src="/kickstrap/_examples/assets/products.js")
   script(src="/kickstrap/_examples/assets/cart.js")
