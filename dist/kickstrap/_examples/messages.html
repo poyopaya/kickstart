@@ -51,9 +51,9 @@
           <tbody data-bind="foreach: filteredItems">
             <tr data-bind="click: $parent.showThread" style="cursor: pointer">
               <td>
-                <div data-bind="click: $parent.showThread" style="cursor: pointer" class="media"> <a href="#" class="pull-left"><img data-bind="attr:{ src: 'http://api.rethumb.com/v1/width/60/height/60/http://upload.wikimedia.org/wikipedia/commons/' + img }" style="width: 60px;height:60px;" src="http://api.rethumb.com/v1/width/120/height/120/http://upload.wikimedia.org/wikipedia/commons/8/86/Charlotte_Bronte_coloured_drawing.png" class="media-object"></a>
+                <div data-bind="click: function() { $parent.showThread, $parent.setIsSelected }" style="cursor: pointer" class="media"> <a href="#reply" class="pull-left"><img data-bind="attr:{ src: 'http://api.rethumb.com/v1/width/60/height/60/http://upload.wikimedia.org/wikipedia/commons/' + img }" style="width: 60px;height:60px;" src="http://api.rethumb.com/v1/width/120/height/120/http://upload.wikimedia.org/wikipedia/commons/8/86/Charlotte_Bronte_coloured_drawing.png" class="media-object"></a>
                   <div class="media-body">
-                    <h4 data-bind="text: name" class="media-heading"> </h4><span data-bind="text: subject"> </span>
+                    <h4 class="media-heading"> <span data-bind="visible: !read" class="label label-success">NEW</span>&nbsp;<span data-bind="text: name"></span></h4><span data-bind="text: subject"> </span>
                   </div>
                 </div>
               </td>
@@ -65,7 +65,7 @@
         <div class="row">
           <div class="col-span-8 col-offset-2">
             <h3 data-bind="text: currentSubject">Please select a conversation from the sidebar. </h3>
-            <p class="lead"> </p>
+            <p data-bind="visible: !isEmpty()" class="lead"> <a href="#reply" data-bind="click: setIsSelected()"> <span class="icon-reply"></span>&nbsp;Reply</a></p>
             <div data-bind="foreach: currentThread">
               <div class="panel">
                 <div class="media"><a href="#" class="pull-left"><img style="width: 60px; height:60px" data-bind="attr:{ src: 'http://api.rethumb.com/v1/width/60/height/60/http://upload.wikimedia.org/wikipedia/commons/' + img }" class="img-thumbnail"></a>
@@ -76,10 +76,9 @@
               </div>
             </div>
             <div data-bind="visible: !isEmpty()">
-              <div class="panel panel-primary">
-                <div class="panel-heading">Reply</div>
-                <textarea class="textarea"></textarea><a href="#" class="btn btn-primary"><i class="icon-reply"></i>&nbsp;Reply</a>
-              </div>
+              <hr>
+              <h5> <span id="reply" class="icon-reply"></span>&nbsp;Reply</h5>
+              <textarea data-bind="hasfocus: isSelected()" placeholder="Type reply and hit enter." class="panel panel-primary"></textarea>
             </div>
           </div>
         </div>

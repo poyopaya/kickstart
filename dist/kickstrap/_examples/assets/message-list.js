@@ -24,6 +24,7 @@ var getThreadThumbnail = function (id) {
          // Getting just the last message for preview
          self.text = allThreads[x].messages[0].text
          self.subject = allThreads[x].subject
+         self.read = allThreads[x].read
          self.messages = allThreads[x].messages
          // Now find the contact by the contact ID
          var contactObj = getContactObjForId(contactId) 
@@ -45,6 +46,7 @@ var getThreadThumbnail = function (id) {
       } 
       threadThumbnails.push({
          subject: self.subject
+         , read: self.read
          , name: self.fName + ' ' + self.lName
          , img: self.img
          , text: self.text
@@ -61,6 +63,8 @@ function messageListViewModel() {
    self.currentSubject = ko.observable('Please select a conversation to the left')
    self.isEmpty = ko.observable(true)
    self.filterTerm = ko.observable()
+   self.isSelected = ko.observable(false)
+   self.setIsSelected = function() { self.isSelected(true) }
    self.filteredItems = ko.computed(function() {
       var term = this.filterTerm()
       if (!term) { return this.allThreads() }
