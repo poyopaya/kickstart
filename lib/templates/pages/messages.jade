@@ -14,6 +14,9 @@ block sidebar
    .row
       .col-span-12
          .panel
+            a.btn.btn-primary(href="#compose", data-toggle="modal") 
+               span.icon-envelope-alt
+               |&nbsp;Compose New
             input(placeholder="Filter", type="text", data-bind="value: filterTerm, valueUpdate: 'afterkeydown'")
    table.table.table-hover
       tbody(data-bind="foreach: filteredItems")
@@ -30,6 +33,24 @@ block sidebar
                      span(data-bind="text: subject") 
 
 block main 
+   .modal#compose
+      .modal-dialog
+         .modal-content
+            .modal-header
+               button.close(type="button", data-dismiss="modal", aria-hidden="true") &times;
+               h4.modal-title 
+                  span.icon-envelope-alt
+                  |&nbsp;Compose
+            .modal-body
+               select(data-bind="foreach: allContacts")
+                  option(data-bind="text: fName + ' ' + lName")
+               input(type="text", placeholder="Subject")
+               textarea(rows="4", placeholder="Body")
+            .modal-footer
+               a.btn(href="#") Cancel
+               a.btn.btn-primary(href="#")
+                  span.icon-reply
+                  |&nbsp;Send
    .row
       .col-span-8.col-offset-2
          h3(data-bind="text: currentSubject") Please select a conversation from the sidebar. 
@@ -54,7 +75,7 @@ block main
    
 block javascript
    script(src="//cdnjs.cloudflare.com/ajax/libs/knockout/2.2.1/knockout-min.js")
-   script(src="/kickstrap/_examples/assets/contacts.js")
-   script(src="/kickstrap/_examples/assets/messages.js")
-   script(src="/kickstrap/_examples/assets/message-list.js")
-   script(src="/kickstrap/apps/bootstrap/bootstrap.js")
+   script(src="assets/contacts.js")
+   script(src="assets/messages.js")
+   script(src="assets/message-list.js")
+   script(src="../apps/bootstrap/bootstrap.js")

@@ -46,9 +46,6 @@ prod:
 		@echo "-Knockout.js"
 		@cp -r lib/kickstrap/apps/knockout dist/kickstrap/apps/
 	
-		@echo "-Chosen"
-		@cp -r lib/kickstrap/apps/chosen dist/kickstrap/apps/
-	
 		@echo "-TinyGrowl"
 		@cp -r lib/kickstrap/apps/tinygrowl dist/kickstrap/apps/
 		@uglifyjs dist/kickstrap/apps/tinygrowl/tinygrowl.js -mc > dist/kickstrap/apps/tinygrowl/tinygrowl.min.js 

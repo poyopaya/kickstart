@@ -42,7 +42,7 @@
       <section id="sidebar">
         <div class="row">
           <div class="col-span-12">
-            <div class="panel">
+            <div class="panel"><a href="#compose" data-toggle="modal" class="btn btn-primary"> <span class="icon-envelope-alt"></span>&nbsp;Compose New</a>
               <input placeholder="Filter" type="text" data-bind="value: filterTerm, valueUpdate: 'afterkeydown'">
             </div>
           </div>
@@ -62,6 +62,24 @@
         </table>
       </section>
       <section id="main">
+        <div id="compose" class="modal">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" data-dismiss="modal" aria-hidden="true" class="close">&times;</button>
+                <h4 class="modal-title"> <span class="icon-envelope-alt"></span>&nbsp;Compose</h4>
+              </div>
+              <div class="modal-body">
+                <select data-bind="foreach: allContacts">
+                  <option data-bind="text: fName + ' ' + lName"></option>
+                </select>
+                <input type="text" placeholder="Subject">
+                <textarea rows="4" placeholder="Body"></textarea>
+              </div>
+              <div class="modal-footer"><a href="#" class="btn">Cancel</a><a href="#" class="btn btn-primary"><span class="icon-reply"></span>&nbsp;Send</a></div>
+            </div>
+          </div>
+        </div>
         <div class="row">
           <div class="col-span-8 col-offset-2">
             <h3 data-bind="text: currentSubject">Please select a conversation from the sidebar. </h3>
@@ -90,9 +108,9 @@
     <script src="../apps/waypoints/shortcuts/sticky-elements/waypoints-sticky.min.js"></script>
     <script>$('section#sidebar').waypoint('sticky');</script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/knockout/2.2.1/knockout-min.js"></script>
-    <script src="/kickstrap/_examples/assets/contacts.js"></script>
-    <script src="/kickstrap/_examples/assets/messages.js"></script>
-    <script src="/kickstrap/_examples/assets/message-list.js"></script>
-    <script src="/kickstrap/apps/bootstrap/bootstrap.js"></script>
+    <script src="assets/contacts.js"></script>
+    <script src="assets/messages.js"></script>
+    <script src="assets/message-list.js"></script>
+    <script src="../apps/bootstrap/bootstrap.js"></script>
   </body>
 </html>
