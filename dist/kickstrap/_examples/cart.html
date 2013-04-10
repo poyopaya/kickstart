@@ -40,27 +40,28 @@
     <div id="page" class="container">     
       <section id="main">
         <div class="row">
-          <div class="col-span-12">
-            <h2> <i class="icon-shopping-cart"> </i>Shopping Cart (<span data-bind="text: items().length"> </span>)   </h2>
+          <div class="col-span-8 col-offset-2">
+            <h2 style="display: inline-block"><i class="icon-shopping-cart"> </i>Shopping Cart (<span data-bind="text: items().length"> </span>)   </h2><a style="float: right; margin-top: 30px;" class="btn btn-primary"><i class="icon-check"></i>&nbsp;Check Out</a>
             <table class="table">
               <thead>
                 <tr>
                   <th colspan="2">Product</th>
                   <th>Price</th>
+                  <th>Quantity</th>
                 </tr>
               </thead>
               <tbody data-bind="foreach: items">
                 <tr>
                   <td style="width: 150px;"><img data-bind="attr:{ src: 'http://api.rethumb.com/v1/width/150/http://upload.wikimedia.org/wikipedia/commons/' + product().img}"></td>
-                  <td>
-                    <select data-bind="options: $root.products, value: product, optionsText: 'title'"></select>
-                  </td>
+                  <td data-bind="text: product().title"></td>
                   <td data-bind="text: formattedPrice"></td>
-                  <td><a href="#" data-bind="click: $root.removeItem">Remove</a></td>
+                  <td>
+                    <input type="text" data-bind="value: quantity, valueUpdate: 'afterkeydown'">
+                  </td>
+                  <td><a href="#" data-bind="click: $parent.removeItem">Remove</a></td>
                 </tr>
               </tbody>
             </table>
-            <button data-bind="click:addItem, enable: items().length &lt; 5" class="btn"> <i class="icon-plus-sign"> </i>Add another product</button>
             <h3 data-bind="visible: totalSurcharge() &gt; 0">Total surcharge: $<span data-bind="text: totalSurcharge().toFixed(2)"></span></h3>
             <h3>Total Items: <span data-bind="text: items().length"></span></h3><a class="btn btn-primary pull-right"><i class="icon-check"></i>&nbsp;Check Out</a>
           </div>
