@@ -12,13 +12,14 @@ function productListViewModel() {
 	}, this)
 }
 
+var priceFormat = function() {
+  var price = products[i].price 
+  return price ? "$" + price.toFixed(2) : "None";        
+}
 function productFormatter(products) {
 	for ( var i = 0; i < products.length; i ++ ) {
-		products[i].price = ko.computed(function() {
-        var price = products[i].price 
-        return price ? "$" + price.toFixed(2) : "None";        
-    });
-	}
+      products[i].price = ko.computed(priceFormat)
+   }
 	return products
 }
 

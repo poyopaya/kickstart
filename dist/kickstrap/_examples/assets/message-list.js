@@ -18,7 +18,7 @@ var getThreadThumbnail = function (id) {
    var contactId 
    // Get the thread by ID
    for ( var x = 0; x < allThreads.length; x++ ) { 
-      if ( allThreads[x].threadId == self.id || self.id == 0 ) { 
+      if ( allThreads[x].threadId == self.id || self.id === 0 ) { 
          contactId = allThreads[x].messages[0].contactId 
          // TODO: Get last message, not first.
          // Getting just the last message for preview
@@ -31,8 +31,8 @@ var getThreadThumbnail = function (id) {
          self.fName = contactObj.fName
          self.lName = contactObj.lName
          self.img = contactObj.img
-         if ( id != 0 ) { // In which case, this would be wasteful
-            for ( z in self.messages ) {
+         if ( id !== 0 ) { // In which case, this would be wasteful
+            for ( var z in self.messages ) {
                var _contactObj = getContactObjForId(self.messages[z].contactId)
                threadMessages.push({
                   name: _contactObj.fName + ' ' + _contactObj.lName
@@ -53,7 +53,7 @@ var getThreadThumbnail = function (id) {
          , threadId: allThreads[x].threadId
       })
    }
-   if ( id == 0 ) return threadThumbnails
+   if ( id === 0 ) return threadThumbnails
 }
 
 function messageListViewModel() {

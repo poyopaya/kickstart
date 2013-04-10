@@ -83,7 +83,7 @@
         <div class="row">
           <div class="col-span-8 col-offset-2">
             <h3 data-bind="text: currentSubject">Please select a conversation from the sidebar. </h3>
-            <p data-bind="visible: !isEmpty()" class="lead"> <a href="#reply" data-bind="click: setIsSelected()"> <span class="icon-reply"></span>&nbsp;Reply</a></p>
+            <div data-bind="visible: !isEmpty()" class="panel"><a href="#reply" data-bind="click: setIsSelected()"> <span class="icon-reply"></span>&nbsp;Reply</a></div>
             <div data-bind="foreach: currentThread">
               <div class="panel">
                 <div class="media"><a href="#" class="pull-left"><img style="width: 60px; height:60px" data-bind="attr:{ src: 'http://api.rethumb.com/v1/width/60/height/60/http://upload.wikimedia.org/wikipedia/commons/' + img }" class="img-thumbnail"></a>

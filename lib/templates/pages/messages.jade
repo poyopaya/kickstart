@@ -54,10 +54,10 @@ block main
    .row
       .col-span-8.col-offset-2
          h3(data-bind="text: currentSubject") Please select a conversation from the sidebar. 
-         p.lead(data-bind="visible: !isEmpty()") 
+         .panel(data-bind="visible: !isEmpty()")
             a(href="#reply", data-bind="click: setIsSelected()") 
-               span.icon-reply
-               |&nbsp;Reply
+                  span.icon-reply
+                  |&nbsp;Reply
          div(data-bind="foreach: currentThread")
             .panel
                .media
