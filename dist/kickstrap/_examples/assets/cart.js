@@ -19,7 +19,7 @@ function CartViewModel() {
     self.totalSurcharge = ko.computed(function() {
        var total = 0;
        for (var i = 0; i < self.items().length; i++)
-           total += self.items()[i].productTotal;
+           total += self.items()[i].productPrice();
        return total;
     });
 }
@@ -28,9 +28,11 @@ function ItemReservation(initialProduct) {
     var self = this;
     self.quantity = ko.observable(1)
     self.product = ko.observable(initialProduct); 
-    self.productTotal = self.product().price * parseInt("0" + self.quantity(), 10)
+    self.productPrice = ko.computed(function() {
+      return self.product().price.toFixed(2) * parseInt("0" + self.quantity(), 10)
+    })
     self.formattedPrice = ko.computed(function() {
-        return self.productTotal ? "$" + self.productTotal.toFixed(2) : "None";        
+        return self.product().price ? "$" + self.productPrice() : "None";        
     });
 }
 

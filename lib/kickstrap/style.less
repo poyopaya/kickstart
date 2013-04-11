@@ -78,6 +78,14 @@ article {
    overflow: hidden;
 }
 
+// Exclusively phones
+@media (max-width: 768px) { 
+   ul.nav.pull-right { 
+      float: none; 
+      margin-top: 0px;
+   } 
+}
+
 // iPad in portrait mode
 @media (min-width: 768px) and (max-width: 978px) {
    .navbar {
@@ -98,9 +106,7 @@ article {
             left: 0;
             width: auto;
          }
-         .col-offset-2 {
-            margin-left: 20px;
-         }
+         .col-offset-2 { margin-left: 20px; }
       }
    }
 }
@@ -149,22 +155,8 @@ article {
    }
 }
 
-// Exclusively phones
-@media (max-width: 768px) { 
-   ul.nav.pull-right { 
-      float: none; 
-      margin-top: 0px;
-   } 
-}
-
-// Large tablets-Medium-sized desktops
-@media (min-width: 980px) and (max-width: 1199px) { 
-   // .container { max-width: 980px; }
-}
-
 // Extra-large monitors
 @media (min-width: 1200px) {
    .container { max-width: 1200px; }
    section#sidebar.stuck { width: 300px; }
-}
-
+} 

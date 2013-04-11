@@ -41,9 +41,11 @@ block main
             span(data-bind="text: totalSurcharge().toFixed(2)")
          h3 Total Items: 
             span(data-bind="text: items().length")
-         a.btn.btn-primary.pull-right
-            i.icon-check
-            |&nbsp;Check Out
+         form.form-inline
+            input(type="text")
+            a.btn.btn-primary.pull-right
+               i.icon-check
+               |&nbsp;Check Out
 
 block javascript
   script(src="../apps/knockout/knockout.min.js")

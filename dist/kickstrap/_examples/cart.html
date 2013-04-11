@@ -63,7 +63,10 @@
               </tbody>
             </table>
             <h3 data-bind="visible: totalSurcharge() &gt; 0">Total surcharge: $<span data-bind="text: totalSurcharge().toFixed(2)"></span></h3>
-            <h3>Total Items: <span data-bind="text: items().length"></span></h3><a class="btn btn-primary pull-right"><i class="icon-check"></i>&nbsp;Check Out</a>
+            <h3>Total Items: <span data-bind="text: items().length"></span></h3>
+            <form class="form-inline">
+              <input type="text"><a class="btn btn-primary pull-right"><i class="icon-check"></i>&nbsp;Check Out</a>
+            </form>
           </div>
         </div>
       </section>
