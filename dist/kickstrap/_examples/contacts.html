@@ -47,7 +47,7 @@
             <table class="table table-hover">
               <tbody data-bind="foreach: filteredItems">
                 <tr data-bind="click: $parent.showModal" style="cursor: pointer">
-                  <td><img style="width: 60px;height:60px" data-bind="attr:{ src: 'http://api.rethumb.com/v1/width/120/height/120/http://upload.wikimedia.org/wikipedia/commons/' + img }"></td>
+                  <td><img style="width: 60px;height:60px" data-bind="attr:{ src: 'http://api.rethumb.com/v1/square/120/http://upload.wikimedia.org/wikipedia/commons/' + img }"></td>
                   <td data-bind="text: lName"> </td>
                 </tr>
               </tbody>
@@ -60,7 +60,7 @@
           <div class="col-span-8 col-offset-2">
             <h3 data-bind="text: currentContact.fName() + ' ' + currentContact.lName()"></h3>
             <div class="row">
-              <div style="overflow: hidden" class="col-span-3"><img style="width: 60px; height: 60px" data-bind="attr:{ src: 'http://api.rethumb.com/v1/width/150/http://upload.wikimedia.org/wikipedia/commons/' + currentContact.img() }" class="img-thumbnail pull-left"></div>
+              <div style="overflow: hidden" class="col-span-3"><img style="width: 60px; height: 60px" data-bind="attr:{ src: 'http://api.rethumb.com/v1/square/120/http://upload.wikimedia.org/wikipedia/commons/' + currentContact.img() }" class="img-thumbnail pull-left"></div>
               <div class="col-span-9">
                 <p> <a href="#" class="btn"> <i class="icon-user"></i>&nbsp;View Complete Profile</a></p>
                 <p><a href="#" class="btn btn-primary"> <i class="icon-envelope"></i>&nbsp;Message</a></p>

@@ -19,7 +19,7 @@ block sidebar
             tbody(data-bind="foreach: filteredItems")
                tr(data-bind="click: $parent.showModal", style="cursor: pointer")
                   td
-                     img(style="width: 60px;height:60px", data-bind="attr:{ src: 'http://api.rethumb.com/v1/width/120/height/120/http://upload.wikimedia.org/wikipedia/commons/' + img }")
+                     img(style="width: 60px;height:60px", data-bind="attr:{ src: 'http://api.rethumb.com/v1/square/120/http://upload.wikimedia.org/wikipedia/commons/' + img }")
                   td(data-bind="text: lName") 
 
 block main
@@ -28,7 +28,7 @@ block main
          h3(data-bind="text: currentContact.fName() + ' ' + currentContact.lName()")
          .row
             .col-span-3(style="overflow: hidden")
-               img.img-thumbnail.pull-left(style="width: 60px; height: 60px", data-bind="attr:{ src: 'http://api.rethumb.com/v1/width/150/http://upload.wikimedia.org/wikipedia/commons/' + currentContact.img() }")
+               img.img-thumbnail.pull-left(style="width: 60px; height: 60px", data-bind="attr:{ src: 'http://api.rethumb.com/v1/square/120/http://upload.wikimedia.org/wikipedia/commons/' + currentContact.img() }")
             .col-span-9
                p 
                   a.btn(href="#") 

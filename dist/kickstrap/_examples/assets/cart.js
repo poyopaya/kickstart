@@ -1,3 +1,4 @@
+// http://jsfiddle.net/rniemeyer/adNuR/
 // Overall viewmodel for this screen, along with initial state
 function CartViewModel() {
     var self = this;
@@ -25,7 +26,7 @@ function CartViewModel() {
 
 function ItemReservation(initialProduct) {
     var self = this;
-    self.quantity = ko.observable(2)
+    self.quantity = ko.observable(1)
     self.product = ko.observable(initialProduct); 
     self.productTotal = self.product().price * parseInt("0" + self.quantity(), 10)
     self.formattedPrice = ko.computed(function() {

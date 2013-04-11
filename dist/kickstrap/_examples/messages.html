@@ -51,7 +51,7 @@
           <tbody data-bind="foreach: filteredItems">
             <tr data-bind="click: $parent.showThread" style="cursor: pointer">
               <td>
-                <div data-bind="click: function() { $parent.showThread, $parent.setIsSelected }" style="cursor: pointer" class="media"> <a href="#reply" class="pull-left"><img data-bind="attr:{ src: 'http://api.rethumb.com/v1/width/60/height/60/http://upload.wikimedia.org/wikipedia/commons/' + img }" style="width: 60px;height:60px;" src="http://api.rethumb.com/v1/width/120/height/120/http://upload.wikimedia.org/wikipedia/commons/8/86/Charlotte_Bronte_coloured_drawing.png" class="media-object"></a>
+                <div data-bind="click: function() { $parent.showThread, $parent.setIsSelected }" style="cursor: pointer" class="media"> <a href="#reply" class="pull-left"><img data-bind="attr:{ src: 'http://api.rethumb.com/v1/square/120/http://upload.wikimedia.org/wikipedia/commons/' + img }" style="width: 60px;height:60px;" class="media-object"></a>
                   <div class="media-body">
                     <h4 class="media-heading"> <span data-bind="visible: !read" class="label label-success">NEW</span>&nbsp;<span data-bind="text: name"></span></h4><span data-bind="text: subject"> </span>
                   </div>
@@ -86,7 +86,7 @@
             <div data-bind="visible: !isEmpty()" class="panel"><a href="#reply" data-bind="click: setIsSelected()"> <span class="icon-reply"></span>&nbsp;Reply</a></div>
             <div data-bind="foreach: currentThread">
               <div class="panel">
-                <div class="media"><a href="#" class="pull-left"><img style="width: 60px; height:60px" data-bind="attr:{ src: 'http://api.rethumb.com/v1/width/60/height/60/http://upload.wikimedia.org/wikipedia/commons/' + img }" class="img-thumbnail"></a>
+                <div class="media"><a href="#" class="pull-left"><img style="width: 60px; height:60px" data-bind="attr:{ src: 'http://api.rethumb.com/v1/square/120/http://upload.wikimedia.org/wikipedia/commons/' + img }" class="img-thumbnail"></a>
                   <div class="media-body">
                     <h4 data-bind="text: name" class="media-heading"> </h4><span data-bind="text: text"> </span>
                   </div>
