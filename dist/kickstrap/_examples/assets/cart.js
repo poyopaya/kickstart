@@ -6,13 +6,13 @@ function CartViewModel() {
     self.products = allProducts
 
     self.items = ko.observableArray([
-        new ItemReservation(self.products[2]),
-        new ItemReservation(self.products[1])
+        new productDetails(self.products[2]),
+        new productDetails(self.products[1])
     ]);
 
     // Operations
     self.addItem = function() {
-        self.items.push(new ItemReservation(self.products[0]));
+        self.items.push(new productDetails(self.products[0]));
     }
     self.removeItem = function(item) { self.items.remove(item) }
 
@@ -24,7 +24,7 @@ function CartViewModel() {
     });
 }
 
-function ItemReservation(initialProduct) {
+function productDetails(initialProduct) {
     var self = this;
     self.quantity = ko.observable(1)
     self.product = ko.observable(initialProduct); 

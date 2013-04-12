@@ -1,6 +1,5 @@
 function productListViewModel() {
-	this.products = ko.observableArray(productFormatter(allProducts))
-
+	this.products = ko.observableArray(allProducts)
 	this.filterTerm = ko.observable()
 
 	this.filteredItems = ko.computed(function() {
@@ -10,18 +9,6 @@ function productListViewModel() {
 			return item.title.toLowerCase().indexOf(term.toLowerCase()) > -1 
       });
 	}, this)
-}
-
-var priceFormat = function() {
-  var price = products[i].price 
-  return price ? "$" + price.toFixed(2) : "None";        
-}
-
-function productFormatter(products) {
-	for ( var i = 0; i < products.length; i ++ ) {
-      products[i].price = ko.computed(priceFormat)
-   }
-	return products
-}
+} 
 
 ko.applyBindings(new productListViewModel())

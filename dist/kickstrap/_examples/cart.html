@@ -23,10 +23,9 @@
             <li><a href="../_examples/product-list.html">Products</a></li>
           </ul>
           <ul class="nav pull-right">
-            <li><a href="../_examples/cart.html"> <i class="icon-shopping-cart"></i><span class="visible-phone">
-                  <Shopping>Cart</Shopping></span><span class="badge">2</span></a></li>
-            <li><a href="../_examples/messages.html"> <i class="icon-envelope-alt"></i><span class="visible-phone">
-                  <Messages> </Messages></span><span class="badge">1</span></a></li>
+            <li><a href="../_examples/profile.html"> <i class="icon-user hidden-phone"></i><span class="hidden-tablet">My Profile</span></a></li>
+            <li><a href="../_examples/cart.html"> <i class="icon-shopping-cart hidden-phone"></i><span class="hidden-tablet">Cart&nbsp;</span><span class="badge">2</span></a></li>
+            <li><a href="../_examples/messages.html"> <i class="icon-envelope-alt hidden-phone"></i><span class="hidden-tablet">Messages&nbsp;</span><span class="badge">1</span></a></li>
           </ul>
         </div>
       </div>
@@ -64,9 +63,9 @@
             </table>
             <h3 data-bind="visible: totalSurcharge() &gt; 0">Total surcharge: $<span data-bind="text: totalSurcharge().toFixed(2)"></span></h3>
             <h3>Total Items: <span data-bind="text: items().length"></span></h3>
-            <form class="form-inline">
-              <input type="text"><a class="btn btn-primary pull-right"><i class="icon-check"></i>&nbsp;Check Out</a>
-            </form>
+            <div class="input-group col-span-3 col-offset-9"><span class="input-group-addon">#</span>
+              <input type="text" placeholder="Promo Code">
+            </div><a class="btn btn-primary pull-right"><i class="icon-check"></i>&nbsp;Check Out</a>
           </div>
         </div>
       </section>

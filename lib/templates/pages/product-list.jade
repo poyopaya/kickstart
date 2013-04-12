@@ -1,30 +1,41 @@
-extends ../layout
+extends ../layout-sidebar
 
-block link
+block vars   
   -var selected = 'Products'
+  -var ksdir = '..'
+  -var sidebar = true
 
-block content
-  div.row
-    div.col-span-9
-      h2 All Items
-    div.col-span-3
-      h2
-        input(placeholder="Filter", type="text", data-bind="value: filterTerm, valueUpdate: 'afterkeydown'")
-  table.table.table-hover
-    thead
-      tr
-        th Image 
-        th Product
-        th Description
-        th Price
-    tbody(data-bind="foreach: filteredItems")
-      tr
-        td
-          img(data-bind="attr:{ src: 'http://api.rethumb.com/v1/width/150/http://upload.wikimedia.org/wikipedia/commons/' + img }")
-        td(data-bind="text: title") 
-        td(data-bind="text: desc")
-        td(data-bind="text: price")
+block breadcrumbs
+   li
+      a(href="../../") Home
+   li.active Products
 
+block sidebar 
+   .row
+      .col-span-12
+         h4 Filtering Options
+         input(placeholder="Filter", type="text", data-bind="value: filterTerm, valueUpdate: 'afterkeydown'")
+
+block main 
+   .row
+      .col-span-12
+         h2 All Items
+         table.table.table-hover
+            thead
+               tr
+                  th Image 
+                  th Product
+                  th Description
+                  th Price
+            tbody(data-bind="foreach: filteredItems")
+               tr
+                  td
+                     img(style="width: 60px;height:60px;", data-bind="attr:{ src: 'http://api.rethumb.com/v1/square/120/http://upload.wikimedia.org/wikipedia/commons/' + img }")
+                  td(data-bind="text: title") 
+                  td(data-bind="text: desc")
+                  td(data-bind="text: '$' + price.toFixed(2)")
+
+block javascript
   script(src="//cdnjs.cloudflare.com/ajax/libs/knockout/2.2.1/knockout-min.js")
   script(src="/kickstrap/_examples/assets/products.js")
   script(src="/kickstrap/_examples/assets/product-list.js")
