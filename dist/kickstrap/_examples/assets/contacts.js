@@ -192,7 +192,7 @@ var allContacts = [
     , id: 24
 	}
 	,{ 
-		img: '4/4c/Benazir_Bhutto.jpg'
+		img: '9/93/Benazir_bhutto_1988.jpg'
     , bio: 'Benazir Bhutto was a politician and stateswoman who served as the 11th Prime Minister of Pakistan in two non-consecutive terms from November 1988 until October 1990, and 1993 until her final dismissal on November 1996.'
 		, fName: 'Benazir'
 		, lName: 'Bhutto'
