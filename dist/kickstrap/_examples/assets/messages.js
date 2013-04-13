@@ -267,4 +267,190 @@ var allThreads = [
          }
       ]
    }
+   , {
+      threadId: 5
+      , read: true
+      , subject: 'Lady Bloxham'
+      , messages: [
+         {
+            contactId: 11
+            , text: 'I own a house in Belgrave Square, but it is let by the year to Lady Bloxham.  Of course, I can get it back whenever I like, at six months’ notice.'
+         }
+         , {
+            contactId: 14
+            , text: 'Lady Bloxham?  I don’t know her.'
+         }
+         ,{
+            contactId: 11
+            , text: 'Oh, she goes about very little.  She is a lady considerably advanced in years.'
+         }
+         , {
+            contactId: 14
+            , text: 'Ah, nowadays that is no guarantee of respectability of character.  What number in Belgrave Square?'
+         }
+         ,{
+            contactId: 11
+            , text: '149'
+         }
+         , {
+            contactId: 14
+            , text: 'The unfashionable side.  I thought there was something.  However, that could easily be altered.'
+         }
+         ,{
+            contactId: 11
+            , text: 'Do you mean the fashion, or the side?'
+         }
+         , {
+            contactId: 14
+            , text: 'Both, if necessary, I presume.  What are your politics?'
+         }
+         ,{
+            contactId: 11
+            , text: 'Well, I am afraid I really have none.  I am a Liberal Unionist.'
+         }
+         , {
+            contactId: 14
+            , text: 'Oh, they count as Tories.  They dine with us.  Or come in the evening, at any rate.  Now to minor matters.  Are your parents living?'
+         }
+         ,{
+            contactId: 11
+            , text: 'I have lost both my parents.'
+         }
+         , {
+            contactId: 14
+            , text: 'To lose one parent, Mr. Worthing, may be regarded as a misfortune; to lose both looks like carelessness.  Who was your father?  He was evidently a man of some wealth.  Was he born in what the Radical papers call the purple of commerce, or did he rise from the ranks of the aristocracy?'
+         }
+         ,{
+            contactId: 11
+            , text: 'I am afraid I really don’t know.  The fact is, Lady Bracknell, I said I had lost my parents.  It would be nearer the truth to say that my parents seem to have lost me . . . I don’t actually know who I am by birth.  I was . . . well, I was found.'
+         }
+         , {
+            contactId: 14
+            , text: 'Found!'
+         }
+         ,{
+            contactId: 11
+            , text: 'The late Mr. Thomas Cardew, an old gentleman of a very charitable and kindly disposition, found me, and gave me the name of Worthing, because he happened to have a first-class ticket for Worthing in his pocket at the time.  Worthing is a place in Sussex.  It is a seaside resort.'
+         }
+         , {
+            contactId: 14
+            , text: 'Where did the charitable gentleman who had a first-class ticket for this seaside resort find you?'
+         }
+         ,{
+            contactId: 11
+            , text: 'In a hand-bag.'
+         }
+         , {
+            contactId: 14
+            , text: 'A hand-bag?'
+         }
+         ,{
+            contactId: 11
+            , text: 'Yes, Lady Bracknell.  I was in a hand-bag—a somewhat large, black leather hand-bag, with handles to it—an ordinary hand-bag in fact.'
+         }
+         , {
+            contactId: 14
+            , text: 'In what locality did this Mr. James, or Thomas, Cardew come across this ordinary hand-bag?'
+         }
+         ,{
+            contactId: 11
+            , text: 'In the cloak-room at Victoria Station.  It was given to him in mistake for his own.'
+         }
+         , {
+            contactId: 14
+            , text: 'The cloak-room at Victoria Station?'
+         }
+         ,{
+            contactId: 11
+            , text: 'Yes.  The Brighton line.'
+         }
+         , {
+            contactId: 14
+            , text: 'The line is immaterial.  Mr. Worthing, I confess I feel somewhat bewildered by what you have just told me.  To be born, or at any rate bred, in a hand-bag, whether it had handles or not, seems to me to display a contempt for the ordinary decencies of family life that reminds one of the worst excesses of the French Revolution.  And I presume you know what that unfortunate movement led to?  As for the particular locality in which the hand-bag was found, a cloak-room at a railway station might serve to conceal a social indiscretion—has probably, indeed, been used for that purpose before now—but it could hardly be regarded as an assured basis for a recognised position in good society.'
+         }
+      ]
+   }
+   , {
+      threadId: 6
+      , read: true
+      , subject: 'What do you think?'
+      , messages: [
+         {
+            contactId: 9
+            , text: 'I am obliged to go up by the first train on Monday morning.  I have a business appointment that I am anxious . . . to miss?'
+         }
+         , {
+            contactId: 8
+            , text: 'Couldn’t you miss it anywhere but in London?'
+         }
+         , {
+            contactId: 9
+            , text: 'No: the appointment is in London.'
+         }
+         , {
+            contactId: 8
+            , text: 'Well, I know, of course, how important it is not to keep a business engagement, if one wants to retain any sense of the beauty of life, but still I think you had better wait till Uncle Jack arrives.  I know he wants to speak to you about your emigrating.'
+         }
+         , {
+            contactId: 9
+            , text: 'About my what?'
+         }
+         , {
+            contactId: 8
+            , text: 'Your emigrating.  He has gone up to buy your outfit.'
+         }
+         , {
+            contactId: 9
+            , text: 'I certainly wouldn’t let Jack buy my outfit.  He has no taste in neckties at all.'
+         }
+         , {
+            contactId: 8
+            , text: 'I don’t think you will require neckties.  Uncle Jack is sending you to Australia.'
+         }
+         , {
+            contactId: 9
+            , text: 'Australia!  I’d sooner die.'
+         }
+         , {
+            contactId: 8
+            , text: 'Well, he said at dinner on Wednesday night, that you would have to choose between this world, the next world, and Australia.'
+         }
+         , {
+            contactId: 9
+            , text: 'Oh, well!  The accounts I have received of Australia and the next world, are not particularly encouraging.  This world is good enough for me, cousin Cecily.'
+         }
+         , {
+            contactId: 8
+            , text: 'Yes, but are you good enough for it?'
+         }
+         , {
+            contactId: 9
+            , text: 'I’m afraid I’m not that.  That is why I want you to reform me.  You might make that your mission, if you don’t mind, cousin Cecily.'
+         }
+         , {
+            contactId: 8
+            , text: 'I’m afraid I’ve no time, this afternoon.'
+         }
+         , {
+            contactId: 9
+            , text: 'Well, would you mind my reforming myself this afternoon?'
+         }
+         , {
+            contactId: 8
+            , text: 'It is rather Quixotic of you.  But I think you should try.'
+         }
+         , {
+            contactId: 9
+            , text: 'I will.  I feel better already.'
+         }
+         , {
+            contactId: 8
+            , text: 'You are looking a little worse.'
+         }
+         , {
+            contactId: 9
+            , text: 'That is because I am hungry.'
+         }
+      ]
+   }
 ]
