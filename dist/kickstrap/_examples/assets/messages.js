@@ -453,4 +453,186 @@ var allThreads = [
          }
       ]
    }
+   , {
+      threadId: 7
+      , read: true
+      , subject: 'Bunburying'
+      , messages: [
+         {
+            contactId: 4
+            , text: 'This ghastly state of things is what you call Bunburying, I suppose?'
+         }
+         , {
+            contactId: 7
+            , text: 'Yes, and a perfectly wonderful Bunbury it is.  The most wonderful Bunbury I have ever had in my life.'
+         }
+         , {
+            contactId: 4
+            , text: 'Well, you’ve no right whatsoever to Bunbury here.'
+         }
+         , {
+            contactId: 7
+            , text: 'That is absurd.  One has a right to Bunbury anywhere one chooses.  Every serious Bunburyist knows that.'
+         }
+         , {
+            contactId: 4
+            , text: 'Serious Bunburyist!  Good heavens!'
+         }
+         , {
+            contactId: 7
+            , text: 'Well, one must be serious about something, if one wants to have any amusement in life.  I happen to be serious about Bunburying.  What on earth you are serious about I haven’t got the remotest idea.  About everything, I should fancy.  You have such an absolutely trivial nature.'
+         }
+         , {
+            contactId: 4
+            , text: 'Well, the only small satisfaction I have in the whole of this wretched business is that your friend Bunbury is quite exploded.  You won’t be able to run down to the country quite so often as you used to do.  And a very good thing too.'
+         }
+         , {
+            contactId: 7
+            , text: 'Your brother is a little off colour, isn’t he?  You won’t be able to disappear to London quite so frequently as your wicked custom was.  And not a bad thing either.'
+         }
+         , {
+            contactId: 4
+            , text: 'As for your conduct towards Miss Cardew, I must say that your taking in a sweet, simple, innocent girl like that is quite inexcusable.  To say nothing of the fact that she is my ward.'
+         }
+         , {
+            contactId: 7
+            , text: 'I can see no possible defence at all for your deceiving a brilliant, clever, thoroughly experienced young lady like Miss Fairfax.  To say nothing of the fact that she is my cousin.'
+         }
+         , {
+            contactId: 4
+            , text: 'I wanted to be engaged to Gwendolen, that is all.  I love her.'
+         }
+         , {
+            contactId: 7
+            , text: 'Well, I simply wanted to be engaged to Cecily.  I adore her.'
+         }
+         , {
+            contactId: 4
+            , text: 'There is certainly no chance of your marrying Miss Cardew.'
+         }
+         , {
+            contactId: 7
+            , text: 'I don’t think there is much likelihood of you and Miss Fairfax being united.'
+         }
+         , {
+            contactId: 4
+            , text: 'Well, that is no business of yours.'
+         }
+         , {
+            contactId: 7
+            , text: 'If it was my business, I wouldn’t talk about it.  It is very vulgar to talk about one’s business.  Only people like stock-brokers do that, and then merely at dinner parties.'
+         }
+         , {
+            contactId: 4
+            , text: 'How can you sit there, calmly eating muffins when we are in this horrible trouble, I can’t make out.  You seem to me to be perfectly heartless.'
+         }
+         , {
+            contactId: 7
+            , text: 'Well, I can’t eat muffins in an agitated manner.  The butter would probably get on my cuffs.  One should always eat muffins quite calmly.  It is the only way to eat them.'
+         }
+         , {
+            contactId: 4
+            , text: 'I say it’s perfectly heartless your eating muffins at all, under the circumstances.'
+         }
+         , {
+            contactId: 7
+            , text: 'When I am in trouble, eating is the only thing that consoles me.  Indeed, when I am in really great trouble, as any one who knows me intimately will tell you, I refuse everything except food and drink.  At the present moment I am eating muffins because I am unhappy.  Besides, I am particularly fond of muffins.'
+         }
+      ] 
+   }
+   , {
+      threadId: 8
+      , read: true
+      , subject: 'Eating sweets again?'
+      , messages: [
+         {
+            contactId: 4 
+            , text: 'Hasn\'t Miss Sweet Tooth been breaking rules in town today?'
+         }
+         , {
+            contactId: 10
+            , text: 'No; what makes you think that?'
+         }
+         , {
+            contactId: 4 
+            , text: 'Hasn\'t she paid a visit to the confectioner\'s?'
+         }
+         , {
+            contactId: 10
+            , text: 'No, I assure you--'
+         }
+         , {
+            contactId: 4 
+            , text: 'Not been nibbling sweets?'
+         }
+         , {
+            contactId: 10
+            , text: 'No, certainly not.'
+         }
+         , {
+            contactId: 4 
+            , text: 'Not even taken a bite at a macaroon or two?'
+         }
+         , {
+            contactId: 10
+            , text: 'No, I assure you really--'
+         }
+         , {
+            contactId: 4 
+            , text: 'There, there, of course I was only joking.'
+         }
+         , {
+            contactId: 10
+            , text: 'I should not think of going against your wishes.'
+         }
+         , {
+            contactId: 4 
+            , text: 'No, I am sure of that; besides, you gave me your word--Keep your little Christmas secrets to yourself, my darling. They will all be revealed tonight when the Christmas Tree is lit, no doubt.'
+         }
+         , {
+            contactId: 10
+            , text: 'Did you remember to invite Doctor Rank?'
+         }
+         , {
+            contactId: 4 
+            , text: 'No. But there is no need; as a matter of course he will come to dinner with us. However, I will ask him when he comes in this morning. I have ordered some good wine. Nora, you can\'t think how I am looking forward to this evening.'
+         }
+         , {
+            contactId: 10
+            , text: 'So am I! And how the children will enjoy themselves, Torvald!'
+         }
+         , {
+            contactId: 4 
+            , text: 'It is splendid to feel that one has a perfectly safe appointment, and a big enough income. It\'s delightful to think of, isn\'t it?'
+         }
+         , {
+            contactId: 10
+            , text: 'It\'s wonderful!'
+         }
+         , {
+            contactId: 4 
+            , text: 'Do you remember last Christmas? For a full three weeks beforehand you shut yourself up every evening until long after midnight, making ornaments for the Christmas Tree, and all the other fine things that were to be a surprise to us. It was the dullest three weeks I ever spent!'
+         }
+         , {
+            contactId: 10
+            , text: 'I didn\'t find it dull.'
+         }
+         , {
+            contactId: 4 
+            , text: 'But there was precious little result.'
+         }
+         , {
+            contactId: 10
+            , text: 'Oh, you shouldn\'t tease me about that again. How could I help the cat\'s going in and tearing everything to pieces?'
+         }
+         , {
+            contactId: 4 
+            , text: 'Of course you couldn\'t, poor little girl. You had the best of intentions to please us all, and that\'s the main thing. But it is a good thing that our hard times are over.'
+         }
+         , {
+            contactId: 10
+            , text: 'Yes, it is really wonderful.'
+         }
+      ]
+   }
 ]
