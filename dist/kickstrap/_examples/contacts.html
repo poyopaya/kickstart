@@ -47,7 +47,7 @@
               <tbody data-bind="foreach: filteredItems">
                 <tr data-bind="click: $parent.showModal" style="cursor: pointer">
                   <td><img style="width: 60px;height:60px" data-bind="attr:{ src: 'http://api.rethumb.com/v1/square/120/http://upload.wikimedia.org/wikipedia/commons/' + img }"></td>
-                  <td data-bind="text: lName"> </td>
+                  <td data-bind="text: lName + ', ' + fName"> </td>
                 </tr>
               </tbody>
             </table>

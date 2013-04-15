@@ -1,3 +1,6 @@
+var sortFunction = function(a, b) {
+   return a.lName < b.lName ? -1 : 1;
+}
 function contactListViewModel() {
 	var self = this
 	self.contacts = ko.observableArray(allContacts)
@@ -13,10 +16,10 @@ function contactListViewModel() {
 
 	self.filteredItems = ko.computed(function() {
 		var term = this.filterTerm()
-		if (!term) { return this.contacts() }
+		if (!term) { return this.contacts.sort(sortFunction) }
 		return ko.utils.arrayFilter(this.contacts(), function(item) {
 			return (item.fName.toLowerCase().indexOf(term.toLowerCase()) > -1 || item.lName.toLowerCase().indexOf(term.toLowerCase()) > -1 )
-    });
+    }).sort();
 	}, this)
 
 	this.showModal = function(row) {
