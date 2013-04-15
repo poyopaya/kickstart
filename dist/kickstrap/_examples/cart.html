@@ -44,15 +44,14 @@
             <table class="table">
               <thead>
                 <tr>
-                  <th colspan="2">Product</th>
+                  <th>Product</th>
                   <th>Price</th>
                   <th>Quantity</th>
                 </tr>
               </thead>
               <tbody data-bind="foreach: items">
                 <tr>
-                  <td style="width: 150px;"><img data-bind="attr:{ src: 'http://api.rethumb.com/v1/width/150/http://upload.wikimedia.org/wikipedia/commons/' + product().img}"></td>
-                  <td data-bind="text: product().title"></td>
+                  <td style="width: 150px;"><img style="width: 60px; height: 60px;" data-bind="attr:{ src: 'http://api.rethumb.com/v1/square/120/http://upload.wikimedia.org/wikipedia/commons/' + product().img}" class="pull-left thumbnail"><span data-bind="text: product().title"></span></td>
                   <td data-bind="text: formattedPrice"></td>
                   <td>
                     <input type="text" data-bind="value: quantity, valueUpdate: 'afterkeydown'">

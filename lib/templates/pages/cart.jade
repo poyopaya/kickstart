@@ -24,14 +24,14 @@ block main
          table.table
             thead
                tr
-                  th(colspan="2") Product
+                  th Product
                   th Price
                   th Quantity
             tbody(data-bind="foreach: items")
                tr
                   td(style="width: 150px;")
-                     img(data-bind="attr:{ src: 'http://api.rethumb.com/v1/width/150/http://upload.wikimedia.org/wikipedia/commons/' + product().img}")
-                  td(data-bind="text: product().title")
+                     img.pull-left.thumbnail(style="width: 60px; height: 60px;", data-bind="attr:{ src: 'http://api.rethumb.com/v1/square/120/http://upload.wikimedia.org/wikipedia/commons/' + product().img}")
+                     span(data-bind="text: product().title")
                   td(data-bind="text: formattedPrice")
                   td
                      input(type="text", data-bind="value: quantity, valueUpdate: 'afterkeydown'") 0
