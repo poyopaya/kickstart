@@ -30,8 +30,10 @@ block main
             tbody(data-bind="foreach: filteredItems")
                tr
                   td(style="width: 85px;")
-                     img(style="width: 60px;height:60px;", data-bind="attr:{ src: 'http://api.rethumb.com/v1/square/120/http://upload.wikimedia.org/wikipedia/commons/' + img }")
-                  td(data-bind="text: title") 
+                     a(href="product-single.html")
+                        img(style="width: 60px;height:60px;", data-bind="attr:{ src: 'http://api.rethumb.com/v1/square/120/http://upload.wikimedia.org/wikipedia/commons/' + img }")
+                  td
+                     a(href="product-single.html", data-bind="text: title") 
                   td(data-bind="text: desc")
                   td(data-bind="text: '$' + price.toFixed(2)")
 

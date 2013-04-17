@@ -1,4 +1,51 @@
-extends ../layout
+extends ../layout-sidebar
 
-block link
+block vars 
   -var selected = 'Products'
+  -var ksdir = '..'
+  -var sidebar = true
+
+block breadcrumbs
+   li
+      a(href="../../") Home
+   li
+      a(href="product-list.html") Products
+   li.active Single Product
+
+block sidebar
+   .row
+      .col-span-12
+         h4 Similar Products
+         input(placeholder="Filter", type="text", data-bind="value: filterTerm, valueUpdate: 'afterkeydown'")
+         table.table.table-hover
+            tbody(data-bind="foreach: filteredItems")
+               tr
+                  td(style="width: 85px;")
+                     a(href="product-single.html")
+                        img(style="width: 60px;height:60px;", data-bind="attr:{ src: 'http://api.rethumb.com/v1/square/120/http://upload.wikimedia.org/wikipedia/commons/' + img }")
+                  td
+                     span
+                        a(href="#", data-bind="text: title") 
+                     br
+                     span(data-bind="text: desc")
+
+block main
+   .row
+      .col-span-12 
+         h2 Single Product
+         hr
+   .row
+      .col-span-3
+         img(style="width: 150px;height:150px;", src="http://api.rethumb.com/v1/square/300/http://upload.wikimedia.org/wikipedia/commons/f/fd/Bia33.jpg")
+      .col-span-9
+         h4 Details
+         p Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.  
+         a.btn.btn-primary
+            span.icon-shopping-cart
+            | &nbsp;Add to cart
+
+block javascript
+   script(src="//cdnjs.cloudflare.com/ajax/libs/knockout/2.2.1/knockout-min.js")
+   script(src="assets/products.js")
+   script(src="assets/product-list.js")
+   script(src="../apps/bootstrap/bootstrap.js")

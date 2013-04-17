@@ -35,40 +35,39 @@
       <div id="body" class="container">
         <ul class="breadcrumb visible-desktop">
           <li><a href="../../">Home</a></li>
-          <li class="active">Products</li>
+          <li><a href="product-list.html">Products</a></li>
+          <li class="active">Single Product</li>
         </ul>
       </div>
       <div id="page" class="container">     
         <section id="sidebar">
           <div class="row">
             <div class="col-span-12">
-              <h4>Filtering Options</h4>
+              <h4>Similar Products</h4>
               <input placeholder="Filter" type="text" data-bind="value: filterTerm, valueUpdate: 'afterkeydown'">
+              <table class="table table-hover">
+                <tbody data-bind="foreach: filteredItems">
+                  <tr>
+                    <td style="width: 85px;"><a href="product-single.html"><img style="width: 60px;height:60px;" data-bind="attr:{ src: 'http://api.rethumb.com/v1/square/120/http://upload.wikimedia.org/wikipedia/commons/' + img }"></a></td>
+                    <td><span><a href="#" data-bind="text: title"> </a></span><br><span data-bind="text: desc"></span></td>
+                  </tr>
+                </tbody>
+              </table>
             </div>
           </div>
         </section>
         <section id="main">
           <div class="row">
-            <div class="col-span-12">
-              <h2>All Items</h2>
-              <table class="table table-hover">
-                <thead>
-                  <tr>
-                    <th>Image </th>
-                    <th>Product</th>
-                    <th>Description</th>
-                    <th>Price</th>
-                  </tr>
-                </thead>
-                <tbody data-bind="foreach: filteredItems">
-                  <tr>
-                    <td style="width: 85px;"><a href="product-single.html"><img style="width: 60px;height:60px;" data-bind="attr:{ src: 'http://api.rethumb.com/v1/square/120/http://upload.wikimedia.org/wikipedia/commons/' + img }"></a></td>
-                    <td><a href="product-single.html" data-bind="text: title"> </a></td>
-                    <td data-bind="text: desc"></td>
-                    <td data-bind="text: '$' + price.toFixed(2)"></td>
-                  </tr>
-                </tbody>
-              </table>
+            <div class="col-span-12"> 
+              <h2>Single Product</h2>
+              <hr>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-span-3"><img style="width: 150px;height:150px;" src="http://api.rethumb.com/v1/square/300/http://upload.wikimedia.org/wikipedia/commons/f/fd/Bia33.jpg"></div>
+            <div class="col-span-9">
+              <h4>Details</h4>
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.  </p><a class="btn btn-primary"><span class="icon-shopping-cart"></span>&nbsp;Add to cart</a>
             </div>
           </div>
         </section>
@@ -89,8 +88,9 @@
       <script src="../apps/waypoints/shortcuts/sticky-elements/waypoints-sticky.min.js"></script>
       <script>$('section#sidebar').waypoint('sticky');</script>
       <script src="//cdnjs.cloudflare.com/ajax/libs/knockout/2.2.1/knockout-min.js"></script>
-      <script src="/kickstrap/_examples/assets/products.js"></script>
-      <script src="/kickstrap/_examples/assets/product-list.js"></script>
+      <script src="assets/products.js"></script>
+      <script src="assets/product-list.js"></script>
+      <script src="../apps/bootstrap/bootstrap.js"></script>
     </div>
   </body>
 </html>
