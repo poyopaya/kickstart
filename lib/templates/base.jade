@@ -19,52 +19,59 @@ html
       //if lt IE 10
          script(src="http://html5shiv.googlecode.com/svn/trunk/html5.js")
    body
-      div.navbar.navbar-inverse
-         div.container
-            if sidebar === true
-               button.navbar-toggle.pull-left(type="button", data-toggle="collapse", onclick="$('.container#page').toggleClass('toggle')")
-                  span.icon-double-angle-left
-            button.navbar-toggle(type="button", data-toggle="collapse", data-target=".navbar-responsive-collapse")
-               span.icon-bar
-               span.icon-bar
-               span.icon-bar
-            a.navbar-brand Acme Industries
-            div.nav-collapse.collapse.navbar-responsive-collapse
-               ul.nav
-                  each val, key in menu
-                     if selected === key
-                        li.active
-                           a(href=val)= key
-                     else
-                        li
-                           a(href=val)= key
+      div.sf-wrapper
+         div.navbar.navbar-inverse
+            div.container
+               if sidebar === true
+                  button.navbar-toggle.pull-left(type="button", data-toggle="collapse", onclick="$('.container#page').toggleClass('toggle')")
+                     span.icon-double-angle-left
+               button.navbar-toggle(type="button", data-toggle="collapse", data-target=".navbar-responsive-collapse")
+                  span.icon-bar
+                  span.icon-bar
+                  span.icon-bar
+               a.navbar-brand Acme Industries
+               div.nav-collapse.collapse.navbar-responsive-collapse
+                  ul.nav
+                     each val, key in menu
+                        if selected === key
+                           li.active
+                              a(href=val)= key
+                        else
+                           li
+                              a(href=val)= key
 
-               ul.nav.pull-right
-                  li
-                     a(href="#{ksdir}/_examples/profile.html") 
-                        i.icon-user.hidden-phone
-                        span.hidden-tablet My Profile
-                  li
-                     a(href="#{ksdir}/_examples/cart.html") 
-                        i.icon-shopping-cart.hidden-phone
-                        span.hidden-tablet Cart&nbsp;
-                        span.badge 2
-                  li
-                     a(href="#{ksdir}/_examples/messages.html") 
-                        i.icon-envelope-alt.hidden-phone
-                        span.hidden-tablet Messages&nbsp;
-                        span.badge 1
-      div.container#body
-         ul.breadcrumb.visible-desktop
-            block breadcrumbs
-      div.container#page      
-      
-         block body
+                  ul.nav.pull-right
+                     li
+                        a(href="#{ksdir}/_examples/profile.html") 
+                           i.icon-user.hidden-phone
+                           span.hidden-tablet My Profile
+                     li
+                        a(href="#{ksdir}/_examples/cart.html") 
+                           i.icon-shopping-cart.hidden-phone
+                           span.hidden-tablet Cart&nbsp;
+                           span.badge 2
+                     li
+                        a(href="#{ksdir}/_examples/messages.html") 
+                           i.icon-envelope-alt.hidden-phone
+                           span.hidden-tablet Messages&nbsp;
+                           span.badge 1
+         div.container#body
+            ul.breadcrumb.visible-desktop
+               block breadcrumbs
+         div.container#page      
+         
+            block body
 
-      script(src="http://code.jquery.com/jquery-1.9.1.min.js")
-      script(src="#{ksdir}/_core/bootstrap/js/bootstrap-collapse.js")
-      script(src="#{ksdir}/apps/waypoints/waypoints.min.js")
-      script(src="#{ksdir}/apps/waypoints/shortcuts/sticky-elements/waypoints-sticky.min.js")
-      script
-         $('section#sidebar').waypoint('sticky');
-      block javascript
+         .push
+      .footer
+         .container
+            .row
+               .col-span-9.col-offset-3
+                  p &copy; Acme Media 
+         script(src="http://code.jquery.com/jquery-1.9.1.min.js")
+         script(src="#{ksdir}/_core/bootstrap/js/bootstrap-collapse.js")
+         script(src="#{ksdir}/apps/waypoints/waypoints.min.js")
+         script(src="#{ksdir}/apps/waypoints/shortcuts/sticky-elements/waypoints-sticky.min.js")
+         script
+            $('section#sidebar').waypoint('sticky');
+         block javascript

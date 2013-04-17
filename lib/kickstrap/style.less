@@ -28,6 +28,7 @@ html
       top: 50px;
       bottom: 0;
       -webkit-overflow-scrolling: touch;
+      margin-bottom: @footerHeight;
    }
 }
 .navbar {
@@ -76,6 +77,16 @@ img.img-thumbnail.pull-left {
 article { 
    margin-bottom: 50px; 
    overflow: hidden;
+}
+.footer { 
+   .container {
+      background: @grayLighter; 
+      min-height: @footerHeight;
+      padding-top: 20px;
+      padding-bottom: 10px;
+      margin-left: 0px;
+      .col-offset-3 { margin-left: 0%; }
+   }
 }
 
 // Exclusively phones
@@ -126,7 +137,10 @@ article {
          position: static; 
          width: 100%;
       }
-      &#page { position: static; }
+      &#page { 
+         position: static; 
+         margin-bottom: 0px;
+      }
    }
    .navbar { padding-left: 15px; }
    .sticky-wrapper { 
@@ -136,6 +150,7 @@ article {
    section#sidebar {
       width: 100%;
       float: left;
+      background-color: white;
       border-color: transparent;
       .box-shadow(0px 0px 0px);
       &.stuck { 
@@ -152,6 +167,10 @@ article {
    div.sticky-wrapper + section#main { 
       width: 75%; 
       padding-left: 25px;
+   }
+   .footer .container {
+      margin-left: auto;
+      .col-offset-3 { margin-left: 25%; }
    }
 }
 

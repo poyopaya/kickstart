@@ -12,84 +12,96 @@
     <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
   </head>
   <body>
-    <div class="navbar navbar-inverse">
-      <div class="container">
-        <button type="button" data-toggle="collapse" onclick="$('.container#page').toggleClass('toggle')" class="navbar-toggle pull-left"><span class="icon-double-angle-left"></span></button>
-        <button type="button" data-toggle="collapse" data-target=".navbar-responsive-collapse" class="navbar-toggle"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button><a class="navbar-brand">Acme Industries</a>
-        <div class="nav-collapse collapse navbar-responsive-collapse">
-          <ul class="nav">
-            <li><a href="../../">Home</a></li>
-            <li><a href="../_examples/blog-all.html">Blog</a></li>
-            <li class="active"><a href="../_examples/contacts.html">Contacts</a></li>
-            <li><a href="../_examples/product-list.html">Products</a></li>
-          </ul>
-          <ul class="nav pull-right">
-            <li><a href="../_examples/profile.html"> <i class="icon-user hidden-phone"></i><span class="hidden-tablet">My Profile</span></a></li>
-            <li><a href="../_examples/cart.html"> <i class="icon-shopping-cart hidden-phone"></i><span class="hidden-tablet">Cart&nbsp;</span><span class="badge">2</span></a></li>
-            <li><a href="../_examples/messages.html"> <i class="icon-envelope-alt hidden-phone"></i><span class="hidden-tablet">Messages&nbsp;</span><span class="badge">1</span></a></li>
-          </ul>
-        </div>
-      </div>
-    </div>
-    <div id="body" class="container">
-      <ul class="breadcrumb visible-desktop">
-        <li> <a href="../../">Home</a></li>
-        <li class="active">Contacts</li>
-      </ul>
-    </div>
-    <div id="page" class="container">     
-      <section id="sidebar">
-        <div class="row">
-          <div class="col-span-12">
-            <h4>My Contacts</h4>
-            <input placeholder="Filter" type="text" data-bind="value: filterTerm, valueUpdate: 'afterkeydown'">
-            <table class="table table-hover">
-              <tbody data-bind="foreach: filteredItems">
-                <tr data-bind="click: $parent.showModal" style="cursor: pointer" class="dismiss-sidebar">
-                  <td><img style="width: 60px;height:60px" data-bind="attr:{ src: 'http://api.rethumb.com/v1/square/120/http://upload.wikimedia.org/wikipedia/commons/' + img }"></td>
-                  <td data-bind="text: lName + ', ' + fName"> </td>
-                </tr>
-              </tbody>
-            </table>
+    <div class="sf-wrapper">
+      <div class="navbar navbar-inverse">
+        <div class="container">
+          <button type="button" data-toggle="collapse" onclick="$('.container#page').toggleClass('toggle')" class="navbar-toggle pull-left"><span class="icon-double-angle-left"></span></button>
+          <button type="button" data-toggle="collapse" data-target=".navbar-responsive-collapse" class="navbar-toggle"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button><a class="navbar-brand">Acme Industries</a>
+          <div class="nav-collapse collapse navbar-responsive-collapse">
+            <ul class="nav">
+              <li><a href="../../">Home</a></li>
+              <li><a href="../_examples/blog-all.html">Blog</a></li>
+              <li class="active"><a href="../_examples/contacts.html">Contacts</a></li>
+              <li><a href="../_examples/product-list.html">Products</a></li>
+            </ul>
+            <ul class="nav pull-right">
+              <li><a href="../_examples/profile.html"> <i class="icon-user hidden-phone"></i><span class="hidden-tablet">My Profile</span></a></li>
+              <li><a href="../_examples/cart.html"> <i class="icon-shopping-cart hidden-phone"></i><span class="hidden-tablet">Cart&nbsp;</span><span class="badge">2</span></a></li>
+              <li><a href="../_examples/messages.html"> <i class="icon-envelope-alt hidden-phone"></i><span class="hidden-tablet">Messages&nbsp;</span><span class="badge">1</span></a></li>
+            </ul>
           </div>
         </div>
-      </section>
-      <section id="main">
-        <div class="row">
-          <div class="col-span-8 col-offset-2">
-            <h3 data-bind="text: currentContact.fName() + ' ' + currentContact.lName()"></h3>
-            <div class="row">
-              <div style="overflow: hidden" class="col-span-3"><img style="width: 60px; height: 60px" data-bind="attr:{ src: 'http://api.rethumb.com/v1/square/120/http://upload.wikimedia.org/wikipedia/commons/' + currentContact.img() }" class="img-thumbnail pull-left"></div>
-              <div class="col-span-9">
-                <p> <a href="#" class="btn"> <i class="icon-user"></i>&nbsp;View Complete Profile</a></p>
-                <p><a href="#" class="btn btn-primary"> <i class="icon-envelope"></i>&nbsp;Message</a></p>
-                <div class="panel">
-                  <div class="panel-heading">Bio</div>
-                  <p data-bind="text: currentContact.bio()"></p>
-                </div>
-                <div class="panel">
-                  <div class="panel-heading">Contact</div>
-                  <p>Email: </p><a data-bind="attr:{href: 'mailto:' + currentContact.email() }, text: currentContact.email()"></a>
+      </div>
+      <div id="body" class="container">
+        <ul class="breadcrumb visible-desktop">
+          <li> <a href="../../">Home</a></li>
+          <li class="active">Contacts</li>
+        </ul>
+      </div>
+      <div id="page" class="container">     
+        <section id="sidebar">
+          <div class="row">
+            <div class="col-span-12">
+              <h4>My Contacts</h4>
+              <input placeholder="Filter" type="text" data-bind="value: filterTerm, valueUpdate: 'afterkeydown'">
+              <table class="table table-hover">
+                <tbody data-bind="foreach: filteredItems">
+                  <tr data-bind="click: $parent.showModal" style="cursor: pointer" class="dismiss-sidebar">
+                    <td><img style="width: 60px;height:60px" data-bind="attr:{ src: 'http://api.rethumb.com/v1/square/120/http://upload.wikimedia.org/wikipedia/commons/' + img }"></td>
+                    <td data-bind="text: lName + ', ' + fName"> </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+        <section id="main">
+          <div class="row">
+            <div class="col-span-8 col-offset-2">
+              <h3 data-bind="text: currentContact.fName() + ' ' + currentContact.lName()"></h3>
+              <div class="row">
+                <div style="overflow: hidden" class="col-span-3"><img style="width: 60px; height: 60px" data-bind="attr:{ src: 'http://api.rethumb.com/v1/square/120/http://upload.wikimedia.org/wikipedia/commons/' + currentContact.img() }" class="img-thumbnail pull-left"></div>
+                <div class="col-span-9">
+                  <p> <a href="#" class="btn"> <i class="icon-user"></i>&nbsp;View Complete Profile</a></p>
+                  <p><a href="#" class="btn btn-primary"> <i class="icon-envelope"></i>&nbsp;Message</a></p>
+                  <div class="panel">
+                    <div class="panel-heading">Bio</div>
+                    <p data-bind="text: currentContact.bio()"></p>
+                  </div>
+                  <div class="panel">
+                    <div class="panel-heading">Contact</div>
+                    <p>Email: </p><a data-bind="attr:{href: 'mailto:' + currentContact.email() }, text: currentContact.email()"></a>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
+      </div>
+      <div class="push"></div>
     </div>
-    <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
-    <script src="../_core/bootstrap/js/bootstrap-collapse.js"></script>
-    <script src="../apps/waypoints/waypoints.min.js"></script>
-    <script src="../apps/waypoints/shortcuts/sticky-elements/waypoints-sticky.min.js"></script>
-    <script>$('section#sidebar').waypoint('sticky');</script>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/knockout/2.2.1/knockout-min.js"></script>
-    <script src="assets/contacts.js"></script>
-    <script src="assets/contact-list.js"></script>
-    <script src="../apps/bootstrap/bootstrap.js"></script>
-    <script>
-      $('.dismiss-sidebar').click(function() {
-        $('.container#page').toggleClass('toggle')
-      });
-    </script>
+    <div class="footer">
+      <div class="container">
+        <div class="row">
+          <div class="col-span-9 col-offset-3">
+            <p>&copy; Acme Media </p>
+          </div>
+        </div>
+      </div>
+      <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+      <script src="../_core/bootstrap/js/bootstrap-collapse.js"></script>
+      <script src="../apps/waypoints/waypoints.min.js"></script>
+      <script src="../apps/waypoints/shortcuts/sticky-elements/waypoints-sticky.min.js"></script>
+      <script>$('section#sidebar').waypoint('sticky');</script>
+      <script src="//cdnjs.cloudflare.com/ajax/libs/knockout/2.2.1/knockout-min.js"></script>
+      <script src="assets/contacts.js"></script>
+      <script src="assets/contact-list.js"></script>
+      <script src="../apps/bootstrap/bootstrap.js"></script>
+      <script>
+        $('.dismiss-sidebar').click(function() {
+          $('.container#page').toggleClass('toggle')
+        });
+      </script>
+    </div>
   </body>
 </html>

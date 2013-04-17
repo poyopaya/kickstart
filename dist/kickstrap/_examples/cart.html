@@ -12,70 +12,82 @@
     <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
   </head>
   <body>
-    <div class="navbar navbar-inverse">
-      <div class="container">
-        <button type="button" data-toggle="collapse" data-target=".navbar-responsive-collapse" class="navbar-toggle"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button><a class="navbar-brand">Acme Industries</a>
-        <div class="nav-collapse collapse navbar-responsive-collapse">
-          <ul class="nav">
-            <li><a href="../../">Home</a></li>
-            <li><a href="../_examples/blog-all.html">Blog</a></li>
-            <li><a href="../_examples/contacts.html">Contacts</a></li>
-            <li><a href="../_examples/product-list.html">Products</a></li>
-          </ul>
-          <ul class="nav pull-right">
-            <li><a href="../_examples/profile.html"> <i class="icon-user hidden-phone"></i><span class="hidden-tablet">My Profile</span></a></li>
-            <li><a href="../_examples/cart.html"> <i class="icon-shopping-cart hidden-phone"></i><span class="hidden-tablet">Cart&nbsp;</span><span class="badge">2</span></a></li>
-            <li><a href="../_examples/messages.html"> <i class="icon-envelope-alt hidden-phone"></i><span class="hidden-tablet">Messages&nbsp;</span><span class="badge">1</span></a></li>
-          </ul>
-        </div>
-      </div>
-    </div>
-    <div id="body" class="container">
-      <ul class="breadcrumb visible-desktop">
-        <li><a href="../../">Home</a></li>
-        <li>Shopping Cart</li>
-      </ul>
-    </div>
-    <div id="page" class="container">     
-      <section id="main">
-        <div class="row">
-          <div class="col-span-8 col-offset-2">
-            <h2 style="display: inline-block"><i class="icon-shopping-cart"> </i>Shopping Cart (<span data-bind="text: items().length"> </span>)   </h2><a style="float: right; margin-top: 30px;" class="btn btn-primary"><i class="icon-check"></i>&nbsp;Check Out</a>
-            <table class="table">
-              <thead>
-                <tr>
-                  <th>Product</th>
-                  <th>Price</th>
-                  <th>Quantity</th>
-                </tr>
-              </thead>
-              <tbody data-bind="foreach: items">
-                <tr>
-                  <td style="width: 150px;"><img style="width: 60px; height: 60px;" data-bind="attr:{ src: 'http://api.rethumb.com/v1/square/120/http://upload.wikimedia.org/wikipedia/commons/' + product().img}" class="pull-left thumbnail"><span data-bind="text: product().title"></span></td>
-                  <td data-bind="text: formattedPrice"></td>
-                  <td>
-                    <input type="text" data-bind="value: quantity, valueUpdate: 'afterkeydown'">
-                  </td>
-                  <td><a href="#" data-bind="click: $parent.removeItem">Remove</a></td>
-                </tr>
-              </tbody>
-            </table>
-            <h3 data-bind="visible: totalSurcharge() &gt; 0">Total surcharge: $<span data-bind="text: totalSurcharge().toFixed(2)"></span></h3>
-            <h3>Total Items: <span data-bind="text: items().length"></span></h3>
-            <div class="input-group col-span-3 col-offset-9"><span class="input-group-addon">#</span>
-              <input type="text" placeholder="Promo Code">
-            </div><a class="btn btn-primary pull-right"><i class="icon-check"></i>&nbsp;Check Out</a>
+    <div class="sf-wrapper">
+      <div class="navbar navbar-inverse">
+        <div class="container">
+          <button type="button" data-toggle="collapse" data-target=".navbar-responsive-collapse" class="navbar-toggle"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button><a class="navbar-brand">Acme Industries</a>
+          <div class="nav-collapse collapse navbar-responsive-collapse">
+            <ul class="nav">
+              <li><a href="../../">Home</a></li>
+              <li><a href="../_examples/blog-all.html">Blog</a></li>
+              <li><a href="../_examples/contacts.html">Contacts</a></li>
+              <li><a href="../_examples/product-list.html">Products</a></li>
+            </ul>
+            <ul class="nav pull-right">
+              <li><a href="../_examples/profile.html"> <i class="icon-user hidden-phone"></i><span class="hidden-tablet">My Profile</span></a></li>
+              <li><a href="../_examples/cart.html"> <i class="icon-shopping-cart hidden-phone"></i><span class="hidden-tablet">Cart&nbsp;</span><span class="badge">2</span></a></li>
+              <li><a href="../_examples/messages.html"> <i class="icon-envelope-alt hidden-phone"></i><span class="hidden-tablet">Messages&nbsp;</span><span class="badge">1</span></a></li>
+            </ul>
           </div>
         </div>
-      </section>
+      </div>
+      <div id="body" class="container">
+        <ul class="breadcrumb visible-desktop">
+          <li><a href="../../">Home</a></li>
+          <li>Shopping Cart</li>
+        </ul>
+      </div>
+      <div id="page" class="container">     
+        <section id="main">
+          <div class="row">
+            <div class="col-span-8 col-offset-2">
+              <h2 style="display: inline-block"><i class="icon-shopping-cart"> </i>Shopping Cart (<span data-bind="text: items().length"> </span>)   </h2><a style="float: right; margin-top: 30px;" class="btn btn-primary"><i class="icon-check"></i>&nbsp;Check Out</a>
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th>Product</th>
+                    <th>Price</th>
+                    <th>Quantity</th>
+                  </tr>
+                </thead>
+                <tbody data-bind="foreach: items">
+                  <tr>
+                    <td style="width: 150px;"><img style="width: 60px; height: 60px;" data-bind="attr:{ src: 'http://api.rethumb.com/v1/square/120/http://upload.wikimedia.org/wikipedia/commons/' + product().img}" class="pull-left thumbnail"><span data-bind="text: product().title"></span></td>
+                    <td data-bind="text: formattedPrice"></td>
+                    <td>
+                      <input type="text" data-bind="value: quantity, valueUpdate: 'afterkeydown'">
+                    </td>
+                    <td><a href="#" data-bind="click: $parent.removeItem">Remove</a></td>
+                  </tr>
+                </tbody>
+              </table>
+              <h3 data-bind="visible: totalSurcharge() &gt; 0">Total surcharge: $<span data-bind="text: totalSurcharge().toFixed(2)"></span></h3>
+              <h3>Total Items: <span data-bind="text: items().length"></span></h3>
+              <div class="input-group col-span-3 col-offset-9"><span class="input-group-addon">#</span>
+                <input type="text" placeholder="Promo Code">
+              </div><a class="btn btn-primary pull-right"><i class="icon-check"></i>&nbsp;Check Out</a>
+            </div>
+          </div>
+        </section>
+      </div>
+      <div class="push"></div>
     </div>
-    <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
-    <script src="../_core/bootstrap/js/bootstrap-collapse.js"></script>
-    <script src="../apps/waypoints/waypoints.min.js"></script>
-    <script src="../apps/waypoints/shortcuts/sticky-elements/waypoints-sticky.min.js"></script>
-    <script>$('section#sidebar').waypoint('sticky');</script>
-    <script src="../apps/knockout/knockout.min.js"></script>
-    <script src="assets/products.js"></script>
-    <script src="assets/cart.js"></script>
+    <div class="footer">
+      <div class="container">
+        <div class="row">
+          <div class="col-span-9 col-offset-3">
+            <p>&copy; Acme Media </p>
+          </div>
+        </div>
+      </div>
+      <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+      <script src="../_core/bootstrap/js/bootstrap-collapse.js"></script>
+      <script src="../apps/waypoints/waypoints.min.js"></script>
+      <script src="../apps/waypoints/shortcuts/sticky-elements/waypoints-sticky.min.js"></script>
+      <script>$('section#sidebar').waypoint('sticky');</script>
+      <script src="../apps/knockout/knockout.min.js"></script>
+      <script src="assets/products.js"></script>
+      <script src="assets/cart.js"></script>
+    </div>
   </body>
 </html>
