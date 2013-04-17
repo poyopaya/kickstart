@@ -50,7 +50,7 @@
           <tbody data-bind="foreach: filteredItems">
             <tr data-bind="click: $parent.showThread" style="cursor: pointer">
               <td>
-                <div data-bind="click: function() { $parent.showThread, $parent.setIsSelected }" style="cursor: pointer" class="media"> <a href="#reply" class="pull-left"><img data-bind="attr:{ src: 'http://api.rethumb.com/v1/square/120/http://upload.wikimedia.org/wikipedia/commons/' + img }" style="width: 60px;height:60px;" class="media-object"></a>
+                <div data-bind="click: function() { $parent.showThread, $parent.setIsSelected }" style="cursor: pointer" class="dismiss-sidebar media"> <a href="#reply" class="pull-left"><img data-bind="attr:{ src: 'http://api.rethumb.com/v1/square/120/http://upload.wikimedia.org/wikipedia/commons/' + img }" style="width: 60px;height:60px;" class="media-object"></a>
                   <div class="media-body">
                     <h4 class="media-heading"> <span data-bind="visible: !read" class="label label-success">NEW</span>&nbsp;<span data-bind="text: name"></span></h4><span data-bind="text: subject"> </span>
                   </div>
@@ -111,5 +111,10 @@
     <script src="assets/messages.js"></script>
     <script src="assets/message-list.js"></script>
     <script src="../apps/bootstrap/bootstrap.js"></script>
+    <script>
+      $('.dismiss-sidebar').click(function() {
+         $('.container#page').toggleClass('toggle')
+      });
+    </script>
   </body>
 </html>

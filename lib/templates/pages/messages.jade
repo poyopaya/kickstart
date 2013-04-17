@@ -22,7 +22,7 @@ block sidebar
       tbody(data-bind="foreach: filteredItems")
          tr(data-bind="click: $parent.showThread", style="cursor: pointer")
             td
-               .media(data-bind="click: function() { $parent.showThread, $parent.setIsSelected }", style="cursor: pointer") 
+               .dismiss-sidebar.media(data-bind="click: function() { $parent.showThread, $parent.setIsSelected }", style="cursor: pointer") 
                   a.pull-left(href="#reply")
                      img.media-object(data-bind="attr:{ src: 'http://api.rethumb.com/v1/square/120/http://upload.wikimedia.org/wikipedia/commons/' + img }", style="width: 60px;height:60px;")
                   .media-body
@@ -79,3 +79,7 @@ block javascript
    script(src="assets/messages.js")
    script(src="assets/message-list.js")
    script(src="../apps/bootstrap/bootstrap.js")
+   script
+      $('.dismiss-sidebar').click(function() {
+         $('.container#page').toggleClass('toggle')
+      });
