@@ -100,10 +100,6 @@ jshint:
 	@jshint lib/kickstrap/_examples/assets/*.js 
 
 pre-build: 
-	@echo "Updating repos"
-	@# cd lib/repos/tinygrowl;git pull origin master;
-	@# cd lib/repos/bootstrap;git pull origin 3.0.0-wip;
-
 	@echo "Making our dist and tests folders if they don't already exist"
 	@mkdir -p dist tests
 
@@ -114,8 +110,8 @@ pre-build:
 	@mkdir dist/kickstrap
 	@cp -r lib/kickstrap/* dist/kickstrap/ 
 
-	@echo "Copying in extras"
-	@cp -r lib/kickstrap/extras/* dist/kickstrap/extras
+	@echo "Copying in ui"
+	@cp -r lib/kickstrap/ui/* dist/kickstrap/ui
 
 	@echo "Copying in themes"
 	@cp -r lib/kickstrap/themes/* dist/kickstrap/themes/ 
@@ -123,6 +119,9 @@ pre-build:
 	@make jade
 
 post-build: 
+	@echo "Updating repos"
+	@cd lib/repos/tinygrowl;git pull origin master;
+	@cd lib/repos/bootstrap;git pull origin 3.0.0-wip;
 	@# POST BUILD
 
 	@echo "Moving in default index file"

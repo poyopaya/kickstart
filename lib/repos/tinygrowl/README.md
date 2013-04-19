@@ -32,6 +32,7 @@ Optional parameters
 * ``container``: Where to inject the growl message formatted in CSS syntax (default: 'body')
 * ``type``: type of alert (success/error/info/warning)
 * ``delay``: When to fade out alert (default is ``0``) 
+* ``class``: add a custom class or classes to the growl. 
 
 If a delay is not set, it defaults to zero, which makes the growl dismissable via an "x"
 
@@ -96,6 +97,6 @@ Tiny Growl's eloquent way of handling overflowing messages is simply to stick th
 Removing All Growls
 -------------------
 
-No need to reinvent the wheel here. Just use jQuery's native <code>remove()</code>
+No need to reinvent the wheel here. Just use jQuery's native <code>remove()</code> with the <code>growls</code> variable.
 
-    $('[class^="growl"]').remove()
+    $(growls).remove()
