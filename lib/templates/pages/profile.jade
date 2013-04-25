@@ -1,15 +1,39 @@
 extends ../layout-sidebar
 
 block vars
-  -var selected = 'Profile'
-  -var ksdir = '..'
-  -var sidebar = true
+	-var selected = 'Profile'
+	-var ksdir = '..'
+	-var sidebar = true
 
 block breadcrumbs
-   li
-      a(href="../") Home
-   li.active Login
+	li
+		a(href="../") Home
+	li.active Login
 
 block sidebar
+	.row
+		.col-span-12
+			img.img-thumbnail(src="http://api.rethumb.com/v1/square/200/http://upload.wikimedia.org/wikipedia/commons/2/2d/Amelia_earhart.jpeg")
+	.row
+		.col-span-12
+			h4 Connect 
+			.list-group
+				a.list-group-item(href="#")
+					i.icon-twitter
+					|  Twitter
+				a.list-group-item(href="#")
+					i.icon-facebook
+					|  Facebook
+				a.list-group-item(href="#")
+					i.icon-envelope
+					|  Message 
 
-block main
+block main			
+	article.row
+		.col-span-12
+			h1 Amelia Earhart
+			p.lead "Never interrupt someone doing something you said couldn't be done."
+			hr
+			h5 Bio
+			p Amelia Mary Earhart (July 24, 1897 – disappeared July 2, 1937) was an American aviation pioneer and author. Earhart was the first female pilot to fly solo across the Atlantic Ocean. She received the U.S. Distinguished Flying Cross for this record. She set many other records, wrote best-selling books about her flying experiences and was instrumental in the formation of The Ninety-Nines, an organization for female pilots. Earhart joined the faculty of the Purdue University aviation department in 1935 as a visiting faculty member to counsel women on careers and help inspire others with her love for aviation. She was also a member of the National Woman's Party, and an early supporter of the Equal Rights Amendment.
+			p During an attempt to make a circumnavigational flight of the globe in 1937 in a Purdue-funded Lockheed Model 10 Electra, Earhart disappeared over the central Pacific Ocean near Howland Island. Fascination with her life, career and disappearance continues to this day.
