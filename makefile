@@ -26,16 +26,7 @@ test:
 	@echo "Build complete."
 
 jade: 
-	# @jade lib/templates/pages/*.jade -O ./dist/kickstrap/_examples/ --pretty
-	@jade lib/templates/pages/index.jade -O ./dist/kickstrap/_examples/ --pretty
-	@jade lib/templates/pages/blog-all.jade -O ./dist/kickstrap/_examples/ --pretty
-	@jade lib/templates/pages/blog-single.jade -O ./dist/kickstrap/_examples/ --pretty
-	@jade lib/templates/pages/blank.jade -O ./dist/kickstrap/_examples/ --pretty
-	@jade lib/templates/pages/contacts.jade -O ./dist/kickstrap/_examples/ --pretty
-	@jade lib/templates/pages/cart.jade -O ./dist/kickstrap/_examples/ --pretty
-	@jade lib/templates/pages/messages.jade -O ./dist/kickstrap/_examples/ --pretty
-	@jade lib/templates/pages/product-list.jade -O ./dist/kickstrap/_examples/ --pretty
-	@jade lib/templates/pages/product-single.jade -O ./dist/kickstrap/_examples/ --pretty
+	@jade lib/templates/pages/*.jade -O ./dist/kickstrap/_examples/ --pretty
 
 jade-watch: 
 	@jade lib/templates/pages/*.jade -O ./dist/kickstrap/_examples/ --pretty --watch

@@ -1,4 +1,31 @@
-extends ../layout
+extends ../layout-no-sidebar
 
-block link
-  -var selected = 'Login'
+block vars
+	-var selected = 'Login'
+	-var ksdir = '..'
+	-var sidebar = true
+
+block breadcrumbs
+	li
+		a(href="../") Home
+	li.active Login
+
+block main
+	section.row
+		.col-span-4.col-offset-4(style="margin-top: 50px;")
+			.panel
+				form
+					h3 Login
+					label Email
+					input(type="email")
+					label Password
+					input(type="password")
+					br
+					a.btn.btn-primary(href="#") Login
+					hr
+					p
+						a(href="#") Forgot your password?
+					p
+						a(href="#")
+							strong Register for an account
+

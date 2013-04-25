@@ -14,7 +14,33 @@ block sidebar
    .row
       .col-span-12
          h4 Filtering Options
+         h5 Name
          input(placeholder="Filter", type="text", data-bind="value: filterTerm, valueUpdate: 'afterkeydown'")
+         h5 Price
+         input.col-span-3(placeholder="$0", type="text")
+         label to
+         input.col-span-3(placeholder="$100", type="text")
+         h5 Categories
+         .checkbox
+            label
+               input(type="checkbox")
+               | &nbsp;Home
+         .checkbox
+            label
+               input(type="checkbox")
+               | &nbsp;Garden
+         .checkbox
+            label
+               input(type="checkbox")
+               | &nbsp;Tech
+         .checkbox
+            label
+               input(type="checkbox")
+               | &nbsp;Fashion
+         .checkbox
+            label
+               input(type="checkbox")
+               | &nbsp;Sports
 
 block main 
    .row

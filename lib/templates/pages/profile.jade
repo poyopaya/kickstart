@@ -1,4 +1,15 @@
-extends ../layout
+extends ../layout-sidebar
 
-block link
+block vars
   -var selected = 'Profile'
+  -var ksdir = '..'
+  -var sidebar = true
+
+block breadcrumbs
+   li
+      a(href="../") Home
+   li.active Login
+
+block sidebar
+
+block main

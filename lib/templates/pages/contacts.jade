@@ -14,7 +14,7 @@ block sidebar
    .row
       .col-span-12
          h4 My Contacts
-         input(placeholder="Filter", type="text", data-bind="value: filterTerm, valueUpdate: 'afterkeydown'")
+         input(placeholder="Filter", type="text", data-bind="value: filterTerm, valueUpdate: 'afterkeydown'") 
          table.table.table-hover
             tbody(data-bind="foreach: filteredItems")
                tr.dismiss-sidebar(data-bind="click: $parent.showModal", style="cursor: pointer")
