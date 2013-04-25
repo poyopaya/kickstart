@@ -3,33 +3,40 @@ build:
 	@make prod
 	@make test
 
-build-simple:
-	@make pre-build
-	@make post-build
-
 prod: 
 	@make pre-build 
+	@make jade
 	@make jshint
 	@make prune-apps
 	@make spring-cleaning 
 	@make post-build
 
-test: 
+pre-build: 
+	@echo "Making our dist and tests folders if they don't already exist"
+	@mkdir -p dist tests
+
 	@echo "Clearing out previous folder..."
-	@find . -name .DS_Store -exec rm -f {} \;
-	@rm -rf tests/*
+	@rm -rf dist/*
+
 	@echo "Copying kickstrap folder..."
-	@mkdir tests/kickstrap
-	@cp -r lib/kickstrap/* tests/kickstrap/
-	@cp -r lib/tests/* tests/
-	@echo Skipping test creation for now.
-	@echo "Build complete."
+	@mkdir dist/kickstrap
+	@cp -r lib/kickstrap/* dist/kickstrap/ 
+
+	@echo "Copying in ui"
+	@cp -r lib/kickstrap/ui/* dist/kickstrap/ui
+
+	@echo "Copying in themes"
+	@cp -r lib/kickstrap/themes/* dist/kickstrap/themes/ 
 
 jade: 
 	@jade lib/templates/pages/*.jade -O ./dist/kickstrap/_examples/ --pretty
 
 jade-watch: 
 	@jade lib/templates/pages/*.jade -O ./dist/kickstrap/_examples/ --pretty --watch
+
+jshint: 
+	@echo "Running asset js files through jshint" 
+	@jshint lib/kickstrap/_examples/assets/*.js 
 
 prune-apps:
 	@echo "Moving in apps"
@@ -49,29 +56,6 @@ spring-cleaning:
 	@rm -rf dist/kickstrap/bootstrap/.git dist/kickstrap/bootstrap/.[a-z]*
 	@rm -rf tests/kickstrap/bootstrap/.git tests/kickstrap/bootstrap/.[a-z]*
 
-jshint: 
-	@echo "Running asset js files through jshint" 
-	@jshint lib/kickstrap/_examples/assets/*.js 
-
-pre-build: 
-	@echo "Making our dist and tests folders if they don't already exist"
-	@mkdir -p dist tests
-
-	@echo "Clearing out previous folder..."
-	@rm -rf dist/*
-
-	@echo "Copying kickstrap folder..."
-	@mkdir dist/kickstrap
-	@cp -r lib/kickstrap/* dist/kickstrap/ 
-
-	@echo "Copying in ui"
-	@cp -r lib/kickstrap/ui/* dist/kickstrap/ui
-
-	@echo "Copying in themes"
-	@cp -r lib/kickstrap/themes/* dist/kickstrap/themes/ 
-
-	@make jade
-
 post-build: 
 	@echo "Updating repos"
 	@cd lib/repos/tinygrowl;git pull origin master;
@@ -87,4 +71,15 @@ post-build:
 	@echo "Minifying files" 
 	@uglifyjs dist/kickstrap/_core/js/less-1.4.0.js -mc warnings=false > dist/kickstrap/_core/js/less-1.4.0.min.js
 	@uglifyjs dist/kickstrap/_core/js/kickstrap.js -mc warnings=false > dist/kickstrap/_core/js/kickstrap.min.js 
+	@echo "Build complete."
+
+test: 
+	@echo "Clearing out previous folder..."
+	@find . -name .DS_Store -exec rm -f {} \;
+	@rm -rf tests/*
+	@echo "Copying kickstrap folder..."
+	@mkdir tests/kickstrap
+	@cp -r lib/kickstrap/* tests/kickstrap/
+	@cp -r lib/tests/* tests/
+	@echo Skipping test creation for now.
 	@echo "Build complete."
