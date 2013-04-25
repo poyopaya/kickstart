@@ -32,59 +32,22 @@ jade-watch:
 	@jade lib/templates/pages/*.jade -O ./dist/kickstrap/_examples/ --pretty --watch
 
 prune-apps:
-	@echo "Delete contents of apps folder and individually select apps..."
+	@echo "Moving in apps"
 	@rm -rf dist/kickstrap/apps/*
-		@echo "-Animate.CSS"
-		@cp -r lib/kickstrap/apps/animatecss dist/kickstrap/apps/
-		
-		@echo "-Bootstrap app references"
-		@cp -r lib/kickstrap/apps/bootstrap dist/kickstrap/apps/
+	@cp -r lib/kickstrap/apps/* dist/kickstrap/apps/
+	
+	@echo "-Bootstrap app references"
+	@cp -r lib/kickstrap/apps/bootstrap dist/kickstrap/apps/
 
-			@echo "Bootstrap files"
-			@cp -r lib/repos/bootstrap dist/kickstrap/_core/
-	
-		@echo "-Waypoints"
-		@cp -r lib/kickstrap/apps/waypoints dist/kickstrap/apps/
-
-		@echo "-Ember.js"
-		@cp -r lib/kickstrap/apps/ember dist/kickstrap/apps/
-
-		@echo "-Ping"
-		@cp -r lib/kickstrap/apps/ping dist/kickstrap/apps/
-	
-		@echo "-Knockout.js"
-		@cp -r lib/kickstrap/apps/knockout dist/kickstrap/apps/
-	
-		@echo "-TinyGrowl"
-		@cp -r lib/kickstrap/apps/tinygrowl dist/kickstrap/apps/
-		@uglifyjs dist/kickstrap/apps/tinygrowl/tinygrowl.js -mc warnings=false > dist/kickstrap/apps/tinygrowl/tinygrowl.min.js 
-		
-		@echo "-jQuery Lint"
-		@cp -r lib/kickstrap/apps/jquerylint dist/kickstrap/apps/
-	
-		@echo "-Updater"
-		@cp -r lib/kickstrap/apps/updater dist/kickstrap/apps/
-		
-		@echo "-Firebug Lite"
-		@cp -r lib/kickstrap/apps/firebuglite dist/kickstrap/apps/
-	
-		@echo "-Universal"
-		@cp -r lib/kickstrap/apps/universal dist/kickstrap/apps/
+		@echo "Bootstrap files"
+		@cp -r lib/repos/bootstrap dist/kickstrap/_core/
 
 spring-cleaning: 
-	@echo "Removing some themes not ready for prime time..."
+	@echo "Getting rid of meta files"
 	@find . -name .DS_Store -exec rm -f {} \;
-	@rm -r dist/kickstrap/themes/smallworld/*
-	@rmdir dist/kickstrap/themes/smallworld
-	@rm -r dist/kickstrap/themes/smallworld.less
-	@rm -rf dist/kickstrap/themes/confetti/*
-	@rmdir dist/kickstrap/themes/confetti
-	@rm -r dist/kickstrap/themes/confetti.less
 	@echo "Removing .git directory from Bootstrap"
 	@rm -rf dist/kickstrap/bootstrap/.git dist/kickstrap/bootstrap/.[a-z]*
 	@rm -rf tests/kickstrap/bootstrap/.git tests/kickstrap/bootstrap/.[a-z]*
-	@echo "Spring cleaning"
-	@rm -r dist/kickstrap/apps/universal/ks-window
 
 jshint: 
 	@echo "Running asset js files through jshint" 
