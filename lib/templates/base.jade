@@ -66,8 +66,12 @@ html
       .footer
          .container
             .row
-               .col-span-9.col-offset-3
-                  p &copy; Acme Media 
+               if sidebar === true
+                  .col-span-9.col-offset-3
+                     p &copy; Acme Media 
+               else
+                  .col-span-12
+                     p &copy; Acme Media 
          script(src="http://code.jquery.com/jquery-1.9.1.min.js")
          script(src="#{ksdir}/apps/bootstrap/bootstrap.js")
          script(src="#{ksdir}/apps/waypoints/waypoints.min.js")
