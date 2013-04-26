@@ -11,7 +11,7 @@ block breadcrumbs
    li.active Messages
 
 block sidebar
-   .row
+   section.row
       .col-span-12
          .panel
             a.btn.btn-primary(href="#compose", data-toggle="modal") 
@@ -51,7 +51,7 @@ block main
                a.btn.btn-primary(href="#")
                   span.icon-reply
                   |&nbsp;Send
-   .row
+   section.row
       .col-span-8.col-offset-2
          h3(data-bind="text: currentSubject") Please select a conversation from the sidebar. 
          .panel(data-bind="visible: !isEmpty()")

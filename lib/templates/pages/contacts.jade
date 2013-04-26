@@ -11,7 +11,7 @@ block breadcrumbs
    li.active Contacts
 
 block sidebar 
-   .row
+   section.row
       .col-span-12
          h4 My Contacts
          input(placeholder="Filter", type="text", data-bind="value: filterTerm, valueUpdate: 'afterkeydown'") 
@@ -23,7 +23,7 @@ block sidebar
                   td(data-bind="text: lName + ', ' + fName") 
 
 block main
-   .row
+   section.row
       .col-span-8.col-offset-2
          h3(data-bind="text: currentContact.fName() + ' ' + currentContact.lName()")
          .row

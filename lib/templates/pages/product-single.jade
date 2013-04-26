@@ -13,7 +13,7 @@ block breadcrumbs
    li.active Single Product
 
 block sidebar
-   .row
+   section.row
       .col-span-12
          h4 Similar Products
          input(placeholder="Filter", type="text", data-bind="value: filterTerm, valueUpdate: 'afterkeydown'")
@@ -30,11 +30,11 @@ block sidebar
                      span(data-bind="text: desc")
 
 block main
-   .row
+   section.row
       .col-span-12 
          h2 Single Product
          hr
-   .row
+   section.row
       .col-span-3
          img(style="width: 150px;height:150px;", src="http://api.rethumb.com/v1/square/300/http://upload.wikimedia.org/wikipedia/commons/f/fd/Bia33.jpg")
       .col-span-9

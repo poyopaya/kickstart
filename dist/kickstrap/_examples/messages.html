@@ -40,13 +40,13 @@
       </div>
       <div id="page" class="container">     
         <section id="sidebar">
-          <div class="row">
+          <section class="row">
             <div class="col-span-12">
               <div class="panel"><a href="#compose" data-toggle="modal" class="btn btn-primary"> <span class="icon-envelope-alt"></span>&nbsp;Compose New</a>
                 <input placeholder="Filter" type="text" data-bind="value: filterTerm, valueUpdate: 'afterkeydown'">
               </div>
             </div>
-          </div>
+          </section>
           <table class="table table-hover">
             <tbody data-bind="foreach: filteredItems">
               <tr data-bind="click: $parent.showThread" style="cursor: pointer">
@@ -80,7 +80,7 @@
               </div>
             </div>
           </div>
-          <div class="row">
+          <section class="row">
             <div class="col-span-8 col-offset-2">
               <h3 data-bind="text: currentSubject">Please select a conversation from the sidebar. </h3>
               <div data-bind="visible: !isEmpty()" class="panel"><a href="#reply" data-bind="click: setIsSelected()"> <span class="icon-reply"></span>&nbsp;Reply</a></div>
@@ -99,7 +99,7 @@
                 <textarea data-bind="hasfocus: isSelected()" placeholder="Type reply and hit enter." class="panel panel-primary"></textarea>
               </div>
             </div>
-          </div>
+          </section>
         </section>
       </div>
       <div class="push"></div>
