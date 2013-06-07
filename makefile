@@ -71,6 +71,12 @@ post-build:
 	@echo "Minifying files" 
 	@uglifyjs dist/kickstrap/_core/js/less-1.4.0.js -mc warnings=false > dist/kickstrap/_core/js/less-1.4.0.min.js
 	@uglifyjs dist/kickstrap/_core/js/kickstrap.js -mc warnings=false > dist/kickstrap/_core/js/kickstrap.min.js 
+
+	@echo "Deleting git junk"
+	@rm -rf dist/kickstrap/_core/bootstrap/.git/
+	@rm dist/kickstrap/_core/bootstrap/.gitignore
+	@rm dist/kickstrap/_core/bootstrap/.travis.yml
+
 	@echo "Build complete."
 
 test: 
