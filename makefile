@@ -8,6 +8,7 @@ prod:
 	@make jade
 	@make jshint
 	@make prune-apps
+	@make bootstrap-js
 	@make spring-cleaning 
 	@make post-build
 
@@ -27,6 +28,11 @@ pre-build:
 
 	@echo "Copying in themes"
 	@cp -r lib/kickstrap/themes/* dist/kickstrap/themes/ 
+
+bootstrap-js:
+	@Concatenating bootstrap js files
+	@cd lib/repos/bootstrap/js;cat transition.js tooltip.js tab.js scrollspy.js popover.js modal.js dropdown.js collapse.js carousel.js button.js alert.js affix.js > bootstrap.js;
+	@cp lib/repos/bootstrap/js/bootstrap.js dist/kickstrap/_core/js/bootstrap.js
 
 jade: 
 	@jade lib/templates/pages/*.jade -O ./dist/kickstrap/_examples/ --pretty
