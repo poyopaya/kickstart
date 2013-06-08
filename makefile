@@ -30,8 +30,8 @@ pre-build:
 	@cp -r lib/kickstrap/themes/* dist/kickstrap/themes/ 
 
 bootstrap-js:
-	@Concatenating bootstrap js files
-	@cd lib/repos/bootstrap/js;cat transition.js tooltip.js tab.js scrollspy.js popover.js modal.js dropdown.js collapse.js carousel.js button.js alert.js affix.js > bootstrap.js;
+	@echo Concatenating bootstrap js files
+	@cd lib/repos/bootstrap/js/;cat transition.js tooltip.js tab.js scrollspy.js popover.js modal.js dropdown.js collapse.js carousel.js button.js alert.js affix.js > bootstrap.js;
 	@cp lib/repos/bootstrap/js/bootstrap.js dist/kickstrap/_core/js/bootstrap.js
 
 jade: 
