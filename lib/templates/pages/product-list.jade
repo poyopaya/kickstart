@@ -12,14 +12,14 @@ block breadcrumbs
 
 block sidebar 
    section.row
-      .col-span-12
+      .col.col-lg-12
          h4 Filtering Options
          h5 Name
          input(placeholder="Filter", type="text", data-bind="value: filterTerm, valueUpdate: 'afterkeydown'")
          h5 Price
-         input.col-span-3(placeholder="$0", type="text")
+         input.col.col-lg-3(placeholder="$0", type="text")
          label to
-         input.col-span-3(placeholder="$100", type="text")
+         input.col.col-lg-3(placeholder="$100", type="text")
          h5 Categories
          .checkbox
             label
@@ -44,7 +44,7 @@ block sidebar
 
 block main 
    section.row
-      .col-span-12
+      .col.col-lg-12
          h2 All Items
          table.table.table-hover
             thead

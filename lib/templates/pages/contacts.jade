@@ -12,7 +12,7 @@ block breadcrumbs
 
 block sidebar 
    section.row
-      .col-span-12
+      .col.col-lg-12
          h4 My Contacts
          input(placeholder="Filter", type="text", data-bind="value: filterTerm, valueUpdate: 'afterkeydown'") 
          table.table.table-hover
@@ -24,12 +24,12 @@ block sidebar
 
 block main
    section.row
-      .col-span-8.col-offset-2
+      .col.col-lg-8.col-offset-2
          h3(data-bind="text: currentContact.fName() + ' ' + currentContact.lName()")
          .row
-            .col-span-3(style="overflow: hidden")
+            .col.col-lg-3(style="overflow: hidden")
                img.img-thumbnail.pull-left(style="width: 60px; height: 60px", data-bind="attr:{ src: 'http://api.rethumb.com/v1/square/120/http://upload.wikimedia.org/wikipedia/commons/' + currentContact.img() }")
-            .col-span-9
+            .col.col-lg-9
                p 
                   a.btn(href="#") 
                      i.icon-user
