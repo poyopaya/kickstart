@@ -3,6 +3,7 @@
 // Default styles, mobile-first, all viewports
 @sidebarToggleWidth: 80%;
 
+body { overflow-y: hidden; }
 html
 , body
 , .container { overflow-x: hidden; }
@@ -57,7 +58,7 @@ section#sidebar {
    padding: 15px;
    overflow-y: auto;
    border-color: #DDD;
-   .box-shadow(2px 2px 5px #EEE);
+   .box-shadow(6px 2px 5px -4px #eeeeee);
    .transition(border-color 1s ease);
    margin-bottom: @footerHeight;
 }
@@ -104,11 +105,15 @@ article {
    div.sticky-wrapper + section#main { 
       padding-left: 25px;
    }
+   .footer .container { 
+      padding-left: 15px;
+      padding-right: 15px;
+   }
 }
 
 // iPad in portrait mode
 @media (min-width: 768px) and (max-width: 978px) {
-   .navbar {
+   body.sidebar .navbar {
       > .container { padding-left: 60px; }
       .navbar-toggle.pull-left { 
          display: block;
@@ -170,7 +175,7 @@ article {
          bottom: 0;
          border-color: #DDD;
          width: 25%;
-         .box-shadow(2px 2px 5px #EEE);
+         .box-shadow(6px 2px 5px -4px #eeeeee);
          .panel.panel-primary,
          .panel.panel-primary .panel-heading { .border-top-radius(0px); }
       }

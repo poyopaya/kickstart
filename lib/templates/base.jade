@@ -5,6 +5,11 @@ block vars
 
 -var menu = { 'Home': ksdir + '/../', 'Blog': ksdir + '/_examples/blog-all.html', 'Contacts': ksdir + '/_examples/contacts.html', 'Products': ksdir + '/_examples/product-list.html'};
 
+if sidebar === true
+   bodyClass = 'sidebar'
+else
+   bodyClass = ''
+
 !!!
 html
 
@@ -18,13 +23,12 @@ html
       script(src="#{ksdir}/_core/js/less-1.4.0.min.js")
       //if lt IE 10
          script(src="http://html5shiv.googlecode.com/svn/trunk/html5.js")
-   body
+   body(class=bodyClass)
       div.sf-wrapper
          div.navbar.navbar-inverse
             div.container
-               if sidebar === true
-                  button.navbar-toggle.pull-left(type="button", data-toggle="collapse", onclick="$('.container#page').toggleClass('toggle')")
-                     span.icon-double-angle-left
+               button.navbar-toggle.pull-left(type="button", data-toggle="collapse", onclick="$('.container#page').toggleClass('toggle')")
+                  span.icon-double-angle-left
                button.navbar-toggle(type="button", data-toggle="collapse", data-target=".navbar-responsive-collapse")
                   span.icon-bar
                   span.icon-bar
@@ -77,11 +81,18 @@ html
          script(src="#{ksdir}/apps/waypoints/waypoints.min.js")
          script(src="#{ksdir}/apps/waypoints/shortcuts/sticky-elements/waypoints-sticky.min.js")
          script
-            var sidebarCorrect = function() { $('#sidebar').css('height', $('#main').css('height')); }
+            var sidebarCorrect = function() { 
+               var windowHeight = $(window).height()
+               var sidebarTop = $('#sidebar').offset().top
+               var sidebarHeight = windowHeight - sidebarTop 
+               console.log(sidebarHeight)
+               $('#sidebar').css('height', sidebarHeight + 'px'); 
+            }
             sidebarCorrect()
             $('section#sidebar')
                .waypoint('sticky')
                .waypoint(function(direction) {
                  if ( direction == 'up' ) sidebarCorrect()   
                })
+            $(window).resize(function(){ sidebarCorrect() });
          block javascript
