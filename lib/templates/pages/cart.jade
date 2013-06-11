@@ -12,7 +12,7 @@ block breadcrumbs
 
 block main 
    section.row
-      .col.col-lg-8.col-offset-2
+      .col.col-8.col-offset-2
          h2(style="display: inline-block")
             i.icon-shopping-cart 
             | Shopping Cart (
@@ -41,7 +41,7 @@ block main
             span(data-bind="text: totalSurcharge().toFixed(2)")
          h3 Total Items: 
             span(data-bind="text: items().length")
-         .input-group.col.col-lg-3.col-offset-9
+         .input-group.col.col-3.col-offset-9
             span.input-group-addon #
             input(type="text", placeholder="Promo Code")
          a.btn.btn-primary.pull-right
