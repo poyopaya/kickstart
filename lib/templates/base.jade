@@ -43,20 +43,20 @@ html
                   ul.nav.navbar-nav.pull-right
                      li
                         a(href="#{ksdir}/_examples/profile.html") 
-                           i.icon-user.hidden-phone
-                           span.hidden-tablet My Profile
+                           i.icon-user.hidden-sm_ib
+                           span.hidden-md_ib My Profile
                      li
                         a(href="#{ksdir}/_examples/cart.html") 
-                           i.icon-shopping-cart.hidden-phone
-                           span.hidden-tablet Cart&nbsp;
+                           i.icon-shopping-cart.hidden-sm_ib
+                           span.hidden-md_ib Cart&nbsp;
                            span.badge 2
                      li
                         a(href="#{ksdir}/_examples/messages.html") 
-                           i.icon-envelope-alt.hidden-phone
-                           span.hidden-tablet Messages&nbsp;
+                           i.icon-envelope-alt.hidden-sm_ib
+                           span.hidden-md_ib Messages&nbsp;
                            span.badge 1
          div.container#body
-            ul.breadcrumb.visible-desktop
+            ul.breadcrumb.visible-lg
                block breadcrumbs
          div.container#page      
          
@@ -73,9 +73,15 @@ html
                   .col.col-lg-12
                      p &copy; Acme Media 
          script(src="http://code.jquery.com/jquery-1.9.1.min.js")
-         script(src="kickstrap/_core/js/bootstrap.js")
+         script(src="#{ksdir}/_core/js/bootstrap.js")
          script(src="#{ksdir}/apps/waypoints/waypoints.min.js")
          script(src="#{ksdir}/apps/waypoints/shortcuts/sticky-elements/waypoints-sticky.min.js")
          script
-            $('section#sidebar').waypoint('sticky');
+            var sidebarCorrect = function() { $('#sidebar').css('height', $('#main').css('height')); }
+            sidebarCorrect()
+            $('section#sidebar')
+               .waypoint('sticky')
+               .waypoint(function(direction) {
+                 if ( direction == 'up' ) sidebarCorrect()   
+               })
          block javascript

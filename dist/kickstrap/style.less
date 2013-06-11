@@ -54,8 +54,7 @@ section#sidebar {
    // min-height: 700px;
    border-right: 1px solid;
    border-color: transparent;
-   padding-top: 15px;
-   padding-right: 15px;
+   padding: 15px;
    overflow-y: auto;
    border-color: #DDD;
    .box-shadow(2px 2px 5px #EEE);
@@ -100,6 +99,13 @@ article {
    } 
 }
 
+// iPad and larger
+@media (min-width: 768px) { 
+   div.sticky-wrapper + section#main { 
+      padding-left: 25px;
+   }
+}
+
 // iPad in portrait mode
 @media (min-width: 768px) and (max-width: 978px) {
    .navbar {
@@ -123,7 +129,7 @@ article {
          .col-offset-2 { margin-left: 20px; }
       }
    }
-   .hidden-tablet { display: none; }
+   .hidden-md{ display: none; }
 }
 
 // Anything larger than an iPad in portrait mode 
@@ -171,7 +177,6 @@ article {
    }
    div.sticky-wrapper + section#main { 
       width: 75%; 
-      padding-left: 25px;
    }
    .footer .container {
       margin-left: auto;
@@ -184,3 +189,37 @@ article {
    .container { max-width: 1200px; }
    section#sidebar.stuck { width: 300px; }
 } 
+
+// Extra responsive utilities
+
+// For Phones
+.visible-sm_ib   { display: inline-block !important; }
+.visible-md_ib   { display: none !important; }
+.visible-lg_ib   { display: none !important; }
+
+.hidden-sm_ib    { display: none !important; }
+.hidden-md_ib    { display: inline-block !important; }
+.hidden-lg_ib    { display: inline-block !important; }
+
+
+// Tablets & small desktops only
+@media (min-width: @screen-tablet) and (max-width: @screen-tablet-max) {
+  .visible-sm_ib   { display: none !important; }
+  .visible-md_ib   { display: inline-block !important; }
+  .visible-lg_ib   { display: none !important; }
+
+  .hidden-sm_ib    { display: inline-block !important; }
+  .hidden-md_ib    { display: none !important; }
+  .hidden-lg_ib    { display: inline-block !important; }
+}
+
+// For desktops
+@media (min-width: @screen-desktop) {
+  .visible-sm_ib   { display: none !important; }
+  .visible-md_ib   { display: none !important; }
+  .visible-lg_ib   { display: inline-block !important; }
+
+  .hidden-sm_ib    { display: inline-block !important; }
+  .hidden-md_ib    { display: inline-block !important; }
+  .hidden-lg_ib    { display: none !important; }
+}
