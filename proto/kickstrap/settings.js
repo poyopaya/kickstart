@@ -16,6 +16,8 @@ jspm.import([
 	'kickstrap:less',				// Remove if compiling to CSS manually.
 	'kickstrap:core/js',			
 	'kickstrap:core/bootstrap',
+	'kickstrap:core/fontawesome',
+	'kickstrap:core/angular',
 
 // THEME
 // =====
