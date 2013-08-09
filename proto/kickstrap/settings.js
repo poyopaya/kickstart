@@ -13,7 +13,7 @@ jspm.config({
 jspm.import([
 	// List your apps here.
 	'jspm:jquery',
-	'kickstrap:less',				// Remove if compiling to CSS manually.
+	'kickstrap:less',
 	'kickstrap:core/js',			
 	'kickstrap:core/bootstrap',
 	'kickstrap:core/fontawesome',
