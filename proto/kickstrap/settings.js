@@ -1,37 +1,43 @@
+// JSPM
+// ====
+
+jspm.config({
+	locations: {
+		kickstrap: 'https://github.jspm.io/guybedford/kickstrap-proto@master'
+	}
+})
+
 // APPS
 // ====
 
-ks.apps = [
-	'pinesnotify'
-	, 'bootstrap'	
-	, 'colorschemer'
-	, 'ping'
+jspm.import([
+	// List your apps here.
+	'jspm:jquery',
+	'kickstrap:less',				// Remove if compiling to CSS manually.
+	'kickstrap:core/js',			
+	'kickstrap:core/bootstrap',
+
+// THEME
+// =====
+
+	'kickstrap:themes/monaco'		
+
 ]
+, function($, k$) {
 
 // BASIC SITE SETTINGS
 // ===================
 
-ks.settings = {
-
+k$.settings = {
 	mode: 'development'
 	// Choose "development" or "production"
-
-// CUSTOM DIRECTORIES
-// ==================
-
-	, dir: {
-		
-		root: '/'
-		// Location of the "kickstrap" folder relative to site's root.
-		
-		, apps: ks.settings.root + 'kickstrap/apps/'
-		// Apps path
-		
-		// Themes and extras paths should be set in settings.less
-		
-	}
-
 }
 
+// LESS
+// ====
 
+less = {
+  env: k$.settings.mode
+}
 
+})
