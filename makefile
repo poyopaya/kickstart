@@ -64,8 +64,8 @@ spring-cleaning:
 
 post-build: 
 	@echo "Updating repos"
-	#@cd lib/repos/tinygrowl;git pull origin master;
-	#@cd lib/repos/bootstrap;git pull origin 3.0.0-wip;
+	@cd lib/repos/tinygrowl;git pull origin master;
+	@cd lib/repos/bootstrap;git pull origin 3.0.0-wip;
 	@# POST BUILD
 
 	@echo "Moving in default index file"
