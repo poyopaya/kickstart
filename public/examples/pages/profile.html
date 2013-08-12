@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="kickstrap">
+  <head>
+    <meta charset="utf8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+    <meta name="description" content="The Elegant Frontend Framework">
+    <meta name="author" content="Adam Kochanowicz">
+    <script src="http://jspm.io/loader.js"></script>
+    <script src="js/settings.js"></script>
+    <title>Kickstrap 2.0</title>
+  </head>
+  <body><!DOCTYPE html>
+<html>
+  <head>
+    <title>Kickstrap 2.0.0 Alpha</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=no">
+    <link rel="stylesheet/less" type="text/css" href="../_core/kickstrap.less">
+    <script>
+      var less = { env: 'development' }
+      // Uncomment the above line to prevent caching.
+    </script>
+    <script src="../_core/js/less-1.4.0.min.js"></script><!--[if lt IE 10]>
+    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  </head>
+  <body class="sidebar">
+    <div class="sf-wrapper">
+      <div class="navbar navbar-inverse">
+        <div class="container">
+          <button type="button" data-toggle="collapse" onclick="$('.container#page').toggleClass('toggle')" class="navbar-toggle pull-left"><span class="icon-double-angle-left"></span></button>
+          <button type="button" data-toggle="collapse" data-target=".navbar-responsive-collapse" class="navbar-toggle"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button><a class="navbar-brand">Acme Industries</a>
+          <div class="nav-collapse collapse navbar-responsive-collapse">
+            <ul class="nav navbar-nav">
+              <li><a href="../../">Home</a></li>
+              <li><a href="../_examples/blog-all.html">Blog</a></li>
+              <li><a href="../_examples/contacts.html">Contacts</a></li>
+              <li><a href="../_examples/product-list.html">Products</a></li>
+            </ul>
+            <ul class="nav navbar-nav pull-right">
+              <li><a href="../_examples/profile.html"> <i class="icon-user hidden-sm_ib"></i><span class="hidden-md_ib">My Profile</span></a></li>
+              <li><a href="../_examples/cart.html"> <i class="icon-shopping-cart hidden-sm_ib"></i><span class="hidden-md_ib">Cart&nbsp;</span><span class="badge">2</span></a></li>
+              <li><a href="../_examples/messages.html"> <i class="icon-envelope-alt hidden-sm_ib"></i><span class="hidden-md_ib">Messages&nbsp;</span><span class="badge">1</span></a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div id="body" class="container">
+        <ul class="breadcrumb visible-lg">
+          <li><a href="../">Home</a></li>
+          <li class="active">Login</li>
+        </ul>
+      </div>
+      <div id="page" class="container">     
+        <section id="sidebar">
+          <section class="row">
+            <div class="col col-12"><img src="http://api.rethumb.com/v1/square/200/http://upload.wikimedia.org/wikipedia/commons/2/2d/Amelia_earhart.jpeg" class="img-thumbnail"></div>
+          </section>
+          <section class="row">
+            <div class="col col-12">
+              <h4>Connect </h4>
+              <div class="list-group"><a href="#" class="list-group-item"><i class="icon-twitter"></i> Twitter</a><a href="#" class="list-group-item"><i class="icon-facebook"></i> Facebook</a><a href="#" class="list-group-item"><i class="icon-envelope"></i> Message </a></div>
+            </div>
+          </section>
+        </section>
+        <section id="main">
+          <section class="row">
+            <article class="col col-12">
+              <h1>Amelia Earhart</h1>
+              <p class="lead">"Never interrupt someone doing something you said couldn't be done."</p>
+              <hr>
+              <h5>Bio</h5>
+              <p>Amelia Mary Earhart (July 24, 1897 – disappeared July 2, 1937) was an American aviation pioneer and author. Earhart was the first female pilot to fly solo across the Atlantic Ocean. She received the U.S. Distinguished Flying Cross for this record. She set many other records, wrote best-selling books about her flying experiences and was instrumental in the formation of The Ninety-Nines, an organization for female pilots. Earhart joined the faculty of the Purdue University aviation department in 1935 as a visiting faculty member to counsel women on careers and help inspire others with her love for aviation. She was also a member of the National Woman's Party, and an early supporter of the Equal Rights Amendment.</p>
+              <p>During an attempt to make a circumnavigational flight of the globe in 1937 in a Purdue-funded Lockheed Model 10 Electra, Earhart disappeared over the central Pacific Ocean near Howland Island. Fascination with her life, career and disappearance continues to this day.</p>
+            </article>
+          </section>
+        </section>
+      </div>
+      <div class="push"></div>
+    </div>
+    <div class="footer">
+      <div class="container">
+        <div class="row">
+          <div class="col col-9 col-offset-3">
+            <p>&copy; Acme Media </p>
+          </div>
+        </div>
+      </div>
+      <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+      <script src="../_core/js/bootstrap.js"></script>
+      <script src="../apps/waypoints/waypoints.min.js"></script>
+      <script src="../apps/waypoints/shortcuts/sticky-elements/waypoints-sticky.min.js"></script>
+      <script>
+        var sidebarCorrect = function() { 
+           var windowHeight = $(window).height()
+           var sidebarTop = $('#sidebar').offset().top
+           var sidebarHeight = windowHeight - sidebarTop 
+           console.log(sidebarHeight)
+           $('#sidebar').css('height', sidebarHeight + 'px'); 
+        }
+        sidebarCorrect()
+        $('section#sidebar')
+           .waypoint('sticky')
+           .waypoint(function(direction) {
+             if ( direction == 'up' ) sidebarCorrect()   
+           })
+        $(window).resize(function(){ sidebarCorrect() });
+      </script>
+    </div>
+  </body>
+</html>
+  </body><script type="text/javascript">
+(function() {
+
+  k$.ready(function() {});
+
+}).call(this);
+</script>
+</html>
