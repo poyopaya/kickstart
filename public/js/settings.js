@@ -6,7 +6,7 @@
 
 (function() {
 
-  jspm.config({
+  window.jspm.config({
     locations: {
       kickstrap: 'https://github.jspm.io/guybedford/kickstrap-proto@master'
     }
@@ -29,6 +29,9 @@
         k$.apps[app] = 'kickstrap:' + k$.apps[app];
       }
       return k$.apps.concat('kickstrap:themes/' + k$.theme).concat(k$.core);
+    },
+    ready: function() {
+      return 'hello world';
     }
   };
 

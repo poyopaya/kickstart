@@ -1,12 +1,20 @@
 include _header
 
-section(ng-controller='k$.demo')
-	h1 Kickstrap 2.0
-	h2 New in 2.0
-	hr
-	input(type='text', ng-model='featureInput')
-	article(ng-repeat='feature in demo.features | filter: featureInput')
-		h3 {{feature.name}}
-		p {{feature.description}}
-
-include _footer
+.container
+	section.row(ng-controller='k$.featureCtrl')
+		div.col.col-sm-12
+			h1 Kickstrap
+			p.lead New in 2.0
+			hr
+		div.col.col-sm-3
+			article.panel
+				.panel-heading 
+					input.form-control(type='text', ng-model='featureInput', placeholder="Search Features")
+				ul.list-group
+					li.list-group-item(ng-repeat='feature in features | filter: featureInput') {{feature.name}}
+		div.col.col-sm-9
+			article.panel(ng-repeat='feature in features | filter: featureInput')
+				.panel-heading {{feature.name}}
+				p {{feature.description}}
+				.panel-footer Learn more at 
+					a(ng-href='feature.learnMore.link') {{feature.learnMore.title}}

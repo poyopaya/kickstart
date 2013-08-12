@@ -7,28 +7,59 @@
     <meta name="author" content="Adam Kochanowicz">
     <script src="https://jspm.io/loader.js"></script>
     <script src="js/settings.js"></script>
+    <script src="js/components/angular/angular.js"></script>
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/kickstrap.css">
     <title>Kickstrap 2.0</title>
   </head>
   <body>
-<nav class="navbar"><a class="navbar-brand"></a>
-  <ul class="nav navbar-nav">
-    <li><a href="/" class="active">Home</a></li>
-    <li><a href="#">Contacts		</a></li>
-    <li><a href="#">Products</a></li>
-  </ul>
+    <div id="sf-wrap">
+<nav class="navbar">
+  <div class="container"><a class="navbar-brand">Kickstrap</a>
+    <ul class="nav navbar-nav">
+      <li class="active"><a href="/">Home</a></li>
+      <li><a href="#">Contacts		</a></li>
+      <li><a href="#">Products</a></li>
+    </ul>
+  </div>
 </nav>
-<section ng-controller="k$.demo">
-  <h1>Kickstrap 2.0</h1>
-  <h2>New in 2.0</h2>
-  <hr/>
-  <input type="text" ng-model="featureInput"/>
-  <article ng-repeat="feature in demo.features | filter: featureInput">
-    <h3>{{feature.name}}</h3>
-    <p>{{feature.description}}</p>
-  </article>
-</section>
-<h1>> Footer <</h1>
-  </body><script type="text/javascript">
+<div class="container">
+  <section ng-controller="k$.featureCtrl" class="row">
+    <div class="col col-sm-12">
+      <h1>Kickstrap</h1>
+      <p class="lead">New in 2.0</p>
+      <hr/>
+    </div>
+    <div class="col col-sm-3">
+      <article class="panel">
+        <div class="panel-heading"> 
+          <input type="text" ng-model="featureInput" placeholder="Search Features" class="form-control"/>
+        </div>
+        <ul class="list-group">
+          <li ng-repeat="feature in features | filter: featureInput" class="list-group-item">{{feature.name}}</li>
+        </ul>
+      </article>
+    </div>
+    <div class="col col-sm-9">
+      <article ng-repeat="feature in features | filter: featureInput" class="panel">
+        <div class="panel-heading">{{feature.name}}</div>
+        <p>{{feature.description}}</p>
+        <div class="panel-footer">Learn more at <a ng-href="feature.learnMore.link">{{feature.learnMore.title}}</a></div>
+      </article>
+    </div>
+  </section>
+</div>
+      <div id="sf-push"></div>
+    </div>
+  </body>
+  <section id="sf-footer" class="navbar">
+    <div class="container">
+      <ul class="nav navbar-nav">
+        <li><a href="#">Kickstrap 2.0</a></li>
+      </ul>
+    </div>
+  </section>
+  <script src="js/demo/app.js"></script><script type="text/javascript">
 (function() {
 
   k$.ready(function() {});
