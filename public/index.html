@@ -1,24 +1,30 @@
 <!DOCTYPE html>
-<html>
+<html lang="en" ng-app="kickstrap">
   <head>
     <meta charset="utf8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
-    <meta name="description" content="description of your site">
-    <meta name="author" content="author of the site">
-    <title>welcome to roots!</title>
-    <link rel="stylesheet" href="/css/example.css">
+    <meta name="description" content="The Elegant Frontend Framework">
+    <meta name="author" content="Adam Kochanowicz">
+    <script src="http://jspm.io/loader.js"></script>
+    <script src="js/settings.js"></script>
+    <title>Kickstrap 2.0</title>
   </head>
-  <body><h1 class='title'>Welcome to Roots!</h1><p><strong>Whoo!</strong> You got everything working. Now get to making cool things : )
-</p>
-
-<p>make sure to use partials for repeated content</p>
-<p>if you need help, feel free to get in touch with me directly.</p><script type="text/javascript">
+  <body>
+<section ng-controller="k$.demo">
+  <h1>Kickstrap 2.0</h1>
+  <h2>New in 2.0</h2>
+  <hr/>
+  <input type="text" ng-model="featureInput"/>
+  <article ng-repeat="feature in demo.features | filter: featureInput">
+    <h3>{{feature.name}}</h3>
+    <p>{{feature.description}}</p>
+  </article>
+</section>
+  </body><script type="text/javascript">
 (function() {
 
-  console.log('you can even use coffeescript in your views, aw yeah');
+  k$.ready(function() {});
 
 }).call(this);
 </script>
-  </body>
-  <script data-main="js/main" src="js/require.js"></script>
 </html>
