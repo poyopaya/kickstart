@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="kickstrap">
+  <head>
+    <meta charset="utf8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+    <meta name="description" content="The Elegant Frontend Framework">
+    <meta name="author" content="Adam Kochanowicz">
+    <script src="http://jspm.io/loader.js"></script>
+    <script src="js/settings.js"></script>
+    <title>Kickstrap 2.0</title>
+  </head>
+  <body><!DOCTYPE html>
+<html>
+  <head>
+    <title>Kickstrap 2.0.0 Alpha</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=no">
+    <link rel="stylesheet/less" type="text/css" href="../_core/kickstrap.less">
+    <script>
+      var less = { env: 'development' }
+      // Uncomment the above line to prevent caching.
+    </script>
+    <script src="../_core/js/less-1.4.0.min.js"></script><!--[if lt IE 10]>
+    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  </head>
+  <body class="">
+    <div class="sf-wrapper">
+      <div class="navbar navbar-inverse">
+        <div class="container">
+          <button type="button" data-toggle="collapse" onclick="$('.container#page').toggleClass('toggle')" class="navbar-toggle pull-left"><span class="icon-double-angle-left"></span></button>
+          <button type="button" data-toggle="collapse" data-target=".navbar-responsive-collapse" class="navbar-toggle"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button><a class="navbar-brand">Acme Industries</a>
+          <div class="nav-collapse collapse navbar-responsive-collapse">
+            <ul class="nav navbar-nav">
+              <li><a href="../../">Home</a></li>
+              <li><a href="../_examples/blog-all.html">Blog</a></li>
+              <li><a href="../_examples/contacts.html">Contacts</a></li>
+              <li><a href="../_examples/product-list.html">Products</a></li>
+            </ul>
+            <ul class="nav navbar-nav pull-right">
+              <li><a href="../_examples/profile.html"> <i class="icon-user hidden-sm_ib"></i><span class="hidden-md_ib">My Profile</span></a></li>
+              <li><a href="../_examples/cart.html"> <i class="icon-shopping-cart hidden-sm_ib"></i><span class="hidden-md_ib">Cart&nbsp;</span><span class="badge">2</span></a></li>
+              <li><a href="../_examples/messages.html"> <i class="icon-envelope-alt hidden-sm_ib"></i><span class="hidden-md_ib">Messages&nbsp;</span><span class="badge">1</span></a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div id="body" class="container">
+        <ul class="breadcrumb visible-lg">
+          <li><a href="../../">Home</a></li>
+          <li>Shopping Cart</li>
+        </ul>
+      </div>
+      <div id="page" class="container">     
+        <section id="main">
+          <section class="row">
+            <div class="col col-8 col-offset-2">
+              <h2 style="display: inline-block"><i class="icon-shopping-cart"> </i>Shopping Cart (<span data-bind="text: items().length"> </span>)   </h2><a style="float: right; margin-top: 30px;" class="btn btn-primary"><i class="icon-check"></i>&nbsp;Check Out</a>
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th>Product</th>
+                    <th>Price</th>
+                    <th>Quantity</th>
+                  </tr>
+                </thead>
+                <tbody data-bind="foreach: items">
+                  <tr>
+                    <td style="width: 150px;"><img style="width: 60px; height: 60px;" data-bind="attr:{ src: 'http://api.rethumb.com/v1/square/120/http://upload.wikimedia.org/wikipedia/commons/' + product().img}" class="pull-left thumbnail"><span data-bind="text: product().title"></span></td>
+                    <td data-bind="text: formattedPrice"></td>
+                    <td>
+                      <input type="text" data-bind="value: quantity, valueUpdate: 'afterkeydown'">
+                    </td>
+                    <td><a href="#" data-bind="click: $parent.removeItem">Remove</a></td>
+                  </tr>
+                </tbody>
+              </table>
+              <h3 data-bind="visible: totalSurcharge() &gt; 0">Total surcharge: $<span data-bind="text: totalSurcharge().toFixed(2)"></span></h3>
+              <h3>Total Items: <span data-bind="text: items().length"></span></h3>
+              <div class="input-group col col-3 col-offset-9"><span class="input-group-addon">#</span>
+                <input type="text" placeholder="Promo Code">
+              </div><a class="btn btn-primary pull-right"><i class="icon-check"></i>&nbsp;Check Out</a>
+            </div>
+          </section>
+        </section>
+      </div>
+      <div class="push"></div>
+    </div>
+    <div class="footer">
+      <div class="container">
+        <div class="row">
+          <div class="col col-12">
+            <p>&copy; Acme Media </p>
+          </div>
+        </div>
+      </div>
+      <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+      <script src="../_core/js/bootstrap.js"></script>
+      <script src="../apps/waypoints/waypoints.min.js"></script>
+      <script src="../apps/waypoints/shortcuts/sticky-elements/waypoints-sticky.min.js"></script>
+      <script>
+        var sidebarCorrect = function() { 
+           var windowHeight = $(window).height()
+           var sidebarTop = $('#sidebar').offset().top
+           var sidebarHeight = windowHeight - sidebarTop 
+           console.log(sidebarHeight)
+           $('#sidebar').css('height', sidebarHeight + 'px'); 
+        }
+        sidebarCorrect()
+        $('section#sidebar')
+           .waypoint('sticky')
+           .waypoint(function(direction) {
+             if ( direction == 'up' ) sidebarCorrect()   
+           })
+        $(window).resize(function(){ sidebarCorrect() });
+      </script>
+      <script src="../apps/knockout/knockout.min.js"></script>
+      <script src="assets/products.js"></script>
+      <script src="assets/cart.js"></script>
+    </div>
+  </body>
+</html>
+  </body><script type="text/javascript">
+(function() {
+
+  k$.ready(function() {});
+
+}).call(this);
+</script>
+</html><div id='roots-error'><span>compile error</span>Error: /Users/adamkochanowicz/cloud/vhosts/Kickstrap/views/examples/pages/profile.jade:1<br>  > 1| extends ../layout-sidebar<br>    2| <br>    3| block vars<br>    4| 	-var selected = 'Profile'<br><br>ENOENT, no such file or directory '/Users/adamkochanowicz/cloud/vhosts/Kickstrap/views/examples/layout-sidebar.jade'</div><style> #roots-error { width: 70%; position: absolute; top: 30px; background: #F27258; margin-left: 11%; padding: 19px; border: 5px solid #C93D05; border-radius: 5px; font-family: sans-serif; font-size: 15px; color: white; -webkit-font-smoothing: antialiased; line-height: 1.5em } #roots-error span { display: block; text-align: center; font-size: 1.7em; margin-bottom: 19px; font-weight: bold; } </style><div id='roots-error'><span>compile error</span>Error: /Users/adamkochanowicz/cloud/vhosts/Kickstrap/views/examples/pages/profile.jade:1<br>  > 1| extends ../layout-sidebar<br>    2| <br>    3| block vars<br>    4| 	-var selected = 'Profile'<br><br>ENOENT, no such file or directory '/Users/adamkochanowicz/cloud/vhosts/Kickstrap/views/examples/layout-sidebar.jade'</div><style> #roots-error { width: 70%; position: absolute; top: 30px; background: #F27258; margin-left: 11%; padding: 19px; border: 5px solid #C93D05; border-radius: 5px; font-family: sans-serif; font-size: 15px; color: white; -webkit-font-smoothing: antialiased; line-height: 1.5em } #roots-error span { display: block; text-align: center; font-size: 1.7em; margin-bottom: 19px; font-weight: bold; } </style><div id='roots-error'><span>compile error</span>Error: /Users/adamkochanowicz/cloud/vhosts/Kickstrap/views/examples/pages/profile.jade:1<br>  > 1| extends ../layout-sidebar<br>    2| <br>    3| block vars<br>    4| 	-var selected = 'Profile'<br><br>ENOENT, no such file or directory '/Users/adamkochanowicz/cloud/vhosts/Kickstrap/views/examples/layout-sidebar.jade'</div><style> #roots-error { width: 70%; position: absolute; top: 30px; background: #F27258; margin-left: 11%; padding: 19px; border: 5px solid #C93D05; border-radius: 5px; font-family: sans-serif; font-size: 15px; color: white; -webkit-font-smoothing: antialiased; line-height: 1.5em } #roots-error span { display: block; text-align: center; font-size: 1.7em; margin-bottom: 19px; font-weight: bold; } </style><div id='roots-error'><span>compile error</span>Error: /Users/adamkochanowicz/cloud/vhosts/Kickstrap/views/examples/pages/profile.jade:1<br>  > 1| extends ../layout-sidebar<br>    2| <br>    3| block vars<br>    4| 	-var selected = 'Profile'<br><br>ENOENT, no such file or directory '/Users/adamkochanowicz/cloud/vhosts/Kickstrap/views/examples/layout-sidebar.jade'</div><style> #roots-error { width: 70%; position: absolute; top: 30px; background: #F27258; margin-left: 11%; padding: 19px; border: 5px solid #C93D05; border-radius: 5px; font-family: sans-serif; font-size: 15px; color: white; -webkit-font-smoothing: antialiased; line-height: 1.5em } #roots-error span { display: block; text-align: center; font-size: 1.7em; margin-bottom: 19px; font-weight: bold; } </style><div id='roots-error'><span>compile error</span>Error: /Users/adamkochanowicz/cloud/vhosts/Kickstrap/views/examples/pages/profile.jade:1<br>  > 1| extends ../layout-sidebar<br>    2| <br>    3| block vars<br>    4| 	-var selected = 'Profile'<br><br>ENOENT, no such file or directory '/Users/adamkochanowicz/cloud/vhosts/Kickstrap/views/examples/layout-sidebar.jade'</div><style> #roots-error { width: 70%; position: absolute; top: 30px; background: #F27258; margin-left: 11%; padding: 19px; border: 5px solid #C93D05; border-radius: 5px; font-family: sans-serif; font-size: 15px; color: white; -webkit-font-smoothing: antialiased; line-height: 1.5em } #roots-error span { display: block; text-align: center; font-size: 1.7em; margin-bottom: 19px; font-weight: bold; } </style><div id='roots-error'><span>compile error</span>Error: /Users/adamkochanowicz/cloud/vhosts/Kickstrap/views/examples/pages/profile.jade:1<br>  > 1| extends ../layout-sidebar<br>    2| <br>    3| block vars<br>    4| 	-var selected = 'Profile'<br><br>ENOENT, no such file or directory '/Users/adamkochanowicz/cloud/vhosts/Kickstrap/views/examples/layout-sidebar.jade'</div><style> #roots-error { width: 70%; position: absolute; top: 30px; background: #F27258; margin-left: 11%; padding: 19px; border: 5px solid #C93D05; border-radius: 5px; font-family: sans-serif; font-size: 15px; color: white; -webkit-font-smoothing: antialiased; line-height: 1.5em } #roots-error span { display: block; text-align: center; font-size: 1.7em; margin-bottom: 19px; font-weight: bold; } </style><div id='roots-error'><span>compile error</span>Error: /Users/adamkochanowicz/cloud/vhosts/Kickstrap/views/examples/pages/profile.jade:1<br>  > 1| extends ../layout-sidebar<br>    2| <br>    3| block vars<br>    4| 	-var selected = 'Profile'<br><br>ENOENT, no such file or directory '/Users/adamkochanowicz/cloud/vhosts/Kickstrap/views/examples/layout-sidebar.jade'</div><style> #roots-error { width: 70%; position: absolute; top: 30px; background: #F27258; margin-left: 11%; padding: 19px; border: 5px solid #C93D05; border-radius: 5px; font-family: sans-serif; font-size: 15px; color: white; -webkit-font-smoothing: antialiased; line-height: 1.5em } #roots-error span { display: block; text-align: center; font-size: 1.7em; margin-bottom: 19px; font-weight: bold; } </style><div id='roots-error'><span>compile error</span>Error: /Users/adamkochanowicz/cloud/vhosts/Kickstrap/views/examples/pages/profile.jade:1<br>  > 1| extends ../layout-sidebar<br>    2| <br>    3| block vars<br>    4| 	-var selected = 'Profile'<br><br>ENOENT, no such file or directory '/Users/adamkochanowicz/cloud/vhosts/Kickstrap/views/examples/layout-sidebar.jade'</div><style> #roots-error { width: 70%; position: absolute; top: 30px; background: #F27258; margin-left: 11%; padding: 19px; border: 5px solid #C93D05; border-radius: 5px; font-family: sans-serif; font-size: 15px; color: white; -webkit-font-smoothing: antialiased; line-height: 1.5em } #roots-error span { display: block; text-align: center; font-size: 1.7em; margin-bottom: 19px; font-weight: bold; } </style><div id='roots-error'><span>compile error</span>Error: /Users/adamkochanowicz/cloud/vhosts/Kickstrap/views/examples/pages/profile.jade:1<br>  > 1| extends ../layout-sidebar<br>    2| <br>    3| block vars<br>    4| 	-var selected = 'Profile'<br><br>ENOENT, no such file or directory '/Users/adamkochanowicz/cloud/vhosts/Kickstrap/views/examples/layout-sidebar.jade'</div><style> #roots-error { width: 70%; position: absolute; top: 30px; background: #F27258; margin-left: 11%; padding: 19px; border: 5px solid #C93D05; border-radius: 5px; font-family: sans-serif; font-size: 15px; color: white; -webkit-font-smoothing: antialiased; line-height: 1.5em } #roots-error span { display: block; text-align: center; font-size: 1.7em; margin-bottom: 19px; font-weight: bold; } </style><div id='roots-error'><span>compile error</span>Error: /Users/adamkochanowicz/cloud/vhosts/Kickstrap/views/examples/pages/profile.jade:1<br>  > 1| extends ../layout-sidebar<br>    2| <br>    3| block vars<br>    4| 	-var selected = 'Profile'<br><br>ENOENT, no such file or directory '/Users/adamkochanowicz/cloud/vhosts/Kickstrap/views/examples/layout-sidebar.jade'</div><style> #roots-error { width: 70%; position: absolute; top: 30px; background: #F27258; margin-left: 11%; padding: 19px; border: 5px solid #C93D05; border-radius: 5px; font-family: sans-serif; font-size: 15px; color: white; -webkit-font-smoothing: antialiased; line-height: 1.5em } #roots-error span { display: block; text-align: center; font-size: 1.7em; margin-bottom: 19px; font-weight: bold; } </style>

@@ -19,9 +19,9 @@ exports.layouts =
 # variables or (coffeescript) functions.
 
 exports.locals =
-  title: 'Kickstrap 2.0'
+  title: 'Welcome to Roots!'
   title_with_markup: ->
-    "<h1>You're running Kickstrap 2</h1>"
+    "<h1 class='title'>#{this.title}</h1>"
 
 # If true, shows the compile process and page/asset status in the
 # terminal when watching and compiling files.

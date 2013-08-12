@@ -1,3 +1,5 @@
+include _header
+
 section(ng-controller='k$.demo')
 	h1 Kickstrap 2.0
 	h2 New in 2.0
@@ -6,3 +8,5 @@ section(ng-controller='k$.demo')
 	article(ng-repeat='feature in demo.features | filter: featureInput')
 		h3 {{feature.name}}
 		p {{feature.description}}
+
+include _footer
