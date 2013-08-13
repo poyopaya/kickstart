@@ -1,0 +1,40 @@
+0 info it worked if it ends with ok
+1 verbose cli [ 'node', '/usr/local/bin/npm', 'install', '.', 'angular' ]
+2 info using npm@1.1.65
+3 info using node@v0.8.14
+4 verbose read json /Users/adamkochanowicz/cloud/vhosts/kickstrap/package.json
+5 verbose read json /Users/adamkochanowicz/cloud/vhosts/kickstrap/node_modules/connect/package.json
+6 verbose from cache /Users/adamkochanowicz/cloud/vhosts/kickstrap/package.json
+7 verbose readDependencies using package.json deps
+8 verbose cache add [ '.', null ]
+9 silly cache add name=undefined spec="." args=[".",null]
+10 verbose parsed url { pathname: '.', path: '.', href: '.' }
+11 verbose cache add [ 'angular', null ]
+12 silly cache add name=undefined spec="angular" args=["angular",null]
+13 verbose parsed url { pathname: 'angular', path: 'angular', href: 'angular' }
+14 silly lockFile 3a52ce78- .
+15 verbose lock . /Users/adamkochanowicz/.npm/3a52ce78-.lock
+16 silly lockFile 54e0c177-angular angular
+17 verbose lock angular /Users/adamkochanowicz/.npm/54e0c177-angular.lock
+18 verbose read json package.json
+19 silly lockFile 54e0c177-angular angular
+20 silly lockFile 3a52ce78- .
+21 verbose addNamed [ 'angular', '' ]
+22 verbose addNamed [ null, '' ]
+23 silly lockFile fdbbf89d-angular angular@
+24 verbose lock angular@ /Users/adamkochanowicz/.npm/fdbbf89d-angular.lock
+25 error addLocal Could not install .
+26 error Error: ENOENT, open 'package.json'
+27 error If you need help, you may report this log at:
+27 error     <http://github.com/isaacs/npm/issues>
+27 error or email it to:
+27 error     <npm-@googlegroups.com>
+28 error System Darwin 12.4.0
+29 error command "node" "/usr/local/bin/npm" "install" "." "angular"
+30 error cwd /Users/adamkochanowicz/cloud/vhosts/kickstrap/assets
+31 error node -v v0.8.14
+32 error npm -v 1.1.65
+33 error path package.json
+34 error code ENOENT
+35 error errno 34
+36 verbose exit [ 34, true ]
