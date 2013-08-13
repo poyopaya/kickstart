@@ -12,8 +12,10 @@ include _header
 					a(ng-href='{{"#"}}{{slug(feature.name)}}').list-group-item(ng-repeat='feature in features | filter: featureInput') {{feature.name}}
 		div.col.col-sm-9
 			article.panel(ng-repeat='feature in features | filter: featureInput')
-				.panel-heading(ng-id='slug(feature.name)') 
-					.panel-title {{feature.name}} - {{feature.summary}}
+				p.lead(ng-id='slug(feature.name)') {{feature.name}} - {{feature.summary}}
 				p {{feature.description}}
-				.panel-footer(ng-show="feature.learnMore") Learn more at 
-					a(ng-href='feature.learnMore.link') {{feature.learnMore.title}}
+				.panel-footer(ng-show="feature.learnMore") 
+					em.text-muted Learn more at 
+						a(ng-href='{{feature.learnMore.link}}') {{feature.learnMore.title}}
+
+script(src='js/demo/features.js')

@@ -49,22 +49,24 @@
     </div>
     <div class="col col-sm-9">
       <article ng-repeat="feature in features | filter: featureInput" class="panel">
-        <div ng-id="slug(feature.name)" class="panel-heading"> 
-          <div class="panel-title">{{feature.name}} - {{feature.summary}}</div>
-        </div>
+        <p ng-id="slug(feature.name)" class="lead">{{feature.name}} - {{feature.summary}}</p>
         <p>{{feature.description}}</p>
-        <div ng-show="feature.learnMore" class="panel-footer">Learn more at <a ng-href="feature.learnMore.link">{{feature.learnMore.title}}</a></div>
+        <div ng-show="feature.learnMore" class="panel-footer"> <em class="text-muted">Learn more at <a ng-href="{{feature.learnMore.link}}">{{feature.learnMore.title}}</a></em></div>
       </article>
     </div>
   </section>
 </div>
+<script src="js/demo/features.js"></script>
       <div id="sf-push"></div>
     </div>
   </body>
   <section id="sf-footer" class="navbar">
     <div class="container">
       <ul class="nav navbar-nav">
-        <li><a href="#">Kickstrap 2.0</a></li>
+        <li><a href="#">&copy; [Your name here]</a></li>
+      </ul>
+      <ul class="nav navbar-nav pull-right">
+        <li><a href="http://getkickstrap.com">Powered by Kickstrap</a></li>
       </ul>
     </div>
   </section>
