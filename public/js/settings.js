@@ -30,8 +30,9 @@
       }
       return k$.apps.concat('kickstrap:themes/' + k$.theme).concat(k$.core);
     },
-    ready: function() {
-      return 'hello world';
+    readyFxs: [],
+    ready: function(fx) {
+      return k$.readyFxs.push(fx);
     }
   };
 

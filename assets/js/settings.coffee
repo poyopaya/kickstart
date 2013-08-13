@@ -22,9 +22,9 @@ window.k$ =
 		return k$.apps
 			.concat('kickstrap:themes/' + k$.theme)
 			.concat(k$.core)
-	ready: -> 
-		# Do nothing for now.
-		return 'hello world'
+	readyFxs: []
+	ready: (fx) -> 
+		k$.readyFxs.push(fx)
 
 jspm.import(k$.jspmResources()
 , ($, k$) ->

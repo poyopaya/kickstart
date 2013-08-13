@@ -7,8 +7,7 @@
     <meta name="author" content="Adam Kochanowicz">
     <script src="https://jspm.io/loader.js"></script>
     <script src="js/settings.js"></script>
-    <script src="js/components/angular/angular.js"></script>
-    <link rel="stylesheet" href="css/bootstrap.css">
+    <script src="/node_modules/angular/angular.js"></script>
     <link rel="stylesheet" href="css/kickstrap.css">
     <title>Kickstrap 2.0</title>
   </head>
@@ -25,26 +24,23 @@
 </nav>
 <div class="container">
   <section ng-controller="k$.featureCtrl" class="row">
-    <div class="col col-sm-12">
+    <div class="col col-sm-3">
       <h1>Kickstrap</h1>
       <p class="lead">New in 2.0</p>
-      <hr/>
-    </div>
-    <div class="col col-sm-3">
       <article class="panel">
         <div class="panel-heading"> 
           <input type="text" ng-model="featureInput" placeholder="Search Features" class="form-control"/>
         </div>
-        <ul class="list-group">
-          <li ng-repeat="feature in features | filter: featureInput" class="list-group-item">{{feature.name}}</li>
-        </ul>
+        <div class="list-group"><a ng-href="{{&quot;#&quot;}}{{slug(feature.name)}}" ng-repeat="feature in features | filter: featureInput" class="list-group-item">{{feature.name}}</a></div>
       </article>
     </div>
     <div class="col col-sm-9">
       <article ng-repeat="feature in features | filter: featureInput" class="panel">
-        <div class="panel-heading">{{feature.name}}</div>
+        <div ng-id="slug(feature.name)" class="panel-heading"> 
+          <div class="panel-title">{{feature.name}} - {{feature.summary}}</div>
+        </div>
         <p>{{feature.description}}</p>
-        <div class="panel-footer">Learn more at <a ng-href="feature.learnMore.link">{{feature.learnMore.title}}</a></div>
+        <div ng-show="feature.learnMore" class="panel-footer">Learn more at <a ng-href="feature.learnMore.link">{{feature.learnMore.title}}</a></div>
       </article>
     </div>
   </section>
