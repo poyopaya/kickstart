@@ -14,11 +14,11 @@
     "type": "git",
     "url": "git://github.com/ajkochanowicz/Kickstrap.git"
   },
-  'dependencies': {
-    'grunt': '~0.4.1',
-    'grunt-contrib-jshint': '~0.6.0',
-    'grunt-contrib-nodeunit': '~0.2.0',
-    'grunt-contrib-uglify': '~0.2.2'
+  "dependencies": {
+    "grunt": "~0.4.1",
+    "grunt-contrib-jshint": "~0.6.0",
+    "grunt-contrib-nodeunit": "~0.2.0",
+    "grunt-contrib-uglify": "~0.2.2"
   },
   "keywords": [
     "bootstrap",
