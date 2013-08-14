@@ -1,21 +1,33 @@
 {
-   'name': 'kickstrap'
-   , 'version': '2.0.0'
-   , 'author': 'Adam Kochanowicz'
-   , 'description': 'Bootstrap supercharged with modern tools for web applications'
-   , 'contributors': [ { 'name': 'Guy Bedford' } ]
-   , 'repository': {
-      'type': 'git'
-      , 'url': 'https://github.com/ajkochanowicz/kickstrap.git'
-   }
-   , 'dependencies': {
-       'grunt': '~0.4.1',
-       'grunt-contrib-jshint': '~0.6.0',
-       'grunt-contrib-nodeunit': '~0.2.0',
-       'grunt-contrib-uglify': '~0.2.2'
-   }
-   , 'license': 'MIT'
-   , 'engines': {
-      'node': '>=0.6'
-   }
+  "name": "Kickstrap",
+  "version": "2.0.0",
+  "description": "Bootstrap supercharged with modern tools for web applications",
+  "main": "index.js",
+  "dependencies": {
+    "grunt": "~0.4.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/ajkochanowicz/Kickstrap.git"
+  },
+  'dependencies': {
+    'grunt': '~0.4.1',
+    'grunt-contrib-jshint': '~0.6.0',
+    'grunt-contrib-nodeunit': '~0.2.0',
+    'grunt-contrib-uglify': '~0.2.2'
+  },
+  "keywords": [
+    "bootstrap",
+    "angular",
+    "jspm",
+    "requirejs",
+    "grunt"
+  ],
+  "author": "Adam Kochanowicz",
+  "license": "MIT",
+  "readmeFilename": "readme.md"
 }
