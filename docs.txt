@@ -1,0 +1,47 @@
+Compiling
+=========
+
+Kickstrap will compile all resources in the ``kickstrap`` directory to a folder structure on the same level. 
+By default, this compiled directory is called ``public``
+
+So before compile you should see this:
+
+    .
+    ..
+    kickstrap/
+
+And after compile, you will see this:
+
+    .
+    ..
+    kickstrap/
+    public/
+
+Adapters
+--------
+
+However, depending on the framework you are using with Kickstrap, you may need assets and view to compile into a specific
+structure. For this need, there are adapters.
+
+Adapters tell the Kickstrap compiler how to organize compiled assets and views and what folders to create. I've provided a 
+Rails adapter by default.
+
+The adapter can be set in ``compile.json``. 
+
+	{
+	   // Have your files compile into a directory structure
+	   // specific to your framework. Rails included as an example.
+	   // See the docs on how to create adapters.
+	   compile-adapter: 'default'
+	}
+
+Changing ``compile-adapter`` from ``'default'`` to ``'rails'`` would result in the following export structure:
+
+    .
+    ..
+    kickstrap/
+    app/
+      assets/
+        javascripts/
+        stylesheets/
+      views/
