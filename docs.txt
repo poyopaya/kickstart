@@ -15,7 +15,10 @@ Learning Jade, LESS, and CoffeeScript is actually not as hard as you think, so w
 Compiling from master source
 ----------------------------
 
+1. Make sure you have Grunt CLI installed
+``npm install -g grunt-cli``
 
+2. Run ``make`` to create both the basic and advanced versions or ``make build-basic`` or ``make build-advanced`` respectively.
 
 Compiling
 =========

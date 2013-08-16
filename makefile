@@ -10,8 +10,7 @@ build-basic:
 build-advanced:	
 	@make reset
 	@rm -rf dist/kickstrap-advanced/*
-	@echo "Just building a new roots project for now, but will be a roots template."
-	@roots new dist/kickstrap-advanced
+	@cp -r lib/roots-structure dist/kickstrap-advanced/
 
 reset:
 	@mkdir -p dist
