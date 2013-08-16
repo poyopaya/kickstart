@@ -1,3 +1,15 @@
+Using this repository
+=====================
+
+The stable and stable-advanced branches contain the files you should use to create a new Kickstrap project.
+However, non-stable branches are actually "master source" files. This creates the files for both stable and stable-advanced. So when creating stable-advanced, it actually compiles files that will be files to be compiled. For the stable branch, it merely creates a static html, no compile version of Kickstrap.
+
+I created Kickstrap Advanced and Basic because I understand some users would prefer not to use precompilers, but simple HTML, CSS, and JavaScript.
+
+However, because you won't be compiling, you won't be able to take advantage of Roots' server creation, live-reloading, and heroku deployment.
+
+Learning Jade, LESS, and CoffeeScript is actually not as hard as you think, so we recommend taking the leap to Kickstrap Advanced.
+
 Compiling
 =========
 
