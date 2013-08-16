@@ -10,6 +10,7 @@ build-basic:
 build-advanced:	
 	@make reset
 	@rm -rf dist/kickstrap-advanced/*
+	@cd lib/roots-structure;roots compile
 	@cp -r lib/roots-structure dist/kickstrap-advanced/
 
 reset:
