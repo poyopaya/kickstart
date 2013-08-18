@@ -11,7 +11,7 @@ build-advanced:
 	@make reset
 	@rm -rf dist/kickstrap-advanced/*
 	@cd lib/roots-structure;roots compile --no-compress
-	@cp -r lib/roots-structure dist/kickstrap-advanced/
+	@cp -r lib/roots-structure/* dist/kickstrap-advanced/
 
 reset:
 	@mkdir -p dist
