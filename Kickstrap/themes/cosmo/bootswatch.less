@@ -1,584 +1,134 @@
-// Cosmo 2.2.2
+// Cosmo 3.0.0
 // Bootswatch
 // -----------------------------------------------------
 
+@import url("//fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,400,700");
 
-// TYPOGRAPHY
-// -----------------------------------------------------
+// Navbar =====================================================================
 
-@import url('https://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,400,700');
+// Buttons ====================================================================
 
-body {
-	font-weight: 300;
+.btn {
+	border: none;
 }
 
-h1 {
-	font-size: 50px;
+// Typography =================================================================
+
+.text-primary {
+	color: @brand-primary;
 }
 
-h2, h3 {
-	font-size: 26px;
+.text-success {
+	color: @brand-success;
 }
 
-h4 {
-	font-size: 14px;
+.text-danger {
+	color: @brand-danger;
 }
 
-h5, h6 {
-	font-size: 11px;
+.text-warning {
+	color: @brand-warning;
 }
 
-blockquote {
+// Tables =====================================================================
 
-	padding: 10px 15px;
-	background-color: @grayLighter;
-	border-left-color: @gray;
+.table {
 
-	&.pull-right {
-		padding: 10px 15px;
-		border-right-color: @gray;
-	}
-
-	small {
-		color: @gray;
+	tr.success,
+	tr.warning,
+	tr.danger {
+		color: #fff;
 	}
 }
 
-.muted {
-	color: @gray;
-}
+// Forms ======================================================================
 
-// SCAFFOLDING
-// -----------------------------------------------------
 
-// NAVBAR
-// -----------------------------------------------------
-
-.navbar {
-
-	.navbar-inner {
-		background-image: none;
-		.box-shadow(none);
-		.border-radius(0);
+.has-warning {
+	.help-block,
+	.control-label {
+		color: @brand-warning;
 	}
 
-	.brand {
-
-		&:hover {
-			color: @navbarLinkColorHover;
-		}
-	}
-
-	.nav > .active > a,
-	.nav > .active > a:hover,
-	.nav > .active > a:focus {
-		.box-shadow(none);
-		background-color: @navbarLinkBackgroundHover;
-	}
-
-	.nav li.dropdown.open > .dropdown-toggle,
-	.nav li.dropdown.active > .dropdown-toggle,
-	.nav li.dropdown.open.active > .dropdown-toggle {
-		color: @white;
-
-		&:hover {
-			color: @grayLighter;
-		}
-	}
-
-	.navbar-search .search-query {
-		line-height: normal;
-	}
-
-	&-inverse {
-
-		.brand,
-		.nav > li > a {
-			text-shadow: none;
-		}
-
-		.brand:hover,
-		.nav > .active > a,
-		.nav > .active > a:hover,
-		.nav > .active > a:focus {
-			background-color: @navbarInverseLinkBackgroundHover;
-			.box-shadow(none);
-			color: @white;
-		}
-
-		.navbar-search .search-query {
-			color: @grayDarker;
-		}
+	.form-control,
+	.form-control:focus {
+		border: 1px solid @brand-warning;
 	}
 }
 
-div.subnav {
-
-	background-color: @grayLight;
-	background-image: none;
-	.box-shadow(none);
-	border-color: transparent;
-	.border-radius(0);
-
-	.nav {
-		background-color: transparent;
+.has-error {
+	.help-block,
+	.control-label {
+		color: @brand-danger;
 	}
 
-	.nav > li > a {
-		border-color: transparent;
-	}
-
-	.nav > .active > a {
-		border-color: transparent;
-		background-color: transparent;
-		// border-left-width: 2px;
-		.box-shadow(none);
-		color: @grayDarker;
-
-		&:hover {
-			background-color: @black;
-			color: @white;
-		}
-	}
-
-	&-fixed {
-		top: @navbarHeight;
+	.form-control,
+	.form-control:focus {
+		border: 1px solid @brand-danger;
 	}
 }
 
-// NAV
-// -----------------------------------------------------
-
-.nav {
-
-	.open .dropdown-toggle,
-	& > li.dropdown.open.active > a:hover {
-		color: @blue;
+.has-success {
+	.help-block,
+	.control-label {
+		color: @brand-success;
 	}
 
-}
-
-.nav-tabs {
-
-	& > li > a {
-		.border-radius(0);
-	}
-
-	&.nav-stacked {
-
-		& > li > a:hover {
-			background-color: @blue;
-			color: @white;
-		}
-
-		& > .active > a,
-		& > .active > a:hover {
-			background-color: @white;
-			color: @gray;
-		}
-
-		& > li:first-child > a,
-		& > li:last-child > a {
-			.border-radius(0);
-		}
+	.form-control,
+	.form-control:focus {
+		border: 1px solid @brand-success;
 	}
 }
+
+// Navs =======================================================================
 
 .nav-pills {
 
 	& > li > a {
-		background-color: @grayLight;
-		.border-radius(0);
-		color: @black;
-
-		&:hover {
-			background-color: @black;
-			color: @white;
-		}
-	}
-
-	& > .disabled > a,
-	& > .disabled > a:hover {
-		background-color: @grayLighter;
-		color: @grayDark;
+		border-radius: 0;
 	}
 }
 
-.nav-list {
+.dropdown-menu {
 
-	& > li > a {
-		color: @grayDarker;
-
-		&:hover {
-			background-color: @blue;
-			color: @white;
-			text-shadow: none;
-		}
-	}
-
-	.nav-header {
-		color: @grayDarker;
-	}
-
-	.divider {
-		background-color: @gray;
-		border-bottom: none;
+	& > li > a:hover,
+	& > li > a:focus {
+		background-image: none;
 	}
 }
 
 .pagination {
 
-	ul {
-
-		.box-shadow(none);
-
-		& > li > a,
-		& > li > span {
-			margin-right: 6px;
-			color: @grayDarker;
-
-			&:hover {
-				background-color: @grayDarker;
-				color: @white;
-			}
-		}
-
-		& > li:last-child > a,
-		& > li:last-child > span {
-			margin-right: 0;
-		}
-
-		& > .active > a,
-		& > .active > span { 
-			color: @white;
-		}
-
-		& > .disabled > span,
-		& > .disabled > a,
-		& > .disabled > a:hover {
-			background-color: @grayLighter;
-			color: @grayDark;
-		}
+	.active > a,
+	.active > a:hover {
+		border-color: #ddd;
 	}
 }
 
-.pager {
-
-	li > a,
-	li > span {
-		background-color: @grayLight;
-		border: none;
-		.border-radius(0);
-		color: @grayDarker;
-
-		&:hover {
-			background-color: @grayDarker;
-			color: @white;
-		}
-	}
-
-	.disabled > a,
-	.disabled > a:hover,
-	.disabled > span {
-		background-color: @grayLighter;
-		color: @grayDark;
-	}
-
-}
-
-.breadcrumb {
-	background-color: @grayLight;
-
-	li {
-		text-shadow: none;
-	}
-
-	.divider,
-	.active {
-		color: @grayDarker;
-		text-shadow: none;
-	}
-}
-
-// BUTTONS
-// -----------------------------------------------------
-
-.btn {
-	background-image: none;
-	.box-shadow(none);
-	border: none;
-	.border-radius(0);
-	text-shadow: none;
-
-	&.disabled {
-		box-shadow: inset 0 2px 4px rgba(0,0,0,.15),~" "0 1px 2px rgba(0,0,0,.05);
-	}
-}
-
-.btn-group {
-
-	& > .btn:first-child,
-	& > .btn:last-child,
-	& > .dropdown-toggle {
-		.border-radius(0);
-	}
-
-	& > .btn + .dropdown-toggle {
-		.box-shadow(none);
-	}
-}
-
-// TABLES
-// -----------------------------------------------------
-
-.table {
-
-	tbody tr.success td {
-		color: @white;
-	}
-
-	tbody tr.error td {
-		color: @white;
-	}
-
-	tbody tr.info td {
-		color: @white;
-	}
-
-	&-bordered {
-		.border-radius(0);
-
-		thead:first-child tr:first-child th:first-child,
-		tbody:first-child tr:first-child td:first-child {
-			.border-radius(0);
-		}
-
-		thead:last-child tr:last-child th:first-child,
-		tbody:last-child tr:last-child td:first-child,
-		tfoot:last-child tr:last-child td:first-child {
-			.border-radius(0);
-		}
-	}
-}
-
-// FORMS
-// -----------------------------------------------------
-
-select, textarea, input[type="text"], input[type="password"], input[type="datetime"],
-input[type="datetime-local"], input[type="date"], input[type="month"], input[type="time"],
-input[type="week"], input[type="number"], input[type="email"], input[type="url"],
-input[type="search"], input[type="tel"], input[type="color"] {
-	color: @grayDarker;
-}
-
-.control-group {
-
-	&.warning {
-
-		.control-label,
-		.help-block,
-		.help-inline {
-			color: @orange;
-		}
-
-		input,
-		select,
-		textarea {
-			border-color: @orange;
-			color: @grayDarker;
-		}
-	}
-
-	&.error {
-
-		.control-label,
-		.help-block,
-		.help-inline {
-			color: @red;
-		}
-
-		input,
-		select,
-		textarea {
-			border-color: @red;
-			color: @grayDarker;
-		}
-	}
-
-	&.success {
-
-		.control-label,
-		.help-block,
-		.help-inline {
-			color: @green;
-		}
-
-		input,
-		select,
-		textarea {
-			border-color: @green;
-			color: @grayDarker;
-		}
-	}
-}
-
-legend {
-	border-bottom: none;
-	color: @grayDarker;
-}
-
-.form-actions {
-	border-top: none;
-	background-color: @grayLighter;
-}
-
-// DROPDOWNS
-// -----------------------------------------------------
-
-.dropdown-menu {
-	.border-radius(0);
-}
-
-// ALERTS, LABELS, BADGES
-// -----------------------------------------------------
+// Indicators =================================================================
 
 .alert {
-	.border-radius(0);
-	text-shadow: none;
+	border: none;
 
-	&-heading, h1, h2, h3, h4, h5, h6 {
-		color: @white;
+	.alert-link {
+		text-decoration: underline;
+		color: #fff;
 	}
 }
 
 .label {
-	min-width: 80px;
-	min-height: 80px;
-	.border-radius(0);
-	font-weight: 300;
-	text-shadow: none;
-
-	&-success {
-		background-color: @green;
-	}
-
-	&-important {
-		background-color: @red;
-	}
-
-	&-info {
-		background-color: @purple;
-	}
-
-	&-inverse {
-		background-color: @black;
-	}
+	border-radius: 0;
 }
 
-.badge {
-
-	.border-radius(0);
-	font-weight: 300;
-	text-shadow: none;
-
-	&-success {
-		background-color: @green;
-	}
-
-	&-important {
-		background-color: @red;
-	}
-
-	&-info {
-		background-color: @purple;
-	}
-
-	&-inverse {
-		background-color: @black;
-	}
+.close {
+	opacity: 1;
 }
 
-// MISC
-// -----------------------------------------------------
-
-.hero-unit {
-	border: none;
-	.border-radius(0);
-	.box-shadow(none);
-}
-
-.well {
-	border: none;
-	.border-radius(0);
-	.box-shadow(none);
-}
-
-[class^="icon-"], [class*=" icon-"] {
-	margin: 0 2px;
-	vertical-align: -2px;
-}
-
-a.thumbnail {
-	background-color: @grayLight;
-
-	&:hover {
-		background-color: @gray;
-		border-color: transparent;
-	}
-}
+// Progress bars ==============================================================
 
 .progress {
-	height: 6px;
-	.border-radius(0);
+	height: 8px;
 	.box-shadow(none);
-	background-color: @grayLighter;
-	background-image: none;
-
-	.bar {
-		background-color: @blue;
-		background-image: none;
-	}
-
-	&-info {
-		background-color: @purple;
-	}
-
-	&-success {
-		background-color: @green;
-	}
-
-	&-warning {
-		background-color: @orange;
-	}
-
-	&-danger {
-		background-color: @red;
-	}
 }
 
-.modal {
-	.border-radius(0);
-
-	&-header {
-		border-bottom: none;
-	}
-
-	&-footer {
-		border-top: none;
-		background-color: transparent;
-	}
-}
-
-.popover {
-	.border-radius(0);
-	color: @white;
-
-	&-title {
-		border-bottom: none;
-		color: @white;
-	}
-
-}
-
-// MEDIA QUERIES
-// -----------------------------------------------------
+// Containers =================================================================
