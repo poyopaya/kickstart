@@ -1,6 +1,0 @@
-{
-   // Have your files compile into a directory structure
-   // specific to your framework. Rails included as an example.
-   // See the docs on how to create adapters.
-   compile-adapter: 'default'
-}
