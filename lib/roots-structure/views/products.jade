@@ -1,45 +1,36 @@
-// A header is omitted here to encourage users to complete their purchase.
+include _header
 
-.container
+.container(ng-controller='k$.productsCtrl')
 	section.row
-		div.col.col-sm-12
-			h1 Shopping Cart
-	section.row(ng-controller='k$.productsCtrl')
-		link(
-			ng-repeat='product in products'
-			rel="prerender", 
-			href="http://api.rethumb.com/v1/square/120/http://upload.wikimedia.org/wikipedia/commons/{{product.img}}"
-		)
-		div.col.col-sm-3
-			p.lead Thank you for your business
-		
-		nav.navbar.navbar-default.visible-sm.visible-xs#message
-			.container
-				ul.nav.navbar-nav	
-					li
-						a(href="#") 
-							span.glyphicon.glyphicon-chevron-left 
-							|  Cart 
-		div.col.col-sm-6
-			article.panel.panel-default
-				.panel-heading Items in cart
-				ul.list-group
-					li.list-group-item(ng-repeat='purchase in purchases')
-						.media
-							img.media-object.pull-left(src="http://api.rethumb.com/v1/square/128/http://upload.wikimedia.org/wikipedia/commons/{{purchase.product.img}}", style="width: 64px;")
-							.media-body
-								h4.media-heading {{purchase.product.name}}
-								p.text-muted(style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis;") {{ (purchase.product.price * purchase.quantity) | currency:"$"}}
-								p(ng-show="purchase.quantity > 1")
-									em ({{purchase.quantity}} x {{purchase.product.price | currency:'$'}})
+		.col.col-sm-12
+			h1 Sizzlin' Summer Deals
+		.col.col-sm-12
+			img.thumbnail(src="http://placehold.it/1200x500")
+	section.row
+		.col.col-sm-12
+			h1 On Sale Now
+			p.lead Get them before they're gone
+	section.row
 		div.col.col-sm-3
 			article.panel.panel-default
-				.panel-heading Checkout
-				.panel-body
-					p Total: 
-						strong {{total | currency:'$'}}
-					a.btn.btn-primary Purchase
+				.panel-heading 
+					input.form-control(type='text', ng-model='productInput', placeholder='Search products')
+				.list-group
+					a.list-group-item(
+						ng-href='{{"#"}}{{slug(product.name)}}', ng-repeat='product in products | filter: productInput'
+						ng-click="setSelectedProduct(product)"
+						ng-class="{'active': selectedProduct.id == product.id }"
+					) {{product.name}}
 
+		div.col.col-sm-9
+			article.panel.panel-default(ng-repeat='product in products | filter: productInput')
+				.panel-body
+					p.lead(ng-id='slug(product.name)') {{product.name}} - {{product.summary}}
+					p {{product.description}}
+				.panel-footer(ng-show="product.learnMore") 
+					small
+						em.text-muted Learn more at 
+							a(ng-href='{{product.learnMore.link}}') {{product.learnMore.title}}
 
 script(src='js/demo/products.js')
 script(src='js/demo/product-list.js')
