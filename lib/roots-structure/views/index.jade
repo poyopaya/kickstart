@@ -1,0 +1,28 @@
+include _header
+
+.container
+	section.row(ng-controller='k$.featureCtrl')
+		div.col.col-sm-3
+			h1 Kickstrap
+			p.lead New in 2.0
+			article.panel.panel-default
+				.panel-heading 
+					input.form-control(type='text', ng-model='featureInput', placeholder='Search Features')
+				.list-group
+					a.list-group-item(
+						ng-href='{{"#"}}{{slug(feature.name)}}', ng-repeat='feature in features | filter: featureInput'
+						ng-click="setSelectedFeature(feature)"
+						ng-class="{'active': selectedFeature.id == feature.id }"
+					) {{feature.name}}
+
+		div.col.col-sm-9
+			article.panel.panel-default(ng-repeat='feature in features | filter: featureInput')
+				.panel-body
+					p.lead(ng-id='slug(feature.name)') {{feature.name}} - {{feature.summary}}
+					p {{feature.description}}
+				.panel-footer(ng-show="feature.learnMore") 
+					small
+						em.text-muted Learn more at 
+							a(ng-href='{{feature.learnMore.link}}') {{feature.learnMore.title}}
+
+script(src='js/demo/features.js')
