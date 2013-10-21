@@ -1,7 +1,7 @@
 include _header
 
 .container
-	section.row(ng-controller='k$.featureCtrl')
+	section.row(ng-controller='FeaturesCtrl')
 		div.col.col-sm-3
 			h1 Kickstrap
 			p.lead New in 2.0
@@ -24,5 +24,3 @@ include _header
 					small
 						em.text-muted Learn more at 
 							a(ng-href='{{feature.learnMore.link}}') {{feature.learnMore.title}}
-
-script(src='js/demo/features.js')

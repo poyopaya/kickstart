@@ -1,42 +1,9 @@
-k$.featureCtrl = ($scope) -> 
-	$scope.features = [
-		id: 0
-		name: 'Bootstrap 3'
-		summary: 'The most popular CSS framework, now extended.'
-		description: 'Bootstrap 3 is a mobile-first CSS and JS framework making UI creation a snap on any screen.'
-		learnMore:
-			link: 'http://getbootstrap.com'
-			title: 'the Bootstrap homepage'
-	,
-		id: 1
-		name: 'JSPM'
-		summary: 'An app store for your website'
-		description: '"JSPM is a browser module loader that will load any module format (ES6 / AMD / CJS) locally or even directly from NPM and Github utilising SPDY push."'
-		learnMore: 
-			link: 'http://jspm.io'
-			title: 'JSPM.io'
-	,
-		id: 2
-		name: 'Roots.cx'
-		summary: 'Powerful compilation, live testing, and deployment'
-		description: 'No more third-party less compilers or requirement to deploy your own server. Kickstrap is now a custom Roots template. This means it utilizes Roots\' native CoffeeScript, Jade, and Stylus compilation, Heroku deployment, watch mode, plugins, and live reloading.'
-		learnMore:
-			link: 'http://roots.cx'
-			title: 'Roots.cx'
-	,
-		id: 3
-		name: 'Angular.js'
-		summary: 'Google\'s front-end MVC for blindingly fast web apps'
-		description: '"HTML is great for declaring static documents, but it falters when we try to use it for declaring dynamic views in web-applications. AngularJS lets you extend HTML vocabulary for your application. The resulting environment is extraordinarily expressive, readable, and quick to develop...."'
-		learnMore:
-			link: 'http://angularjs.org'
-			title: 'Angular JS'
-	,
-		id: 4
-		name: 'Included templates'
-		summary: 'Hack away at our included example pages'
-		description: 'In version 1 of Kickstrap, I realized users much prefered pre-built templates over blank slates. I\'ve included several simple templates for common application page types--already wired up with Angular.js. Check them out in the navbar at the top.'
-	]
+angular.module('features', ['kickstrap']).controller('FeaturesCtrl', ['$scope', 'angularFire', ($scope, angularFire) ->
+	$scope.features = []
+
+	features = new Firebase 'https://' + k$.firebaseName + '.firebaseio.com/features/'
+	promise = angularFire features, $scope, 'features'
+
 	$scope.slug = (str) ->
 		# Thanks: https://gist.github.com/keenahn/3184241
 		str = str.replace(/^\s+|\s+$/g, "").toLowerCase()
@@ -49,3 +16,5 @@ k$.featureCtrl = ($scope) ->
 	$scope.selectedFeature = $scope.features[0]
 	$scope.setSelectedFeature = (feature) ->
 		$scope.selectedFeature = feature
+
+])
