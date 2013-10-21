@@ -15,14 +15,7 @@
 			p.alert.alert-warning(ng-show="lastRemoved")
 				| {{lastRemoved.product.name}} Removed.&nbsp;
 				a(href='#', ng-show='lastRemoved', ng-click="restorePurchase(lastRemoved)") Undo.
-		
-		nav.navbar.navbar-default.visible-sm.visible-xs#message
-			.container
-				ul.nav.navbar-nav	
-					li
-						a(href="#") 
-							span.glyphicon.glyphicon-chevron-left 
-							|  Cart 
+
 		div.col.col-sm-6
 			article.panel.panel-default
 				.panel-heading Items in cart
@@ -32,13 +25,16 @@
 							img.media-object.pull-left(src="http://api.rethumb.com/v1/square/128/http://upload.wikimedia.org/wikipedia/commons/{{purchase.product.img}}", style="width: 64px;")
 							.media-body
 								h4.media-heading {{purchase.product.name}}
-								p
-									em {{purchase.product.price | currency:'$'}} x
-									input(type="text", ng-model="purchase.quantity")
-								hr
 								p.text-muted(style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis;") {{ (purchase.product.price * purchase.quantity) | currency:"$"}}
-								p.pull-right
-									a(href="#", ng-click="deletePurchase(purchase.product.id)") Remove
+								hr
+								p
+									form.form-inline(role="form")
+										.form-group
+											label.control-label {{purchase.product.price | currency:'$'}} x
+										.form-group
+											input.form-control(type="text", ng-model="purchase.quantity")
+										.form-group
+											a.control-label(href="#", ng-click="deletePurchase(purchase.product.id)") Remove
 					li.list-group-item(ng-show='purchases.length < 1')
 						em There are currently no items in your cart.
 						p
