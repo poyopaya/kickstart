@@ -4,7 +4,7 @@
 	section.row
 		div.col.col-sm-12
 			h1 Shopping Cart
-	section.row(ng-controller='k$.cartCtrl')
+	section.row(ng-controller='ProductsCtrl')
 		link(
 			ng-repeat='product in products'
 			rel="prerender", 
@@ -30,7 +30,7 @@
 								p
 									form.form-inline(role="form")
 										.form-group
-											label.control-label {{purchase.product.price | currency:'$'}} x
+											label.control-label {{purchase.productForId(product).price | currency:'$'}} x
 										.form-group
 											input.form-control(type="text", ng-model="purchase.quantity")
 										.form-group
@@ -46,7 +46,3 @@
 					p Total: 
 						strong {{ total() | currency:'$' }}
 					a.btn.btn-primary Purchase
-
-
-script(src='js/demo/products.js')
-script(src='js/demo/cart.js')
