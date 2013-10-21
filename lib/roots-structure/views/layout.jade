@@ -6,10 +6,11 @@ html(lang='en', ng-app='kickstrap')
     meta(name="viewport", content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=no")
     meta(name='description', content='The Elegant Frontend Framework')
     meta(name='author', content= 'Adam Kochanowicz')
-    script(src='//da189i1floii.cloudfront.net/js/kinvey-html5-1.0.4.min.js')
     script(src='https://jspm.io/loader.js')
     script(src='js/settings.js')
     script(src='js/angular.js')
+    script(src='https://cdn.firebase.com/v0/firebase.js')
+    script(src='https://cdn.firebase.com/libs/angularfire/0.3.0/angularfire.js')
     link(rel='stylesheet', href='css/bootstrap.css')
     title Kickstrap 2.0
   body
@@ -27,16 +28,6 @@ html(lang='en', ng-app='kickstrap')
   
   script(src='js/demo/ang-app.js')
   :coffeescript
-    promise = Kinvey.init(
-      appKey: 'kid_VPaFEIVR_5'
-      appSecret: 'e723b43b0ba6489bb03d6e0'
-    )
-    promise.then(
-      (activeUser) ->
-        console.log(activeUser)
-      (error) ->
-        console.log(error)
-    )
     k$.ready ->  
   script(src="js/jquery.js")   
   script(src="js/bootstrap.js")
