@@ -1,3 +1,4 @@
-angular.module('kickstrap'
-, ['firebase']
-)
+k$.app = angular.module 'kickstrap', [
+	'firebase'
+	'products'
+]

@@ -22,6 +22,7 @@ window.k$ =
 		return k$.apps
 			.concat('kickstrap:themes/' + k$.theme)
 			.concat(k$.core)
+	firebaseName: 'kickstrap-demo'
 	readyFxs: []
 	ready: (fx) -> 
 		k$.readyFxs.push(fx)
