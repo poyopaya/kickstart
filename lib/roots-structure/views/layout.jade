@@ -17,21 +17,25 @@ html(lang='en', ng-app='kickstrap')
     #sf-wrap
       != content
       #sf-push
-  section#sf-footer.navbar.navbar-default
-    .container
-      ul.nav.navbar-nav
-        li
-          a(href="#") &copy; [Your name here]
-      ul.nav.navbar-nav.pull-right
-        li
-          a(href="http://getkickstrap.com") Powered by Kickstrap
-  
-  script(src='js/demo/ang-app.js')
-  :coffeescript
-    k$.ready ->  
-  script(src="js/jquery.js")   
-  script(src="js/bootstrap.js")
+    section#sf-footer.navbar.navbar-default
+      .container
+        ul.nav.navbar-nav
+          li
+            a(href="#") &copy; [Your name here]
+        ul.nav.navbar-nav.pull-right
+          li
+            a(href="http://getkickstrap.com") Powered by Kickstrap
+    
+    script(src='js/demo/ang-app.js')
+    :coffeescript
+      k$.ready ->  
+    script(src="js/jquery.js")   
+    script(src="js/bootstrap.js")
 
-  // Controllers
-  script(src='js/demo/products.js')
-  script(src='js/demo/cart.js')
+    // Controllers
+    script(src='js/demo/products.js')
+    script(src='js/demo/messages.js')
+
+    //- this must be included for live reload to work in developement
+    //- it will be automatically ignored when deployed
+    != livereload

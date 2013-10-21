@@ -2,8 +2,8 @@ angular.module('products', ['kickstrap']).controller('ProductsCtrl', ['$scope', 
 	
 	$scope.products = []
 
-	ref = new Firebase 'https://' + k$.firebaseName + '.firebaseio.com/products/'
-	promise = angularFire ref, $scope, 'products'
+	products = new Firebase 'https://' + k$.firebaseName + '.firebaseio.com/products/'
+	promise = angularFire products, $scope, 'products'
 	
 	promise.then ->
 		$scope.productForId = (id) ->

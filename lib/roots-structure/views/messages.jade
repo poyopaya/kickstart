@@ -1,7 +1,7 @@
 include _header
 
 .container
-	section.row(ng-controller='k$.messageCtrl')
+	section.row(ng-controller='MessagesCtrl')
 		link(
 			ng-repeat='contact in contacts'
 			rel="prerender", 
@@ -22,7 +22,7 @@ include _header
 						ng-class="{'active': selectedThread.threadId == thread.threadId }"
 					) 
 						.media
-							img.media-object.pull-left(src="http://api.rethumb.com/v1/square/128/http://upload.wikimedia.org/wikipedia/commons/{{thread.messages[0].contact.img}}", style="width: 64px;")
+							img.media-object.pull-left(src="http://images.weserv.nl/?url=upload.wikimedia.org/wikipedia/commons/{{contactForId(thread.messages[0].contactId).img}}&h=128&w=128&t=square", style="width: 64px;")
 							.media-body
 								h4.media-heading {{thread.subject}}
 								p.text-muted(style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis;") {{thread.messages[0].text}}
@@ -39,14 +39,11 @@ include _header
 			article.panel.panel-default(ng-repeat='message in selectedThread.messages')
 				.panel-body
 					.media
-						img.media-object.pull-left(src="http://api.rethumb.com/v1/square/120/http://upload.wikimedia.org/wikipedia/commons/{{message.contact.img}}", style="width: 64px;")
+						img.media-object.pull-left(src="http://images.weserv.nl/?url=upload.wikimedia.org/wikipedia/commons/{{contactForId(message.contactId).img}}&h=128&w=128&t=square", style="width: 64px;")
 						.media-body
 							p 
-								strong {{message.contact.fName}} {{message.contact.lName}}
+								strong {{contactForId(message.contactId).fName}} {{contactForId(message.contactId).lName}}
 							p {{message.text}}
 				.panel-footer
 					small
 						em.text-muted Sent at {{message.date}}
-
-script(src="js/demo/contacts.js")
-script(src='js/demo/messages.js')
