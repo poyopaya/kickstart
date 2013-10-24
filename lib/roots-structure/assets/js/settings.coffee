@@ -5,32 +5,28 @@
 
 window.k$ =
 	apps: [
-		'fontawesome'
-		'bootstrap'
-		'angular'
+		# 'fontawesome'
+		'./js/bootstrap'
+		'./js/angular'
 	]
 	version: 		'2.0.0 alpha'
 	theme: 			'monaco'
 	mode: 			'development'
 	core: [
 		'jspm:jquery'
-		'kickstrap:less'
-		'kickstrap:core/js'
 	]
 	jspmResources: ->
-		k$.apps[app] = 'kickstrap:' + k$.apps[app] for app of k$.apps
+		# k$.apps[app] = 'kickstrap:' + k$.apps[app] for app of k$.apps
 		return k$.apps
-			.concat('kickstrap:themes/' + k$.theme)
+			.concat('./themes/' + k$.theme)
 			.concat(k$.core)
 	firebaseName: 'kickstrap-demo'
 	readyFxs: []
 	ready: (fx) -> 
 		k$.readyFxs.push(fx)
 
-jspm.import(k$.jspmResources()
-, ($, k$) ->
+jspm.import k$.jspmResources(), ($, k$) ->
 
-)
 
 # LESS
 
