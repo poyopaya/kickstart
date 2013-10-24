@@ -13,7 +13,10 @@ window.k$ =
 	theme: 			'monaco'
 	mode: 			'development'
 	core: [
-		'jspm:jquery'
+		'cdnjs:jquery/1.10.2/jquery'
+		'cdnjs:twitter-bootstrap/3.0.0/js/bootstrap'
+		'cdnjs:twitter-bootstrap/3.0.0/css/bootstrap.css!'
+		'cdnjs:angular.js/1.1.5/angular'
 	]
 	jspmResources: ->
 		# k$.apps[app] = 'kickstrap:' + k$.apps[app] for app of k$.apps
