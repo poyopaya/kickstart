@@ -1,0 +1,12 @@
+body.loaded .ks-beforeload {
+   display: none;
+}
+body.loaded .ks-afterload {
+   display: block;
+}
+body.loading .ks-beforeload {
+   display: block;
+}
+body.loading .ks-afterload {
+   display: none;
+}
