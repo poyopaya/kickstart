@@ -25,9 +25,7 @@ k$.readyFxs = []
 k$.ready = (fx) ->
 	k$.readyFxs.push(fx)
 
-jspmResources = ['jquery', 'angular', 'firebase', 'bootstrap']
-
-# jspmResources.push 'kickstrap:' + k$settings.appName + '/' + k$settings.appName
+jspmResources = ['jquery', 'angular', 'firebase', 'bootstrap', 'angularFire']
 
 i = 0
 while i < k$settings.apps.length
