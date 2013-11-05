@@ -3,7 +3,7 @@
 #= require "_extend"
 
 k$settings = extend(
-	theme: 'monaco'
+	theme: 'bootstrap'
 	mode: 'development'
 	firebaseName: 'kickstrap-demo'
 	version: '2.0.0 alpha'
@@ -25,7 +25,7 @@ k$.readyFxs = []
 k$.ready = (fx) ->
 	k$.readyFxs.push(fx)
 
-jspmResources = ['jquery', 'angular']
+jspmResources = ['jquery', 'angular', 'angularFire']
 
 # jspmResources.push 'kickstrap:' + k$settings.appName + '/' + k$settings.appName
 

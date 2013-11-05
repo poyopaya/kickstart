@@ -3,7 +3,6 @@
 window.k$ =
 	appName: 'kickstrap'
 	apps: [
-		# 'ang-app'
+		'ang-app'
 		'sample-app'
-		'features'
 	]
