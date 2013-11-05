@@ -1,5 +1,5 @@
 # deep extension for applying default settings
-extend = (objA, objB) ->
+window.extend = (objA, objB) ->
 	for p of objB
 		if typeof objA[p] is "object"
 			extend objA[p], objB[p]

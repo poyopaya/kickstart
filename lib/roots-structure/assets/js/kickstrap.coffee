@@ -6,43 +6,39 @@ k$settings = extend(
 	theme: 'monaco'
 	mode: 'development'
 	firebaseName: 'kickstrap-demo'
+	version: '2.0.0 alpha'
 , window.k$ or {})
 
+k$ = window.k$ = () ->
 
-window.k$ = () ->
-	@loadApp = () ->
-	@version = '2.0.0 alpha'
-	@settings = k$settings
-	@widget = (name, options) ->
-		htmlElement = document.body.childNodes[document.body.childNodes.length - 3]
+k$.loadApp = () ->
+k$.settings = k$settings
+k$.app = (name, options) ->
+	htmlElement = document.body.childNodes[document.body.childNodes.length - 3]
 
-		jspm.import name, (widget) ->
-			widget.attach htmlElement, options
+	jspm.import name, (app) ->
+		app.attach htmlElement, options
 
-		jspm.set 'jquery',
-			'default': $
-	@readyFxs = []
-	@ready = (fx) -> 
-		k$.readyFxs.push(fx)
-	@firebaseName = 'kickstrap-demo'
+	jspm.set 'jquery',
+		'default': $
+k$.readyFxs = []
+k$.ready = (fx) ->
+	k$.readyFxs.push(fx)
 
-	jspmResources = ['jquery', 'angular-kickstrap']
+jspmResources = ['jquery', 'angular']
 
-	jspmResources.push 'kickstrap:' + k$settings.appName + '/' + k$settings.appName
-	
-	i = 0
-	while i < k$settings.apps.length
-		jspmResources.push "kickstrap:" + k$settings.apps[i] + "/" + k$settings.apps[i]
-		i++
+# jspmResources.push 'kickstrap:' + k$settings.appName + '/' + k$settings.appName
 
-	jspmResources.push './themes/' + k$settings.theme + '.css!'
+i = 0
+while i < k$settings.apps.length
+	jspmResources.push "kickstrap:" + k$settings.apps[i] + "/" + k$settings.apps[i]
+	i++
 
-	jspm.import jspmResources, ($, angular, app) ->
-		angular.bootstrap document, [k$settings.appName]
-		$(document).ready ->
-			document.body.className = 'loaded'
-
-			i = 0
-			while i < readyFxs.length
-				readyFxs[i]()
-				i++
+jspmResources.push './themes/' + k$settings.theme + '.css!'
+jspm.import jspmResources, ($, angular, app) ->
+	$(document).ready ->
+		document.body.className = 'loaded'
+		i = 0
+		while i < k$.readyFxs.length
+			k$.readyFxs[i]()
+			i++

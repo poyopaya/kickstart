@@ -1,0 +1,58 @@
+$brown = rgba(242, 239, 235, 0.9)
+
+$footerHeight = 50px
+
+body.loaded
+	.ks-beforeload
+		display: none
+	.ks-afterload
+		display: block
+body.loading
+	.ks-beforeload
+		display: block
+	.ks-afterload
+		display: none
+
+.loadingContainer
+	position: absolute
+	bottom: 0
+	left: 0
+	right: 0
+	height: 75px
+	z-index: 100000
+	background-color: $brown
+	$imgSize = 75px
+	&-loading
+		width: ($imgSize/2)
+		height: ($imgSize/2)
+		margin-top: (($imgSize/4) * -1)
+		top: 50%
+		left: 20px
+		z-index: 100001
+		position: absolute
+	.progress
+		position: absolute
+		top: 50%
+		left: (($imgSize/2) + 30px)
+		margin-top: -10px
+		right: 20px
+
+// Sticky Footer
+
+html
+, body
+	height: 100%
+
+#sf-wrap
+	min-height: 100%
+	height: auto !important
+	height: 100%
+	margin 0 auto (-1 * $footerHeight)
+	padding: 0 0 $footerHeight
+
+#sf-footer
+	height: $footerHeight
+
+#sf-push
+	padding-top: $footerHeight
+	display: block

@@ -1,4 +1,9 @@
 # BASIC SITE SETTINGS
 
 window.k$ =
-	apps: ['sample-widget']
+	appName: 'kickstrap'
+	apps: [
+		# 'ang-app'
+		'sample-app'
+		'features'
+	]

@@ -1,5 +1,5 @@
 !!!
-html(lang='en', ng-app='kickstrap')
+html(lang='en')
   head
     meta(charset='utf8')
     meta(http-equiv='X-UA-Compatible', content='IE=edge, chrome=1')
@@ -9,10 +9,14 @@ html(lang='en', ng-app='kickstrap')
     link(rel="stylesheet", href="https://github.jspm.io/twbs/bootstrap@3.0.0/dist/css/bootstrap.css")
     link(rel="stylesheet", href="css/kickstrap.css")
     script(src='https://jspm.io/loader.js')
-    script(src='js/kickstrap.js')
     script(src='js/settings.js')
+    script(src='js/kickstrap.js')
     title Kickstrap 2.0
-  body
+  body.loading
+    .loadingContainer.ks-beforeload
+      img.loadingContainer-loading(src="img/loading.png")
+      .progress.progress-striped.active
+        .progress-bar#progress-bar(style="width: 100%")
     #sf-wrap
       != content
       #sf-push
@@ -25,14 +29,15 @@ html(lang='en', ng-app='kickstrap')
           li
             a(href="http://getkickstrap.com") Powered by Kickstrap
     
-    script(src='js/demo/ang-app.js')
+    // script(src='js/demo/ang-app.js')
     :coffeescript
       k$.ready ->  
+        console.log 'Ok, I\'m ready.'
 
     // Controllers
-    script(src='js/demo/products.js')
-    script(src='js/demo/messages.js')
-    script(src='js/demo/features.js')
+    // script(src='js/demo/products.js')
+    // script(src='js/demo/messages.js')
+    // script(src='js/demo/features.js')
 
     //- this must be included for live reload to work in developement
     //- it will be automatically ignored when deployed
