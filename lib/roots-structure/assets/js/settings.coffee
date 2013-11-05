@@ -5,4 +5,6 @@ window.k$ =
 	apps: [
 		'ang-app'
 		'sample-app'
+		'-angularFire'
+		'tinyGrowl'
 	]

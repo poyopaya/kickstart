@@ -1,15 +1,13 @@
 # Add your angular modules here.
-
 mods = [
-	'products'
-	'messages'
+	# 'products'
+	# 'messages'
 	'features'
 ]
 
-define ['jquery', 'angular'], ($, angular) ->
+define ['jquery', 'angular', 'firebase', 'kickstrap:-angularFire/-angularFire'], ($, angular, Firebase, angularFire) ->
 	_mods = []
 	(_mods = _mods.concat ['kickstrap:ang-app/' + mod] ) for mod in mods
-	_mods.concat ['firebase']
 	mods.concat ['firebase']
 	require _mods, () ->
 		angular.module k$.settings.appName, mods

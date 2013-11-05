@@ -25,7 +25,7 @@ k$.readyFxs = []
 k$.ready = (fx) ->
 	k$.readyFxs.push(fx)
 
-jspmResources = ['jquery', 'angular', 'angularFire']
+jspmResources = ['jquery', 'angular', 'firebase', 'bootstrap']
 
 # jspmResources.push 'kickstrap:' + k$settings.appName + '/' + k$settings.appName
 
