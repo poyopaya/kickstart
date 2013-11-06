@@ -5,7 +5,7 @@ mods = [
 	'features'
 ]
 
-define ['jquery', 'angular', 'firebase', 'angularFire'], ($, angular, Firebase) ->
+define ['jquery', 'angular', 'angularFire'], ($, angular, Firebase) ->
 	_mods = []
 	(_mods = _mods.concat ['kickstrap:ang-app/' + mod] ) for mod in mods
 	mods.concat ['firebase']

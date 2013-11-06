@@ -26,7 +26,7 @@ k$.readyFxs = []
 k$.ready = (fx) ->
 	k$.readyFxs.push(fx)
 
-jspmResources = ['jquery', 'angular', 'firebase', 'bootstrap', 'angularFire']
+jspmResources = ['jquery', 'angular', 'bootstrap', 'angularFire']
 console.log k$.settings
 jspm.config.urlArgs = '?bust=' + new Date().getTime() if k$.settings.mode == 'dev'
 
