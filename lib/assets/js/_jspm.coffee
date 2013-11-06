@@ -16,11 +16,9 @@ jspm.config
 		'angular': 		'./js/temp/angular'
 		'angularFire': 	'./js/temp/angularfire'
 		'firebase': 	'./js/temp/firebase'
-		'angularResource': './js/temp/angular-resource'
 	shim:
 		'./js/temp/jquery': 	true
 		'./js/temp/angular': 	true
 		'./js/temp/firebase': 	true
 		'./js/temp/bootstrap': 			['jquery']
 		'./js/temp/angularfire': 			['angular', 'firebase']
-		'./js/temp/angularResource': 		['angular']
