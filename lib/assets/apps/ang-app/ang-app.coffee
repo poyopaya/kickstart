@@ -1,7 +1,7 @@
 define [
 	'angular' 
 	'./controllers/index'
-], (ng) ->
-	return ng.module 'app', [
+], (angular) ->
+	angular.module 'app', [
 		'app.controllers'
 	]

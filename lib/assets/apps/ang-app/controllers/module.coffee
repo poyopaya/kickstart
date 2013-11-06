@@ -1,2 +1,2 @@
-define ['angular'], (ng) ->
-	ng.module 'app.controllers', []
+define ['angular'], (angular) ->
+	angular.module 'app.controllers', []
