@@ -1,4 +1,5 @@
-angular.module('features', ['kickstrap']).controller('FeaturesCtrl', ['$scope', 'angularFire', ($scope, angularFire) ->
+console.log 'ping'
+angular.module('features', [k$.settings.appName]).controller('FeaturesCtrl', ['$scope', 'angularFire', ($scope, angularFire) ->
 	$scope.features = []
 
 	features = new Firebase 'https://' + k$.firebaseName + '.firebaseio.com/features/'

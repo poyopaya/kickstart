@@ -1,4 +1,4 @@
-angular.module('products', ['kickstrap']).controller('ProductsCtrl', ['$scope', 'angularFire', ($scope, angularFire) ->
+angular.module('products', [k$.settings.appName]).controller('ProductsCtrl', ['$scope', 'angularFire', ($scope, angularFire) ->
 	
 	$scope.products = []
 

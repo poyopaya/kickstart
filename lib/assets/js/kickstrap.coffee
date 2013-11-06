@@ -4,8 +4,9 @@
 
 k$settings = extend(
 	theme: 'bootstrap'
-	mode: 'development'
+	mode: 'dev'
 	firebaseName: 'kickstrap-demo'
+	appName: 'kickstrap'
 	version: '2.0.0 alpha'
 , window.k$ or {})
 
@@ -26,6 +27,8 @@ k$.ready = (fx) ->
 	k$.readyFxs.push(fx)
 
 jspmResources = ['jquery', 'angular', 'firebase', 'bootstrap', 'angularFire']
+console.log k$.settings
+jspm.config.urlArgs = '?bust=' + new Date().getTime() if k$.settings.mode == 'dev'
 
 i = 0
 while i < k$settings.apps.length

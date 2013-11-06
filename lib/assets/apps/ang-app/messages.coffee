@@ -1,4 +1,4 @@
-angular.module('messages', ['kickstrap']).controller('MessagesCtrl', ['$scope', 'angularFire', ($scope, angularFire) ->
+angular.module('messages', [k$.settings.appName]).controller('MessagesCtrl', ['$scope', 'angularFire', ($scope, angularFire) ->
 
 	$scope.allThreads = []
 	threads = new Firebase 'https://' + k$.firebaseName + '.firebaseio.com/threads/'

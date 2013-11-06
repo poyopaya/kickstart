@@ -4,6 +4,7 @@ window.k$ =
 	appName: 'kickstrap'
 	apps: [
 		'ang-app'
-		'sample-app'
-		'tinyGrowl'
+		# 'sample-app'
+		# 'tinyGrowl'
 	]
+	mode: 'dev'

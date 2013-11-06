@@ -5,10 +5,10 @@ mods = [
 	'features'
 ]
 
-define ['jquery', 'angular', 'firebase', 'angularFire'], ($, angular, Firebase, angularFire) ->
+define ['jquery', 'angular', 'firebase', 'angularFire', 'angularResource'], ($, angular, Firebase) ->
 	_mods = []
 	(_mods = _mods.concat ['kickstrap:ang-app/' + mod] ) for mod in mods
-	mods.concat ['firebase']
-	require _mods, () ->
-		angular.module k$.settings.appName, mods
-		angular.bootstrap document, [k$.settings.appName]
+	mods.concat ['firebase', 'ngResource']
+	window.app = angular.module k$.settings.appName, mods
+	angular.bootstrap document, [k$.settings.appName]
+	jspm.import _mods
