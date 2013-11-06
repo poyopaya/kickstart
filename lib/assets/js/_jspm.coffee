@@ -4,9 +4,13 @@
 
 jspm.config
 	locations: 
-		kickstrap: './apps'
+		kickstrap: 			'./apps'
 	map:
-		'jquery': 'jquery@2.0'
-		'bootstrap': 'bootstrap@3.0.1'
-		'angular': 'angular@1.1.5/angular'
-		'angularFire': 'angularFire@0.3.1'
+		'jquery': 			'jquery@2.0'
+		'bootstrap': 		'bootstrap@3.0.1'
+		'angular': 			'angular@1.1.5/angular'
+		'angularFire': 		'angularFire@0.3.1'
+		'domReady': 		'./js/domReady'
+		'ng-bootstrap': 	'kickstrap:ang-app/ng-bootstrap'
+		'ang-app': 			'kickstrap:ang-app/ang-app'
+		'routes': 			'kickstrap:ang-app/routes'

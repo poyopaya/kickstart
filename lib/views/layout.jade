@@ -28,7 +28,11 @@ html(lang='en')
     
     :coffeescript
       k$.ready ->  
-        console.log 'Ok, I\'m ready.'
+        $.growl
+          title: 'Welcome to Kickstrap!'
+          text: 'Check out the documentation to get started.'
+          type: 'success'
+          delay: 3000
 
     //- this must be included for live reload to work in developement
     //- it will be automatically ignored when deployed
