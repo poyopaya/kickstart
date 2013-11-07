@@ -25,7 +25,7 @@ k$.readyFxs = []
 k$.ready = (fx) ->
 	k$.readyFxs.push(fx)
 
-jspmResources = ['jquery', 'angular', 'bootstrap', 'angularFire', 'domReady', 'ng-bootstrap']
+jspmResources = ['jquery', 'angular', 'bootstrap', 'domReady', 'ng-bootstrap']
 
 jspm.config.urlArgs = '?bust=' + new Date().getTime() if k$.settings.mode == 'dev'
 
