@@ -19,7 +19,7 @@ exports.layouts =
 # variables or (coffeescript) functions.
 
 exports.locals =
-  title: 'Kickstrap 2.0'
+  title: 'Kickstrap'
   title_with_markup: ->
     "<h1>You're running Kickstrap 2</h1>"
 

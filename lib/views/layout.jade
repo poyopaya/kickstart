@@ -12,7 +12,7 @@ html(lang='en')
     script(src="//cdn.firebase.com/v0/firebase.js")
     script(src='js/settings.js')
     script(src='js/kickstrap.js')
-    title Kickstrap 2.0
+    title #{title}
   body.loading
     #sf-wrap
       != content
@@ -29,7 +29,7 @@ html(lang='en')
     :coffeescript
       k$.ready ->  
         $.growl
-          title: 'Welcome to Kickstrap!'
+          title: 'Welcome to #{title}!'
           text: 'Check out the documentation to get started.'
           type: 'success'
           delay: 3000

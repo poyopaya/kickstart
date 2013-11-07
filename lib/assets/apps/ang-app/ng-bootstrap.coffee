@@ -2,6 +2,6 @@ define [
 	'angular' 
 	'ang-app'
 ], (angular) ->
-	require ['domReady!'], (domReady) ->
+	require ['./js/domready'], (domReady) ->
 		domReady ->
 			angular.bootstrap document, ['app']
