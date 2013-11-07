@@ -6,3 +6,4 @@ window.k$ =
 		'tinyGrowl'
 	]
 	mode: 'dev'
+	theme: 'amelia'

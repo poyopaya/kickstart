@@ -1,7 +1,7 @@
 define [
 	'angular' 
 	'./controllers/index'
-	'./angularFire'
+	'angularFire'
 ], (angular) ->
 	angular.module 'app', [
 		'app.controllers'

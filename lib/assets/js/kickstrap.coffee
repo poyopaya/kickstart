@@ -25,7 +25,7 @@ k$.readyFxs = []
 k$.ready = (fx) ->
 	k$.readyFxs.push(fx)
 
-jspmResources = ['jquery', 'angular', 'bootstrap', 'domReady', 'ng-bootstrap']
+jspmResources = ['jquery', 'angular', 'bootstrap', 'ng-bootstrap']
 
 jspm.config.urlArgs = '?bust=' + new Date().getTime() if k$.settings.mode == 'dev'
 
@@ -34,7 +34,6 @@ while i < k$settings.apps.length
 	jspmResources.push "kickstrap:" + k$settings.apps[i] + "/" + k$settings.apps[i]
 	i++
 
-jspmResources.push './themes/' + k$settings.theme + '.css!'
 jspm.import jspmResources, ($, angular, app) ->
 	$(document).ready ->
 		document.body.className = 'loaded'
