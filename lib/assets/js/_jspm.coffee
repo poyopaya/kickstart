@@ -7,7 +7,7 @@ jspm.config
 		kickstrap: 			'./apps'
 	map:
 		'jquery': 			'jquery@2.0'
-		'bootstrap': 		'bootstrap@3.0.1'
+		'bootstrap': 		'https://github.jspm.io/twbs/bootstrap@3.0.2/js/bootstrap.js'
 		'angular': 			'angular@1.1.5/angular'
 		'angularFire': 		'angularFire@0.3.1'
 		'ang-app': 			'kickstrap:ang-app/ang-app'

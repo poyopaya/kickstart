@@ -2,7 +2,7 @@ define ['./module'], (controllers) ->
 	controllers.controller 'ProductsCtrl', ['$scope', 'angularFire', ($scope, angularFire) ->
 		$scope.products = []
 
-		products = new Firebase 'https://' + k$.settings.firebaseName + '.firebaseio.com/products/'
+		products = new Firebase "https://#{k$.settings.firebaseName}.firebaseio.com/products/"
 		promise = angularFire products, $scope, 'products'
 		
 		promise.then ->

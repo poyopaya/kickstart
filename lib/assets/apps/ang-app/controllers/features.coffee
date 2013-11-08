@@ -2,7 +2,7 @@ define ['./module'], (controllers) ->
 	controllers.controller 'FeaturesCtrl', ['$scope', 'angularFire', ($scope, angularFire) ->
 		$scope.features = []
 
-		features = new Firebase 'https://' + k$.settings.firebaseName + '.firebaseio.com/features/'
+		features = new Firebase "https://#{k$.settings.firebaseName}.firebaseio.com/features/"
 		promise = angularFire features, $scope, 'features'
 
 		$scope.slug = (str) ->

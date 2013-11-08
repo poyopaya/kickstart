@@ -1,11 +1,11 @@
 define ['./module'], (controllers) ->
 	controllers.controller 'MessagesCtrl', ['$scope', 'angularFire', ($scope, angularFire) ->
 		$scope.allThreads = []
-		threads = new Firebase 'https://' + k$.settings.firebaseName + '.firebaseio.com/threads/'
+		threads = new Firebase "https://#{k$.settings.firebaseName}.firebaseio.com/threads/"
 		promise = angularFire threads, $scope, 'allThreads'
 
 		$scope.allThreads = []
-		contacts = new Firebase 'https://' + k$.settings.firebaseName + '.firebaseio.com/contacts/'
+		contacts = new Firebase "https://#{k$.settings.firebaseName}.firebaseio.com/contacts/"
 		promise = angularFire contacts, $scope, 'contacts'
 
 		$scope.contactForId = (id) ->
