@@ -2,8 +2,9 @@
 
 window.k$ =
 	apps: [
-		# 'sample-app'
+		'sample-app'
 		'tinyGrowl'
+		'ang-app'
 	]
 	mode: 'dev'
 	theme: 'bootstrap'
