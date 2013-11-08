@@ -19,8 +19,6 @@ k$.app = (name, options) ->
 	jspm.import name, (app) ->
 		app.attach htmlElement, options
 
-	jspm.set 'jquery',
-		'default': $
 k$.readyFxs = []
 k$.ready = (fx) ->
 	k$.readyFxs.push(fx)
