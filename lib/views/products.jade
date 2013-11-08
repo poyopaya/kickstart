@@ -4,7 +4,9 @@ include _header
 	section.row
 		.col.col-sm-12
 			h1 Sizzlin' Summer Deals
-		.col.col-sm-12
+		.col.col-sm-12.ks-beforeload
+			p Loading...
+		.col.col-sm-12.ks-afterload
 			.thumbnail
 				img(src="http://upload.wikimedia.org/wikipedia/commons/{{products[featuredId].img}}")
 				.caption
@@ -21,14 +23,16 @@ include _header
 			article.panel.panel-default
 				.panel-heading 
 					input.form-control(type='text', ng-model='productInput', placeholder='Search products')
-				.list-group
+				.list-group.ks-beforeload
+					p.list-group-item Loading...
+				.list-group.ks-afterload
 					a.list-group-item(
 						ng-href='{{"#"}}{{slug(product.name)}}', ng-repeat='product in products | filter: productInput'
 						ng-click="setSelectedProduct(product)"
 						ng-class="{'active': selectedProduct.id == product.id }"
 					) {{product.name}}
 
-		div.col.col-sm-9
+		div.col.col-sm-9.ks-afterload
 			article.panel.panel-default.hover-grp(ng-repeat='product in products | filter: productInput')
 				.panel-body
 					.media

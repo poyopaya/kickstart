@@ -1,3 +1,5 @@
 define [
 	'./features'
+	'./messages'
+	'./products'
 ], () ->

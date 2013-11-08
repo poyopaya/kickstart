@@ -4,7 +4,10 @@
 	section.row
 		div.col.col-sm-12
 			h1 Shopping Cart
-	section.row(ng-controller='ProductsCtrl')
+	section.row.ks-beforeload
+		.col.col-sm-12
+			p Loading...
+	section.row.ks-afterload(ng-controller='ProductsCtrl')
 		link(
 			ng-repeat='product in products'
 			rel="prerender", 

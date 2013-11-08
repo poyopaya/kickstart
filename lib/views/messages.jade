@@ -14,7 +14,9 @@ include _header
 			article.panel.panel-default
 				.panel-heading 
 					input.form-control(type='text', ng-model='threadInput', placeholder='Search Threads')
-				.list-group
+				.list-group.ks-beforeload
+					p.list-group-item Loading...
+				.list-group.ks-afterload
 					a.list-group-item(
 						ng-repeat='thread in allThreads | filter: threadInput'
 						ng-click='setSelectedThread(thread)'
@@ -34,7 +36,7 @@ include _header
 						a(href="#") 
 							span.glyphicon.glyphicon-chevron-left 
 							|  Messages
-		div.col.col-sm-9
+		div.col.col-sm-9.ks-afterload
 			h1 {{selectedThread.subject}}
 			article.panel.panel-default(ng-repeat='message in selectedThread.messages')
 				.panel-body

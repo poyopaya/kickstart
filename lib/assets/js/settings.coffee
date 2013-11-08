@@ -8,3 +8,9 @@ window.k$ =
 	]
 	mode: 'dev'
 	theme: 'bootstrap'
+
+# ANGULAR RESOURCES
+
+	controllers: [
+		'features'
+	]
