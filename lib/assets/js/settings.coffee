@@ -2,9 +2,9 @@
 
 window.k$ =
 	apps: [
-		'sample-app'
-		'tinyGrowl'
-		'ang-app'
+		'ks:sample-app'
+		'ks:tinyGrowl'
+		'ks:ang-app'
 	]
 	mode: 'dev'
 	theme: 'bootstrap'

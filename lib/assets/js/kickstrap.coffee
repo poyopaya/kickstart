@@ -27,10 +27,7 @@ jspmResources = ['jquery', 'angular', 'bootstrap']
 
 jspm.config.urlArgs = '?bust=' + new Date().getTime() if k$.settings.mode == 'dev'
 
-i = 0
-while i < k$settings.apps.length
-	jspmResources.push "kickstrap:" + k$settings.apps[i] + "/" + k$settings.apps[i]
-	i++
+jspmResources = jspmResources.concat k$settings.apps
 
 ###
 # Add Angular Resources
