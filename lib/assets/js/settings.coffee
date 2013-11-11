@@ -3,7 +3,7 @@
 window.k$ =
 	apps: [
 		'ks:sample-app'
-		'ks:tinyGrowl'
+		'ks:tinygrowl'
 		'ks:ang-app'
 	]
 	mode: 'dev'
