@@ -14,5 +14,5 @@ jspm.config
 		'angularFire': 		'angularFire@0.3.1'
 		'ang-app': 			'ks:ang-app'
 	shim: 
-		'cdnjs:angular.js/1.1.5/angular':
+		'cdnjs:angular.js/1.2.0/angular':
 			exports: 'angular'
