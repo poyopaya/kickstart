@@ -4,7 +4,7 @@ jspm.config
 	endpoints:
 		ks:
 			location: './apps'
-			format: 'amd' # or 'commonjs'
+			# format: 'amd' # or 'commonjs'
 			main: 'main'
 	map:
 		'jquery': 			'jquery@2.0'
