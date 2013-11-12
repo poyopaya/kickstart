@@ -1,5 +1,5 @@
 define [
-	'./features'
 	'./messages'
 	'./products'
+	'./sections'
 ], () ->

@@ -1,30 +1,29 @@
-include _header
+extends layout
 
-.container
-	section.row(ng-controller='FeaturesCtrl')
-		div.col.col-sm-3
-			h1 #{title}
-			p.lead New in 2.0
-			article.panel.panel-default
-				.panel-heading 
-					input.form-control(type='text', ng-model='featureInput', placeholder='Search Features')
-				.list-group.ks-beforeload
-					li.list-group-item Loading...
-				.list-group.ks-afterload
-					a.list-group-item(
-						ng-href='{{"#"}}{{slug(feature.name)}}', ng-repeat='feature in features | filter: featureInput'
-						ng-click="setSelectedFeature(feature)"
-						ng-class="{'active': selectedFeature.id == feature.id }"
-					) {{feature.name}}
+block content
+	include _header
 
-		div.col.col-sm-9
-			.panel.panel-default.ks-beforeload 
-				.panel-body Loading...
-			article.panel.panel-default.ks-afterload(ng-repeat='feature in features | filter: featureInput')
-				.panel-body
-					p.lead(ng-id='slug(feature.name)') {{feature.name}} - {{feature.summary}}
-					p {{feature.description}}
-				.panel-footer(ng-show="feature.learnMore") 
-					small
-						em.text-muted Learn more at 
-							a(ng-href='{{feature.learnMore.link}}') {{feature.learnMore.title}}
+	.container
+		section.row(ng-controller='SectionsCtrl')
+			.col.col-sm-12
+				h1 #{title}
+				p.lead New in 2.0
+			.col.col-sm-3
+				article.panel.panel-default
+					.panel-heading 
+						input.form-control(type='text', ng-model='sectionInput', placeholder='Search Sections', ng-change="setSelectedSection(filteredSections[0])")
+					.list-group.ks-beforeload
+						li.list-group-item Loading...
+					.list-group.ks-afterload
+						a.list-group-item(
+							ng-repeat='section in (filteredSections = (sections | filter: sectionInput))'
+							ng-click="setSelectedSection(section)"
+							ng-class="{'active': selectedSection == section }"
+						) {{section.name}}
+
+			.col.col-sm-9(ng-view)
+			.col.col-sm-9(ng-hide="{{selectedSection.length}}")
+				p
+					em.text-muted
+						span.hidden-xs Select an article to read from the left.
+						span.visible-xs Select an article to read above.

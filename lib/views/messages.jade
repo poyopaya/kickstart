@@ -1,51 +1,54 @@
-include _header
+extends layout
 
-.container
-	section.row(ng-controller='MessagesCtrl')
-		link(
-			ng-repeat='contact in contacts'
-			rel="prerender", 
-			href="http://api.rethumb.com/v1/square/120/http://upload.wikimedia.org/wikipedia/commons/{{contact.img}}"
-		)
-		div.col.col-sm-3
-			h1 Messages
-			p.lead
-				a(href="#") New
-			article.panel.panel-default
-				.panel-heading 
-					input.form-control(type='text', ng-model='threadInput', placeholder='Search Threads')
-				.list-group.ks-beforeload
-					p.list-group-item Loading...
-				.list-group.ks-afterload
-					a.list-group-item(
-						ng-repeat='thread in allThreads | filter: threadInput'
-						ng-click='setSelectedThread(thread)'
-						href="#message"
-						ng-class="{'active': selectedThread.threadId == thread.threadId }"
-					) 
+block content
+	include _header
+
+	.container
+		section.row(ng-controller='MessagesCtrl')
+			link(
+				ng-repeat='contact in contacts'
+				rel="prerender", 
+				href="http://api.rethumb.com/v1/square/120/http://upload.wikimedia.org/wikipedia/commons/{{contact.img}}"
+			)
+			div.col.col-sm-3
+				h1 Messages
+				p.lead
+					a(href="#") New
+				article.panel.panel-default
+					.panel-heading 
+						input.form-control(type='text', ng-model='threadInput', placeholder='Search Threads')
+					.list-group.ks-beforeload
+						p.list-group-item Loading...
+					.list-group.ks-afterload
+						a.list-group-item(
+							ng-repeat='thread in allThreads | filter: threadInput'
+							ng-click='setSelectedThread(thread)'
+							href="#message"
+							ng-class="{'active': selectedThread.threadId == thread.threadId }"
+						) 
+							.media
+								img.media-object.pull-left(src="http://images.weserv.nl/?url=upload.wikimedia.org/wikipedia/commons/{{contactForId(thread.messages[0].contactId).img}}&h=128&w=128&t=square", style="width: 64px;")
+								.media-body
+									h4.media-heading {{thread.subject}}
+									p.text-muted(style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis;") {{thread.messages[0].text}}
+			
+			nav.navbar.navbar-default.visible-sm.visible-xs#message
+				.container
+					ul.nav.navbar-nav	
+						li
+							a(href="#") 
+								span.glyphicon.glyphicon-chevron-left 
+								|  Messages
+			div.col.col-sm-9.ks-afterload
+				h1 {{selectedThread.subject}}
+				article.panel.panel-default(ng-repeat='message in selectedThread.messages')
+					.panel-body
 						.media
-							img.media-object.pull-left(src="http://images.weserv.nl/?url=upload.wikimedia.org/wikipedia/commons/{{contactForId(thread.messages[0].contactId).img}}&h=128&w=128&t=square", style="width: 64px;")
+							img.media-object.pull-left(src="http://images.weserv.nl/?url=upload.wikimedia.org/wikipedia/commons/{{contactForId(message.contactId).img}}&h=128&w=128&t=square", style="width: 64px;")
 							.media-body
-								h4.media-heading {{thread.subject}}
-								p.text-muted(style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis;") {{thread.messages[0].text}}
-		
-		nav.navbar.navbar-default.visible-sm.visible-xs#message
-			.container
-				ul.nav.navbar-nav	
-					li
-						a(href="#") 
-							span.glyphicon.glyphicon-chevron-left 
-							|  Messages
-		div.col.col-sm-9.ks-afterload
-			h1 {{selectedThread.subject}}
-			article.panel.panel-default(ng-repeat='message in selectedThread.messages')
-				.panel-body
-					.media
-						img.media-object.pull-left(src="http://images.weserv.nl/?url=upload.wikimedia.org/wikipedia/commons/{{contactForId(message.contactId).img}}&h=128&w=128&t=square", style="width: 64px;")
-						.media-body
-							p 
-								strong {{contactForId(message.contactId).fName}} {{contactForId(message.contactId).lName}}
-							p {{message.text}}
-				.panel-footer
-					small
-						em.text-muted Sent at {{message.date}}
+								p 
+									strong {{contactForId(message.contactId).fName}} {{contactForId(message.contactId).lName}}
+								p {{message.text}}
+					.panel-footer
+						small
+							em.text-muted Sent at {{message.date}}
