@@ -11,7 +11,7 @@ define ['./module'], (controllers) ->
 			path: 'partials'
 		,
 			name: 'Creating Apps'
-			path: 'partials'
+			path: 'apps'
 		,
 			name: 'Creating Angular Templates'
 			path: 'templates'

@@ -4,7 +4,7 @@ block content
 	include _header
 
 	.container
-		section.row(ng-controller='SectionsCtrl')
+		section.row(ng-controller='SectionsCtrl', ng-init="setSelectedSection(sections[0])")
 			.col.col-sm-12
 				h1 #{title}
 				p.lead New in 2.0
@@ -16,13 +16,14 @@ block content
 						li.list-group-item Loading...
 					.list-group.ks-afterload
 						a.list-group-item(
+							href=""
 							ng-repeat='section in (filteredSections = (sections | filter: sectionInput))'
 							ng-click="setSelectedSection(section)"
 							ng-class="{'active': selectedSection == section }"
 						) {{section.name}}
 
 			.col.col-sm-9(ng-view)
-			.col.col-sm-9(ng-hide="{{selectedSection.length}}")
+			.col.col-sm-9(ng-hide="selectedSection.name")
 				p
 					em.text-muted
 						span.hidden-xs Select an article to read from the left.
