@@ -9,6 +9,7 @@ define [
 		'app.controllers'
 		'app.directives'
 		'firebase'
+		'ngRoute'
 	]).config ['$routeProvider', ($routeProvider) ->
 		$routeProvider.when '/features', 
 			templateUrl: '/partials/features.html'
