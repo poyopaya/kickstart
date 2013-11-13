@@ -16,12 +16,13 @@ define ['./module'], (controllers) ->
 
 			# Pagination
 
+			$scope.genericItems = $scope.products # Loosely-couples with pagination include
 			$scope.currentPage = 0
 			$scope.pageSize = 10
 			$scope.numPages = () ->
-				Math.ceil $scope.products.length/$scope.pageSize
+				Math.ceil $scope.genericItems.length/$scope.pageSize
 			$scope.startFrom = () ->
-				$scope.currentPage * $scope.pageSize
+				$scope.currentPage * $scope.pageSize + 3 # We used up the first three in the sub-featured items
 			$scope.increment = () -> $scope.currentPage++
 			$scope.deincrement = () -> $scope.currentPage--
 			$scope.setCurrentPage = (number) ->
