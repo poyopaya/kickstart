@@ -6,19 +6,6 @@ block content
 	.container(ng-controller='ProductsCtrl')
 		section.row
 			.col.col-sm-12
-				h1 Sizzlin' Summer Deals
-			.col.col-sm-12.ks-beforeload
-				p Loading...
-			.col.col-sm-12.ks-afterload
-				.thumbnail
-					img(src="http://upload.wikimedia.org/wikipedia/commons/{{products[featuredId].img}}")
-					.caption
-						h3 {{products[featuredId].name}}
-						p {{products[featuredId].desc}}
-						p
-							a.btn.btn-primary(href="cart.html") Add to cart
-		section.row
-			.col.col-sm-12
 				h1 On Sale Now
 				p.lead Get them before they're gone
 		section.row
@@ -38,21 +25,23 @@ block content
 			div.col.col-sm-9.ks-afterload
 				.carousel.slide#featured(data-ride="carousel")
 					ol.carousel-indicators
-						li(data-target="#featured", data-slide-to="0")
-						li(data-target="#featured", data-slide-to="1")
-						li(data-target="#featured", data-slide-to="2")
+						li.active(data-target="#featured", data-slide-to="0")
+						li(data-target="#featured", data-slide-to="{{$index+1}}", ng-repeat="featuredProduct in featuredProducts")
 					.carousel-inner
-						.item.active
-							img(src="http://upload.wikimedia.org/wikipedia/commons/{{products[featuredId].img}}")
+						.item.active(style="max-height: 450px")
+							img(src="http://images.weserv.nl/?url=upload.wikimedia.org/wikipedia/commons/c/cc/Le_garcon_et_la_ville.JPG&w=1000&t=fitup")
 							.carousel-caption
-								h3 {{products[featuredId].name}}
-								p {{products[featuredId].desc}}
-						.item
-							img(src="http://placehold.it/1000x500")
+								h3 Check out our summer deals
+						.item(ng-repeat="featuredProduct in featuredProducts", style="max-height: 450px")
+							img(src="http://images.weserv.nl/?url=upload.wikimedia.org/wikipedia/commons/{{featuredProduct.img}}&w=1000&t=fitup")
 							.carousel-caption
-						.item
-							img(src="http://placehold.it/1000x400")
-							.carousel-caption
+								h3 
+									{{featuredProduct.name}}
+								p {{featuredProduct.desc}}
+								p 
+									a.btn.btn-default(href="cart.html") 
+										span.glyphicon.glyphicon-shopping-cart
+										|  Add to cart
 					a.left.carousel-control(href="#featured", data-slide="prev")
 						span.glyphicon.glyphicon-chevron-left
 					a.right.carousel-control(href="#featured", data-slide="next")

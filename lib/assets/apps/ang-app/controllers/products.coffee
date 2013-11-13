@@ -1,16 +1,19 @@
 define ['./module'], (controllers) ->
 	controllers.controller 'ProductsCtrl', ['$scope', 'angularFire', ($scope, angularFire) ->
-		$scope.products = []
+		$scope.products = $scope.featuredProducts = []
 
 		products = new Firebase "https://#{k$.settings.firebaseName}.firebaseio.com/products/"
 		promise = angularFire products, $scope, 'products'
-		
 		promise.then ->
 			$scope.productForId = (id) ->
 				productIndex = 0
 				$.grep($scope.products, (e, i) -> productIndex = i if e.id == id )
 				$scope.products[productIndex]
-			console.log $scope.productForId 2
+			$.grep($scope.products, (e, i) -> $scope.featuredProducts.push($scope.products[i]) if e.featured == true )
+			# $.grep( $scope.products, (e, i) -> $scope.featuredProducts.push($scope.products[i]) )
+			console.log $scope.products
+			console.log $scope.featuredProducts
+
 			$scope.lastRemoved = null
 			$scope.purchases = [
 				product: $scope.productForId(2)
@@ -36,5 +39,4 @@ define ['./module'], (controllers) ->
 						return { quantity: a.quantity + (b.quantity * b.product.price)}
 				, {quantity: 0}).quantity
 
-		$scope.featuredId = 13
 	]
