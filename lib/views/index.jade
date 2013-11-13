@@ -5,25 +5,22 @@ block content
 
 	.container
 		section.row(ng-controller='SectionsCtrl', ng-init="setSelectedSection(sections[0])")
-			.col.col-sm-12
+			.col.col-sm-3
 				h1 #{title}
 				p.lead New in 2.0
-			.col.col-sm-3
-				article.panel.panel-default
-					.panel-heading 
-						input.form-control(type='text', ng-model='sectionInput', placeholder='Search Sections', ng-change="setSelectedSection(filteredSections[0])")
-					.list-group.ks-beforeload
-						li.list-group-item Loading...
-					.list-group.ks-afterload
-						a.list-group-item(
-							href=""
-							ng-repeat='section in (filteredSections = (sections | filter: sectionInput))'
-							ng-click="setSelectedSection(section)"
-							ng-class="{'active': selectedSection == section }"
-						) {{section.name}}
+				p
+					input.form-control(type='text', ng-model='sectionInput', placeholder='Search Sections', ng-change="setSelectedSection(filteredSections[0])")
+				p.ks-beforeload Loading...
+				p.ks-afterload(
+					style="cursor: pointer"
+					ng-repeat='section in (filteredSections = (sections | filter: sectionInput))'
+					ng-click="setSelectedSection(section)"
+					class="{{selectedSection == section ? 'text-primary' : 'text-muted' }}"
+				) {{section.name}}
 
-			.col.col-sm-9(ng-view)
-			.col.col-sm-9(ng-hide="selectedSection.name")
+			.col-vr
+			.col.col-sm-8(ng-view)
+			.col.col-sm-8(ng-hide="selectedSection.name")
 				p
 					em.text-muted
 						span.hidden-xs Select an article to read from the left.

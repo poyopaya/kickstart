@@ -36,6 +36,28 @@ block content
 						) {{product.name}}
 
 			div.col.col-sm-9.ks-afterload
+				.carousel.slide#featured(data-ride="carousel")
+					ol.carousel-indicators
+						li(data-target="#featured", data-slide-to="0")
+						li(data-target="#featured", data-slide-to="1")
+						li(data-target="#featured", data-slide-to="2")
+					.carousel-inner
+						.item.active
+							img(src="http://upload.wikimedia.org/wikipedia/commons/{{products[featuredId].img}}")
+							.carousel-caption
+								h3 {{products[featuredId].name}}
+								p {{products[featuredId].desc}}
+						.item
+							img(src="http://placehold.it/1000x500")
+							.carousel-caption
+						.item
+							img(src="http://placehold.it/1000x400")
+							.carousel-caption
+					a.left.carousel-control(href="#featured", data-slide="prev")
+						span.glyphicon.glyphicon-chevron-left
+					a.right.carousel-control(href="#featured", data-slide="next")
+						span.glyphicon.glyphicon-chevron-right
+				br
 				article.panel.panel-default.hover-grp(ng-repeat='product in products | filter: productInput')
 					.panel-body
 						.media
