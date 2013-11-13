@@ -14,6 +14,15 @@ define ['./module'], (controllers) ->
 			console.log $scope.products
 			console.log $scope.featuredProducts
 
+			# Pagination
+
+			$scope.currentPage = 0
+			$scope.pageSize = 10
+			$scope.numPages = () ->
+				Math.ceil $scope.products.length/$scope.pageSize
+
+			# Shopping Cart
+
 			$scope.lastRemoved = null
 			$scope.purchases = [
 				product: $scope.productForId(2)

@@ -47,7 +47,21 @@ block content
 					a.right.carousel-control(href="#featured", data-slide="next")
 						span.glyphicon.glyphicon-chevron-right
 				br
-				article.panel.panel-default.hover-grp(ng-repeat='product in products | filter: productInput')
+				.row.ks-afterload
+					.col.col-sm-4(ng-repeat='product in products | filter: productInput | limitTo: 3')
+						img.img-circle.center-block(src="http://images.weserv.nl/?url=upload.wikimedia.org/wikipedia/commons/{{product.img}}&h=400&w=400&t=square" style="width: 200px")
+						h4.center-block(ng-id='slug(product.name)') {{product.name}}
+						p {{product.desc}}
+
+				ul.pagination
+					li(ks-visible="currentPage != 0")
+						a(href="", ng-click="currentPage=currentPage-1") &laquo;
+					li(ng-repeat="product in products | limitTo:numPages()", class="{{ currentPage == $index ? 'active': ''}}")
+						a(href="") {{$index+1}}
+					li(ks-visible="currentPage > (products.length/pageSize - 1) == false")
+						a(href="", ng-click="currentPage=currentPage+1") &raquo;
+
+				article.panel.panel-default.hover-grp(ng-repeat='product in products | startFrom:currentPage*pageSize+3 | limitTo:pageSize')
 					.panel-body
 						.media
 							img.media-object.pull-left(src="http://images.weserv.nl/?url=upload.wikimedia.org/wikipedia/commons/{{product.img}}&h=128&w=128&t=square", style="width: 64px;")
@@ -56,3 +70,11 @@ block content
 								p {{product.desc}}
 					.panel-footer.uncloak-hover
 						a.btn.btn-primary(href="cart.html") Add to cart
+
+				ul.pagination
+					li(ks-visible="currentPage != 0")
+						a(href="", ng-click="currentPage=currentPage-1") &laquo;
+					li(ng-repeat="product in products | limitTo:numPages()", class="{{ currentPage == $index ? 'active': ''}}")
+						a(href="") {{$index+1}}
+					li(ks-visible="currentPage > (products.length/pageSize - 1) == false")
+						a(href="", ng-click="currentPage=currentPage+1") &raquo;

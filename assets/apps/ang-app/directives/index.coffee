@@ -1,3 +1,4 @@
 define [
 	'./enter'
+	'./visible'
 ], () ->
