@@ -20,6 +20,12 @@ define ['./module'], (controllers) ->
 			$scope.pageSize = 10
 			$scope.numPages = () ->
 				Math.ceil $scope.products.length/$scope.pageSize
+			$scope.startFrom = () ->
+				$scope.currentPage * $scope.pageSize
+			$scope.increment = () -> $scope.currentPage++
+			$scope.deincrement = () -> $scope.currentPage--
+			$scope.setCurrentPage = (number) ->
+				$scope.currentPage = number
 
 			# Shopping Cart
 

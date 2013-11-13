@@ -55,13 +55,13 @@ block content
 
 				ul.pagination
 					li(ks-visible="currentPage != 0")
-						a(href="", ng-click="currentPage=currentPage-1") &laquo;
-					li(ng-repeat="product in products | limitTo:numPages()", class="{{ currentPage == $index ? 'active': ''}}")
+						a(href="", ng-click="deincrement()") &laquo;
+					li(ng-repeat="product in products | limitTo:numPages()", class="{{ currentPage == $index ? 'active': ''}}", ng-click="setCurrentPage($index)")
 						a(href="") {{$index+1}}
 					li(ks-visible="currentPage > (products.length/pageSize - 1) == false")
-						a(href="", ng-click="currentPage=currentPage+1") &raquo;
+						a(href="", ng-click="increment()") &raquo;
 
-				article.panel.panel-default.hover-grp(ng-repeat='product in products | startFrom:currentPage*pageSize+3 | limitTo:pageSize')
+				article.panel.panel-default.hover-grp(ng-repeat='product in products | startFrom:startFrom() | limitTo:pageSize')
 					.panel-body
 						.media
 							img.media-object.pull-left(src="http://images.weserv.nl/?url=upload.wikimedia.org/wikipedia/commons/{{product.img}}&h=128&w=128&t=square", style="width: 64px;")
@@ -73,8 +73,8 @@ block content
 
 				ul.pagination
 					li(ks-visible="currentPage != 0")
-						a(href="", ng-click="currentPage=currentPage-1") &laquo;
-					li(ng-repeat="product in products | limitTo:numPages()", class="{{ currentPage == $index ? 'active': ''}}")
+						a(href="", ng-click="deincrement()") &laquo;
+					li(ng-repeat="product in products | limitTo:numPages()", class="{{ currentPage == $index ? 'active': ''}}", ng-click="setCurrentPage($index)")
 						a(href="") {{$index+1}}
 					li(ks-visible="currentPage > (products.length/pageSize - 1) == false")
-						a(href="", ng-click="currentPage=currentPage+1") &raquo;
+						a(href="", ng-click="increment()") &raquo;
