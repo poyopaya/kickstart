@@ -1,7 +1,7 @@
 define ['./module'], (controllers) ->
-	controllers.controller 'ProductsCtrl', ['$scope', 'angularFire', ($scope, angularFire) ->
+	controllers.controller 'ProductsCtrl', ['$scope', 'angularFire', 'ngProgress', ($scope, angularFire, ngProgress) ->
 		$scope.products = $scope.featuredProducts = []
-
+		ngProgress.start()
 		products = new Firebase "https://#{k$.settings.firebaseName}.firebaseio.com/products/"
 		promise = angularFire products, $scope, 'products'
 		promise.then ->
@@ -54,5 +54,6 @@ define ['./module'], (controllers) ->
 					(a, b) ->
 						return { quantity: a.quantity + (b.quantity * b.product.price)}
 				, {quantity: 0}).quantity
+			ngProgress.complete()
 
 	]

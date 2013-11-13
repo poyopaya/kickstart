@@ -14,7 +14,9 @@ jspm.config
 		'angularFire': 		'angularFire@0.3.1'
 		'ang-app': 			'ks:ang-app'
 		'angular-route':	'ks:ang-app/resources/angular-route'
+		'ng-progress':		'ks:ang-app/resources/ng-progress'
 	shim: 
 		'cdnjs:angular.js/1.2.0/angular':
 			exports: 'angular'
 		'ks:ang-app/resources/angular-route': ['angular@1.2.0/angular']
+		'ks:ang-app/resources/ng-progress': ['angular@1.2.0/angular']

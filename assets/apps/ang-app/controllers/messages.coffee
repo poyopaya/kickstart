@@ -1,5 +1,6 @@
 define ['./module'], (controllers) ->
-	controllers.controller 'MessagesCtrl', ['$scope', 'angularFire', ($scope, angularFire) ->
+	controllers.controller 'MessagesCtrl', ['$scope', 'angularFire', 'ngProgress', ($scope, angularFire, ngProgress) ->
+		ngProgress.start()
 		$scope.allThreads = []
 		threads = new Firebase "https://#{k$.settings.firebaseName}.firebaseio.com/threads/"
 		promise = angularFire threads, $scope, 'allThreads'
@@ -7,6 +8,8 @@ define ['./module'], (controllers) ->
 		$scope.allThreads = []
 		contacts = new Firebase "https://#{k$.settings.firebaseName}.firebaseio.com/contacts/"
 		promise = angularFire contacts, $scope, 'contacts'
+		promise.then ->
+			ngProgress.complete()
 
 		$scope.contactForId = (id) ->
 			contactIndex = 0

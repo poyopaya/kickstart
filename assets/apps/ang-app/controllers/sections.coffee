@@ -1,5 +1,6 @@
 define ['./module'], (controllers) ->
-	controllers.controller 'SectionsCtrl', ['$scope', 'angularFire', '$location', ($scope, angularFire, $location) ->
+	controllers.controller 'SectionsCtrl', ['$scope', 'angularFire', '$location', 'ngProgress', ($scope, angularFire, $location, ngProgress) ->
+		ngProgress.start()
 		$scope.sections = [
 			name: 'Features'
 			path: 'features'
@@ -32,4 +33,5 @@ define ['./module'], (controllers) ->
 		$scope.setSelectedSection = (section) ->
 			$scope.selectedSection = section
 			$location.path(section.path)
+		ngProgress.complete()
 	]
