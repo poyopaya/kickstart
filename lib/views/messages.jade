@@ -10,10 +10,10 @@ block content
 				rel="prerender", 
 				href="http://api.rethumb.com/v1/square/120/http://upload.wikimedia.org/wikipedia/commons/{{contact.img}}"
 			)
-			div.col.col-sm-3
+			div.col.col-sm-12.col-md-3
 				h1 Messages
 				p.lead
-					a(href="#") New
+					a(href="#", onclick="$.growl({title: 'Not yet implemented.', delay: 3000})") New
 				article.panel.panel-default
 					.panel-heading 
 						input.form-control(type='text', ng-model='threadInput', placeholder='Search Threads')
@@ -31,24 +31,26 @@ block content
 								.media-body
 									h4.media-heading {{thread.subject}}
 									p.text-muted(style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis;") {{thread.messages[0].text}}
-			
-			nav.navbar.navbar-default.visible-sm.visible-xs#message
-				.container
-					ul.nav.navbar-nav	
-						li
-							a(href="#") 
-								span.glyphicon.glyphicon-chevron-left 
-								|  Messages
-			div.col.col-sm-9.ks-afterload
+			div#message(style="padding-top: 50px;")
+				nav.navbar.navbar-default.visible-sm.visible-xs
+					.container
+						ul.nav.navbar-nav	
+							li
+								a(href="#") 
+									span.glyphicon.glyphicon-chevron-left 
+									|  Messages
+			div.col.col-sm-12.col-md-9.ks-afterload
 				h1 {{selectedThread.subject}}
-				article.panel.panel-default(ng-repeat='message in selectedThread.messages')
-					.panel-body
-						.media
-							img.media-object.pull-left(src="http://images.weserv.nl/?url=upload.wikimedia.org/wikipedia/commons/{{contactForId(message.contactId).img}}&h=128&w=128&t=square", style="width: 64px;")
-							.media-body
-								p 
-									strong {{contactForId(message.contactId).fName}} {{contactForId(message.contactId).lName}}
-								p {{message.text}}
-					.panel-footer
-						small
-							em.text-muted Sent at {{message.date}}
+				br
+				div(ng-repeat='message in selectedThread.messages')
+					.media
+						img.media-object.pull-left(src="http://images.weserv.nl/?url=upload.wikimedia.org/wikipedia/commons/{{contactForId(message.contactId).img}}&h=128&w=128&t=square", style="width: 64px;")
+						.media-body
+							p 
+								strong {{contactForId(message.contactId).fName}} {{contactForId(message.contactId).lName}}
+							p {{message.text}}
+							.clearfix
+							p.pull-right
+								small
+									em.text-muted Sent at {{message.date}}
+					hr

@@ -1,17 +1,18 @@
 $brown = rgba(242, 239, 235, 0.9)
 
 $footerHeight = 50px
-
-body.loaded
-	.ks-beforeload
-		display: none
-	.ks-afterload
-		display: block
-body.loading
-	.ks-beforeload
-		display: block
-	.ks-afterload
-		display: none
+body
+	padding-top: 70px // For fixed navbar
+	&.loaded
+		.ks-beforeload
+			display: none
+		.ks-afterload
+			display: block
+	&.loading
+		.ks-beforeload
+			display: block
+		.ks-afterload
+			display: none
 
 // Sticky Footer
 

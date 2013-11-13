@@ -18,6 +18,8 @@ block content
 			)
 			div.col.col-sm-3
 				p.lead Thank you for your business
+				p
+					a(href="") Help
 				p.alert.alert-warning(ng-show="lastRemoved")
 					| {{lastRemoved.product.name}} Removed.&nbsp;
 					a(href='#', ng-show='lastRemoved', ng-click="restorePurchase(lastRemoved)") Undo.
