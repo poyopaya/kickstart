@@ -40,17 +40,21 @@ block content
 									span.glyphicon.glyphicon-chevron-left 
 									|  Messages
 			div.col.col-sm-12.col-md-9.ks-afterload
+				p.text-muted(ng-hide="allThreads.length > 0")
+					em No messages to display
+				p.text-muted(ng-hide="selectedThread || allThreads.length == 0")
+					em.hidden-xs.hidden-sm Please select a thread from the left
+					em.visible-xs.visible-sm Please select a thread from above
 				h1 {{selectedThread.subject}}
 				br
 				div(ng-repeat='message in selectedThread.messages')
 					.media
-						img.media-object.pull-left(src="http://images.weserv.nl/?url=upload.wikimedia.org/wikipedia/commons/{{contactForId(message.contactId).img}}&h=128&w=128&t=square", style="width: 64px;")
+						img.media-object.pull-left(src="http://images.weserv.nl/?url=upload.wikimedia.org/wikipedia/commons/{{contactForId(message.contactId).img}}&h=64&w=64&t=square", style="width: 32px;")
 						.media-body
-							p 
-								strong {{contactForId(message.contactId).fName}} {{contactForId(message.contactId).lName}}
-							p {{message.text}}
-							.clearfix
+							p.lead.pull-left {{contactForId(message.contactId).fName}} {{contactForId(message.contactId).lName}}
 							p.pull-right
 								small
 									em.text-muted Sent at {{message.date}}
+							.clearfix
+							p {{message.text}}
 					hr
