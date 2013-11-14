@@ -39,7 +39,7 @@ jspmResources = jspmResources.concat controllers
 
 jspm.import jspmResources, ($, angular, app) ->
 	$(document).ready ->
-		document.body.className = 'loaded'
+		document.body.className += 'loaded'
 		angular.bootstrap document, ['app']
 		i = 0
 		while i < k$.readyFxs.length
