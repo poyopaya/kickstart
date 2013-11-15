@@ -6,8 +6,6 @@ html(lang='en')
     meta(name="viewport", content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=no")
     meta(name='description', content='The Elegant Frontend Framework')
     meta(name='author', content= 'Adam Kochanowicz')
-    link(rel="stylesheet", href="https://github.jspm.io/twbs/bootstrap@3.0.2/css/bootstrap.css")
-    link(rel="stylesheet", href="css/kickstrap.css")
     script(src='https://jspm.io/loader.js')
     script(src="//cdn.firebase.com/v0/firebase.js")
     script(src='js/settings.js')
@@ -15,9 +13,13 @@ html(lang='en')
     :coffeescript
       a = document.createElement 'link'
       a.rel = 'stylesheet'
-      a.href= 'themes/' + k$.settings.theme + '.css'
+      if k$.settings.theme == 'bootstrap'
+        a.href="https://github.jspm.io/twbs/bootstrap@3.0.2/css/bootstrap.css"
+      else
+        a.href= 'themes/' + k$.settings.theme + '.css'
       document.head.appendChild a
     title #{title}
+    link(rel="stylesheet", href="css/kickstrap.css")
   body
     #sf-wrap
       block content

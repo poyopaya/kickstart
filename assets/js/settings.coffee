@@ -7,7 +7,7 @@ window.k$ =
 		'ks:ang-app'
 	]
 	mode: 'dev'
-	theme: 'bootstrap'
+	theme: 'kickstrap'
 
 # ANGULAR RESOURCES
 
