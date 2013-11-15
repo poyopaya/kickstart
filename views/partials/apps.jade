@@ -70,3 +70,38 @@ ol
 			|   alert 'Hello world. Running jQuery version ' + $.fn.jquery
 	li Delete helloworld.coffee. We no longer need this.
 	li Refresh. You should now see what we had before, but with the jQuery version in the message. This proves the app is waiting for jQuery to be loaded before executing any script.
+h2 Hello world with a chain of dependencies
+p In more realistic scenario, we may be writing code that relies on a library which relies on jQuery. JSPM's Require.js syntax provides a very clean, DRY way to handle this.
+p Let's say I want to use garlic.js. This caches all your form values in the user's browser in case they accidentally navigate away.
+ol
+	li Add the directory "garlic" to /apps
+		ul
+			li
+				span.glyphicon.glyphicon-folder-open &nbsp;
+				| garlic
+	li Create a blank "main.coffee"
+		ul
+			li
+				span.glyphicon.glyphicon-folder-open &nbsp;
+				| garlic
+				ul
+					li
+						span.glyphicon.glyphicon-file &nbsp;
+						| main.coffee
+	li Add the following to main.coffee
+		pre define ['garlic'], () -> $('form').garlic()
+		p Notice we didn't denote the local directory with 
+			code ./
+			| . This is because we're going to define it later in _jspm.coffee.
+	li Open _jspm.coffee (in the js/ directory)
+	li Add the following to 
+		code map:
+		pre 'garlic': 'cdnjs:garlic.js/1.2.2/garlic.min'
+		p This tells JSPM 
+			code garlic
+			|  means a CDN link to garlic on cdnjs.com. Because garlic.js is hosted on cdnjs.com, we can 
+			a(href="https://github.com/jspm/jspm-loader") use JSPM's shortcut syntax.
+	li Add the following to 
+		code shim:
+		pre 'ks:garlic': ['jquery@2.0']
+		p This will ensure garlic.js is only allowed to run if jquery has been loaded as well. By creating this requirement in _jspm.coffee, we also ensure this is a rule throughout the application.

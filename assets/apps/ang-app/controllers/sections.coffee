@@ -2,6 +2,9 @@ define ['./module'], (controllers) ->
 	controllers.controller 'SectionsCtrl', ['$scope', 'angularFire', '$location', 'ngProgress', ($scope, angularFire, $location, ngProgress) ->
 		ngProgress.start()
 		$scope.sections = [
+			name: 'First Steps'
+			path: 'first-steps'
+		,
 			name: 'Features'
 			path: 'features'
 		,

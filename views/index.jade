@@ -23,3 +23,10 @@ block content
 					em.text-muted
 						span.hidden-xs Select an article to read from the left.
 						span.visible-xs Select an article to read above.
+	:coffeescript
+		k$.ready ->  
+			$.growl
+			title: 'Welcome to #{title}!'
+			text: 'Check out the documentation to get started.'
+			type: 'success'
+			delay: 3000
