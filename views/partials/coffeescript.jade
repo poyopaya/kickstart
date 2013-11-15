@@ -1,7 +1,7 @@
 h1 Intro to CoffeeScript
 p.lead Coffeescript makes writing JavaScript much easier and more secure.
 p This will not be an exhaustive document covering CoffeeScript but mainly covering conventions you'll see used in Kickstrap. For complete documentation, visit 
-	a(href="http://coffeescript.org").
+	a(href="http://coffeescript.org") the CoffeeScript homepage.
 	|  You'll also find a link for "Try CoffeeScript" where you can translate your CoffeeScript to JavaScript in real time.
 h3 The importance of tabbing.
 p CoffeeScript makes writing JavaScript much easier by removing characters like commas, semicolons, and curly braces in certain contexts. This is accomplished by instead indenting lines with either spaces or tabs. For example:
@@ -85,3 +85,13 @@ p
 	pre define(['jquery', 'angular'], function($, angular) {
 		|   return $.fn.jquery;
 		| });
+h3 Use CoffeeScript in Jade
+p Via roots, you can use CoffeeScript in jade using 
+	code :coffeescript
+	| . For example: 
+p
+	pre :coffeescript
+		|   alert 'hi!'
+p ...becomes
+p
+	pre &lt;script type="text/javascript"&gt;alert('hi')&lt;/script&gt;

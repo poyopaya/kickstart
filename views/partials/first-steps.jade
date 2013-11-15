@@ -45,12 +45,12 @@ h3 Removing/Editing growl
 p You may have noticed a "growl" alert appears on the home page when you open Kickstrap. This is generated in index.jade towards the bottom.
 p
 	pre :coffeescript
-		| k$.ready ->  
-		|   $.growl
-		|     title: 'Welcome to #{title}!'
-		|     text: 'Check out the documentation to get started.'
-		|     type: 'success'
-		|     delay: 3000
+		|   k$.ready ->  
+		|     $.growl
+		|       title: 'Welcome to #{title}!'
+		|       text: 'Check out the documentation to get started.'
+		|       type: 'success'
+		|       delay: 3000
 p 
 	code k$.ready
 	|  is a JavaScript function that will execute anything below it once JSPM has finished running its components. As such, any code that is dependent on Kickstrap apps or angular will load once everything is ready and available. This can be included in multiple places on one page.
