@@ -15,7 +15,7 @@ define [
 		'firebase'
 		'ngRoute'
 		'ngProgress'
-	]).config ['$routeProvider', ($routeProvider) ->
+	]).config ['$routeProvider', '$locationProvider', ($routeProvider, $locationProvider) ->
 		$routeProvider.when '/first-steps', 
 			templateUrl: '/partials/first-steps.html'
 		$routeProvider.when '/features', 
