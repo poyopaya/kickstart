@@ -9,18 +9,14 @@ nav.navbar.navbar-default.navbar-fixed-top(role="navigation")
 			a.navbar-brand(href="/") #{title}
 		.navbar-collapse.collapse.navbar-ex1-collapse
 			ul.nav.navbar-nav
-				li.active
-					a(href="/") Home
-				li
-					a(href="products.html") Products 
+				each menuItem in [{title:'Home', url: '/', slug:'home'}, {title: 'Products', url: '/products.html', slug: 'products'}]
+					li(class=(active === menuItem.slug ? 'active' : ''))
+						a(href=menuItem.url) #{menuItem.title}
 			form.navbar-form.navbar-right
 				input.form-control(type="search", placeholder="Search")			
 			ul.navbar-right.nav.navbar-nav
-				li
-					a(href="cart.html") 
-						span.glyphicon.glyphicon-shopping-cart &nbsp;
-						span.badge 3
-				li
-					a(href="messages.html") 
-						span.glyphicon.glyphicon-envelope &nbsp;
-						span.badge 10
+				each menuItem in [{url: '/cart.html', slug:'cart', icon: 'glyphicon-shopping-cart', badge: '3'}, {url: '/messages.html', slug: 'messages', icon: 'glyphicon-envelope', badge: '10'}]
+					li(class=(active === menuItem.slug ? 'active' : ''))
+						a(href=menuItem.url) 
+							span.glyphicon(class=menuItem.icon)
+							span.badge #{menuItem.badge}
