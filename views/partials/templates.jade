@@ -54,13 +54,28 @@ p Create a page in views called "customers.jade" with the following content:
 p 
 	pre extends layout
 		| &nbsp;
-		| block content
-		|   include _header
-p This starts our page out by loading all the necessary resources we load on the other pages, including our navigation header in the _header.jade partial. Now let's keep going:
-p 
-	pre(ng-non-bindable) extends layout
+		| block variables
+		|   - var active = 'customers'
 		| &nbsp;
 		| block content
+		|   include _header
+p This starts our page out by loading all the necessary resources we load on the other pages, including our navigation header in the _header.jade partial. We're also declaring the "active" variable as "customers" to tell the header it should darken this menu item when we're on this page.
+p We also need to tell our _header.jade partial to look for this variable. Open views/_header.jade and look for this line:
+p
+	pre each menuItem in [{title:'Home', url: '/', slug:'home'}, {title: 'Products', url: '/products.html', slug: 'products'}]
+p We need to add our customers page to this list.
+p
+	pre each menuItem in [{title:'Home', url: '/', slug:'home'}, {title: 'Products', url: '/products.html', slug: 'products'}, {title: 'Customers', url: '/customers.html', slug: 'customers'}]
+p We've just told _header to add our customers link to the loop and listen for the page to declare the 
+	code active
+	|  variable as "customers" in order to give that menu's 
+	code li
+	|  the 
+	code active
+	|  class.
+p Now let's keep going:
+p 
+	pre(ng-non-bindable) block content
 		|   include _header
 		|   &nbsp;
 		|   h1 Customers
@@ -110,9 +125,7 @@ p Back in customers.jade, add
 	code .col-sm-3
 	| . Nest everything under it.
 p 
-	pre(ng-non-bindable) extends layout
-		| &nbsp;
-		| block content
+	pre(ng-non-bindable) block content
 		|   include _header
 		|   &nbsp;
 		|   h1 Customers
@@ -125,9 +138,7 @@ p Let's also prettify the input box with the class
 	code .form-control
 	| .
 p 
-	pre(ng-non-bindable) extends layout
-		| &nbsp;
-		| block content
+	pre(ng-non-bindable) block content
 		|   include _header
 		|   &nbsp;
 		|   h1 Customers
@@ -139,9 +150,7 @@ p
 p While we're at it, let's make this a little more useful and show the customer's email address. Add another line to show 
 	code(ng-non-bindable) customer.email
 p 
-	pre(ng-non-bindable) extends layout
-		| &nbsp;
-		| block content
+	pre(ng-non-bindable) block content
 		|   include _header
 		|   &nbsp;
 		|   h1 Customers
