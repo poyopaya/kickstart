@@ -25,14 +25,15 @@ html(lang='en')
       block variables
       block content
       #sf-push
-    section#sf-footer.navbar.navbar-default
+    section#sf-footer.navbar.navbar-inverse.navbar-static-top
       .container
         ul.nav.navbar-nav
           li
             a(href="#") &copy; #{yourname}
         ul.nav.navbar-nav.pull-right
           li
-            a(href="http://getkickstrap.com") Powered by Kickstrap
+            a(href="http://getkickstrap.com") Powered by 
+              span.kickstrap-logo Kickstrap
     
     :coffeescript
       k$.ready ->  

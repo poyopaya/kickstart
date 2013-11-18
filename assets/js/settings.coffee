@@ -5,6 +5,7 @@ window.k$ =
 		'ks:sample-app'
 		'ks:tinygrowl'
 		'ks:ang-app'
+		'ks:kickstrap-logo'
 	]
 	mode: 'dev'
 	theme: 'kickstrap'

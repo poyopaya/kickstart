@@ -9,8 +9,9 @@ block content
 	.container
 		section.row(ng-controller='SectionsCtrl', ng-init="setSelectedSection(sections[0])")
 			.col.col-sm-3
-				h1 #{title}
-				p.lead New in 2.0
+				// img(src="/img/kickstrap-logo.png", style="width: 248px")
+				h1.kickstrap-logo(style="font-size: 50px") #{title}
+				p.lead Documentation
 				p
 					input.form-control(type='text', ng-model='sectionInput', placeholder='Search Sections', ng-change="setSelectedSection(filteredSections[0])")
 				p.ks-beforeload Loading...
