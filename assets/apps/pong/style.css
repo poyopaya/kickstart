@@ -1,10 +1,4 @@
-* {
-    padding: 0;
-    margin: 0;
-}
-
-body {
-    padding: 8px;
+#pong {
     cursor: none !important;
 }
 

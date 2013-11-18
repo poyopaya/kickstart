@@ -61,6 +61,12 @@ article
 		p.lead Keeping track of and staying up to date on your static resources (JS, CSS, fonts, images...) and their dependencies is painful.
 		p Kickstrap's partnership with JSPM.io provides a strong front-end package dependency manager built on Require.js.
 		p Kickstrap apps are unit JSPM bundles of static resources that can be run at any time in the web app's lifetime. 
+		p JSPM also allows for loading resources from npm, CDNJS, and GitHub via its CDN registry.
+	.col.col-md-6
+		#pong
+			.well(style="height: 300px") 
+				p
+					em Waiting for JSPM package
 		p Try it here:
 		p
 			pre &lt;script type='text/javascript'&gt;
@@ -68,13 +74,6 @@ article
 				| &lt;/script&gt;
 		p
 			a.btn.btn-primary(onclick="jspm.import('ks:pong');") Run Code
-		p JSPM also allows for loading resources from npm, CDNJS, and GitHub via its CDN registry.
-	.col.col-md-6
-		#pong
-			.well(style="height: 300px") 
-				p
-					em Waiting for JSPM package
-	.clearfix
 
 article
 	.page-header

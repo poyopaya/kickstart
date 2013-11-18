@@ -36,6 +36,9 @@ define ['./module'], (controllers) ->
 		$scope.setSelectedSection = (section) ->
 			$scope.selectedSection = section
 			$location.path(section.path)
+		$scope.$on '$locationChangeSuccess', () ->
+			$scope.selectedSection.path = $location.path()
+			console.log $location.path()
 
 		# Theme switcher
 		$scope.themes = [

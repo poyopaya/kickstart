@@ -1,5 +1,6 @@
-define(['jquery', './style.css!', './markup.txt!text'], function($, css, markup) {
-  $('#pong').html(markup);
+define(['jquery', './style.css!', './markup.txt!text', 'ks:tinygrowl'], function($, css, markup) {
+  var pongId = 'pong'
+  $('#' + pongId).html(markup);
   (function (fld, pF, px, py, dx, dy, lifes, score) {
     var cycle = setInterval(function () {
       var bx = pF(ball.style.left = pF(ball.style.left) + dx + 'px'),
@@ -14,7 +15,7 @@ define(['jquery', './style.css!', './markup.txt!text'], function($, css, markup)
         else if (Math.abs(dx) == 6) dx = (dx * 2 / 3) | 0;
       }
       if (by < 0) dy *= -1;
-      if (by >= 288 && !--lifes) clearInterval(cycle), alert('Game over!');
+      if (by >= 288 && !--lifes) clearInterval(cycle), $.growl({title:'Game over!', type: 'danger', delay: 2000}), $('body').css('cursor', 'default !important');
       if (by >= 288 && lifes) dy *= -1, lifesNode.innerHTML = lifes;
       if (by >= 18 && by <= 100 && fld[row * 10 + col].className != 'removed') {
         dy *= -1, fld[row * 10 + col].className = 'removed';
@@ -26,8 +27,10 @@ define(['jquery', './style.css!', './markup.txt!text'], function($, css, markup)
     }, 1000 / 60);
 
     document.addEventListener('mousemove', function (e) {
-      px = (e.pageX > 40) ? ((e.pageX < 290) ? e.pageX - 40 : 256) : 0;
+      var ePageX = e.pageX - $('#' + pongId).offset().left
+      var ePageY = e.pageY - $('#' + pongId).offset().top
+      px = (ePageX > 40) ? ((ePageX < 290) ? ePageX - 40 : 256) : 0;
       paddle.style.left = px + 'px';
     }, false);
-  }(field.children, parseFloat, 129, 270, -4, -4, 3, 0));
+  }(field.children, parseFloat, 129, 270, -4, -4, 5, 0));
 })
