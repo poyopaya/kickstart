@@ -14,6 +14,30 @@ article
 
 article
 	.page-header
+		h1 The most trusted fork of Bootstrap
+	p.lead Modern, Scalable, Production Ready
+	p In this second version, we've reworked Kickstrap from the ground up, empowering it with the best in pre-processing technologies, package-dependency management, and a fast, front-end MVC.
+	p That's why Kickstrap is already trusted by these and other brands.
+	img.col.col-sm-4(src="./img/vegankit.png")
+	img.col.col-sm-4(src="./img/abergs.png")
+	img.col.col-sm-4(src="./img/ipreo.png")
+	img.col.col-sm-4(src="./img/peugeot.png")
+	img.col.col-sm-4(src="./img/skuvault.png")
+	img.col.col-sm-4(src="./img/fwdslash.png")
+	.clearfix
+
+article
+	.page-header
+		h1 Included themes
+	p.lead Activate themes on-the-fly
+	p Click on a theme to preview.
+	link(rel="stylesheet", href="{{themePreviewUrl}}")
+	.col.col-sm-4(ng-repeat="theme in themes")
+		img.thumbnail(src="./img/{{theme}}.png", ng-click="setTheme(theme)")
+	.clearfix
+
+article
+	.page-header
 		h1 Bootstrap 3
 	p.lead The most popular CSS framework, now extended.
 	p Bootstrap 3 is a mobile-first CSS and JS framework making UI creation a snap on any screen.

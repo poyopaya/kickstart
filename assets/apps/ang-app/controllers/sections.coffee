@@ -36,5 +36,27 @@ define ['./module'], (controllers) ->
 		$scope.setSelectedSection = (section) ->
 			$scope.selectedSection = section
 			$location.path(section.path)
+
+		# Theme switcher
+		$scope.themes = [
+			'amelia'
+			'bootstrap'
+			'cerulean'
+			'cosmo'
+			'cyborg'
+			'flatly'
+			'kickstrap'
+			'journal'
+			'readable'
+			'simplex'
+			'slate'
+			'spacelab'
+			'united'
+		]
+		$scope.themePreviewUrl = ''
+		$scope.setTheme = (theme) ->
+			$scope.themePreviewUrl = './themes/' + theme + '.css'
+			$scope.themePreviewUrl = './css/bootstrap.css' if theme == 'bootstrap'
+			k$.demoStylesheet()
 		ngProgress.complete()
 	]

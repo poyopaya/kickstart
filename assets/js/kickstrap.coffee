@@ -45,3 +45,5 @@ jspm.import jspmResources, ($, angular, app) ->
 		while i < k$.readyFxs.length
 			k$.readyFxs[i]()
 			i++
+		k$.ready = (fx) ->
+			fx()

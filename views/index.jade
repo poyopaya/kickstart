@@ -21,7 +21,7 @@ block content
 					ng-click="setSelectedSection(section)"
 					class="{{selectedSection == section ? 'text-primary' : 'text-muted' }}"
 				) {{section.name}}
-			.col.col-sm-8(ng-view)
+			.col.col-sm-8(ng-view ng-animate)
 			.col.col-sm-8(ng-hide="selectedSection.name")
 				p
 					em.text-muted
@@ -34,3 +34,4 @@ block content
 			text: 'Check out the documentation to get started.'
 			type: 'success'
 			delay: 3000
+		k$.demoStylesheet = () -> $('#main-stylesheet').remove()

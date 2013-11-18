@@ -12,6 +12,7 @@ html(lang='en')
     script(src='js/kickstrap.js')
     :coffeescript
       a = document.createElement 'link'
+      a.id = 'main-stylesheet'
       a.rel = 'stylesheet'
       if k$.settings.theme == 'bootstrap'
         a.href="https://github.jspm.io/twbs/bootstrap@3.0.2/css/bootstrap.css"
@@ -38,7 +39,7 @@ html(lang='en')
     :coffeescript
       k$.ready ->  
         $.growl
-          title: 'Alpha 1 of 2'
-          text: '<br>This is one of two alpha releases. Two betas and two release candidates will be released as well before the final release on February 14, 2014'
+          title: 'Alpha 2 of 2'
+          text: '<br>This is the last of two alpha releases. Two betas and two release candidates will be released as well before the final release on February 14, 2014'
           delay: 5000
           type: 'info'
