@@ -64,13 +64,13 @@ article
 		p Try it here:
 		p
 			pre &lt;script type='text/javascript'&gt;
-				|   jspm.import('./notyetimplemented')
+				|   jspm.import('ks:pong');
 				| &lt;/script&gt;
 		p
-			a.btn.btn-primary Run Code
+			a.btn.btn-primary(onclick="jspm.import('ks:pong');") Run Code
 		p JSPM also allows for loading resources from npm, CDNJS, and GitHub via its CDN registry.
 	.col.col-md-6
-		#digi-clock
+		#pong
 			.well(style="height: 300px") 
 				p
 					em Waiting for JSPM package
