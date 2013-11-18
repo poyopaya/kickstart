@@ -21,7 +21,7 @@ block content
 					style="cursor: pointer"
 					ng-repeat='section in (filteredSections = (sections | filter: sectionInput))'
 					ng-click="setSelectedSection(section)"
-					class="{{selectedSection == section ? 'text-primary' : 'text-muted' }}"
+					class="{{selectedSection.path == section.path ? 'text-primary' : 'text-muted' }}"
 				) {{section.name}}
 			.col.col-sm-9(ng-view ng-animate)
 			.col.col-sm-9(ng-hide="selectedSection.name")
