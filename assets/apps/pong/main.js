@@ -15,7 +15,7 @@ define(['jquery', './style.css!', './markup.txt!text', 'ks:tinygrowl'], function
         else if (Math.abs(dx) == 6) dx = (dx * 2 / 3) | 0;
       }
       if (by < 0) dy *= -1;
-      if (by >= 288 && !--lifes) clearInterval(cycle), $.growl({title:'Game over!', type: 'danger', delay: 2000}), $('body').css('cursor', 'default !important');
+      if (by >= 288 && !--lifes) clearInterval(cycle), $.growl({title:'Game over!', type: 'danger', delay: 2000, container: '#pong'}), $('body').css('cursor', 'default !important');
       if (by >= 288 && lifes) dy *= -1, lifesNode.innerHTML = lifes;
       if (by >= 18 && by <= 100 && fld[row * 10 + col].className != 'removed') {
         dy *= -1, fld[row * 10 + col].className = 'removed';

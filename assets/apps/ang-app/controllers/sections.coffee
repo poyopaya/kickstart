@@ -95,5 +95,9 @@ define ['./module'], (controllers) ->
 				text: '<p>You\'re there. We\'ve made our downloadable the exact same as getkickstrap.com.</p>
 					<p>This page is 100% Kickstrap.</p>'
 				type: 'success'
+		$scope.setPong = () ->
+			ngProgress.start()
+			jspm.import 'ks:pong' () ->
+				ngProgress.complete()
 		ngProgress.complete()
 	]
