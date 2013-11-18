@@ -18,5 +18,5 @@ nav.navbar.navbar-default.navbar-fixed-top(role="navigation")
 				each menuItem in [{url: '/cart.html', slug:'cart', icon: 'glyphicon-shopping-cart', badge: '3'}, {url: '/messages.html', slug: 'messages', icon: 'glyphicon-envelope', badge: '10'}]
 					li(class=(active === menuItem.slug ? 'active' : ''))
 						a(href=menuItem.url) 
-							span.glyphicon(class=menuItem.icon)
-							span.badge &nbsp;#{menuItem.badge}
+							span.glyphicon(class=menuItem.icon) &nbsp;
+							span.badge #{menuItem.badge}

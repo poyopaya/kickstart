@@ -1,39 +1,79 @@
-h1.text-center Bootstrap Extended.
-p.text-center
-	a.btn.btn-primary.btn-lg(href="", style="margin-right: 5px") Download Kickstrap
-	a.btn.btn-default.btn-lg(href="") Demo
+img.thumbnail(src="http://placehold.it/800x400")
+.row
+	h1.text-center Bootstrap Extended.
+	p.text-center
+		a.btn.btn-primary.btn-lg(href="", style="margin-right: 5px") Download Kickstrap
+		a.btn.btn-default.btn-lg(href="", ng-click="nodemo()") Demo
 
 article
 	.page-header
-		h1 As seen on:
-	img.col.col-sm-6.col-md-3(src="./img/mashable.png")
-	img.col.col-sm-6.col-md-3(src="./img/hn.png")
-	img.col.col-sm-6.col-md-3(src="./img/dzone.png")
-	img.col.col-sm-6.col-md-3(src="./img/t3n.png")
+		h1 Why You'll Love It
+	.col.col-md-6
+		p.lead Made with the best tech on Earth.
+		p Kickstrap seamlessly combines Bootstrap with top-tier web technologies. It's so advanced, it can run an authenticated, database-driven web app 
+			strong without a native backend.
+		p This is accomplished by the coupling of Google's Angular.js and Firebase.io, a websocket Backend as a Service (Baas). This is ready to go out-of-the-box, but optional to use.
+	.col.col-md-6
+		img.col.col-md-6(src="./img/mashable.png")
+		img.col.col-md-6(src="./img/hn.png")
+		img.col.col-md-6(src="./img/dzone.png")
+		img.col.col-md-6(src="./img/t3n.png")
+		br
+		p
+			small As seen on these news websites
 	.clearfix
 
 article
 	.page-header
-		h1 The most trusted fork of Bootstrap
-	p.lead Modern, Scalable, Production Ready
-	p In this second version, we've reworked Kickstrap from the ground up, empowering it with the best in pre-processing technologies, package-dependency management, and a fast, front-end MVC.
-	p That's why Kickstrap is already trusted by these and other brands.
-	img.col.col-sm-4(src="./img/vegankit.png")
-	img.col.col-sm-4(src="./img/abergs.png")
-	img.col.col-sm-4(src="./img/ipreo.png")
-	img.col.col-sm-4(src="./img/peugeot.png")
-	img.col.col-sm-4(src="./img/skuvault.png")
-	img.col.col-sm-4(src="./img/fwdslash.png")
+		h1 The Most Trusted Fork of Bootstrap
+	.col.col-md-6
+		p.lead Modern, Scalable, Production Ready.
+		p In this second version, we've reworked Kickstrap from the ground up, empowering it with the best in pre-processing technologies (Jade, CoffeeScript, Stylus), package-dependency management (JSPM.io), and a fast, front-end MVC (Angular.js).
+	.col.col-md-6
+		img.col.col-md-6(src="./img/vegankit.png")
+		img.col.col-md-6(src="./img/abergs.png")
+		img.col.col-md-6(src="./img/ipreo.png")
+		img.col.col-md-6(src="./img/peugeot.png")
+		img.col.col-md-6(src="./img/skuvault.png")
+		img.col.col-md-6(src="./img/fwdslash.png")
+		br
+		p
+			small Trusted by these brands
 	.clearfix
 
 article
 	.page-header
-		h1 Included themes
+		h1 Included Themes
 	p.lead Activate themes on-the-fly
 	p Click on a theme to preview.
-	link(rel="stylesheet", href="{{themePreviewUrl}}")
 	.col.col-sm-4(ng-repeat="theme in themes")
-		img.thumbnail(src="./img/{{theme}}.png", ng-click="setTheme(theme)")
+		h4 {{theme.title}}
+		img.thumbnail(src="./img/{{theme.name}}.png", ng-click="setTheme(theme.name)")
+	.clearfix
+	p
+		em * Courtesy of Thomas Park and 
+			a(href="http://bootswatch.com/") Bootswatch.com
+
+article
+	.page-header
+		h1 Your Website has an App Store
+	.col.col-md-6
+		p.lead Keeping track of and staying up to date on your static resources (JS, CSS, fonts, images...) and their dependencies is painful.
+		p Kickstrap's partnership with JSPM.io provides a strong front-end package dependency manager built on Require.js.
+		p Kickstrap apps are unit JSPM bundles of static resources that can be run at any time in the web app's lifetime. 
+		p Try it here:
+		p
+			pre &lt;script type='text/javascript'&gt;
+				|   jspm.import('./notyetimplemented')
+				| &lt;/script&gt;
+		p
+			a.btn.btn-primary Run Code
+		p JSPM also allows for loading resources from npm, CDNJS, and GitHub via its CDN registry.
+	.col.col-md-6
+		#digi-clock
+			.well(style="height: 300px") 
+				p
+					em Waiting for JSPM package
 	.clearfix
 
 article

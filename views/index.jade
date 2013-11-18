@@ -8,21 +8,23 @@ block content
 
 	.container
 		section.row(ng-controller='SectionsCtrl', ng-init="setSelectedSection(sections[0])")
-			.col.col-sm-3
+			link(rel="stylesheet", href="{{themePreviewUrl}}")
+			.col.col-sm-3.ks-beforeload
+				p Loading...
+			.col.col-sm-3.ks-afterload
 				// img(src="/img/kickstrap-logo.png", style="width: 248px")
 				h1.kickstrap-logo(style="font-size: 50px") #{title}
 				p.lead Documentation
 				p
 					input.form-control(type='text', ng-model='sectionInput', placeholder='Search Sections', ng-change="setSelectedSection(filteredSections[0])")
-				p.ks-beforeload Loading...
-				p.ks-afterload(
+				p(
 					style="cursor: pointer"
 					ng-repeat='section in (filteredSections = (sections | filter: sectionInput))'
 					ng-click="setSelectedSection(section)"
 					class="{{selectedSection == section ? 'text-primary' : 'text-muted' }}"
 				) {{section.name}}
-			.col.col-sm-8(ng-view ng-animate)
-			.col.col-sm-8(ng-hide="selectedSection.name")
+			.col.col-sm-9(ng-view ng-animate)
+			.col.col-sm-9(ng-hide="selectedSection.name")
 				p
 					em.text-muted
 						span.hidden-xs Select an article to read from the left.
