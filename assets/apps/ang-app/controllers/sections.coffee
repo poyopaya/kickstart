@@ -97,7 +97,7 @@ define ['./module'], (controllers) ->
 				type: 'success'
 		$scope.setPong = () ->
 			ngProgress.start()
-			jspm.import 'ks:pong' () ->
+			jspm.import 'ks:pong', () ->
 				ngProgress.complete()
 		ngProgress.complete()
 	]
