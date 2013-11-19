@@ -9,9 +9,9 @@ block content
 	.container
 		section.row(ng-controller='SectionsCtrl', ng-init="setSelectedSection(sections[0])")
 			link(rel="stylesheet", href="{{themePreviewUrl}}")
-			.col.col-sm-3.ks-beforeload
+			.col.col-sm-5.col-md-3.ks-beforeload
 				p Loading...
-			.col.col-sm-3.ks-afterload
+			.col.col-sm-5.col-md-3.ks-afterload
 				// img(src="/img/kickstrap-logo.png", style="width: 248px")
 				h1.kickstrap-logo(style="font-size: 50px") #{title}
 				p.lead Documentation
@@ -23,8 +23,8 @@ block content
 					ng-click="setSelectedSection(section)"
 					class="{{selectedSection.path == section.path ? 'text-primary' : 'text-muted' }}"
 				) {{section.name}}
-			.col.col-sm-9(ng-view ng-animate)
-			.col.col-sm-9(ng-hide="selectedSection.name")
+			.col.col-sm-7.col-md-9(ng-view ng-animate)
+			.col.col-sm-7.col-md-9(ng-hide="selectedSection.name")
 				p
 					em.text-muted
 						span.hidden-xs Select an article to read from the left.

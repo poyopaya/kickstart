@@ -36,4 +36,6 @@ define [
 			templateUrl: '/partials/stylus.html'
 		$routeProvider.when '/templates', 
 			templateUrl: '/partials/templates.html'
+		$routeProvider.when '/acknowledgments', 
+			templateUrl: '/partials/acknowledgments.html'
 	]

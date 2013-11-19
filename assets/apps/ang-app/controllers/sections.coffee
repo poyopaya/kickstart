@@ -31,6 +31,9 @@ define ['./module'], (controllers) ->
 		,
 			name: 'Intro to Jade'
 			path: 'jade'
+		,
+			name: 'Acknowledgments'
+			path: 'acknowledgments'
 		]
 		$scope.selectedSection = $scope.sections[0]
 		$scope.setSelectedSection = (section) ->
