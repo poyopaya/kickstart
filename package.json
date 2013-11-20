@@ -1,6 +1,6 @@
 {
-	"name": "Kickstrap",
-	"version": "2.0.0",
+	"name": "kickstrap",
+	"version": "2.0.1",
 	"description": "Framework for advanced Bootstrap web development",
 	"keywords": [
 		"Bootstrap",
@@ -10,7 +10,7 @@
 		"Jade",
 		"Angular.js",
 		"JSPM",
-		"Require.js",
+		"Require.js"
 	],
 	"homepage": "http://getkickstrap.com",
 	"bugs": "https://github.com/ajkochanowicz/Kickstrap/issues",
