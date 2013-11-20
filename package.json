@@ -1,0 +1,33 @@
+{
+	"name": "Kickstrap",
+	"version": "2.0.0",
+	"description": "Framework for advanced Bootstrap web development",
+	"keywords": [
+		"Bootstrap",
+		"Roots",
+		"Stylus",
+		"CoffeeScript",
+		"Jade",
+		"Angular.js",
+		"JSPM",
+		"Require.js",
+	],
+	"homepage": "http://getkickstrap.com",
+	"bugs": "https://github.com/ajkochanowicz/Kickstrap/issues",
+	"author": "Adam Kochanowicz",
+	"main": "lib",
+	"bin": {
+		"kickstrap": "bin/kickstrap"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git://github.com/ajkochanowicz/Kickstrap.git"
+	},
+	"dependencies": {
+		"roots": "2.1.0@beta-4"
+	},
+	"engines": {
+		"node": ">=0.8.0"
+	},
+	"preferGlobal": true
+}
