@@ -10,14 +10,14 @@ jspm.config
 	map:
 		'jquery': 			'jquery@2.0'
 		'bootstrap': 		'github:twbs/bootstrap@3.0.2/js/bootstrap'
-		'angular': 			'angular@1.2.0/angular'
+		'angular': 			'angular@1.2.1/angular'
 		'angularFire': 		'angularFire@0.3.1'
 		'ang-app': 			'ks:ang-app'
 		'angular-route':	'ks:ang-app/resources/angular-route'
 		'ng-progress':		'ks:ang-app/resources/ng-progress'
 		'fontawesome': 		'cdnjs:font-awesome/4.0.1/css/font-awesome.min.css!'
 	shim: 
-		'cdnjs:angular.js/1.2.0/angular':
+		'cdnjs:angular.js/1.2.1/angular':
 			exports: 'angular'
-		'ks:ang-app/resources/angular-route': ['angular@1.2.0/angular']
-		'ks:ang-app/resources/ng-progress': ['angular@1.2.0/angular']
+		'ks:ang-app/resources/angular-route': ['angular@1.2.1/angular']
+		'ks:ang-app/resources/ng-progress': ['angular@1.2.1/angular']
