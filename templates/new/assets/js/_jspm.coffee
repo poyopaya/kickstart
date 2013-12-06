@@ -2,7 +2,10 @@
 
 jspm.config
 	endpoints:
-		ks: './apps'
+		ks: 
+			location: './apps'
+			main: 'main'
+			format: 'auto'
 
 	# map basically allows easy "shortcut" names for packages
 	map:
@@ -19,28 +22,13 @@ jspm.config
 	# packages are the primary unit of configuration
 	packages:
 
-		'ks:sample-app':
-			main: 'main'
-
-		'ks:tinygrowl':
-			main: 'main'
-
-		'ks:ang-app':
-			main: 'main'
-
-		'ks:kickstrap-logo':
-			main: 'main'
-
-		'ks:advertisements':
-			main: 'main'
-
 		'cdnjs:angular.js/1.2.1':
 			main: 'angular.min'
 			shim:
 				'angular.min':
 					exports: 'angular'
 
-		'ks:ang-app/resources':
+		'ks:ang-app':
 			shim:
-				'angular-route': ['angular']
-				'ng-progress': ['angular']
+				'resources/angular-route': ['angular']
+				'resources/ng-progress': ['angular']
