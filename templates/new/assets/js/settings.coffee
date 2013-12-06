@@ -7,13 +7,19 @@ window.k$ =
 		'ks:ang-app'
 		'ks:kickstrap-logo'
 	]
-	mode: 'dev'
-	theme: 'kickstrap'
-	useAngular: true
-	# Will not affect references to the angular shim.
 
-# ANGULAR RESOURCES
+	# Caching mode
+	# mode: 'dev'
 
-	controllers: [
-		'features'
+	# Theme
+	# theme: 'kickstrap'
+
+	# Firebase URI
+	# firebaseName: 'kickstrap-demo'
+
+	# Only edit if you know what you're doing.
+	core: [
+		'jquery'
+		'bootstrap'
+		'angular'
 	]
