@@ -1,3 +1,4 @@
+#= require "_settings"
 #= require "_extend"
 #= require "_badge"
 
