@@ -10,6 +10,7 @@ window.k$ =
 	mode: 'dev'
 	theme: 'kickstrap'
 	useAngular: true
+	# Will not affect references to the angular shim.
 
 # ANGULAR RESOURCES
 
