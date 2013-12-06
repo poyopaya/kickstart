@@ -31,11 +31,3 @@ block content
 						span.visible-xs Select an article to read above.
 			.col.col-sm-7.col-md-9.col-lg-offset-3
 				.center-block#ads
-	:coffeescript
-		k$.ready ->  
-			$.growl
-			title: 'Welcome to #{title}!'
-			text: 'Check out the documentation to get started.'
-			type: 'success'
-			delay: 3000
-		k$.demoStylesheet = () -> $('#main-stylesheet').remove()
