@@ -4,7 +4,6 @@
 
 # Set defaults and extend with user's customizations
 k$settings = extend(
-	theme: 'kickstrap'
 	mode: 'dev'
 	firebaseName: 'kickstrap-demo'
 	version: '2.0.0 alpha'

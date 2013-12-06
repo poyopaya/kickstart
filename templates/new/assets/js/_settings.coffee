@@ -12,9 +12,6 @@ window.k$ =
 	# Caching mode
 	# mode: 'dev'
 
-	# Theme
-	# theme: 'kickstrap'
-
 	# Firebase URI
 	# firebaseName: 'kickstrap-demo'
 
