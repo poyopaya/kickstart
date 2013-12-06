@@ -1,3 +1,5 @@
+#= require "_extend"
+
 k$settings = extend(
 	theme: 'kickstrap'
 	mode: 'dev'
@@ -8,11 +10,12 @@ k$settings = extend(
 k$ = window.k$ = () ->
 
 #= require "_badge"
-#= require "_jspm"
-#= require "_extend"
 
 k$.loadApp = () ->
 k$.settings = k$settings
+
+jspm.config k$.settings.jspm.config
+
 k$.app = (name, options) ->
 	htmlElement = document.body.childNodes[document.body.childNodes.length - 3]
 
