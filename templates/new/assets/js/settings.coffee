@@ -1,6 +1,7 @@
 # BASIC SITE SETTINGS
 
 window.k$ =
+
 	apps: [
 		'ks:sample-app'
 		'ks:tinygrowl'

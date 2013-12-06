@@ -1,7 +1,3 @@
-#= require "_badge"
-#= require "_jspm"
-#= require "_extend"
-
 k$settings = extend(
 	theme: 'kickstrap'
 	mode: 'dev'
@@ -10,6 +6,10 @@ k$settings = extend(
 , window.k$ or {})
 
 k$ = window.k$ = () ->
+
+#= require "_badge"
+#= require "_jspm"
+#= require "_extend"
 
 k$.loadApp = () ->
 k$.settings = k$settings

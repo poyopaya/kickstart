@@ -3,9 +3,9 @@
 jspm.config
 	endpoints:
 		ks: 
-			location: './apps'
-			main: 'main'
-			format: 'auto'
+			location: 	'./apps'
+			main: 		'main'
+			format: 	'auto'
 
 	# map basically allows easy "shortcut" names for packages
 	map:
