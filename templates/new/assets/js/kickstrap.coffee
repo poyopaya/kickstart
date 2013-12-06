@@ -1,5 +1,7 @@
 #= require "_extend"
+#= require "_badge"
 
+# Set defaults and extend with user's customizations
 k$settings = extend(
 	theme: 'kickstrap'
 	mode: 'dev'
@@ -7,12 +9,12 @@ k$settings = extend(
 	version: '2.0.0 alpha'
 , window.k$ or {})
 
+# Create global k$ object
 k$ = window.k$ = () ->
-
-#= require "_badge"
-
-k$.loadApp = () ->
 k$.settings = k$settings
+
+# Reassignment of JSPM one-off app-loading
+k$.import = (app) -> jspm.import app
 
 jspm.config k$.settings.jspm.config
 
@@ -31,14 +33,6 @@ jspmResources = k$.settings.core
 jspm.config.urlArgs = '?bust=' + new Date().getTime() if k$.settings.mode == 'dev'
 
 jspmResources = jspmResources.concat k$settings.apps
-
-###
-# Add Angular Resources
-controllers = []
-controllers.concat './ang-app/controllers/' + ctrl for ctrl in k$.settings.controllers
-console.log controllers
-jspmResources = jspmResources.concat controllers
-###
 
 jspm.import jspmResources, ($, app, angular) ->
 	$(document).ready ->
