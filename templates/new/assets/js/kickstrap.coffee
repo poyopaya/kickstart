@@ -23,7 +23,9 @@ k$.readyFxs = []
 k$.ready = (fx) ->
 	k$.readyFxs.push(fx)
 
-jspmResources = ['jquery', 'angular', 'bootstrap']
+jspmResources = ['jquery', 'bootstrap']
+jspmResources.push 'angular' if k$.settings.useAngular
+console.log jspmResources
 
 jspm.config.urlArgs = '?bust=' + new Date().getTime() if k$.settings.mode == 'dev'
 
@@ -37,10 +39,10 @@ console.log controllers
 jspmResources = jspmResources.concat controllers
 ###
 
-jspm.import jspmResources, ($, angular, app) ->
+jspm.import jspmResources, ($, app, angular) ->
 	$(document).ready ->
 		document.body.className += 'loaded'
-		angular.bootstrap document, ['app']
+		angular.bootstrap document, ['app'] if k$.settings.useAngular
 		i = 0
 		while i < k$.readyFxs.length
 			k$.readyFxs[i]()

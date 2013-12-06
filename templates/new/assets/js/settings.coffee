@@ -9,6 +9,7 @@ window.k$ =
 	]
 	mode: 'dev'
 	theme: 'kickstrap'
+	useAngular: true
 
 # ANGULAR RESOURCES
 
