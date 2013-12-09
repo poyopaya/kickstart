@@ -25,7 +25,11 @@
   },
   "dependencies": {
     "roots": "2.1.0-beta4",
-    "optimist": "0.6.x"
+    "optimist": "0.6.x",
+    "shelljs": "0.2.x",
+    "underscore": "1.5.x",
+    "cli-js": "0.0.x",
+    "underscore.string": "2.x.x"
   },
   "engines": {
     "node": ">=0.8.0"
