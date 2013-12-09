@@ -5,5 +5,18 @@ var args = 	require('optimist')
 			.argv;
 
 var argv = process.argv.slice(2),
-	commands = require('../lib/commands'),
-	configure_options = require('../lib/config_parser');
+	commands = require('../lib/commands');
+
+if (args._.length < 1 && !args.version) {
+	commands.help.execute();
+}
+else {
+	var current_command = commands[args._[0]];
+	if (args.version) return commands.version.execute();
+	if (typeof current_command == 'undefined') {
+		return commands.help.execute();
+	}
+	else {
+		current_command.execute(args);
+	}
+}
