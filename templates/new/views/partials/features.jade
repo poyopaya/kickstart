@@ -76,7 +76,7 @@ article
 		h1 Included Themes
 	p.lead Activate themes on-the-fly
 	p Click on a theme to preview.
-	.col.col-sm-4(ng-repeat="theme in themes")
+	.col.col-sm-4(sly-repeat="theme in themes")
 		h4 {{theme.title}}
 		img.thumbnail(src="./img/{{theme.name}}.png", ng-click="setTheme(theme.name)")
 	.clearfix

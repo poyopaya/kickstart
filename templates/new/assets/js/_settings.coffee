@@ -33,6 +33,7 @@ window.k$ =
 				'angularFire': 			'github:firebase/angularFire@0.3.1'
 				'ang-app': 				'ks:ang-app'
 				'angular-route':		'ks:ang-app/resources/angular-route'
+				'gatedScope':			'ks:ang-app/resources/gatedScope'
 				'ng-progress':			'ks:ang-app/resources/ng-progress'
 				'fontawesome': 			'cdnjs:font-awesome/4.0.1/css/font-awesome.min.css!'
 
@@ -47,8 +48,9 @@ window.k$ =
 
 				'ks:ang-app':
 					shim:
-						'resources/angular-route': ['angular']
-						'resources/ng-progress': ['angular']
+						'resources/angular-route': 				['angular']
+						'resources/ng-progress': 				['angular']
+						'resources/gatedScope': 				['angular']
 
 	# Only edit if you know what you're doing.
 	core: [

@@ -1,2 +1,2 @@
-define ['angular'], (angular) ->
-	angular.module 'app.directives', []
+define ['angular', 'gatedScope'], (angular) ->
+	angular.module 'app.directives', ['gatedScope']

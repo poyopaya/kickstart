@@ -19,7 +19,7 @@ block content
 					input.form-control(type='text', ng-model='sectionInput', placeholder='Search Sections', ng-change="setSelectedSection(filteredSections[0])")
 				p(
 					style="cursor: pointer"
-					ng-repeat='section in (filteredSections = (sections | filter: sectionInput))'
+					sly-repeat='section in (filteredSections = (sections | filter: sectionInput))'
 					ng-click="setSelectedSection(section)"
 					class="{{selectedSection.path == section.path ? 'text-primary' : 'text-muted' }}"
 				) {{section.name}}
