@@ -7,13 +7,13 @@ block content
 	// A header is omitted here to encourage users to complete their purchase.
 
 	.container
-		section.row
+		section.row.spacious
 			div.col-sm-12
 				h1 Shopping Cart
-		section.row.ks-beforeload
+		section.row.ks-beforeload.spacious
 			.col-sm-12
 				p Loading...
-		section.row.ks-afterload(ng-controller='ProductsCtrl')
+		section.row.ks-afterload.spacious(ng-controller='ProductsCtrl')
 			link(
 				ng-repeat='product in products'
 				rel="prerender", 
