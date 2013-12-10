@@ -53,11 +53,10 @@ p Kickstrap uses both Angular partials and Jade partials. Angular partials load 
 p Jade partials are compiled once in the project and added to the final .html files. These are found in views/ and should start with an underscore. (e.g. "_footer.jade")
 
 h3 Change theme and basic settings
-p We've attempted to group as much of the runtime settings into settings.js in the js directory.
-p (Alpha: Subject to change)
+p To keep HTTP requests to a minimum, we ask that you simply import a Bootstrap theme into main.css.
+p To do this, open main.css and change the theme imported at the top
 p
-	pre theme: 'kickstrap'
-p To change the theme, change the name to match a .css file in the themes directory. To use the default theme with bootstrap, just use "bootstrap".
+	pre @import "../theme/[yourthemenamehere].css"
 
 h3 Removing/Editing growl
 p You may have noticed a "growl" alert appears on the home page when you open Kickstrap. This is generated in index.jade towards the bottom.
