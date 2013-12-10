@@ -8,11 +8,11 @@ block content
 
 	.container(ng-controller='ProductsCtrl')
 		section.row
-			.col.col-sm-12
+			.col-sm-12
 				h1 On Sale Now
 				p.lead Get them before they're gone
 		section.row
-			div.col.col-sm-3
+			div.col-sm-3
 				article.panel.panel-default
 					.panel-heading 
 						input.form-control(type='text', ng-model='productInput', placeholder='Search products')
@@ -25,7 +25,7 @@ block content
 							ng-class="{'active': selectedProduct.id == product.id }"
 						) {{product.name}}
 
-			div.col.col-sm-9.ks-afterload
+			div.col-sm-9.ks-afterload
 				.carousel.slide#featured(data-ride="carousel")
 					ol.carousel-indicators
 						li.active(data-target="#featured", data-slide-to="0")
@@ -51,7 +51,7 @@ block content
 						span.glyphicon.glyphicon-chevron-right
 				br
 				.row
-					.col.col-sm-4(ng-repeat='product in products | filter: productInput | limitTo: 3')
+					.col-sm-4(ng-repeat='product in products | filter: productInput | limitTo: 3')
 						img.img-circle.center-block(src="http://images.weserv.nl/?url=upload.wikimedia.org/wikipedia/commons/{{product.img}}&h=400&w=400&t=square" style="width: 200px")
 						h4.center-block(ng-id='slug(product.name)') {{product.name}}
 						p {{product.desc}}
@@ -63,7 +63,7 @@ block content
 				hr
 
 				.row
-					.col.col-md-4.col-sm-6(ng-repeat='product in products | startFrom:startFrom() | limitTo:pageSize', style="min-height: 250px")
+					.col-md-4.col-sm-6(ng-repeat='product in products | startFrom:startFrom() | limitTo:pageSize', style="min-height: 250px")
 						.media
 							img.media-object.pull-left(src="http://images.weserv.nl/?url=upload.wikimedia.org/wikipedia/commons/{{product.img}}&h=128&w=128&t=square", style="width: 64px;")
 							.media-body

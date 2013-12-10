@@ -13,7 +13,7 @@ block content
 				rel="prerender", 
 				href="http://api.rethumb.com/v1/square/120/http://upload.wikimedia.org/wikipedia/commons/{{contact.img}}"
 			)
-			div.col.col-sm-12.col-md-3
+			div.col-sm-12.col-md-3
 				h1 Messages
 				p.lead
 					a(href="#", onclick="$.growl({title: 'Not yet implemented.', delay: 3000})") New
@@ -42,7 +42,7 @@ block content
 								a(href="#") 
 									span.glyphicon.glyphicon-chevron-left 
 									|  Messages
-			div.col.col-sm-12.col-md-9.ks-afterload
+			div.col-sm-12.col-md-9.ks-afterload
 				p.text-muted(ng-hide="allThreads.length > 0")
 					em No messages to display
 				.text-muted(ng-hide="selectedThread || allThreads.length == 0")
