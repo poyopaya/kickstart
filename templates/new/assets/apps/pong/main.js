@@ -1,6 +1,6 @@
-define(['jquery', './style.css!', './markup.txt!text', 'ks:tinygrowl'], function($, css, markup) {
-  var pongId = 'pong'
-  $('#' + pongId).html(markup);
+define(['jquery', './style.css!', './game.txt!text', './description.txt!text', 'ks:tinygrowl'], function($, css, game, description) {
+  $('#pong').html(game);
+  $('#pong-desc').html(description);
   (function (fld, pF, px, py, dx, dy, lifes, score) {
     var cycle = setInterval(function () {
       var bx = pF(ball.style.left = pF(ball.style.left) + dx + 'px'),
@@ -27,8 +27,8 @@ define(['jquery', './style.css!', './markup.txt!text', 'ks:tinygrowl'], function
     }, 1000 / 60);
 
     document.addEventListener('mousemove', function (e) {
-      var ePageX = e.pageX - $('#' + pongId).offset().left
-      var ePageY = e.pageY - $('#' + pongId).offset().top
+      var ePageX = e.pageX - $('#pong').offset().left
+      var ePageY = e.pageY - $('#pong').offset().top
       px = (ePageX > 40) ? ((ePageX < 290) ? ePageX - 40 : 256) : 0;
       paddle.style.left = px + 'px';
     }, false);
