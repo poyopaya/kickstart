@@ -38,11 +38,6 @@ html(lang='en')
     script(src='js/kickstrap.js')
     :coffeescript
       k$.ready ->  
-        $.growl
-          title: 'Alpha 2 of 2'
-          text: '<br>This is the last of two alpha releases. Two betas and two release candidates will be released as well before the final release on February 14, 2014'
-          delay: 5000
-          type: 'info'
         jspm.import 'ks:advertisements'
         k$.demoStylesheet = () -> $('#main-stylesheet').remove()
     block foot

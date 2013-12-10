@@ -88,12 +88,12 @@ h3 Create the JavaScript
 p Create customers.coffee in apps/ang-app/controllers with the following content:
 p
 	pre define ['./module'], (controllers) ->
-		|   controllers.controller 'CustomersCtrl', ['$scope', 'ngProgress', ($scope, ngProgress) ->
+		|   controllers.controller 'CustomersCtrl', ['$scope', ($scope) ->
 		|   ]
 p This is just the wrapper we need to create our controller. Now let's add some data.
 p
 	pre define ['./module'], (controllers) ->
-		|   controllers.controller 'CustomersCtrl', ['$scope', 'ngProgress', ($scope, ngProgress) ->
+		|   controllers.controller 'CustomersCtrl', ['$scope', ($scope) ->
 		|     $scope.customers = [
 		|       name: 'John'
 		|     ,
@@ -116,7 +116,7 @@ p
 		|	'./customers'
 		| ], () ->
 p Now we can finally see our page. At /customers.html, we should see our heading, "Customers", an input box, and a bulleted list with John and Jane.
-p Let's sweeten our creation by using more Bootstrap styling, getting our filter to work, and using a progress bar to pacify our users, waiting for the page to load.
+p Let's sweeten our creation by using more Bootstrap styling and getting our filter to work.
 p Back in customers.jade, add 
 	code .row
 	|  to the first div we created. Under that, add another div with the classes 
@@ -175,8 +175,7 @@ p
 p Now let's open customers.coffee and make a few changes so this all works.
 p
 	pre define ['./module'], (controllers) ->
-		|   controllers.controller 'CustomersCtrl', ['$scope', 'ngProgress', ($scope, ngProgress) ->
-		|     ngProgress.start()
+		|   controllers.controller 'CustomersCtrl', ['$scope', ($scope) ->
 		|     $scope.customers = [
 		|       name: 'John'
 		|       email: 'john@example.com'
@@ -184,11 +183,5 @@ p
 		|       name: 'Jane'
 		|       email: 'jane@example.com'
 		|     ]
-		|     ngProgress.complete()
 		|   ]
-p We did just two things here. We added another property of the customer called "email" and we started and stopped the progress bar. For this example, the progress bar is more useful for visual pleasure than functionality, but when we use 
-	code ngProgress.start() 
-	| and 
-	code ngProgress.complete() 
-	| in Firebase calls, it serves an important purpose. See the ProductsCtrl as an example.
 p Your page should now have two customers which can be filtered with the input box.
