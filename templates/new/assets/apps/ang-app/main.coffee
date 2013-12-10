@@ -5,8 +5,6 @@ define [
 	'./filters/index'
 	'angularFire'
 	'angular-route'
-	'ng-progress'
-	'./resources/ng-progress.css!'
 ], (angular) ->
 	angular.module('app', [
 		'app.controllers'
@@ -14,7 +12,6 @@ define [
 		'app.filters'
 		'firebase'
 		'ngRoute'
-		'ngProgress'
 	]).config ['$routeProvider', '$locationProvider', ($routeProvider, $locationProvider) ->
 		$routeProvider.when '/first-steps', 
 			templateUrl: '/partials/first-steps.html'

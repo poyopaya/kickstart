@@ -1,6 +1,5 @@
 define ['./module'], (controllers) ->
-	controllers.controller 'SectionsCtrl', ['$scope', 'angularFire', '$location', 'ngProgress', ($scope, angularFire, $location, ngProgress) ->
-		ngProgress.start()
+	controllers.controller 'SectionsCtrl', ['$scope', 'angularFire', '$location', ($scope, angularFire, $location) ->
 		$scope.sections = [
 			name: 'Features'
 			path: 'features'
@@ -99,8 +98,5 @@ define ['./module'], (controllers) ->
 					<p>This page is 100% Kickstrap.</p>'
 				type: 'success'
 		$scope.setPong = () ->
-			ngProgress.start()
 			jspm.import 'ks:pong', () ->
-				ngProgress.complete()
-		ngProgress.complete()
 	]

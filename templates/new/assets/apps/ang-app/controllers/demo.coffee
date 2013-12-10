@@ -1,5 +1,5 @@
 define ['./module'], (controllers) ->
-	controllers.controller 'DemoCtrl', ['$scope', 'angularFire', 'ngProgress', ($scope, angularFire, ngProgress) ->
+	controllers.controller 'DemoCtrl', ['$scope', 'angularFire', ($scope, angularFire) ->
 		$scope.fName = ' '
 		$scope.lName = ' '
 		$scope.fullName = () ->

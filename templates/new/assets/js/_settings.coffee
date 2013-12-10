@@ -34,7 +34,6 @@ window.k$ =
 				'ang-app': 				'ks:ang-app'
 				'angular-route':		'ks:ang-app/resources/angular-route'
 				'gatedScope':			'ks:ang-app/resources/gatedScope'
-				'ng-progress':			'ks:ang-app/resources/ng-progress'
 				'fontawesome': 			'cdnjs:font-awesome/4.0.1/css/font-awesome.min.css!'
 
 			# packages are the primary unit of configuration
@@ -49,7 +48,6 @@ window.k$ =
 				'ks:ang-app':
 					shim:
 						'resources/angular-route': 				['angular']
-						'resources/ng-progress': 				['angular']
 						'resources/gatedScope': 				['angular']
 
 	# Only edit if you know what you're doing.
