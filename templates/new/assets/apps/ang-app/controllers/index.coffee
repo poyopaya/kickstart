@@ -1,5 +1,6 @@
 define [
 	'./messages'
 	'./products'
-	'./sections'
+	'./docs'
+	'./home'
 ], () ->

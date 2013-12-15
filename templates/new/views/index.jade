@@ -17,7 +17,7 @@ block content
 					a.btn.btn-primary.btn-lg(href="http://j.mp/1aEORWX", style="margin-right: 5px") Get the Beta
 					a.btn.btn-default.btn-lg(href="", ng-click="nodemo()") Demo
 
-		section.row(ng-controller='SectionsCtrl', ng-init="setSelectedSection(sections[0])")
+		section.row(ng-controller='HomeCtrl', ng-init="setSelectedSection(sections[0])")
 			.col-lg-8.col-lg-offset-2
 				.row
 					.col-xs-12
@@ -81,7 +81,7 @@ block content
 							h1 Included Themes
 							p.lead Activate themes on-the-fly
 							p Click on a theme to preview.
-				.row
+				.row.ks-afterload
 					.col-sm-4(sly-repeat="theme in themes")
 						h4 {{theme.title}}
 						img.thumbnail(src="./img/{{theme.name}}.png", ng-click="setTheme(theme.name)")

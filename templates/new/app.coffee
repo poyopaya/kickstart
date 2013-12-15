@@ -4,7 +4,7 @@
 
 # Files in this list will not be compiled - minimatch supported
 
-exports.ignore_files = ['_*', 'readme*', '.git', '.gitignore', '.DS_Store']
+exports.ignore_files = ['_*', 'readme*', '.git', '.gitignore', '.DS_Store', 'layout.jade']
 
 # Layout file config
 # `default` applies to all views. Overrides for specific

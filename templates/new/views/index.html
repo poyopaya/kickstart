@@ -44,7 +44,7 @@
             <p class="text-center"><a href="http://j.mp/1aEORWX" style="margin-right: 5px" class="btn btn-primary btn-lg">Get the Beta</a><a href="" ng-click="nodemo()" class="btn btn-default btn-lg">Demo</a></p>
           </div>
         </section>
-        <section ng-controller="SectionsCtrl" ng-init="setSelectedSection(sections[0])" class="row">
+        <section ng-controller="HomeCtrl" ng-init="setSelectedSection(sections[0])" class="row">
           <div class="col-lg-8 col-lg-offset-2">
             <div class="row">
               <div class="col-xs-12">
@@ -106,7 +106,7 @@
                 </div>
               </div>
             </div>
-            <div class="row">
+            <div class="row ks-afterload">
               <div sly-repeat="theme in themes" class="col-sm-4">
                 <h4>{{theme.title}}</h4><img src="./img/{{theme.name}}.png" ng-click="setTheme(theme.name)" class="thumbnail">
               </div>
