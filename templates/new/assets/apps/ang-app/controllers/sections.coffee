@@ -1,9 +1,6 @@
 define ['./module'], (controllers) ->
 	controllers.controller 'SectionsCtrl', ['$scope', 'angularFire', '$location', ($scope, angularFire, $location) ->
 		$scope.sections = [
-			name: 'Features'
-			path: 'features'
-		,
 			name: 'First Steps'
 			path: 'first-steps'
 		,

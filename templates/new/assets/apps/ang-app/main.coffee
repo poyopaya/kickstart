@@ -15,8 +15,6 @@ define [
 	]).config ['$routeProvider', '$locationProvider', ($routeProvider, $locationProvider) ->
 		$routeProvider.when '/first-steps', 
 			templateUrl: '/partials/first-steps.html'
-		$routeProvider.when '/features', 
-			templateUrl: '/partials/features.html'
 		$routeProvider.when '/apps', 
 			templateUrl: '/partials/apps.html'
 		$routeProvider.when '/coffeescript', 
