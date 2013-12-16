@@ -1,5 +1,0 @@
-define [
-	'./enter'
-	'./visible'
-	'./repeat'
-], () ->

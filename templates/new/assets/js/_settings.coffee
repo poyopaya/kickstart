@@ -27,6 +27,23 @@ window.k$ =
 		'optimizations'
 	]
 
+	# Angular components
+	angular:
+		controllers: [
+			'messages'
+			'products'
+			'docs'
+			'home'
+		]
+		directives: [
+			'enter'
+			'visible'
+			'repeat'
+		]
+		filters: [
+			'startFrom'
+		]
+
 	# Caching mode
 	# mode: 'dev'
 

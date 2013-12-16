@@ -1,8 +1,5 @@
 define [
-	'angular' 
-	'./controllers/index'
-	'./directives/index'
-	'./filters/index'
+	'angular'
 	'angularFire'
 	'angular-route'
 ], (angular) ->

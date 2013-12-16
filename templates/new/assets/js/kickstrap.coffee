@@ -30,7 +30,15 @@ jspmResources = k$.settings.core
 
 jspm.config.urlArgs = '?bust=' + new Date().getTime() if k$.settings.mode == 'dev'
 
+# Build angular app core
+k$.appCore = []
+k$.appCore.push 'ks:ang-app/controllers/' + ctrl for ctrl in k$.settings.angular.controllers
+k$.appCore.push 'ks:ang-app/directives/' + dctv for dctv in k$.settings.angular.directives
+k$.appCore.push 'ks:ang-app/filters/' + filter for filter in k$.settings.angular.filters
+
 jspmResources = jspmResources.concat k$settings.apps
+jspmResources = jspmResources.concat k$.appCore
+
 
 jspm.import jspmResources, ($, app, angular) ->
 	$(document).ready ->
