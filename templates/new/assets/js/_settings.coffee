@@ -13,19 +13,6 @@ window.k$ =
 
 	# Partials
 	# These are the name of both the "#/" path and the .html file that will load in ng-view
-	pages: [
-		'first-steps'
-		'apps'
-		'coffeescript'
-		'jade'
-		'pages'
-		'partials'
-		'roots'
-		'stylus'
-		'templates'
-		'acknowledgments'
-		'optimizations'
-	]
 
 	# Angular components
 	angular:
@@ -42,6 +29,19 @@ window.k$ =
 		]
 		filters: [
 			'startFrom'
+		]
+		pages: [
+			'first-steps'
+			'apps'
+			'coffeescript'
+			'jade'
+			'pages'
+			'partials'
+			'roots'
+			'stylus'
+			'templates'
+			'acknowledgments'
+			'optimizations'
 		]
 
 	# Caching mode
