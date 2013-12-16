@@ -1,6 +1,7 @@
 #= require "_settings"
 #= require "_extend"
 #= require "_badge"
+#= require "_jspm"
 
 # Set defaults and extend with user's customizations
 k$settings = extend(
@@ -15,8 +16,6 @@ k$.settings = k$settings
 
 # Reassignment of JSPM one-off app-loading
 k$.import = (app) -> jspm.import app
-
-jspm.config k$.settings.jspm.config
 
 k$.app = (name, options) ->
 	htmlElement = document.body.childNodes[document.body.childNodes.length - 3]
