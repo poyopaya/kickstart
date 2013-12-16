@@ -24,6 +24,7 @@ window.k$ =
 		'stylus'
 		'templates'
 		'acknowledgments'
+		'optimizations'
 	]
 
 	# Caching mode
@@ -48,15 +49,15 @@ jspm.config
 
 	# map basically allows easy "shortcut" names for packages
 	map:
-		'jquery': 				'github:components/jquery@2.0.3'
-		'bootstrap': 			'github:twbs/bootstrap@3.0.2/js/bootstrap'
-		'bootstrap@3.0':  		'github:twbs/bootstrap@3.0.2/js/bootstrap'
+		'jquery': 				'github:components/jquery@2.0'
+		'bootstrap': 			'github:twbs/bootstrap@3.0/js/bootstrap'
+		'bootstrap@3.0':  		'github:twbs/bootstrap@3.0/js/bootstrap'
 		'angular': 				'cdnjs:angular.js/1.2.1'
-		'angularFire': 			'github:firebase/angularFire@0.3.1'
+		'angularFire': 			'github:firebase/angularFire@0.3'
 		'ang-app': 				'ks:ang-app'
 		'angular-route':		'ks:ang-app/resources/angular-route'
 		'gatedScope':			'ks:ang-app/resources/gatedScope'
-		'fontawesome': 			'cdnjs:font-awesome/4.0.1/css/font-awesome.min.css!'
+		'fontawesome': 			'cdnjs:font-awesome/4.0/css/font-awesome.min.css!'
 
 	# packages are the primary unit of configuration
 	packages:
