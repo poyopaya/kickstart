@@ -1,11 +1,29 @@
 # BASIC SITE SETTINGS
 
 window.k$ =
+
+	# Apps
+	# Local apps to be loaded on every page.
 	apps: [
 		'ks:sample-app'
 		'ks:tinygrowl'
 		'ks:ang-app'
 		'ks:kickstrap-logo'
+	]
+
+	# Partials
+	# These are the name of both the "#/" path and the .html file that will load in ng-view
+	pages: [
+		'first-steps'
+		'apps'
+		'coffeescript'
+		'jade'
+		'pages'
+		'partials'
+		'roots'
+		'stylus'
+		'templates'
+		'acknowledgments'
 	]
 
 	# Caching mode
