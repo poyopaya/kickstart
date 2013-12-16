@@ -7,11 +7,16 @@ block content
 	include _header
 
 	.container(ng-controller='ProductsCtrl')
-		section.row.spacious
+		.row
 			.col-sm-12
 				h1 On Sale Now
 				p.lead Get them before they're gone
-		section.row.spacious
+		.row
+			.col-sm-12
+				.alert.alert-info
+					h4 Example page
+					p This is an example page you can use to hack your own.
+		.row
 			div.col-sm-3
 				article.panel.panel-default
 					.panel-heading 

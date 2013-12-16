@@ -7,16 +7,31 @@ block content
 	include _header
 
 	.container
-		section.row.spacious(ng-controller='MessagesCtrl')
+		.row(ng-controller='MessagesCtrl')
 			link(
 				ng-repeat='contact in contacts'
 				rel="prerender", 
 				href="http://api.rethumb.com/v1/square/120/http://upload.wikimedia.org/wikipedia/commons/{{contact.img}}"
 			)
+			.modal.fade#newMessage
+				.modal-dialog
+					.modal-content
+						.modal-header
+							button.close(type="button" class="close" data-dismiss="modal" aria-hidden="true") &times;
+							h4 New Message
+						.modal-body
+							form(role="form")
+								.form-group 
+									input.form-control(type="text" placeholder="To:")
+								.form-group 
+									textarea.form-control(placeholder="Message" rows="10")
+						.modal-footer
+							button.btn.btn-default(type="button" data-dismiss="modal") Cancel
+							button.btn.btn-primary(type="button" data-dismiss="modal") Send Message
 			div.col-sm-12.col-md-3
 				h1 Messages
 				p.lead
-					a(href="#", onclick="$.growl({title: 'Not yet implemented.', delay: 3000})") New
+					a(data-toggle="modal" data-target="#newMessage" href="#") New
 				article.panel.panel-default
 					.panel-heading 
 						input.form-control(type='text', ng-model='threadInput', placeholder='Search Threads')
@@ -45,6 +60,11 @@ block content
 			div.col-sm-12.col-md-9.ks-afterload
 				p.text-muted(ng-hide="allThreads.length > 0")
 					em No messages to display
+				.row
+					.col-sm-12
+						.alert.alert-info
+							h4 Example page
+							p This is an example page you can use to hack your own.
 				.text-muted(ng-hide="selectedThread || allThreads.length == 0")
 					em.hidden-xs.hidden-sm Please select a thread from the left
 					em.visible-xs.visible-sm Please select a thread from above

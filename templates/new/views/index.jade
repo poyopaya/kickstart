@@ -15,7 +15,7 @@ block content
 				p.lead.text-center Bootstrap for Serious Web Applications
 				p.text-center
 					a.btn.btn-primary.btn-lg(href="http://j.mp/1aEORWX", style="margin-right: 5px") Get the Beta
-					a.btn.btn-default.btn-lg(href="", onclick="nodemo()") Demo
+					a.btn.btn-default.btn-lg(href="", onclick="$.growl({title: 'Demo<br>.', text: 'You\'re looking at it. GetKickstrap.com is an exact copy of the Kickstrap demo.', type: 'success', delay: 3000})") Demo
 
 		section.row(ng-controller='HomeCtrl', ng-init="setSelectedSection(sections[0])")
 			.col-lg-8.col-lg-offset-2

@@ -39,10 +39,4 @@ html(lang='en')
       k$.ready ->  
         jspm.import 'ks:advertisements'
         k$.demoStylesheet = () -> $('#main-stylesheet').remove()
-        window.nodemo = () ->
-          $.growl
-            title: 'Demo<br>'
-            text: 'You\'re looking at it. GetKickstrap.com is an exact copy of the Kickstrap demo.'
-            type: 'success'
-            delay: 2000
     block foot

@@ -8,13 +8,18 @@ block content
 	include _header
 
 	.container
-		section.row.spacious
+		.row.spacious
 			div.col-sm-12
 				h1 Shopping Cart
-		section.row.ks-beforeload.spacious
+		.row
+			.col-sm-12
+				.alert.alert-info
+					h4 Example page
+					p This is an example page you can use to hack your own.
+		.row.ks-beforeload.spacious
 			.col-sm-12
 				p Loading...
-		section.row.ks-afterload.spacious(ng-controller='ProductsCtrl')
+		.row.ks-afterload.spacious(ng-controller='ProductsCtrl')
 			link(
 				ng-repeat='product in products'
 				rel="prerender", 
