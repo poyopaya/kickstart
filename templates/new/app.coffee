@@ -28,10 +28,5 @@ exports.locals =
 # terminal when watching and compiling files.
 
 exports.debug = false
-
-sampleArray = [
-	'a'
-	'b'
-]
  
 # run `roots help` to get help on using the command line tool
