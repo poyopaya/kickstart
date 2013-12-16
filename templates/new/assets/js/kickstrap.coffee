@@ -1,7 +1,6 @@
 #= require "_settings"
 #= require "_extend"
 #= require "_badge"
-#= require "_jspm"
 
 # Set defaults and extend with user's customizations
 k$settings = extend(
