@@ -1,6 +1,10 @@
 define ['./module'], (controllers) ->
 	controllers.controller 'ProductsCtrl', ['$scope', 'angularFire', ($scope, angularFire) ->
 		$scope.products = $scope.featuredProducts = []
+		$scope.formatUSD = (num) ->
+			dplaces = if num == parseInt(num, 10) then 0 else 2
+			num = '$' + num.toFixed dplaces
+			num
 		products = new Firebase "https://#{k$.settings.firebaseName}.firebaseio.com/products/"
 		promise = angularFire products, $scope, 'products'
 		promise.then ->
