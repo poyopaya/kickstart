@@ -9,9 +9,6 @@ define ['./module'], (controllers) ->
 				$.grep($scope.products, (e, i) -> productIndex = i if e.id == id )
 				$scope.products[productIndex]
 			$.grep($scope.products, (e, i) -> $scope.featuredProducts.push($scope.products[i]) if e.featured == true )
-			# $.grep( $scope.products, (e, i) -> $scope.featuredProducts.push($scope.products[i]) )
-			console.log $scope.products
-			console.log $scope.featuredProducts
 
 			# Pagination
 
@@ -21,6 +18,7 @@ define ['./module'], (controllers) ->
 			$scope.numPages = () ->
 				Math.ceil $scope.genericItems.length/$scope.pageSize
 			$scope.startFrom = () ->
+				$('.product-img').popover()
 				$scope.currentPage * $scope.pageSize + 3 # We used up the first three in the sub-featured items
 			$scope.increment = () -> $scope.currentPage++
 			$scope.deincrement = () -> $scope.currentPage--
