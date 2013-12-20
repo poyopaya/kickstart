@@ -1,5 +1,5 @@
 define ['./module'], (controllers) ->
-	controllers.controller 'DocsCtrl', ['$scope', 'angularFire', '$location', ($scope, angularFire, $location) ->
+	controllers.controller 'DocsCtrl', ['$scope', '$firebase', '$location', ($scope, $firebase, $location) ->
 		$scope.sections = [
 			name: 'First Steps'
 			path: 'first-steps'

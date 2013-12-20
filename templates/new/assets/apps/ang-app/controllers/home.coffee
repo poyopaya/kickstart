@@ -1,5 +1,5 @@
 define ['./module'], (controllers) ->
-	controllers.controller 'HomeCtrl', ['$scope', 'angularFire', '$location', ($scope, angularFire, $location) ->
+	controllers.controller 'HomeCtrl', ['$scope', '$firebase', '$location', ($scope, $firebase, $location) ->
 		# Theme switcher
 		$scope.themes = [
 			name: 'amelia'

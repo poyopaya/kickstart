@@ -39,7 +39,7 @@ block content
 						p.list-group-item Loading...
 					.list-group.ks-afterload
 						a.list-group-item(
-							ng-repeat='thread in allThreads | filter: threadInput'
+							ng-repeat='thread in threads | filter: threadInput'
 							ng-click='setSelectedThread(thread)'
 							href="#message"
 							ng-class="{'active': selectedThread.threadId == thread.threadId }"
@@ -58,9 +58,9 @@ block content
 									span.glyphicon.glyphicon-chevron-left 
 									|  Messages
 			div.col-sm-12.col-md-9.ks-afterload
-				p.text-muted(ng-hide="allThreads.length > 0")
+				p.text-muted(ng-hide="threads.length > 0")
 					em No messages to display
-				.text-muted(ng-hide="selectedThread || allThreads.length == 0")
+				.text-muted(ng-hide="selectedThread || threads.length == 0")
 					em.hidden-xs.hidden-sm Please select a thread from the left
 					em.visible-xs.visible-sm Please select a thread from above
 					.center-block#ads
@@ -77,5 +77,5 @@ block content
 							.clearfix
 							p {{message.text}}
 					hr
-	block foot
-		include _example-growl
+block foot
+	include _example-growl

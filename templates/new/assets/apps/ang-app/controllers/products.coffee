@@ -1,9 +1,8 @@
 define ['./module'], (controllers) ->
-	controllers.controller 'ProductsCtrl', ['$scope', 'angularFire', ($scope, angularFire) ->
-		$scope.products = $scope.featuredProducts = []
-		products = new Firebase "https://#{k$.settings.firebaseName}.firebaseio.com/products/"
-		promise = angularFire products, $scope, 'products'
-		promise.then ->
+	controllers.controller 'ProductsCtrl', ['$scope', '$firebase', ($scope, $firebase) ->
+		$scope.featuredProducts = []
+		$scope.products = $firebase new Firebase "https://#{k$.settings.firebaseName}.firebaseio.com/products/"
+		$scope.products.$on 'loaded', () ->
 			$scope.productForId = (id) ->
 				productIndex = 0
 				$.grep($scope.products, (e, i) -> productIndex = i if e.id == id )

@@ -70,7 +70,7 @@ jspm.config
 		'bootstrap': 			'github:twbs/bootstrap@3.0/js/bootstrap'
 		'bootstrap@3.0':  		'github:twbs/bootstrap@3.0/js/bootstrap'
 		'angular': 				'cdnjs:angular.js/1.2.1'
-		'angularFire': 			'github:firebase/angularFire@0.3'
+		'angularFire': 			'github:firebase/angularFire@0.5'
 		'ang-app': 				'ks:ang-app'
 		'angular-route':		'ks:ang-app/resources/angular-route'
 		'gatedScope':			'ks:ang-app/resources/gatedScope'
