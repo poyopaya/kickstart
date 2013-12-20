@@ -11,11 +11,6 @@ block content
 		.row.spacious
 			div.col-sm-12
 				h1 Shopping Cart
-		.row
-			.col-sm-12
-				.alert.alert-info
-					h4 Example page
-					p This is an example page you can use to hack your own.
 		.row.ks-beforeload.spacious
 			.col-sm-12
 				p Loading...
@@ -63,3 +58,5 @@ block content
 						p Total: 
 							strong {{ total() | currency:'$' }}
 						a.btn.btn-primary Purchase
+	block foot
+		include _example-growl

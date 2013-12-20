@@ -60,11 +60,6 @@ block content
 			div.col-sm-12.col-md-9.ks-afterload
 				p.text-muted(ng-hide="allThreads.length > 0")
 					em No messages to display
-				.row
-					.col-sm-12
-						.alert.alert-info
-							h4 Example page
-							p This is an example page you can use to hack your own.
 				.text-muted(ng-hide="selectedThread || allThreads.length == 0")
 					em.hidden-xs.hidden-sm Please select a thread from the left
 					em.visible-xs.visible-sm Please select a thread from above
@@ -82,3 +77,5 @@ block content
 							.clearfix
 							p {{message.text}}
 					hr
+	block foot
+		include _example-growl
