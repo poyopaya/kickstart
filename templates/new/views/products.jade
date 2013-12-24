@@ -20,7 +20,8 @@ block content
 						p.list-group-item Loading...
 					.list-group.ks-afterload
 						a.list-group-item(
-							ng-href='{{"#"}}{{slug(product.name)}}', ng-repeat='product in products | filter: productInput | orderByPriority'
+							ng-href='{{"#"}}{{slug(product.name)}}'
+							ng-repeat='product in products | filter:productInput | orderByPriority'
 							ng-click="setSelectedProduct(product)"
 							ng-class="{'active': selectedProduct.id == product.id }"
 						) {{product.name}}
@@ -35,12 +36,12 @@ block content
 							img(src="http://images.weserv.nl/?url=upload.wikimedia.org/wikipedia/commons/c/cc/Le_garcon_et_la_ville.JPG&w=1000&t=fitup")
 							.carousel-caption
 								h3 Check out our summer deals
-						.item(ng-repeat="featuredProduct in featuredProducts", style="max-height: 450px")
-							img(src="http://images.weserv.nl/?url=upload.wikimedia.org/wikipedia/commons/{{featuredProduct.img}}&w=1000&t=fitup")
+						.item(ng-repeat="product in products", style="max-height: 450px")
+							img(ng-src="http://images.weserv.nl/?url=upload.wikimedia.org/wikipedia/commons/{{product.img}}&w=1000&t=fitup")
 							.carousel-caption
 								h3 
-									{{featuredProduct.name}}
-								p {{featuredProduct.desc}}
+									{{product.name}}
+								p {{product.desc}}
 								p 
 									a.btn.btn-default(href="cart.html") 
 										span.glyphicon.glyphicon-shopping-cart
@@ -52,7 +53,7 @@ block content
 				br
 				.row
 					.col-sm-4(ng-repeat='product in products | limitTo: 3 | orderByPriority')
-						img.img-circle.center-block(src="http://images.weserv.nl/?url=upload.wikimedia.org/wikipedia/commons/{{product.img}}&h=400&w=400&t=square" style="width: 200px")
+						img.img-circle.center-block(ng-src="http://images.weserv.nl/?url=upload.wikimedia.org/wikipedia/commons/{{product.img}}&h=400&w=400&t=square" style="width: 200px")
 						h4.center-block(ng-id='slug(product.name)') {{product.name}}
 						p {{product.desc}}
 
@@ -62,14 +63,7 @@ block content
 				include _pagination
 				hr
 
-				.row
-					.col-lg-3.col-sm-4(sly-repeat='product in products | startFrom:startFrom() | limitTo:pageSize | orderByPriority')
-						a(href="cart.html")
-							img.img-responsive.product-img(src="http://images.weserv.nl/?url=upload.wikimedia.org/wikipedia/commons/{{product.img}}&h=300&w=300&t=square", style="width: 150px;" data-content="{{product.desc}}" data-trigger="hover" data-placement="top")
-						p
-							a(href="cart.html" ng-id='slug(product.name)') {{product.name}}
-							br
-							| {{product.price | currency:'$'}}
+
 
 				hr
 				include _pagination
