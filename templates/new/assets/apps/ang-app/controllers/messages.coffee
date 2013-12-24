@@ -1,5 +1,5 @@
 define ['./module'], (controllers) ->
-	controllers.controller 'MessagesCtrl', ['$scope', 'angularFire', ($scope, angularFire) ->
+	controllers.controller 'MessagesCtrl', ['$scope', 'angularFire', 'ngProgress', ($scope, angularFire, ngProgress) ->
 		$scope.allThreads = []
 		threads = new Firebase "https://#{k$.settings.firebaseName}.firebaseio.com/threads/"
 		promise = angularFire threads, $scope, 'allThreads'

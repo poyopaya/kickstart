@@ -1,5 +1,5 @@
 define ['./module'], (controllers) ->
-	controllers.controller 'DocsCtrl', ['$scope', 'angularFire', '$location', ($scope, angularFire, $location) ->
+	controllers.controller 'DocsCtrl', ['$scope', 'angularFire', '$location', 'ngProgress', ($scope, angularFire, $location, ngProgress) ->
 		$scope.sections = [
 			name: 'First Steps'
 			path: 'first-steps'
@@ -38,7 +38,11 @@ define ['./module'], (controllers) ->
 		$scope.setSelectedSection = (section) ->
 			$scope.selectedSection = section
 			$location.path(section.path)
+		$scope.$on '$locationChangeStart', () ->
+			ngProgress.reset()
+			ngProgress.start()
 		$scope.$on '$locationChangeSuccess', () ->
+			ngProgress.complete()
 			path = $location.path()
 			path = path.substr 1, path.length
 			sectionIndex = null

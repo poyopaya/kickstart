@@ -2,6 +2,7 @@ define [
 	'angular'
 	'angularFire'
 	'angular-route'
+	'ngProgress'
 ], (angular) ->
 	angular.module('app', [
 		'app.controllers'
@@ -9,6 +10,7 @@ define [
 		'app.filters'
 		'firebase'
 		'ngRoute'
+		'ngProgress'
 	]).config ['$routeProvider', '$locationProvider', ($routeProvider, $locationProvider) ->
 		for page in k$.settings.angular.pages
 			$routeProvider.when '/' + page, 

@@ -75,6 +75,7 @@ jspm.config
 		'angular-route':		'ks:ang-app/resources/angular-route'
 		'gatedScope':			'ks:ang-app/resources/gatedScope'
 		'fontawesome': 			'cdnjs:font-awesome/4.0/css/font-awesome.min.css!'
+		'ngProgress':			'ks:ang-app/resources/ngprogress'
 
 	# packages are the primary unit of configuration
 	packages:
@@ -88,4 +89,5 @@ jspm.config
 		'ks:ang-app':
 			shim:
 				'resources/angular-route': 				['angular']
+				'resources/ngprogress': 				['angular']
 				'resources/gatedScope': 				['angular']
