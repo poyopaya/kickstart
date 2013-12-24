@@ -3,10 +3,6 @@ define ['./module'], (controllers) ->
 		$scope.featuredProducts = []
 		$scope.products = $firebase new Firebase "https://#{k$.settings.firebaseName}.firebaseio.com/products/"
 		$scope.products.$on 'loaded', () ->
-			$scope.productForId = (id) ->
-				productIndex = 0
-				$.grep($scope.products, (e, i) -> productIndex = i if e.id == id )
-				$scope.products[productIndex]
 			$.grep($scope.products, (e, i) -> $scope.featuredProducts.push($scope.products[i]) if e.featured == true )
 
 			# Pagination
@@ -28,13 +24,13 @@ define ['./module'], (controllers) ->
 
 			$scope.lastRemoved = null
 			$scope.purchases = [
-				product: $scope.productForId(2)
+				product: $scope.products.$child 2
 				quantity: 2
 			,
-				product: $scope.productForId(12)
+				product: $scope.products.$child 12
 				quantity: 4
 			,
-				product: $scope.productForId(19)
+				product: $scope.products.$child 19
 				quantity: 1
 			]
 			$scope.deletePurchase = (id) ->

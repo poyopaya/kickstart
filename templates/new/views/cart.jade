@@ -16,7 +16,7 @@ block content
 				p Loading...
 		.row.ks-afterload.spacious(ng-controller='ProductsCtrl')
 			link(
-				ng-repeat='product in products'
+				ng-repeat='product in products | orderByPriority'
 				rel="prerender", 
 				href="http://api.rethumb.com/v1/square/120/http://upload.wikimedia.org/wikipedia/commons/{{product.img}}"
 			)
@@ -26,7 +26,7 @@ block content
 					a(href="") Help
 				p.alert.alert-warning(ng-show="lastRemoved")
 					| {{lastRemoved.product.name}} Removed.&nbsp;
-					a(href='#', ng-show='lastRemoved', ng-click="restorePurchase(lastRemoved)") Undo.
+					a(href='#', ng-show='lastRemoved', ng-click="purchases.$add(lastRemoved)") Undo.
 
 			div.col-sm-6
 				article.panel.panel-default
@@ -42,11 +42,11 @@ block content
 									p
 										form.form-inline(role="form")
 											.form-group
-												label.control-label {{purchase.productForId(product).price | currency:'$'}} x
+												label.control-label {{purchase.product.price | currency:'$'}} x
 											.form-group
 												input.form-control(type="text", ng-model="purchase.quantity")
 											.form-group
-												a.control-label(href="#", ng-click="deletePurchase(purchase.product.id)") Remove
+												a.control-label(href="#", ng-click="purchases.$remove(purchase.product.id)") Remove
 						li.list-group-item(ng-show='purchases.length < 1')
 							em There are currently no items in your cart.
 							p
