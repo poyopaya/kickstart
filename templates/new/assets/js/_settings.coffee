@@ -11,9 +11,6 @@ window.k$ =
 		'ks:kickstrap-logo'
 	]
 
-	# Partials
-	# These are the name of both the "#/" path and the .html file that will load in ng-view
-
 	# Angular components
 	angular:
 		controllers: [
