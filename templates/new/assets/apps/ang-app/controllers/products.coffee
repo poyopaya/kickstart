@@ -1,5 +1,5 @@
 define ['./module'], (controllers) ->
-	controllers.controller 'ProductsCtrl', ['$scope', 'angularFire', ($scope, angularFire) ->
+	controllers.controller 'ProductsCtrl', ['$scope', 'angularFire', 'ngProgress', ($scope, angularFire, ngProgress) ->
 		$scope.products = $scope.featuredProducts = []
 		products = new Firebase "https://#{k$.settings.firebaseName}.firebaseio.com/products/"
 		promise = angularFire products, $scope, 'products'
