@@ -2,7 +2,7 @@ define ['./module'], (controllers) ->
 	controllers.controller 'ProductsCtrl', ['$scope', '$firebase', 'ngProgress', ($scope, $firebase, ngProgress) ->
 		$scope.featuredProducts = []
 		$scope.products = $firebase new Firebase "https://#{k$.settings.firebaseName}.firebaseio.com/products/"
-		$scope.products.$on 'loaded', () ->
+		$scope.products.$on 'loaded', ->
 
 			# CRUD
 
@@ -25,7 +25,6 @@ define ['./module'], (controllers) ->
 						text: error
 						type: 'danger'
 						delay: 1000
-
 			$scope.delete = () ->
 				( $scope.products.$remove key if $scope.products[key].val ) for key in $scope.products.$getIndex()
 				$scope.countSelected()

@@ -1,0 +1,74 @@
+br
+.row
+	.col-md-8
+		.table-responsive
+			table.table.table-condensed.table-striped.table-hover
+				thead
+					tr
+						th 
+							input(
+								type="checkbox"
+								ng-click="selectAll(!selectAllVal)"
+								ng-model="selectAllVal"
+							)
+						th First Name
+						th Last Name 
+						th Email
+						th Image 
+				tbody.ks-afterload_opacity
+					tr(ng-repeat="contact in contacts | orderByPriority")
+						td
+							input(
+								type="checkbox"
+								ng-model="contact.val"
+								ng-change="countSelected()"
+							)
+						td 
+							a(href="#top" ng-click="selectContact(contact.$id)") {{contact.fName}}
+						td {{contact.lName}}
+						td {{contact.email}}
+						td(style="overflow:hidden;max-width: 250px") {{contact.img}}
+			p.ks-beforeload
+				em.text-muted Loading...
+		p#bottom
+		.navbar.navbar-default.navbar-fixed-bottom
+			.container
+				p.navbar-text Contacts
+				ul.navbar-nav.nav.ks-afterload
+					li
+						a.btn.btn-link
+							span.label(class="{{selectionCount == 0 ? 'label-default' : 'label-success'}}") {{selectionCount}}
+					li
+						a.btn.btn-link(href="" ng-click="delete(selected)")
+							span.glyphicon.glyphicon-trash
+					li
+						a.btn.btn-link(href="#bottom" ng-click="create()")
+							span.glyphicon.glyphicon-plus
+							
+	.col-md-4
+		.panel.panel-default#top
+			.panel-heading 
+				span.glyphicon.glyphicon-edit
+				|  Edit
+			.panel-body(ng-hide="selectedContactKey != null")
+				p
+					em.text-muted Make a selection
+			.panel-body.ks-afterload(ng-show="selectedContactKey != null")
+				form
+					.form-group
+						label First Name
+						input.form-control(type="text" ng-model="contacts[selectedContactKey].fName")
+					.form-group
+						label Last Name
+						input.form-control(type="text" ng-model="contacts[selectedContactKey].lName")
+					.form-group
+						label Bio
+						textarea.form-control(rows="10" ng-model="contacts[selectedContactKey].bio")
+					.form-group
+						label Email
+						input.form-control(type="text" ng-model="contacts[selectedContactKey].email")
+					.form-group
+						label Image
+						input.form-control(type="text" ng-model="contacts[selectedContactKey].img")
+						p.help-block Should be a valid wikimedia link after "upload.wikimedia.org/wikipedia/commons/"
+					a.btn.btn-primary(ng-click="update()") Save

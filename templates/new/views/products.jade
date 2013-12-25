@@ -21,9 +21,8 @@ block content
 					.list-group.ks-afterload
 						a.list-group-item(
 							ng-href='{{"#"}}{{slug(product.name)}}'
-							ng-repeat='product in products | filter:productInput | orderByPriority'
+							ng-repeat='product in products | filter:productInput | orderByPriorityf'
 							ng-click="setSelectedProduct(product)"
-							ng-class="{'active': selectedProduct.id == product.id }"
 						) {{product.name}}
 
 			div.col-sm-9.ks-afterload
