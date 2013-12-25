@@ -12,9 +12,37 @@ define ['./module'], (controllers) ->
 					desc: 'Description'
 					img: '...'
 					price: 0
-			$scope.delete = (keyArray) ->
-				$scope.products.$remove key for key in keyArray
-				$scope.updateSelected keyArray, false
+			$scope.update = () ->
+				try 
+					$scope.products.$save $scope.selectedProductKey
+					$.growl
+						title: 'Saved successfully'
+						type: 'success'
+						delay: 1000
+				catch error
+					$.growl
+						title: 'Could not save:<br>'
+						text: error
+						type: 'danger'
+						delay: 1000
+
+			$scope.delete = () ->
+				( $scope.products.$remove key if $scope.products[key].val ) for key in $scope.products.$getIndex()
+				$scope.countSelected()
+
+			# SETTINGS
+
+			$scope.selectAll = (val) ->
+				$scope.products[key].val = val for key in $scope.products.$getIndex()
+				$scope.countSelected()
+			$scope.selectionCount = 0
+			$scope.countSelected = () ->
+				$scope.selectionCount = 0
+				( $scope.selectionCount++ if $scope.products[key].val ) for key in $scope.products.$getIndex()
+			$scope.selectedProductKey = null
+			$scope.selectProduct = (key) ->
+				$scope.selectedProductKey = key
+
 
 			# Pagination
 
@@ -57,11 +85,5 @@ define ['./module'], (controllers) ->
 					(a, b) ->
 						return { quantity: a.quantity + (b.quantity * b.product.price)}
 				, {quantity: 0}).quantity
-
-			# SETTINGS
-
-			$scope.selectAll = () ->
-				productKeys = $scope.products.$getIndex()
-				$scope.products[key].val = !$scope.products[key].val for key in productKeys
 
 	]

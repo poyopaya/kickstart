@@ -26,24 +26,32 @@ block content
 						.row
 							.col-md-8
 								.table-responsive
-									table.table.table-condensed.table-striped
+									table.table.table-condensed.table-striped.table-hover
 										thead
 											tr
 												th 
-													input(type="checkbox", ng-click="selectAll()")
+													input(
+														type="checkbox"
+														ng-click="selectAll(!selectAllVal)"
+														ng-model="selectAllVal"
+													)
 												th Name
 												th Description 
 												th Image 
 												th Price
 										tbody.ks-afterload_opacity
-											tr(ng-repeat="product in products | orderByPriority") 
+											tr(
+												ng-repeat="product in products | orderByPriority"
+												ng-click="selectProduct(product.$id)"
+											) 
 												td
 													input(
 														type="checkbox"
 														ng-model="product.val"
-														ng-change="updateSelected(product.$id, product.val)"
+														ng-change="countSelected()"
 													)
-												td {{product.name}}
+												td 
+													a(href="#top") {{product.name}}
 												td(style="max-width: 250px") {{product.desc}}
 												td(style="overflow:hidden;max-width: 250px") {{product.img}}
 												td {{product.price | currency:'$'}}
@@ -52,10 +60,10 @@ block content
 								.navbar.navbar-default.navbar-fixed-bottom
 									.container
 										p.navbar-text Products
-										ul.navbar-nav.nav
+										ul.navbar-nav.nav.ks-afterload
 											li
 												a.btn.btn-link
-													span.label(class="{{selected.length == 0 ? 'label-default' : 'label-success'}}") {{selected.length}}
+													span.label(class="{{selectionCount == 0 ? 'label-default' : 'label-success'}}") {{selectionCount}}
 											li
 												a.btn.btn-link(href="" ng-click="delete(selected)")
 													span.glyphicon.glyphicon-trash
@@ -64,13 +72,29 @@ block content
 													span.glyphicon.glyphicon-plus
 													
 							.col-md-4
-								.panel.panel-default
+								.panel.panel-default#top
 									.panel-heading 
 										span.glyphicon.glyphicon-edit
 										|  Edit
-									.panel-body
+									.panel-body(ng-hide="selectedProductKey != null")
 										p
 											em.text-muted Make a selection
+									.panel-body.ks-afterload(ng-show="selectedProductKey != null")
+										form
+											.form-group
+												label Name
+												input.form-control(type="text" ng-model="products[selectedProductKey].name")
+											.form-group
+												label Description
+												textarea.form-control(rows="10" ng-model="products[selectedProductKey].desc")
+											.form-group
+												label Image
+												input.form-control(type="text" ng-model="products[selectedProductKey].img")
+												p.help-block Should be a valid wikimedia link after "upload.wikimedia.org/wikipedia/commons/"
+											.form-group
+												label Price
+												input.form-control(type="number" ng-model="products[selectedProductKey].price")
+											a.btn.btn-primary(ng-click="update()") Save
 
 					.tab-pane#contacts
 						.table-responsive
