@@ -20,8 +20,13 @@ block content
 						a(href="#products" data-toggle="tab") Products
 					li
 						a(href="#contacts" data-toggle="tab") Contacts
-				.tab-content
+					li
+						a(href="#messages" data-toggle="tab") Messages 
+				.tab-content#top
 					.tab-pane.active#products(ng-controller="ProductsCtrl")
 						include admin/_products
 					.tab-pane#contacts(ng-controller="MessagesCtrl")
 						include admin/_contacts
+					.tab-pane#messages(ng-controller="MessagesCtrl")
+						include admin/_messages
+				p#bottom

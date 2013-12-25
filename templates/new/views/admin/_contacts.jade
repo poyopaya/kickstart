@@ -8,67 +8,69 @@ br
 						th 
 							input(
 								type="checkbox"
-								ng-click="selectAll(!selectAllVal)"
-								ng-model="selectAllVal"
+								ng-click="contacts.selectAll(!contacts.selectAllVal)"
+								ng-model="contacts.selectAllVal"
 							)
 						th First Name
 						th Last Name 
 						th Email
 						th Image 
 				tbody.ks-afterload_opacity
-					tr(ng-repeat="contact in contacts | orderByPriority")
+					tr(
+						ng-repeat="contact in contacts | orderByPriority"
+						ng-class="contact.$id == contacts.selectedKey ? 'success' : ''"
+					)
 						td
 							input(
 								type="checkbox"
 								ng-model="contact.val"
-								ng-change="countSelected()"
+								ng-change="contacts.countSelected()"
 							)
 						td 
-							a(href="#top" ng-click="selectContact(contact.$id)") {{contact.fName}}
+							a(href="#top" ng-click="contacts.select(contact.$id)") {{contact.fName}}
 						td {{contact.lName}}
 						td {{contact.email}}
 						td(style="overflow:hidden;max-width: 250px") {{contact.img}}
 			p.ks-beforeload
 				em.text-muted Loading...
-		p#bottom
 		.navbar.navbar-default.navbar-fixed-bottom
 			.container
 				p.navbar-text Contacts
 				ul.navbar-nav.nav.ks-afterload
 					li
 						a.btn.btn-link
-							span.label(class="{{selectionCount == 0 ? 'label-default' : 'label-success'}}") {{selectionCount}}
+							span.label(class="{{contacts.selectionCount == 0 ? 'label-default' : 'label-success'}}") {{contacts.selectionCount}}
 					li
-						a.btn.btn-link(href="" ng-click="delete(selected)")
+						a.btn.btn-link(href="" ng-click="contacts.delete(selected)")
 							span.glyphicon.glyphicon-trash
 					li
-						a.btn.btn-link(href="#bottom" ng-click="create()")
+						a.btn.btn-link(href="#bottom" ng-click="contacts.create()")
 							span.glyphicon.glyphicon-plus
 							
 	.col-md-4
-		.panel.panel-default#top
+		.panel.panel-default
 			.panel-heading 
 				span.glyphicon.glyphicon-edit
 				|  Edit
-			.panel-body(ng-hide="selectedContactKey != null")
+			.panel-body(ng-hide="contacts.selectedKey != null")
 				p
 					em.text-muted Make a selection
-			.panel-body.ks-afterload(ng-show="selectedContactKey != null")
+			.panel-body.ks-afterload(ng-show="contacts.selectedKey != null")
 				form
 					.form-group
 						label First Name
-						input.form-control(type="text" ng-model="contacts[selectedContactKey].fName")
+						input.form-control(type="text" ng-model="contacts[contacts.selectedKey].fName")
 					.form-group
 						label Last Name
-						input.form-control(type="text" ng-model="contacts[selectedContactKey].lName")
+						input.form-control(type="text" ng-model="contacts[contacts.selectedKey].lName")
 					.form-group
 						label Bio
-						textarea.form-control(rows="10" ng-model="contacts[selectedContactKey].bio")
+						textarea.form-control(rows="10" ng-model="contacts[contacts.selectedKey].bio")
 					.form-group
 						label Email
-						input.form-control(type="text" ng-model="contacts[selectedContactKey].email")
+						input.form-control(type="text" ng-model="contacts[contacts.selectedKey].email")
 					.form-group
 						label Image
-						input.form-control(type="text" ng-model="contacts[selectedContactKey].img")
+						input.form-control(type="text" ng-model="contacts[contacts.selectedKey].img")
 						p.help-block Should be a valid wikimedia link after "upload.wikimedia.org/wikipedia/commons/"
-					a.btn.btn-primary(ng-click="update()") Save
+					a.btn.btn-primary(ng-click="contacts.update()") Save

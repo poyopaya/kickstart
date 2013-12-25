@@ -1,0 +1,63 @@
+br
+.row
+	.col-md-8
+		.table-responsive
+			table.table.table-condensed.table-striped.table-hover
+				thead
+					tr
+						th 
+							input(
+								type="checkbox"
+								ng-click="threads.selectAll(!threads.selectAllVal)"
+								ng-model="threads.selectAllVal"
+							)
+						th Subject
+						th Read?
+				tbody.ks-afterload_opacity
+					tr(
+						ng-repeat="thread in threads | orderByPriority"
+						ng-class="thread.$id == threads.selectedKey ? 'success' : ''"
+					)
+						td
+							input(
+								type="checkbox"
+								ng-model="thread.val"
+								ng-change="threads.countSelected()"
+							)
+						td 
+							a(href="#top" ng-click="threads.select(thread.$id)") {{thread.subject}}
+						td {{thread.read}}
+			p.ks-beforeload
+				em.text-muted Loading...
+		.navbar.navbar-default.navbar-fixed-bottom
+			.container
+				p.navbar-text Threads
+				ul.navbar-nav.nav.ks-afterload
+					li
+						a.btn.btn-link
+							span.label(class="{{threads.selectionCount == 0 ? 'label-default' : 'label-success'}}") {{threads.selectionCount}}
+					li
+						a.btn.btn-link(href="" ng-click="threads.delete(selected)")
+							span.glyphicon.glyphicon-trash
+					li
+						a.btn.btn-link(href="#bottom" ng-click="threads.create()")
+							span.glyphicon.glyphicon-plus
+							
+	.col-md-4
+		.panel.panel-default
+			.panel-heading 
+				span.glyphicon.glyphicon-edit
+				|  Edit
+			.panel-body(ng-hide="threads.selectedKey != null")
+				p
+					em.text-muted Make a selection
+			.panel-body.ks-afterload(ng-show="threads.selectedKey != null")
+				form
+					.form-group
+						label Subject
+						input.form-control(type="text" ng-model="threads[threads.selectedKey].subject")
+					.checkbox
+						label
+							input(type="checkbox" ng-model="threads[threads.selectedKey].read")
+							|  Read?
+					a.btn.btn-primary(ng-click="threads.update()") Save

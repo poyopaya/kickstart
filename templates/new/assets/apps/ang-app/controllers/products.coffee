@@ -14,7 +14,7 @@ define ['./module'], (controllers) ->
 					price: 0
 			$scope.update = () ->
 				try 
-					$scope.products.$save $scope.selectedProductKey
+					$scope.products.$save $scope.selectedKey
 					$.growl
 						title: 'Saved successfully'
 						type: 'success'
@@ -38,9 +38,9 @@ define ['./module'], (controllers) ->
 			$scope.countSelected = () ->
 				$scope.selectionCount = 0
 				( $scope.selectionCount++ if $scope.products[key].val ) for key in $scope.products.$getIndex()
-			$scope.selectedProductKey = null
-			$scope.selectProduct = (key) ->
-				$scope.selectedProductKey = key
+			$scope.selectedKey = null
+			$scope.select = (key) ->
+				$scope.selectedKey = key
 
 
 			# Pagination
