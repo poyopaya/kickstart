@@ -82,9 +82,7 @@ define ['./module'], (controllers) ->
 				$scope.threads.selectedKey = key
 
 		$scope.contactForId = (id) ->
-			contactIndex = 0
-			$.grep($scope.contacts, (e, i) -> contactIndex = i if e.id == id )
-			$scope.contacts[contactIndex]
+			$scope.contacts[id]
 		$scope.selectedThread = $scope.threads[0]
 		$scope.setSelectedThread = (thread) ->
 			$scope.selectedThread = thread

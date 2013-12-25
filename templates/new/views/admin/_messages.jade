@@ -13,11 +13,8 @@ br
 							)
 						th Subject
 						th Read?
-				tbody.ks-afterload_opacity
-					tr(
-						ng-repeat="thread in threads | orderByPriority"
-						ng-class="thread.$id == threads.selectedKey ? 'success' : ''"
-					)
+				tbody.ks-afterload_opacity(ng-repeat="thread in threads | orderByPriority")
+					tr(ng-class="thread.$id == threads.selectedKey ? 'success' : ''")
 						td
 							input(
 								type="checkbox"
@@ -27,6 +24,33 @@ br
 						td 
 							a(href="#top" ng-click="threads.select(thread.$id)") {{thread.subject}}
 						td {{thread.read}}
+					tr
+						td
+						td(colspan="2")
+							table.table.table-condensed.table-striped.table-hover
+								thead
+									tr
+										th 
+											input(
+												type="checkbox"
+												ng-click="thread.messages.selectAll(!thread.messages.selectAllVal)"
+												ng-model="thread.messages.selectAllVal"
+											)
+										th Contact
+										th Date
+								tbody
+									tr(
+										ng-repeat="message in thread.messages"
+									)
+										td
+											input(
+												type="checkbox"
+												ng-model="message.val"
+												ng-change="messages.countSelected()"
+											)
+										td {{contactForId(message.contactId).fName}} {{contactForId(message.contactId).lName}}
+										td {{message.date}}
+
 			p.ks-beforeload
 				em.text-muted Loading...
 		.navbar.navbar-default.navbar-fixed-bottom
