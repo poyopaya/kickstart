@@ -33,6 +33,9 @@ define ['./module'], (controllers) ->
 		,
 			name: 'Optimizations'
 			path: 'optimizations'
+		,
+			name: 'API'
+			path: 'api'
 		]
 		$scope.selectedSection = $scope.sections[0]
 		$scope.setSelectedSection = (section) ->

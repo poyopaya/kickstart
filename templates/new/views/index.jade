@@ -26,9 +26,9 @@ block content
 							h1 Why You'll Love It
 					.col-sm-6
 						p.lead Made with the best tech on Earth.
-						p Kickstrap seamlessly combines Bootstrap with top-tier web technologies. It's so advanced, it can run an authenticated, database-driven web app 
+						p.readable Kickstrap seamlessly combines Bootstrap with top-tier web technologies. It's so advanced, it can run an authenticated, database-driven web app 
 							strong without a native backend.
-						p This is accomplished by the coupling of Google's Angular.js and Firebase.io, a websocket Backend as a Service (Baas). This is ready to go out-of-the-box, but optional to use.
+						p.readable This is accomplished by the coupling of Google's Angular.js and Firebase.io, a websocket Backend as a Service (Baas). This is ready to go out-of-the-box, but optional to use.
 					.col-sm-6
 						.col-sm-6
 							img.img-responsive(src="./img/mashable.png")
@@ -47,7 +47,7 @@ block content
 							h1 The Most Trusted Fork of Bootstrap
 					.col-sm-6
 						p.lead Modern, Scalable, Production Ready.
-						p In this second version, we've reworked Kickstrap from the ground up, empowering it with the best in pre-processing technologies (Jade, CoffeeScript, Stylus), package-dependency management (JSPM.io), and a fast, front-end MVC (Angular.js).
+						p.readable In this second version, we've reworked Kickstrap from the ground up, empowering it with the best in pre-processing technologies (Jade, CoffeeScript, Stylus), package-dependency management (JSPM.io), and a fast, front-end MVC (Angular.js).
 					.col-sm-6
 						.col-sm-6
 							img.img-responsive(src="./img/vegankit.png")
@@ -72,7 +72,7 @@ block content
 							p.lead Out-of-box functionality with Firebase.com
 				.row
 					.col-sm-4
-						p Kickstrap works with Firebase's cloud-based backend from square one. Via an agreement with Firebase, we're able to set up all of our users with a special, unlimited usage, read-only sample database out-of-the-box. You can then copy this to your own Firebase account and set up your own custom read/write and authentication permissions.
+						p.readable Kickstrap works with Firebase's cloud-based backend from square one. Via an agreement with Firebase, we're able to set up all of our users with a special, unlimited usage, read-only sample database out-of-the-box. You can then copy this to your own Firebase account and set up your own custom read/write and authentication permissions.
 					.col-sm-4
 						p
 							iframe.center-block(style="width:205px;height:190px;border:0px solid" src="http://firebase.com/how-it-works-drawing-demo.html" scrolling="no")
@@ -92,7 +92,7 @@ block content
 				.row.ks-afterload
 					.col-sm-4(sly-repeat="theme in themes")
 						h4 {{theme.title}}
-						img.thumbnail(src="./img/{{theme.name}}.png", ng-click="setTheme(theme.name)")
+						img.thumbnail.img-responsive(src="./img/{{theme.name}}.png", ng-click="setTheme(theme.name)")
 					.col-xs-12
 						p
 							em * Courtesy of Thomas Park and 
@@ -104,9 +104,9 @@ block content
 							h1 Your Website has an App Store
 					.col-md-6#pong-desc
 						p.lead Keeping track of and staying up to date on your static resources (JS, CSS, fonts, images...) and their dependencies is painful.
-						p Kickstrap's partnership with JSPM.io provides a strong front-end package dependency manager built on Require.js.
-						p Kickstrap apps are unit JSPM bundles of static resources that can be run at any time in the web app's lifetime. 
-						p JSPM also allows for loading resources from npm, CDNJS, and GitHub via its CDN registry.
+						p.readable Kickstrap's partnership with JSPM.io provides a strong front-end package dependency manager built on Require.js.
+						p.readable Kickstrap apps are unit JSPM bundles of static resources that can be run at any time in the web app's lifetime. 
+						p.readable JSPM also allows for loading resources from npm, CDNJS, and GitHub via its CDN registry.
 					.col-md-6
 						#pong
 							.well(style="height: 300px") 

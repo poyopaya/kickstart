@@ -7,13 +7,21 @@ body
 	padding-top: 50px // For fixed navbar
 	.ks-beforeload
 		display: block
+		&_opacity
+			visibility: visible
 	.ks-afterload
 		display: none
+		&_opacity
+			visibility: hidden
 	&.loaded
 		.ks-beforeload
 			display: none
+			&_opacity
+				visibility: hidden
 		.ks-afterload
 			display: block
+			&_opacity
+				visibility: visible
 
 // Sticky Footer
 
@@ -36,7 +44,7 @@ html
 	padding-top: $footerHeight
 	display: block
 
-// NG-PROGRESS
+// NG-Progress
 
 #ngProgress
 	margin: 0
@@ -57,3 +65,10 @@ html
 	left: 0
 	right: 0
 	z-index: 99999
+
+// Readability
+
+p, label, tr, td, div
+	&.readable, &.readable p, label, tr, td
+		font-size: 15px
+		line-height: 25px

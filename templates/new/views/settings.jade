@@ -1,0 +1,91 @@
+extends layout
+
+block variables
+	- var active = "settings"
+
+block title 
+	| - Settings
+
+block content
+
+	include _header
+
+	.container
+		.row
+			.col-lg-12
+				h1 Administrator Settings
+				p.lead Take caution to have appropriate authorizations on your Firebase account.
+				ul.nav.nav-tabs
+					li.active
+						a(href="#products" data-toggle="tab") Products
+					li
+						a(href="#contacts" data-toggle="tab") Contacts
+				.tab-content
+					.tab-pane.active#products(ng-controller="ProductsCtrl")
+						br
+						.row
+							.col-md-8
+								.table-responsive
+									table.table.table-condensed.table-striped
+										thead
+											tr
+												th 
+													input(type="checkbox", ng-click="selectAll()")
+												th Name
+												th Description 
+												th Image 
+												th Price
+										tbody.ks-afterload_opacity
+											tr(ng-repeat="product in products | orderByPriority") 
+												td
+													input(
+														type="checkbox"
+														ng-model="product.val"
+														ng-change="updateSelected(product.$id, product.val)"
+													)
+												td {{product.name}}
+												td(style="max-width: 250px") {{product.desc}}
+												td(style="overflow:hidden;max-width: 250px") {{product.img}}
+												td {{product.price | currency:'$'}}
+									p.ks-beforeload
+										em.text-muted Loading...
+								.navbar.navbar-default.navbar-fixed-bottom
+									.container
+										p.navbar-text Products
+										ul.navbar-nav.nav
+											li
+												a.btn.btn-link
+													span.label(class="{{selected.length == 0 ? 'label-default' : 'label-success'}}") {{selected.length}}
+											li
+												a.btn.btn-link(href="" ng-click="delete(selected)")
+													span.glyphicon.glyphicon-trash
+											li
+												a.btn.btn-link(href="" ng-click="create()")
+													span.glyphicon.glyphicon-plus
+													
+							.col-md-4
+								.panel.panel-default
+									.panel-heading 
+										span.glyphicon.glyphicon-edit
+										|  Edit
+									.panel-body
+										p
+											em.text-muted Make a selection
+
+					.tab-pane#contacts
+						.table-responsive
+							table.table.table-condensed.table-striped
+								thead
+									tr
+										th Name
+										th Description 
+										th Image 
+										th Price
+								tbody.ks-afterload_opacity
+									tr(ng-repeat="product in products") 
+										td {{product.name}}
+										td(style="max-width: 250px") {{product.desc}}
+										td(style="overflow:hidden;max-width: 250px") {{product.img}}
+										td {{product.price | currency:'$'}}
+							p.ks-beforeload
+								em.text-muted Loading...

@@ -4,6 +4,18 @@ define ['./module'], (controllers) ->
 		$scope.products = $firebase new Firebase "https://#{k$.settings.firebaseName}.firebaseio.com/products/"
 		$scope.products.$on 'loaded', () ->
 
+			# CRUD
+
+			$scope.create = () ->
+				$scope.products.$add
+					name: 'New Item'
+					desc: 'Description'
+					img: '...'
+					price: 0
+			$scope.delete = (keyArray) ->
+				$scope.products.$remove key for key in keyArray
+				$scope.updateSelected keyArray, false
+
 			# Pagination
 
 			$scope.genericItems = $scope.products # Loosely-couples with pagination include
@@ -45,5 +57,11 @@ define ['./module'], (controllers) ->
 					(a, b) ->
 						return { quantity: a.quantity + (b.quantity * b.product.price)}
 				, {quantity: 0}).quantity
+
+			# SETTINGS
+
+			$scope.selectAll = () ->
+				productKeys = $scope.products.$getIndex()
+				$scope.products[key].val = !$scope.products[key].val for key in productKeys
 
 	]
