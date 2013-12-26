@@ -11,7 +11,7 @@ define ['./module'], (controllers) ->
 			$scope.currentPage = 0
 			$scope.pageSize = 10
 			$scope.numPages = () ->
-				Math.ceil Object.keys($scope.genericItems).length/$scope.pageSize
+				Math.ceil ($scope.genericItems.$getIndex().length - 3)/$scope.pageSize
 			$scope.startFrom = () ->
 				$('.product-img').popover()
 				$scope.currentPage * $scope.pageSize + 3 # We used up the first three in the sub-featured items

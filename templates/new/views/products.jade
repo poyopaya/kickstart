@@ -39,7 +39,7 @@ block content
 							.carousel-caption
 								h3 Check out our summer deals
 						.item(ng-repeat="product in products | orderByPriority | filter:{featured: true}", style="max-height: 450px")
-							img(ng-src="http://images.weserv.nl/?url=upload.wikimedia.org/wikipedia/commons/{{product.img}}&w=1000&t=fitup")
+							img(ng-src="http://images.weserv.nl/?url=pixabay.com/get/{{product.img}}&w=1000&t=fitup")
 							.carousel-caption
 								h3 
 									{{product.name}}
@@ -55,7 +55,7 @@ block content
 				br
 				.row
 					.col-sm-4(ng-repeat='product in products | orderByPriority | limitTo: 3')
-						img.img-rounded.center-block.img-responsive(ng-src="http://images.weserv.nl/?url=upload.wikimedia.org/wikipedia/commons/{{product.img}}&h=400&w=400&t=square")
+						img.img-rounded.center-block.img-responsive(ng-src="http://images.weserv.nl/?url=pixabay.com/get/{{product.img}}&h=400&w=400&t=square")
 						h4.text-center(ng-id='slug(product.name)') {{product.name}}
 						p {{product.desc}}
 
@@ -69,7 +69,7 @@ block content
 					.col-lg-3.col-sm-4(ng-repeat='product in products | orderByPriority | startFrom:startFrom() | limitTo:pageSize')
 						a(href="cart.html")
 							img.img-rounded.img-responsive.product-img(
-								ng-src="http://images.weserv.nl/?url=upload.wikimedia.org/wikipedia/commons/{{product.img}}&h=300&w=300&t=square"
+								ng-src="http://images.weserv.nl/?url=pixabay.com/get/{{product.img}}&h=300&w=300&t=square"
 								style="width: 150px;" 
 								data-content="{{product.desc}}" 
 								data-trigger="hover" 
@@ -81,6 +81,6 @@ block content
 							| {{product.price | currency:'$'}}
 
 				hr
-				// include _pagination
+				include _pagination
 block foot
 	include _example-growl
