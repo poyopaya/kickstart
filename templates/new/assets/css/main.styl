@@ -68,7 +68,32 @@ html
 
 // Readability
 
-p, label, tr, td, div
-	&.readable, &.readable p, label, tr, td
-		font-size: 15px
-		line-height: 25px
+$readableSize = 18px
+readableParagraph()
+	font-size: $readableSize
+	line-height: 29px
+	margin-bottom: 20px
+	color: #3D444B
+readableLead()
+	font-size: ( $readableSize + 7px )
+readableHeading()
+	// margin-bottom: 15px
+
+p, label, tr, td, div, ol li, ul li
+	&.readable
+		readableParagraph()
+
+h1, h2, h3, h4, h5, h6
+	&.readable
+		readableHeading()
+
+.lead.readable
+	readableLead()
+
+.readable
+	p, label, tr, td, div, ol li, ul li
+		readableParagraph()
+	.lead
+		readableLead()
+	h1, h2, h3, h4, h5, h6
+		readableHeading()
