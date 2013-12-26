@@ -46,12 +46,6 @@ define ['./module'], (controllers) ->
 			$scope.themePreviewUrl = './themes/' + name + '.css'
 			$scope.themePreviewUrl = './css/bootstrap.css' if name == 'bootstrap'
 			k$.demoStylesheet()
-		$scope.nodemo = () ->
-			$.growl
-				title: 'Looking for a demo?'
-				text: '<p>You\'re there. We\'ve made our downloadable the exact same as getkickstrap.com.</p>
-					<p>This page is 100% Kickstrap.</p>'
-				type: 'success'
 		$scope.setPong = () ->
 			jspm.import 'ks:pong', () ->
 	]
