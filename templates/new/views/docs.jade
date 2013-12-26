@@ -26,7 +26,7 @@ block content
 						class="{{selectedSection.path == section.path ? 'active' : '' }}"
 					) 
 						a(ng-click="setSelectedSection(section)") {{section.name}}
-			.col-sm-7.col-md-9(ng-view ng-animate)
+			.col-sm-7.col-md-9.readable(ng-view ng-animate)
 			.col-sm-7.col-md-9(ng-hide="selectedSection.name")
 				p
 					em.text-muted
