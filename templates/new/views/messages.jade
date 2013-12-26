@@ -39,7 +39,7 @@ block content
 						p.list-group-item Loading...
 					.list-group.ks-afterload
 						a.list-group-item(
-							ng-repeat='thread in threads | filter: threadInput'
+							ng-repeat='thread in threads | filter: threadInput | orderByPriority'
 							ng-click='setSelectedThread(thread)'
 							href="#message"
 							ng-class="{'active': selectedThread.threadId == thread.threadId }"

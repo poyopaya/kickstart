@@ -14,7 +14,7 @@ br
 						th Subject
 						th Read?
 				tbody.ks-afterload_opacity(ng-repeat="thread in threads | orderByPriority")
-					tr(ng-class="thread.$id == threads.selectedKey ? 'success' : ''")
+					tr(ng-class="thread.$id == selectedKey ? 'success' : ''")
 						td
 							input(
 								type="checkbox"
@@ -33,22 +33,24 @@ br
 										th 
 											input(
 												type="checkbox"
-												ng-click="thread.messages.selectAll(!thread.messages.selectAllVal)"
+												ng-click="threads.messages.selectAll(!thread.messages.selectAllVal, thread.$id)"
 												ng-model="thread.messages.selectAllVal"
 											)
 										th Contact
 										th Date
 								tbody
 									tr(
-										ng-repeat="message in thread.messages"
+										ng-repeat="message in thread.messages | orderByPriority"
 									)
 										td
 											input(
 												type="checkbox"
 												ng-model="message.val"
-												ng-change="messages.countSelected()"
+												ng-change="threads.messages.countSelected(thread.$id)"
 											)
-										td {{contactForId(message.contactId).fName}} {{contactForId(message.contactId).lName}}
+										td 
+											a(href="#top" ng-click="threads.messages.select(message.$id, thread.$id)")
+												{{contactForId(message.contactId).fName}} {{contactForId(message.contactId).lName}}
 										td {{message.date}}
 
 			p.ks-beforeload
@@ -72,16 +74,28 @@ br
 			.panel-heading 
 				span.glyphicon.glyphicon-edit
 				|  Edit
-			.panel-body(ng-hide="threads.selectedKey != null")
+			.panel-body(ng-show="selectedKey || selectedParentKey")
 				p
 					em.text-muted Make a selection
-			.panel-body.ks-afterload(ng-show="threads.selectedKey != null")
+			.panel-body.ks-afterload(ng-show="selectedKey != null")
 				form
 					.form-group
 						label Subject
-						input.form-control(type="text" ng-model="threads[threads.selectedKey].subject")
+						input.form-control(type="text" ng-model="threads[selectedKey].subject")
 					.checkbox
 						label
-							input(type="checkbox" ng-model="threads[threads.selectedKey].read")
+							input(type="checkbox" ng-model="threads[selectedKey].read")
 							|  Read?
+					a.btn.btn-primary(ng-click="threads.update()") Save
+			.panel-body.ks-afterload(ng-show="selectedType == 'message'")
+				form
+					.form-group
+						label Contact
+						input.form-control(type="text" ng-model="contactForId(threads[selectedParentKey].messages[selectedKey].contactId).fName")
+					.form-group
+						label Date
+						input.form-control(type="date" ng-model="threads[selectedParentKey].messages[selectedKey].date")
+					.form-group
+						label Text
+						textarea.form-control(ng-model="threads[selectedParentKey].messages[selectedKey].text")
 					a.btn.btn-primary(ng-click="threads.update()") Save

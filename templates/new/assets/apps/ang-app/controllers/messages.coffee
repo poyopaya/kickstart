@@ -15,7 +15,7 @@ define ['./module'], (controllers) ->
 					bio: '...'
 			$scope.contacts.update = () ->
 				try 
-					$scope.contacts.$save $scope.contacts.selectedKey
+					$scope.contacts.$save $scope.selectedKey
 					$.growl
 						title: 'Saved successfully'
 						type: 'success'
@@ -39,9 +39,9 @@ define ['./module'], (controllers) ->
 			$scope.contacts.countSelected = () ->
 				$scope.contacts.selectionCount = 0
 				( $scope.contacts.selectionCount++ if $scope.contacts[key].val ) for key in $scope.contacts.$getIndex()
-			$scope.contacts.selectedKey = null
+			$scope.selectedKey = null
 			$scope.contacts.select = (key) ->
-				$scope.contacts.selectedKey = key
+				$scope.selectedKey = key
 
 		$scope.threads.$on 'loaded', ->
 
@@ -53,7 +53,7 @@ define ['./module'], (controllers) ->
 					read: false
 			$scope.threads.update = () ->
 				try 
-					$scope.threads.$save $scope.threads.selectedKey
+					$scope.threads.$save $scope.selectedKey
 					$.growl
 						title: 'Saved successfully'
 						type: 'success'
@@ -77,9 +77,28 @@ define ['./module'], (controllers) ->
 			$scope.threads.countSelected = () ->
 				$scope.threads.selectionCount = 0
 				( $scope.threads.selectionCount++ if $scope.threads[key].val ) for key in $scope.threads.$getIndex()
-			$scope.threads.selectedKey = null
+			$scope.selectedKey = null
 			$scope.threads.select = (key) ->
-				$scope.threads.selectedKey = key
+				$scope.selectedKey = key
+				$scope.selectedType = 'thread'
+
+			# SETTINGS - Messages
+
+			$scope.threads.messages = new Object() # Just for the sake of being semantic.
+			$scope.threads.messages.selectAll = (val, parentKey) ->
+
+				message.val = val for message in $scope.threads[parentKey].messages
+				$scope.threads.messages.countSelected(parentKey)
+
+			$scope.threads.messages.countSelected = (parentKey) ->
+				$scope.threads[parentKey].messages.selectionCount = 0
+				( $scope.threads[parentKey].messages.selectionCount++ if message.val ) for message in $scope.threads[parentKey].messages
+			$scope.threads.messages.select = (key, parentKey) ->
+				console.log key
+				console.log parentKey
+				$scope.selectedKey = key
+				$scope.selectedParentKey = parentKey
+				$scope.selectedType = 'message'
 
 		$scope.contactForId = (id) ->
 			$scope.contacts[id]
