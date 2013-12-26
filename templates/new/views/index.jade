@@ -92,7 +92,7 @@ block content
 				.row.ks-afterload
 					.col-sm-4(sly-repeat="theme in themes")
 						h4 {{theme.title}}
-						img.thumbnail.img-responsive(src="./img/{{theme.name}}.png", ng-click="setTheme(theme.name)")
+						img.thumbnail.img-responsive(ng-src="./img/{{theme.name}}.png", ng-click="setTheme(theme.name)")
 					.col-xs-12
 						p
 							em * Courtesy of Thomas Park and 

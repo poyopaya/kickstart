@@ -24,13 +24,13 @@ define ['./module'], (controllers) ->
 
 			$scope.lastRemoved = null
 			$scope.purchases = [
-				product: $scope.products.$child 2
+				product: $scope.products.$child '-JBfLmlGwW9B3zNv-XH9'
 				quantity: 2
 			,
-				product: $scope.products.$child 12
+				product: $scope.products.$child '-JBfNWBiOqEuMdcYkgBG'
 				quantity: 4
 			,
-				product: $scope.products.$child 19
+				product: $scope.products.$child '-JBfPahaB9FomJej6cyu'
 				quantity: 1
 			]
 			$scope.deletePurchase = (id) ->
