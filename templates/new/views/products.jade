@@ -24,7 +24,7 @@ block content
 					.list-group.ks-afterload
 						a.list-group-item(
 							ng-href='{{"#"}}{{slug(product.name)}}'
-							ng-repeat='product in products | orderByPriority | filter:productInput'
+							sly-repeat='product in products | orderByPriority | filter:productInput'
 							ng-click="setSelectedProduct(product)"
 						) {{product.name}}
 
@@ -32,13 +32,13 @@ block content
 				.carousel.slide#featured(data-ride="carousel")
 					ol.carousel-indicators
 						li.active(data-target="#featured", data-slide-to="0")
-						li(data-target="#featured", data-slide-to="{{$index+1}}", ng-repeat="product in products | orderByPriority")
-					.carousel-inner(ng-if="product.featured")
+						li(data-target="#featured", data-slide-to="{{$index+1}}", ng-repeat="product in products | orderByPriority | filter:{featured: true}")
+					.carousel-inner
 						.item.active(style="max-height: 450px")
 							img(src="http://images.weserv.nl/?url=upload.wikimedia.org/wikipedia/commons/c/cc/Le_garcon_et_la_ville.JPG&w=1000&t=fitup")
 							.carousel-caption
 								h3 Check out our summer deals
-						.item(ng-repeat="product in products", style="max-height: 450px")
+						.item(ng-repeat="product in products | orderByPriority | filter:{featured: true}", style="max-height: 450px")
 							img(ng-src="http://images.weserv.nl/?url=upload.wikimedia.org/wikipedia/commons/{{product.img}}&w=1000&t=fitup")
 							.carousel-caption
 								h3 
@@ -54,9 +54,9 @@ block content
 						span.glyphicon.glyphicon-chevron-right
 				br
 				.row
-					.col-sm-4(ng-repeat='product in products | limitTo: 3 | orderByPriority')
-						img.img-circle.center-block(ng-src="http://images.weserv.nl/?url=upload.wikimedia.org/wikipedia/commons/{{product.img}}&h=400&w=400&t=square" style="width: 200px")
-						h4.center-block(ng-id='slug(product.name)') {{product.name}}
+					.col-sm-4(ng-repeat='product in products | orderByPriority | limitTo: 3')
+						img.img-rounded.center-block.img-responsive(ng-src="http://images.weserv.nl/?url=upload.wikimedia.org/wikipedia/commons/{{product.img}}&h=400&w=400&t=square")
+						h4.text-center(ng-id='slug(product.name)') {{product.name}}
 						p {{product.desc}}
 
 				hr
@@ -65,7 +65,14 @@ block content
 				include _pagination
 				hr
 
-
+				.row
+					.col-lg-3.col-sm-4(sly-repeat='product in products | orderByPriority | startFrom:startFrom() | limitTo:pageSize')
+						a(href="cart.html")
+							img.img-responsive.product-img(ng-src="http://images.weserv.nl/?url=upload.wikimedia.org/wikipedia/commons/{{product.img}}&h=300&w=300&t=square", style="width: 150px;" data-content="{{product.desc}}" data-trigger="hover" data-placement="top")
+						p
+							a(href="cart.html" ng-id='slug(product.name)') {{product.name}}
+							br
+							| {{product.price | currency:'$'}}
 
 				hr
 				include _pagination
