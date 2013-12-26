@@ -1,12 +1,13 @@
 define ['./module'], (controllers) ->
 	controllers.controller 'ProductsCtrl', ['$scope', '$firebase', 'ngProgress', ($scope, $firebase, ngProgress) ->
 		$scope.featuredProducts = []
-		$scope.products = $firebase new Firebase "https://#{k$.settings.firebaseName}.firebaseio.com/products/"
+
+		# Assigning also to genericItems allows for loosely-coupled use in pagination include
+		$scope.products = $scope.genericItems = $firebase new Firebase "https://#{k$.settings.firebaseName}.firebaseio.com/products/"
 		$scope.products.$on 'loaded', ->
 
 			# Pagination
 
-			$scope.genericItems = $scope.products # Loosely-couples with pagination include
 			$scope.currentPage = 0
 			$scope.pageSize = 10
 			$scope.numPages = () ->
