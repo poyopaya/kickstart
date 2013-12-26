@@ -66,7 +66,7 @@ block content
 					.center-block#ads
 				h1 {{selectedThread.subject}}
 				br
-				div(sly-repeat='message in selectedThread.messages')
+				div(ng-repeat='message in selectedThread.messages')
 					.media
 						img.media-object.pull-left(ng-src="http://images.weserv.nl/?url=upload.wikimedia.org/wikipedia/commons/{{contacts[message.contactId].img}}&h=64&w=64&t=square", style="width: 32px;")
 						.media-body

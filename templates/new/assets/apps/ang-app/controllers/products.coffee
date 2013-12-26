@@ -4,45 +4,6 @@ define ['./module'], (controllers) ->
 		$scope.products = $firebase new Firebase "https://#{k$.settings.firebaseName}.firebaseio.com/products/"
 		$scope.products.$on 'loaded', ->
 
-			# CRUD
-
-			$scope.create = () ->
-				$scope.products.$add
-					name: 'New Item'
-					desc: 'Description'
-					img: '...'
-					price: 0
-			$scope.update = () ->
-				try 
-					$scope.products.$save $scope.selectedKey
-					$.growl
-						title: 'Saved successfully'
-						type: 'success'
-						delay: 1000
-				catch error
-					$.growl
-						title: 'Could not save:<br>'
-						text: error
-						type: 'danger'
-						delay: 1000
-			$scope.delete = () ->
-				( $scope.products.$remove key if $scope.products[key].val ) for key in $scope.products.$getIndex()
-				$scope.countSelected()
-
-			# SETTINGS
-
-			$scope.selectAll = (val) ->
-				$scope.products[key].val = val for key in $scope.products.$getIndex()
-				$scope.countSelected()
-			$scope.selectionCount = 0
-			$scope.countSelected = () ->
-				$scope.selectionCount = 0
-				( $scope.selectionCount++ if $scope.products[key].val ) for key in $scope.products.$getIndex()
-			$scope.selectedKey = null
-			$scope.select = (key) ->
-				$scope.selectedKey = key
-
-
 			# Pagination
 
 			$scope.genericItems = $scope.products # Loosely-couples with pagination include
