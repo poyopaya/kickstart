@@ -37,27 +37,29 @@ block content
 									style="width: 64px;"
 								)
 								.media-body
-									h4.media-heading {{purchase.product.name}}
-									p.text-muted(style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis;") {{ (purchase.product.price * purchase.quantity) | currency:"$"}}
+									.row
+										.col-sm-6
+											h4.media-heading {{purchase.product.name}}
+											p.text-muted {{purchase.product.price | currency:'$'}}
+											// p.text-muted(style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis;") {{ (purchase.product.price * purchase.quantity) | currency:"$"}}
+										.col-sm-6
+											form.form-inline(role="form")
+												.form-group
+													label Quantity
+													input.form-control(type="number", ng-model="purchase.quantity")
 									hr
-									p
-										form.form-inline(role="form")
-											.form-group
-												label.control-label {{purchase.product.price | currency:'$'}} x
-											.form-group
-												input.form-control(type="text", ng-model="purchase.quantity")
-											.form-group
-												a.control-label(href="#", ng-click="deletePurchase(purchase.product.id)") Remove
+									p.pull-right
+										a(href="#", ng-click="deletePurchase(purchase.id)") Remove
+												
 						li.list-group-item(ng-show='purchases.length < 1')
 							em There are currently no items in your cart.
 							p
 								a(href="products.html") Go shopping
 			div.col-sm-3
-				article.panel.panel-default
-					.panel-heading Checkout
-					.panel-body
-						p Total: 
-							strong {{ total() | currency:'$' }}
-						a.btn.btn-primary Purchase
+				h2 Checkout
+				p.lead Total: 
+					strong {{ total() | currency:'$' }}
+				img.img-responsive(src="img/creditcards.gif")
+				a.btn.btn-success Purchase
 block foot
 	include _example-growl

@@ -24,18 +24,21 @@ define ['./module'], (controllers) ->
 
 			$scope.lastRemoved = null
 			$scope.purchases = [
+				id: 'a49a78f944bf1f73f3f7ff9672463bb1abd4a402'
 				product: $scope.products.$child '-JBfLmlGwW9B3zNv-XH9'
 				quantity: 2
-			,
+			,	
+				id: 'c9066be544fb0fa01a9c4a12dbe9bc1b1a8a3ac3'
 				product: $scope.products.$child '-JBfNWBiOqEuMdcYkgBG'
 				quantity: 4
 			,
+				id: 'c9904d5ab9931e0f29f721aa0754effc77b66196'
 				product: $scope.products.$child '-JBfPahaB9FomJej6cyu'
 				quantity: 1
 			]
 			$scope.deletePurchase = (id) ->
 				purchaseIndex = 0
-				$.grep($scope.purchases, (e, i) -> purchaseIndex = i if e.product.id == id)
+				$.grep($scope.purchases, (e, i) -> purchaseIndex = i if e.id == id)
 				$scope.lastRemoved = $scope.purchases[purchaseIndex]
 				$scope.purchases.splice(purchaseIndex, 1)
 			$scope.restorePurchase = (purchase) ->

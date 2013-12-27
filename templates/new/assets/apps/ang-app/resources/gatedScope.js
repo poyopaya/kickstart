@@ -413,11 +413,11 @@
                 // circuit it with === operator, only when === fails do we use .equals
                 if (watch && (value = watch.get(current)) !== (last = watch.last) &&
                     !(watch.eq
-                        ? areEqual(value, last)
+                        ? k$.areEqual(value, last)
                         : (typeof value == 'number' && typeof last == 'number'
                           && isNaN(value) && isNaN(last)))) {
                   dirty = true;
-                  watch.last = watch.eq ? copy(value) : value;
+                  watch.last = watch.eq ? k$.copy(value) : value;
                   watch.fn(value, ((last === initWatchVal) ? value : last), current);
                   // Scalyr edit:  Removed the logging code for when the ttl is reached
                   // here because we don't have access to the ttl in this method.

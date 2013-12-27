@@ -12,9 +12,9 @@ block content
 	.container
 		.row(ng-controller='MessagesCtrl')
 			link(
-				sly-repeat='contact in contacts | orderByPriority'
+				ng-repeat='contact in contacts | orderByPriority'
 				rel="prerender", 
-				href="http://api.rethumb.com/v1/square/120/http://upload.wikimedia.org/wikipedia/commons/{{contact.img}}"
+				ng-href="http://api.rethumb.com/v1/square/120/http://upload.wikimedia.org/wikipedia/commons/{{contact.img}}"
 			)
 			.modal.fade#newMessage
 				.modal-dialog
@@ -69,16 +69,14 @@ block content
 					.center-block#ads
 				h1 {{selectedThread.subject}}
 				br
-				div(sly-repeat='message in selectedThread.messages')
-					.media
-						img.img-rounded.media-object.pull-left(ng-src="http://images.weserv.nl/?url=upload.wikimedia.org/wikipedia/commons/{{contacts[message.contactId].img}}&h=64&w=64&t=square", style="width: 32px;")
-						.media-body
-							p.lead.pull-left {{contacts[message.contactId].fName}} {{contacts[message.contactId].lName}}
-							p.pull-right
-								small
-									em.text-muted Sent at {{message.date}}
-							.clearfix
-							p {{message.text}}
-					hr
+				.media(ng-repeat='message in selectedThread.messages')
+					img.img-rounded.media-object.pull-left(ng-src="http://images.weserv.nl/?url=upload.wikimedia.org/wikipedia/commons/{{contacts[message.contactId].img}}&h=64&w=64&t=square", style="width: 32px;")
+					.media-body
+						p.lead.pull-left {{contacts[message.contactId].fName}} {{contacts[message.contactId].lName}}
+						.clearfix
+						p
+							em.text-muted Sent at {{message.date}}
+						p.readable {{message.text}}
+
 block foot
 	include _example-growl
