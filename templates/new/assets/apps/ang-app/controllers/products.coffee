@@ -5,7 +5,7 @@ define ['./module'], (controllers) ->
 		ngProgress.start()
 
 		# Assigning also to genericItems allows for loosely-coupled use in pagination include
-		$scope.products = $scope.genericItems = $firebase new Firebase "https://#{k$.settings.firebaseName}.firebaseio.com/products/"
+		$scope.products = $scope.genericItems = $firebase new Firebase "https://#{k$.settings.firebaseName}.firebaseio.com/#{k$.settings.firebaseNameVersion}/products/"
 		$scope.products.$on 'loaded', ->
 			ngProgress.complete()
 

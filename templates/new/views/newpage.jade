@@ -24,5 +24,7 @@ block content
 
 block foot
 	:coffeescript
+
+		# Only execute when kickstrap is ready
 		k$.ready ->
 			jspm.import('ks:disqus')

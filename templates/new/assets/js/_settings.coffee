@@ -48,7 +48,10 @@ window.k$ =
 	# mode: 'dev'
 
 	# Firebase URI
-	firebaseName: 'kickstrap-testing'
+	firebaseName: 'kickstrap-demo'
+
+	# Versioning for your Firebase (e.g. https://myfb.firebaseio.com/v1-0/products)
+	firebaseNameVersion: 'v2-0'
 
 	# Only edit if you know what you're doing.
 	core: [

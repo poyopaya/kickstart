@@ -6,23 +6,10 @@ block variables
 block content
 	include _header
 
-	iframe.img-responsive.center-block(src="//player.vimeo.com/video/79834881" style="width: 100%;min-height:320px;max-height:60%" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen)
+	video(src="//getkickstrap.com/2.0-static/vid/kickstrap-demo.mp4" poster="img/poster.png" style="width: 100%;min-height:320px;max-height:60%" controls)
 	br
 
 	.container
-		section.row
-			.col-lg-8.col-lg-offset-2
-				.col-sm-3.col-xs-6
-					img.img-responsive(src="./img/mashable.png")
-				.col-sm-3.col-xs-6
-					img.img-responsive(src="./img/hn.png")
-				.col-sm-3.col-xs-6
-					img.img-responsive(src="./img/dzone.png")
-				.col-sm-3.col-xs-6
-					img.img-responsive(src="./img/t3n.png")
-				.col-xs-12
-					p.text-center.pull-right
-						small As seen on these news websites
 
 
 		section.row(ng-controller='HomeCtrl', ng-init="setSelectedSection(sections[0])")
@@ -50,7 +37,7 @@ block content
 						p Kickstrap seamlessly combines Bootstrap with top-tier web technologies. It's so advanced, it can run an authenticated, database-driven web app 
 							strong without a native backend.
 					.col-sm-4
-						img.img-responsive(src="/img/firebase.png")
+						img.img-responsive.center-block(src="/img/firebase.png")
 						
 				.row.readable
 					br
@@ -98,7 +85,7 @@ block content
 						.col-sm-6
 							img.img-responsive(src="./img/fwdslash.png")
 						br
-						p
+						p.pull-right
 							small Trusted by these brands
 
 				.row
@@ -138,3 +125,17 @@ block content
 							pre jspm.import('ks:pong');
 						p
 							a.btn.btn-primary(onclick="jspm.import('ks:pong')") Run Code
+
+		section.row
+			br
+			.col-lg-8.col-lg-offset-2
+				.col-sm-3.col-xs-6
+					img.img-responsive(src="./img/mashable.png")
+				.col-sm-3.col-xs-6
+					img.img-responsive(src="./img/hn.png")
+				.col-sm-3.col-xs-6
+					img.img-responsive(src="./img/dzone.png")
+				.col-sm-3.col-xs-6
+					img.img-responsive(src="./img/t3n.png")
+				.col-xs-12
+					p.text-center.pull-right As seen on these news websites
