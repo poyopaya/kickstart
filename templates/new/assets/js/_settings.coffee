@@ -48,7 +48,7 @@ window.k$ =
 	# mode: 'dev'
 
 	# Firebase URI
-	firebaseName: 'kickstrap-demo'
+	firebaseName: 'kickstrap-testing'
 
 	# Only edit if you know what you're doing.
 	core: [
