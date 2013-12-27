@@ -4,6 +4,9 @@ define ['./module'], (controllers) ->
 			name: 'First Steps'
 			path: 'first-steps'
 		,
+			name: 'Social Login'
+			path: 'social-login'
+		,
 			name: 'Creating Pages'
 			path: 'pages'
 		,

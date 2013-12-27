@@ -18,6 +18,7 @@ window.k$ =
 			'products'
 			'docs'
 			'home'
+			'login'
 		]
 		directives: [
 			'enter'
@@ -40,13 +41,14 @@ window.k$ =
 			'templates'
 			'acknowledgments'
 			'optimizations'
+			'social-login'
 		]
 
 	# Caching mode
 	# mode: 'dev'
 
 	# Firebase URI
-	firebaseName: 'kickstrap-testing'
+	firebaseName: 'kickstrap-demo'
 
 	# Only edit if you know what you're doing.
 	core: [
@@ -73,6 +75,7 @@ jspm.config
 		'gatedScope':			'ks:ang-app/resources/gatedScope'
 		'fontawesome': 			'cdnjs:font-awesome/4.0/css/font-awesome.min.css!'
 		'ngProgress':			'ks:ang-app/resources/ngprogress'
+		'firebaseSimpleLogin':	'ks:ang-app/resources/firebaseSimpleLogin'
 
 	# packages are the primary unit of configuration
 	packages:

@@ -14,7 +14,7 @@ block content
 			link(
 				ng-repeat='contact in contacts | orderByPriority'
 				rel="prerender", 
-				ng-href="http://api.rethumb.com/v1/square/120/http://upload.wikimedia.org/wikipedia/commons/{{contact.img}}"
+				ng-href="http://images.weserv.nl/?url=upload.wikimedia.org/wikipedia/commons/{{contact.img}}&h=120&w=120&t=square"
 			)
 			.modal.fade#newMessage
 				.modal-dialog

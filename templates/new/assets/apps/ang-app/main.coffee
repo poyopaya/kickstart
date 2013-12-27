@@ -2,6 +2,7 @@ define [
 	'angular'
 	'angularFire'
 	'angular-route'
+	'firebaseSimpleLogin'
 	'ngProgress'
 ], (angular) ->
 	angular.module('app', [

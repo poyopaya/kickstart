@@ -1,4 +1,5 @@
 @import "../themes/kickstrap.css"
+@import "_auth-buttons"
 
 $brown = rgba(242, 239, 235, 0.9)
 
@@ -7,20 +8,20 @@ body
 	padding-top: 50px // For fixed navbar
 	.ks-beforeload
 		display: block
-		&_opacity
+		&_visibility
 			visibility: visible
 	.ks-afterload
 		display: none
-		&_opacity
+		&_visibility
 			visibility: hidden
 	&.loaded
 		.ks-beforeload
 			display: none
-			&_opacity
+			&_visibility
 				visibility: hidden
 		.ks-afterload
 			display: block
-			&_opacity
+			&_visibility
 				visibility: visible
 
 // Sticky Footer
