@@ -40,7 +40,6 @@ define ['./module'], (controllers) ->
 			name: 'API'
 			path: 'api'
 		]
-		$scope.selectedSection = $scope.sections[0]
 		$scope.setSelectedSection = (section) ->
 			$scope.selectedSection = section
 			$location.path(section.path)
