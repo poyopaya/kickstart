@@ -29,7 +29,7 @@ div(ng-controller="LoginCtrl")
 						li
 							a(href="#" data-target="#login" data-toggle="modal") 
 								span(ng-hide="auth.user") Login 
-								span(ng-show="auth.user")
+								span.ks-afterload(ng-show="auth.user")
 									img(ng-src="{{auth.user.thumbnailImg}}" style="width: 20px;height: 20px;")
 
 

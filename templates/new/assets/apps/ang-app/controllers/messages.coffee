@@ -3,8 +3,9 @@ define ['./module'], (controllers) ->
 		$scope.threads = $firebase new Firebase "https://#{k$.settings.firebaseName}.firebaseio.com/threads/"
 		$scope.contacts = $firebase new Firebase "https://#{k$.settings.firebaseName}.firebaseio.com/contacts/"
 		$scope.contacts.$on 'loaded', ->
-
+		ngProgress.start()
 		$scope.threads.$on 'loaded', ->
+			ngProgress.complete()
 			$scope.contactForId = (id) ->
 				$scope.contacts[id]
 			$scope.selectedThread = $scope.threads[0]
