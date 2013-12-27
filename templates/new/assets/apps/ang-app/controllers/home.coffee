@@ -40,6 +40,9 @@ define ['./module'], (controllers) ->
 		,
 			name: 'united'
 			title: 'United*'
+		,
+			name: 'yeti'
+			title: 'Yeti*'
 		]
 		$scope.themePreviewUrl = ''
 		$scope.setTheme = (name) ->

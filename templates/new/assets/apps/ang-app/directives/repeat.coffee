@@ -73,7 +73,7 @@ define ['./module'], (directives) ->
         # We keep this in case the length increases again.
         previousElementBuffer = []
         deregisterCallback = $scope.$watchCollection(collectionExpr, (collection) ->
-          throw Error("'collection' did not evaluate to an array.  expression was " + collectionExpr)  unless k$.isArray(collection)
+          # throw Error("'collection' did not evaluate to an array.  expression was " + collectionExpr) unless k$.isArray(collection)
           originalPreviousElementsLength = previousElements.length
           
           # First, reconcile previousElements and collection with respect to the previousElementBuffer.

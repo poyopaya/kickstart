@@ -12,7 +12,7 @@ block content
 	.container
 		.row(ng-controller='MessagesCtrl')
 			link(
-				ng-repeat='contact in contacts | orderByPriority'
+				sly-repeat='contact in contacts | orderByPriority'
 				rel="prerender", 
 				href="http://api.rethumb.com/v1/square/120/http://upload.wikimedia.org/wikipedia/commons/{{contact.img}}"
 			)
@@ -42,7 +42,7 @@ block content
 						p.list-group-item Loading...
 					.list-group.ks-afterload
 						a.list-group-item(
-							ng-repeat='thread in threads | orderByPriority | filter: threadInput'
+							sly-repeat='thread in threads | orderByPriority | filter: threadInput'
 							ng-click='setSelectedThread(thread)'
 							href="#message"
 							ng-class="{'active': selectedThread.threadId == thread.threadId }"
@@ -69,7 +69,7 @@ block content
 					.center-block#ads
 				h1 {{selectedThread.subject}}
 				br
-				div(ng-repeat='message in selectedThread.messages')
+				div(sly-repeat='message in selectedThread.messages')
 					.media
 						img.img-rounded.media-object.pull-left(ng-src="http://images.weserv.nl/?url=upload.wikimedia.org/wikipedia/commons/{{contacts[message.contactId].img}}&h=64&w=64&t=square", style="width: 32px;")
 						.media-body
