@@ -1,11 +1,20 @@
 .page-header
 	h1 First Steps
-p If you're looking at this page from your local installation, you've successfully got Kickstrap up and running with the example pages. You should skip to Editing content.
-	|  otherwise, continue reading.
-
-h2 Download Kickstrap
-p (Alpha: Not yet implemented)
-p To download Kickstrap, you'll 
+.row
+	.col-sm-8
+		p Kickstrap is a boilerplate of Bootstrap, JSPM, Angular.js and Roots that can copy itself into any directory you choose.
+		p If you're looking at this page from your local installation, you've successfully got Kickstrap up and running with the example pages. You should skip to Editing content.
+			|  Otherwise, continue reading.
+	.col-sm-4
+		.alert.alert-info
+			h4 
+				span.glyphicon.glyphicon-question-sign
+				|  Need to ask a question?
+			p
+				a(href="https://github.com/ajkochanowicz/Kickstrap/issues?state=open") Create an issue on the 
+				| Kickstrap GitHub page
+h2 1. Install Kickstrap
+p To install Kickstrap, you'll 
 	a(href="https://npmjs.org/") need Node Package Manager. 
 	| . If you already have this installed, run
 p
@@ -14,35 +23,44 @@ p Then...
 p
 	pre sudo npm install -g kickstrap
 
-h2 Create a new Kickstrap site
-ol
-	li Navigate to the directory where you'd like to create a new Kickstrap site and run
-		pre kickstrap new . (Alpha: not yet implemented)
-	li If you want to make the site in a directory at the current location, let's say it's called "mysite" replace the "." with "mysite"
-	li
-		pre kickstrap new mysite
-	li Whichever the case, make sure you are now in the site's directory.
-	li To run the example content created, run 
-	li
-		pre kickstrap watch
-		p (Alpha: use roots watch)
-		p This is actually running the command 
-			code roots watch
-			|  and we've remapped to this from the 
-			code kickstrap
-			|  command for ease-of-use. That being said, all 
-			code roots
-			|  commands will work here as well.
-	li If everything worked correctly, you should now see our Kickstrap example page. If not, or something isn't right, file or look for an issue at 
-		a(href="https://github.com/ajkochanowicz/Kickstrap") the Kickstrap GitHub page.
-		br
-		| If the issue is related to Roots compilation make sure you have 
-		a(href="https://github.com/jenius/roots#installation") satisfied the requirements here.
+h2 2. Create a new Kickstrap site
+p Navigate to the directory where you'd like to create a new Kickstrap site and run
+	pre kickstrap new mysite
+p This will create a new directory called "mysite" with the Kickstrap boilerplate. If instead you want to make the site in current directory, replace "mysite" with "."
+	pre kickstrap new .
+p When the files have finished transferring, Roots will automatically start a local server in that directory and reload when any changes are detected (Live Reload).
+p To stop this process, press ctrl + c.  To run the watcher again run either
+	pre kickstrap watch
+p or
+	pre roots watch
+
+p If something isn't right, file or search your issue at 
+	a(href="https://github.com/ajkochanowicz/Kickstrap") the Kickstrap GitHub page.
+	br
+	| If the issue is related to Roots compilation make sure you have 
+	a(href="https://github.com/jenius/roots#installation") satisfied the requirements here.
 p 
 	a(href="#/roots") Continue reading: Compiling in Roots
 	|  to learn how best to compile, watch, and prepare for a production website.
 
-h2 Editing content
+h2 3. Create your own Firebase account
+p In its current form, your Kickstrap example pages are hooked up to a read-only Firebase. This will prevent you from doing anything truly useful in a production environment since users can't manipulate data.
+p Fortunately, Firebase offers free accounts under a certain usage tier. You can sign up for a Firebase account here: 
+	a(href="https://www.firebase.com/signup/") firebase.com/signup
+p Once you have your first Firebase, just open js/_settings.coffee...
+	pre # Firebase URI
+		| # firebaseName: 'kickstrap-demo'
+p Comment out 
+	code firebaseName
+	| , and replace it with your own url. This will be the name before ".firebaseio.com" For example, https://mysite.firebaseio.com would be
+	pre # Firebase URI
+		| firebaseName: 'mysite'
+p Now you have your own Firebase, but you'll notice all the data is empty. If you want to reinstall the sample data, I've included a .json file you can export into firebase. Look for 
+	strong kickstrap-demo-data.json 
+	| in the root of your project. Import this into Firebase by visiting https://[yoursitename].firebaseio.com, clicking on the data tab, then clicking "Import JSON".
+p Please note, this will delete any data you have there.
+
+h2 4. Editing content
 p Also see:
 ul
 	li 

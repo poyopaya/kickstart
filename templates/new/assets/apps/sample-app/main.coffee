@@ -1,5 +1,5 @@
 #
-#  Standard Widget Template for Kickstrap
+#  Standard App Template for Kickstrap
 #  Uses CommonJS, but can be AMD as well if you prefer
 #
 #  Better than loading 'jquery', would be to have a kickstrap widget base class that 

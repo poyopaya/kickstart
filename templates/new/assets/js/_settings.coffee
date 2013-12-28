@@ -9,6 +9,7 @@ window.k$ =
 		'ks:tinygrowl'
 		'ks:ang-app'
 		'ks:kickstrap-logo'
+		# 'fontawesome'
 	]
 
 	# Angular components
@@ -44,11 +45,11 @@ window.k$ =
 			'social-login'
 		]
 
-	# Caching mode
+	# JSPM Caching mode (choose dev or prod)
 	# mode: 'dev'
 
 	# Firebase URI
-	firebaseName: 'kickstrap-demo'
+	# firebaseName: 'kickstrap-demo'
 
 	# Versioning for your Firebase (e.g. https://myfb.firebaseio.com/v1-0/products)
 	firebaseNameVersion: 'v2-0'
