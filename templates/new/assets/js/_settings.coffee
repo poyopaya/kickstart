@@ -9,7 +9,6 @@ window.k$ =
 		'ks:tinygrowl'
 		'ks:ang-app'
 		'ks:kickstrap-logo'
-		# 'fontawesome'
 	]
 
 	# Angular components
@@ -78,9 +77,10 @@ jspm.config
 		'ang-app': 				'ks:ang-app'
 		'angular-route':		'ks:ang-app/resources/angular-route'
 		'gatedScope':			'ks:ang-app/resources/gatedScope'
-		'fontawesome': 			'cdnjs:font-awesome/4.0/css/font-awesome.min.css!'
+		'fontawesome': 			'cdnjs:font-awesome/4.0.3/css/font-awesome.min.css!'
 		'ngProgress':			'ks:ang-app/resources/ngprogress'
 		'firebaseSimpleLogin':	'ks:ang-app/resources/firebaseSimpleLogin'
+		'css': 					'github:jspm/plugin-css/css'
 
 	# packages are the primary unit of configuration
 	packages:
