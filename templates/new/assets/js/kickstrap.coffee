@@ -2,6 +2,9 @@
 #= require "_extend"
 #= require "_badge"
 
+# Future-proofing
+window.System = window.jspm
+
 # Set defaults and extend with user's customizations
 k$settings = extend(
 	mode: 'dev'

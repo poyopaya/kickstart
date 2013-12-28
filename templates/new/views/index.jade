@@ -6,15 +6,14 @@ block variables
 block content
 	include _header
 
-	video(src="//getkickstrap.com/2.0-static/vid/kickstrap-demo.mp4" poster="img/poster.png" style="width: 100%;min-height:320px;max-height:60%" controls)
-	br
-
 	.container
-
 
 		section.row(ng-controller='HomeCtrl', ng-init="setSelectedSection(sections[0])")
 			link(rel="stylesheet", ng-href="{{themePreviewUrl}}")
 			.col-lg-8.col-lg-offset-2
+
+				video(src="//getkickstrap.com/2.0-static/vid/kickstrap-demo.mp4" poster="img/poster.png" style="width: 100%;min-height:320px;max-height:60%" controls)
+				br
 
 				.row.readable
 					br
