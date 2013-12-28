@@ -43,6 +43,7 @@ window.k$ =
 			'acknowledgments'
 			'optimizations'
 			'social-login'
+			'growls'
 		]
 
 	# JSPM Caching mode (choose dev or prod)

@@ -50,7 +50,7 @@ p Fortunately, Firebase offers free accounts under a certain usage tier. You can
 p Once you have your first Firebase, just open js/_settings.coffee...
 	pre # Firebase URI
 		| # firebaseName: 'kickstrap-demo'
-p Comment out 
+p Uncomment 
 	code firebaseName
 	| , and replace it with your own url. This will be the name before ".firebaseio.com" For example, https://mysite.firebaseio.com would be
 	pre # Firebase URI
@@ -61,6 +61,7 @@ p Now you have your own Firebase, but you'll notice all the data is empty. If yo
 p Please note, this will delete any data you have there.
 
 h2 4. Editing content
+p tl;dr: The easiest way to make a page is to create a new .jade file in /views
 p Also see:
 ul
 	li 
@@ -72,31 +73,10 @@ p Kickstrap uses both Angular partials and Jade partials. Angular partials load 
 p Jade partials are compiled once in the project and added to the final .html files. These are found in views/ and should start with an underscore. (e.g. "_footer.jade")
 
 h3 Change theme and basic settings
-p To keep HTTP requests to a minimum, we ask that you simply import a Bootstrap theme into main.css.
+p Import one of the included Bootstrap themes into main.css. These are found in /themes
 p To do this, open main.css and change the theme imported at the top
 p
 	pre @import "../theme/[yourthemenamehere].css"
-
-h3 Removing/Editing growl
-p You may have noticed a "growl" alert appears on the home page when you open Kickstrap. This is generated in index.jade towards the bottom.
-p
-	pre :coffeescript
-		|   k$.ready ->  
-		|     $.growl
-		|       title: 'Welcome to #{title}!'
-		|       text: 'Check out the documentation to get started.'
-		|       type: 'success'
-		|       delay: 3000
-p 
-	code k$.ready
-	|  is a JavaScript function that will execute anything below it once JSPM has finished running its components. As such, any code that is dependent on Kickstrap apps or angular will load once everything is ready and available. This can be included in multiple places on one page.
-p Growls are a jQuery extension available as an app called Tiny Growl. This app must be included in 
-	code k$.apps
-	|  to run correctly.  To remove the growl completely, simply delete 
-	code $.growl
-	|  and the indented code below it.
-p For more information on using growls, visit the 
-	a(href="https://github.com/ajkochanowicz/tinygrowl") GitHub documentation.
 
 h3 Editing the header
 p The header that provides the navigation bar is a Jade partial. This is automatically added to any view with the code:
