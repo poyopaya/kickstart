@@ -96,8 +96,8 @@ block content
 							p Click on a theme to preview.
 				.row.ks-afterload
 					.col-sm-3(sly-repeat="theme in themes")
-						h4 {{theme.title}}
-						img.thumbnail.img-responsive(ng-src="./themes/{{theme.name}}.png", ng-click="setTheme(theme.name)")
+						h4.pointer {{theme.title}}
+						img.thumbnail.img-responsive.pointer(ng-src="./themes/{{theme.name}}.png", ng-click="setTheme(theme.name)")
 				.row
 					.col-xs-12
 						p
