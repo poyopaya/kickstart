@@ -47,7 +47,7 @@ block content
 							href="#message"
 							ng-class="{'active': selectedThread.threadId == thread.threadId }"
 						) 
-							.media
+							.media(ng-if="contacts[thread.messages[0].contactId].img")
 								img.media-object.img-rounded.pull-left(ng-src="http://images.weserv.nl/?url=upload.wikimedia.org/wikipedia/commons/{{contacts[thread.messages[0].contactId].img}}&h=128&w=128&t=square", style="width: 64px;")
 								.media-body
 									h4.media-heading {{thread.subject}}
