@@ -24,7 +24,7 @@
     "url": "git://github.com/ajkochanowicz/Kickstrap.git"
   },
   "dependencies": {
-    "roots": "2.1.0",
+    "roots": "2.1.2",
     "optimist": "0.6.x",
     "shelljs": "0.2.x",
     "underscore": "1.5.x",
