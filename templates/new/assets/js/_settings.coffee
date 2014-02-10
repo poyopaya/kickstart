@@ -45,9 +45,6 @@ window.k$ =
 			'growls'
 		]
 
-	# JSPM Caching mode (choose dev or prod)
-	# mode: 'dev'
-
 	# Firebase URI
 	# firebaseName: 'kickstrap-demo'
 
@@ -61,18 +58,12 @@ window.k$ =
 		'angular'
 	]
 
-jspm.config
-	endpoints:
-		ks: 
-			location: 	'./apps'
-			main: 		'main'
-			format: 	'auto'
 
-	# map basically allows easy "shortcut" names for packages
-	map:
+# map basically allows easy "shortcut" names for packages
+System.map =
 		'jquery': 				'github:components/jquery@2.0'
 		'bootstrap': 			'github:twbs/bootstrap@3.0/js/bootstrap'
-		'angular': 				'cdnjs:angular.js/1.2.1'
+		'angular': 				'github:angular/bower-angular@1.2.1'
 		'angularFire': 			'github:firebase/angularFire@0.5'
 		'ang-app': 				'ks:ang-app'
 		'angular-route':		'ks:ang-app/resources/angular-route'
@@ -82,17 +73,8 @@ jspm.config
 		'firebaseSimpleLogin':	'ks:ang-app/resources/firebaseSimpleLogin'
 		'css': 					'github:jspm/plugin-css/css'
 
-	# packages are the primary unit of configuration
-	packages:
-
-		'cdnjs:angular.js/1.2.1':
-			main: 'angular.min'
-			shim:
-				'angular.min':
-					exports: 'angular'
-
-		'ks:ang-app':
-			shim:
-				'resources/angular-route': 				['angular']
-				'resources/ngprogress': 				['angular']
-				'resources/gatedScope': 				['angular']
+# some packages need shim config
+System.shim =
+	'ks:ang-app/resources/angular-route': 	['angular']
+	'ks:ang-app/resources/ngprogress': 			['angular']
+	'ks:ang-app/resources/gatedScope': 			['angular']
