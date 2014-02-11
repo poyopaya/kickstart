@@ -59,6 +59,7 @@ window.k$ =
 		'jquery'
 		'bootstrap'
 		'angular'
+		'fontawesome'
 	]
 
 jspm.config
@@ -70,17 +71,17 @@ jspm.config
 
 	# map basically allows easy "shortcut" names for packages
 	map:
-		'jquery': 				'github:components/jquery@2.0'
+		'jquery': 			'github:components/jquery@2.0'
 		'bootstrap': 			'github:twbs/bootstrap@3.0/js/bootstrap'
-		'angular': 				'cdnjs:angular.js/1.2.1'
+		'angular': 			'cdnjs:angular.js/1.2.1'
 		'angularFire': 			'github:firebase/angularFire@0.5'
-		'ang-app': 				'ks:ang-app'
+		'ang-app': 			'ks:ang-app'
 		'angular-route':		'ks:ang-app/resources/angular-route'
 		'gatedScope':			'ks:ang-app/resources/gatedScope'
 		'fontawesome': 			'cdnjs:font-awesome/4.0.3/css/font-awesome.min.css!'
 		'ngProgress':			'ks:ang-app/resources/ngprogress'
-		'firebaseSimpleLogin':	'ks:ang-app/resources/firebaseSimpleLogin'
-		'css': 					'github:jspm/plugin-css/css'
+		'firebaseSimpleLogin':		'ks:ang-app/resources/firebaseSimpleLogin'
+		'css': 				'github:jspm/plugin-css/css'
 
 	# packages are the primary unit of configuration
 	packages:
