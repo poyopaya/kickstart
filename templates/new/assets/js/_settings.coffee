@@ -59,21 +59,23 @@ window.k$ =
 		'fontawesome'
 	]
 
-
-		'jquery': 				'github:components/jquery@2.0'
-		'bootstrap': 			'github:twbs/bootstrap@3.0/js/bootstrap'
-		'angular': 				'github:angular/bower-angular@1.2.1'
-		'angularFire': 			'github:firebase/angularFire@0.5'
-		'ang-app': 			'ks:ang-app'
-		'angular-route':		'ks:ang-app/resources/angular-route'
-		'gatedScope':			'ks:ang-app/resources/gatedScope'
-		'fontawesome': 			'cdnjs:font-awesome/4.0.3/css/font-awesome.min.css!'
-		'ngProgress':			'ks:ang-app/resources/ngprogress'
-		'firebaseSimpleLogin':		'ks:ang-app/resources/firebaseSimpleLogin'
-		'css': 				'github:jspm/plugin-css/css'
+System.map = 
+	'jquery': 				'github:components/jquery@2.0'
+	'bootstrap': 			'github:twbs/bootstrap@3.0/js/bootstrap'
+	'angular': 				'github:angular/bower-angular@1.2.1'
+	'angularFire': 			'github:firebase/angularFire@0.5'
+	'ang-app': 				'ks:ang-app'
+	'angular-route':		'ks:ang-app/resources/angular-route'
+	'gatedScope':			'ks:ang-app/resources/gatedScope'
+	'fontawesome': 			'github:FortAwesome/Font-Awesome@4.0.3/css/font-awesome.min.css!'
+	'ngProgress':			'ks:ang-app/resources/ngprogress'
+	'firebaseSimpleLogin':	'ks:ang-app/resources/firebaseSimpleLogin'
+	'css': 					'github:jspm/plugin-css/css'
 
 # some packages need shim config
 System.shim =
-	'ks:ang-app/resources/angular-route': 	['angular']
+	'github:angular/bower-angular@1.2.1/angular.min': 
+		exports: 'angular'
+	'ks:ang-app/resources/angular-route': 		['angular']
 	'ks:ang-app/resources/ngprogress': 			['angular']
 	'ks:ang-app/resources/gatedScope': 			['angular']
