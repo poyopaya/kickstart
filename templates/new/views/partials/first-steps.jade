@@ -22,7 +22,7 @@ p To install Kickstrap, you'll
 	| . If you already have this installed, run
 p
 	pre sudo npm update -g
-p Then...
+h3 Mac and Linux
 p
 	pre sudo npm install -g kickstrap
 p If you run into errors, ensure Roots is installed with
@@ -31,8 +31,38 @@ p
 p If you receive an error, try installing roots separately with
 p
 	pre npm install -g roots
-p Then move on to step 2. If you're on Windows, make sure you have
+p Then move on to step 2. 
+h3 Windows
+p Make sure you have
 	a(href="https://github.com/jenius/roots#installation") satisfied the requirements here.
+p Specifically:
+	li
+		a(href="http://www.visualstudio.com/downloads/download-visual-studio-vs") Install Visual Studio Ultimate
+		| . Downloading as a trial is fine. We just need the C++ libraries it comes with.
+	li
+		a(href="http://nodejs.org/") Install Node
+	li
+		a(href="http://git-scm.com/downloads") Install Git
+		| , when installing, make sure you have opted for "Run from Windows Command prompt". Leave all other options the same.
+	li
+		a(href="https://www.python.org/download/") Install Python 2.7.x
+		| , ("Python 2.7.6 Windows Installer (Windows binary -- does not include source)")
+	li After creating your first kickstrap project ("kickstrap new whatever") exit from watch mode with Ctrl+c
+	li cd into the project you created. Run kickstrap compile, then kickstrap watch. There is currently an issue with compile and watch where they should do the same thing in some areas. This is an issue with roots itself. Until that is resolved, the hack is just to run both these commands.
+p Restart
+p In a terminal (ctrl+r then type "cmd"), type 
+	code npm install -g kickstrap
+p Verify roots is installed with roots -v. If not, install with 
+	code npm install -g roots
+p Wow, it's still not working?
+p Maybe it's something wrong with Python. Do you see anything when you run 
+  	code python -v
+  	| ?
+p If you get a version number in return, let's try 
+	ol
+		li
+			a(href="https://bitbucket.org/pypa/setuptools/raw/bootstrap/ez_setup.py") installing ez_setup.py
+			| , which has some extra Python goodies.
 
 h2 2. Create a new Kickstrap site
 p Navigate to the directory where you'd like to create a new Kickstrap site and run
