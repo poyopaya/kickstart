@@ -47,22 +47,12 @@ p Specifically:
 	li
 		a(href="https://www.python.org/download/") Install Python 2.7.x
 		| , ("Python 2.7.6 Windows Installer (Windows binary -- does not include source)")
-	li After creating your first kickstrap project ("kickstrap new whatever") exit from watch mode with Ctrl+c
-	li cd into the project you created. Run kickstrap compile, then kickstrap watch. There is currently an issue with compile and watch where they should do the same thing in some areas. This is an issue with roots itself. Until that is resolved, the hack is just to run both these commands.
-p Restart
 p In a terminal (ctrl+r then type "cmd"), type 
 	code npm install -g kickstrap
 p Verify roots is installed with roots -v. If not, install with 
 	code npm install -g roots
-p Wow, it's still not working?
-p Maybe it's something wrong with Python. Do you see anything when you run 
-  	code python -v
-  	| ?
-p If you get a version number in return, let's try 
-	ol
-		li
-			a(href="https://bitbucket.org/pypa/setuptools/raw/bootstrap/ez_setup.py") installing ez_setup.py
-			| , which has some extra Python goodies.
+p After creating your first kickstrap project ("kickstrap new whatever") exit from watch mode with Ctrl+c
+p cd into the project you created. Run kickstrap compile, then kickstrap watch. There is currently an issue with compile and watch where they should do the same thing in some areas. This is an issue with roots itself. Until that is resolved, the hack is just to run both these commands.
 
 h2 2. Create a new Kickstrap site
 p Navigate to the directory where you'd like to create a new Kickstrap site and run
