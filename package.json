@@ -1,6 +1,6 @@
 {
   "name": "kickstrap",
-  "version": "2.0.12",
+  "version": "3.0.0",
   "description": "Framework for advanced Bootstrap web development",
   "keywords": [
     "Bootstrap",
@@ -23,16 +23,15 @@
     "type": "git",
     "url": "git://github.com/ajkochanowicz/Kickstrap.git"
   },
-  "dependencies": {
-    "roots": "2.1.2",
-    "optimist": "0.6.x",
-    "shelljs": "0.2.x",
-    "underscore": "1.5.x",
-    "cli-js": "0.0.x",
-    "underscore.string": "2.x.x"
-  },
   "engines": {
     "node": ">=0.8.0"
   },
-  "preferGlobal": true
+  "preferGlobal": true,
+  "devDependencies": {
+    "cli-js": "0.0.8",
+    "optimist": "^0.6.1",
+    "shelljs": "^0.2.6",
+    "underscore": "^1.5.2",
+    "underscore.string": "^2.3.3"
+  }
 }
