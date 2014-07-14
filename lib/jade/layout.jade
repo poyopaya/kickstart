@@ -1,4 +1,4 @@
-!!!
+doctype html
 html(lang='en')
   head
     meta(charset='utf8')
@@ -43,8 +43,8 @@ html(lang='en')
 
       ga('create', 'UA-1315296-20', 'getkickstrap.com');
       ga('send', 'pageview');
-    :coffeescript
-      k$.ready ->  
-        jspm.import 'ks:advertisements'
-        k$.demoStylesheet = () -> $('#main-stylesheet').remove()
+      k$.ready(function() {
+        jspm.import('ks:advertisements')
+        k$.demoStylesheet = function() { $('#main-stylesheet').remove(); }
+      })
     block foot

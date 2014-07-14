@@ -1,7 +1,9 @@
-:coffeescript
-	k$.ready ->
-		$.growl
-			title: "Example page"
-			type: "info"
-			delay: 2000
-			text: "<br>Use this template to hack your own page."
+script.
+  k$.ready(function() {
+    $.growl({
+      title: "Example page",
+      type: "info",
+      delay: 2000,
+      text: "<br>Use this template to hack your own page."
+    })
+  })

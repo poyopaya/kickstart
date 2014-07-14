@@ -41,8 +41,7 @@ block content
 						.item(sly-repeat="product in products | orderByPriority | filter:{featured: true}", style="max-height: 450px")
 							img(ng-src="http://images.weserv.nl/?url=s3.amazonaws.com/getkickstrap.com/2.0-static/img/{{product.img}}&w=1000&t=fitup")
 							.carousel-caption
-								h3 
-									{{product.name}}
+								h3 {{product.name}}
 								p {{product.desc}}
 								p 
 									a.btn.btn-default(href="cart.html") 

@@ -23,8 +23,7 @@ block content
 			.col-md-8.col-md-offset-2#disqus
 
 block foot
-	:coffeescript
-
-		# Only execute when kickstrap is ready
-		k$.ready ->
-			jspm.import('ks:disqus')
+	script.
+		k$.ready(function() {
+			jspm.import('ks:disqus');
+		})
