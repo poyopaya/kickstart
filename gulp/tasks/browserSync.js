@@ -2,9 +2,9 @@ var browserSync = require('browser-sync');
 var gulp        = require('gulp');
 
 gulp.task('browserSync', ['build'], function() {
-  browserSync.init(['build/**'], {
+  browserSync.init(['./public/**'], {
     server: {
-      baseDir: ['build', 'src']
+      baseDir: ['public', 'lib']
     }
   });
 });
