@@ -7,12 +7,12 @@ var gulp = require('gulp'),
 
 // Main entry point
 
-gulp.task('default', ['connect', 'watch']);
+gulp.task('default', ['build', 'connect', 'watch']);
 
 // Basic builder
 
 gulp.task('build', function() {
-  gulp.start('compile:css', 'compile:jade');
+  gulp.start('compile:css', 'compile:jade', 'compile:images');
 })
 
 // Compilers
@@ -20,24 +20,29 @@ gulp.task('build', function() {
 gulp.task('compile:css', function() {
   return gulp.src(['./lib/sass/**/*.{sass, scss}'])
     .pipe(sass())
-    .pipe(gulp.dest('./css'));
+    .pipe(gulp.dest('./public/css'));
 });
 
 gulp.task('compile:jade', function() {
   return gulp.src(['./lib/jade/**/*.jade'])
     .pipe(jade())
-    .pipe(gulp.dest('./'));
+    .pipe(gulp.dest('./public'));
 });
 
 gulp.task('compile:coffee', function() {
   return gulp.src(['./lib/coffee/**/*.coffee'])
     .pipe(coffee())
-    .pipe(gulp.dest('./js'));
+    .pipe(gulp.dest('./public/js'));
+})
+
+gulp.task('compile:images', function() {
+  return gulp.src('./lib/img/**/*').pipe(gulp.dest('./public/img'));
 })
 
 gulp.task('connect', function() {
   connect.server({
-    livereload: true
+    livereload: true,
+    root: 'public'
   });
 });
 
