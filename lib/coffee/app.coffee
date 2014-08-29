@@ -1,2 +1,3 @@
-# Kickstrap = require './kickstrap'
-# kickstrap = new Kickstrap()
+# flexboxGrid = require 'flexbox-grid'
+Vendor = require './vendor'
+vendor = new Vendor

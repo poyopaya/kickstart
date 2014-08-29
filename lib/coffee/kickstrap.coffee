@@ -174,3 +174,5 @@ jspm.import jspmResources, ($, app, angular) ->
   setTimeout () ->
     throw e
   , 1000
+
+module.exports = kickstrap
