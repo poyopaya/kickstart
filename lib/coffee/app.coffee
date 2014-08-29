@@ -1,2 +1,2 @@
-Kickstrap = require './kickstrap'
-kickstrap = new Kickstrap()
+# Kickstrap = require './kickstrap'
+# kickstrap = new Kickstrap()
