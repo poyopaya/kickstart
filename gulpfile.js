@@ -37,6 +37,11 @@ gulp.task('compile:coffee', function() {
 
 gulp.task('compile:assets', function() {
   gulp.src('./lib/themes/**/*').pipe(gulp.dest('./public/themes'));
+  gulp.src('./lib/apps/**/*')
+    .pipe(gulp.dest('./public/apps'));
+  gulp.src('./lib/apps/**/*.coffee')
+    .pipe(coffee())
+    .pipe(gulp.dest('./public/apps'))
   return gulp.src('./lib/img/**/*').pipe(gulp.dest('./public/img'));
 })
 
