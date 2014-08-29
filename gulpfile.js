@@ -12,7 +12,7 @@ gulp.task('default', ['build', 'connect', 'watch']);
 // Basic builder
 
 gulp.task('build', function() {
-  gulp.start('compile:css', 'compile:jade', 'compile:images', 'compile:coffee');
+  gulp.start('compile:css', 'compile:jade', 'compile:assets', 'compile:coffee');
 })
 
 // Compilers
@@ -35,7 +35,8 @@ gulp.task('compile:coffee', function() {
     .pipe(gulp.dest('./public/js'));
 })
 
-gulp.task('compile:images', function() {
+gulp.task('compile:assets', function() {
+  gulp.src('./lib/themes/**/*').pipe(gulp.dest('./public/themes'));
   return gulp.src('./lib/img/**/*').pipe(gulp.dest('./public/img'));
 })
 
