@@ -12,7 +12,7 @@ gulp.task('default', ['build', 'connect', 'watch']);
 // Basic builder
 
 gulp.task('build', function() {
-  gulp.start('compile:css', 'compile:jade', 'compile:images');
+  gulp.start('compile:css', 'compile:jade', 'compile:images', 'compile:coffee');
 })
 
 // Compilers
