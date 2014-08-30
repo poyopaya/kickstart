@@ -43,6 +43,7 @@
     "gulp-util": "^3.0.1",
     "gulp-watch": "^0.6.8",
     "markdown-js": "0.0.3",
+    "normalize-sass": "^1.0.0",
     "pretty-hrtime": "^0.2.1",
     "require-dir": "^0.1.0",
     "vinyl-source-stream": "^0.1.1",
