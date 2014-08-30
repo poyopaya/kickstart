@@ -46,6 +46,7 @@
     "normalize-sass": "^1.0.0",
     "pretty-hrtime": "^0.2.1",
     "require-dir": "^0.1.0",
+    "systemjs": "^0.8.2",
     "vinyl-source-stream": "^0.1.1",
     "watchify": "^1.0.2"
   }
