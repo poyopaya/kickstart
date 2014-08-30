@@ -1,0 +1,25 @@
+// Vendor libraries
+@import ../../node_modules/flexbox-grid/grid
+@import ../../node_modules/normalize-sass/normalize
+
+// Remapping
+=ks-container
+  +grid-container
+
+=ks-row
+  +grid-row
+
+=ks-column($type, $offset: 0)
+  +grid-column($type, $offset)
+
+$black: #333
+
+// 8 point Greyscale
+$white:          #fff     // 1
+$lightest-gray:  #eee     // 2
+$lighter-gray:   #d4d4d4  // 3
+$light-gray:     #bbb     // 4
+$gray:           #E0ECFE  // 5
+$dark-gray:      #7f7f7f  // 6
+$darker-gray:    #5d5d5d  // 7
+$darkest-gray:   #333     // 8

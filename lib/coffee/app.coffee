@@ -1,5 +1,8 @@
-# flexboxGrid = require 'flexbox-grid'
-Vendor = require './vendor'
-vendor = new Vendor
-
+###
 System = require 'systemjs'
+
+System.import('./app').then (m) ->
+  console.log(m)
+, (e) ->
+  console.log(e)
+###

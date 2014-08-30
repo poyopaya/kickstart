@@ -1,14 +1,18 @@
-@import ../../node_modules/flexbox-grid/grid
-@import ../../node_modules/normalize-sass/normalize
+// Components
+@import _base
+@import _buttons
 
 body
   +grid-container
 
 .row
-  +grid-row
+  +ks-row
 
 .mainpane
-  +grid-column('twothirds')
+  +ks-column('twothirds')
 
 .sidebar
-  +grid-column('third')
+  +ks-column('third')
+
+button
+  +ks-button
