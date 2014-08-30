@@ -2,4 +2,4 @@
 Vendor = require './vendor'
 vendor = new Vendor
 
-System = require('systemjs')
+System = require 'systemjs'
