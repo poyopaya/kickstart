@@ -1,26 +1,45 @@
+/*
+ *  Theme: Default
+ *  ==============
+ *  Theme files wrap Kickstart's mixins into duplicate mixins without the
+ *  "-default". This allows theme artists to insert their own styles by
+ *  extending the default ones. Because the default theme just does direct
+ *  assignment to the final namespaces, it overrides without actually
+ *  changing anything.
+ */
+
 // BUTTONS
 // -------
 
-@mixin button($color: darken($light-gray, 10%))
-  @include button-default($color)
+=button($color: darken($light-gray, 10%))
+  +button-default($color)
 
 // TABLE
 // -----
 
-@mixin table()
-  @include table-default()
+=table()
+  +table-default()
 
 // TILES
 // -----
 
-@mixin tile($color: $dark-gray)
-  @include tile-default($color)
+=tile($color: $dark-gray)
+  +tile-default($color)
 
 // FORMS
 // -----
 
-@mixin form-horizontal()
-  @include form-horizontal-default()
+=form-horizontal()
+  +form-horizontal-default()
 
-@mixin form-group()
-  @include form-group-default()
+=form-group()
+  +form-group-default()
+
+// TYPOGRAPHY
+// ----------
+
+=pre
+  +pre-default
+
+=code
+  +code-default
