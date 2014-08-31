@@ -1,0 +1,23 @@
+extends ../layout
+
+block mainpane
+  h3 Documentation
+
+  block doc-article
+    h4 Quickstart
+    p Lorem ipsum dolor
+
+block sidebar
+  h3 Table of Contents
+  label.checkbox
+    input(type="checkbox" checked)
+    |  Advanced (semantic)
+  label.checkbox
+    input(type="checkbox")
+    |  CSS only
+
+  ul
+    li
+      a(href="/docs/") Quickstart
+    li
+      a(href="/docs/theming") Theming

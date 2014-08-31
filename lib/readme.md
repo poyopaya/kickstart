@@ -1,7 +1,7 @@
-Kickstrap 2.0
+Kickstart 3.0
 =============
 
-<a href="http://getkickstrap.com">Homepage</a>
+<a href="http://getkickstart.com">Homepage</a>
 
 License
 =======

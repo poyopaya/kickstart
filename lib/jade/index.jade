@@ -1,19 +1,14 @@
 extends layout
 
-block content
-  .row
-    main.mainpane
-      h1 Kickstart 3
-      h2 Formerly Kickstrap
+block mainpane
+  article
+    h3 tl;dr
+    p Kickstart is a front-end framework designed for clean HTML on modern browsers.
 
-      article
-        h3 tl;dr
-        p Kickstart is a front-end framework designed for clean HTML on modern browsers.
-
-    aside.sidebar
-      h3 Table of Contents
-      ul
-        li
-          a(href="#") tl;dr
-        li
-          a(href="#") About
+block sidebar
+  h3 Table of Contents
+  ul
+    li
+      a(href="#") tl;dr
+    li
+      a(href="#") About

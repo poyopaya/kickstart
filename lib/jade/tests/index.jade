@@ -1,15 +1,13 @@
 extends ../layout
 
-block content
-  .row
-    main.mainpane
-      h1 Tests
-      h2 Visual tests for Kickstart 3
+block mainpane
+  h3 Tests
+  h4 Visual tests for Kickstart 3
 
-      block test
+  block test
 
-    aside.sidebar
-      h3 Table of Contents
-      ul
-        li
-          a(href="./buttons") buttons
+block sidebar
+  h3 Table of Contents
+  ul
+    li
+      a(href="./buttons") buttons

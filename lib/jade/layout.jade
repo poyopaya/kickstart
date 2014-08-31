@@ -3,5 +3,15 @@ html(lang='en')
   head
     link(rel="stylesheet" href="/css/docs.css")
   body
-    block content
-    script(src="/js/kickstrap.js")
+    .row
+      main.mainpane
+        h1 Kickstart 3
+        h2 Formerly Kickstrap
+
+        block mainpane
+
+      aside.sidebar
+        block sidebar
+
+    footer
+      script(src="/js/kickstrap.js")
