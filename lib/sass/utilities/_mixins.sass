@@ -1,0 +1,47 @@
+=animation-delay($time)
+  animation-delay: $time
+  -webkit-animation-delay: $time
+  -moz-animation-delay: $time
+
+=animation-duration($time)
+  animation-duration: $time
+  -webkit-animation-duration: $time
+  -moz-animation-duration: $time
+
+=animation-fill-mode($mode)
+  animation-fill-mode: $mode
+  -webkit-animation-fill-mode: $mode
+  -moz-animation-fill-mode: $mode
+
+=animation-name($name)
+  animation-name: $name
+  -webkit-animation-name: $name
+  -moz-animation-name: $name
+
+=animation-timing-function($fn)
+  animation-timing-function: $fn
+  -webkit-animation-timing-function: $fn
+  -moz-animation-timing-function: $fn
+
+=border-radius($radius)
+  border-radius: $radius
+  -webkit-border-radius: $radius
+  -moz-border-radius: $radius
+
+=box-shadow($prop1, $prop2: '')
+  @if $prop2 != ''
+    $prop2: ',' + $prop2
+  $propTotal: unquote($prop1 + $prop2)
+  box-shadow: $propTotal
+  -webkit-box-shadow: $propTotal
+  -moz-box-shadow: $propTotal
+
+=box-sizing($prop: border-box)
+  box-sizing: $prop
+  -webkit-box-sizing: $prop
+  -moz-box-sizing: $prop
+
+=transform($prop)
+  transform: $prop
+  -moz-transform: $prop
+  -webkit-transform: $prop
