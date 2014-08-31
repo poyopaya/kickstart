@@ -2,14 +2,14 @@
 @import ../../node_modules/flexbox-grid/grid
 @import ../../node_modules/normalize-sass/normalize
 
-// Remapping
-=ks-container
+// Remapping of namespace
+=container
   +grid-container
 
-=ks-row
+=row
   +grid-row
 
-=ks-column($type, $offset: 0)
+=column($type, $offset: 0)
   +grid-column($type, $offset)
 
 $black: #333
@@ -25,3 +25,5 @@ $darker-gray:    #5d5d5d  // 7
 $darkest-gray:   #333     // 8
 
 $space: 25px
+
+@import _mixins
