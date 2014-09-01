@@ -1,0 +1,30 @@
+=navbar-default
+  +flex(inline-flex)
+  +align-items(flex-start)
+  +flex-wrap
+  +justify-content(space-between)
+  +align-content(space-between)
+  width: 100%
+  padding: 0 ($navbarPadding - $navbarItemPadding)
+  background: $lightest-gray
+
+  a
+    color: $gray
+    text-decoration: none
+    cursor: pointer
+
+  p
+    margin: 0
+
+  ul
+    margin: $navbarPadding 0
+    padding: 0
+    +flex(inline-flex)
+    +justify-content(space-between)
+    +align-content(space-between)
+    +align-items(center)
+    +flex-wrap
+
+    li
+      list-style: none
+      margin: 0px $navbarItemPadding

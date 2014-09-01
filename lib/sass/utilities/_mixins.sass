@@ -45,3 +45,35 @@
   transform: $prop
   -moz-transform: $prop
   -webkit-transform: $prop
+
+=flex($type: flex)
+  display: -moz-box
+  display: -webkit-box
+  display: -webkit-flex
+  display: -ms-flexbox
+  display: $type
+
+=align-items
+  -webkit-align-items: flex-start
+  -moz-align-items: flex-start
+  align-items: flex-start
+
+=flex-wrap($kind: wrap)
+  -webkit-flex-wrap: $kind
+  -moz-flex-wrap: $kind
+  flex-wrap: $kind
+
+=justify-content($justification)
+  -webkit-justify-content: $justification
+  -moz-justify-content: $justification
+  justify-content: $justification
+
+=align-content($justification)
+  -webkit-align-content: $justification
+  -moz-align-content: $justification
+  align-content: $justification
+
+=align-items($justification)
+  -webkit-align-items: $justification
+  -moz-align-items: $justification
+  align-items: $justification 
