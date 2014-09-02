@@ -1,6 +1,7 @@
 // Vendor libraries
 @import ../../node_modules/flexbox-grid/grid
 @import ../../node_modules/normalize-sass/normalize
+@import url(http://fonts.googleapis.com/css?family=Lato:400,700,900,400italic)
 
 // Remapping of namespace
 =container
@@ -13,8 +14,10 @@
   +grid-column($type, $offset)
 
 $space: 25px
-
 $navbarHeight: 40px
+
+$default-font: 'Lato'
+$default-font-size: 16px
 
 // Other utilities
 @import _mixins
