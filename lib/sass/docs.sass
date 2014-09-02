@@ -49,8 +49,28 @@
 
 .example
   padding: $space
-  margin-bottom: $space
+  margin-bottom: $space * 2
   background: $dark-white
 
   *:last-child
     margin-bottom: 0
+
+// Also shitty
+
+h1.example-
+  &xxl
+    +xxl-heading
+  &xl
+    +xl-heading
+  &lg
+    +lg-heading
+  &md
+    +md-heading
+  &rg
+    +rg-heading
+  &sm
+    +sm-heading
+  &xs
+    +xs-heading
+  &xxs
+    +xxs-heading
