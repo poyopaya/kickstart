@@ -1,4 +1,49 @@
 extends ../index
 
 block doc-article
-  h4 Theming
+  :markdown
+    #### Theming
+
+    Theming is design to be very straightforward in Kickstart as every component
+    works like an extensible class.
+
+    The easiest way to get started is to simply make a copy of
+    `lib/themes/_default.sass` and rename it as your own.
+
+    You'll notice `_default.sass` has a very repetitive structure like this:
+
+        =some-component
+          +some-component-default
+
+    This allows you to style `some-component` by either leaning on the styles
+    already provided...
+
+        =some-component
+          +some-component-default
+          background-color: red
+          font-family: courier, monospace
+
+    ...or completely replace it with your own.
+
+        =some-component
+          background-color: red
+          font-family: courier, monospoace
+          padding: 20px
+          margin-bottom: 15px
+
+    ##### Why do it this way?
+
+    By decoupling the default styling from the final component name, you get the
+    following benefits:
+
+    ###### Keep the Kickstart core library up-to-date
+
+    Updates to the core styles of Kickstart don't get overwritten when extending
+    the component.
+
+    ###### End-user entry points remain untouched
+
+    End users don't need to use any custom name that belongs only to the theme.
+    They can flip through theme libraries and keep their library names the same.
+
+    That's really all there is to writing a Kickstart theme. Enjoy!

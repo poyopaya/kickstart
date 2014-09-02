@@ -10,17 +10,19 @@ block doc-article
 
   table
     tbody
-      - for color in ['$white', '$dark-white', '$darker-white', '$darkest-white', '$lightest-gray', '$lighter-gray', '$light-gray', '$light-gray', '$gray', '$dark-gray', '$darker-gray', '$darkest-gray', '$lightest-black', '$lighter-black', '$light-black', '$black']
+      - for color in ['white', 'dark-white', 'darker-white', 'darkest-white', 'lightest-gray', 'lighter-gray', 'light-gray', 'light-gray', 'gray', 'dark-gray', 'darker-gray', 'darkest-gray', 'lightest-black', 'lighter-black', 'light-black', 'black']
         tr
           td
-            code #{color}
+            code $#{color}
+          td(class="color-#{color}")
 
   :markdown
     #### Rainbow
 
   table
     tbody
-      - for color in ['$yellow']
+      - for color in ['yellow']
         tr
           td
-            code #{color}
+            code $#{color}
+          td(class="color-#{color}")
