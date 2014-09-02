@@ -1,31 +1,39 @@
 =navbar-default
-  +flex(inline-flex)
-  +align-items(flex-start)
-  +flex-wrap
-  +justify-content(space-between)
-  +align-content(space-between)
-  width: 100%
-  padding: 0 ($navbarPadding - $navbarItemPadding)
   background: $lightest-gray
-  margin-bottom: $space
 
-  a
-    color: $gray
-    text-decoration: none
-    cursor: pointer
-
-  p
-    margin: 0
-
-  ul
-    margin: $navbarPadding 0
-    padding: 0
+  nav
     +flex(inline-flex)
+    +align-items(flex-start)
+    +flex-wrap
     +justify-content(space-between)
     +align-content(space-between)
-    +align-items(center)
-    +flex-wrap
+    height: $navbarHeight
+    width: 100%
+    padding: 0
+    margin-bottom: $space
 
-    li
-      list-style: none
-      margin: 0px $navbarItemPadding
+    a
+      color: $gray
+      text-decoration: none
+      cursor: pointer
+      line-height: 16px
+      padding: (($navbarHeight - 16px)/2)
+      margin: (($navbarHeight - 16px)/2) * -1
+
+    p
+      margin: 0
+
+    ul
+      margin: 0
+      padding: 0
+      +flex(inline-flex)
+      +justify-content(space-between)
+      +align-content(space-between)
+      +align-items(center)
+      +flex-wrap
+
+      li
+        list-style: none
+        margin: 0
+        line-height: 16px
+        padding: (($navbarHeight - 16px)/2)
