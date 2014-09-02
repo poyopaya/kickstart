@@ -1,14 +1,17 @@
-html
+=html-default
   font-family: $default-font
   font-size: $default-font-size
+  font-size: calc(#{$default-font-size - 2} + #{$scalingFactor})
   line-height: $default-line-height
-
-li
-  line-height: $default-line-height
-  margin-bottom: 0
+  line-height: calc(#{$default-line-height} + #{$scalingFactor})
 
 ul
   margin-bottom: $space
+
+h1, h2, h3, h4, h5, h6, p
+  margin: 0
+  line-height: normal
+  color: $lighter-black
 
 p
   margin: 0
@@ -38,37 +41,32 @@ p
     line-height: 1.75rem
     margin-bottom: 2.5rem
 
-h1, h2, h3, h4, h5, h6, p
-  margin: 0
-  line-height: normal
-  color: $lighter-black
-
 =xxl-heading-default
-  font-size: 2rem
+  font-size: 5rem
   margin-bottom: 1.65rem
 
 =xl-heading-default
-  font-size: 1.85rem
+  font-size: 4.4rem
   margin-bottom: 1.5rem
 
 =lg-heading-default
-  font-size: 1.65rem
+  font-size: 3.8rem
   margin-bottom: 1.25rem
 
 =md-heading-default
-  font-size: 1.5rem
+  font-size: 3.2rem
   margin-bottom: 1.15rem
 
 =rg-heading-default
-  font-size: 1.25rem
+  font-size: 2.6rem
   margin-bottom: 1rem
 
 =sm-heading-default
-  font-size: 1.15rem
+  font-size: 2rem
   margin-bottom: 0.85rem
 
 =xs-heading-default
-  font-size: 1rem
+  font-size: 1.4rem
   margin-bottom: 0.7rem
 
 =xxs-heading-default
