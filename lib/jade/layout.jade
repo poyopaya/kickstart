@@ -5,15 +5,16 @@ html(lang='en')
   body
     include _header
     
-    .row
-      main.mainpane
-        h1 Kickstart 3
-        h2 Formerly Kickstrap
+    .wrapper
+      .row
+        main.mainpane
+          h1 Kickstart 3
+          h2 Formerly Kickstrap
 
-        block mainpane
+          block mainpane
 
-      aside.sidebar
-        block sidebar
+        aside.sidebar
+          block sidebar
 
     footer
       script(src="/js/kickstrap.js")
