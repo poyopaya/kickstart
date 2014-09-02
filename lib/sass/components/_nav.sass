@@ -1,5 +1,5 @@
 =navbar-default
-  background: $lightest-gray
+  background: $dark-white
 
   nav
     +flex(inline-flex)
@@ -13,12 +13,16 @@
     margin-bottom: $space
 
     a
-      color: $gray
+      color: rgba(0, 0, 0, 0.4)
       text-decoration: none
       cursor: pointer
       line-height: 16px
       padding: (($navbarHeight - 16px)/2)
       margin: (($navbarHeight - 16px)/2) * -1
+
+      &:hover
+        background: rgba(0, 0, 0, 0.1)
+        color: $white
 
     p
       margin: 0

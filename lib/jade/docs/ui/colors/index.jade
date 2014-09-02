@@ -1,32 +1,26 @@
 extends ../../index
 
 block doc-article
-  h4 Colors
-  h5 Grayscales
-  p Kickstart uses an 8 point grayscale
+  :markdown
+    #### Colors
+
+    ##### Grayscales
+
+    Kickstart uses a 15 point grayscale
+
   table
     tbody
-      tr
-        td
-          code $white
-      tr
-        td
-          code $lightest-gray
-      tr
-        td
-          code $lighter-gray
-      tr
-        td
-          code $light-gray
-      tr
-        td
-          code $gray
-      tr
-        td
-          code $dark-gray
-      tr
-        td
-          code $darker-gray
-      tr
-        td
-          code $darkest-gray
+      - for color in ['$white', '$dark-white', '$darker-white', '$darkest-white', '$lightest-gray', '$lighter-gray', '$light-gray', '$light-gray', '$gray', '$dark-gray', '$darker-gray', '$darkest-gray', '$lightest-black', '$lighter-black', '$light-black', '$black']
+        tr
+          td
+            code #{color}
+
+  :markdown
+    #### Rainbow
+
+  table
+    tbody
+      - for color in ['$yellow']
+        tr
+          td
+            code #{color}
