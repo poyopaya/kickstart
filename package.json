@@ -26,7 +26,7 @@
     ]
   },
   "browserify-shim": {
-    "shit.js": "es6-module-loader"
+    "makePromise": "./node_modules/when/lib/makePromise"
   },
   "devDependencies": {
     "browser-sync": "^1.3.6",

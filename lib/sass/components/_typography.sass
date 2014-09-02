@@ -1,6 +1,18 @@
 html
   font-family: $default-font
   font-size: $default-font-size
+  line-height: $default-line-height
+
+li
+  line-height: $default-line-height
+  margin-bottom: 0
+
+ul
+  margin-bottom: $space
+
+p
+  margin: 0
+    bottom: $space
 
 =pre-default
   color: darken($blue, 25%)
@@ -18,8 +30,8 @@ html
 
 =p-default($content-optimized)
   font-size: 1rem
-  margin-bottom: 1.5rem
-  line-height: 1.4rem
+  margin-bottom: $space
+  line-height: $default-line-height
 
   @if ($content-optimized)
     font-size: 1.25rem

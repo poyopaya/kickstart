@@ -1,4 +1,4 @@
-#System = require 'systemjs'
+System = require 'systemjs'
 
 ###
 System.import('./app').then (m) ->
