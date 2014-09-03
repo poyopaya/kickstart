@@ -25,12 +25,13 @@ block doc-article
     code true
     |  to&nbsp;
     code p()
-    
+
   .example
     p.readable Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
     p.readable Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 
-  pre p.readable {
+  .code
+    | p.readable {
     |   @include p(true);
     | }
 
@@ -42,17 +43,17 @@ block doc-article
       h1 How to cook a pie
     p The first step to cooking a pie is to choose a fancy tin.
 
-  :markdown
-    ### Code
+    :markdown
+      ### Code
 
-        <header class="page-heading">
-          <h1>How to cook a pie</h1>
-        </header>
-        <p>The first step to cooking a pie is to choose a fancy pie tin.</p>
+          <header class="page-heading">
+            <h1>How to cook a pie</h1>
+          </header>
+          <p>The first step to cooking a pie is to choose a fancy pie tin.</p>
 
-        .page-heading {
-          @include page-heading();
-        }
+          .page-heading {
+            @include page-heading();
+          }
 
 
   h2 Decoupled
@@ -71,9 +72,10 @@ block doc-article
           td
             code #{size}-heading()
           td
-            pre h1.#{size}
+            .code
+              | h1.#{size}
               |   +#{size}-heading
-              | 
+              | &nbsp;
               | &lt;h1 class="#{size}"&gt;Hello World&lt;/h1&gt;
           td
             h1(class="example-#{size}") Hello World
