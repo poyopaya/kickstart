@@ -21,17 +21,19 @@ block mainpane
           li Use our Gulp-powered compilation boilerplate
 
 block sidebar
-  h1 Table of Contents
-  label.checkbox
-    input(type="checkbox" checked)
-    |  Advanced (semantic)
-  label.checkbox
-    input(type="checkbox" checked)
-    |  Sass
-  label.checkbox
-    input(type="checkbox")
-    |  jQuery
+  h1 View Options
+  form
+    label.checkbox
+      input(type="checkbox" checked)
+      |  Advanced (semantic)
+    label.checkbox
+      input(type="checkbox" checked)
+      |  Sass
+    label.checkbox
+      input(type="checkbox")
+      |  jQuery
 
+  h1 Table of Contents
   ul
     li
       a(href="/docs/") Quickstart
@@ -44,8 +46,6 @@ block sidebar
           a(href="/docs/ui/") Base styles
         li
           a(href="/docs/ui/buttons") Buttons
-        li
-          a(href="/docs/ui/dropdowns") Dropdowns
         li
           a(href="/docs/ui/forms") Forms
         li

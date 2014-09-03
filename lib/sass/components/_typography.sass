@@ -26,6 +26,7 @@ p
   word-break: break-all
   word-wrap: break-word
   border: 0px !important
+  margin-bottom: $space
 
 =code-default
   margin-bottom: 0px
@@ -41,34 +42,61 @@ p
     line-height: 1.75rem
     margin-bottom: 2.5rem
 
+=heading-break
+  margin:
+    top: $space * 2
+  &:first-child
+    margin-top: 0
+
+=page-heading-default
+  h1, h2, h3, h4, h5, h6
+    border-bottom: 1px solid $darker-white
+    padding-bottom: $space/2
+
 =xxl-heading-default
   font-size: 3rem
-  margin-bottom: 1.65rem
+  margin:
+    bottom: 1.65rem
+  +heading-break
 
 =xl-heading-default
   font-size: 2.7rem
-  margin-bottom: 1.5rem
+  margin:
+    bottom: 1.5rem
+  +heading-break
 
 =lg-heading-default
   font-size: 2.4rem
-  margin-bottom: 1.25rem
+  margin:
+    bottom: 1.25rem
+  +heading-break
 
 =md-heading-default
   font-size: 2.1rem
-  margin-bottom: 1.15rem
+  margin:
+    bottom: 1.15rem
+  +heading-break
 
 =rg-heading-default
   font-size: 1.8rem
-  margin-bottom: 1rem
+  margin:
+    bottom: 1rem
+  +heading-break
 
 =sm-heading-default
   font-size: 1.5rem
-  margin-bottom: 0.85rem
+  margin:
+    bottom: 0.85rem
+  +heading-break
 
 =xs-heading-default
   font-size: 1.2rem
-  margin-bottom: 0.7rem
+  margin:
+    bottom: 0.7rem
+  +heading-break
 
 =xxs-heading-default
   font-size: 0.9rem
-  margin-bottom: 0.5rem
+  margin:
+    bottom: 0.5rem
+  +heading-break
