@@ -4,17 +4,19 @@
  *  Generation of css for the getkickstart.com homepage.
  */
 
-// First load Kickstrap
-@import _kickstart
-
-// Then the theme
+// Choose your theme
 @import themes/_default
+
+// Now write your own Sass
 
 .mainpane
   +column('twothirds')
 
 .sidebar
   +column('third')
+
+  h1
+    +xs-heading
 
 .main-navigation
   +navbar
