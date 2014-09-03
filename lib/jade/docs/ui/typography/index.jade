@@ -30,10 +30,10 @@ block doc-article
     p.readable Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
     p.readable Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 
-  .code
-    | p.readable {
-    |   @include p(true);
-    | }
+    pre 
+      code p.readable {
+        |   @include p(true);
+        | }
 
   h2 Headers
   p Create spacious, dominating header lines
@@ -72,10 +72,11 @@ block doc-article
           td
             code #{size}-heading()
           td
-            .code
-              | h1.#{size}
-              |   +#{size}-heading
-              | &nbsp;
-              | &lt;h1 class="#{size}"&gt;Hello World&lt;/h1&gt;
+            pre
+              code h1.#{size} {
+                |   +#{size}-heading;
+                | }
+                | &nbsp;
+                | &lt;h1 class="#{size}"&gt;Hello World&lt;/h1&gt;
           td
             h1(class="example-#{size}") Hello World

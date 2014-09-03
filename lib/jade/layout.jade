@@ -18,13 +18,5 @@ html(lang='en')
     footer
       script(src="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.2/highlight.min.js")
       script.
-        hljs.configure({useBR: true});
-
-        var block, _i, _len,
-          blocks = document.querySelectorAll('.code');
-
-        for (_i = 0, _len = blocks.length; _i < _len; _i++) {
-          block = blocks[_i];
-          hljs.highlightBlock(block);
-        }
+        hljs.initHighlightingOnLoad();
       script(src="/js/kickstart.js")
