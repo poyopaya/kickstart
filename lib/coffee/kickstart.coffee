@@ -6,7 +6,3 @@ catch
   return
 
 System.baseURL = '/apps/'
-
-System.import('modal').then((ks) ->
-  new ks.modal()
-).catch(console.error.bind(console));

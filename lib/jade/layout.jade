@@ -14,11 +14,18 @@ html(lang='en')
         aside.sidebar
           block sidebar
 
-    .modal
+    .modal(style="display: none")
       h1 I am a modal.
 
     footer
       // Temporary fix until I can get browserify working with system.js
       script(src="/js/system.min.js")
+      script(src="/js/systemjs/css.js")
 
       script(src="/js/kickstart.js")
+
+      script.
+        System.import('modal.css!')
+        System.import('modal').then(function(ks) {
+          new ks.modal()
+        }).catch(console.error.bind(console));
