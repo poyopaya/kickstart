@@ -1,14 +1,18 @@
-# BASIC SITE SETTINGS
 ###
+Setting aside for now...
+###
+
+# BASIC SITE SETTINGS
+
 window.k$ =
 
   # Apps
   # Local apps to be loaded on every page.
   apps: [
-    'ks:sample-app'
-    'ks:tinygrowl'
-    'ks:ang-app'
-    'ks:kickstrap-logo'
+    'apps/sample-app'
+    'apps/tinygrowl'
+    'apps/ang-app'
+    'apps/kickstrap-logo'
   ]
 
   # Angular components
@@ -64,21 +68,21 @@ System.map =
   'bootstrap':            'github:twbs/bootstrap@3.0/js/bootstrap'
   'angular':              'github:angular/bower-angular@1.2.1'
   'angularFire':          'github:firebase/angularFire@0.5'
-  'ang-app':              'ks:ang-app'
-  'angular-route':        'ks:ang-app/resources/angular-route'
-  'gatedScope':           'ks:ang-app/resources/gatedScope'
+  'ang-app':              'apps/ang-app'
+  'angular-route':        'apps/ang-app/resources/angular-route'
+  'gatedScope':           'apps/ang-app/resources/gatedScope'
   'fontawesome':          'github:FortAwesome/Font-Awesome@4.0.3/css/font-awesome.min.css!'
-  'ngProgress':           'ks:ang-app/resources/ngprogress'
-  'firebaseSimpleLogin':  'ks:ang-app/resources/firebaseSimpleLogin'
+  'ngProgress':           'apps/ang-app/resources/ngprogress'
+  'firebaseSimpleLogin':  'apps/ang-app/resources/firebaseSimpleLogin'
   'css':                  'github:jspm/plugin-css/css'
 
 # some packages need shim config
 System.shim =
   'github:angular/bower-angular@1.2.1/angular.min':
     exports: 'angular'
-  'ks:ang-app/resources/angular-route':    ['angular']
-  'ks:ang-app/resources/ngprogress':       ['angular']
-  'ks:ang-app/resources/gatedScope':       ['angular']
+  'apps/ang-app/resources/angular-route':    ['angular']
+  'apps/ang-app/resources/ngprogress':       ['angular']
+  'apps/ang-app/resources/gatedScope':       ['angular']
 
 # deep extension for applying default settings
 window.extend = (objA, objB) ->
@@ -90,7 +94,7 @@ window.extend = (objA, objB) ->
   objA
 
 try
-  console.log('%cKickstrap', 'font-style:italic;font-family: helvetica neue, helvetica, sans-serif;font-size:20px;color:#FDD726;text-shadow:0 1px 0 #D1B43B,0 2px 0 #D1B43B,0 3px 0 #D1B43B,0 4px 0 #D1B43B,0 5px 0 #D1B43B,0 6px 1px rgba(30,28,23,.1),0 0 5px rgba(30,28,23,.1),0 1px 3px rgba(30,28,23,.3),0 3px 5px rgba(30,28,23,.2),0 5px 10px rgba(30,28,23,.25),0 10px 10px rgba(30,28,23,.2),0 20px 20px rgba(30,28,23,.15);')
+  console.log('%cKickstart 3', 'font-style:italic;font-family: helvetica neue, helvetica, sans-serif;font-size:20px;color:#FDD726;text-shadow:0 1px 0 #D1B43B,0 2px 0 #D1B43B,0 3px 0 #D1B43B,0 4px 0 #D1B43B,0 5px 0 #D1B43B,0 6px 1px rgba(30,28,23,.1),0 0 5px rgba(30,28,23,.1),0 1px 3px rgba(30,28,23,.3),0 3px 5px rgba(30,28,23,.2),0 5px 10px rgba(30,28,23,.25),0 10px 10px rgba(30,28,23,.2),0 20px 20px rgba(30,28,23,.15);')
 catch
   return
 
@@ -126,7 +130,7 @@ jspmResources = k$.settings.core
 System.urlArgs = '?bust=' + new Date().getTime() if k$.settings.mode == 'dev'
 
 # Add the "ks:" namespace
-System.paths['ks:*'] = 'apps/*.js'
+# System.paths['ks/*'] = 'apps/*.js' # Under revision in systemjs repo.
 
 # auto main entry point to 'main'
 systemNormalize = System.normalize;
@@ -152,9 +156,9 @@ window.jspm =
 
 # Build angular app core
 k$.appCore = []
-k$.appCore.push 'ks:ang-app/controllers/' + ctrl for ctrl in k$.settings.angular.controllers
-k$.appCore.push 'ks:ang-app/directives/' + dctv for dctv in k$.settings.angular.directives
-k$.appCore.push 'ks:ang-app/filters/' + filter for filter in k$.settings.angular.filters
+k$.appCore.push 'apps/ang-app/controllers/' + ctrl for ctrl in k$.settings.angular.controllers
+k$.appCore.push 'apps/ang-app/directives/' + dctv for dctv in k$.settings.angular.directives
+k$.appCore.push 'apps/ang-app/filters/' + filter for filter in k$.settings.angular.filters
 
 jspmResources = jspmResources.concat k$settings.apps
 jspmResources = jspmResources.concat k$.appCore
@@ -174,5 +178,3 @@ jspm.import jspmResources, ($, app, angular) ->
   setTimeout () ->
     throw e
   , 1000
-
-###

@@ -8,11 +8,17 @@ html(lang='en')
 
     .container
       .row
-        main.mainpane 
+        main.mainpane
           block mainpane
 
         aside.sidebar
           block sidebar
 
+    .modal
+      h1 I am a modal.
+
     footer
+      // Temporary fix until I can get browserify working with system.js
       script(src="/js/system.min.js")
+
+      script(src="/js/kickstart.js")
