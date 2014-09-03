@@ -11,12 +11,28 @@
 // VARIABLES
 // ---------
 
-$space: 25px
+// Ten point design variables
+// --------------------------
+// Modifying just these ten variables will take care of 90% of your theme
+
+$primary-color:       0
+$secondary-color:     0
+$space:               25px
+$heading-font-family: 'Lato'
+$body-font-family:    'Lato'
+$base-font-size:      16px
+$black-augment:       0
+$white-augment:       0
+$saturation-augment:  0
+$luminosity-augment:  0
+
+// --------------------------
+
 $navbarHeight: 40px
 $scalingFactor: 0.25vw
 
-$default-font: 'Lato'
-$default-font-size: 16px
+$default-font: $body-font-family
+$default-font-size: $base-font-size
 $default-line-height: 1.4rem
 
 // Grayscale
@@ -41,7 +57,7 @@ $white:          #FFF
 
 $yellow:         yellow
 
-@import ../utilities/index
+@import ../core/index
 
 // BUTTONS
 // -------
@@ -117,6 +133,9 @@ $yellow:         yellow
 
 =xxs-heading
   +xxs-heading-default
+
+h1, h2, h3, h4, h5, h6
+  font-family: $heading-font-family
 
 h1
   +lg-heading
