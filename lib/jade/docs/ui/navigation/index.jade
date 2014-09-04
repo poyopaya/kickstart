@@ -33,6 +33,35 @@ block doc-article
     as the navbar becomes more complex, such as the addition of a wrapper inside
     the container.
 
+    #### Combining with other elements
+
+    In order to preserve styling, remember to use the utility classes for mixed
+    in elements such as buttons.
+
+        <div class="navbar">
+          <nav>
+            <ul>
+              <li>
+                <a href="#">Home</a>
+              </li>
+              <li>
+                <a class="button signup" href="#">Sign Up</a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+
+        .navbar {
+          @include navbar();
+        }
+        .signup {
+          @include button();
+        }
+
+    As you can see, the `.button` class doesn't have any styling on it. Its 
+    presence is only to notify the `navbar()` mixin to treat it differently
+    than a regular `<a>` element.
+
     ### Dropdowns
 
     ### Breadcrumbs

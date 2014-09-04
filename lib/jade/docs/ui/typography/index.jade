@@ -74,7 +74,7 @@ block doc-article
           td
             pre
               code h1.#{size} {
-                |   +#{size}-heading;
+                |   @include #{size}-heading();
                 | }
                 | &nbsp;
                 | &lt;h1 class="#{size}"&gt;Hello World&lt;/h1&gt;
