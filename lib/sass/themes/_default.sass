@@ -28,8 +28,9 @@ $luminosity-augment:  0
 
 // --------------------------
 
-$navbarHeight: 40px
 $scalingFactor: 0.25vw
+
+$rootElement: (paddingV: 5px, paddingH: 12px)
 
 $default-font: $body-font-family
 $default-font-size: $base-font-size
@@ -78,8 +79,8 @@ $blue:           blue
 // NAVIGATION
 // ----------
 
-=navbar()
-  +navbar-default()
+=navbar($bleed-container: false)
+  +navbar-default($bleed-container)
 
 // STATUSES
 // --------

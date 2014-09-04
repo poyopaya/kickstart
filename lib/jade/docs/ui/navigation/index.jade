@@ -35,8 +35,7 @@ block doc-article
 
     #### Combining with other elements
 
-    In order to preserve styling, remember to use the utility classes for mixed
-    in elements such as buttons.
+    Try mixing and matching with other elements, especially buttons and inputs.
 
         <div class="navbar">
           <nav>
@@ -45,7 +44,7 @@ block doc-article
                 <a href="#">Home</a>
               </li>
               <li>
-                <a class="button signup" href="#">Sign Up</a>
+                <a class="signup" href="#">Sign Up</a>
               </li>
             </ul>
           </nav>
@@ -58,9 +57,44 @@ block doc-article
           @include button();
         }
 
-    As you can see, the `.button` class doesn't have any styling on it. Its 
-    presence is only to notify the `navbar()` mixin to treat it differently
-    than a regular `<a>` element.
+    #### Special uses
+
+    A common layout is to use the navbar at the top of the page, full width,
+    with a container. By itself, the left and right padding will prevent it from
+    lining up with the margins of `container()`
+
+        <div class="mynavbar">
+          <div class="mycontainer">
+            <nav>
+              <ul>
+                <li>
+                  <a href="#">Home</a>
+                </li>
+              </ul>
+
+              <ul>
+                <li>
+                  <a href="#">Login</a>
+                </li>
+              </ul>
+            </nav>
+          </div>
+        </div>
+
+        <main>
+          <div class="mycontainer">
+            <h1>Hello world</h1>
+          </div>
+        </main>
+
+        .mycontainer {
+          @include container();
+        }
+        .mynavbar {
+          @include navbar($bleed-container: true);
+        }
+
+    Simply pass in `true` to the `$bleed-container` parameter to enable container bleed.
 
     ### Dropdowns
 

@@ -1,6 +1,4 @@
-$navbarLineHeight: $navbarHeight - 24px
-
-=navbar-default
+=navbar-default($bleed-container: false)
   background: $dark-white
   margin-bottom: $space
 
@@ -10,18 +8,9 @@ $navbarLineHeight: $navbarHeight - 24px
     +flex-wrap
     +justify-content(space-between)
     +align-content(space-between)
-    height: $navbarHeight
     width: 100%
-    padding: 0
-
-    a
-      color: rgba(0, 0, 0, 0.5)
-      text-decoration: none
-      cursor: pointer
-
-      &:hover
-        background: rgba(0, 0, 0, 0.1)
-        color: $white
+    +root-element
+    +border-radius(0)
 
     h1
       margin-bottom: 0
@@ -30,6 +19,13 @@ $navbarLineHeight: $navbarHeight - 24px
 
     p
       margin: 0
+
+    @if ($bleed-container)
+      ul:first-child
+        margin-left: (-2 * map-get($rootElement, paddingH))
+
+      ul:last-child
+        margin-right: (-2 * map-get($rootElement, paddingH))
 
     ul
       margin: 0
@@ -41,15 +37,18 @@ $navbarLineHeight: $navbarHeight - 24px
       +flex-wrap
 
       li
+        +root-element
+        +border-radius(0)
         list-style: none
-        margin: 0
-        line-height: 16px
-        padding: (($navbarHeight - $navbarLineHeight)/2)
+
+        a
+          color: rgba(0, 0, 0, 0.5)
+          text-decoration: none
+          cursor: pointer
+
+          &:hover
+            color: rgba(0, 0, 0, 0.85)
 
         a, button, input
-          margin:
-            bottom: 0
-            top: 0
-          line-height: $navbarLineHeight
-          padding: (($navbarHeight - $navbarLineHeight)/2)
-          margin: (($navbarHeight - $navbarLineHeight)/2) * -1
+          +root-element
+          margin: (-1 * map-get($rootElement, paddingV)) (-1 * map-get($rootElement, paddingH))
