@@ -79,3 +79,26 @@ h1.example-
     +xs-heading
   &xxs
     +xxs-heading
+
+// For showing scaled down content in iframes
+.scaled-iframe-wrapper
+  $scale: 0.6
+  $width: 320px
+  $height: 250px
+
+  width: $width
+  height: $height
+  overflow: hidden
+  margin-bottom: $space
+
+  iframe.scaled
+    -ms-zoom: $scale
+    -moz-transform: scale(#{$scale})
+    -moz-transform-origin: 0 0
+    -o-transform: scale(#{$scale})
+    -o-transform-origin: 0 0
+    -webkit-transform: scale(#{$scale})
+    -webkit-transform-origin: 0 0
+    border: 1px solid $darkest-white
+    width: $width / $scale
+    height: $height / $scale
