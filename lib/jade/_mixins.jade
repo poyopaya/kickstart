@@ -1,0 +1,26 @@
+mixin element-table(mixin)
+  tr
+    td Mixin name
+    td
+      pre
+        code #{mixin}
+
+mixin block-table(foo)
+  tr
+    td Foo name
+    td
+      pre
+        code #{foo}
+
+mixin preview(src, rowOne, block)
+  .scaled-iframe
+    main
+      iframe(src="/previews/#{src}.html")
+    aside
+      table
+        tbody
+          if block == true
+            +block-table(rowOne)
+
+          else
+            +element-table(rowOne)

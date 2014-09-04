@@ -1,16 +1,21 @@
 extends ../../index
 
+include ../../../_mixins
+
 block doc-article
   h2 Buttons
 
-  .example
-    button Sign up
+  +preview(
+    src='buttons',
+    rowOne='button()',
+    block=false
+  )
 
-    :markdown
-      Example
+  :markdown
+    Example
 
-          <button class="signup">Sign up</button>
+        <button class="signup">Sign up</button>
 
-          .signup {
-            @include button();
-          }
+        .signup {
+          @include button();
+        }
