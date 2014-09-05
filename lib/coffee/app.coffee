@@ -1,2 +1,2 @@
-# Module = require 'module'
-Modal = require './kickstart-modal'
+Main = require './main'
+Modal = require './modal'
