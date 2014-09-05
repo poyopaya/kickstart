@@ -1,2 +1,2 @@
-Main = require './main'
+KS = require './ks'
 Modal = require './modal'
