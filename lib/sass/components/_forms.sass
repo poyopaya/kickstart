@@ -5,10 +5,8 @@ label
 form
   margin-bottom: $space
 
-input[type="text"],
-input[type="email"],
-input[type="number"],
-input[type="search"]
+input,
+textarea
   +root-element
   margin-bottom: ($space/2)
   border: 1px solid #CCC
@@ -32,6 +30,10 @@ input[type="radio"]
     font-weight: normal
 
 =form-horizontal-default()
+  label, input
+    display: inline-block
+
+=form-left-default()
   label
     display: inline-block
     width: 50%
