@@ -10,16 +10,48 @@ block test
           li
             a(href="#") Foo
           li
-            button Foo
+            a(href="#") Foo
+          li Foo
+          li
+            a(href="#") Foo
+
+    .navbar
+      nav
+        ul
           li
             a(href="#") Foo
           li
-            a.button(href="#") Foo
+            button(role="button") Button
+          li
+            a(href="#") Foo
+          li
+            a.button(href="#" role="button") Button
           li Foo
           li Foo
           li
             a(href="#") Foo
           li
-            a.button(href="#") Foo
+            a.button(href="#" role="button") Button
           li
-            a.button(href="#") Foo
+            a.button(href="#" role="button") Button
+
+    h1 (Incorrect implementation)
+    .navbar
+      nav
+        ul
+          li
+            a(href="#") Foo
+          li
+            button Button
+          li
+            a(href="#") Foo
+          li
+            a.button(href="#") Button
+          li Foo
+          li Foo
+          li
+            a(href="#") Foo
+          li
+            a.button(href="#") Button
+          li
+            a.button(href="#") Button

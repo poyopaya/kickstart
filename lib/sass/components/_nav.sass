@@ -9,7 +9,6 @@
     +justify-content(space-between)
     +align-content(space-between)
     width: 100%
-    +root-element
     +border-radius(0)
 
     h1
@@ -37,18 +36,25 @@
       +flex-wrap
 
       li
+        list-style: none
         +root-element
         +border-radius(0)
-        list-style: none
 
-        a
+        a:not([role=button])
           color: rgba(0, 0, 0, 0.5)
           text-decoration: none
           cursor: pointer
+          display: block
+          +root-element
+          +border-radius(0)
+          margin: (-1 * map-get($rootElement, paddingV)) (-1 * map-get($rootElement, paddingH))
+          padding:
+            top: (2 * map-get($rootElement, paddingV))
+            bottom: (2 * map-get($rootElement, paddingV))
 
           &:hover
             color: rgba(0, 0, 0, 0.85)
+            background: rgba(0, 0, 0, 0.05)
 
-        a, button, input
-          +root-element
-          margin: (-1 * map-get($rootElement, paddingV)) (-1 * map-get($rootElement, paddingH))
+          &:active
+            background: rgba(0, 0, 0, 0.1)
