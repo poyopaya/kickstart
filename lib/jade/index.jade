@@ -2,15 +2,31 @@ extends layout
 
 block mainpane
   article.readable
-    h1 Kickstart 3
-    p Kickstart is a front-end framework designed for clean HTML on modern browsers.
+    header
+      h1 Kickstart 3
+      p Kickstart is a front-end framework focused on clean HTML and fast performance.
 
-    h2 Features
-    ul
-      li No jQuery dependency
-      li Flexbox grid
-      li Easily themeable
-      li Sass mixins for clean classes
+    main
+      h2 Lightweight
+      ul
+        li Not dependent on jQuery.
+        li Only use what you need.
+
+      h2 Designed to be customized
+      ul
+        li Easily create themes by extending components and defining a few core variables.
+
+    .more
+      :markdown
+        ## Feature-forward
+        Kickstart targets the most modern browsers at the time of release. This means we've skipped over the hacks and headed straight to exciting components like using CSS flexbox for the [grid](/docs/grid/).
+
+        ## Second thing
+        Second thing
+
+        ## Third thing
+        Third thing
+
 
 block sidebar
   h1 Table of Contents
