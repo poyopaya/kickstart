@@ -39,6 +39,9 @@
         list-style: none
         +root-element
         +border-radius(0)
+        padding:
+          top: (map-get($rootElement, paddingV) - 1)
+          bottom: (map-get($rootElement, paddingV) - 1)
 
         a:not([role=button])
           color: rgba(0, 0, 0, 0.5)
@@ -47,7 +50,7 @@
           display: block
           +root-element
           +border-radius(0)
-          margin: (-1 * (map-get($rootElement, paddingV) + 1)) (-1 * map-get($rootElement, paddingH))
+          margin: (-1 * map-get($rootElement, paddingV)) (-1 * map-get($rootElement, paddingH))
           padding:
             top: (2 * map-get($rootElement, paddingV))
             bottom: (2 * map-get($rootElement, paddingV))
