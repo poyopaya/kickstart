@@ -1,28 +1,9 @@
-extends ../../index
+extends ../../layout
 
-include ../../../../_mixins
+block hero-title
+  h1 Buttons
 
-block doc-article
-  h2 Buttons
-
-  +preview(
-    src='buttons',
-    rowOne='button()',
-    block=false
-  )
-
-  :markdown
-    Example
-
-        <button class="signup">Sign up</button>
-
-        .signup {
-          @include button();
-        }
-
-
-  h3 Variations
-
+block hero-example
   .button.red Red
   | &nbsp;
   .button.orange Orange
@@ -34,3 +15,20 @@ block doc-article
   .button.blue Blue
   | &nbsp;
   .button.violet Violet
+
+block meta
+  table
+    tr
+      td Mixin
+      td
+        code button()
+
+block basic
+  :markdown
+    &nbsp;
+
+        <button class="signup">Sign up</button>
+
+        .signup {
+          @include button();
+        }

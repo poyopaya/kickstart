@@ -11,31 +11,6 @@
 // VARIABLES
 // ---------
 
-// Ten point design variables
-// --------------------------
-// Modifying just these ten variables will take care of 90% of your theme
-
-$primary-color:       0
-$secondary-color:     0
-$space:               25px
-$heading-font-family: 'Lato', helvetica neue, sans-serif
-$body-font-family:    'Lato', helvetica neue, sans-serif
-$base-font-size:      16px
-$black-augment:       0
-$white-augment:       0
-$saturation-augment:  0
-$luminosity-augment:  0
-
-// --------------------------
-
-$scalingFactor: 0.2vw
-
-$rootElement: (paddingV: 5px, paddingH: 12px)
-
-$default-font: $body-font-family
-$default-font-size: $base-font-size
-$default-line-height: 1.4rem
-
 // Grayscale
 
 $black:          #111
@@ -62,6 +37,31 @@ $yellow:         gold
 $green:          #58AA00
 $blue:           cornflowerblue
 $violet:         darkmagenta
+
+// Ten point design variables
+// --------------------------
+// Modifying just these ten variables will take care of 90% of your theme
+
+$primary-color:       $blue
+$secondary-color:     0
+$space:               25px
+$heading-font-family: 'Lato', helvetica neue, sans-serif
+$body-font-family:    'Lato', helvetica neue, sans-serif
+$base-font-size:      16px
+$black-augment:       0
+$white-augment:       0
+$saturation-augment:  0
+$luminosity-augment:  0
+
+// --------------------------
+
+$scalingFactor: 0.2vw
+
+$rootElement: (paddingV: 5px, paddingH: 12px)
+
+$default-font: $body-font-family
+$default-font-size: $base-font-size
+$default-line-height: 1.4rem
 
 @import ../core/index
 
@@ -123,6 +123,22 @@ $violet:         darkmagenta
   +page-heading-default
   h1, h2, h3, h4, h5, h6
     // Styles should go here.
+
+=hero
+  +hero-default
+
+  h1
+    +xxl-heading
+  h2
+    +xl-heading
+  h3
+    +lg-heading
+  h4
+    +md-heading
+  h5
+    +rg-heading
+  h6
+    +sm-heading
 
 =xxl-heading
   +xxl-heading-default

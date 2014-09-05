@@ -1,6 +1,6 @@
 =navbar-default($bleed-container: false)
   background: $dark-white
-  margin-bottom: $space
+  border-top: 1px solid $darker-white
 
   nav
     +flex(inline-flex)
@@ -47,14 +47,19 @@
           display: block
           +root-element
           +border-radius(0)
-          margin: (-1 * map-get($rootElement, paddingV)) (-1 * map-get($rootElement, paddingH))
+          margin: (-1 * (map-get($rootElement, paddingV) + 1)) (-1 * map-get($rootElement, paddingH))
           padding:
             top: (2 * map-get($rootElement, paddingV))
             bottom: (2 * map-get($rootElement, paddingV))
 
           &:hover
             color: rgba(0, 0, 0, 0.85)
-            background: rgba(0, 0, 0, 0.05)
+            background: $darker-white
+            border-color: $darker-white
 
           &:active
-            background: rgba(0, 0, 0, 0.1)
+            background: $darkest-white
+            border-color: $darkest-white
+
+      ul
+        display: none

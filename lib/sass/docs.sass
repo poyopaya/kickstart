@@ -24,6 +24,9 @@
 .main-navigation
   +navbar($bleed-container: true)
 
+.docs-nav
+  +navbar($bleed-container: true)
+
 // Colors
 // Kind of shitty, but there is a colors page that directly relies on this.
 
@@ -79,45 +82,3 @@ h1.example-
     +xs-heading
   &xxs
     +xxs-heading
-
-// For showing scaled down content in iframes
-.scaled-iframe
-  clear: both
-  overflow: hidden
-  margin-bottom: 3.5rem
-
-  $scale: 0.6
-  $width: 280px
-  $height: 250px
-
-  main
-    width: $width
-    height: $height
-    overflow: hidden
-    margin-bottom: $space
-    float: left
-
-    iframe
-      -ms-zoom: $scale
-      -moz-transform: scale(#{$scale})
-      -moz-transform-origin: 0 0
-      -o-transform: scale(#{$scale})
-      -o-transform-origin: 0 0
-      -webkit-transform: scale(#{$scale})
-      -webkit-transform-origin: 0 0
-      border: 1px solid $darkest-white
-      width: $width / $scale
-      height: $height / $scale
-
-  aside
-    float: left
-    width: calc(100% - #{$width})
-    height: $height
-
-    table
-      border-color: transparent
-      margin-left: 15px
-
-      th, td
-        border-color: transparent
-        font-size: 0.85rem
