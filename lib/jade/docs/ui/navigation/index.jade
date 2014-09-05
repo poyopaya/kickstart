@@ -44,7 +44,7 @@ block doc-article
                 <a href="#">Home</a>
               </li>
               <li>
-                <a class="signup" href="#">Sign Up</a>
+                <a class="signup" href="#" role="button">Sign Up</a>
               </li>
             </ul>
           </nav>
@@ -57,6 +57,12 @@ block doc-article
           @include button();
         }
 
+  p.notice
+    | Don't forget to add&nbsp;
+    pre
+      code role="button"
+
+  :markdown
     #### Special uses
 
     A common layout is to use the navbar at the top of the page, full width,
