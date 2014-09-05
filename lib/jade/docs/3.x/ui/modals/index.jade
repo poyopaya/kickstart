@@ -1,4 +1,11 @@
 extends ../../index
 
 block doc-article
-  h2 Modals
+  :markdown
+    ## Modals
+
+    To open a modal, call the `k$.modal()` function.
+
+        k$('.mymodal').modal('open')
+
+    Note, the `open` parameter is optional as opening is the default.
