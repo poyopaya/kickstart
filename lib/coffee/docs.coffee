@@ -44,5 +44,14 @@ document.addEventListener 'DOMContentLoaded', ->
     $optSemantic = $ '#docs-semantic'
 
     # Set state of buttons based on saved options in localStorage
-    if settings.viewOptions.jquery then $optJquery.checked = true
-    if settings.viewOptions.semantic then $optSemantic.checked = true
+    $optJquery.checked = (if settings.viewOptions.jquery then true else false)
+    $optSemantic.checked = (if settings.viewOptions.semantic then true else false)
+
+    # Save values of checkboxes from click
+    $optJquery.addEventListener 'click', ->
+      settings.viewOptions.jquery = this.checked
+      setSettings settings
+
+    $optSemantic.addEventListener 'click', ->
+      settings.viewOptions.semantic = this.checked
+      setSettings settings
