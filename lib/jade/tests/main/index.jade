@@ -5,7 +5,19 @@ block test
   p I am a paragraph too
 
   // TODO: Mocha test
-  script(src="/js/test.js")
+  script.
+    var assert = require("chai").assert;
+
+    describe('Kickstart main js file', function() {
+      describe('Kickstart main function', function() {
+        it('should exist as an object', function() {
+          assert.typeOf(k$, 'object', 'k$ is an object')
+        });
+        it('should just fail, mang', function() {
+          assert.typeOf(foo, 'object', 'foo is an object')
+        });
+      })
+    });
   script.
     if (window.mochaPhantomJS) {
       mochaPhantomJS.run();
