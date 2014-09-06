@@ -37,5 +37,12 @@ document.addEventListener 'DOMContentLoaded', ->
   # Write to localStorage
   setSettings(settings)
 
+  # TODO: Hardcode this a little less
   if $$('#docs-jquery').length and $$('#docs-semantic').length
-    console.log 'found em'
+    # This page has checkboxes for view options.
+    $optJquery = $ '#docs-jquery'
+    $optSemantic = $ '#docs-semantic'
+
+    # Set state of buttons based on saved options in localStorage
+    if settings.viewOptions.jquery then $optJquery.checked = true
+    if settings.viewOptions.semantic then $optSemantic.checked = true
