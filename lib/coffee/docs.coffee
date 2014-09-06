@@ -36,15 +36,11 @@ document.addEventListener 'DOMContentLoaded', ->
   setSettings = (settings) ->
     localStorage.setItem 'kickstartDocs', JSON.stringify settings
 
-    # TODO: DRY off
-    for $container in $$('.if-jquery')
-      $container.style.display = (if settings.viewOptions.jquery then 'block' else 'none')
-    for $container in $$('.ifnot-jquery')
-      $container.style.display = (if settings.viewOptions.jquery then 'none' else 'block')
-    for $container in $$('.if-semantic')
-      $container.style.display = (if settings.viewOptions.semantic then 'block' else 'none')
-    for $container in $$('.ifnot-semantic')
-      $container.style.display = (if settings.viewOptions.semantic then 'none' else 'block')
+    for option in booleanViewOptions
+      for $container in $$(".if-#{option}")
+         $container.style.display = (if settings.viewOptions["#{option}"] then 'block' else 'none')
+      for $container in $$(".ifnot-#{option}")
+         $container.style.display = (if settings.viewOptions["#{option}"] then 'none' else 'block')
 
   # Write to localStorage
   setSettings(settings)
