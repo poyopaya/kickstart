@@ -63,6 +63,15 @@ block container
   .row
     aside.sidebar
       section.meta
+        h1 View Options
+        form
+          label.checkbox
+            input#docs-semantic(type="checkbox" checked)
+            |  Advanced (semantic)
+          label.checkbox
+            input#docs-jquery(type="checkbox")
+            |  jQuery
+
         block meta
 
       section.toc
