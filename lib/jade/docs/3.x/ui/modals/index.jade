@@ -1,21 +1,46 @@
-extends ../../index
+extends ../../layout
 
-block doc-article
-  :markdown
-    ## Modals
+block hero-title
+  h1 Modals
 
-    Turn any element into a modal using `k$.modal()`.
+block hero-example
 
-        // Instantiate and assign your modal in one line.
-        var $modal = k$.modal('.myModal')
+block meta
+  table
+    tr.if-semantic
+      td Mixin
+      td
+        code modal()
 
-        // Define an action to show or hide the modal
-        $myButton = document.querySelector('.myButton');
-        $myButton.addEventListener('click', function() {
+block basic
 
-          // Show the modal
-          $modal.style.display = 'block'
+  p
+    | Turn any element into a modal using
+    code k$.modal()
 
-        });
+  p
+    pre
+      code // Instantiate and assign your modal in one line.
+        | var $signup = k$.modal(&quot;.signup&quot;)
 
-    Note, the `open` parameter is optional as opening is the default.
+  .ifnot-jquery
+    :markdown
+      &nbsp;
+
+          // Define an action to show or hide the modal
+          $myButton = document.querySelector('#myButton');
+          $myButton.addEventListener('click', function() {
+
+            // Show the modal
+            $signup.style.display = 'block'
+
+          });
+
+  .if-jquery
+    :markdown
+      &nbsp;
+
+          // Now just show or hide it as you would any other element.
+          $('.myButton').click(function() {
+            $($signup).show();
+          });

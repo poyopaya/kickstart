@@ -18,22 +18,25 @@ block hero-example
 
 block meta
   table
-    tr
+    tr.if-semantic
       td Mixin
       td
         code button()
 
 block basic
-  :markdown
-    &nbsp;
 
-        <button class="signup">Sign up</button>
+  .if-semantic
+    :markdown
+      &nbsp;
 
-        .signup {
-          @include button();
-        }
+          <button class="signup">Sign up</button>
 
-  .if-jquery jQuery is on
-  .ifnot-jquery jQuery is off
-  .if-semantic Semantic is on
-  .ifnot-semantic Semantic is off
+          .signup {
+            @include button();
+          }
+
+  .ifnot-semantic
+    :markdown
+      &nbsp;
+
+          <button class="button">Sign up</button>
