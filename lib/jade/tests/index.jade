@@ -2,12 +2,19 @@ doctype html
 html(lang='en')
   head
     // TODO: Link to mocha and chai
-    // script(src="../../node_modules/mocha/mocha.js")
-    // script(src="../../node_modules/chai/chai.js")
-    script(src="//cdnjs.cloudflare.com/ajax/libs/mocha/1.21.4/mocha.js")
-    script(src="//cdnjs.cloudflare.com/ajax/libs/chai/1.9.1/chai.js")
-    
+    script(src="../../node_modules/mocha/mocha.js")
+    script(src="../../node_modules/chai/chai.js")
+
   body
     h1 Tests
 
-    block test
+    footer
+      script.
+        mocha.setup('bdd');
+      script(src="../js/test.js")
+      script.
+        if (window.mochaPhantomJS) {
+          mochaPhantomJS.run();
+        } else {
+          mocha.run();
+        }
