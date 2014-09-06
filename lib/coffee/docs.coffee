@@ -13,6 +13,8 @@ document.addEventListener 'DOMContentLoaded', ->
       jquery: false
       semantic: true
 
+  booleanViewOptions = ['jquery', 'semantic']
+
   # Retrieve user's saved settings
   options = JSON.parse localStorage.getItem 'kickstartDocs'
 
@@ -47,24 +49,24 @@ document.addEventListener 'DOMContentLoaded', ->
   # Write to localStorage
   setSettings(settings)
 
-  # TODO: Hardcode this a little less
-  if $$('#docs-jquery').length and $$('#docs-semantic').length
+  els = []
+  for option in booleanViewOptions
+    option = "#docs-#{option}"
+    els.push option
+
+  if $$(els).length
     # This page has checkboxes for view options.
-    $optJquery = $ '#docs-jquery'
-    $optSemantic = $ '#docs-semantic'
+    for option in booleanViewOptions
+      # Closure needed for event listeners
+      do (option) ->
+        window["$opt#{option}"] = $ "#docs-#{option}"
 
-    # Set state of buttons based on saved options in localStorage
-    $optJquery.checked = (if settings.viewOptions.jquery then true else false)
-    $optSemantic.checked = (if settings.viewOptions.semantic then true else false)
+        # Set state of buttons based on saved options in localStorage
+        window["$opt#{option}"].checked = (if settings.viewOptions["#{option}"] then true else false)
 
-    # TODO: DRY off
-    # Listen for checkbox changes
-    $optJquery.addEventListener 'click', ->
-      self = this
-      settings.viewOptions.jquery = self.checked
-      setSettings settings
-
-    $optSemantic.addEventListener 'click', ->
-      self = this
-      settings.viewOptions.semantic = self.checked
-      setSettings settings
+        # Listen for checkbox changes
+        window["$opt#{option}"].addEventListener 'click', ->
+          # TODO: This is doesn't pick up the right option.
+          settings.viewOptions["#{option}"] = this.checked
+          console.log settings.viewOptions
+          setSettings settings
