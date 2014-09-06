@@ -1,7 +1,7 @@
 document.addEventListener 'DOMContentLoaded', ->
 
-  $$ = (el) -> document.querySelectorAll(el)
-  $ = (el) -> $$(el)[0]
+  window.$$ = (el) -> document.querySelectorAll(el)
+  window.$ = (el) -> $$(el)[0]
 
   ###
   CRUD DOCUMENTATION SETTINGS
@@ -34,6 +34,16 @@ document.addEventListener 'DOMContentLoaded', ->
   setSettings = (settings) ->
     localStorage.setItem 'kickstartDocs', JSON.stringify settings
 
+    # TODO: DRY off
+    for $container in $$('.if-jquery')
+      $container.style.display = (if settings.viewOptions.jquery then 'block' else 'none')
+    for $container in $$('.ifnot-jquery')
+      $container.style.display = (if settings.viewOptions.jquery then 'none' else 'block')
+    for $container in $$('.if-semantic')
+      $container.style.display = (if settings.viewOptions.semantic then 'block' else 'none')
+    for $container in $$('.ifnot-semantic')
+      $container.style.display = (if settings.viewOptions.semantic then 'none' else 'block')
+
   # Write to localStorage
   setSettings(settings)
 
@@ -47,11 +57,14 @@ document.addEventListener 'DOMContentLoaded', ->
     $optJquery.checked = (if settings.viewOptions.jquery then true else false)
     $optSemantic.checked = (if settings.viewOptions.semantic then true else false)
 
-    # Save values of checkboxes from click
+    # TODO: DRY off
+    # Listen for checkbox changes
     $optJquery.addEventListener 'click', ->
-      settings.viewOptions.jquery = this.checked
+      self = this
+      settings.viewOptions.jquery = self.checked
       setSettings settings
 
     $optSemantic.addEventListener 'click', ->
-      settings.viewOptions.semantic = this.checked
+      self = this
+      settings.viewOptions.semantic = self.checked
       setSettings settings
