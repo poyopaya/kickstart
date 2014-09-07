@@ -211,6 +211,52 @@ block variations
 
     ### Dropdowns
 
+    To create a dropdown, simply nest another `ul` in one of your `li`s.
+
+    Dropdowns require the `k$.nav(el)` function to be called on the bar. `el` is
+    the selector for the navbar container.
+
+  .navbar.sample-dropdown-nav
+    nav
+      ul
+        li
+          | Options
+          ul
+            li
+              a(href="#") Option 1
+            li
+              a(href="#") Option 2
+            li
+              a(href="#") Option 3
+
+  :markdown
+    <span>
+
+        <div class="navbar">
+          <ul>
+            <li>Options
+              <ul>
+                <li>
+                  <a href="#">Option1</a>
+                </li>
+                <li>
+                  <a href="#">Option2</a>
+                </li>
+                <li>
+                  <a href="#">Option3</a>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+
+  :markdown
+    <span>
+
+        k$.navbar('.navbar')
+
+  :markdown
+
     ### Breadcrumbs
 
     ### Pagination
@@ -219,3 +265,4 @@ block postJS
   script.
     k$.nav('.docs-nav')
     k$.nav('.sample-nav')
+    k$.nav('.sample-dropdown-nav')
