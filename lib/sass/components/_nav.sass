@@ -1,15 +1,26 @@
-=navbar-default($bleed-container: false)
-  background: $dark-white
+=color($background)
+  @if (lightness($background) < 75%)
+    color: rgba(255, 255, 255, 0.5)
+  @else
+    color: rgba(0, 0, 0, 0.5)
+
+=navbar-default($bleed-container: false, $background: $dark-white)
+  background: $background
   border-top: 1px solid $darker-white
 
   nav
-    +flex(inline-flex)
-    +align-items(flex-start)
+    flex: inline-flex
+    align-items: flex-start
     +flex-wrap
-    +justify-content(space-between)
-    +align-content(space-between)
+    justify-content: space-between
+    align-content: space-between
     width: 100%
-    +border-radius(0)
+    border-radius: 0
+
+    @if (lightness($background) < 75%)
+      color: $black
+    @else
+      color: $white
 
     h1
       margin-bottom: 0
@@ -46,7 +57,7 @@
 
         &.with-submenu // Added via k$.nav()
           padding: (2 * map-get($rootElement, paddingV) - 1) (map-get($rootElement, paddingH))
-          color: rgba(0, 0, 0, 0.5)
+          +color($background)
           cursor: pointer
 
           &:after
@@ -58,25 +69,30 @@
             vertical-align: middle
 
           &:hover
-            color: rgba(0, 0, 0, 0.85)
-            background: $darker-white
-            border-color: $darker-white
+            @if (lightness($background) < 75%)
+              color: white
+            @else
+              color: rgba(0, 0, 0, 0.85)
+            background: darken($background, 5%)
+            border-color: darken($background, 5%)
 
           &:active
-            background: $darkest-white
-            border-color: $darkest-white
+            background: darken($background, 15%)
+            border-color: darken($background, 15%)
 
           &.open
+            color: rgba(0, 0, 0, 0.85)
             background: white
             border-color: $darker-white
             border-bottom-color: transparent
 
             &:hover
+              color: rgba(0, 0, 0, 0.85)
               border-color: $darker-white
               border-bottom-color: transparent
 
         a:not([role=button])
-          color: rgba(0, 0, 0, 0.5)
+          +color($background)
           text-decoration: none
           cursor: pointer
           display: block
@@ -88,13 +104,16 @@
             bottom: (2 * map-get($rootElement, paddingV))
 
           &:hover
-            color: rgba(0, 0, 0, 0.85)
-            background: $darker-white
-            border-color: $darker-white
+            @if (lightness($background) < 75%)
+              color: white
+            @else
+              color: rgba(0, 0, 0, 0.85)
+            background: darken($background, 5%)
+            border-color: darken($background, 5%)
 
           &:active
-            background: $darkest-white
-            border-color: $darkest-white
+            background: darken($background, 15%)
+            border-color: darken($background, 15%)
 
       ul
         display: none
@@ -117,5 +136,13 @@
             padding:
               top: $space/4
               bottom: $space/4
+            color: $light-black
 
-            columns: 1
+            &:hover
+              color: rgba(0, 0, 0, 0.85)
+              background: $darker-white
+              border-color: $darker-white
+
+            &:active
+              background: $darkest-white
+              border-color: $darkest-white

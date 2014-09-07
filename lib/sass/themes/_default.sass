@@ -92,8 +92,8 @@ $default-line-height: 1.4rem
 // NAVIGATION
 // ----------
 
-=navbar($bleed-container: false)
-  +navbar-default($bleed-container)
+=navbar($bleed-container: false, $background: $dark-white)
+  +navbar-default($bleed-container, $background)
 
 // STATUSES
 // --------
@@ -134,7 +134,7 @@ $default-line-height: 1.4rem
   +hero-default
   h1, h2, h3, h4, h5, h6, p
     color: white
-    font-weight: 100
+    font-weight: 300
 
   h1
     +xxl-heading
