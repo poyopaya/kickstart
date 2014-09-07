@@ -12,3 +12,12 @@ describe 'k$.nav()', ->
     expect(k$.$('#test-nav #test-nav-submenu').style.display).to.equal('block')
     k$.testClick document.body
     expect(k$.$('#test-nav #test-nav-submenu').style.display).to.not.equal('block')
+    expect(k$.$('#test-nav #test-nav-submenu-2').style.display).to.not.equal('block')
+  it 'should not leave other submenus open on click', ->
+    expect(k$.$('#test-nav #test-nav-submenu').style.display).to.not.equal('block')
+    k$.testClick k$.$ '#test-nav #test-nav-submenu-link'
+    expect(k$.$('#test-nav #test-nav-submenu').style.display).to.equal('block')
+    expect(k$.$('#test-nav #test-nav-submenu-2').style.display).to.not.equal('block')
+    k$.testClick k$.$ '#test-nav #test-nav-submenu-link-2'
+    expect(k$.$('#test-nav #test-nav-submenu-2').style.display).to.equal('block')
+    expect(k$.$('#test-nav #test-nav-submenu').style.display).to.not.equal('block')
