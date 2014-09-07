@@ -4,6 +4,7 @@ block hero-title
   h1 Modals
 
 block hero-example
+  button.button#launchSampleModal Launch modal
 
 block meta
   table
@@ -13,7 +14,10 @@ block meta
         code modal()
 
 block basic
-
+  #sampleModal
+    h1 I'm a modal!
+    
+  h3 JavaScript
   p
     | Turn any element into a modal using&nbsp;
     code k$.modal()
@@ -25,7 +29,7 @@ block basic
 
   .ifnot-jquery
     :markdown
-      &nbsp;
+      <span>
 
           // Show modal
           $signup.style.display = 'block'
@@ -35,10 +39,80 @@ block basic
 
   .if-jquery
     :markdown
-      &nbsp;
+      <span>
 
           // Show modal
           $($signup).show();
 
           // Hide modal
           $($signup).hide();
+
+  h4 Events
+  :markdown
+    Stopping propagation on any click you don't wish to close the modal is
+    required. This is as easy as:
+
+  .if-jquery
+    :markdown
+      <span>
+
+          $('button').click(function(e) {
+            $($modal).show();
+            e.stopPropagation();
+          });
+
+  .ifnot-jquery
+    :markdown
+      <span>
+
+          $button = document.querySelector('#myButton');
+          $button.addEventListener('click', function(e) {
+            $modal.style.display = 'block';
+            e.stopPropagation();
+          })
+
+  :markdown
+    Notice the `e` (event) in the function params as well as
+    `e.stopPropagation()`. This is to prevent "event bubbling," which would cause
+    JavaScript to think you are both clicking on the modal and clicking outside
+    of it (which would close the modal.)
+
+
+  h3 Sass
+  p
+    | For default modal styling (not required to function),
+    span.if-semantic
+      | just include&nbsp;
+      code modal()
+    span.ifnot-semantic
+      | use the&nbsp;
+      code .modal
+      |  class.
+
+    .if-semantic
+      :markdown
+        <span>
+
+            <div class="myModal">
+              <h1>Hello</h1>
+            </div>
+
+            .myModal {
+              @include modal();
+            }
+
+    .ifnot-semantic
+      :markdown
+        <span>
+
+            <div class="modal">
+              <h1>Hello</h1>
+            </div>
+
+block postJS
+  script.
+    $sampleModal = k$.modal('#sampleModal');
+    k$.$('#launchSampleModal').addEventListener('click', function(e) {
+      $sampleModal.style.display = 'block';
+      e.stopPropagation();
+    })

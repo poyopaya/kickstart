@@ -20,8 +20,12 @@ html(lang='en')
       block container
 
     footer
+      block preJS
+
       script(src="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.2/highlight.min.js")
       script.
         hljs.initHighlightingOnLoad();
       script(src="/js/kickstart.js")
       script(src="/js/docs.js")
+
+      block postJS

@@ -31,6 +31,8 @@ describe 'Modal', ->
       document.body.dispatchEvent event
       expect($modal.style.display).to.equal('none')
 
+    # Seems a little silly, but since we're using raw event listeners,
+    # selectors have a way of overriding their predecessors.
     it 'should close all modals on body click', ->
       $modal = showModal()
       $modal2 = showSecondModal()
