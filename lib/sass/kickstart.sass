@@ -82,8 +82,11 @@ table
 
 // TYPOGRAPHY
 // ----------
-.readable p, p.readable
+.readable
   +p(true)
+
+  p, ul li, table, table td, table th
+    +p(true)
 
 .page-heading
   +page-heading

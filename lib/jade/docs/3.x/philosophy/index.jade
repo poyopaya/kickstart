@@ -1,8 +1,13 @@
-extends ../index
+extends ../fullpage-layout
 
-block doc-article
+block vars
+  - var twoPane = false
+
+block hero-title
+  h1 Philosophy
+
+block fullPane
   :markdown
-    ## Philosophy
 
     Kickstart is an effort to carve the process of website design down to its bare essentials.
 
@@ -34,5 +39,22 @@ block doc-article
       * The components and functions of Kickstart 3 are just what you get out of
         the box. Kickstart is designed to integrate with third-party components
         when the standard library isn't sufficient.
+
+    ### Why does the world need another CSS framework?
+
+    I wasn't satisfied with what was out there. Existing CSS frameworks were
+    trying to please too many people by loading up libraries with widgets and
+    way too many use cases.
+
+    My approach for Kickstart was to create a library that covered the bare
+    essentials for a website. The end result would never be enough for everyone,
+    so I designed it to be extendible. The library not only works with but
+    expects external themes. Adding and extending existing functionality is also
+    very straightforward.
+
+    I also wasn't happy how little existing frameworks leaned on the
+    preprocessor. I saw a lot of CSS classes with literally one or two styles
+    behind them, and often just describing the style right in the classname
+    itself. A good library shouldn't force you to write bad code.
 
   p * = Applies only to using the Sass version.

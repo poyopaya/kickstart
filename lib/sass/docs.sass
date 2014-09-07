@@ -21,6 +21,12 @@
   h2
     +xxs-heading
 
+.fullpane
+  +column(12)
+
+  @media screen and (min-width: $tablet-landscape)
+    +column(8, 2)
+
 .main-navigation
   +navbar($bleed-container: true)
 
