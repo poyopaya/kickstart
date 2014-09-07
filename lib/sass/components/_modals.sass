@@ -1,7 +1,7 @@
 =modal-default()
   +root-element
   position: fixed
-  box-shadow: 0px 0px 99999px 99999px rgba(0, 0, 0, 0.35)
+  box-shadow: 0px 0px 99999px 99999px rgba(0, 0, 0, 0.35), 0px 0px 25px rgba(0, 0, 0, 0.5)
   top: 15px
   top: 1vh
   width: 98%
@@ -10,12 +10,17 @@
   display: none
   background: white
   border-color: $dark-white
+  animation-duration: 0.25s
+  animation-delay: 0.2s
+  animation-timing-function: ease
+  animation-fill-mode: both
+
+  &[style="display: block;"]
+    animation-name: fadeInDown
 
   @media screen and (min-width: $tablet)
     top: 75px
     top: 10vh
     width: 650px
-    width: 66vh
     left: 50%
     margin-left: -325px
-    margin-left: -33vh

@@ -4,6 +4,21 @@ block hero-title
   h1 Navigation
 
 block hero-example
+  .sample-nav.navbar
+    nav
+      ul
+        li
+          a(href="#") Home
+        li
+          | Pages
+          ul
+            li
+              a(href="#") Blog
+            li
+              a(href="#") Contact Us
+      ul
+        li
+          a(href="#") Login
 
 block meta
   table
@@ -122,3 +137,6 @@ block variations
     ### Pagination
 
 block postJS
+  script.
+    k$.nav('.docs-nav')
+    k$.nav('.sample-nav')
