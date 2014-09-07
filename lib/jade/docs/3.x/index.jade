@@ -22,14 +22,47 @@ block fullPane
   header#barebones.page-heading
     h3 Barebones
 
-  p Foo
+  p Download kickstart.css and kickstart.js and include in your html file.
+
+  p
+    a.button(href="#")
+      span.fa.fa-cloud-download
+      |  kickstart.css
+    | &nbsp;
+    a.button(href="#")
+      span.fa.fa-cloud-download
+      |  kickstart.js
+
+  :markdown
+    <span>
+
+        <!DOCTYPE HTML>
+        <html>
+          <head>
+            <link rel="stylesheet" href="css/kickstart.css" />
+          </head>
+          <body>
+            ...
+            <script src="js/kickstart.js"></script>
+          </body>
+        </html>
+
+    Make sure any JavaScript code that uses `k$` goes after the script tag
+    inclusion of kickstart.js.
 
   header#framework.page-heading
     h3 Framework
 
-  p Foo
+  :markdown
+    I want Kickstart to support Rails (at least) natively, but I'm not there
+    yet. Any Rails experts out there want to give me a hand?
+
 
   header#gulp.page-heading
     h3 Gulp
 
-  p Foo
+  :markdown
+    My tool of choice for building all of Kickstart is gulp, plus a ton of
+    extras. The easiest way to get started with a gulp implementation of
+    kickstart is to simply
+    [clone the repo](https://github.com/ajkochanowicz/Kickstrap).

@@ -40,3 +40,39 @@ block basic
       <span>
 
           <button class="button">Sign up</button>
+
+block variations
+  .if-semantic
+
+    .example
+      button.button.green Send
+      | &nbsp;
+      button.button.red Delete
+      | &nbsp;
+      button.button.blue Info
+      | &nbsp;
+      button.button Cancel
+
+    :markdown
+      For colored buttons, simply pass in a color to `button()`.
+
+          <button class="send">Send</button>
+          <button class="delete">Delete</button>
+          <button class="info">Info</button>
+          <button class="cancel">Cancel</button>
+
+    :markdown
+      <span>
+
+          .send {
+            @include button($primary-color);
+          }
+          .delete {
+            @include button($red);
+          }
+          .info {
+            @include button(#6495ed);
+          }
+          .cancel {
+            @include button();
+          }
