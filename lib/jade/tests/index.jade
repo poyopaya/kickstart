@@ -8,11 +8,22 @@ html(lang='en')
   body
     h1 Tests
 
+    .navbar#test-nav
+      nav
+        ul
+          li
+            a#test-nav-submenu-link(href="#") Submenu
+            ul#test-nav-submenu
+              li
+                a(href="#") Submenu link 1
+              li
+                a(href="#") Submenu link 2
+
     #test-modal
       h1 Hi, I'm a modal.
-      
+
     #test-modal-2
-      h1 Hi, I'm a modal.
+      h1 Hi, I'm a modal as well.
 
     footer
       script.
