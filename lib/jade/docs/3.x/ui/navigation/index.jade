@@ -34,11 +34,11 @@ block basic
 
     Navigation bars consist of three elements:
 
-    1. The container
-    1. The menu
-    1. The menu items
+    1. The container (Your choice of element)
+    1. The menu (`nav`)
+    1. The menu items (`ul li` structure)
 
-    Here is the a simple navigation bar with all three elements
+    <span>
 
         <div class="navbar">
           <nav>
@@ -50,8 +50,79 @@ block basic
                 <a href="#">Blog</a>
               </li>
             </ul>
+            <ul>
+              <li>
+                <a href="#">Login</a>
+              </li>
+            </ul>
           </nav>
         </div>
+
+  .if-semantic
+    :markdown
+      <span>
+
+          .navbar {
+            @include navbar();
+          }
+
+block variations
+  :markdown
+    ### Primary and secondary menus
+
+    The first `ul` is automatically left aligned. Adding another will treat the
+    second as a secondary menu and align it right. Adding more than two `ul`s
+    will simply continue to follow CSS flexbox rules.
+
+  .navbar
+    nav
+      ul
+        li
+          a(href="#") Left
+
+  :markdown
+    <span>
+
+        <div class="navbar">
+          <nav>
+            <ul>
+              <li>
+                <a href="#">Left</a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+
+  .navbar
+    nav
+      ul
+        li
+          a(href="#") Left
+      ul
+        li
+          a(href="#") Right
+
+  :markdown
+    <span>
+
+        <div class="navbar">
+          <nav>
+            <ul>
+              <li>
+                <a href="#">Left</a>
+              </li>
+            </ul>
+            <ul>
+              <li>
+                <a href="#">Right</a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+
+  :markdown
+
+    ### About the structure
 
     Why not just have `<nav>`? This is to give you more separation between the
     flexbox elements and the container it sits in. Flexbox display settings will
@@ -59,9 +130,6 @@ block basic
     as the navbar becomes more complex, such as the addition of a wrapper inside
     the container.
 
-
-block variations
-  :markdown
     ### Combining with other elements
 
     Try mixing and matching with other elements, especially buttons and inputs.
@@ -86,10 +154,7 @@ block variations
           @include button();
         }
 
-    p.notice
-    | Don't forget to add&nbsp;
-    pre
-      code role="button"
+    Don't forget to add `role="button"` when using buttons in the navbar.
 
   :markdown
     ### Full width

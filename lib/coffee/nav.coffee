@@ -21,9 +21,9 @@ nav = (el) ->
           e.stopPropagation()
 
           # Reset all
-          _$menuItem.classList.remove 'open' for _$menuItem in $menuItems
+          _$menuItem.classList.remove 'open' for _$menuItem in document.querySelectorAll('.with-submenu')
           $ul = $menuItem.querySelector 'ul'
-          $subMenu.style.display = 'none' for $subMenu in k$.$(el).querySelectorAll('ul > li > ul')
+          $subMenu.style.display = 'none' for $subMenu in document.querySelectorAll('.with-submenu ul')
 
           # Open this one
           if $ul
