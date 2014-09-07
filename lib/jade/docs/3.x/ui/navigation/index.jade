@@ -28,6 +28,15 @@ block meta
       td
         code navbar()
 
+block toc-variations
+  ul
+    li
+      a(href="#primary-secondary") Primary and secondary menus
+    li
+      a(href="#combining") Combining with other elements
+    li
+      a(href="#full-width") Full width
+
 block basic
   :markdown
     ## Bars
@@ -67,9 +76,8 @@ block basic
           }
 
 block variations
+  <h3 id="primary-secondary">Primary and secondary menus</h3>
   :markdown
-    ### Primary and secondary menus
-
     The first `ul` is automatically left aligned. Adding another will treat the
     second as a secondary menu and align it right. Adding more than two `ul`s
     will simply continue to follow CSS flexbox rules.
@@ -130,8 +138,9 @@ block variations
     as the navbar becomes more complex, such as the addition of a wrapper inside
     the container.
 
-    ### Combining with other elements
+  <h3 id="combining">Combining with other elements</h3>
 
+  :markdown
     Try mixing and matching with other elements, especially buttons and inputs.
 
         <div class="navbar">
@@ -141,24 +150,28 @@ block variations
                 <a href="#">Home</a>
               </li>
               <li>
-                <a class="signup" href="#" role="button">Sign Up</a>
+                  <a class="button" href="#" role="button">Sign Up</a>
               </li>
             </ul>
           </nav>
         </div>
 
-        .navbar {
-          @include navbar();
-        }
-        .signup {
-          @include button();
-        }
+  .if-semantic
+    :markdown
+      <span>
 
-    Don't forget to add `role="button"` when using buttons in the navbar.
+          .navbar {
+            @include navbar();
+          }
+          .button {
+            @include button();
+          }
+
+      Don't forget to add `role="button"` when using buttons in the navbar.
+
+  <h3 id="full-width">Full width</h3>
 
   :markdown
-    ### Full width
-
     A common layout is to use the navbar at the top of the page, full width,
     with a container. By itself, the left and right padding will prevent it from
     lining up with the margins of `container()`

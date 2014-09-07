@@ -67,7 +67,7 @@ block container
         form
           label.checkbox
             input#docs-semantic(type="checkbox" checked)
-            |  Advanced (semantic)
+            |  Semantic Sass
           label.checkbox
             input#docs-jquery(type="checkbox")
             |  jQuery
@@ -77,10 +77,14 @@ block container
       section.toc
         ul
           li
-            a(href="#basic") Basic Implementation
+            a(href="#basic")
+              span.fa.fa-cube
+              |  Basic Implementation
             block toc-basic
           li
-            a(href="#variations") Variations
+            a(href="#variations")
+              span.fa.fa-cubes
+              |  Variations
             block toc-variations
           li
             a(href="#granular") Granular
@@ -91,11 +95,15 @@ block container
 
     main.mainpane
       section.basic#basic
-        h1 Basic Usage
+        h1
+          span.fa.fa-cube
+          |  Basic Usage
         block basic
 
       section.variations#variations
-        h1 Variations
+        h1
+          span.fa.fa-cubes
+          |  Variations
         block variations
 
       section.granular#granular
