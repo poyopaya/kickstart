@@ -1,15 +1,15 @@
 modal = (el) ->
 
-    do (el) ->
+  do (el) ->
 
-  	  # Allow modal to dismiss when clicked outside
-      document.body.addEventListener 'click', ->
-        k$.$(el).style.display = 'none';
+	  # Allow modal to dismiss when clicked outside
+    document.body.addEventListener 'click', ->
+      k$.$(el).style.display = 'none';
 
-      k$.$(el).addEventListener 'click', (e) ->
-        return e.stopPropagation();
+    k$.$(el).addEventListener 'click', (e) ->
+      return e.stopPropagation();
 
-    k$.$ el
+  k$.$ el
 
 k$.modal = modal
 

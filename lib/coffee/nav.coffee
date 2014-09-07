@@ -1,10 +1,14 @@
 nav = (el) ->
 
-    do (el) ->
+  try
+    for $menuItem in k$.$(el).querySelectorAll('ul > li')
+      do ($menuItem) ->
+        # TODO: Everything
 
-      # TODO: Everything. :(
+  catch e
+    console.error "Could not instantiate as a nav.", e.message
 
-    k$.$ el
+  k$.$ el
 
 k$.nav = nav
 
