@@ -42,16 +42,26 @@ block basic
           <button class="button">Sign up</button>
 
 block variations
-  .if-semantic
+  .example
+    button.button.green Send
+    | &nbsp;
+    button.button.red Delete
+    | &nbsp;
+    button.button.blue Info
+    | &nbsp;
+    button.button Cancel
 
-    .example
-      button.button.green Send
-      | &nbsp;
-      button.button.red Delete
-      | &nbsp;
-      button.button.blue Info
-      | &nbsp;
-      button.button Cancel
+  .ifnot-semantic
+    :markdown
+      For colored buttons, simply add the class of one of the primary colors
+      to the `.button` class.
+
+          <button class="button green">Send</button>
+          <button class="button red">Delete</button>
+          <button class="button blue">Info</button>
+          <button class="button">Cancel</button>
+
+  .if-semantic
 
     :markdown
       For colored buttons, simply pass in a color to `button()`.
@@ -65,7 +75,7 @@ block variations
       <span>
 
           .send {
-            @include button($primary-color);
+            @include button($green);
           }
           .delete {
             @include button($red);
