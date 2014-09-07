@@ -1,10 +1,16 @@
-extends ../../index
+extends ../../layout
 
-block doc-article
-  h2 Forms
+block hero-title
+  h1 Forms
 
-  h3 Default
+block hero-example
+  form.form
+    label Email
+    input(type="email" placeholder="john@example.com")
 
+    input(value="Subscribe" type="submit" role="button")
+
+block basic
   form.form
     label First Name
     input(type="text" placeholder="John")
@@ -15,18 +21,9 @@ block doc-article
     label Bio
     textarea
 
-    label Industry
-    select
-      option Academic
-      option Automotive
-      option Finance
-      option Government
-      option Medical
-      option Restaurant
-      option Technology
+    input(value="Subscribe" type="submit" role="button")
 
-    input(type="submit" role="button")
-
+block variations
   h3 Horizontal
 
   form.form-horizontal

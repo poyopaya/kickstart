@@ -1,83 +1,20 @@
-extends ../../layout
+extends fullpage-layout
 
-block mainpane
-  header.page-heading
-    h1 Documentation
+block hero-title
+  h1 Documentation
 
-  block doc-article
-    h2 Quickstart
-    p Choose how you'd like to get started
-    ul
-      li
-        a(href="#") Barebones
-        ul
-          li Just use the CSS/JS file
-      li
-        a(href="#") Dependency-managed
-        ul
-          li Use in another framework like Rails or Express
-      li
-        a(href="#") Full build environment
-        ul
-          li Use our Gulp-powered compilation boilerplate
+block fullPane
+  h2 Quickstart
+  p Choose how you'd like to get started
 
-block sidebar
-  h1 View Options
-  form
-    label.checkbox
-      input(type="checkbox" checked)
-      |  Advanced (semantic)
-    label.checkbox
-      input(type="checkbox")
-      |  jQuery
+  h3
+    a(href="#") Barebones
+  p Just use the CSS/JS file
 
-  h1 Table of Contents
-  ul
-    li
-      a(href="/docs/3.x") Quickstart
-    li
-      a(href="/docs/3.x/theming/") Theming
-    li
-      a(href="/docs/3.x/grid/") Grid
-    li
-      | UI
-      ul
-        li
-          a(href="/docs/3.x/ui/") Base styles
-        li
-          a(href="/docs/3.x/ui/buttons") Buttons
-        li
-          a(href="/docs/3.x/ui/forms") Forms
-        li
-          a(href="/docs/3.x/ui/colors") Colors
-        li
-          a(href="/docs/3.x/ui/icons") Icons
-        li
-          a(href="/docs/3.x/ui/images") Images
-        li
-          a(href="/docs/3.x/ui/labels") Labels
-        li
-          a(href="/docs/3.x/ui/modals") Modals
-        li
-          a(href="/docs/3.x/ui/navigation") Navigation
-        li
-          a(href="/docs/3.x/ui/notifications") Notifications
-        li
-          a(href="/docs/3.x/ui/tables") Tables
-        li
-          a(href="/docs/3.x/ui/tabs") Tabs
-        li
-          a(href="/docs/3.x/ui/tiles") Tiles
-        li
-          a(href="/docs/3.x/ui/tooltips") Tooltips
-        li
-          a(href="/docs/3.x/ui/typography") Typography
-    li
-      | Functions
-      ul
-        li
-          a(href="/docs/3.x/functions/throttling") Throttling
-        li
-          a(href="/docs/3.x/functions/hdimages") HD Images
-    li
-      a(href="/docs/3.x/philosophy/") Philosophy
+  h3
+    a(href="#") Dependency-managed
+  p Use in another framework like Rails or Express
+
+  h3
+    a(href="#") Full build environment
+  p Use our Gulp-powered compilation boilerplate
