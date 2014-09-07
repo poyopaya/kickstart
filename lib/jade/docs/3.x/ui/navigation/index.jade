@@ -255,6 +255,31 @@ block variations
 
         k$.navbar('.navbar')
 
+
+    ## Coloring navbar
+
+    Coloring the navbar just means changing the color of the container. However,
+    darker colors might mean using lighter colors for the text for better contrast.
+
+  .if-semantic
+    :markdown
+      For this, pass in a color to the `$background` parameter of `navbar()`
+
+          @include navbar($background: #333)
+
+      `navbar()` will try to guess if the color is dark enough to warrant
+      lighter text and automatically switch to white if so.
+
+  .ifnot-semantic
+    :markdown
+      For a darker navbar with lighter text, use `.navbar-dark`
+
+          <div class="navbar-dark">
+            <nav>
+              ...
+            <nav>
+          </div>
+
   :markdown
 
     ### Breadcrumbs
