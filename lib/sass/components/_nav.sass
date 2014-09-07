@@ -43,11 +43,11 @@
           top: (map-get($rootElement, paddingV) - 1)
           bottom: (map-get($rootElement, paddingV) - 1)
         position: relative
-        cursor: pointer
 
         &.with-submenu // Added via k$.nav()
-          padding: (2 * map-get($rootElement, paddingV)) (map-get($rootElement, paddingH))
+          padding: (2 * map-get($rootElement, paddingV) - 1) (map-get($rootElement, paddingH))
           color: rgba(0, 0, 0, 0.5)
+          cursor: pointer
 
           &:after
             content: '+'
@@ -69,9 +69,11 @@
           &.open
             background: white
             border-color: $darker-white
+            border-bottom-color: transparent
 
             &:hover
               border-color: $darker-white
+              border-bottom-color: transparent
 
         a:not([role=button])
           color: rgba(0, 0, 0, 0.5)
@@ -99,6 +101,7 @@
         position: absolute
         background: white
         top: 100%
+        margin-top: 1px
         left: -1px // Compensate for border
         min-width: 175px
         border:
