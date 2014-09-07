@@ -1,7 +1,14 @@
 nav = (el) ->
 
   try
-    for $menuItem in k$.$(el).querySelectorAll('ul > li')
+    $menuItems = k$.$(el).querySelectorAll('ul > li')
+    # Prune items that don't contain uls
+    for $menuItem in $menuItems
+      $menuItems.splice $menuItems.indexOf($menuItem, 1) unless $menuItem.querySelectorAll('ul')
+    for $menuItem in $menuItems
+      # For styling
+      $menuItem.classList.add 'with-submenu'
+        
       do ($menuItem) ->
         # TODO: Is there a way we could not have an event listener for every
         # single one?
