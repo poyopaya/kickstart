@@ -45,6 +45,24 @@
         position: relative
         cursor: pointer
 
+        &.with-submenu // Added via k$.nav()
+          padding: (2 * map-get($rootElement, paddingV)) (map-get($rootElement, paddingH))
+          color: rgba(0, 0, 0, 0.5)
+
+          &:after
+            content: '•'
+            display: inline-block
+            margin-left: 5px
+
+          &:hover
+            color: rgba(0, 0, 0, 0.85)
+            background: $darker-white
+            border-color: $darker-white
+
+          &:active
+            background: $darkest-white
+            border-color: $darkest-white
+
         a:not([role=button])
           color: rgba(0, 0, 0, 0.5)
           text-decoration: none
