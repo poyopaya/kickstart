@@ -8,7 +8,7 @@ $desktop: 1024px
 $large-monitor: 1200px
 $xl-monitor: 1400px
 
-$columns: 12
+$grid-columns: 12
 $grid-gutter: 15px
 
 =container
@@ -49,28 +49,28 @@ $grid-gutter: 15px
   margin-left: 0
 
   @media screen and (min-width: $phablet)
-    width: calc(#{percentage($columns/$columns)} - #{$grid-gutter})
+    width: calc(#{percentage($columns/$grid-columns)} - #{$grid-gutter})
     clear: none
 
   @if $offset > 0
     @media screen and (min-width: $desktop)
-      margin-left: percentage($offset/$columns)
+      margin-left: percentage($offset/$grid-columns)
 
 =column($type: 12, $offset: 0)
   +set-column(12, 0, true)
   @if $type == "half"
     @media screen and (min-width: $tablet)
-      +set-column($columns/2, 0, true)
+      +set-column($grid-columns/2, 0, true)
   @else if $type == "third"
     @media screen and (min-width: $phablet)
-      +set-column($columns/2, 0, true)
+      +set-column($grid-columns/2, 0, true)
     @media screen and (min-width: $tablet)
-      +set-column($columns/3, 0, true)
+      +set-column($grid-columns/3, 0, true)
   @else if $type == "twothirds"
     @media screen and (min-width: $phablet)
-      +set-column($columns/2, 0, true)
+      +set-column($grid-columns/2, 0, true)
     @media screen and (min-width: $tablet)
-      +set-column(($columns * 2/3), 0, true)
+      +set-column(($grid-columns * 2/3), 0, true)
   @else
     @media screen and (min-width: $tablet)
       +set-column($type, $offset)
