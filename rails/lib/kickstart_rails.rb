@@ -1,6 +1,6 @@
-require "kickstart_rails/version"
+require "Kickstart_rails/version"
 
-module kickstart_rails
+module Kickstart_rails
   class Engine < Rails::Engine
   end
 end
