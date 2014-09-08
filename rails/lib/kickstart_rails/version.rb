@@ -1,3 +1,3 @@
-module kickstart_rails
-  VERSION = "0.1.1410193636262"
+module Kickstart_rails
+  VERSION = "0.1.410202952463"
 end
