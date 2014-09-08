@@ -3,6 +3,15 @@ extends ../layout
 block hero-title
   h1 Grid
 
+block toc-basic
+  ul
+    li
+      a(href="#use-shortcuts") Use shortcuts
+    li
+      a(href="#use-numbers") Use numbers
+    li
+      a(href="#offsets") Offsets
+
 block basic
   .example
     .row
@@ -92,7 +101,9 @@ block basic
 
     The **column** is a measured container that occupies up to 12 column widths.
 
-    ## Use shortcuts
+  h2#use-shortcuts Use Shortcuts
+
+  :markdown
 
     Columns can be expressed by a number or one of three English words
 
@@ -117,7 +128,9 @@ block basic
     These are not just for convenience, they automatically set breakpoints to
     change column widths on various screen sizes.
 
-    ## Use numbers
+  h2#use-numbers Use numbers
+
+  :markdown
 
     Passing in numbers, choose a column width from 1-12:
 
@@ -142,6 +155,10 @@ block basic
           <div class="article col-10">
             ...
           </div>
+
+  :markdown
+    ## Offsets
+
 
 block variations
   h2 Responsive
