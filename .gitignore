@@ -2,6 +2,7 @@
 public
 npm-debug.log
 node_modules
+rails/lib/kickstart_rails/version.rb
 bower_components
 .sass-cache
 .gem
