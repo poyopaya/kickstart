@@ -22,6 +22,5 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "rake", "~> 10.0"
 
   spec.add_dependency "sass", "~> 3.3"
-  spec.add_dependency "railties", "~> 3.2"
   spec.add_dependency "autoprefixer-rails", "~> 3.0"
 end
