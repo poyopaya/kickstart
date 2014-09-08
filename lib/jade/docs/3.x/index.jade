@@ -4,19 +4,20 @@ block hero-title
   h1 Quickstart
 
 block fullPane
-  p Choose how you'd like to get started
+  :markdown
+    Choose how you'd like to get started
 
-  h3
-    a(href="#barebones") Barebones
-  p Just use the CSS/JS file
+    ### [Barebones](#barebones)
 
-  h3
-    a(href="#framework") Rails
-  p Use in a Rails 4+ project.
+    Just use the CSS/JS file.
 
-  h3
-    a(href="#gulp") Node.js
-  p Use our Gulp-powered compilation boilerplate
+    ### [Rails](#framework)
+
+    Use in a **Rails 4+** project.
+
+    ### [Node.js](#gulp)
+
+    Use our Gulp-powered compilation boilerplate
 
   header#barebones.page-heading
     h3 Barebones
@@ -73,6 +74,18 @@ block fullPane
     regular css despite the fact you're running a full sass-compilation
     environment, linking to kickstart.css directly is still an option.
 
+    In application.css, you'll need to require normalize-rails--already a
+    dependency that should have been installed in kickstart_rails.
+
+        *= require_self
+        *= require normalize-rails
+        *= require_tree .
+
+    Be sure to include this before `require_tree`
+
+    In any scss/sass file requiring kickstart, add the following to the top.
+
+        @import "kickstart_rails/themes/_default";
 
   header#gulp.page-heading
     h3 Gulp
