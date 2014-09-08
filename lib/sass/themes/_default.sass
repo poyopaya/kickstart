@@ -8,6 +8,11 @@
  *  changing anything.
  */
 
+// TODO: This would be the second time importing in rails. prepend this line
+// via gulp.
+
+@import ../core/_normalize
+
 // VARIABLES
 // ---------
 
@@ -98,8 +103,8 @@ $default-line-height: 1.4rem
 // STATUSES
 // --------
 
-=status-bar()
-  +status-bar-default()
+.status-bar
+  +statusBar()
 
 // TABLE
 // -----
@@ -118,6 +123,9 @@ $default-line-height: 1.4rem
 
 =pre
   +pre-default
+
+pre
+  +pre
 
 =code
   +code-default

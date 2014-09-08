@@ -3,6 +3,25 @@ extends ../../layout
 block hero-title
   h1 Notifications
 
+block hero-example
+  a.button.blue#example-showStatus Show Status
+
+block basic
+  :markdown
+    ## Statuses
+
+    Statuses are once-only notifications best for streaming system information.
+    Once-only means each new status replaces its previous one and only one shows
+    at a time.
+
+        // Defaults are shown
+
+        k$.status({
+          text: 'Saved successfully', // No default
+          delay: 2000, // Optional, 0 = forever
+          type: 'warn', // Optional, can choose warn/success/info/error
+        })
+
 block variations
   h2 Statuses
 

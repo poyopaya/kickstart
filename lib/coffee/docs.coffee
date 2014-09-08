@@ -65,3 +65,18 @@ document.addEventListener 'DOMContentLoaded', ->
           settings.viewOptions["#{option}"] = this.checked
           console.log settings.viewOptions
           setSettings settings
+
+  # Show status message
+  if k$.$('#example-showStatus')
+    k$.$('#example-showStatus').addEventListener 'click', ->
+      statuses = [
+        { text: 'Document Saved.'},
+        { text: 'Sorry, we could find that library book.' },
+        { text: 'Remember to check out our clearance' },
+        { text: 'Deadline is approaching!' }
+      ]
+
+      k$.exampleCounter++
+      k$.exampleCounter = 0 if not k$.exampleCounter or k$.exampleCounter > 3
+
+      k$.status(statuses[k$.exampleCounter])
