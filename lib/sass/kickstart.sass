@@ -20,7 +20,7 @@
 
   &.secondary
     +button($secondary-color)
-    
+
   &.red
     +button($red)
 
@@ -57,6 +57,19 @@
 
 .row
   +row
+
+@for $i from 1 through 12
+  .col-#{$i}
+    +column($i)
+
+.col-half
+  +column('half')
+
+.col-third
+  +column('third')
+
+.col-twothirds
+  +column('twothirds')
 
 // MODALS
 // ------

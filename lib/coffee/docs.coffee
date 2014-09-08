@@ -62,7 +62,6 @@ document.addEventListener 'DOMContentLoaded', ->
 
         # Listen for checkbox changes
         window["$opt#{option}"].addEventListener 'click', ->
-          # TODO: This is doesn't pick up the right option.
           settings.viewOptions["#{option}"] = this.checked
           console.log settings.viewOptions
           setSettings settings

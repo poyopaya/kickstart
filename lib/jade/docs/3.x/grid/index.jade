@@ -2,3 +2,231 @@ extends ../layout
 
 block hero-title
   h1 Grid
+
+block basic
+  .example
+    .row
+      .col-third
+        p I'm 4 columns on desktop monitors...
+        p 6 columns on tablets...
+        p and 12 (full) columns on mobile.
+
+      .col-twothirds
+        p I'm eight columns on desktop monitors...
+        p 6 columns on tablets
+        p and 12 (full) columns on mobile.
+
+  .ifnot-semantic
+    :markdown
+      <span>
+
+          <section class="row">
+            <aside class="col-third">
+              <p>Sidebar</p>
+            </aside>
+            <main class="col-twothirds">
+              <p>Main Pane</p>
+            </main>
+          </section>
+
+  .if-semantic
+    :markdown
+      <span>
+
+          <section class="application">
+            <aside class="sidebar">
+              <p>Sidebar</p>
+            </aside>
+            <main class="mainpane">
+              <p>Main Pane</p>
+            </main>
+          </section>
+
+    :markdown
+      <span>
+
+          .application {
+            @include row();
+          }
+          .sidebar {
+            @include column('third');
+          }
+          .mainpane {
+            @include column('twothirds');
+          }
+
+  :markdown
+
+    The grid includes three components
+
+    1. A container
+    1. A row
+    1. A column
+
+    The **container** is optional. This creates a fixed width container for the
+    grid elements. The fixed width automatically resizes based on screen width.
+
+  .ifnot-semantic
+    :markdown
+      <span>
+
+          <div class="container">
+            ...
+          </div>
+
+  .if-semantic
+    :markdown
+      <span>
+
+          <div class="wrapper">
+            ...
+          </div>
+
+          .wrapper {
+            @include container();
+          }
+
+  :markdown
+
+    The **row** is a container for column elements.
+
+    The **column** is a measured container that occupies up to 12 column widths.
+
+    ## Use shortcuts
+
+    Columns can be expressed by a number or one of three English words
+
+  .if-semantic
+    :markdown
+      These are passed into the `column()` mixin.
+
+          @include column('third');
+          @include column('twothirds');
+          @include column('half');
+
+  .ifnot-semantic
+    :markdown
+      Each are added to the end of the `.col-` class.
+
+          .col-third
+          .col-twothirds
+          .col-half
+
+  :markdown
+
+    These are not just for convenience, they automatically set breakpoints to
+    change column widths on various screen sizes.
+
+    ## Use numbers
+
+    Passing in numbers, choose a column width from 1-12:
+
+  .if-semantic
+    :markdown
+      <span>
+
+          .newsfeed {
+            @include column(2);
+          }
+          .article {
+            @include column(10);
+          }
+
+  .ifnot-semantic
+    :markdown
+      <span>
+
+          <div class="newsfeed col-2">
+            ...
+          </div>
+          <div class="article col-10">
+            ...
+          </div>
+
+block variations
+  h2 Responsive
+
+  .if-semantic
+    :markdown
+      Mix your grid rules into media queries to make your own responsive rules.
+
+      It helps to use the breakpoints provided. Each returns a fixed width based
+      on a common device.
+
+    table
+      thead
+        tr
+          th Variable
+          th Actual width
+      tbody
+        - for breakpoint in [{name: '$phone', size: '360px'}, {name: '$phablet', size: '480px'}, {name: '$tablet', size: '768px'}, {name: '$tablet-landscape', size: '1024px'}, {name: '$large-monitor', size: '1200px'}, {name: '$xl-monitor', size: '1400px' }]
+          tr
+            td
+              code #{breakpoint.name}
+            td #{breakpoint.size}
+
+    :markdown
+
+      When using media queries, it's best practice to write your styles for the
+      smallest device first, and write the exceptions as you go up. This is
+      commonly referred to as
+      [Mobile First](http://bradfrostweb.com/blog/mobile/the-many-faces-of-mobile-first/)
+      design.
+
+      Here's how we might make some different column rules using
+      these breakpoints:
+
+          <div class="about-me">
+            ...
+          </div>
+          <div class="my-work">
+            ...
+          </div>
+          <div class="getting-in-touch">
+            ...
+          </div>
+
+      We want each of the above sections to occupy a third of the page on
+      desktop.
+
+      Oh wait, we're designing this mobile first. Let's start with the phone.
+      Three columns would be a little crowded, so let's just stack one on top of
+      the other.
+
+          .about-me, .my-work, .getting-in-touch {
+            @include columns(12);
+          }
+
+      This looks good, but on a tablet in landscape position, the reading stride
+      is a little wide. Let's split up the first two columns and leave the last
+      one full.
+
+          .about-me, .my-work, .getting-in-touch {
+            @include columns(12);
+          }
+          @media screen and (min-width: $tablet-landscape) {
+            .about-me, .my-work {
+              @include columns(6);
+            }
+          }
+
+      Notice, we don't have to write anything for `.getting-in-touch` because
+      we inherit its full-width from the phone's rule.
+
+      Now we're on desktop and we're ready to go into three column mode.
+
+          .about-me, .my-work, .getting-in-touch {
+            @include columns(12);
+          }
+          @media screen and (min-width: $tablet-landscape) {
+            .about-me, .my-work {
+              @include columns(6);
+            }
+          }
+          @media screen and (min-width: $desktop) {
+            .about-me, .my-work, .getting-in-touch {
+              @include columns(4);
+            }
+          }
+
+      That should be all we need for a responsive grid.
