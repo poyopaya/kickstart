@@ -1,11 +1,11 @@
 # coding: utf-8
 lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require 'kickstart_sass/version'
+require 'kickstart_rails/version'
 
 Gem::Specification.new do |spec|
-  spec.name          = "kickstart_sass"
-  spec.version       = Kickstart_sass::VERSION
+  spec.name          = "kickstart_rails"
+  spec.version       = kickstart_rails::VERSION
   spec.authors       = ["Adam Kochanowicz"]
   spec.email         = ["ajkochanowicz@gmail.com"]
   spec.summary       = %q{The front-end framework for clean HTML and fast websites.}

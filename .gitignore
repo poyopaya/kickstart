@@ -4,6 +4,7 @@ npm-debug.log
 node_modules
 bower_components
 .sass-cache
+.gem
 rails/app
 rails/.bundle/
 rails/.yardoc
