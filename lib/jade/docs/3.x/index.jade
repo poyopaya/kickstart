@@ -11,17 +11,23 @@ block fullPane
   p Just use the CSS/JS file
 
   h3
-    a(href="#framework") Framework
-  p Use in another framework like Rails or Express
+    a(href="#framework") Rails
+  p Use in a Rails 4+ project.
 
   h3
-    a(href="#gulp") Full build environment
+    a(href="#gulp") Node.js
   p Use our Gulp-powered compilation boilerplate
 
   header#barebones.page-heading
     h3 Barebones
 
-  p Download kickstart.css and kickstart.js and include in your html file.
+  :markdown
+    Use the CDN
+
+        <link rel="stylesheet" href="TODO" />
+        <script type="text/javascript" src="TODO"></script>
+
+  p Or download kickstart.css and kickstart.js and include in your html file.
 
   p
     a.button(href="#")
@@ -50,11 +56,19 @@ block fullPane
     inclusion of kickstart.js.
 
   header#framework.page-heading
-    h3 Framework
+    h3 Rails
 
   :markdown
-    I want Kickstart to support Rails (at least) natively, but I'm not there
-    yet. Any Rails experts out there want to give me a hand?
+    Install Kickstart
+
+        gem install "kickstart-sass"
+
+    As the gem name implies, Rails integration is Sass-only. This means you will
+    need to use the mixins instead of things like `.col-6`.
+
+    Some of this is practical, some is philosophical, but if you really need the
+    regular css despite the fact you're running a full sass-compilation
+    environment, linking to kickstart.css directly is still an option.
 
 
   header#gulp.page-heading
