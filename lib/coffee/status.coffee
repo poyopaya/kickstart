@@ -13,10 +13,12 @@ status = (opts) ->
     $statusBar.innerHTML = "<div class='status-bar_status' id='status-bar_status'></div>"
     document.body.appendChild($statusBar)
 
-    hideStatusBar = ->
-      $statusBar.parentNode.removeChild $statusBar
+  $statusBar = k$.$('#status-bar')
 
-    k$.debounce hideStatusBar, 'hideStatusBar', status.delay
+  hideStatusBar = ->
+    $statusBar.parentNode.removeChild $statusBar
+
+  k$.debounce hideStatusBar, 'hideStatusBar', status.delay
 
   $status = k$.$("#status-bar_status")
   $status.innerHTML = status.text
