@@ -10,10 +10,6 @@ block basic
 
         k$.throttle(myfunc, 'save name')
 
-    You can also debounce a component with `k$.debounce()`
-
-        k$.debounce(myfunc, 'save name')
-
     Throttling allows a single function to be called only once every
     X milliseconds.
 
@@ -21,11 +17,20 @@ block basic
 
 
   :markdown
+    You can also debounce a component with `k$.debounce()`
+
+        k$.debounce(myfunc, 'save name')
+
     A debouncer prevents a single function from being executed until
     X milliseconds have elapsed since it was last sent through the
     debouncer.
 
   iframe(src="/iframes/debouncer/debouncer.html")
+
+  :markdown
+    An example usage of the debouncer is 
+    [the status component](../../ui/notifications), which delays 
+    hiding itself until the function hasn't been called for 2000ms
 
 block variations
   h3 Debouncer
