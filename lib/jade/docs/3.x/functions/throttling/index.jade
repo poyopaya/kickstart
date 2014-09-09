@@ -4,6 +4,25 @@ block hero-title
   h1 Throttling
 
 block basic
+  :markdown
+    Throttling is a function used by a few components in the library,
+    so we've made it available as a standalone function.
+
+        k$.throttle(myfunc, 'save name')
+
+    You can also debounce a component with `k$.debounce()`
+
+        k$.debounce(myfunc, 'save name')
+
+    Throttling allows a single function to be called only once every
+    X milliseconds.
+
+  iframe(src="/iframes/throttler/throttler.html")
+
+  :markdown
+    A debouncer prevents a single function from being executed until
+    X milliseconds have elapsed since it was last sent through the
+    debouncer.
 
 block variations
   h3 Debouncer
