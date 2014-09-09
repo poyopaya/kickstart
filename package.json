@@ -1,17 +1,16 @@
 {
-  "name": "kickstrap",
+  "name": "kickstart-node",
   "version": "3.0.0",
-  "description": "Framework for advanced Bootstrap web development",
+  "description": "A front-end framework for clean HTML and fast performance",
   "keywords": [
-    "Bootstrap",
-    "Stylus",
     "CoffeeScript",
     "Jade",
-    "Angular.js",
-    "JSPM",
-    "Require.js"
+    "CSS",
+    "JS",
+    "Node",
+    "Gulp"
   ],
-  "homepage": "http://getkickstrap.com",
+  "homepage": "http://getkickstart.com",
   "bugs": "https://github.com/ajkochanowicz/Kickstrap/issues",
   "author": "Adam Kochanowicz",
   "repository": {
