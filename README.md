@@ -3,7 +3,7 @@ Kickstart
 
 Kickstart is a front-end framework for clean HTML and fast performance
 
-http://getkickstart.com
+[getkickstart.com](http://getkickstart.com)
 
 [![NPM](https://nodei.co/npm/kickstart-node.png)](https://nodei.co/npm/kickstart-node/)
 
