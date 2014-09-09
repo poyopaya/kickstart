@@ -3,6 +3,7 @@
 
 	"HTMLFileName":"throttler.html",
 	"pref__general__AutoKeyframeProperties":"true",
+	"PubWebDir":"/Users/adamkochanowicz/Sites/kickstart/lib/iframes/throttler/",
 	"ModelData":"{\
 \"stage\": {\
    \"timelines\": {\
@@ -19,9 +20,11 @@
       }\
    }}\
 }",
+	"PreloadAudio":"auto",
+	"StageZoomFactor":"100",
 	"pref__general__FilterNonAnimatedElements":"false",
 	"pref__general__AutoKeyframePropertiesArmed":"true",
-	"Down-level-Default Timeline_playhead_ms":"0",
+	"pref__general__GenerateSmoothTransitions":"true",
 	"symbol_stage":{
 		"dummyStageParentWidth":"540px",
 		"dummyStageParentHeight":"190px",
@@ -51,18 +54,16 @@
 			"timelineColor3":"0x2a605c",
 			"timelineColor":"0x00a096"}},
 	"TransitionIdCounter":"28",
-	"CompZoomFactor":"100",
-	"viewStartY":"0",
-	"pixelsPerMs":"0.2",
 	"symbol_Down-level":{
 		"defaultStageParentWidth":"540px",
 		"defaultStageParentHeight":"190px",
 		"dummyStageParentWidth":"540px",
 		"dummyStageParentHeight":"190px"},
+	"viewStartY":"0",
+	"pixelsPerMs":"0.2",
 	"stage-Default Timeline_mark_ms":"-1",
-	"usedBOM":"false",
 	"nextElementColorIndex":"6",
 	"stage-Default Timeline_playhead_ms":"2000",
-	"PreloadAudio":"auto",
-	"StageZoomFactor":"100",
-	"pref__general__GenerateSmoothTransitions":"true"}
+	"CompZoomFactor":"100",
+	"usedBOM":"false",
+	"Down-level-Default Timeline_playhead_ms":"0"}

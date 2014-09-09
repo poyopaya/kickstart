@@ -3,6 +3,7 @@
 
 	"HTMLFileName":"debouncer.html",
 	"pref__general__AutoKeyframeProperties":"true",
+	"PubWebDir":"/Users/adamkochanowicz/Sites/kickstart/lib/iframes/debouncer/",
 	"ModelData":"{\
 \"stage\": {\
    \"timelines\": {\
@@ -19,15 +20,15 @@
       }\
    }}\
 }",
+	"pref__general__FilterNonAnimatedElements":"false",
+	"Down-level-Default Timeline_playhead_ms":"0",
 	"stage-Default Timeline_mark_ms":"-1",
+	"pref__general__AutoKeyframePropertiesArmed":"false",
 	"symbol_Down-level":{
 		"defaultStageParentWidth":"540px",
 		"defaultStageParentHeight":"190px",
 		"dummyStageParentWidth":"540px",
 		"dummyStageParentHeight":"190px"},
-	"pref__general__FilterNonAnimatedElements":"false",
-	"pref__general__AutoKeyframePropertiesArmed":"false",
-	"Down-level-Default Timeline_playhead_ms":"0",
 	"symbol_stage":{
 		"dummyStageParentWidth":"540px",
 		"dummyStageParentHeight":"190px",
@@ -61,14 +62,14 @@
 			"timelineColor2":"0x168c84",
 			"timelineColor3":"0x2a605c",
 			"timelineColor":"0x00a096"}},
-	"TransitionIdCounter":"28",
+	"PreloadAudio":"auto",
 	"CompZoomFactor":"100",
-	"viewStartY":"0",
+	"StageZoomFactor":"100",
 	"pixelsPerMs":"0.2",
 	"PubStaticHTMLContent":"true",
 	"usedBOM":"false",
 	"nextElementColorIndex":"7",
-	"stage-Default Timeline_playhead_ms":"1794",
-	"PreloadAudio":"auto",
-	"StageZoomFactor":"100",
-	"pref__general__GenerateSmoothTransitions":"true"}
+	"pref__general__GenerateSmoothTransitions":"true",
+	"TransitionIdCounter":"28",
+	"viewStartY":"0",
+	"stage-Default Timeline_playhead_ms":"3000"}

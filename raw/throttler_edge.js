@@ -48,7 +48,7 @@ var symbols = {
                 rect: ['1px', '154px','139px','20px','auto', 'auto'],
                 text: "Input",
                 align: "center",
-                font: ['Courier, Courier New, monospace', [24, ""], "rgba(0,0,0,1)", "normal", "none", ""]
+                font: ['Courier, Courier New, monospace', 24, "rgba(0,0,0,1)", "normal", "none", ""]
             },
             {
                 id: 'TextCopy',
@@ -70,16 +70,11 @@ var symbols = {
                 ["style", "left", '1px'],
                 ["style", "text-align", 'center']
             ],
-            "${_Ellipse}": [
-                ["style", "top", '11px'],
-                ["style", "left", '10px'],
-                ["color", "background-color", 'rgba(216,205,180,1.00)']
-            ],
             "${_Stage}": [
                 ["color", "background-color", 'rgba(255,255,255,1)'],
-                ["style", "width", '540px'],
+                ["style", "overflow", 'hidden'],
                 ["style", "height", '190px'],
-                ["style", "overflow", 'hidden']
+                ["style", "width", '540px']
             ],
             "${_EllipseCopy}": [
                 ["style", "top", '11px'],
@@ -91,6 +86,11 @@ var symbols = {
                 ["style", "font-family", 'Courier, Courier New, monospace'],
                 ["style", "left", '398px'],
                 ["style", "text-align", 'center']
+            ],
+            "${_Ellipse}": [
+                ["style", "top", '11px'],
+                ["style", "left", '10px'],
+                ["color", "background-color", 'rgba(216,205,180,1.00)']
             ]
         }
     },
