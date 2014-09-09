@@ -70,10 +70,22 @@ document.addEventListener 'DOMContentLoaded', ->
   if k$.$('#example-showStatus')
     k$.$('#example-showStatus').addEventListener 'click', ->
       statuses = [
-        { text: 'Document Saved.'},
-        { text: 'Sorry, we could find that library book.' },
-        { text: 'Remember to check out our clearance' },
-        { text: 'Deadline is approaching!' }
+        { 
+          text: 'Document Saved.',
+          type: 'success'
+        },
+        { 
+          text: 'Sorry, we could find that library book.',
+          type: 'error'
+        },
+        { 
+          text: 'Remember to check out our clearance',
+          type: 'info'
+        },
+        { 
+          text: 'Deadline is approaching!',
+          type: 'warn'
+        }
       ]
 
       k$.exampleCounter++
