@@ -3,7 +3,9 @@ expect = require("chai").expect
 
 describe 'Status', ->
   it 'should create a status bar and status element.', ->
-    expect(1).to.equal(0)
+    k$.status
+      title: 'Hello world'
+    expect(k$.$$('#status-bar').length).to.be.above(0)
   it 'should apply a custom class to status element.', ->
     expect(1).to.equal(0)
   it 'should disappear via debouncer.', ->

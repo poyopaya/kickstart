@@ -46,7 +46,7 @@ describe 'Debouncer', ->
         console.error "Found #{one}"
     , 2100
 
-  it 'should fire after a custom interval', (done) ->
+  it 'should suspend firing if called again during a custom interval', (done) ->
     this.timeout 4000
     setTimeout ->
       if one == 1
@@ -54,6 +54,3 @@ describe 'Debouncer', ->
       else
         console.error "Found #{one}"
     , 2100
-
-  it 'should suspend firing if called again during a custom interval', ->
-    expect(1).to.equal(0)
