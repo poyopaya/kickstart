@@ -23,7 +23,7 @@
 	"PreloadAudio":"auto",
 	"StageZoomFactor":"100",
 	"pref__general__FilterNonAnimatedElements":"false",
-	"pref__general__AutoKeyframePropertiesArmed":"true",
+	"pref__general__AutoKeyframePropertiesArmed":"false",
 	"pref__general__GenerateSmoothTransitions":"true",
 	"symbol_stage":{
 		"dummyStageParentWidth":"540px",

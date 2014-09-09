@@ -19,7 +19,7 @@ var symbols = {
     minimumCompatibleVersion: "4.0.1",
     build: "4.0.1.365",
     baseState: "Base State",
-    scaleToFit: "width",
+    scaleToFit: "none",
     centerStage: "none",
     initialState: "Base State",
     gpuAccelerate: false,
