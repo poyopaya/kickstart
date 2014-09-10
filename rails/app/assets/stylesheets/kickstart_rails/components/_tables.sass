@@ -1,0 +1,35 @@
+=table-default
+  border-collapse: collapse
+  background: white
+  border-spacing: 0
+  empty-cells: show
+  border: 1px solid $light-gray
+  width: 100%
+  margin-bottom: $space
+
+  pre
+    margin: 0
+
+  thead
+    background: $dark-white
+    color: $black
+    text-align: left
+    vertical-align: bottom
+    th
+      font-weight: bold
+
+  th, td
+    background-color: transparent
+    border-left: 1px solid $light-gray
+    border-width: 0 0 0 1px
+    font-size: inherit
+    margin: 0
+    overflow: visible
+    padding: ($space/6) ($space/4)
+    line-height: normal
+
+    &:first-child
+      border-left-width: 0
+
+  tbody tr:nth-child(2n)
+    background-color: lighten($light-gray, 50%)

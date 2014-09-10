@@ -1,0 +1,209 @@
+/*
+ *  Theme: Default
+ *  ==============
+ *  Theme files wrap Kickstart's mixins into duplicate mixins without the
+ *  "-default". This allows theme artists to insert their own styles by
+ *  extending the default ones. Because the default theme just does direct
+ *  assignment to the final namespaces, it overrides without actually
+ *  changing anything.
+ */
+
+// TODO: This would be the second time importing in rails. prepend this line
+// via gulp.
+
+@import ../core/_normalize
+
+// VARIABLES
+// ---------
+
+// Grayscale
+
+$black:          #111
+$light-black:    #222
+$lighter-black:  #333
+$lightest-black: #444
+$darkest-gray:   #555
+$darker-gray:    #666
+$dark-gray:      #777
+$gray:           #888
+$light-gray:     #999
+$lighter-gray:   #AAA
+$lightest-gray:  #BBB
+$darkest-white:  #CCC
+$darker-white:   #DDD
+$dark-white:     #EEE
+$white:          #FFF
+
+// Rainbow
+
+$red:            #CA3518
+$orange:         darkorange
+$yellow:         rgb(255, 250, 14)
+$green:          #58AA00
+$blue:           cornflowerblue
+$violet:         darkmagenta
+
+// Ten point design variables
+// --------------------------
+// Modifying just these ten variables will take care of 90% of your theme
+
+$primary-color:       $blue
+$secondary-color:     $darker-white
+$space:               25px
+$heading-font-family: 'Lato', helvetica neue, sans-serif
+$body-font-family:    'Lato', helvetica neue, sans-serif
+$base-font-size:      16px
+$black-augment:       0
+$white-augment:       0
+$saturation-augment:  0
+$luminosity-augment:  0
+
+// --------------------------
+
+$scalingFactor: 0.2vw
+
+$rootElement: (paddingV: 5px, paddingH: 12px)
+
+$default-font: $body-font-family
+$default-font-size: $base-font-size
+$default-line-height: 1.4rem
+
+@import ../core/index
+
+// BUTTONS
+// -------
+
+=button($color: transparent)
+  +button-default($color)
+
+// FORMS
+// -----
+
+=form-horizontal()
+  +form-horizontal-default()
+
+=form-left
+  +form-left-default()
+
+=form-group()
+  +form-group-default()
+
+// MODALS
+// ------
+
+=modal()
+  +modal-default()
+
+// NAVIGATION
+// ----------
+
+=navbar($bleed-container: false, $background: $dark-white)
+  +navbar-default($bleed-container, $background)
+
+// STATUSES
+// --------
+
+.status-bar
+  +statusBar()
+
+// TABLE
+// -----
+
+=table()
+  +table-default()
+
+// TILES
+// -----
+
+=tile($color: $dark-gray)
+  +tile-default($color)
+
+// TYPOGRAPHY
+// ----------
+
+=pre
+  +pre-default
+
+pre
+  +pre
+
+=code
+  +code-default
+
+=p($content-optimized)
+  +p-default($content-optimized)
+
+=page-heading
+  +page-heading-default
+  h1, h2, h3, h4, h5, h6
+    // Styles should go here.
+
+=hero
+  +hero-default
+  h1, h2, h3, h4, h5, h6, p
+    color: white
+    font-weight: 300
+
+  h1
+    +xxl-heading
+  h2
+    +xl-heading
+  h3
+    +lg-heading
+  h4
+    +md-heading
+  h5
+    +rg-heading
+  h6
+    +sm-heading
+
+=xxl-heading
+  +xxl-heading-default
+
+=xl-heading
+  +xl-heading-default
+
+=lg-heading
+  +lg-heading-default
+
+=md-heading
+  +md-heading-default
+
+=rg-heading
+  +rg-heading-default
+
+=sm-heading
+  +sm-heading-default
+
+=xs-heading
+  +xs-heading-default
+
+=xxs-heading
+  +xxs-heading-default
+
+h1, h2, h3, h4, h5, h6
+  font-family: $heading-font-family
+
+h1
+  +lg-heading
+
+h2
+  +md-heading
+
+h3
+  +rg-heading
+
+h4
+  +sm-heading
+
+h5
+  +xs-heading
+
+h6
+  +xxs-heading
+
+=html
+  +html-default
+
+html, li, p, table
+  +html

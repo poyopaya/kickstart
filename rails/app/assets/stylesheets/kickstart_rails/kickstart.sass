@@ -1,0 +1,117 @@
+/*
+ *  Kickstart
+ *  =========
+ *  For users who prefer to not use Sass, this will generate a CSS file with
+ *  classes for all the components.
+ */
+
+// Import the semantic index
+@import kickstart-semantic
+
+// Assign mixins to static classes
+
+// BUTTONS
+// -------
+.button, button, input[type=submit]
+  +button
+  // TODO: Make loop
+  &.primary
+    +button($primary-color)
+
+  &.secondary
+    +button($secondary-color)
+
+  &.red
+    +button($red)
+
+  &.orange
+    +button($orange)
+
+  &.yellow
+    +button($yellow)
+
+  &.green
+    +button($green)
+
+  &.blue
+    +button($blue)
+
+  &.violet
+    +button($violet)
+
+// FORMS
+// -----
+.form-horizontal
+  +form-horizontal
+
+.form-left
+  +form-left
+
+.form-group
+  +form-group
+
+// GRID
+// ----
+.container
+  +container
+
+.row
+  +row
+
+@for $i from 1 through 12
+  .col-#{$i}
+    +column($i)
+
+.col-half
+  +column('half')
+
+.col-third
+  +column('third')
+
+.col-twothirds
+  +column('twothirds')
+
+// MODALS
+// ------
+
+.modal
+  +modal
+
+// NAVIGATION
+// ----------
+
+.navbar
+  +navbar
+
+.navbar-dark
+  +navbar($background: $lighter-black)
+
+// STATUS
+// ------
+
+.status-bar
+  +statusBar
+
+// TABLES
+// ------
+table
+  +table
+
+// TILES
+// -----
+.tile
+  +tile
+
+// TYPOGRAPHY
+// ----------
+.readable
+  +p(true)
+
+  p, ul li, table, table td, table th
+    +p(true)
+
+.page-heading
+  +page-heading
+
+.hero
+  +hero

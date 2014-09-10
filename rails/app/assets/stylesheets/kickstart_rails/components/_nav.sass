@@ -1,0 +1,148 @@
+=color($background)
+  @if (lightness($background) < 75%)
+    color: rgba(255, 255, 255, 0.5)
+  @else
+    color: rgba(0, 0, 0, 0.5)
+
+=navbar-default($bleed-container: false, $background: $dark-white)
+  background: $background
+  border-top: 1px solid $darker-white
+
+  nav
+    display: inline-flex
+    align-items: flex-start
+    +flex-wrap
+    justify-content: space-between
+    align-content: space-between
+    width: 100%
+    border-radius: 0
+
+    @if (lightness($background) < 75%)
+      color: $white
+    @else
+      color: $lighter-black
+
+    h1
+      margin-bottom: 0
+      font-size: $base-font-size
+      line-height: $default-line-height
+
+    p
+      margin: 0
+
+    @if ($bleed-container)
+      > ul:first-child
+        margin-left: (-1 * map-get($rootElement, paddingH))
+
+      > ul:last-child
+        margin-right: (-1 * map-get($rootElement, paddingH))
+
+    ul
+      margin: 0
+      padding: 0
+      +flex(inline-flex)
+      +justify-content(space-between)
+      +align-content(space-between)
+      +align-items(center)
+      +flex-wrap
+
+      li
+        list-style: none
+        +root-element
+        +border-radius(0)
+        padding:
+          top: (map-get($rootElement, paddingV) - 1)
+          bottom: (map-get($rootElement, paddingV) - 1)
+        position: relative
+
+        &.with-submenu // Added via k$.nav()
+          padding: (2 * map-get($rootElement, paddingV) - 1) (map-get($rootElement, paddingH))
+          +color($background)
+          cursor: pointer
+
+          &:after
+            content: '+'
+            font-family: 'Kickstart', Kickstart
+            display: inline-block
+            margin-left: 5px
+            font-size: 0.65rem
+            vertical-align: middle
+
+          &:hover
+            @if (lightness($background) < 75%)
+              color: white
+            @else
+              color: rgba(0, 0, 0, 0.85)
+            background: darken($background, 5%)
+            border-color: darken($background, 5%)
+
+          &:active
+            background: darken($background, 15%)
+            border-color: darken($background, 15%)
+
+          &.open
+            color: rgba(0, 0, 0, 0.85)
+            background: white
+            border-color: $darker-white
+            border-bottom-color: transparent
+
+            &:hover
+              color: rgba(0, 0, 0, 0.85)
+              border-color: $darker-white
+              border-bottom-color: transparent
+
+        a:not([role=button])
+          +color($background)
+          text-decoration: none
+          cursor: pointer
+          display: block
+          +root-element
+          +border-radius(0)
+          margin: (-1 * map-get($rootElement, paddingV)) (-1 * map-get($rootElement, paddingH))
+          padding:
+            top: (2 * map-get($rootElement, paddingV))
+            bottom: (2 * map-get($rootElement, paddingV))
+
+          &:hover
+            @if (lightness($background) < 75%)
+              color: white
+            @else
+              color: rgba(0, 0, 0, 0.85)
+            background: darken($background, 5%)
+            border-color: darken($background, 5%)
+
+          &:active
+            background: darken($background, 15%)
+            border-color: darken($background, 15%)
+
+      ul
+        display: none
+        position: absolute
+        z-index: 10
+        background: white
+        top: 100%
+        margin-top: 1px
+        left: -1px // Compensate for border
+        min-width: 175px
+        border:
+          left: 1px solid $darker-white
+          right: 1px solid $darker-white
+          bottom: 1px solid $darker-white
+
+        li
+          border: 0px
+
+          a:not([role=button])
+            padding:
+              top: $space/4
+              bottom: $space/4
+            color: $light-black
+
+            &:hover
+              color: rgba(0, 0, 0, 0.85)
+              background: $dark-white
+              border-color: $dark-white
+
+            &:active
+              background: $darker-white
+              border-color: $darker-white

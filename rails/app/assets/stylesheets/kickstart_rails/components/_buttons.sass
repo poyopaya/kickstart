@@ -1,0 +1,28 @@
+=button-default($color)
+  +root-element
+  display: inline-block
+  background-color: $color
+  color: $light-black
+  cursor: pointer
+  text-decoration: none
+  border-color: hsla(0, 0%, 0%, 0.15)
+  color: $light-black
+
+  @if lightness($color) > 75%
+    color: $lighter-black
+  @else
+    color: $white
+
+  @if $color == $yellow
+    color: $lighter-black
+
+  @if $color == transparent
+    color: $lighter-black
+
+  &:hover
+    +box-shadow(0px -3px 0px 0px rgba(0, 0, 0, 0.1) inset)
+    text-decoration: none
+
+  &:active
+    +box-shadow(0px 3px 0px 0px rgba(0, 0, 0, 0.1) inset)
+    text-decoration: none

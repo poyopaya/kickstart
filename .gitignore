@@ -7,7 +7,6 @@ raw/publish
 bower_components
 .sass-cache
 .gem
-rails/app
 rails/.bundle/
 rails/.yardoc
 rails/Gemfile.lock

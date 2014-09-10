@@ -1,0 +1,136 @@
+/*
+ *  Docs
+ *  ====
+ *  Generation of css for the getkickstart.com homepage.
+ */
+
+// Choose your theme
+@import themes/_default
+
+// Now write your own Sass
+
+.mainpane
+  +column('twothirds')
+
+.sidebar
+  +column('third')
+
+  h1
+    +xs-heading
+
+  h2
+    +xxs-heading
+
+.fullpane
+  +column(12)
+
+  @media screen and (min-width: $tablet-landscape)
+    +column(8, 2)
+
+.main-navigation
+  +navbar($bleed-container: true)
+
+  .logo
+    height: 30px
+    margin:
+      top: 5px
+      bottom: -5px
+    opacity: 0.8
+
+.docs-nav
+  +navbar($bleed-container: true, $background: $lightest-black)
+
+// Colors
+// Kind of shitty, but there is a colors page that directly relies on this.
+
+// TODO: Use map functions to get colors and make this a loop
+// http://sass-lang.com/documentation/Sass/Script/Functions.html
+
+.color-
+  &black
+    background-color: $black
+
+  &light-black
+    background-color: $light-black
+
+  &lighter-black
+    background-color: $lighter-black
+
+  &lightest-black
+    background-color: $lightest-black
+
+  &gray
+    background-color: $gray
+
+  &white
+    background-color: $white
+
+  &yellow
+    background-color: $yellow
+
+.example
+  padding: $space
+  margin-bottom: $space
+  background: $dark-white
+
+  > *:last-child
+    margin-bottom: 0
+
+// Also shitty
+
+h1.example-
+  &xxl
+    +xxl-heading
+  &xl
+    +xl-heading
+  &lg
+    +lg-heading
+  &md
+    +md-heading
+  &rg
+    +rg-heading
+  &sm
+    +sm-heading
+  &xs
+    +xs-heading
+  &xxs
+    +xxs-heading
+
+.if-jquery, .ifnot-jquery, .if-semantic, .ifnot-semantic
+  display: none
+
+.hero
+  ul, ul li, .navbar
+    text-align: left
+
+  .logo
+    width: 600px
+    max-width: 95%
+
+  form, table, .tile
+    text-align: left
+    max-width: 360px
+    margin: 0px auto
+    color: $light-black
+
+  .tile
+    h1
+      color: $light-black
+      font-weight: 400
+      font-size: 1.1rem
+
+// Images
+
+.logo
+  max-width: 600px
+
+// Iframes
+iframe
+  max-width: 500px
+  height: 200px
+
+// Grid
+
+.example-column
+  background-color: $darkest-white
+  color: white
