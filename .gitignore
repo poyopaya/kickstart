@@ -6,7 +6,7 @@ rails/lib/kickstart_rails/version.rb
 raw/publish
 bower_components
 .sass-cache
-.gem
+*.gem
 rails/.bundle/
 rails/.yardoc
 rails/Gemfile.lock
