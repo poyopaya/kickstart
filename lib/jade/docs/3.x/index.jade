@@ -74,18 +74,32 @@ block fullPane
     regular css despite the fact you're running a full sass-compilation
     environment, linking to kickstart.css directly is still an option.
 
-    In application.css, you'll need to require normalize-rails--already a
-    dependency that should have been installed in kickstart_rails.
+    You can either import kickstart into application.css or into individual
+    files.
 
-        *= require_self
-        *= require normalize-rails
-        *= require_tree .
+    #### Import in application.css
 
-    Be sure to include this before `require_tree`
+    application.css must first be converted into .scss/.sass and not use any
+    `/* require` statements. This is because sprockets does not see the sass
+    variables. It will merely concatenate the compiled files together. 
 
-    In any scss/sass file requiring kickstart, add the following to the top.
+    You can change this to use `@import ` statements with an import to
+    `kickstart_rails` at the top.
 
-        @import "kickstart_rails/themes/_default";
+        @import kickstart_rails;
+        @import mysassfile1.sass;
+        @import mysassfile2.sass;
+
+    #### Import in separate files
+
+    To use in separate files, simply add
+
+        @import kickstart_rails;
+
+    to the top of the file. Remember that this will also bring in some
+    non-mixin styles, such as the typography, which would be made hard
+    to override. For this reason, we recommend converting your
+    application.css file instead. (above)
 
     #### Autoprefixing
 
