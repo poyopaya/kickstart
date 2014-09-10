@@ -2,3 +2,62 @@ extends ../../layout
 
 block hero-title
   h1 Labels
+
+block hero-example
+  span.label Look at this
+  span.label.red Uh oh
+  span.label.orange Fruity
+  span.label.yellow Warning
+  span.label.green It worked!
+  span.label.blue FYI
+  span.label.violet Exciting
+
+block basic
+  :markdown
+    Labels are pretty straightforward. Ideally, `span` elements should be labels
+    but the styling can be applied to almost anything.
+
+  .if-semantic
+    :markdown
+      <span>
+        
+          <span class="attention">Attention</span>
+
+          .attention {
+            @include label();
+          }
+
+  .ifnot-semantic
+    :markdown
+      <span>
+
+          <span class="label">Attention</span>
+
+block variations
+  :markdown
+    Labels can also be styled much the same way you would with a button.  
+
+  p
+    span.label.red Please correct
+    span.label.blue New!
+
+  .if-semantic
+    :markdown
+      Pass in any color to `label()`
+        
+          <span class="error">Please correct</span>
+          <span class="notice">New!</span>
+
+          .error {
+            @include label($red);
+          }
+          .notice {
+            @include label($primary);
+          }
+
+  .ifnot-semantic
+    :markdown
+      <span>
+
+          <span class="label red">Please correct</span>
+          <span class="label blue">New!</span> 
