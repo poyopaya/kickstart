@@ -5,5 +5,25 @@ block hero-title
 
 block hero-example
   .tile
-    h1 Hey, I'm a tile
-    p Sup.
+    h1 First page
+    p Use this menu to check bus schedules
+
+  .tile.red
+    h1 Oh no, something's wrong
+    p Check your reservation times. I think you may have made an error.
+
+  .tile.red
+    h1 We have you booked!
+    p Thanks for reserving with us. We'll see you on Saturday.
+
+block basic
+  :markdown
+    While tiles appear as just styled boxes, there is some opinionated
+    logic to style the containing typography in a way that makes it 
+    look good.
+
+    The best way to use tiles is with standard typography tags like 
+    headings and paragraphs.
+
+  .is-semantic
+  .isnot-semantic

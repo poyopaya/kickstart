@@ -18,7 +18,8 @@ status = (opts) ->
   hideStatusBar = ->
     $statusBar.parentNode.removeChild $statusBar
 
-  k$.debounce hideStatusBar, 'hideStatusBar', status.delay
+  if status.delay > 0
+    k$.debounce hideStatusBar, 'hideStatusBar', status.delay
 
   $status = k$.$("#status-bar_status")
   $status.innerHTML = status.text
