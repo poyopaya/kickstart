@@ -12,7 +12,33 @@ block basic
 
     Statuses are once-only notifications best for streaming system information.
     Once-only means each new status replaces its previous one and only one shows
-    at a time.
+    at a time. See [throttling](/docs/3.x/functions/throttling/) for more
+    information
+
+        k$.status({
+          text: 'Saved successfully',
+          type: 'success'
+        })
+
+    ## Growls
+
+    Growls are stackable, right-aligned notifications. Unlike statuses, creating
+    one growl does not replace the existing one. Each Growl has its own delay 
+    and styling properties. Unlike statuses, they are also dismissable like a
+    modal.
+
+        // Defaults are shown
+
+        k$.growl({
+          title: 'Greetings'
+        })
+
+block variations
+  :markdown
+    ## Statuses
+
+    Statuses take additional parameters to allow you to hold on to them for
+    longer, even forever, and style them appropriately.
 
         // Defaults are shown
 
@@ -20,9 +46,19 @@ block basic
           text: 'Saved successfully', // No default
           delay: 2000, // Optional, 0 = forever
           type: 'warn', // Optional, can choose warn/success/info/error
+          id: '' // Optional, for targeting with JavaScript
         })
 
-block variations
-  h2 Statuses
+    ## Growls
 
-  h2 Growls
+    Growls have similar flexibility.
+
+        // Defaults are shown
+
+        k$.growl({
+          title: 'Greetings',
+          text: 'We're happy to inform you your document was saved.', // Optional
+          delay: 2000, // Optional, 0 = forever
+          type: 'warn', // Optional
+          id: 'token' // Optional
+        })
