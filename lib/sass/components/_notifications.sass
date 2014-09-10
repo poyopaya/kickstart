@@ -5,6 +5,7 @@
   right: 0
   z-index: 1100 // Above modal
   display: flex
+  pointer-events: none
 
   .status-bar_status
     +root-element
@@ -24,6 +25,7 @@
     animation-fill-mode: both
     z-index: 1000
     animation-name: fadeInDown
+    line-height: normal
 
     &[data-type="success"]
       background-color: $green
