@@ -94,9 +94,16 @@ block variations
         <a class="tile blue">...</a>
         <a class="tile violet">...</a>
 
+  .ifnot-semantic
+    :markdown
+      Coloring tiles is pretty straightforward, only requiring you to add a color or 
+      `primary`/`secondary` to the `tile` class.
+
   .if-semantic
     :markdown
-      <span>
+      Coloring tiles is pretty straightforward, only requiring you to pass in the 
+      desired color as a parameter. The headlines will automatically pick up the
+      same styles.
 
           a.tile.red    { @include tile($red); }
           a.tile.orange { @include tile($orange); }
