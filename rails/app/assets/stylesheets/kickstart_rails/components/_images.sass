@@ -2,6 +2,12 @@
   display: flex
   overflow: hidden
   margin-bottom: $space
+  align-items: flex-start
 
   > :not(img)
-    background: red
+    + img
+      margin-left: $space/2
+
+  > img
+    + :not(img)
+      margin-left: $space/2

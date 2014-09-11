@@ -13,4 +13,5 @@ build:
 
 build-rails:
 	@make
+	@gulp test
 	@cd rails;gem build kickstart_rails.gemspec
