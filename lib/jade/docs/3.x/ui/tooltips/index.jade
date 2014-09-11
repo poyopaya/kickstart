@@ -1,9 +1,6 @@
 extends ../../layout
 
-block hero-title
-  h1 Tooltips
-
-block hero-example
+mixin colors 
   .tooltip-trigger
     a(href="#") Hover&nbsp;
     .label I'm a tooltip!
@@ -27,3 +24,94 @@ block hero-example
   .tooltip-trigger
     a(href="#") words&nbsp;
     .label.blue I'm a tooltip!
+
+block hero-title
+  h1 Tooltips
+
+block hero-example
+  +colors
+
+block basic
+  :markdown
+    For performance reasons, tooltips work mainly through CSS, using JavaScript
+    mainly for making minor on-screen adjustments.
+
+    To create a tooltip, you must first define what triggers that tooltip when
+    hovered.
+
+  .ifnot-semantic
+    :markdown
+      <span>
+
+          <div class="tooltip-trigger">
+            <button class="button">Close</button>
+          </div>
+
+  .if-semantic
+    :markdown
+      <span>
+
+          <div class="decision">
+            <button class="close">Close</button>
+          </div>
+
+          .decision {
+            @include tooltip-trigger();
+          }
+          .close {
+            @include button();
+          }
+
+  :markdown 
+    When hovering over `.tooltip-trigger`, any `.tooltip`
+    classes contained inside will become visible.
+
+
+  :markdown
+    <span>
+
+  .ifnot-semantic
+    :markdown
+      <span>
+
+          <div class="tooltip-trigger">
+            <button class="button">Close</button>
+            <span class="tooltip">Make sure you've finished your application!</span>
+          </div>
+
+  .if-semantic
+    :markdown
+      <span>
+
+          <div class="decision">
+            <button class="button">Close</button>
+            <span class="tooltip">Make sure you've finished your application!</span>
+          </div>
+
+          .decision {
+            @include tooltip-trigger();
+          }
+          .close {
+            @include button();
+          }
+
+      Note there is no special mixin for `.tooltip` as the content is so specific
+      to being a tooltip, the class should be semantic already.
+
+block variations
+  :markdown
+    ## Coloring
+
+  +colors
+
+  :markdown 
+    `tooltip()` takes two parameters:
+
+        tooltip($background: 'yellow', $color: 'white')
+
+    ("color" means foreground color and is named as such to correspond
+    with css attributes.)
+
+    `$color` is actually an optional parameter. The mixin will try to choose either
+    black or white based on the best contrast with your background color. However, 
+    it doesn't always get it just the way you'd want it.
