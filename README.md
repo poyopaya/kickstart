@@ -20,3 +20,10 @@ Clone the repository and run `make` in the directory created. This is only requi
 Run gulp to again build and watch the project. A browser tab should open in your
 default browser automatically when ready. You'll also get an external URL you
 can use on other devices.
+
+## Building Rails Gem
+
+Run `make build-rails`. This will build the project and a new gem but will not push the gem to rubygems.org.
+
+To push to rubygems, simply enter (in the rails dir) `gem push kickstart_rails-X.X.X.gem`. Replace
+the Xs with the version number of course.

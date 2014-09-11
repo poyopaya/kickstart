@@ -10,3 +10,7 @@ build:
 
 	@echo "Building project"
 	@gulp build
+
+build-rails:
+	@make
+	@cd rails;gem build kickstart_rails.gemspec
