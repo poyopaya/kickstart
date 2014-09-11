@@ -21,3 +21,7 @@ rails/tmp/
 *.o
 *.a
 mkmf.log
+kickstart.js
+kickstart.min.js
+kickstart.css
+kickstart.min.css

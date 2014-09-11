@@ -1,11 +1,16 @@
 =tile-default ($color: $dark-gray)
   box-shadow: 0px 0px 3px $gray
   background-color: white
+  +root-element
+  display: block
+  text-decoration: none
+  
+  &:hover
+    text-decoration: none
 
   @if $color == transparent
     box-shadow: 0px 0px 0px transparent
 
-  padding: ($space/2)
   padding-bottom: 0
   overflow: hidden
   margin-bottom: $space
