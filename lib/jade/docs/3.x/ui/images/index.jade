@@ -2,3 +2,104 @@ extends ../../layout
 
 block hero-title
   h1 Images
+
+block basic
+  h2 Thumbnails
+  .thumbnail-content
+    img(src="/img/mountains.png" style="flex: 0 0 150px;height: 150px")
+    article
+      p
+        strong Imagine living among the mountains
+      p In one of our gorgeous luxury timeshare condominiums, finally this dream can become a reality!
+
+  .thumbnail-content
+    article
+      p
+        strong Imagine living among the mountains
+      p In one of our gorgeous luxury timeshare condominiums, finally this dream can become a reality!
+    img(src="/img/mountains.png" style="flex: 0 0 150px;height: 150px")
+
+  .if-semantic
+    :markdown
+      <span>
+
+          <div class="feature">
+            <img src="mountains.png" />
+            <article>
+              <p><strong>Imagine living among the mountains</strong></p>
+              <p>...</p>
+            </article>
+          </div>
+
+          <div class="feature">
+            <article>
+              <p><strong>Imagine living among the mountains</strong></p>
+              <p>...</p>
+            </article>
+            <img src="mountains.png" />
+          </div>
+
+          .feature {
+            @include thumbnail-content();
+          }
+
+  .ifnot-semantic
+    :markdown
+      <span>
+
+          <div class="thumbnail-content">
+            <img src="mountains.png" />
+            <article>
+              <p><strong>Imagine living among the mountains</strong></p>
+              <p>...</p>
+            </article>
+          </div>
+
+          <div class="thumbnail-content">
+            <article>
+              <p><strong>Imagine living among the mountains</strong></p>
+              <p>...</p>
+            </article>
+            <img src="mountains.png" />
+          </div>
+
+      The implementation of this container is pretty simple. You'll simply
+      need an image and any html element to house the content.
+
+      To float the image right, simply follow it after the content instead of
+      before.
+
+block variations
+  :markdown
+    ## Fixed-width images
+    
+    These containers use CSS flexbox to align content. This can cause some
+    unexpected behavior when setting fixed width images
+
+  .thumbnail-content
+    img(src="/img/mountains.png" style="width: 150px;height: 150px")
+    article
+      p
+        strong Imagine living among the mountains
+      p In one of our gorgeous luxury timeshare condominiums, finally this dream can become a reality!
+
+  :markdown
+    <span>
+
+        <img src="/img/mountains.png" style="width: 150px;height: 150px" />
+
+    The solution is to use the `flex` property for widths. This directly tells
+    flexbox not to grow or shrink the image. So the above would look like this:
+
+  .thumbnail-content
+    img(src="/img/mountains.png" style="flex: 0 0 150px;height: 150px")
+    article
+      p
+        strong Imagine living among the mountains
+      p In one of our gorgeous luxury timeshare condominiums, finally this dream can become a reality!
+
+  :markdown
+    <span>
+
+        <img src="/img/mountains.png" style="flex: 0 0 150px;height: 150px" />
+  
