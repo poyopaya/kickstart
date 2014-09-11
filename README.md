@@ -9,6 +9,10 @@ Kickstart is a front-end framework for clean HTML and fast performance
 
 [ ![Codeship Status for ajkochanowicz/Kickstrap](https://www.codeship.io/projects/bf939ac0-1a88-0132-7edc-6605d664157f/status)](https://www.codeship.io/projects/34696)
 
+[![Code Climate](https://codeclimate.com/github/ajkochanowicz/Kickstrap/badges/gpa.svg)](https://codeclimate.com/github/ajkochanowicz/Kickstrap)
+
+[![Test Coverage](https://codeclimate.com/github/ajkochanowicz/Kickstrap/badges/coverage.svg)](https://codeclimate.com/github/ajkochanowicz/Kickstrap)
+
 For deployment, read [this codeship tutorial](http://blog.codeship.io/2014/02/04/continuous-deployment-static-pages-amazon-s3.html)
 
 ## Quickstart
