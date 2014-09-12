@@ -22,7 +22,7 @@ rails/tmp/
 *.a
 mkmf.log
 kickstart.js
-!rails/app/assets/javascripts/kickstart.js # Rails gem needs this.
+!rails/app/assets/javascripts/kickstart_rails/kickstart.js # Rails gem needs this.
 kickstart.min.js
 kickstart.css
 kickstart.min.css
