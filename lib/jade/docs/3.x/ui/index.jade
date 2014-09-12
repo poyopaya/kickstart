@@ -1,4 +1,42 @@
-extends ../layout
+extends ../fullPage-layout
 
 block hero-title
   h1 Base Styles
+
+block fullPane
+  :markdown
+    # Root Element
+
+    The concept of the root element in Kickstart is what would be
+    left if we combined the styling from all elements, only leaving
+    the things all of them had in common.
+
+    The end result of this doesn't fit the definition perfectly, but
+    it comes close and gives us a useful tool for sharing an aesthetic.
+
+    In the default theme of Kickstart, the root-element has a specific
+    top and bottom padding, border radius, and font rules.
+
+    Here it is with some shading for clarity.
+
+  .example
+    .root-element(style="background:rgba(0, 0, 0, 0.2)") foo
+
+  :markdown
+    This very simple piece of UI can be shared by many components. It
+    also gets us closer to a guarantee that any variety of many different
+    elements will fit nicely together.
+
+    ## Mixins
+
+    This is also how Kickstart defines its mixins and parameters. 
+    The goal of defining this is to maintain consistency across mixins as
+    much as possible.
+
+        @mixin root-element($background-color, $color)
+
+    Some properties, like `$color` seem to stand for CSS
+    properties. This is why the mixin uses those names instead of
+    `$foreground-color`. However, there are often other accessory
+    styles that come in with it. (For example, the navbar uses lighter
+    text when it's given a darker background.)
