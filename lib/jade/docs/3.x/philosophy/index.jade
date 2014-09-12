@@ -12,6 +12,13 @@ block fullPane
     Kickstart is an effort to carve the process of website design down to its bare essentials.
 
     * Content-specific classes*
+      * Presentational class names like `.button.button__big` were great for 
+        optimizing for code reuse. However, we already have a great decoupling
+        utility to prevent us from having to litter our HTML with these names. 
+        That utility is the *CSS Preprocessor*.  
+      * In addition to the CSS preprocessor, another tool came along called *source-mapping*. 
+        This allowed us to find out exactly where in the preprocessed code
+        html elements were getting their styles.
       * Blocks and modifiers are assigned to mixins, never classes. This means
         instead of `.navbar` or `.list-box`, you'll define classes that define
         the content and attach the styles to them. (`.page-navigation`,
