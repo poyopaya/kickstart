@@ -25,11 +25,19 @@ block meta
 
 block basic
 
+  button.button Sign Up
+  | &nbsp;
+  a.button(href="#") Sign Up
+  | &nbsp;
+  input.button(type="submit" value="Sign Up")
+
   .if-semantic
     :markdown
       <span>
 
           <button class="signup">Sign up</button>
+          <a href="#" class="signup">Sign up</a>
+          <input type="submit" class="signup" value="Sign up" />
 
           .signup {
             @include button();
@@ -40,6 +48,8 @@ block basic
       <span>
 
           <button class="button">Sign up</button>
+          <a href="#" class="button">Sign up</a>
+          <input type="submit" class="button" value="Sign up" />
 
 block variations
   .example
@@ -87,13 +97,194 @@ block variations
             @include button();
           }
 
-block granular
-  h2 Dropdown buttons
+block granular 
+  :markdown
+    ## Dropdown button
+
+    Dropdown buttons are simply collapsible lists that look like buttons.
 
   button
-    | Upload
+    | Add photo
     ul
+      li
+        a(href="#") Upload
       li
         a(href="#") Choose from library
       li
         a(href="#") Take a picture
+
+  :markdown
+    <span>
+
+        <button class="button" role="button">
+          Add photo
+          <ul>
+            <li>
+              <a href="#">Upload</a>
+            </li>
+            <li>
+              <a href="#">Choose from library</a>
+            </li>
+            <li>
+              <a href="#">Take a picture</a>
+            </li>
+          </ul>
+        </button>
+
+  .if-semantic
+    :markdown
+      <span>
+
+          .button { 
+            @include button();
+          }
+
+      Notice the `role="button"` inclusion on the button
+      element. This is not just good accessibility but allows JavaScript
+      to see the button, despite the use of a custom class.
+
+  :markdown
+    ## Button with dropdown
+    
+    This is a bit different from the above only because the button stil
+    exists with the dropdown instead of as one.
+
+  button.button Upload
+  ul.button-dropdown
+    li
+      a(href="#") Choose from library
+    li
+      a(href="#") Take a picture
+
+  :markdown
+    <span>
+
+        <button class="button" role="button">
+          Upload
+        </button>
+        <ul class="button-dropdown">
+          <li>
+            <a href="#">Choose from library</a>
+          </li>
+          <li>
+            <a href="#">Take a picture</a>
+          </li>
+        </ul>
+
+  .if-semantic
+    :markdown
+      <span>
+
+          .button {
+            @include button();
+          }
+          .button-dropdown {
+            @include button-dropdown();
+          }
+
+  :markdown
+    ## Groups
+
+  ul.button-group
+    li
+      a(href="#") Create
+    li
+      a(href="#") Read
+    li
+      a(href="#") Update
+    li
+      a(href="#") Delete
+
+  :markdown
+    <span>
+
+        <ul class="button-group">
+          <li>
+            <a href="#">Create</a>
+          </li>
+          <li>
+            <a href="#">Read</a>
+          </li>
+          <li>
+            <a href="#">Update</a>
+          </li>
+          <li>
+            <a href="#">Delete</a>
+          </li>
+        </ul>
+
+  .if-semantic
+    :markdown
+      <span>
+
+          .button-group {
+            @include button-group();
+          }
+
+  :markdown
+    ## Sizes
+
+  .row
+    .col-4
+      ul.unstyled
+        li
+          button.button.large Large
+        li
+          button.button Regular
+        li
+          button.button Small
+
+    .col-4
+      ul.unstyled
+        li
+          button.button.large Large
+          ul.button-dropdown
+            li
+              a(href="#") Option 1
+            li
+              a(href="#") Option 2
+
+        li
+          button.button Regular
+          ul.button-dropdown
+            li
+              a(href="#") Option 1
+            li
+              a(href="#") Option 2
+
+        li
+          button.button Small
+          ul.button-dropdown
+            li
+              a(href="#") Option 1
+            li
+              a(href="#") Option 2
+
+    .col-4
+      ul.unstyled
+        li
+          button.button.large 
+            | Large
+            ul.button-dropdown
+              li
+                a(href="#") Option 1
+              li
+                a(href="#") Option 2
+
+        li
+          button.button 
+            | Regular
+            ul
+              li
+                a(href="#") Option 1
+              li
+                a(href="#") Option 2
+
+        li
+          button.button 
+            | Small
+            ul
+              li
+                a(href="#") Option 1
+              li
+                a(href="#") Option 2
