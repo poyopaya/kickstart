@@ -105,12 +105,43 @@ block variations
   :markdown
     ### Validation
 
-  form.form
-    label First Name
-    input(type="text" placeholder="John")
+    Kickstart is very feature-forward when it comes to form validation.
 
-    label First Name
-    input(type="text" placeholder="John")
+    While there are classes for optionally adding color to indicate errors, HTML5
+    already has a great API for validating for fields. Using this instead of 
+    an additional JavaScript library works much better for page performance and 
+    requires less wheel-reinventing than having to include more code in the CSS/JS.
 
-    label First Name
-    input(type="text" placeholder="John")
+  form
+    label.error First Name
+    input.error(type="text" placeholder="John")
+
+    label.success First Name
+    input.success(type="text" placeholder="John")
+
+    label.error First Name
+    input.warning(type="text" placeholder="John")
+
+  .if-semantic
+    :markdown
+      For this particular use case, there is no semantic version of the 
+      validation coloring classes.
+
+  :markdown
+    Keep in mind the native HTML5 validation to follow *does color forms* based
+    on errors. For this reason, it's strongly encouraged to hold off on using 
+    these classes until you absolutely have to.
+
+    To help you use HTML5 form validation, this page will show you a few easy
+    ways to validate form fields using native rules directly in the markup.
+
+    #### Input types
+
+    One of the simplest ways to validate a field is simply to use the right
+    `type` on an input form. Try entering invalid information into these:
+
+  form(action="/")
+    label(for="email") Email
+    input(type="email" name="email")
+    input(type="submit")
+
