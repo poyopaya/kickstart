@@ -21,7 +21,7 @@ rails/tmp/
 *.o
 *.a
 mkmf.log
-kickstart.js
+# kickstart.js # (Apparently the gem needs to see this)
 kickstart.min.js
-kickstart.css
+# kickstart.css # (Apparently the gem needs to see this)
 kickstart.min.css
