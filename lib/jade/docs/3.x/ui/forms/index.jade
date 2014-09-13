@@ -103,45 +103,133 @@ block variations
     input(type="submit" role="button")
 
   :markdown
+    ### States
+
+    Disabled inputs are grayed out and receive a disabled cursor.
+
+  input(type="email" disabled value="john@example.com")
+
+  :markdown
+    <span>
+      
+        <input type="email" value="john@example.com" disabled />
+
+  :markdown
     ### Validation
 
-    Kickstart is very feature-forward when it comes to form validation.
+    Three classes can be used to style form components for
+    validation: `error`, `success`, and `warning`.
 
-    While there are classes for optionally adding color to indicate errors, HTML5
-    already has a great API for validating for fields. Using this instead of 
-    an additional JavaScript library works much better for page performance and 
-    requires less wheel-reinventing than having to include more code in the CSS/JS.
+    The classes can be directly applied to the elements:
+
+        <input class="error" type="email" />
+        <p class="error">Please enter a valid email</p>
+
+    Or to a **direct** parent:
+
+        <div class="error">
+          <input type="email" />
+          <p>Please enter a valid email</p>
+        </div>
+
+  h4 Error
 
   form
     label.error First Name
     input.error(type="text" placeholder="John")
+    p.error Please enter a valid first name
 
+  :markdown
+    <span>
+
+        <form action="...">
+          <label class="error" for="fName">
+          <input class="error" type="text" placeholder="John" name="fName"/> 
+          <p class="error">Please enter a valid first name</p>
+        </form>
+
+  h4 Success
+
+  form
     label.success First Name
     input.success(type="text" placeholder="John")
+    p.success Thanks!
 
-    label.error First Name
+  :markdown
+    <span>
+
+        <form action="...">
+          <label class="success" for="fName">
+          <input class="success" type="text" placeholder="John" name="fName"/> 
+          <p class="warning">Thanks!</p>
+        </form>
+
+  h4 Warning
+
+  form
+    label.warning First Name
     input.warning(type="text" placeholder="John")
+    p.warning This information will be public
+
+  :markdown
+    <span>
+
+        <form action="...">
+          <label class="warning" for="fName">
+          <input class="warning" type="text" placeholder="John" name="fName"/> 
+          <p class="warning">This information will be public</p>
+        </form>
 
   .if-semantic
     :markdown
       For this particular use case, there is no semantic version of the 
       validation coloring classes.
 
-  :markdown
-    Keep in mind the native HTML5 validation to follow *does color forms* based
-    on errors. For this reason, it's strongly encouraged to hold off on using 
-    these classes until you absolutely have to.
+  h4 Mixed
 
-    To help you use HTML5 form validation, this page will show you a few easy
-    ways to validate form fields using native rules directly in the markup.
+  form.form
+    .error
+      label First Name
+      input(type="text" placeholder="John")
+      p Please enter a valid first name.
 
-    #### Input types
+    .warning
+      label Last Name
+      input(type="text" placeholder="Smith")
+      p We already have a user by this name. Are you sure about this?
 
-    One of the simplest ways to validate a field is simply to use the right
-    `type` on an input form. Try entering invalid information into these:
+    label.success Issue size
+    label
+      input(type="radio" name="issue")
+      |  Small issue
+    label.success
+      input.success(type="radio" name="issue")
+      |  Regular issue
+    p.success Great choice!
+    label
+      input(type="radio" name="issue")
+      |  Large issue
 
-  form(action="/")
-    label(for="email") Email
-    input(type="email" name="email")
-    input(type="submit")
+    label.error Shipping options
+    label
+      input(type="checkbox")
+      |  Fast shipping
+    label.error
+      input(type="checkbox")
+      |  Gift-wrapping
+    p.error Sorry, this is not available at this time.
 
+    label.warning Subscription frequency
+    select.warning
+      option Daily
+      option Weekly
+      option Monthly
+      option Yearly
+    p.warning Please be advised, it takes 1 week to change this subscription option
+
+    .success
+      label Bio
+      p Great bio!
+      textarea
+
+    input(value="Subscribe" type="submit" role="button")
