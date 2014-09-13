@@ -1,6 +1,6 @@
 (function() {
   document.addEventListener('DOMContentLoaded', function() {
-    var booleanViewOptions, defaults, els, extend, heading, option, options, setSettings, settings, _fn, _i, _j, _k, _len, _len1, _len2, _ref, _results;
+    var $headingLevel, $link, $menuItem, $newSubmenu, $targetNode, $toc, booleanViewOptions, defaults, els, extend, heading, option, options, setSettings, settings, _fn, _i, _j, _k, _len, _len1, _len2, _ref;
     window.$$ = function(el) {
       return document.querySelectorAll(el);
     };
@@ -106,15 +106,28 @@
       });
     }
     k$.slugify = function(str) {
-      return return str.toLowerCase().replace(/ /g,'-').replace(/[^\w-]+/g,'');
+      return str.toLowerCase().replace(/ /g,'-').replace(/[^\w-]+/g,'');
     };
-    _ref = k$.$$('h1, h2, h3, h4, h5, h6');
-    _results = [];
+    $toc = document.createElement('ul');
+    $link = document.createElement('li');
+    $link.innerHTML = '<a></a>';
+    $headingLevel = 1;
+    $targetNode = $toc;
+    _ref = k$.$$('.mainpane h1, .mainpane h2, .mainpane h3, .mainpane h4, .mainpane h5, .mainpane h6');
     for (_k = 0, _len2 = _ref.length; _k < _len2; _k++) {
       heading = _ref[_k];
-      _results.push(heading.id = slugify(heading.innerHTML));
+      heading.id = k$.slugify(heading.innerHTML);
+      if (parseInt(heading.nodeName.substr(1, 1) > $headingLevel)) {
+        $newSubmenu = $toc.cloneNode(true);
+        $targetNode.appendChild($newSubmenu);
+        $targetNode = $newSubmenu;
+      }
+      $menuItem = $link.cloneNode(true);
+      $menuItem.querySelector('a').href = "#" + heading.id;
+      $menuItem.querySelector('a').innerHTML = heading.innerHTML;
+      $targetNode.appendChild($menuItem);
     }
-    return _results;
+    return console.log($toc);
   });
 
 }).call(this);

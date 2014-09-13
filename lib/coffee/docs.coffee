@@ -98,5 +98,32 @@ document.addEventListener 'DOMContentLoaded', ->
   k$.slugify = (str) ->
     `str.toLowerCase().replace(/ /g,'-').replace(/[^\w-]+/g,'')`
 
-  for heading in k$.$$ 'h1, h2, h3, h4, h5, h6'
-    heading.id = k$.slugify heading.innerHTML if not heading.id
+  # Create a table of contents
+  $toc = document.createElement 'ul'
+  $link = document.createElement('li')
+  $link.innerHTML = '<a></a>'
+
+  # Assuming proper html, start with h1.
+  $headingLevel = 1
+
+  # The node we're currently appending to. Always a ul.
+  $targetNode = $toc
+
+  for heading in k$.$$ '.mainpane h1, .mainpane h2, .mainpane h3, .mainpane h4, .mainpane h5, .mainpane h6'
+    heading.id = k$.slugify heading.innerHTML
+
+    # If this is a lower level.
+    if parseInt heading.nodeName.substr(1,1) > $headingLevel
+      # Append a new submenu and make that the targetNode.
+      $newSubmenu = $toc.cloneNode true
+      $targetNode.appendChild $newSubmenu
+      $targetNode = $newSubmenu
+
+    # Make a new li and append it to the target ul node.
+    $menuItem = $link.cloneNode true
+    $menuItem.querySelector('a').href = "##{heading.id}"
+    $menuItem.querySelector('a').innerHTML = heading.innerHTML
+    $targetNode.appendChild $menuItem
+
+  console.log $toc
+
