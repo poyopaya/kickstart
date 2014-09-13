@@ -94,3 +94,9 @@ document.addEventListener 'DOMContentLoaded', ->
       k$.exampleCounter = 0 if not k$.exampleCounter or k$.exampleCounter > 3
 
       k$.status(statuses[k$.exampleCounter])
+
+  k$.slugify = (str) ->
+    `str.toLowerCase().replace(/ /g,'-').replace(/[^\w-]+/g,'')`
+
+  for heading in k$.$$ 'h1, h2, h3, h4, h5, h6'
+    heading.id = k$.slugify heading.innerHTML if not heading.id

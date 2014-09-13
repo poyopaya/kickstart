@@ -78,6 +78,31 @@ block variations
           }
 
 
+  :markdown
+    ## Lists
+    
+    Sometimes bullets are annoying. Kickstart provides a couple ways of displaying unstyled lists:
+
+    ### Unstyled vertical
+
+  ul.unstyled
+    li Apples
+    li Bread
+    li Nuts
+    li Sugar
+    li Flour
+
+  :markdown
+
+    ### Unstyled horizontal
+
+  ul.unstyled.horizontal
+    li Apples
+    li Bread
+    li Nuts
+    li Sugar
+    li Flour
+
   h2 Decoupled
   p While different sizes of text can be selected with the h1-h6 tags, this fringes on using HTML for styling. The level of a heading should dictate its hierarchy, but not necessarily its size.
   p For this reason, a set of heading <span class="ifnot-semantic">classes</span><span class="if-semantic">mixins</span> are available that can be added to the heading tags. Notice in each example below, an h1 tag is used, although the sizes vary.

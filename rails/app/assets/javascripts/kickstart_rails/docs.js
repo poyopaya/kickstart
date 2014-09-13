@@ -1,6 +1,6 @@
 (function() {
   document.addEventListener('DOMContentLoaded', function() {
-    var booleanViewOptions, defaults, els, extend, option, options, setSettings, settings, _fn, _i, _j, _len, _len1;
+    var booleanViewOptions, defaults, els, extend, heading, option, options, setSettings, settings, _fn, _i, _j, _k, _len, _len1, _len2, _ref, _results;
     window.$$ = function(el) {
       return document.querySelectorAll(el);
     };
@@ -81,7 +81,7 @@
       }
     }
     if (k$.$('#example-showStatus')) {
-      return k$.$('#example-showStatus').addEventListener('click', function() {
+      k$.$('#example-showStatus').addEventListener('click', function() {
         var statuses;
         statuses = [
           {
@@ -105,6 +105,16 @@
         return k$.status(statuses[k$.exampleCounter]);
       });
     }
+    k$.slugify = function(str) {
+      return return str.toLowerCase().replace(/ /g,'-').replace(/[^\w-]+/g,'');
+    };
+    _ref = k$.$$('h1, h2, h3, h4, h5, h6');
+    _results = [];
+    for (_k = 0, _len2 = _ref.length; _k < _len2; _k++) {
+      heading = _ref[_k];
+      _results.push(heading.id = slugify(heading.innerHTML));
+    }
+    return _results;
   });
 
 }).call(this);
