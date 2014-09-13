@@ -38,9 +38,11 @@ document.addEventListener 'DOMContentLoaded', ->
 
     for option in booleanViewOptions
       for $container in $$(".if-#{option}")
-         $container.style.display = (if settings.viewOptions["#{option}"] then 'block' else 'none')
+         $visibleStyle = if $container.nodeName == 'SPAN' then 'inline-block' else 'block'
+         $container.style.display = (if settings.viewOptions["#{option}"] then $visibleStyle else 'none')
       for $container in $$(".ifnot-#{option}")
-         $container.style.display = (if settings.viewOptions["#{option}"] then 'none' else 'block')
+         $visibleStyle = if $container.nodeName == 'SPAN' then 'inline-block' else 'block'
+         $container.style.display = (if settings.viewOptions["#{option}"] then 'none' else $visibleStyle)
 
   # Write to localStorage
   setSettings(settings)

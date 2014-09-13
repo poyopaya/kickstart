@@ -24,19 +24,38 @@ block variations
   p Font sizes and line-heights are set with responsive sizing based on the viewport width. Try changing the size of this screen or view on a different-sized screen for an example.
 
   h2 Content-optimized
-  p To use content-optimized default paragraph text, simply pass in&nbsp;
+  p.if-semantic 
+    | To use content-optimized default paragraph text, simply pass in&nbsp;
     code true
     |  to&nbsp;
     code p()
+  p.if-semantic Direct descendants will also acquire these styles, so this can be applied to a parent container as well.
+  p.ifnot-semantic 
+    | Classes with&nbsp;
+    code .semantic
+    |  and their direct descendants will be optimized for content.
+
 
   .example
     p.readable Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
     p.readable Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 
-    pre
+    pre.if-semantic
       code p.readable {
         |   @include p(true);
         | }
+
+    .ifnot-semantic
+      :markdown
+        <span>
+
+            <p class="readable">Lorem...</p>
+
+        or
+
+            <div class="readable">
+              <p>Lorem...</p>
+            </div>
 
   h2 Headers
   p Create spacious, dominating header lines
@@ -61,25 +80,27 @@ block variations
 
   h2 Decoupled
   p While different sizes of text can be selected with the h1-h6 tags, this fringes on using HTML for styling. The level of a heading should dictate its hierarchy, but not necessarily its size.
-  p For this reason, a set of heading mixins are available that can be mixed into the heading tags. Notice in each example below, an h1 tag is used, although the sizes vary.
+  p For this reason, a set of heading <span class="ifnot-semantic">classes</span><span class="if-semantic">mixins</span> are available that can be added to the heading tags. Notice in each example below, an h1 tag is used, although the sizes vary.
 
   table
     thead
       tr
-        th Mixin name
+        th.if-semantic Mixin name
         th Implementation
         th Sample
     tbody
       - for size in ['xxl', 'xl', 'lg', 'md', 'rg', 'sm', 'xs', 'xxs']
         tr
-          td
+          td.if-semantic
             code #{size}-heading()
           td
-            pre
+            pre.if-semantic
               code h1.#{size} {
                 |   @include #{size}-heading();
                 | }
                 | &nbsp;
                 | &lt;h1 class="#{size}"&gt;Hello World&lt;/h1&gt;
+            pre.ifnot-semantic
+              code &lt;h1 class="#{size}"&gt;Hello World&lt;/h1&gt;
           td
-            h1(class="example-#{size}") Hello World
+            h1(class="#{size}") Hello World

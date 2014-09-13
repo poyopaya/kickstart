@@ -33,7 +33,7 @@
     };
     settings = options ? extend(defaults, options) : defaults;
     setSettings = function(settings) {
-      var $container, option, _i, _j, _len, _len1, _ref, _results;
+      var $container, $visibleStyle, option, _i, _j, _len, _len1, _ref, _results;
       localStorage.setItem('kickstartDocs', JSON.stringify(settings));
       _results = [];
       for (_i = 0, _len = booleanViewOptions.length; _i < _len; _i++) {
@@ -41,7 +41,8 @@
         _ref = $$(".if-" + option);
         for (_j = 0, _len1 = _ref.length; _j < _len1; _j++) {
           $container = _ref[_j];
-          $container.style.display = (settings.viewOptions["" + option] ? 'block' : 'none');
+          $visibleStyle = $container.nodeName === 'SPAN' ? 'inline-block' : 'block';
+          $container.style.display = (settings.viewOptions["" + option] ? $visibleStyle : 'none');
         }
         _results.push((function() {
           var _k, _len2, _ref1, _results1;
@@ -49,7 +50,8 @@
           _results1 = [];
           for (_k = 0, _len2 = _ref1.length; _k < _len2; _k++) {
             $container = _ref1[_k];
-            _results1.push($container.style.display = (settings.viewOptions["" + option] ? 'none' : 'block'));
+            $visibleStyle = $container.nodeName === 'SPAN' ? 'inline-block' : 'block';
+            _results1.push($container.style.display = (settings.viewOptions["" + option] ? 'none' : $visibleStyle));
           }
           return _results1;
         })());
