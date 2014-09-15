@@ -15,3 +15,8 @@ build-rails:
 	@make
 	@gulp test
 	@cd rails;gem build kickstart_rails.gemspec
+
+setup:
+	@sudo npm install -g gulp
+	@sudo npm install
+	@bundle install
