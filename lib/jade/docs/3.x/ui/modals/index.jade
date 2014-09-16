@@ -78,14 +78,14 @@ block basic
     of it (which would close the modal.)
 
 
-  h3 Sass
+  h3 Styling
   p
     | For default modal styling (not required to function),
     span.if-semantic
-      | just include&nbsp;
+      |  just include&nbsp;
       code modal()
     span.ifnot-semantic
-      | use the&nbsp;
+      |  use the&nbsp;
       code .modal
       |  class.
 
@@ -108,6 +108,30 @@ block basic
             <div class="modal">
               <h1>Hello</h1>
             </div>
+
+block variations
+  :markdown
+    By default, the modal doesn't come with much styling. This is to allow for more
+    creativity in styling the contents.
+
+    However, by structuring the direct children as HTML5 `header`, `main`, and `footer`,
+    the modal will take on some clean styling for showing as a window.
+
+  .example
+    .modal.example
+      header
+        h1 How would you like to pay?
+      
+      main
+        ul
+          li: a(href="#") Visa
+          li: a(href="#") Mastercard
+          li: a(href="#") American Express
+
+      footer
+        ul
+          li: a.button(href="#") Cancel
+          li: a.button.primary(href="#") Next &raquo;
 
 block postJS
   script.
