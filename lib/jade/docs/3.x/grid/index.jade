@@ -328,7 +328,7 @@ block variations
             @import column(6);
           }
           .new, .updated, .archived {
-            @import columns(4);
+            @import column(4);
           } 
 
   .ifnot-semantic
@@ -510,7 +510,7 @@ block variations
       the other.
 
           .about-me, .my-work, .getting-in-touch {
-            @include columns(12);
+            @include column(12);
           }
 
       This looks good, but on a tablet in landscape position, the reading stride
@@ -518,11 +518,11 @@ block variations
       one full.
 
           .about-me, .my-work, .getting-in-touch {
-            @include columns(12);
+            @include column(12);
           }
           @media screen and (min-width: $tablet-landscape) {
             .about-me, .my-work {
-              @include columns(6);
+              @include column(6);
             }
           }
 
@@ -532,16 +532,16 @@ block variations
       Now we're on desktop and we're ready to go into three column mode.
 
           .about-me, .my-work, .getting-in-touch {
-            @include columns(12);
+            @include column(12);
           }
           @media screen and (min-width: $tablet-landscape) {
             .about-me, .my-work {
-              @include columns(6);
+              @include column(6);
             }
           }
           @media screen and (min-width: $desktop) {
             .about-me, .my-work, .getting-in-touch {
-              @include columns(4);
+              @include column(4);
             }
           }
 

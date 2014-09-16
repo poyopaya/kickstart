@@ -15,7 +15,14 @@ block meta
 
 block basic
   #sampleModal.modal
-    h1 I'm a modal!
+    header
+      h1 Modal
+    main
+      p Hi, I'm a modal.
+    footer
+      ul
+        li
+          a.button(href="#") Close
 
   h3 JavaScript
   p
@@ -123,6 +130,7 @@ block variations
         h1 How would you like to pay?
       
       main
+        p Please make a selection:
         ul
           li: a(href="#") Visa
           li: a(href="#") Mastercard
@@ -132,6 +140,47 @@ block variations
         ul
           li: a.button(href="#") Cancel
           li: a.button.primary(href="#") Next &raquo;
+
+  :markdown
+    <span>
+
+        <aside class="modal">
+          <header>
+            <h1>How would you like to pay?</h1>
+          </header>
+          <main>
+            <p>Please make a selection</p>
+            <ul>
+              <li>
+                <a href="#">Visa</a>
+              </li>
+              <li>
+                <a href="#">Mastercard</a>
+              </li>
+              <li>
+                <a href="#">American Express</a>
+              </li>
+            </ul>
+          </main>
+          <footer>
+            <ul>
+              <li>
+                <a class="button" href="#">Cancel</a>
+              </li>
+              <li>
+                <a class="button primary" href="#">Next &raquo;</a>
+              </li>
+            </ul>
+          </footer>
+        </aside>
+
+  .if-semantic
+    :markdown
+      <span>
+
+          .modal {
+            @include modal();
+          }
 
 block postJS
   script.
