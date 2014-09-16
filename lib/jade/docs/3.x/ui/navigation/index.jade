@@ -23,6 +23,18 @@ block hero-example
         li
           a.button(href="#" role="button") Signup
 
+  .breadcrumbs
+    ul
+      li: a(href="#") Products
+      li: a(href="#") Home and Garden
+      li: Rake
+
+  .pagination
+    ul
+      li: a(href="#") &laquo; Prev
+    ul
+      li: a(href="#") Next &raquo;
+
 block meta
   table
     tr.if-semantic
@@ -286,7 +298,170 @@ block variations
 
     ### Breadcrumbs
 
+    Breadcrumbs are similar to navigation bars except for minor styling. For this reason,
+    the markup is similar as well.
+
+  .breadcrumbs
+    ul
+      li: a(href="#") Products
+      li: a(href="#") Home and Garden
+      li: Rake
+
+  :markdown
+    <span>
+
+        <nav class="breadcrumbs">
+          <ul>
+            <li>
+              <a href="#">Products</a>
+            </li>
+            <li>
+              <a href="#">Home and Garden</a>
+            </li>
+            <li>Rake</li>
+          </ul>
+        </nav>
+
+  .if-semantic
+    :markdown
+      <span>
+
+          .breadcrumbs {
+            @include breadcrumbs();
+          }
+
+  :markdown
+    The last `li` is unstyled to signal the product detail page for "Rake" is the current 
+    page they are on.
+
+    ### Dark
+
+    You can also use a darker version of the navbar <span class="if-semantic">or pass in your own color</span>.
+
+  .breadcrumbs-dark
+    ul
+      li: a(href="#") Products
+      li: a(href="#") Home and Garden
+      li: Rake
+
+  :markdown
+    <span>
+
+        <nav class="breadcrumbs-dark">
+          <ul>
+            <li>
+              <a href="#">Products</a>
+            </li>
+            <li>
+              <a href="#">Home and Garden</a>
+            </li>
+            <li>Rake</li>
+          </ul>
+        </nav>
+
+  .if-semantic
+    :markdown
+      <span>
+
+          .breadcrumbs-dark {
+            @include breadcrumbs($background-color: #333);
+          }
+
+      As with the navbar, passing in the background color as a parameter 
+      insures other color conventions match or oppose as best as the mixin
+      can decide.
+
+  :markdown 
     ### Pagination
+
+    Pagination styling is very similar to the navigation bar. As such, the
+    markup is also very similar and 
+    <span class="ifnot-semantic">a <code>.pagination-dark</code> class is available.</span>
+    <span class="if-semantic">a <code>$background-color</code> can be passed in to <code>pagination()</code></span>.
+
+  .pagination
+    ul
+      li: a(href="#") &laquo; Prev
+    ul
+      li: a(href="#") Next &raquo;
+
+  :markdown
+    <span>
+
+        <div class="pagination">
+          <ul>
+            <li>
+              <a href="#">&laquo; Prev</a>
+            </li>
+            <li>
+              <a href="#">Next &raquo;</a>
+            </li>
+          </ul>
+        </div>
+
+        <!-- laquo/raquo stand for "left and right angle quotes" -->
+
+  .if-semantic
+    :markdown
+      <span>
+
+          .pagination {
+            @include pagination();
+          }
+
+  .pagination
+    ul
+      li: a(href="#") 1
+      li: a(href="#") 2
+      li: a(href="#") 3
+      li: a(href="#") 4
+      li: a(href="#") 5
+
+  :markdown
+    <span>
+
+        <div class="pagination">
+          <ul>
+            <li>
+              <a href="#">1</a>
+            </li>
+            <li>
+              <a href="#">2</a>
+            </li>
+            <li>
+              <a href="#">3</a>
+            </li>
+            <li>
+              <a href="#">4</a>
+            </li>
+            <li>
+              <a href="#">5</a>
+            </li>
+          </ul>
+        </div>
+
+  h3 Other options
+  p Adding the <code>disabled</code> attribute will signal to the user the option is not available.
+
+  .pagination
+    ul
+      li: a(href="#") 1
+      li: a(href="#" disabled) 2
+
+  :markdown
+    <span>
+
+        <div class="pagination">
+          <ul>
+            <li>
+              <a href="#">1</a>
+            </li>
+            <li>
+              <a href="#" disabled>2</a>
+            </li>
+          </ul>
+        </div>
+
 
 block postJS
   script.
