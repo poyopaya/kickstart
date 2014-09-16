@@ -168,7 +168,7 @@ block variations
   
   .example
     .row
-      .col-offset-6.col-6: .col-example six columns with offset
+      .col-offset-6.col-6: .col-example six columns with six column offset
 
   .ifnot-semantic
     :markdown
@@ -191,6 +191,90 @@ block variations
           .reminder {
             @include column(6, 6);
           }
+
+  .example
+    .row
+      .col-offset-2.col-10: .col-example 10 columns with 2 column offset
+    .row
+      .col-3: .col-example 3 columns
+      .col-6: .col-example 6 columns
+    .row
+      .col-offset-4.col-4: .col-example 4 columns with 4 column offset
+
+  :markdown
+    ### Finishes
+    
+    Notice above an offset appears even though one isn't set.
+    
+    This is because the flex box grid will automatically space out elements with `space-between`.
+    This allows the grid to automatically space elements around to fill the space left to right.
+
+    However, you may want to leave part of a column unfinished while having the first columns flush like this:
+
+  .example
+    .row
+      .col-3: .col-example 3 columns
+      .col-6.col-finish-3: .col-example 6 columns with 3 column finish
+
+  :markdown
+    This is accomplished by "finishing" the row. Because we already have 9 columns used up, we need to
+    finish the remaining three to complete 12 columns.
+
+  .ifnot-semantic
+    :markdown
+      <span>
+
+          ...
+          <div class="col-3">
+            Three columns
+          </div>
+          <div class="col-6 col-finish-3">
+            Six columns
+          </div>
+
+  .if-semantic
+    :markdown
+      <span>
+
+          ...
+          <div class="news">
+            Three columns
+          </div>
+          <div class="events">
+            Six columns
+          </div>
+
+          .news {
+            @include column(3); // 3 columns
+          }
+          .events {
+            @include column(6, 0, 3); // 6 columns, 0 offset, 3 finish
+          }
+
+  h3 Shortcuts
+  p Offsets can also use semantic shortcuts.
+
+  .ifnot-semantic
+    :markdown
+      <span>
+
+          <div class="col-third col-offset-twothirds">
+            ...
+          </div>
+
+  .if-semantic
+    :markdown
+      <span>
+
+          <div class="blurb">
+            ...
+          </div>
+
+          .blurb {
+            @include column('third, twothirds');
+          }
+
+  p In the above example, the column and the offset will revert to 1/2 width on tablet. On mobile, the offset will disappear and the column will be full-width.
 
   h2 Nesting
 

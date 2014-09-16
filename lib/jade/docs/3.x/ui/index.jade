@@ -5,6 +5,20 @@ block hero-title
 
 block fullPane
   :markdown
+    # HTML styles
+
+    Several styles are applied at the HTML level for convenience throughout
+    the DOM.
+
+    A default font-size of 18px (varies depending on the theme) is set. This
+    should really be the only place where `px` are used to define font-size. 
+    Elsewhere, the `rem` unit is used, which is relative to the font-size in
+    the HTML document.
+
+    On supporting browsers, this font-size will scale with the width of the 
+    screen. See [Typography](/docs/3.x/ui/typography/) for more information
+    on responsive text.
+
     # Root Element
 
     The concept of the root element in Kickstart is what would be
