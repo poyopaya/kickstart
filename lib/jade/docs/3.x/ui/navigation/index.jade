@@ -27,7 +27,7 @@ block hero-example
     ul
       li: a(href="#") Products
       li: a(href="#") Home and Garden
-      li: Rake
+      li Rake
 
   .pagination
     ul
@@ -164,7 +164,7 @@ block variations
                 <a href="#">Home</a>
               </li>
               <li>
-                  <a class="button" href="#" role="button">Sign Up</a>
+                <a class="button" href="#" role="button">Sign Up</a>
               </li>
             </ul>
           </nav>
@@ -188,41 +188,76 @@ block variations
   :markdown
     A common layout is to use the navbar at the top of the page, full width,
     with a container. By itself, the left and right padding will prevent it from
-    lining up with the margins of `container()`
+    lining up with the margins of the container.
 
-        <div class="mynavbar">
-          <div class="mycontainer">
-            <nav>
-              <ul>
-                <li>
-                  <a href="#">Home</a>
-                </li>
-              </ul>
+  .ifnot-semantic
+    :markdown
+      <span>
 
-              <ul>
-                <li>
-                  <a href="#">Login</a>
-                </li>
-              </ul>
-            </nav>
+          <div class="navbar bleed">
+            <div class="container">
+              <nav>
+                <ul>
+                  <li>
+                    <a href="#">Home</a>
+                  </li>
+                </ul>
+
+                <ul>
+                  <li>
+                    <a href="#">Login</a>
+                  </li>
+                </ul>
+              </nav>
+            </div>
           </div>
-        </div>
 
-        <main>
-          <div class="mycontainer">
-            <h1>Hello world</h1>
+          <main>
+            <div class="container">
+              <h1>Hello world</h1>
+            </div>
+          </main>
+
+      Simply use the `.bleed` helper class to enable container bleed.
+
+  .if-semantic
+    :markdown
+      <span>
+
+          <div class="mynavbar">
+            <div class="mycontainer">
+              <nav>
+                <ul>
+                  <li>
+                    <a href="#">Home</a>
+                  </li>
+                </ul>
+
+                <ul>
+                  <li>
+                    <a href="#">Login</a>
+                  </li>
+                </ul>
+              </nav>
+            </div>
           </div>
-        </main>
 
-        .mycontainer {
-          @include container();
-        }
-        .mynavbar {
-          @include navbar($bleed-container: true);
-        }
+          <main>
+            <div class="mycontainer">
+              <h1>Hello world</h1>
+            </div>
+          </main>
 
-    Simply pass in `true` to the `$bleed-container` parameter to enable container bleed.
+          .mycontainer {
+            @include container();
+          }
+          .mynavbar {
+            @include navbar($bleed-container: true);
+          }
 
+      Simply pass in `true` to the `$bleed-container` parameter to enable container bleed.
+
+  :markdown 
     ### Dropdowns
 
     To create a dropdown, simply nest another `ul` in one of your `li`s.
@@ -305,7 +340,7 @@ block variations
     ul
       li: a(href="#") Products
       li: a(href="#") Home and Garden
-      li: Rake
+      li Rake
 
   :markdown
     <span>
@@ -342,7 +377,7 @@ block variations
     ul
       li: a(href="#") Products
       li: a(href="#") Home and Garden
-      li: Rake
+      li Rake
 
   :markdown
     <span>
