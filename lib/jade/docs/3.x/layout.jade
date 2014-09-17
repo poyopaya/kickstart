@@ -43,17 +43,20 @@ block container
         block troubleshooting
 
     main.mainpane
+      block docVars
+        - var variations = true
       section.basic#basic
         h1
           span.fa.fa-cube
           |  Basic Usage
         block basic
 
-      section.variations#variations
-        h1
-          span.fa.fa-cubes
-          |  Digging deeper
-        block variations
+        if variations
+          section.variations#variations
+            h1
+              span.fa.fa-cubes
+              |  Digging deeper
+            block variations
 
       section.granular#granular
         // h1 Granular
