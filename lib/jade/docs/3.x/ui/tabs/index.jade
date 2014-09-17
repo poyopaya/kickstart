@@ -1,5 +1,8 @@
 extends ../../layout
 
+block docVars
+  - var variations = false
+
 block hero-title
   h1 Tabs
 
@@ -38,7 +41,7 @@ block basic
   :markdown
     <span>
 
-        <ul class="tabs">
+        <ul class="tabs" id="animals">
           <li>
             <a href="#land">Land</a>
           </li>
@@ -60,9 +63,13 @@ block basic
           Fish
         </article>
 
+    You'll also need to tell `k$.tabs()` the selector of the ul that will become the tab bar.
+
+        k$.tabs('animals');
+
   .if-semantic
     :markdown
-      <span>
+      Tab styling can be applied via the `tabs()` mixin.
           
           .tabs {
             @include tabs();
