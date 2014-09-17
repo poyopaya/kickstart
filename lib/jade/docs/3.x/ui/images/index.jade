@@ -1,10 +1,40 @@
 extends ../../layout
 
+block docVars
+  - var variations = false
+
 block hero-title
   h1 Images
 
 block basic
-  h2 Thumbnails
+  :markdown
+    ## Image treatments
+
+    ### Bordered
+
+    Bordered images help separate images and their captions from the main content.
+
+  figure.thumbnail
+    img(src="/img/mountains.png")
+    figcaption Look at these beautiful mountains!
+
+  :markdown
+    <span>
+
+        <figure class="thumbnail">
+          <img src="mountains.png" />
+          <figcaption>Look at these beautiful mountains!</figcaption>
+        </figure>
+
+  .if-semantic
+    :markdown
+      <span>
+
+          .thumbnail {
+            @include thumbnail();
+          }
+  
+  h2 Thumbnail Content
   .thumbnail-content
     img(src="/img/mountains.png" style="width: 150px;height: 150px")
     article

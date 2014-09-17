@@ -53,6 +53,8 @@
         padding:
           top: (map-get($rootElement, paddingV) - 1)
           bottom: (map-get($rootElement, paddingV) - 1)
+          left: map-get($rootElement, paddingH)
+          right: map-get($rootElement, paddingH)
         position: relative
 
         &.with-submenu // Added via k$.nav()
@@ -102,6 +104,8 @@
           padding:
             top: (2 * map-get($rootElement, paddingV))
             bottom: (2 * map-get($rootElement, paddingV))
+            left: map-get($rootElement, paddingH)
+            right: map-get($rootElement, paddingH)
 
           &:hover
             @if (lightness($background) < 75%)

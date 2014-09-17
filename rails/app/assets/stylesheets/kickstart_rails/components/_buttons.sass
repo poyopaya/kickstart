@@ -1,5 +1,8 @@
 =button-default($color)
   +root-element
+  padding:
+    left: map-get($rootElement, paddingH)
+    right: map-get($rootElement, paddingH)
   display: inline-block
   background-color: $color
   color: $light-black
