@@ -145,3 +145,25 @@ block variations
         h6 Don't to forget to check out the slopes
         p You won't regret it.
 
+  :markdown
+    <span>
+
+        <div class="hero">
+          <h1>Thanks for visiting</h1>
+
+          <div class="thumbnail-content">
+            <img src="mountains.png" style="width: 150px; height: 150px;" />
+            <article>
+              <h2>Don't forget to check out the slopes</h2>
+              <p>You won't regret it</p>
+            </article>
+          </div>
+        </div>
+
+  .if-semantic
+    :markdown
+      <span>
+       
+           .hero {
+             @include hero();
+           }
