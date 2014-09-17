@@ -3,5 +3,51 @@ extends ../../layout
 block hero-title
   h1 Extend
 
+block docVars
+  - var variations = false
+
 block basic
-  // `k$.extend()` merges two JavaScript objects.
+  :markdown
+    `k$.extend()` merges two JavaScript objects.
+
+    ## Example
+
+        var employee = {
+          role: 'cashier',
+          location: 'Atlanta, GA'
+        }
+
+        var alex = {
+          name: 'Alex'
+        }
+
+        var jesse = {
+          name: 'Jesse',
+          role: 'CEO',
+          location: 'NYC'
+        }
+
+    Above, we have a "default" object, the `employee`. There are also two employee objects, `alex` and `jesse`.
+    Let's see what happens when we extend `employee` to `alex` and `jesse`.
+
+        alex = k$.extend(employee, alex)
+
+        jesse = k$.extend(employee, jesse)
+
+    Here's the output for each:
+
+        // alex
+
+        {
+          role: 'cashier',
+          location: 'Atlanta, GA',
+          name: 'Alex'
+        }
+
+        // jesse
+        
+        {
+          role: 'CEO',
+          location: 'NYC',
+          name: 'Jesse'
+        }

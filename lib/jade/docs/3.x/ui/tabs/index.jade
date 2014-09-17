@@ -1,4 +1,79 @@
 extends ../../layout
 
+block docVars
+  - var variations = false
+
 block hero-title
   h1 Tabs
+
+block hero-example
+  ul.tabs
+    li: a(href="#land") Land
+    li: a(href="#air") Air
+    li: a(href="#sea") Sea
+
+  article.tab-content#land Turtle
+
+  article.tab-content#air Bird
+
+  article.tab-content#sea Fish
+
+block basic
+  :markdown
+    Creating a tab is the same as creating a basic HTML document
+    where anchor links navigate to defined sections of the page.
+
+    With the styling and JavaScript in place, these links and document
+    sections will automatically show and hide as you would expect from
+    a tabbed content area.
+
+  ul.tabs
+    li: a(href="#land") Land
+    li: a(href="#air") Air
+    li: a(href="#sea") Sea
+
+  article#land Turtle
+
+  article#air Bird
+
+  article#sea Fish
+
+  :markdown
+    <span>
+
+        <ul class="tabs" id="animals">
+          <li>
+            <a href="#land">Land</a>
+          </li>
+          <li>
+            <a href="#air">Air</a>
+          </li>
+          <li>
+            <a href="#sea">Sea</a>
+          </li>
+        </ul>
+
+        <article id="land">
+          Turtle
+        </article>
+        <article id="air">
+          Bird
+        </article>
+        <article id="sea">
+          Fish
+        </article>
+
+    You'll also need to tell `k$.tabs()` the selector of the ul that will become the tab bar.
+
+        k$.tabs('animals');
+
+  .if-semantic
+    :markdown
+      Tab styling can be applied via the `tabs()` mixin.
+          
+          .tabs {
+            @include tabs();
+          }
+
+
+
