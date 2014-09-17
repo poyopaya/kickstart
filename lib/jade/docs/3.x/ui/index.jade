@@ -1,9 +1,50 @@
 extends ../fullpage-layout
 
 block hero-title
-  h1 Base Styles
+  h1 Layout
 
 block fullPane
+  :markdown
+    # Fixed, Fluid, and Fixed-fluid
+
+    Before you start adding components to your page, it's best to decide if
+    you want a fixed, fluid, or fixed-fluid layout.
+
+    ## Fixed layout
+
+    A fixed layout simply limits the width of the layout to a certain amount.
+
+  iframe.animation(src="/iframes/layout-fixed/fixed.html")
+
+  :markdown
+    Create a container around your content <span class="if-semantic">and use the mixin
+    <code>container($fixed: true)</code></span><span class="ifnot-semantic">and
+    use the <code>.container-fixed</code> class.
+
+    The default max-width is about 768px, however, you can define your own by adding
+    a `max-width` property.
+
+  .if-semantic
+    :markdown
+      <span>
+
+          <div class="container">
+            <h1>Hello world</h1>
+          </div>
+
+          .container {
+            @include container($fixed: true);
+            max-width: 700px;
+          }
+
+  .ifnot-semantic
+    :markdown
+      <span>
+
+          <div class="container fixed">
+            <h1>Hello world</h1>
+          </div>
+
   :markdown
     # HTML styles
 

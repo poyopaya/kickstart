@@ -41,7 +41,7 @@
         _ref = $$(".if-" + option);
         for (_j = 0, _len1 = _ref.length; _j < _len1; _j++) {
           $container = _ref[_j];
-          $visibleStyle = $container.nodeName === 'SPAN' ? 'inline-block' : 'block';
+          $visibleStyle = $container.nodeName === 'SPAN' ? 'inline' : 'block';
           $container.style.display = (settings.viewOptions["" + option] ? $visibleStyle : 'none');
         }
         _results.push((function() {
@@ -50,7 +50,7 @@
           _results1 = [];
           for (_k = 0, _len2 = _ref1.length; _k < _len2; _k++) {
             $container = _ref1[_k];
-            $visibleStyle = $container.nodeName === 'SPAN' ? 'inline-block' : 'block';
+            $visibleStyle = $container.nodeName === 'SPAN' ? 'inline' : 'block';
             _results1.push($container.style.display = (settings.viewOptions["" + option] ? 'none' : $visibleStyle));
           }
           return _results1;
