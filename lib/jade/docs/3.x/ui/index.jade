@@ -5,7 +5,7 @@ block hero-title
 
 block fullPane
   :markdown
-    # Fixed, Fluid, and Fixed-fluid
+    # Fixed, Fluid, and Fluid-Fixed
 
     Before you start adding components to your page, it's best to decide if
     you want a fixed, fluid, or fixed-fluid layout.
@@ -46,6 +46,55 @@ block fullPane
           </div>
 
   :markdown
+    ## Fluid layout
+
+    A fluid layout allows the width of the content to match the width of the viewport
+
+  iframe.animation(src="/iframes/layout-fluid/fluid.html")
+
+  :markdown
+    This one is probably the easiest to implement of all, because it is 
+    default behavior of HTML content. Simply omit the container styling.
+
+    To have elements break out of a container (called "bleeding"), just
+    end the container before the bleed content and open it back up afterwards.
+
+    ## Fluid-fixed layout
+
+    This layout is the default behavior for a container in Kickstart and
+    combines the best of both worlds.
+
+    Instead of constantly resizing to the size of the viewport, a new fixed
+    width is used at each breakpoint.
+
+  iframe.animation(src="/iframes/layout-fluid-fixed/fluid-fixed.html")
+
+  :markdown
+    Create a container around your content <span class="if-semantic">and use the mixin
+    <code>container()</code></span><span class="ifnot-semantic">and
+    use the <code>.container</code> class.
+
+  .if-semantic
+    :markdown
+      <span>
+
+          <div class="container">
+            <h1>Hello world</h1>
+          </div>
+
+          .container {
+            @include container();
+          }
+
+  .ifnot-semantic
+    :markdown
+      <span>
+
+          <div class="container">
+            <h1>Hello world</h1>
+          </div>
+
+  :markdown
     # HTML styles
 
     Several styles are applied at the HTML level for convenience throughout
@@ -60,38 +109,40 @@ block fullPane
     screen. See [Typography](/docs/3.x/ui/typography/) for more information
     on responsive text.
 
-    # Root Element
+  div(style="display: none")
+    :markdown 
+      # Root Element
 
-    The concept of the root element in Kickstart is what would be
-    left if we combined the styling from all elements, only leaving
-    the things all of them had in common.
+      The concept of the root element in Kickstart is what would be
+      left if we combined the styling from all elements, only leaving
+      the things all of them had in common.
 
-    The end result of this doesn't fit the definition perfectly, but
-    it comes close and gives us a useful tool for sharing an aesthetic.
+      The end result of this doesn't fit the definition perfectly, but
+      it comes close and gives us a useful tool for sharing an aesthetic.
 
-    In the default theme of Kickstart, the root-element has a specific
-    top and bottom padding, border radius, and font rules.
+      In the default theme of Kickstart, the root-element has a specific
+      top and bottom padding, border radius, and font rules.
 
-    Here it is with some shading for clarity.
+      Here it is with some shading for clarity.
 
-  .example
-    .root-element(style="background:rgba(0, 0, 0, 0.2)") foo
+    .example
+      .root-element(style="background:rgba(0, 0, 0, 0.2)") foo
 
-  :markdown
-    This very simple piece of UI can be shared by many components. It
-    also gets us closer to a guarantee that any variety of many different
-    elements will fit nicely together.
+    :markdown
+      This very simple piece of UI can be shared by many components. It
+      also gets us closer to a guarantee that any variety of many different
+      elements will fit nicely together.
 
-    ## Mixins
+      ## Mixins
 
-    This is also how Kickstart defines its mixins and parameters. 
-    The goal of defining this is to maintain consistency across mixins as
-    much as possible.
+      This is also how Kickstart defines its mixins and parameters. 
+      The goal of defining this is to maintain consistency across mixins as
+      much as possible.
 
-        @mixin root-element($background-color, $color)
+          @mixin root-element($background-color, $color)
 
-    Some properties, like `$color` seem to stand for CSS
-    properties. This is why the mixin uses those names instead of
-    `$foreground-color`. However, there are often other accessory
-    styles that come in with it. (For example, the navbar uses lighter
-    text when it's given a darker background.)
+      Some properties, like `$color` seem to stand for CSS
+      properties. This is why the mixin uses those names instead of
+      `$foreground-color`. However, there are often other accessory
+      styles that come in with it. (For example, the navbar uses lighter
+      text when it's given a darker background.)
