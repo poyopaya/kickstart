@@ -4,20 +4,25 @@
   margin-bottom: $space
   align-items: flex-start
 
-  img
+  img, figure
     flex-grow: 0
     flex-shrink: 0
 
   > :not(img)
-    + img
+    + img, + figure
       margin-left: $space/2
 
-  > img
+  > img, > figure
     + :not(img)
       margin-left: $space/2
 
 =thumbnail-default
   +root-element
+  border: 1px solid $darker-white
+  display: inline-block
+
+  figcaption
+    font-size: 0.85rem
 
 figure
   margin: 0
