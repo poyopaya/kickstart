@@ -70,6 +70,16 @@ $default-line-height: 1.4rem
 
 @import ../core/index
 
+/*
+ * BASE COMPONENTS
+ * ===============
+ * Base components get imported first so they can be custom themed and
+ * used again in other parts of the core library.
+ * 
+ * /
+
+@import ../core/_base_components
+
 // BUTTONS
 // -------
 
@@ -96,6 +106,12 @@ $default-line-height: 1.4rem
 
 =thumbnail
   +thumbnail-default
+
+// LABELS
+// ------
+
+=label
+  +label-default
 
 // MODALS
 // ------
@@ -222,3 +238,14 @@ h6
 
 html, li, p, table
   +html
+
+
+/*
+ * DEPENDENT COMPONENTS
+ * ===============
+ * Dependent components keep code DRY by reusing core componenets
+ * that have already been styled by the theme.
+ * 
+ * /
+
+@import ../core/_dependent_components
