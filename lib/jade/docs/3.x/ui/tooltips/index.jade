@@ -43,7 +43,7 @@ block basic
     :markdown
       <span>
 
-          <div class="tooltip-trigger">
+          <div class="tooltip_trigger">
             <button class="button">Close</button>
           </div>
 
@@ -104,14 +104,24 @@ block variations
 
   +colors
 
-  :markdown 
-    `tooltip()` takes two parameters:
+  .if-semantic
+    :markdown 
+      `tooltip()` is a very basic piece of HTML and shouldn't need any parameters
+      for coloring.
 
-        tooltip($background: 'yellow', $color: 'white')
+      For this reason, it is easiest to simply declare background and foreground
+      colors directly in the CSS.
 
-    ("color" means foreground color and is named as such to correspond
-    with css attributes.)
+          .tooltip {
+            +tooltip();
+            background: $yellow;
+            color: white;
+          }
 
-    `$color` is actually an optional parameter. The mixin will try to choose either
-    black or white based on the best contrast with your background color. However, 
-    it doesn't always get it just the way you'd want it.
+  .ifnot-semantic
+    :markdown
+      To choose a color, simply add `.tooltip-[color]` with the `.tooltip` class.
+
+          <span class="tooltip tooltip-yellow">Click for more information</span>
+
+    +available-colors
