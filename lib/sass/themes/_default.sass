@@ -70,6 +70,14 @@ $default-line-height: 1.4rem
 
 @import ../core/index
 
+/*
+ * BASE COMPONENTS
+ * ===============
+ * Base components get imported first so they can be custom themed and
+ * used again in other parts of the core library.
+ * 
+ * /
+
 // BUTTONS
 // -------
 
@@ -126,6 +134,12 @@ $default-line-height: 1.4rem
 
 =tile($color: $dark-gray)
   +tile-default($color)
+
+// TOOLTIPS
+// --------
+
+=tooltip_trigger
+  +tooltip_trigger-default
 
 // TYPOGRAPHY
 // ----------
@@ -216,3 +230,12 @@ h6
 
 html, li, p, table
   +html
+
+
+/*
+ * DEPENDENT COMPONENTS
+ * ===============
+ * Dependent components keep code DRY by reusing core componenets
+ * that have already been styled by the theme.
+ * 
+ * /
