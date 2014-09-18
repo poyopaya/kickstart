@@ -4,15 +4,25 @@ block hero-title
   h1 Labels
 
 block hero-example
-  span.label Look at this
-  span.label.red Uh oh
-  span.label.orange Fruity
-  span.label.yellow Warning
-  span.label.green It worked!
-  span.label.blue FYI
-  span.label.violet Exciting
+  .example
+    span.label Look at this
+    | &nbsp;
+    span.label.label-red Uh oh
+    | &nbsp;
+    span.label.label-orange Fruity
+    | &nbsp;
+    span.label.label-yellow Warning
+    | &nbsp;
+    span.label.label-green It worked!
+    | &nbsp;
+    span.label.label-blue FYI
+    | &nbsp;
+    span.label.label-violet Exciting
 
 block basic
+  .example
+    span.label Attention
+
   :markdown
     Labels are pretty straightforward. Ideally, `span` elements should be labels
     but the styling can be applied to almost anything.
@@ -37,9 +47,10 @@ block variations
   :markdown
     Labels can also be styled much the same way you would with a button.  
 
-  p
-    span.label.red Please correct
-    span.label.blue New!
+  .example
+    span.label.label-red Please correct
+    | &nbsp;
+    span.label.label-green New!
 
   .if-semantic
     :markdown

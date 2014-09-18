@@ -33,9 +33,13 @@ block hero-example
   +colors
 
 block basic
+
   :markdown
     For performance reasons, tooltips work mainly through CSS, using JavaScript
     mainly for making minor on-screen adjustments.
+
+    By design, tooltips will work without JavaScript, but including it will 
+    improve appearances.
 
     To create a tooltip, you must first define what triggers that tooltip when
     hovered.
@@ -69,9 +73,6 @@ block basic
   :markdown 
     When hovering over `.tooltip_trigger`, any `.tooltip`
     classes contained inside will become visible.
-
-  :markdown
-    <span>
 
   .ifnot-semantic
     :markdown
@@ -181,3 +182,27 @@ block variations
       This is applied directly to the tooltip instead of the trigger to
       allow for the possibility of multiple tooltips with different positions
       in a single trigger area.
+
+  :markdown
+    ## In blocks of text
+
+    Because of html rules concerning nesting block versus inline elements, it's
+    important to avoid using block tags (like `<p>` or `<div>`) in text tags.
+
+  p 
+    | Here is&nbsp;
+    span.tooltip_trigger 
+      span a very long string of text which uses a tooltip but it's very long, so, you know.
+      span.tooltip That's good.
+
+  :markdown
+    <span>
+
+        <p>
+          Here is
+          <span class="tooltip-trigger">
+            a very long string of text...
+            <span class="tooltip">That's good</span>
+          </span>
+        </p>
+
