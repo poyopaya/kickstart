@@ -109,6 +109,65 @@ block fullPane
     screen. See [Typography](/docs/3.x/ui/typography/) for more information
     on responsive text.
 
+    # Naming conventions
+
+    Kickstart is not a fan of [BEM](http://csswizardry.com/2013/01/mindbemding-getting-your-head-round-bem-syntax/)
+    for several reasons that won't be mentioned here.
+
+    However, a miniscule part of the philosophy behind it is used in 
+    Kickstart naming conventions. As an alternative to distinguishing "Blocks, 
+    elements, and modifiers" Kickstrap simply distinguishes "Components 
+    and modifiers."
+
+    ## Components
+
+    Components can be HTML elements that are standalone--they cannot or
+    typically do not have other components nested within them.
+
+        <button class="button">Send</button>
+
+    Other components can have elements nested within them, but no 
+    distinction is made in the naming convention.
+
+        <div class="navbar">
+          <ul>
+            <li>
+              <a href="#">Home</a>
+            </li>
+            <li>
+              <a class="button" href="#">Home</a>
+            </li>
+          </ul>
+        </div>
+
+    Also notice component names are kept simple and never use a space
+    character like `.nav-bar` or camel-casing like `.navBar`.
+
+    ## Modifiers
+
+    Elements with alternate states and schemes have **modifiers**
+
+    For example, here is a default button and a yellow button
+
+        <button class="button">...</button>
+        <button class="button button-yellow">...</button>
+
+    Why the repetition? Why not just `.button .yellow`? This is to
+    specify that yellow is a modifier on the button.
+
+    You may want to define your button as a non-kickstart component
+    "foo" as well
+
+        <button class="button foo button-yellow">...</button>
+
+    Maybe foo is a component that styles the outline of the button,
+    which we want to be blue.
+
+        <button class="button foo button-yellow foo-blue">...</button>
+
+    With this convention, it's clear where the modifier should be
+    applied.
+
   div(style="display: none")
     :markdown 
       # Root Element
