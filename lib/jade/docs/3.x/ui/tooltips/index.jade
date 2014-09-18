@@ -125,3 +125,36 @@ block variations
           <span class="tooltip tooltip-yellow">Click for more information</span>
 
     +available-colors
+
+  :markdown
+    ## Positioning
+
+    Tooltips can be positioned to the top, left, right, or bottom.
+
+  .tooltip_trigger
+    p Top
+    span.tooltip I'm on top
+  .tooltip_trigger
+    p Left
+    span.tooltip.tooltip-left I'm on the left
+  .tooltip_trigger
+    p Right
+    span.tooltip.tooltip-right I'm on the right
+  .tooltip_trigger
+    p Bottom
+    span.tooltip.tooltip-bottom I'm on the bottom
+
+  :markdown
+    By default, tooltips will be positioned "top". To position left, right, or bottom,
+    add this position as a `.tooltip-[position]` class.
+
+        <div class="tooltip_trigger">
+          <p>Left</p>
+          <span class="tooltip tooltip-left">I'm on the left.
+        </div>
+
+  .if-semantic
+    :markdown
+      This is applied directly to the tooltip instead of the trigger to
+      allow for the possibility of multiple tooltips with different positions
+      in a single trigger area.
