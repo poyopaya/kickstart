@@ -1,6 +1,9 @@
-=label-default
+=label-default($background-color: $blue)
   +root-element
-  background: $primary-color
+  background: $background-color
   font-size: 0.85rem
   color: white
   line-height: normal
+
+  &:after
+    border-top-color: $background-color
