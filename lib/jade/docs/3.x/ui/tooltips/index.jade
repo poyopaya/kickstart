@@ -1,29 +1,30 @@
 extends ../../layout
 
 mixin colors 
-  .tooltip_trigger
-    a(href="#") Hover&nbsp;
-    .tooltip I'm a tooltip!
-
-  .tooltip_trigger
-    a(href="#") over&nbsp;
-    .tooltip.tooltip-red I'm a tooltip!
-
-  .tooltip_trigger
-    a(href="#") any&nbsp;
-    .tooltip.tooltip-orange I'm a tooltip!
-
-  .tooltip_trigger
-    a(href="#") of&nbsp;
-    .tooltip.tooltip-yellow I'm a tooltip!
-
-  .tooltip_trigger
-    a(href="#") these&nbsp;
-    .tooltip.tooltip-green I'm a tooltip!
-
-  .tooltip_trigger
-    a(href="#") words&nbsp;
-    .tooltip.tooltip-blue I'm a tooltip!
+  p
+    span.tooltip_trigger
+      a(href="#") Hover
+      span.tooltip I'm a tooltip!
+    | &nbsp;
+    span.tooltip_trigger
+      a(href="#") over
+      span.tooltip.tooltip-red I'm a tooltip!
+    | &nbsp;
+    span.tooltip_trigger
+      a(href="#") any
+      span.tooltip.tooltip-orange I'm a tooltip!
+    | &nbsp;
+    span.tooltip_trigger
+      a(href="#") of
+      span.tooltip.tooltip-yellow I'm a tooltip!
+    | &nbsp;
+    span.tooltip_trigger
+      a(href="#") these
+      span.tooltip.tooltip-green I'm a tooltip!
+    | &nbsp;
+    span.tooltip_trigger
+      a(href="#") words
+      span.tooltip.tooltip-blue I'm a tooltip!
 
 block hero-title
   h1 Tooltips
@@ -38,6 +39,9 @@ block basic
 
     To create a tooltip, you must first define what triggers that tooltip when
     hovered.
+
+    <span class="label label-info">Important</span> Use span elements for 
+    `.tooltip` and `.tooltip_trigger` when adding tooltips in text.
 
   .ifnot-semantic
     :markdown
@@ -65,7 +69,6 @@ block basic
   :markdown 
     When hovering over `.tooltip_trigger`, any `.tooltip`
     classes contained inside will become visible.
-
 
   :markdown
     <span>
@@ -106,16 +109,33 @@ block variations
 
   .if-semantic
     :markdown 
-      `tooltip()` is a very basic piece of HTML and shouldn't need any parameters
-      for coloring.
+      Tooltips use their background color for more properties than just CSS
+      background color. For this reason, it's best to feed this color into
+      the mixin for `tooltip_trigger()`.
 
-      For this reason, it is easiest to simply declare background and foreground
-      colors directly in the CSS.
+          .tooltip_trigger {
+            @include tooltip_trigger($yellow);
+          }
 
-          .tooltip {
-            +tooltip();
-            background: $yellow;
-            color: white;
+      However, if you need different colored tooltips in a single trigger
+      area, you will need to define this color for two places:
+
+          .tooltip_trigger {
+            
+            .tooltip1 {
+              background-color: $green;
+              &:after {
+                border-top-color: $green;
+              }
+            }
+
+            .tooltip1 {
+              background-color: $yellow;
+              &:after {
+                border-top-color: $yellow;
+              }
+            }
+
           }
 
   .ifnot-semantic
