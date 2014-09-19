@@ -4,8 +4,47 @@ block hero-title
   h1 Alerts
 
 block basic
+  :markdown
+    Alerts are simple colored containers with opinionated type hierarchy.
+
   .example
     .alert
       h1 Attention
       p You need to change your password
-      button.button Change password
+      button.button Change Password
+
+  :markdown
+    <span>
+
+        <div class="alert">
+          <h1>Attention</h1>
+          <p>You need to change your password</p>
+          <button class="button">Change Password</button>
+        </div>
+
+  .if-semantic
+    :markdown
+      <span>
+
+          .alert {
+            @include alert();
+          }
+          .button {
+            @include button();
+          }
+
+  .row
+    .col-third
+      .alert.alert-warning
+        p Careful!
+    .col-third
+      .alert.alert-error
+        h1 Last command did not work
+        p Please try again.
+    .col-third
+      .alert
+        p Please accept the terms and conditions agreement
+        label.checkbox
+          input(type="checkbox")
+          | I agree to the terms and conditions
+

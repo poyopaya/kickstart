@@ -49,6 +49,7 @@
       li
         list-style: none
         +root-element
+        margin-bottom: 0
         border-radius: 0
         padding:
           top: (map-get($rootElement, paddingV) - 1)
@@ -93,12 +94,16 @@
               border-color: map-get($white, darker)
               border-bottom-color: transparent
 
+        a[role=button]
+          margin-bottom: 0
+
         a:not([role=button])
           +color($background)
           text-decoration: none
           cursor: pointer
           display: block
           +root-element
+          margin-bottom: 0
           border-radius: 0
           margin: (-1 * map-get($rootElement, paddingV)) (-1 * map-get($rootElement, paddingH))
           padding:
