@@ -85,23 +85,71 @@ block variations
 
     ### Unstyled vertical
 
-  ul.unstyled
+  ul.list-unstyled
     li Apples
     li Bread
     li Nuts
     li Sugar
     li Flour
+
+  .ifnot-semantic
+    :markdown
+      <span>
+
+          <ul class="list-unstyled">
+            <li>Apples</li>
+            <li>Bread</li>
+            ...
+          </ul>
+
+  .if-semantic
+    :markdown
+      <span>
+
+          <ul class="groceries">
+            <li>Apples</li>
+            <li>Bread</li>
+            ...
+          </ul>
+
+          .groceries {
+            @include list-unstyled();
+          }
 
   :markdown
-
     ### Unstyled horizontal
 
-  ul.unstyled.horizontal
+  ul.list-unstyled.list-horizontal
     li Apples
     li Bread
     li Nuts
     li Sugar
     li Flour
+
+  .ifnot-semantic
+    :markdown
+      <span>
+
+          <ul class="list-unstyled list-horizontal">
+            <li>Apples</li>
+            <li>Bread</li>
+            ...
+          </ul>
+
+  .if-semantic
+    :markdown
+      <span>
+
+          <ul class="groceries">
+            <li>Apples</li>
+            <li>Bread</li>
+            ...
+          </ul>
+
+          .groceries {
+            @include list-unstyled();
+            @include list-horizontal();
+          }
 
   h2 Decoupled
   p While different sizes of text can be selected with the h1-h6 tags, this fringes on using HTML for styling. The level of a heading should dictate its hierarchy, but not necessarily its size.
@@ -142,7 +190,7 @@ block variations
     .thumbnail-content(style="width: 80%")
       img(src="/img/mountains.png" style="width: 150px;height: 150px;")
       article
-        h6 Don't to forget to check out the slopes
+        h1 Don't to forget to check out the slopes
         p You won't regret it.
 
   :markdown
