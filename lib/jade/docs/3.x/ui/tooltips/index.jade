@@ -33,26 +33,36 @@ block hero-example
   +colors
 
 block basic
+  h2 Single element
+  button(data-ks-tooltip="I'm a tooltip") Hover over me
 
   :markdown
-    For performance reasons, tooltips work mainly through CSS, using JavaScript
-    mainly for making minor on-screen adjustments.
+    <span>
 
-    By design, tooltips will work without JavaScript, but including it will 
-    improve appearances.
+        <button class="button" data-ks-tooltip="I'm a tooltip">Hover over me</button>
 
-    To create a tooltip, you must first define what triggers that tooltip when
-    hovered.
+    Tooltips are implemented in a dataset attribute of the HTML.
 
-    <span class="label label-info">Important</span> Use span elements for 
-    `.tooltip` and `.tooltip_trigger` when adding tooltips in text.
+    Tooltips have a **trigger** (the hovered item that launches the tooltip)
+    and an **anchor** (the element the tooltip anchors to).
+
+    ## Optional trigger
+
+    By default, the trigger and the anchor are the same element. However,
+    an optional <span class="ifnot-semantic"><code>.tooltip_trigger</code> class</span>
+    <span class="if-semantic"><code>tooltip-trigger()</code> mixin</span> is available
+
+  .tooltip_trigger.example
+    button.button.button-blue(data-ks-tooltip="Close the window") Close
+    | &nbsp;
+    button.button.button-blue(data-ks-tooltip="Try a different screen") Next
 
   .ifnot-semantic
     :markdown
       <span>
 
           <div class="tooltip_trigger">
-            <button class="button">Close</button>
+            <button class="button" data-ks-tooltip="Close the window">Close</button>
           </div>
 
   .if-semantic
@@ -60,7 +70,7 @@ block basic
       <span>
 
           <div class="decision">
-            <button class="close">Close</button>
+            <button class="close" data-ks-tooltip="Close the window">Close</button>
           </div>
 
           .decision {
@@ -71,32 +81,49 @@ block basic
           }
 
   :markdown 
-    When hovering over `.tooltip_trigger`, any `.tooltip`
-    classes contained inside will become visible.
+    ## Tooltips as elements
+
+    Adding content to the dataset of an element only allow for plaintext. 
+    However, your tooltips may need something more sophisticated that can 
+    only be expressed by HTML.
+
+    For this, tooltips can also be created as individual HTML elements.
+
+  .example
+    p 
+      | The rain in&nbsp;
+      span.tooltip_trigger
+        a(href="#") Spain
+        span.tooltip Spain is a country in <em>Europe</em>.
+      |  falls mainly on the plains.
+    
 
   .ifnot-semantic
     :markdown
       <span>
 
-          <div class="tooltip_trigger">
-            <button class="button">Close</button>
-            <span class="tooltip">Make sure you've finished your application!</span>
-          </div>
+        <p>The rain in
+          <span class="tooltip_trigger">
+            <a href="#">Spain</a>
+            <span class="tooltip">Spain is a country in <em>Europe</em></span>
+            falls mainly on the plain.
+          </span>
+        </p>
 
   .if-semantic
     :markdown
       <span>
 
-          <div class="decision">
-            <button class="button">Close</button>
-            <span class="tooltip">Make sure you've finished your application!</span>
-          </div>
+          <p>The rain in
+            <span class="country">
+              <a href="#">Spain</a>
+              <span class="tooltip">Spain is a country in <em>Europe</em></span>
+              falls mainly on the plain.
+            </span>
+          </p>
 
-          .decision {
+          .country {
             @include tooltip_trigger();
-          }
-          .close {
-            @include button();
           }
 
       Note there is no special mixin for `.tooltip` as the content is so specific
