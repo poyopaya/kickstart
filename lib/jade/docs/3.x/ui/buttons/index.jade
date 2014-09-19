@@ -5,17 +5,17 @@ block hero-title
 
 block hero-example
   div
-    .button.red Red
+    .button.button-red Red
     | &nbsp;
-    .button.orange Orange
+    .button.button-orange Orange
     | &nbsp;
-    .button.yellow Yellow
+    .button.button-yellow Yellow
     | &nbsp;
-    .button.green Green
+    .button.button-green Green
     | &nbsp;
-    .button.blue Blue
+    .button.button-blue Blue
     | &nbsp;
-    .button.violet Violet
+    .button.button-violet Violet
 
 block meta
   table
@@ -57,22 +57,22 @@ block basic
 
 block variations
   .example
-    button.button.green Send
+    button.button-green Send
     | &nbsp;
-    button.button.red Delete
+    button.button-red Delete
     | &nbsp;
-    button.button.blue Info
+    button.button-blue Info
     | &nbsp;
     button.button Cancel
 
   .ifnot-semantic
     :markdown
-      For colored buttons, simply add the class of one of the primary colors
+      For colored buttons, simply add the `.button-` class of one of the primary colors
       to the `.button` class.
 
-          <button class="button green">Send</button>
-          <button class="button red">Delete</button>
-          <button class="button blue">Info</button>
+          <button class="button button-green">Send</button>
+          <button class="button button-red">Delete</button>
+          <button class="button button-blue">Info</button>
           <button class="button">Cancel</button>
 
   .if-semantic
@@ -232,16 +232,16 @@ block granular
     .col-4
       ul.unstyled
         li
-          button.button.large Large
+          button.button-large Large
         li
           button.button Regular
         li
-          button.button Small
+          button.button-small Small
 
     .col-4
       ul.unstyled
         li
-          button.button.large Large
+          button.button-large Large
           ul.button-dropdown
             li
               a(href="#") Option 1
@@ -267,7 +267,7 @@ block granular
     .col-4
       ul.unstyled
         li
-          button.button.large 
+          button.button-large
             | Large
             ul.button-dropdown
               li
@@ -285,7 +285,7 @@ block granular
                 a(href="#") Option 2
 
         li
-          button.button 
+          button.button-small
             | Small
             ul
               li

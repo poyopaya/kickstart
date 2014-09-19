@@ -50,12 +50,20 @@ block basic
 
     By default, the trigger and the anchor are the same element. However,
     an optional <span class="ifnot-semantic"><code>.tooltip_trigger</code> class</span>
-    <span class="if-semantic"><code>tooltip-trigger()</code> mixin</span> is available
+    <span class="if-semantic"><code>tooltip-trigger()</code> mixin</span> is available.
+    This defines a general hover zone where child tooltips will show.
 
   .tooltip_trigger.example
     button.button.button-blue(data-ks-tooltip="Close the window") Close
     | &nbsp;
     button.button.button-blue(data-ks-tooltip="Try a different screen") Next
+
+  .alert
+    :markdown
+      # Caution
+
+      Tooltips in the `.tooltip_trigger` zone anchor themselves to `.tooltip_trigger`
+      as opposed to individual elements inside
 
   .ifnot-semantic
     :markdown
@@ -63,6 +71,7 @@ block basic
 
           <div class="tooltip_trigger">
             <button class="button" data-ks-tooltip="Close the window">Close</button>
+            <button class="button" data-ks-tooltip="Try a different screen">Next</button>
           </div>
 
   .if-semantic
@@ -71,12 +80,13 @@ block basic
 
           <div class="decision">
             <button class="close" data-ks-tooltip="Close the window">Close</button>
+            <button class="next" data-ks-tooltip="Try a different screen">Next</button>
           </div>
 
           .decision {
             @include tooltip_trigger();
           }
-          .close {
+          .close, .next {
             @include button();
           }
 
@@ -94,7 +104,7 @@ block basic
       | The rain in&nbsp;
       span.tooltip_trigger
         a(href="#") Spain
-        span.tooltip Spain is a country in <em>Europe</em>.
+        span.tooltip <img src="/img/spain.png" style="width: 50px; margin: 0px auto;display: block;"/>Spain is a country in <em>Europe</em>.
       |  falls mainly on the plains.
     
 
@@ -102,13 +112,13 @@ block basic
     :markdown
       <span>
 
-        <p>The rain in
-          <span class="tooltip_trigger">
-            <a href="#">Spain</a>
-            <span class="tooltip">Spain is a country in <em>Europe</em></span>
-            falls mainly on the plain.
-          </span>
-        </p>
+          <p>The rain in
+            <span class="tooltip_trigger">
+              <a href="#">Spain</a>
+              <span class="tooltip">Spain is a country in <em>Europe</em></span>
+              falls mainly on the plain.
+            </span>
+          </p>
 
   .if-semantic
     :markdown

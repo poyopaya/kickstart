@@ -18,39 +18,9 @@
 
 // Grayscale
 
-map-get($black, light):    #222
-map-get($black, lighter):  #333
-map-get($black, lightest): #444
-$darkest-gray:   #555
-$darker-gray:    #666
-map-get($gray, dark):      #777
-map-get($gray, light):     #999
-$lighter-gray:   #AAA
-$lightest-gray:  #BBB
-map-get($white, darkest):  #CCC
-map-get($white, darker):   #DDD
-map-get($white, dark):     #EEE
-
-white: (
-  dark:      #EEE,
-  darker:    #DDD,
-  darkest:   #CCC
-)
-
-gray: (
-  lightest:  #BBB,
-  lighter:   #AAA,
-  light:     #999,
-  dark:      #777,
-  darker:    #666,
-  darkest:   #555
-)
-
-black: (
-  lightest:  #444,
-  lighter:   #333,
-  light:     #222
-)
+$white: (dark: #EEE, darker: #DDD, darkest: #CCC)
+$gray:  (lightest: #BBB, lighter: #AAA, light: #999, dark: #777, darker: #666, darkest: #555)
+$black: (lightest: #444, lighter: #333, light: #222)
 
 // Rainbow
 
@@ -71,10 +41,10 @@ $space:               25px
 $heading-font-family: 'Lato', helvetica neue, sans-serif
 $body-font-family:    'Lato', helvetica neue, sans-serif
 $base-font-size:      16px
-black-augment:       0
-white-augment:       0
-$saturation-augment:  0
-$luminosity-augment:  0
+$black-augment:       #000
+$white-augment:       #FFF
+$saturation-augment:  0%
+$luminosity-augment:  0%
 
 // --------------------------
 
@@ -86,80 +56,14 @@ $default-font: $body-font-family
 $default-font-size: $base-font-size
 $default-line-height: 1.4rem
 
-@import ../core/index
-
 /*
- * BASE COMPONENTS
- * ===============
- * Base components get imported first so they can be custom themed and
- * used again in other parts of the core library.
+ * CORE STYLING
+ * ------------
+ * Lowest-level styling meant to be inherited by components.
  *
- * /
+ */
 
-@import ../core/_base_components
-
-// ALERTS
-// ------
-
-=alert
-  +alert-default
-
-// BUTTONS
-// -------
-
-=button($color: transparent)
-  +button-default($color)
-
-// FORMS
-// -----
-
-=form-horizontal()
-  +form-horizontal-default()
-
-=form-left
-  +form-left-default()
-
-=form-group()
-  +form-group-default()
-
-// IMAGES
-// ------
-
-=thumbnail-content
-  +thumbnail-content-default
-
-=thumbnail
-  +thumbnail-default
-
-// LABELS
-// ------
-
-=label($background-color: $blue)
-  +label-default($background-color)
-
-// MODALS
-// ------
-
-=modal()
-  +modal-default()
-
-// NAVIGATION
-// ----------
-
-=navbar($bleed-container: false, $background: map-get($white, dark))
-  +navbar-default($bleed-container, $background)
-
-// TABLE
-// -----
-
-=table()
-  +table-default()
-
-// TILES
-// -----
-
-=tile($color: map-get($gray, dark))
-  +tile-default($color)
+@import ../core/index
 
 // TYPOGRAPHY
 // ----------
@@ -251,6 +155,80 @@ h6
 html, li, p, table
   +type-default
 
+
+
+/*
+ * BASE COMPONENTS
+ * ===============
+ * Base components get imported first so they can be custom themed and
+ * used again in other parts of the core library.
+ *
+ * /
+
+@import ../core/_base_components
+
+// ALERTS
+// ------
+
+=alert
+  +alert-default
+
+// BUTTONS
+// -------
+
+=button($color: white)
+  +button-default($color)
+
+// FORMS
+// -----
+
+=form-horizontal()
+  +form-horizontal-default()
+
+=form-left
+  +form-left-default()
+
+=form-group()
+  +form-group-default()
+
+// IMAGES
+// ------
+
+=thumbnail-content
+  +thumbnail-content-default
+
+=thumbnail
+  +thumbnail-default
+
+// LABELS
+// ------
+
+=label($background-color: $blue)
+  +label-default($background-color)
+
+// MODALS
+// ------
+
+=modal()
+  +modal-default()
+
+// NAVIGATION
+// ----------
+
+=navbar($bleed-container: false, $background: map-get($white, dark))
+  +navbar-default($bleed-container, $background)
+
+// TABLE
+// -----
+
+=table()
+  +table-default()
+
+// TILES
+// -----
+
+=tile($color: map-get($gray, dark))
+  +tile-default($color)
 
 /*
  * DEPENDENT COMPONENTS
