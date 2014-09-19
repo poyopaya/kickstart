@@ -111,7 +111,7 @@ $default-line-height: 1.4rem
 // ------
 
 =label($background-color: $blue)
-  +label-default($background-color: $blue)
+  +label-default($background-color)
 
 // MODALS
 // ------
@@ -125,12 +125,6 @@ $default-line-height: 1.4rem
 =navbar($bleed-container: false, $background: $dark-white)
   +navbar-default($bleed-container, $background)
 
-// STATUSES
-// --------
-
-.status-bar
-  +statusBar()
-
 // TABLE
 // -----
 
@@ -142,12 +136,6 @@ $default-line-height: 1.4rem
 
 =tile($color: $dark-gray)
   +tile-default($color)
-
-// TOOLTIPS
-// --------
-
-=tooltip_trigger($background-color: $blue)
-  +tooltip_trigger-default($background-color: $blue)
 
 // TYPOGRAPHY
 // ----------
@@ -249,3 +237,15 @@ html, li, p, table
  * /
 
 @import ../core/_dependent_components
+
+// TOOLTIPS
+// --------
+
+=tooltip_trigger
+  +tooltip_trigger-default
+
+// STATUSES
+// --------
+
+.status-bar
+  +statusBar()
