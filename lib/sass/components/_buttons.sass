@@ -10,7 +10,7 @@
   text-decoration: none
   border-color: hsla(0, 0%, 0%, 0.15)
   color: map-get($black, light)
-  text-align: center
+  text-align: left
 
   @if lightness($color) > 75%
     color: map-get($black, lighter)
@@ -30,3 +30,13 @@
   &:active
     box-shadow: 0px 3px 0px 0px rgba(0, 0, 0, 0.1) inset
     text-decoration: none
+
+  ul
+    +list-unstyled
+    margin-bottom: 0
+
+    li
+      padding:
+        top: map-get($rootElement, paddingV)
+        bottom: map-get($rootElement, paddingV)
+      margin-bottom: 0
