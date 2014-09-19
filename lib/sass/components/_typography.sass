@@ -6,7 +6,7 @@
   line-height: calc(#{$default-line-height} + #{$scalingFactor})
 
 html 
-  color: $lighter-black
+  color: map-get($black, lighter)
 
 ul
   margin-bottom: $space
@@ -82,7 +82,7 @@ a
 
 =page-heading-default
   h1, h2, h3, h4, h5, h6
-    border-bottom: 1px solid $darker-white
+    border-bottom: 1px solid map-get($white, darker)
     padding-bottom: $space/2
 
 =xxl-heading-default

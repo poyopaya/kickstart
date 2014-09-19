@@ -5,23 +5,23 @@
     right: map-get($rootElement, paddingH)
   display: inline-block
   background-color: $color
-  color: $light-black
+  color: map-get($black, light)
   cursor: pointer
   text-decoration: none
   border-color: hsla(0, 0%, 0%, 0.15)
-  color: $light-black
+  color: map-get($black, light)
   text-align: center
 
   @if lightness($color) > 75%
-    color: $lighter-black
+    color: map-get($black, lighter)
   @else
-    color: $white
+    color: white
 
   @if $color == $yellow
-    color: $lighter-black
+    color: map-get($black, lighter)
 
   @if $color == transparent
-    color: $lighter-black
+    color: map-get($black, lighter)
 
   &:hover
     +box-shadow(0px -3px 0px 0px rgba(0, 0, 0, 0.1) inset)

@@ -106,7 +106,7 @@
 
   &.label-yellow
     +label($yellow)
-    color: $light-black
+    color: map-get($black, light)
 
   &.label-green
     +label($green)
@@ -124,7 +124,7 @@
   +navbar
 
 .navbar-dark
-  +navbar($background: $lighter-black)
+  +navbar($background: map-get($black, lighter))
 
 // STATUS
 // ------

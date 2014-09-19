@@ -18,21 +18,9 @@
 
 // Grayscale
 
-$black:          #111
-$light-black:    #222
-$lighter-black:  #333
-$lightest-black: #444
-$darkest-gray:   #555
-$darker-gray:    #666
-$dark-gray:      #777
-$gray:           #888
-$light-gray:     #999
-$lighter-gray:   #AAA
-$lightest-gray:  #BBB
-$darkest-white:  #CCC
-$darker-white:   #DDD
-$dark-white:     #EEE
-$white:          #FFF
+$white: (dark: #EEE, darker: #DDD, darkest: #CCC)
+$gray:  (lightest: #BBB, lighter: #AAA, light: #999, dark: #777, darker: #666, darkest: #555)
+$black: (lightest: #444, lighter: #333, light: #222)
 
 // Rainbow
 
@@ -48,13 +36,13 @@ $violet:         darkmagenta
 // Modifying just these ten variables will take care of 90% of your theme
 
 $primary-color:       $blue
-$secondary-color:     $darker-white
+$secondary-color:     map-get($white, darker)
 $space:               25px
 $heading-font-family: 'Lato', helvetica neue, sans-serif
 $body-font-family:    'Lato', helvetica neue, sans-serif
 $base-font-size:      16px
-$black-augment:       0
-$white-augment:       0
+$black-augment:        0
+$white-augment:        0
 $saturation-augment:  0
 $luminosity-augment:  0
 
@@ -75,7 +63,7 @@ $default-line-height: 1.4rem
  * ===============
  * Base components get imported first so they can be custom themed and
  * used again in other parts of the core library.
- * 
+ *
  * /
 
 @import ../core/_base_components
@@ -128,7 +116,7 @@ $default-line-height: 1.4rem
 // NAVIGATION
 // ----------
 
-=navbar($bleed-container: false, $background: $dark-white)
+=navbar($bleed-container: false, $background: map-get($white, dark))
   +navbar-default($bleed-container, $background)
 
 // TABLE
@@ -140,7 +128,7 @@ $default-line-height: 1.4rem
 // TILES
 // -----
 
-=tile($color: $dark-gray)
+=tile($color: map-get($gray, dark))
   +tile-default($color)
 
 // TYPOGRAPHY
@@ -239,7 +227,7 @@ html, li, p, table
  * ===============
  * Dependent components keep code DRY by reusing core componenets
  * that have already been styled by the theme.
- * 
+ *
  * /
 
 @import ../core/_dependent_components

@@ -4,7 +4,7 @@
   @else
     color: rgba(0, 0, 0, 0.5)
 
-=navbar-default($bleed-container: false, $background: $dark-white)
+=navbar-default($bleed-container: false, $background: map-get($white, dark))
   background: $background
   border-top: 1px solid darken($background, 12%)
 
@@ -18,9 +18,9 @@
     border-radius: 0
 
     @if (lightness($background) < 75%)
-      color: $white
+      color: white
     @else
-      color: $lighter-black
+      color: map-get($black, lighter)
 
     h1
       margin-bottom: 0
@@ -85,12 +85,12 @@
           &.open
             color: rgba(0, 0, 0, 0.85)
             background: white
-            border-color: $darker-white
+            border-color: map-get($white, darker)
             border-bottom-color: transparent
 
             &:hover
               color: rgba(0, 0, 0, 0.85)
-              border-color: $darker-white
+              border-color: map-get($white, darker)
               border-bottom-color: transparent
 
         a:not([role=button])
@@ -129,9 +129,9 @@
         left: -1px // Compensate for border
         min-width: 175px
         border:
-          left: 1px solid $darker-white
-          right: 1px solid $darker-white
-          bottom: 1px solid $darker-white
+          left: 1px solid map-get($white, darker)
+          right: 1px solid map-get($white, darker)
+          bottom: 1px solid map-get($white, darker)
 
         li
           border: 0px
@@ -140,13 +140,13 @@
             padding:
               top: $space/4
               bottom: $space/4
-            color: $light-black
+            color: map-get($black, light)
 
             &:hover
               color: rgba(0, 0, 0, 0.85)
-              background: $dark-white
-              border-color: $dark-white
+              background: map-get($white, dark)
+              border-color: map-get($white, dark)
 
             &:active
-              background: $darker-white
-              border-color: $darker-white
+              background: map-get($white, darker)
+              border-color: map-get($white, darker)

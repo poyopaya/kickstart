@@ -38,7 +38,7 @@
     opacity: 0.8
 
 .docs-nav
-  +navbar($bleed-container: true, $background: $lightest-black)
+  +navbar($bleed-container: true, $background: map-get($black, lightest))
 
 // Colors
 // Kind of shitty, but there is a colors page that directly relies on this.
@@ -48,22 +48,22 @@
 
 .color-
   &black
-    background-color: $black
+    background-color: black
 
   &light-black
-    background-color: $light-black
+    background-color: map-get($black, light)
 
   &lighter-black
-    background-color: $lighter-black
+    background-color: map-get($black, lighter)
 
   &lightest-black
-    background-color: $lightest-black
+    background-color: map-get($black, lightest)
 
   &gray
-    background-color: $gray
+    background-color: gray
 
   &white
-    background-color: $white
+    background-color: white
 
   &yellow
     background-color: $yellow
@@ -75,12 +75,12 @@
   text-align: center
 
   .gray
-    background: $dark-white
+    background: map-get($white, dark)
 
 .example
   padding: $space
   margin-bottom: $space
-  background: $dark-white
+  background: map-get($white, dark)
 
   > *:last-child
     margin-bottom: 0
@@ -123,11 +123,11 @@ h1.example-
     text-align: left
     max-width: 360px
     margin: 0px auto
-    color: $light-black
+    color: map-get($black, light)
 
   .tile
     h1
-      color: $light-black
+      color: map-get($black, light)
       font-weight: 400
       font-size: 1.1rem
 
@@ -149,7 +149,7 @@ iframe.animation
 // Grid
 
 .example-column
-  background-color: $darkest-white
+  background-color: map-get($white, darkest)
   color: white
 
 // Modal
