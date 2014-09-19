@@ -207,3 +207,29 @@ block variations
           </span>
         </p>
 
+    ## Multiple tooltips in one trigger
+
+    By separating the trigger and the tooltip into separate elements, we can
+    do some pretty cool things, like show multiple tooltips in one trigger
+    area.
+
+  .row
+    .col-6.tooltip_trigger
+      .example
+        ul
+          li
+            a(href="#") 
+              | My account
+              .tooltip.tooltip-green Start here
+          li: a(href="#") Dashboard
+          li: a(href="#") Settings
+          li: a(href="#") Recent
+          li
+            a(href="#") 
+              | Favorites
+              .tooltip.tooltip-left Check back here for items you've favorited.
+          li: a(href="#") Updates
+
+    .col-6.tooltip_trigger
+      .example
+
