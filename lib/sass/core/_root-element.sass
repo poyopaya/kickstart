@@ -11,5 +11,6 @@
   border: 1px solid transparent
   outline: none
   margin-bottom: $space
-  font-size: #{$size}rem
+  @if $size != 1
+    font-size: #{$size}rem
   line-height: $size * $default-line-height
