@@ -28,7 +28,7 @@ a
 
 =pre-default
   color: darken($blue, 25%)
-  +border-radius($space/5)
+  border-radius: $space/5
   padding: ($space/5)
   font-family: monospace
   word-break: break-all
@@ -48,7 +48,7 @@ a
 
   @if ($content-optimized)
     font-size: 1.25rem
-    line-height: 1.75rem
+    line-height: 1.85rem
     margin-bottom: 2.5rem
 
 =hero-default
@@ -69,8 +69,25 @@ a
 
   > h1, > h2, > h3, > h4, > h5, > h6, > p
     text-align: center
+    font-weight: 300
 
-  img
+  h1, h2, h3, h4, h5, h6, p
+    color: white
+
+  h1
+    +xxl-heading
+  h2
+    +xl-heading
+  h3
+    +lg-heading
+  h4
+    +md-heading
+  h5
+    +rg-heading
+  h6
+    +sm-heading 
+
+  > img
     margin: 0px auto
     display: block
 
@@ -132,3 +149,14 @@ a
   margin:
     bottom: 0.5rem
   +heading-break
+
+=list-unstyled-default
+  padding: 0
+  margin: 0
+    bottom: $space
+  list-style: none
+
+=list-horizontal-default
+  > li
+    display: inline-block
+    margin-right: 5px

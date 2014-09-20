@@ -9,9 +9,9 @@
   border-top: 1px solid darken($background, 12%)
 
   nav
-    display: inline-flex
+    display: flex
     align-items: flex-start
-    +flex-wrap
+    flex-wrap: wrap
     justify-content: space-between
     align-content: space-between
     width: 100%
@@ -40,16 +40,17 @@
     ul
       margin: 0
       padding: 0
-      +flex(inline-flex)
-      +justify-content(space-between)
-      +align-content(space-between)
-      +align-items(center)
-      +flex-wrap
+      display: flex
+      justify-content: space-between
+      align-content: space-between
+      align-items: center
+      flex-wrap: wrap
 
       li
         list-style: none
         +root-element
-        +border-radius(0)
+        margin-bottom: 0
+        border-radius: 0
         padding:
           top: (map-get($rootElement, paddingV) - 1)
           bottom: (map-get($rootElement, paddingV) - 1)
@@ -93,13 +94,17 @@
               border-color: map-get($white, darker)
               border-bottom-color: transparent
 
+        a[role=button]
+          margin-bottom: 0
+
         a:not([role=button])
           +color($background)
           text-decoration: none
           cursor: pointer
           display: block
           +root-element
-          +border-radius(0)
+          margin-bottom: 0
+          border-radius: 0
           margin: (-1 * map-get($rootElement, paddingV)) (-1 * map-get($rootElement, paddingH))
           padding:
             top: (2 * map-get($rootElement, paddingV))

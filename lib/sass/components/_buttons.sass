@@ -1,8 +1,8 @@
-=button-default($color)
-  +root-element
+=button-default($color, $size: 1)
+  +root-element($size: $size)
   padding:
-    left: map-get($rootElement, paddingH)
-    right: map-get($rootElement, paddingH)
+    left: $size * $size * map-get($rootElement, paddingH)
+    right: $size * $size * map-get($rootElement, paddingH)
   display: inline-block
   background-color: $color
   color: map-get($black, light)
@@ -36,7 +36,8 @@
     margin-bottom: 0
 
     li
+      +root-element($size)
       padding:
-        top: map-get($rootElement, paddingV)
-        bottom: map-get($rootElement, paddingV)
+        left: 0
+        right: 0
       margin-bottom: 0
