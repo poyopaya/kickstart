@@ -35,6 +35,7 @@
   ul
     +list-unstyled
     margin-bottom: 0
+    padding-top: $size * $size * map-get($rootElement, paddingV)
 
     li
       +root-element($size)
@@ -42,3 +43,6 @@
         left: 0
         right: 0
       margin-bottom: 0
+
+      a
+        color: inherit
