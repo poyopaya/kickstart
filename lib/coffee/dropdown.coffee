@@ -1,9 +1,7 @@
 dropdown = ->
 
-  $buttons = k$.$$('button, [role="button"]')
-
-  for $button in $buttons
-    if $button.querySelectorAll('ul')
+  for $button in k$.$$("button")
+    if $button.querySelectorAll('ul').length
       $button.classList.add 'with-submenu'
 
 k$.dropdown = dropdown

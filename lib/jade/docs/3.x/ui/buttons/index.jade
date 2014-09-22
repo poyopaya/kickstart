@@ -107,7 +107,7 @@ block variations
             @include button();
           }
 
-block granular 
+block granular
   :markdown
     ## Dropdown button
 
@@ -126,7 +126,7 @@ block granular
   :markdown
     <span>
 
-        <button class="button" role="button">
+        <button class="button">
           Add photo
           <ul>
             <li>
@@ -145,17 +145,17 @@ block granular
     :markdown
       <span>
 
-          .button { 
+          .button {
             @include button();
           }
 
-      Notice the `role="button"` inclusion on the button
-      element. This is not just good accessibility but allows JavaScript
-      to see the button, despite the use of a custom class.
+  .alert.alert-info
+    h1 Use the button element.
+    p Unlike other uses, this can only be applied to the HTML button element.
 
   :markdown
     ## Button with dropdown
-    
+
     This is a bit different from the above only because the button stil
     exists with the dropdown instead of as one.
 
@@ -187,9 +187,6 @@ block granular
 
           .button {
             @include button();
-          }
-          .button-dropdown {
-            @include button-dropdown();
           }
 
   :markdown
@@ -282,7 +279,7 @@ block granular
                 a(href="#") Option 2
 
         li
-          button.button 
+          button.button
             | Regular
             ul
               li
@@ -291,7 +288,7 @@ block granular
                 a(href="#") Option 2
 
         li
-          button.button-small
+          a.button-small(role="button")
             | Small
             ul
               li
