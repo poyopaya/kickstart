@@ -18,7 +18,7 @@
 
 // Grayscale
 
-$white: (dark: #EEE, darker: #DDD, darkest: #CCC)
+$white: (dark: #F7F7F7, darker: #DDD, darkest: #CCC)
 $gray:  (lightest: #BBB, lighter: #AAA, light: #999, dark: #777, darker: #666, darkest: #555)
 $black: (lightest: #444, lighter: #333, light: #222)
 
@@ -135,7 +135,7 @@ h6
 =type
   +type-default
 
-html, li, p, table
+html
   +type-default
 
 =list-unstyled
@@ -162,8 +162,8 @@ html, li, p, table
 // Buttons
 // -------
 
-=button($color: white)
-  +button-default($color)
+=button($color: map-get($white, dark), $size: 1)
+  +button-default($color, $size)
 
 // Forms
 // -----
