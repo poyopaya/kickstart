@@ -1,19 +1,19 @@
-/*
- *  Theme: Default
- *  ==============
- *  Theme files wrap Kickstart's mixins into duplicate mixins without the
- *  "-default". This allows theme artists to insert their own styles by
- *  extending the default ones. Because the default theme just does direct
- *  assignment to the final namespaces, it overrides without actually
- *  changing anything.
- */
+//
+// Theme: Default
+// ==============
+// Theme files wrap Kickstart's mixins into duplicate mixins without the
+// "-default". This allows theme artists to insert their own styles by
+// extending the default ones. Because the default theme just does direct
+// assignment to the final namespaces, it overrides without actually
+// changing anything.
+//
 
 // TODO: This would be the second time importing in rails. prepend this line
 // via gulp.
 
 @import ../core/_normalize
 
-// VARIABLES
+// Variables
 // ---------
 
 // Grayscale
@@ -56,16 +56,15 @@ $default-font: $body-font-family
 $default-font-size: $base-font-size
 $default-line-height: 1.4rem
 
-/*
- * CORE STYLING
- * ------------
- * Lowest-level styling meant to be inherited by components.
- *
- */
+//
+// Core styling
+// ------------
+// Lowest-level styling meant to be inherited by components.
+//
 
-@import ../core/index
+@import ../core/_index
 
-// TYPOGRAPHY
+// Typography
 // ----------
 
 =pre
@@ -87,22 +86,6 @@ pre
 
 =hero
   +hero-default
-  h1, h2, h3, h4, h5, h6, p
-    color: white
-    font-weight: 300
-
-  h1
-    +xxl-heading
-  h2
-    +xl-heading
-  h3
-    +lg-heading
-  h4
-    +md-heading
-  h5
-    +rg-heading
-  h6
-    +sm-heading
 
 =xxl-heading
   +xxl-heading-default
@@ -155,31 +138,34 @@ h6
 html, li, p, table
   +type-default
 
+=list-unstyled
+  +list-unstyled-default
 
+=list-horizontal
+  +list-horizontal-default
 
-/*
- * BASE COMPONENTS
- * ===============
- * Base components get imported first so they can be custom themed and
- * used again in other parts of the core library.
- *
- * /
+//
+// Base Components
+// ===============
+// Base components get imported first so they can be custom themed and
+// used again in other parts of the core library.
+//
 
 @import ../core/_base_components
 
-// ALERTS
+// Alerts
 // ------
 
 =alert
   +alert-default
 
-// BUTTONS
+// Buttons
 // -------
 
 =button($color: white)
   +button-default($color)
 
-// FORMS
+// Forms
 // -----
 
 =form-horizontal()
@@ -191,7 +177,7 @@ html, li, p, table
 =form-group()
   +form-group-default()
 
-// IMAGES
+// Images
 // ------
 
 =thumbnail-content
@@ -200,53 +186,52 @@ html, li, p, table
 =thumbnail
   +thumbnail-default
 
-// LABELS
+// Labels
 // ------
 
 =label($background-color: $blue)
   +label-default($background-color)
 
-// MODALS
-// ------
-
-=modal()
-  +modal-default()
-
-// NAVIGATION
+// Navigation
 // ----------
 
 =navbar($bleed-container: false, $background: map-get($white, dark))
   +navbar-default($bleed-container, $background)
 
-// TABLE
+// Table
 // -----
 
 =table()
   +table-default()
 
-// TILES
+// Tiles
 // -----
 
 =tile($color: map-get($gray, dark))
   +tile-default($color)
 
-/*
- * DEPENDENT COMPONENTS
- * ===============
- * Dependent components keep code DRY by reusing core componenets
- * that have already been styled by the theme.
- *
- * /
+//
+// Dependent Components
+// ====================
+// Dependent components keep code DRY by reusing core and base 
+// componenets that have already been styled by the theme.
+//
 
 @import ../core/_dependent_components
 
-// TOOLTIPS
+// Modals
+// ------
+
+=modal()
+  +modal-default()
+
+// Tooltips
 // --------
 
 =tooltip_trigger
   +tooltip_trigger-default
 
-// STATUSES
+// Statuses
 // --------
 
 .status-bar
