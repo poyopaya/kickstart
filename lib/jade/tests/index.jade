@@ -45,6 +45,22 @@ html(lang='en')
     #test-modal-2
       h1 Hi, I'm a modal as well.
 
+    a#ddbutton1(role="button")
+      | Button
+      ul
+        li
+          a(href="#") Option 1
+        li
+          a(href="#") Option 2
+
+    button.foo#ddbutton2
+      | Button
+      ul
+        li
+          a(href="#") Option 1
+        li
+          a(href="#") Option 2
+
     footer
       script.
         mocha.setup('bdd');
