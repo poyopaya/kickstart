@@ -121,6 +121,10 @@ block fullPane
     See the instructions 
     [at the Autoprefixer docs](https://github.com/ai/autoprefixer-rails)
 
+    #### Theming
+
+    To add a theme using the Rails implementation, see [Theming](/docs/3.x/theming#rails)
+
   header#gulp.page-heading
     h3 Gulp
 
@@ -149,4 +153,15 @@ block fullPane
 
     This will download the entire repo to a `node_modules` folder.
 
-    
+    In your sass or scss file, import Kickstart via the theme you prefer: 
+
+        @import node_modules/kickstart-node/lib/sass/themes/default
+
+    Notice you may need a couple `../`s before `node_modules` to point
+    to the node_modules directory. This all depends on how you organized your
+    project.
+
+    In the above example, node_modules is at the same level as the scss/sass
+    file.
+
+

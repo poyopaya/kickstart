@@ -48,3 +48,35 @@ block fullPane
     They can flip through theme libraries and keep their library names the same.
 
     That's really all there is to writing a Kickstart theme. Enjoy!
+
+  h2#rails In Rails
+
+  :markdown
+    ### Using an included theme
+
+    If you want to use a theme already included in kickstart, you'll just need
+    to be specific in application.css.sass/scss. 
+
+    Instead of
+
+        @import kickstart_rails
+
+    Use
+
+        @import kickstart_rails/themes/themename
+
+    `themename` is the name of the .sass theme you want to use.
+
+    ### Using your own theme
+
+    In a pure sass implementation, you could create your own theme by just
+    dropping it in the theme directory. However, because this sits in a vendor
+    location and probably (hopefully) not committed to your repo, it should
+    make more sense to just copy the theme sass file into assets/stylesheets
+    directory.
+
+    Here's how to do this without breaking links.
+
+    1. [Copy one of the themes from the repo](https://github.com/ajkochanowicz/Kickstrap/tree/master/lib/sass/themes)
+       into assets/stylesheets of your project.  
+    2. Change the `@import`s to point to kickstart_rails...
