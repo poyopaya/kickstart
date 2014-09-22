@@ -13,6 +13,21 @@
   color: map-get($black, light)
   text-align: left
 
+  &.with-submenu
+    position: relative
+
+    ul
+      display: none
+
+    &:after
+      content: '+'
+      font-size: $size * 0.85rem
+      font-family: 'Kickstart', Kickstart
+      display: inline-block
+      margin:
+        left: 1/2 * $size * $size * map-get($rootElement, paddingH)
+        right: -1/2 * $size * $size * map-get($rootElement, paddingH)
+
   @if lightness($color) > 75%
     color: map-get($black, lighter)
   @else
@@ -35,14 +50,17 @@
   ul
     +list-unstyled
     margin-bottom: 0
-    padding-top: $size * $size * map-get($rootElement, paddingV)
+    padding:
+      top: $size * $size * map-get($rootElement, paddingV)
+
 
     li
       +root-element($size)
       padding:
         left: 0
         right: 0
-      margin-bottom: 0
+      margin:
+        bottom: 0
 
       a
         color: inherit

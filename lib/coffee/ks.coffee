@@ -1,7 +1,7 @@
 global.k$ = new Object()
 
 k$.$$ = (el) -> document.querySelectorAll el
-k$.$ = (el) -> k$.$$(el)[0]
+k$.$ = (el) -> document.querySelector el
 k$.debounceTimer = false
 k$.debounceQueue = null
 k$.extend = (destination, source) ->
