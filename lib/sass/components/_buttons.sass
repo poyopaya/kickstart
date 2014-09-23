@@ -4,6 +4,7 @@
   text-decoration: none
   color: map-get($black, light)
   text-align: left
+  transition: box-shadow 0.15s
 
   &.with-submenu
     position: relative
@@ -18,11 +19,11 @@
       color: rgba(0, 0, 0, 0.3)
 
   &:hover
-    box-shadow: 0px -2px 0px 0px rgba(0, 0, 0, 0.1) inset
+    box-shadow: 0px -2px 0px 0px rgba(0, 0, 0, 0.1) inset, 0px 2px 0px 0px rgba(255, 255, 255, 0.1) inset
     text-decoration: none
 
   &:active
-    box-shadow: 0px 2px 0px 0px rgba(0, 0, 0, 0.1) inset
+    box-shadow: 0px 2px 0px 0px rgba(0, 0, 0, 0.1) inset, 0px -2px 0px 0px rgba(255, 255, 255, 0.1) inset
     text-decoration: none
 
   // TODO: Done this way, these properties are not mutex
@@ -44,7 +45,7 @@
   @else
     color: white
 
-  @if $color == $yellow
+  @if $color == map-get($color, yellow)
     color: map-get($black, lighter)
 
   @if $color == transparent
