@@ -45,7 +45,7 @@
   @else
     color: white
 
-  @if $color == map-get($color, yellow)
+  @if $color == map-get($colors, yellow)
     color: map-get($black, lighter)
 
   @if $color == transparent
@@ -145,4 +145,3 @@
         border-top-left-radius: 0
         border-bottom-left-radius: 0
         border-left: 0
-

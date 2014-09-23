@@ -17,34 +17,25 @@
 // ---------
 
 // Grayscale
-
 $white: (dark: #F7F7F7, darker: #DDD, darkest: #CCC)
 $gray:  (lightest: #BBB, lighter: #AAA, light: #999, dark: #777, darker: #666, darkest: #555)
 $black: (lightest: #444, lighter: #333, light: #222)
 
 // Rainbow
-
-map-get($color, red):            #CA3518
-map-get($color, orange):         darkorange
-map-get($color, yellow):         #ffe312
-map-get($color, green):          #58AA00
-map-get($color, blue):           cornflowerblue
-map-get($color, violet):         darkmagenta
+$color: (red: #CA3518, orange: darkorange, yellow: #ffe312, green: #58AA00, blue: cornflowerblue, violet: darkmagenta)
 
 // Ten point design variables
 // --------------------------
 // Modifying just these ten variables will take care of 90% of your theme
 
-$primary-color:       map-get($color, blue)
+$primary-color:       $map-get($colors, blue)
 $secondary-color:     map-get($white, darker)
 $space:               25px
 $heading-font-family: 'Lato', helvetica neue, sans-serif
 $body-font-family:    'Lato', helvetica neue, sans-serif
 $base-font-size:      16px
-$black-augment:       #000
-$white-augment:       #FFF
-$saturation-augment:  0%
-$luminosity-augment:  0%
+$default-font-color:          map-get($gray, darkest)
+$default-line-height: 1.4rem
 
 // --------------------------
 
@@ -54,7 +45,6 @@ $rootElement: (paddingV: 5px, paddingH: 12px)
 
 $default-font: $body-font-family
 $default-font-size: $base-font-size
-$default-line-height: 1.4rem
 
 //
 // Core styling
@@ -165,6 +155,9 @@ html
 =button($color: map-get($white, dark), $size: 1)
   +button-default($color, $size)
 
+=button-group($color: map-get($white, dark), $size: 1)
+  +button-group-default($color, $size)
+
 // Forms
 // -----
 
@@ -176,6 +169,15 @@ html
 
 =form-group()
   +form-group-default()
+
+// HR
+// --
+
+=hr
+  +hr-default
+
+hr
+  +hr
 
 // Images
 // ------
@@ -189,7 +191,7 @@ html
 // Labels
 // ------
 
-=label($background-color: map-get($color, blue))
+=label($background-color: $map-get($colors, blue))
   +label-default($background-color)
 
 // Navigation
@@ -204,16 +206,10 @@ html
 =table()
   +table-default()
 
-// Tiles
-// -----
-
-=tile($color: map-get($gray, dark))
-  +tile-default($color)
-
 //
 // Dependent Components
 // ====================
-// Dependent components keep code DRY by reusing core and base 
+// Dependent components keep code DRY by reusing core and base
 // componenets that have already been styled by the theme.
 //
 
@@ -224,6 +220,12 @@ html
 
 =modal()
   +modal-default()
+
+// Tiles
+// -----
+
+=tile($color: map-get($gray, dark))
+  +tile-default($color)
 
 // Tooltips
 // --------

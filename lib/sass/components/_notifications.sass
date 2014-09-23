@@ -8,7 +8,7 @@
   pointer-events: none
 
   .status-bar_status
-    +label(map-get($color, yellow))
+    +label(map-get($colors, yellow))
     color: black
     text-align: center
     margin: 5px auto
@@ -22,13 +22,13 @@
     animation-name: fadeInDown
 
     &[data-type="success"]
-      background-color: map-get($color, green)
+      background-color: map-get($colors, green)
       color: white
 
     &[data-type="error"]
-      background-color: map-get($color, red)
+      background-color: map-get($colors, red)
       color: white
 
     &[data-type="info"]
-      background-color: map-get($color, blue)
+      background-color: map-get($colors, blue)
       color: white

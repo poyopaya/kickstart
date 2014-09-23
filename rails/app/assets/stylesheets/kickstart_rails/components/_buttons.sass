@@ -4,6 +4,7 @@
   text-decoration: none
   color: map-get($black, light)
   text-align: left
+  transition: box-shadow 0.15s
 
   &.with-submenu
     position: relative
@@ -18,11 +19,11 @@
       color: rgba(0, 0, 0, 0.3)
 
   &:hover
-    box-shadow: 0px -2px 0px 0px rgba(0, 0, 0, 0.1) inset
+    box-shadow: 0px -2px 0px 0px rgba(0, 0, 0, 0.1) inset, 0px 2px 0px 0px rgba(255, 255, 255, 0.1) inset
     text-decoration: none
 
   &:active
-    box-shadow: 0px 2px 0px 0px rgba(0, 0, 0, 0.1) inset
+    box-shadow: 0px 2px 0px 0px rgba(0, 0, 0, 0.1) inset, 0px -2px 0px 0px rgba(255, 255, 255, 0.1) inset
     text-decoration: none
 
   // TODO: Done this way, these properties are not mutex
@@ -36,12 +37,15 @@
 =button-color($color)
   background-color: $color
 
+  &.open
+    background-color: darken($color, 5%)
+
   @if lightness($color) > 75%
     color: map-get($black, lighter)
   @else
     color: white
 
-  @if $color == map-get($color, yellow)
+  @if $color == map-get($colors, yellow)
     color: map-get($black, lighter)
 
   @if $color == transparent
@@ -62,19 +66,83 @@
         left: 1/2 * $size * $size * map-get($rootElement, paddingH)
         right: -1/2 * $size * $size * map-get($rootElement, paddingH)
 
+    &.open
+      ul
+        display: block
+
     ul
-      padding:
-        top: $size * $size * map-get($rootElement, paddingV)
-      +list-unstyled
-      margin-bottom: 0
+      +button-dropdown($size)
 
       li
-        +root-element($size)
         padding:
           left: 0
           right: 0
         margin:
           bottom: 0
+        font-size: 0.9rem * $size
+        color: $default-font-color
 
         a
           color: inherit
+
+  + .button-dropdown + ul
+    // Button with dropdown
+    +button-dropdown($size)
+    position: static
+    margin-top: -$space + 5px
+
+  &.open
+    + .button-dropdown + ul
+      display: block
+
+      li
+        font-size: 0.9rem * $size
+        color: $default-font-color
+
+        a
+          color: inherit
+
+=button-dropdown($size)
+  +list-unstyled
+  +root-element($size)
+  display: none
+  padding:
+    left: $size * $size * map-get($rootElement, paddingH)
+    right: $size * $size * map-get($rootElement, paddingH)
+  position: absolute
+  top: 100%
+  left: -1px
+  margin-top: 5px
+  right: -$space
+  border-color: map-get($white, darker)
+  background: white
+  z-index: 10
+
+=button-group-default($color, $size)
+  +list-unstyled
+
+  li
+    color: inherit
+    display: inline-block
+
+    > a, > button, > input
+      +button($color, $size)
+      color: inherit
+      text-decoration: inherit
+
+    &:not(:first-child):not(:last-child)
+      > a, > button, > input
+        border-radius: 0
+        border-left: 0
+
+    &:first-child
+      > a, > button, > input
+        border-top-right-radius: 0
+        border-bottom-right-radius: 0
+
+    &:last-child
+      > a, > button, > input
+        border-top-left-radius: 0
+        border-bottom-left-radius: 0
+        border-left: 0
+

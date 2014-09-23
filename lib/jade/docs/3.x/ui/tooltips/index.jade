@@ -152,7 +152,7 @@ block variations
       the mixin for `tooltip_trigger()`.
 
           .tooltip_trigger {
-            @include tooltip_trigger(map-get($color, yellow));
+            @include tooltip_trigger(map-get($colors, yellow));
           }
 
       However, if you need different colored tooltips in a single trigger
@@ -161,16 +161,16 @@ block variations
           .tooltip_trigger {
             
             .tooltip1 {
-              background-color: map-get($color, green);
+              background-color: map-get($colors, green);
               &:after {
-                border-top-color: map-get($color, green);
+                border-top-color: map-get($colors, green);
               }
             }
 
             .tooltip1 {
-              background-color: map-get($color, yellow);
+              background-color: map-get($colors, yellow);
               &:after {
-                border-top-color: map-get($color, yellow);
+                border-top-color: map-get($colors, yellow);
               }
             }
 

@@ -1,7 +1,15 @@
 =tile-default ($color: map-get($gray, dark))
   +root-element
+  +hr
   display: block
   text-decoration: none
+  border:
+    left: 1px solid map-get($white, darker)
+    right: 1px solid map-get($white, darker)
+    bottom: 1px solid map-get($white, darker)
+  background: white
+  padding: $space/2
+  color: $default-font-color
   
   &:hover
     text-decoration: none
@@ -9,10 +17,9 @@
   @if $color == transparent
     box-shadow: 0px 0px 0px transparent
 
-  padding-bottom: 0
   overflow: hidden
   margin-bottom: $space
-  border-top: 3px solid $color
+  border-top-color: $color
 
   > h1, > h2, > h3, > h4, > h5
     color: $color
@@ -27,3 +34,6 @@
     color: gray
     font-weight: bold
     float: right
+
+  > *:last-child
+    margin-bottom: 0

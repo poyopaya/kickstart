@@ -31,28 +31,75 @@
     +button-color(transparent)
 
   &.button-red
-    +button-color(map-get($color, red))
+    +button-color(map-get($colors, red))
 
   &.button-orange
-    +button-color(map-get($color, orange))
+    +button-color(map-get($colors, orange))
 
   &.button-yellow
-    +button-color(map-get($color, yellow))
+    +button-color(map-get($colors, yellow))
 
   &.button-green
-    +button-color(map-get($color, green))
+    +button-color(map-get($colors, green))
 
   &.button-blue
-    +button-color(map-get($color, blue))
+    +button-color(map-get($colors, blue))
 
   &.button-violet
-    +button-color(map-get($color, violet))
+    +button-color(map-get($colors, violet))
 
   &.button-small
     +button-size($size: 0.85)
 
   &.button-large
     +button-size($size: 1.2)
+
+.button-group
+  +button-group
+
+  &.button-primary
+    > li > *
+      +button-color($primary-color)
+
+  &.button-secondary
+    > li > *
+      +button-color($secondary-color)
+
+  &.button-clear
+    > li > *
+      +button-color(transparent)
+
+  &.button-red
+    > li > *
+      +button-color(map-get($colors, red))
+
+  &.button-orange
+    > li > *
+      +button-color(map-get($colors, orange))
+
+  &.button-yellow
+    > li > *
+      +button-color(map-get($colors, yellow))
+
+  &.button-green
+    > li > *
+      +button-color(map-get($colors, green))
+
+  &.button-blue
+    > li > *
+      +button-color(map-get($colors, blue))
+
+  &.button-violet
+    > li > *
+      +button-color(map-get($colors, violet))
+
+  &.button-small
+    > li > *
+      +button-size($size: 0.85)
+
+  &.button-large
+    > li > *
+      +button-size($size: 1.2)
 
 // FORMS
 // -----
@@ -108,23 +155,23 @@
   +label
 
   &.label-red
-    +label(map-get($color, red))
+    +label(map-get($colors, red))
 
   &.label-orange
-    +label(map-get($color, orange))
+    +label(map-get($colors, orange))
 
   &.label-yellow
-    +label(map-get($color, yellow))
+    +label(map-get($colors, yellow))
     color: map-get($black, light)
 
   &.label-green
-    +label(map-get($color, green))
+    +label(map-get($colors, green))
 
   &.label-blue
-    +label(map-get($color, blue))
+    +label(map-get($colors, blue))
 
   &.label-violet
-    +label(map-get($color, violet))
+    +label(map-get($colors, violet))
 
 // NAVIGATION
 // ----------
