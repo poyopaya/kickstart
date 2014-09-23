@@ -2,6 +2,10 @@
   +root-element
   display: block
   text-decoration: none
+  border-color: map-get($white, darker)
+  background: white
+  padding: $space/2
+  color: $default-font-color
   
   &:hover
     text-decoration: none
@@ -9,7 +13,6 @@
   @if $color == transparent
     box-shadow: 0px 0px 0px transparent
 
-  padding-bottom: 0
   overflow: hidden
   margin-bottom: $space
   border-top: 3px solid $color
@@ -27,3 +30,6 @@
     color: gray
     font-weight: bold
     float: right
+
+  > *:last-child
+    margin-bottom: 0

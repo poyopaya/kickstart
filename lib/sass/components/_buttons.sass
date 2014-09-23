@@ -31,11 +31,6 @@
   +button-color($color)
   +button-size($size)
 
-  &.open
-    &.with-submenu
-      ul
-        display: block
-
 // Separated from main mixin for access by non-semantic library.
 
 =button-color($color)
@@ -70,20 +65,12 @@
         left: 1/2 * $size * $size * map-get($rootElement, paddingH)
         right: -1/2 * $size * $size * map-get($rootElement, paddingH)
 
+    &.open
+      ul
+        display: block
+
     ul
-      +list-unstyled
-      +root-element($size)
-      padding:
-        left: $size * $size * map-get($rootElement, paddingH)
-        right: $size * $size * map-get($rootElement, paddingH)
-      position: absolute
-      top: 100%
-      left: -1px
-      margin-top: 5px
-      right: -$space
-      border-color: map-get($white, darker)
-      background: white
-      z-index: 10
+      +button-dropdown($size)
 
       li
         padding:
@@ -92,7 +79,40 @@
         margin:
           bottom: 0
         font-size: 0.9rem * $size
-        color: map-get($black, lightest)
+        color: $default-font-color
 
         a
           color: inherit
+
+  + .button-dropdown + ul
+    // Button with dropdown
+    +button-dropdown($size)
+    position: static
+    margin-top: -$space + 5px
+
+  &.open
+    + .button-dropdown + ul
+      display: block
+
+      li
+        font-size: 0.9rem * $size
+        color: $default-font-color
+
+        a
+          color: inherit
+
+=button-dropdown($size)
+  +list-unstyled
+  +root-element($size)
+  display: none
+  padding:
+    left: $size * $size * map-get($rootElement, paddingH)
+    right: $size * $size * map-get($rootElement, paddingH)
+  position: absolute
+  top: 100%
+  left: -1px
+  margin-top: 5px
+  right: -$space
+  border-color: map-get($white, darker)
+  background: white
+  z-index: 10
