@@ -116,3 +116,32 @@
   border-color: map-get($white, darker)
   background: white
   z-index: 10
+
+=button-group-default($color, $size)
+  +list-unstyled
+
+  li
+    color: inherit
+    display: inline-block
+
+    > a, > button, > input
+      +button($color, $size)
+      color: inherit
+      text-decoration: inherit
+
+    &:not(:first-child):not(:last-child)
+      > a, > button, > input
+        border-radius: 0
+        border-left: 0
+
+    &:first-child
+      > a, > button, > input
+        border-top-right-radius: 0
+        border-bottom-right-radius: 0
+
+    &:last-child
+      > a, > button, > input
+        border-top-left-radius: 0
+        border-bottom-left-radius: 0
+        border-left: 0
+

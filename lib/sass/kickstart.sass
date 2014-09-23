@@ -54,6 +54,53 @@
   &.button-large
     +button-size($size: 1.2)
 
+.button-group
+  +button-group
+
+  &.button-primary
+    > li > *
+      +button-color($primary-color)
+
+  &.button-secondary
+    > li > *
+      +button-color($secondary-color)
+
+  &.button-clear
+    > li > *
+      +button-color(transparent)
+
+  &.button-red
+    > li > *
+      +button-color($red)
+
+  &.button-orange
+    > li > *
+      +button-color($orange)
+
+  &.button-yellow
+    > li > *
+      +button-color($yellow)
+
+  &.button-green
+    > li > *
+      +button-color($green)
+
+  &.button-blue
+    > li > *
+      +button-color($blue)
+
+  &.button-violet
+    > li > *
+      +button-color($violet)
+
+  &.button-small
+    > li > *
+      +button-size($size: 0.85)
+
+  &.button-large
+    > li > *
+      +button-size($size: 1.2)
+
 // FORMS
 // -----
 .form-horizontal
