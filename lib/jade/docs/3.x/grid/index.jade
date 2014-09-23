@@ -10,7 +10,7 @@ block toc-basic
     li
       a(href="#use-numbers") Use numbers
     li
-      a(href="#offsets") Offsets
+      a(href="#pulls") Pulls
 
 block toc-variations
   ul
@@ -164,18 +164,18 @@ block basic
           </div>
 
 block variations
-  h2 Offsets
+  h2 Pulls
   
   .example
     .row
-      .col-offset-6.col-6: .col-example six columns with six column offset
+      .col-pull-6.col-6: .col-example six columns with six column pull
 
   .ifnot-semantic
     :markdown
       <span>
 
           ...
-          <div class="col-offset-6 col-6">
+          <div class="col-pull-6 col-6">
             Six columns
           </div>
 
@@ -194,17 +194,17 @@ block variations
 
   .example
     .row
-      .col-offset-2.col-10: .col-example 10 columns with 2 column offset
+      .col-pull-2.col-10: .col-example 10 columns with 2 column pull
     .row
       .col-3: .col-example 3 columns
       .col-6: .col-example 6 columns
     .row
-      .col-offset-4.col-4: .col-example 4 columns with 4 column offset
+      .col-pull-4.col-4: .col-example 4 columns with 4 column pull
 
   :markdown
-    ### Finishes
+    ### Pushes
     
-    Notice above an offset appears even though one isn't set.
+    Notice above an pull appears even though one isn't set.
     
     This is because the flex box grid will automatically space out elements with `space-between`.
     This allows the grid to automatically space elements around to fill the space left to right.
@@ -214,11 +214,11 @@ block variations
   .example
     .row
       .col-3: .col-example 3 columns
-      .col-6.col-finish-3: .col-example 6 columns with 3 column finish
+      .col-6.col-push-3: .col-example 6 columns with 3 column push
 
   :markdown
-    This is accomplished by "finishing" the row. Because we already have 9 columns used up, we need to
-    finish the remaining three to complete 12 columns.
+    This is accomplished by pushing columns into the row. Because we already have 9 columns used up, we need to
+    finish (push) the remaining three to complete 12 columns.
 
   .ifnot-semantic
     :markdown
@@ -228,7 +228,7 @@ block variations
           <div class="col-3">
             Three columns
           </div>
-          <div class="col-6 col-finish-3">
+          <div class="col-6 col-push-3">
             Six columns
           </div>
 
@@ -248,17 +248,18 @@ block variations
             @include column(3); // 3 columns
           }
           .events {
-            @include column(6, 0, 3); // 6 columns, 0 offset, 3 finish
+            @include column(6, 0, 3); // 6 columns, 0 pull, 3 push
+            @include column($columns: 6, $push: 3) // Alternative way of writing the above.
           }
 
   h3 Shortcuts
-  p Offsets can also use semantic shortcuts.
+  p Pulls can also use semantic shortcuts.
 
   .ifnot-semantic
     :markdown
       <span>
 
-          <div class="col-third col-offset-twothirds">
+          <div class="col-third col-pull-twothirds">
             ...
           </div>
 
@@ -274,7 +275,7 @@ block variations
             @include column('third, twothirds');
           }
 
-  p In the above example, the column and the offset will revert to 1/2 width on tablet. On mobile, the offset will disappear and the column will be full-width.
+  p In the above example, the column and the pull will revert to 1/2 width on tablet. On mobile, the pull will disappear and the column will be full-width.
 
   h2 Nesting
 
@@ -444,22 +445,22 @@ block variations
             </section>
           </div>
 
-    h3#offsets
+    h3#pulls
 
     :markdown
-      For mobile offsets, we use the form:
+      For mobile pulls, we use the form:
 
-          .col-offset-[size]-[columns]
+          .col-pull-[size]-[columns]
 
-      If we wanted our "Get in touch" section above to half-sized and offset by
+      If we wanted our "Get in touch" section above to half-sized and pull by
       half on a medium-sized display, we could add this:
 
-          <section class="col-12 col-md-6 col-offset-md-6 col-lg-4">
+          <section class="col-12 col-md-6 col-pull-md-6 col-lg-4">
             <h1>Get in touch</h1>
             <p>...</p>
           </section>
 
-      The offset will automatically remove itself if a `col-lg` column definition
+      The pull will automatically remove itself if a `col-lg` column definition
       is declared.
       
   .if-semantic

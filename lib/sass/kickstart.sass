@@ -149,6 +149,17 @@
 .col-twothirds
   +column('twothirds')
 
+[class^="col"]
+  // Pulls
+  @for $i from 1 through 12
+    &.col-pull-#{$i}
+      +pull($i)
+
+  // Pushes
+  @for $i from 1 through 12
+    &.col-push-#{$i}
+      +push($i)
+
 // IMAGES
 // ------
 
