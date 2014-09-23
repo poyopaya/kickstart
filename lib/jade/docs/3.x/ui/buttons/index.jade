@@ -113,6 +113,11 @@ block granular
 
     Dropdown buttons are simply collapsible lists that look like buttons.
 
+  .alert.alert-info
+    h1 Use the button element.
+    p Unlike other uses, this can only be applied to the HTML <code>button</code> element.
+
+
   button
     | Add photo
     ul
@@ -149,10 +154,6 @@ block granular
             @include button();
           }
 
-  .alert.alert-info
-    h1 Use the button element.
-    p Unlike other uses, this can only be applied to the HTML button element.
-
   :markdown
     ## Button with dropdown
 
@@ -180,6 +181,10 @@ block granular
             <a href="#">Take a picture</a>
           </li>
         </ul>
+
+  p 
+    span.label.label-info Important!
+    |  The <code>.button-dropdown</code> class is a required class
 
   .if-semantic
     :markdown
@@ -252,7 +257,7 @@ block granular
               a(href="#") Option 2
 
         li
-          button.button Regular
+          button.button.with-submenu Regular
           ul.button-dropdown
             li
               a(href="#") Option 1
