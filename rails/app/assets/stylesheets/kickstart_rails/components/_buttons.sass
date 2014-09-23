@@ -1,11 +1,6 @@
 =button-default($color, $size: 1)
   font-size: 0.9rem
-  +root-element($size: $size)
-  padding:
-    left: $size * $size * map-get($rootElement, paddingH)
-    right: $size * $size * map-get($rootElement, paddingH)
   display: inline-block
-  background-color: $color
   color: map-get($gray, darkest)
   cursor: pointer
   text-decoration: none
@@ -21,12 +16,25 @@
 
     &:after
       content: '+'
-      font-size: $size * 0.85rem
       font-family: 'Kickstart', Kickstart
       display: inline-block
-      margin:
-        left: 1/2 * $size * $size * map-get($rootElement, paddingH)
-        right: -1/2 * $size * $size * map-get($rootElement, paddingH)
+      color: rgba(0, 0, 0, 0.3)
+
+  &:hover
+    box-shadow: 0px -2px 0px 0px rgba(0, 0, 0, 0.1) inset
+    text-decoration: none
+
+  &:active
+    box-shadow: 0px 2px 0px 0px rgba(0, 0, 0, 0.1) inset
+    text-decoration: none
+
+  +button-color($color)
+  +button-size($size)
+
+// Separated from main mixin for access by non-semantic library.
+
+=button-color($color)
+  background-color: $color
 
   @if lightness($color) > 75%
     color: map-get($black, lighter)
@@ -39,28 +47,32 @@
   @if $color == transparent
     color: map-get($black, lighter)
 
-  &:hover
-    box-shadow: 0px -3px 0px 0px rgba(0, 0, 0, 0.1) inset
-    text-decoration: none
+=button-size($size)
+  +root-element($size: $size)
+  padding:
+    left: $size * $size * map-get($rootElement, paddingH)
+    right: $size * $size * map-get($rootElement, paddingH)
 
-  &:active
-    box-shadow: 0px 3px 0px 0px rgba(0, 0, 0, 0.1) inset
-    text-decoration: none
-
-  ul
-    +list-unstyled
-    margin-bottom: 0
-    padding:
-      top: $size * $size * map-get($rootElement, paddingV)
-
-
-    li
-      +root-element($size)
-      padding:
-        left: 0
-        right: 0
+  &.with-submenu
+    &:after
+      font-size: $size * 0.85rem
       margin:
-        bottom: 0
+        left: 1/2 * $size * $size * map-get($rootElement, paddingH)
+        right: -1/2 * $size * $size * map-get($rootElement, paddingH)
 
-      a
-        color: inherit
+    ul
+      padding:
+        top: $size * $size * map-get($rootElement, paddingV)
+      +list-unstyled
+      margin-bottom: 0
+
+      li
+        +root-element($size)
+        padding:
+          left: 0
+          right: 0
+        margin:
+          bottom: 0
+
+        a
+          color: inherit
