@@ -60,7 +60,7 @@ block variations
           <span class="notice">New!</span>
 
           .error {
-            @include label($red);
+            @include label(map-get($color, red));
           }
           .notice {
             @include label($primary);

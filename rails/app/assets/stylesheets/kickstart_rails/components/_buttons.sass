@@ -41,7 +41,7 @@
   @else
     color: white
 
-  @if $color == $yellow
+  @if $color == map-get($color, yellow)
     color: map-get($black, lighter)
 
   @if $color == transparent

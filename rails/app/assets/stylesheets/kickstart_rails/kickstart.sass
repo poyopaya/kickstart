@@ -31,22 +31,22 @@
     +button-color(transparent)
 
   &.button-red
-    +button-color($red)
+    +button-color(map-get($color, red))
 
   &.button-orange
-    +button-color($orange)
+    +button-color(map-get($color, orange))
 
   &.button-yellow
-    +button-color($yellow)
+    +button-color(map-get($color, yellow))
 
   &.button-green
-    +button-color($green)
+    +button-color(map-get($color, green))
 
   &.button-blue
-    +button-color($blue)
+    +button-color(map-get($color, blue))
 
   &.button-violet
-    +button-color($violet)
+    +button-color(map-get($color, violet))
 
   &.button-small
     +button-size($size: 0.85)
@@ -108,23 +108,23 @@
   +label
 
   &.label-red
-    +label($red)
+    +label(map-get($color, red))
 
   &.label-orange
-    +label($orange)
+    +label(map-get($color, orange))
 
   &.label-yellow
-    +label($yellow)
+    +label(map-get($color, yellow))
     color: map-get($black, light)
 
   &.label-green
-    +label($green)
+    +label(map-get($color, green))
 
   &.label-blue
-    +label($blue)
+    +label(map-get($color, blue))
 
   &.label-violet
-    +label($violet)
+    +label(map-get($color, violet))
 
 // NAVIGATION
 // ----------

@@ -95,10 +95,10 @@ block variations
       <span>
 
           .send {
-            @include button($green);
+            @include button(map-get($color, green));
           }
           .delete {
-            @include button($red);
+            @include button(map-get($color, red));
           }
           .info {
             @include button(#6495ed);

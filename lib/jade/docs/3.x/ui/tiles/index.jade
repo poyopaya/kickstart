@@ -109,9 +109,9 @@ block variations
       desired color as a parameter. The headlines will automatically pick up the
       same styles.
 
-          a.tile.red    { @include tile($red); }
-          a.tile.orange { @include tile($orange); }
-          a.tile.yellow { @include tile($yellow); }
-          a.tile.green  { @include tile($green); }
-          a.tile.blue   { @include tile($blue); }
-          a.tile.violet { @include tile($violet); }
+          a.tile.red    { @include tile(map-get($color, red)); }
+          a.tile.orange { @include tile(map-get($color, orange)); }
+          a.tile.yellow { @include tile(map-get($color, yellow)); }
+          a.tile.green  { @include tile(map-get($color, green)); }
+          a.tile.blue   { @include tile(map-get($color, blue)); }
+          a.tile.violet { @include tile(map-get($color, violet)); }
