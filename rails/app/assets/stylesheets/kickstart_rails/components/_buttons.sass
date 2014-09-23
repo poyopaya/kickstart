@@ -1,10 +1,7 @@
 =button-default($color, $size: 1)
-  font-size: 0.9rem
   display: inline-block
-  color: map-get($gray, darkest)
   cursor: pointer
   text-decoration: none
-  border-color: hsla(0, 0%, 0%, 0.15)
   color: map-get($black, light)
   text-align: left
 
@@ -49,6 +46,8 @@
 
 =button-size($size)
   +root-element($size: $size)
+  font-size: 0.9rem * $size
+  border-color: hsla(0, 0%, 0%, 0.15)
   padding:
     left: $size * $size * map-get($rootElement, paddingH)
     right: $size * $size * map-get($rootElement, paddingH)
