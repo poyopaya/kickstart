@@ -10,7 +10,7 @@
   background: white
   padding: $space/2
   color: $default-font-color
-  
+
   &:hover
     text-decoration: none
 
@@ -19,12 +19,7 @@
 
   overflow: hidden
   margin-bottom: $space
-  border-top-color: $color
-
-  > h1, > h2, > h3, > h4, > h5
-    color: $color
-    @if $color == transparent
-      color: black
+  +tile-color($color)
 
   h1
     font-size: 1.15rem
@@ -37,3 +32,11 @@
 
   > *:last-child
     margin-bottom: 0
+
+=tile-color($color)
+  border-top-color: $color
+
+  > h1, > h2, > h3, > h4, > h5
+    color: $color
+    @if $color == transparent
+      color: black

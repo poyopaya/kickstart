@@ -1,12 +1,22 @@
 /*
  *  Kickstart
  *  =========
- *  For users who prefer to not use Sass, this will generate a CSS file with
- *  classes for all the components.
  */
+//  For users who prefer to not use Sass, this will generate a CSS file with
+//  classes for all the components.
 
 // Import the semantic index
 @import kickstart-semantic
+
+// Generate color classes (This is as close as I can get to being dry.)
+=color-classes($prefix, $background-color: false, $color: false)
+  $color-names: "red", "orange", "yellow", "green", "blue", "violet"
+  @each $name, $value in $colors
+    .#{$prefix}-#{unquote($name)}
+      @if $background-color
+        background-color: $value
+      @if $color
+        color: $value
 
 // Assign mixins to static classes
 
@@ -197,6 +207,30 @@ table
 // -----
 .tile
   +tile
+
+  &.tile-primary
+    +tile-color($primary-color)
+
+  &.tile-secondary
+    +tile-color($secondary-color)
+
+  &.tile-red
+    +tile-color(map-get($colors, red))
+
+  &.tile-orange
+    +tile-color(map-get($colors, orange))
+
+  &.tile-yellow
+    +tile-color(map-get($colors, yellow))
+
+  &.tile-green
+    +tile-color(map-get($colors, green))
+
+  &.tile-blue
+    +tile-color(map-get($colors, blue))
+
+  &.tile-violet
+    +tile-color(map-get($colors, violet))
 
 // TOOLTIPS
 // --------
