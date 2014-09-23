@@ -177,6 +177,15 @@ html
 =form-group()
   +form-group-default()
 
+// HR
+// --
+
+=hr
+  +hr-default
+
+hr
+  +hr
+
 // Images
 // ------
 
@@ -204,12 +213,6 @@ html
 =table()
   +table-default()
 
-// Tiles
-// -----
-
-=tile($color: map-get($gray, dark))
-  +tile-default($color)
-
 //
 // Dependent Components
 // ====================
@@ -224,6 +227,12 @@ html
 
 =modal()
   +modal-default()
+
+// Tiles
+// -----
+
+=tile($color: map-get($gray, dark))
+  +tile-default($color)
 
 // Tooltips
 // --------
