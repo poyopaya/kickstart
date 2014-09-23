@@ -53,7 +53,7 @@ block fullPane
   iframe.animation(src="/iframes/layout-fluid/fluid.html")
 
   :markdown
-    This one is probably the easiest to implement of all, because it is 
+    This one is probably the easiest to implement of all, because it is
     default behavior of HTML content. Simply omit the container styling.
 
     To have elements break out of a container (called "bleeding"), just
@@ -101,11 +101,11 @@ block fullPane
     the DOM.
 
     A default font-size of 18px (varies depending on the theme) is set. This
-    should really be the only place where `px` are used to define font-size. 
+    should really be the only place where `px` are used to define font-size.
     Elsewhere, the `rem` unit is used, which is relative to the font-size in
     the HTML document.
 
-    On supporting browsers, this font-size will scale with the width of the 
+    On supporting browsers, this font-size will scale with the width of the
     screen. See [Typography](/docs/3.x/ui/typography/) for more information
     on responsive text.
 
@@ -114,9 +114,9 @@ block fullPane
     Kickstart is not a fan of [BEM](http://csswizardry.com/2013/01/mindbemding-getting-your-head-round-bem-syntax/)
     for several reasons that won't be mentioned here.
 
-    However, a miniscule part of the philosophy behind it is used in 
-    Kickstart naming conventions. As an alternative to distinguishing "Blocks, 
-    elements, and modifiers" Kickstrap simply distinguishes "Components 
+    However, a miniscule part of the philosophy behind it is used in
+    Kickstart naming conventions. As an alternative to distinguishing "Blocks,
+    elements, and modifiers" Kickstrap simply distinguishes "Components
     and modifiers."
 
     ## Components
@@ -126,7 +126,7 @@ block fullPane
 
         <button class="button">Send</button>
 
-    Other components can have elements nested within them, but no 
+    Other components can have elements nested within them, but no
     distinction is made in the naming convention.
 
         <div class="navbar">
@@ -173,7 +173,7 @@ block fullPane
     applied.
 
   div(style="display: none")
-    :markdown 
+    :markdown
       # Root Element
 
       The concept of the root element in Kickstart is what would be
@@ -198,7 +198,7 @@ block fullPane
 
       ## Mixins
 
-      This is also how Kickstart defines its mixins and parameters. 
+      This is also how Kickstart defines its mixins and parameters.
       The goal of defining this is to maintain consistency across mixins as
       much as possible.
 
@@ -209,3 +209,81 @@ block fullPane
       `$foreground-color`. However, there are often other accessory
       styles that come in with it. (For example, the navbar uses lighter
       text when it's given a darker background.)
+
+  :markdown
+    # Colors
+    ## Rainbow colors
+
+    To use a color variable, refer to the `$color` Sass map and retrieve one of red, orange, yellow, green, blue, or violet.
+
+        .button
+          color: map-get($colors, red)
+
+    [Read more about Sass maps](http://sass-lang.com/documentation/file.SASS_REFERENCE.html#maps)
+
+    ##Grayscale
+
+    Grayscale variables live in three separate maps, `$white`, `$gray`, and `$black`.
+    Shades of each are called using `-`, `-er`, and `-est` patterns as such:
+
+        map-get($white, darker)
+
+    For the $gray map, you can retrieve the light, lighter, and lightest light subsets or the
+    dark, darker, and darkest dark subsets.
+
+        map-get($gray, lightest)
+        map-get($gray, lighter)
+        map-get($gray, light)
+        map-get($gray, dark)
+        map-get($gray, darker)
+        map-get($gray, darkest)
+
+    The same is true for `$white` and `$black`. Intuitively, "light" versions of `$white` do
+    not exist, nor do "dark" versions of `$black`
+
+        map-get($white, dark)
+        map-get($white, darker)
+        map-get($white, darkest)
+
+        map-get($gray, lightest)
+        map-get($gray, lighter)
+        map-get($gray, light)
+        map-get($gray, dark)
+        map-get($gray, darker)
+        map-get($gray, darkest)
+
+        map-get($black, lightest)
+        map-get($black, lighter)
+        map-get($black, light)
+
+    For regular white, gray, and black, simply use the css name.
+
+        white
+
+        map-get($white, dark)
+        map-get($white, darker)
+        map-get($white, darkest)
+
+        map-get($gray, lightest)
+        map-get($gray, lighter)
+        map-get($gray, light)
+
+        gray
+
+        map-get($gray, dark)
+        map-get($gray, darker)
+        map-get($gray, darkest)
+
+        map-get($black, lightest)
+        map-get($black, lighter)
+        map-get($black, light)
+
+        black
+
+    The above is the full grayscale set from light to dark.
+
+    ## Semantic colors
+
+    Two semantic colors, `$primary-color` and `$secondary-color` are assigned to the colors/grayscale 
+    values above via the chosen theme. These are used throughout Kickstart to denote hierarchy in the
+    interface.
