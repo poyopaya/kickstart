@@ -21,7 +21,7 @@
     @if (lightness($background) < 75%)
       color: white
     @else
-      color: map-get($black, lighter)
+      color: $default-font-color
 
     h1
       margin-bottom: 0
@@ -146,7 +146,7 @@
             padding:
               top: $space/4
               bottom: $space/4
-            color: map-get($black, light)
+            color: $default-font-color
 
             &:hover
               color: rgba(0, 0, 0, 0.85)

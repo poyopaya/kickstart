@@ -116,9 +116,6 @@ h1.example-
     width: 600px
     max-width: 95%
 
-  a
-    color: white
-
   form, table, .tile
     text-align: left
     max-width: 360px
@@ -128,7 +125,6 @@ h1.example-
   .tile
     h1
       color: map-get($black, light)
-      font-weight: 400
       font-size: 1.1rem
 
 // Images
@@ -145,6 +141,7 @@ iframe.animation
     left: auto
     right: auto
     bottom: $space
+  overflow: hidden
 
 // Grid
 
@@ -167,3 +164,17 @@ iframe.animation
 .root-element
   +root-element
 
+footer.main
+  margin-top: $space * 4
+  background-color: $primary-color
+  padding:
+    top: $space
+    bottom: $space
+
+  p
+    margin: 0
+    color: white
+
+    a
+      color: white
+      text-decoration: underline

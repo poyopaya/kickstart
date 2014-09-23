@@ -22,13 +22,13 @@ $gray:  (lightest: #BBB, lighter: #AAA, light: #999, dark: #777, darker: #666, d
 $black: (lightest: #444, lighter: #333, light: #222)
 
 // Rainbow
-$color: (red: #CA3518, orange: darkorange, yellow: #ffe312, green: #58AA00, blue: cornflowerblue, violet: darkmagenta)
+$colors: (red: #CA3518, orange: darkorange, yellow: #ffe312, green: #58AA00, blue: cornflowerblue, violet: darkmagenta)
 
 // Ten point design variables
 // --------------------------
 // Modifying just these ten variables will take care of 90% of your theme
 
-$primary-color:       $map-get($colors, blue)
+$primary-color:       map-get($colors, blue)
 $secondary-color:     map-get($white, darker)
 $space:               25px
 $heading-font-family: 'Lato', helvetica neue, sans-serif
@@ -191,7 +191,7 @@ hr
 // Labels
 // ------
 
-=label($background-color: $map-get($colors, blue))
+=label($background-color: map-get($colors, blue))
   +label-default($background-color)
 
 // Navigation

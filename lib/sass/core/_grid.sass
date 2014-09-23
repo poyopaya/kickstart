@@ -55,21 +55,21 @@ $grid-gutter: 15px
   @if $push > 0
     +push($push)
 
-=column($type: 12, $pull: 0, $push: 0)
+=column($columns: 12, $pull: 0, $push: 0)
   +set-column(12, 0, 0)
-  @if $type == "half"
+  @if $columns == "half"
     @media screen and (min-width: $tablet)
       +set-column($grid-columns/2, 0, 0)
-  @else if $type == "third"
+  @else if $columns == "third"
     @media screen and (min-width: $phablet)
       +set-column($grid-columns/2, 0, 0)
     @media screen and (min-width: $tablet)
       +set-column($grid-columns/3, 0, 0)
-  @else if $type == "twothirds"
+  @else if $columns == "twothirds"
     @media screen and (min-width: $phablet)
       +set-column($grid-columns/2, 0, 0)
     @media screen and (min-width: $tablet)
       +set-column(($grid-columns * 2/3), 0, 0)
   @else
     @media screen and (min-width: $tablet)
-      +set-column($type, $pull, $push)
+      +set-column($columns, $pull, $push)

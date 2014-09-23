@@ -6,7 +6,7 @@
   line-height: calc(#{$default-line-height} + #{$scalingFactor})
   color: $default-font-color
 
-html 
+html
   color: map-get($black, lightest)
 
 ul
@@ -68,13 +68,14 @@ a
   flex-direction: column
   justify-content: center
   align-items: center
+  color: white
 
   > h1, > h2, > h3, > h4, > h5, > h6, > p
     text-align: center
     font-weight: 300
 
   h1, h2, h3, h4, h5, h6, p
-    color: white
+    color: inherit
 
   h1
     +xxl-heading
@@ -87,7 +88,7 @@ a
   h5
     +rg-heading
   h6
-    +sm-heading 
+    +sm-heading
 
   > img
     margin: 0px auto
