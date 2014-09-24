@@ -358,18 +358,54 @@ block variations
     ### Validation
 
     Three classes can be used to style form components for
-    validation: `error`, `success`, and `warning`.
+    validation: `error(s)`, `success(es)`, and `warning(s)`.
+    
+    #### Singular
 
+  form.form
+    .form_group
+      input.error(type="email" value="john.mail.com")
+      p.error Please enter a valid email
+
+  :markdown 
     The classes can be directly applied to the elements:
 
         <input class="error" type="email" />
         <p class="error">Please enter a valid email</p>
 
-    Or to a **direct** parent:
+    #### Plural
 
-        <div class="error">
+  form.form
+    .form_group
+      .errors
+        input(type="email" value="john.mail.com")
+        p Please enter a valid email
+
+  :markdown
+    Or to a **direct** parent via the plural class.
+
+        <div class="errors">
           <input type="email" />
           <p>Please enter a valid email</p>
+        </div>
+
+    When using the plural class, this can be wrapped below the form
+    group element to select exactly the parts that need to be colored.
+
+  form.form
+    .form_group
+      .successes
+        input(type="text" value="foo")
+        p Username is available!
+
+  :markdown
+    <span>
+
+        <div class="form_group">
+          <div class="sucesses">
+            <input type="text" id="name" />
+            <p>Username is available!</p>
+          </div>
         </div>
 
   h4 Error
