@@ -270,6 +270,78 @@ block variations
       label Suffix
       input(type="text" style="width: 50px")
 
+  .ifnot-semantic
+    :markdown
+      <span>
+
+          <form class="form">
+            <div class="form_group">
+              <label for="name">Name</label>
+              <input id="name" type="text" />
+            </div>
+            <div class="form_group">
+              <label for="email">Email</label>
+              <input id="email" type="text" />
+            </div>
+            <div class="form_group">
+              <label for="citystate">City, state, zip</label> 
+              <div class="form_group-horizontal">
+                <input id="citystatezip" type="text" style="width: 125px" />
+                <input type="text" style="width: 75px" />
+                <input type="number" style="width: 100px" />
+              </div> 
+            </div>
+            <div class="form_group form_group-horizontal">
+              <label for="prefix">Prefix</label>
+              <input type="text" style="width: 75px" id="prefix" />
+            </div>
+            <div class="form_group form_group-horizontal">
+              <label for="suffix">Suffix</label>
+              <input type="text" style="width: 75px" id="suffix" />
+            </div>
+          </form>
+
+  .if-semantic
+    :markdown
+      <span>
+
+          <form>
+            <div class="group">
+              <label for="name">Name</label>
+              <input id="name" type="text" />
+            </div>
+            <div class="group">
+              <label for="email">Email</label>
+              <input id="email" type="text" />
+            </div>
+            <div class="group">
+              <label for="citystate">City, state, zip</label> 
+              <div class="location">
+                <input id="citystatezip" type="text" style="width: 125px" />
+                <input type="text" style="width: 75px" />
+                <input type="number" style="width: 100px" />
+              </div> 
+            </div>
+            <div class="extra">
+              <label for="prefix">Prefix</label>
+              <input type="text" style="width: 75px" id="prefix" />
+            </div>
+            <div class="extra">
+              <label for="suffix">Suffix</label>
+              <input type="text" style="width: 75px" id="suffix" />
+            </div>
+          </form>
+
+          form {
+            @include form();
+          }
+          .group {
+            @include form_group();
+          }
+          .location, extra {
+            @include form_group('horizontal');
+          }
+
   :markdown
     ### States
 
