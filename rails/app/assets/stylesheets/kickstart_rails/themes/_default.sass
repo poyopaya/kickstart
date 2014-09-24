@@ -167,8 +167,8 @@ html
 =form-left
   +form-left-default()
 
-=form_group()
-  +form_group-default()
+=form_group($orientation: 'vertical')
+  +form_group-default($orientation)
 
 // HR
 // --
@@ -238,3 +238,5 @@ hr
 
 .status-bar
   +statusBar()
+
+@import ../vendor/_index

@@ -1,15 +1,15 @@
-label
+label, legend
   display: block
   font-weight: 500
-  font-size: 0.85rem
+  margin-bottom: $space/4
 
 form
   margin-bottom: $space
 
-input,
-textarea
+=input-styles
   +root-element
-  margin-bottom: ($space/2)
+  margin: 0
+    bottom: 0
   border: 1px solid #CCC
   display: block
   border-radius: 3px
@@ -17,18 +17,30 @@ textarea
   label + &
     margin-top: ($space/5)
 
++text-inputs
+  +input-styles
+
+textarea
+  +input-styles
+
 input[type="checkbox"],
 input[type="radio"]
   display: inline-block
   width: 14px
+  margin-left: 1px
   + label
     display: inline-block
     width: 100%
     margin: 0
-    margin-left: -14px
+    margin-left: -15px
     margin-bottom: 3px
-    padding-left: 18px
+    padding-left: 19px
     font-weight: normal
+
+select
+  +button
+  height: calc(#{$default-line-height} + #{2 * map-get($rootElement, paddingV)})
+  background-image: none
 
 =form-horizontal-default()
   label, input
@@ -48,7 +60,11 @@ input[type="radio"]
     + label
       text-align: left
 
-=form_group-default()
+=form_group-default($orientation)
   display: block
   overflow: hidden
   margin-bottom: $space
+
+  @if $orientation == 'horizontal'
+    display: inline-block
+    margin-bottom: 0

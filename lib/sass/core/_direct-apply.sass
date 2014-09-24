@@ -1,0 +1,11 @@
+// Direct applications
+// ===================
+// Regardless of semantic or non-semantic usage, some styles
+// Should be applied directly to classes or elements no matter
+// what. This include should be included near the end of the 
+// import chain but before kickstart.sass to accomplish this.
+
+button,
+input[type="submit"],
+input[type="button"]
+  +button
