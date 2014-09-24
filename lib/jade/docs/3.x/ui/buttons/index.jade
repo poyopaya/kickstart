@@ -251,29 +251,35 @@ block granular
     .col-4
       ul.list-unstyled
         li
-          button.button.button-large Large
-          .button-dropdown
-          ul
+          ul.button-group.button-large
+            li 
+              a(href="#") Large
             li
-              a(href="#") Option 1
-            li
-              a(href="#") Option 2
+              a.button-dropdown(href="#")
+              ul
+                li
+                  a(href="#") Option 1
+                li
+                  a(href="#") Option 2
 
         li
-          button.button.with-submenu Regular
-          .button-dropdown
-          ul
+          ul.button-group
+            li 
+              a(href="#") Regular
             li
-              a(href="#") Option 1
-            li
-              a(href="#") Option 2
+              a.button-dropdown(href="#")
+              ul
+                li
+                  a(href="#") Option 1
+                li
+                  a(href="#") Option 2
 
         li
           ul.button-group.button-small
             li 
               a(href="#") Small
             li
-              a.button-dropdown(href="#") +
+              a.button-dropdown(href="#")
               ul
                 li
                   a(href="#") Option 1
