@@ -1,7 +1,6 @@
 label
   display: block
   font-weight: 500
-  font-size: 0.85rem
 
 form
   margin-bottom: $space
@@ -48,6 +47,11 @@ input[type="radio"]
     + label
       text-align: left
 
-=form-group-default()
+=form_group-default($orientation)
   display: block
   overflow: hidden
+  margin-bottom: $space
+
+  @if $orientation == 'horizontal'
+    display: inline-block
+    margin-bottom: 0

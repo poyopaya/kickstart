@@ -12,42 +12,88 @@ block hero-example
 
 block basic
   form.form
-    label First Name
-    input(type="text" placeholder="John")
+    .form_group
+      label First Name
+      input(type="text" placeholder="John")
 
-    label Last Name
-    input(type="text" placeholder="Smith")
+    .form_group
+      label Last Name
+      input(type="text" placeholder="Smith")
 
-    legend Issue size
-    label
-      input(type="radio" name="issue")
-      |  Small issue
-    label
-      input(type="radio" name="issue")
-      |  Regular issue
-    label
-      input(type="radio" name="issue")
-      |  Large issue
+    .form_group
+      legend Issue size
+      label
+        input(type="radio" name="issue")
+        |  Small issue
+      label
+        input(type="radio" name="issue")
+        |  Regular issue
+      label
+        input(type="radio" name="issue")
+        |  Large issue
 
-    label Shipping options
-    label
-      input(type="checkbox")
-      |  Fast shipping
-    label
-      input(type="checkbox")
-      |  Gift-wrapping
+    .form_group
+      label Shipping options
+      label
+        input(type="checkbox")
+        |  Fast shipping
+      label
+        input(type="checkbox")
+        |  Gift-wrapping
 
-    label Subscription frequency
-    select
-      option Daily
-      option Weekly
-      option Monthly
-      option Yearly
+    .form_group
+      label Subscription frequency
+      select
+        option Daily
+        option Weekly
+        option Monthly
+        option Yearly
 
-    label Bio
-    textarea
+    .form_group
+      label Bio
+      textarea
 
     input(value="Subscribe" type="submit" role="button")
+
+  .if-semantic
+    :markdown
+      Wrap sets of form elements in an element using `form_group()` to keep
+      proper spacing.
+
+          <form>
+            <div class="group">
+              <label for="fname">First name</label>
+              <input name="fname" type="text" />
+            </div>
+            <div class="group">
+              <label for="lname">Last name</label>
+              <input name="lname" type="text" />
+            </div>
+            <div class="group">
+              <label>Issue Size</label> 
+              <label for="small">
+                <input name="small" type="checkbox" />
+                Small
+              </label>
+              <label for="regular">
+                <input name="regular" type="checkbox" />
+                Regular
+              </label>
+              <label for="large">
+                <input name="large" type="checkbox" />
+                Large
+              </label>
+            </div>
+            ...
+            <input type="submit" />
+          </form>
+
+          form {
+            @include form();
+          }
+          .group {
+            @include form_group();
+          }
 
 block variations
   :markdown
@@ -57,23 +103,88 @@ block variations
     forms.
 
   form.form-horizontal
-    label First Name
-    input(type="text" placeholder="John")
+    .form_group.form_group-horizontal
+      label First Name
+      input(type="text" placeholder="John")
 
-    label Last Name
-    input(type="text" placeholder="Smith")
+    .form_group.form_group-horizontal
+      label Last Name
+      input(type="text" placeholder="Smith")
 
-    label Industry
-    select
-      option Academic
-      option Automotive
-      option Finance
-      option Government
-      option Medical
-      option Restaurant
-      option Technology
+    .form_group.form_group-horizontal
+      label Industry
+      select
+        option Academic
+        option Automotive
+        option Finance
+        option Government
+        option Medical
+        option Restaurant
+        option Technology
 
     input(type="submit" role="button")
+
+  .if-semantic
+    :markdown
+      Both the `form()` and `form_group()` mixins need to pass in `horizontal`
+      as a parameter. This is because it is possible to have a vertical
+      form with both horizontal and vertical form groups
+
+          <form>
+            <div class="group">
+              <label for="fname">First name</label>
+              <input name="fname" type="text" />
+            </div>
+            <div class="group">
+              <label for="lname">Last name</label>
+              <input name="lname" type="text" />
+            </div>
+            <div class="group">
+              <label for="industry">Industry</label>
+              <select name="industry">
+                ...
+              </select>
+            </div>
+            <input type="submit" />
+          </form>
+
+          form {
+            @include form('horizontal');
+          }
+          .group {
+            @include form_group('horizontal');
+          }
+
+  .ifnot-semantic
+    :markdown
+      Both the `.form` and `.form_group` classes need to use `.form-horizontal`
+      and `.form_group-horizontal` classes respectively. This is because it is possible to have a vertical
+      form with both horizontal and vertical form groups
+
+          <form>
+            <div class="group">
+              <label for="fname">First name</label>
+              <input name="fname" type="text" />
+            </div>
+            <div class="group">
+              <label for="lname">Last name</label>
+              <input name="lname" type="text" />
+            </div>
+            <div class="group">
+              <label for="industry">Industry</label>
+              <select name="industry">
+                ...
+              </select>
+            </div>
+            <input type="submit" />
+          </form>
+
+          form {
+            @include form('horizontal');
+          }
+          .group {
+            @include form_group('horizontal');
+          }
 
   :markdown
     ### Left-aligned
@@ -81,24 +192,28 @@ block variations
     Labels and form elements align to the center line of the form width.
 
   form.form-left
-    label First Name
-    input(type="text" placeholder="John")
+    .form_group
+      label First Name
+      input(type="text" placeholder="John")
 
-    label Last Name
-    input(type="text" placeholder="Smith")
+    .form_group
+      label Last Name
+      input(type="text" placeholder="Smith")
 
-    label Bio
-    textarea
+    .form_group
+      label Bio
+      textarea
 
-    label Industry
-    select
-      option Academic
-      option Automotive
-      option Finance
-      option Government
-      option Medical
-      option Restaurant
-      option Technology
+    .form_group
+      label Industry
+      select
+        option Academic
+        option Automotive
+        option Finance
+        option Government
+        option Medical
+        option Restaurant
+        option Technology
 
     input(type="submit" role="button")
 
@@ -108,23 +223,28 @@ block variations
     Use several orientations in one form element
 
   form.form
-    label Name
-    input(type="text")
-
-    label Email
-    input(type="email")
-
-    label City, state, zip
-    input(type="text")
-    input(type="text")
-    input(type="number")
-
-    div.form-horizontal
-      label Prefix
+    .form_group
+      label Name
       input(type="text")
 
-      label Suffix
+    .form_group
+      label Email
+      input(type="email")
+
+    .form_group
+      label City, state, zip
       input(type="text")
+      input(type="text")
+      input(type="number")
+
+    .form_group.form-horizontal
+      .form_group
+        label Prefix
+        input(type="text")
+
+      .form_group
+        label Suffix
+        input(type="text")
 
   :markdown
     ### States
