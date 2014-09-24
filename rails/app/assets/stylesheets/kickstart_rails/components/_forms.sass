@@ -67,4 +67,17 @@ select
 
   @if $orientation == 'horizontal'
     display: inline-block
-    margin-bottom: 0
+    margin:
+      bottom: 0
+      right: $space/5
+
+    > *
+      display: inline-block
+      margin-right: $space/5
+
+=field-colors($color)
+  label, p
+    color: $color
+
+  +text-inputs
+    border-color: $color

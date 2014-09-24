@@ -134,7 +134,7 @@ block variations
     `textarea` elements are not included in default styling of horizontal
     forms.
 
-  form.form-horizontal
+  form.form.form-horizontal
     .form_group
       label First Name
       input(type="text" placeholder="John")
@@ -214,7 +214,7 @@ block variations
 
     Labels and form elements align to the center line of the form width.
 
-  form.form-left
+  form.form.form-left
     .form_group
       label First Name
       input(type="text" placeholder="John")
@@ -302,69 +302,128 @@ block variations
 
   h4 Error
 
-  form
-    label.error First Name
-    input.error(type="text" placeholder="John")
-    p.error Please enter a valid first name
+  form.form
+    .form_group
+      label.error First Name
+      input.error(type="text" placeholder="John")
+      p.error Please enter a valid first name
 
-  :markdown
-    <span>
+  .ifnot-semantic
+    :markdown
+      <span>
 
-        <form action="...">
-          <label class="error" for="fName">
-          <input class="error" type="text" placeholder="John" name="fName"/> 
-          <p class="error">Please enter a valid first name</p>
-        </form>
+          <form class="form" action="...">
+            <label class="error" for="fName">
+            <input class="error" type="text" placeholder="John" id="fName"/> 
+            <p class="error">Please enter a valid first name</p>
+          </form>
+
+  .if-semantic
+    :markdown
+      <span>
+
+          <form action="...">
+            <label class="error" for="fName">
+            <input class="error" type="text" placeholder="John" id="fName"/> 
+            <p class="error">Please enter a valid first name</p>
+          </form>
+
+          form {
+            @include form();
+          }
 
   h4 Success
 
-  form
-    label.success First Name
-    input.success(type="text" placeholder="John")
-    p.success Thanks!
+  form.form
+    .form_group
+      label.success First Name
+      input.success(type="text" placeholder="John")
+      p.success Thanks!
 
-  :markdown
-    <span>
+  .ifnot-semantic
+    :markdown
+      <span>
 
-        <form action="...">
-          <label class="success" for="fName">
-          <input class="success" type="text" placeholder="John" name="fName"/> 
-          <p class="warning">Thanks!</p>
-        </form>
+          <form class="form" action="...">
+            <div class="form_group">
+              <label class="success" for="fName">
+              <input class="success" type="text" placeholder="John" name="fName"/> 
+              <p class="warning">Thanks!</p>
+            </div>
+          </form>
+
+  .if-semantic
+    :markdown
+      <span>
+
+          <form class="form" action="...">
+            <div class="form_group">
+              <label class="success" for="fName">
+              <input class="success" type="text" placeholder="John" name="fName"/> 
+              <p class="warning">Thanks!</p>
+            </div>
+          </form>
 
   h4 Warning
 
-  form
-    label.warning First Name
-    input.warning(type="text" placeholder="John")
-    p.warning This information will be public
+  form.form
+    .form_group
+      label.warning First Name
+      input.warning(type="text" placeholder="John")
+      p.warning This information will be public
 
-  :markdown
-    <span>
+  .ifnot-semantic
+    :markdown
+      <span>
 
-        <form action="...">
-          <label class="warning" for="fName">
-          <input class="warning" type="text" placeholder="John" name="fName"/> 
-          <p class="warning">This information will be public</p>
-        </form>
+          <form class="form" action="...">
+            <div class="form_group">
+              <label class="warning" for="fName">
+              <input class="warning" type="text" placeholder="John" name="fName"/> 
+              <p class="warning">This information will be public</p>
+            </div>
+          </form>
 
   .if-semantic
     :markdown
       For this particular use case, there is no semantic version of the 
       validation coloring classes.
 
+          <form action="...">
+            <div class="form_group">
+              <label class="warning" for="fName">
+              <input class="warning" type="text" placeholder="John" name="fName"/> 
+              <p class="warning">This information will be public</p>
+            </div>
+          </form>
+
+          form {
+            @include form();
+          }
+          .form_group {
+            @include form_group();
+          } 
+
   h4 Mixed
 
   form.form
-    .error
-      label First Name
-      input(type="text" placeholder="John")
-      p Please enter a valid first name.
+    .form_group
+      .errors
+        label First Name
+        input(type="text" placeholder="John")
+        p Please enter a valid first name.
 
-    .warning
-      label Last Name
-      input(type="text" placeholder="Smith")
-      p We already have a user by this name. Are you sure about this?
+    .form_group
+      .warnings
+        label Last Name
+        input(type="text" placeholder="Smith")
+        p We already have a user by this name. Are you sure about this?
+
+    .form_group
+      .successes
+        label Last Name
+        input(type="text" placeholder="Smith")
+        p We already have a user by this name. Are you sure about this?
 
     label.success Issue size
     label

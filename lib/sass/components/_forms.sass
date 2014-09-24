@@ -3,8 +3,25 @@ label, legend
   font-weight: 500
   margin-bottom: $space/4
 
-form
+=form-default
   margin-bottom: $space
+
+  .errors
+    +field-colors(map-get($colors, red))
+
+  .warnings
+    +field-colors(map-get($colors, yellow))
+
+  .successes
+    +field-colors(map-get($colors, green))
+
+  label, span, p
+    &.error
+      color: map-get($colors, red)
+
+  input, select
+    &.error
+      border-color: map-get($colors, red)
 
 =input-styles
   +root-element
@@ -74,3 +91,10 @@ select
     > *
       display: inline-block
       margin-right: $space/5
+
+=field-colors($color)
+  label, p
+    color: $color
+
+  +text-inputs
+    border-color: $color
