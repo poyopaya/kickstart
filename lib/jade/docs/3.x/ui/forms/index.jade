@@ -425,38 +425,42 @@ block variations
         input(type="text" placeholder="Smith")
         p We already have a user by this name. Are you sure about this?
 
-    label.success Issue size
-    label
-      input(type="radio" name="issue")
-      |  Small issue
-    label.success
-      input.success(type="radio" name="issue")
-      |  Regular issue
-    p.success Great choice!
-    label
-      input(type="radio" name="issue")
-      |  Large issue
+    .form_group
+      label.success Issue size
+      label
+        input(type="radio" name="issue")
+        |  Small issue
+      label.success
+        input.success(type="radio" name="issue")
+        |  Regular issue 
+      p.success Great choice!
+      label
+        input(type="radio" name="issue")
+        |  Large issue
 
-    label.error Shipping options
-    label
-      input(type="checkbox")
-      |  Fast shipping
-    label.error
-      input(type="checkbox")
-      |  Gift-wrapping
-    p.error Sorry, this is not available at this time.
+    .form_group
+      label.error Shipping options
+      label
+        input(type="checkbox")
+        |  Fast shipping
+      label.error
+        input(type="checkbox")
+        |  Gift-wrapping
+      p.error Sorry, this is not available at this time.
 
-    label.warning Subscription frequency
-    select.warning
-      option Daily
-      option Weekly
-      option Monthly
-      option Yearly
-    p.warning Please be advised, it takes 1 week to change this subscription option
+    .form_group
+      label.warning Subscription frequency
+      select.warning
+        option Daily
+        option Weekly
+        option Monthly
+        option Yearly
+      p.warning Please be advised, it takes 1 week to change this subscription option
 
-    .success
-      label Bio
-      p Great bio!
-      textarea
+    .form_group
+      .successes
+        label Bio
+        textarea
+        p Great bio!
 
     input(value="Subscribe" type="submit" role="button")
