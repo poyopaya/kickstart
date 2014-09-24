@@ -103,6 +103,30 @@ block variations
     input(type="submit" role="button")
 
   :markdown
+    ### Mixed
+
+    Use several orientations in one form element
+
+  form.form
+    label Name
+    input(type="text")
+
+    label Email
+    input(type="email")
+
+    label City, state, zip
+    input(type="text")
+    input(type="text")
+    input(type="number")
+
+    div.form-horizontal
+      label Prefix
+      input(type="text")
+
+      label Suffix
+      input(type="text")
+
+  :markdown
     ### States
 
     Disabled inputs are grayed out and receive a disabled cursor.

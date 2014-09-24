@@ -15,6 +15,7 @@
     &:after
       content: '+'
       font-family: 'Kickstart', Kickstart
+      font-size: 0.65rem
       display: inline-block
       color: rgba(0, 0, 0, 0.3)
 
@@ -71,7 +72,7 @@
         display: block
 
     ul
-      +button-dropdown($size)
+      +button-dropdown-menu($size)
 
       li
         padding:
@@ -87,7 +88,7 @@
 
   + .button-dropdown + ul
     // Button with dropdown
-    +button-dropdown($size)
+    +button-dropdown-menu($size)
     position: static
     margin-top: -$space + 5px
 
@@ -102,7 +103,7 @@
         a
           color: inherit
 
-=button-dropdown($size)
+=button-dropdown-menu($size)
   +list-unstyled
   +root-element($size)
   display: none
@@ -129,6 +130,7 @@
       +button($color, $size)
       color: inherit
       text-decoration: inherit
+      vertical-align: top
 
     &:not(:first-child):not(:last-child)
       > a, > button, > input
@@ -145,3 +147,15 @@
         border-top-left-radius: 0
         border-bottom-left-radius: 0
         border-left: 0
+
+    a.button-dropdown
+
+      &:after
+        content: '+'
+        display: block
+        font-family: "Kickstart", Kickstart
+        color: rgba(0, 0, 0, 0.3)
+        font-size: 90%
+
+  > li > ul
+    display: none

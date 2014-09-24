@@ -8,32 +8,33 @@ html(lang='en')
     link(rel="stylesheet" href="/css/kickstart.css")
     link(href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet")
     meta(name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=no")
-  body#screen
-    #above-footer
-      include _header
+  body
+    #screen
+      #above-footer
+        include _header
 
-      block bleed
+        block bleed
 
-      .container
-        .row
-          main.mainpane
-            block mainpane
+        .container
+          .row
+            main.mainpane
+              block mainpane
 
-          aside.sidebar
-            block sidebar
+            aside.sidebar
+              block sidebar
 
-        block container
+          block container
 
-    footer.main
-      .container
-        p Made from <a href="http://everything.io">Everything</a>
-      block preJS
+      footer.main
+        .container
+          p Made from <a href="http://everything.io">Everything</a>
+        block preJS
 
-      script(src="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.2/highlight.min.js")
-      link(rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.2/styles/tomorrow.min.css")
-      script.
-        hljs.initHighlightingOnLoad();
-      script(src="/js/kickstart.js")
-      script(src="/js/docs.js")
+        script(src="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.2/highlight.min.js")
+        link(rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.2/styles/tomorrow.min.css")
+        script.
+          hljs.initHighlightingOnLoad();
+        script(src="/js/kickstart.js")
+        script(src="/js/docs.js")
 
       block postJS
