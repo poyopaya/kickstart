@@ -256,18 +256,19 @@ block variations
 
     .form_group
       label City, state, zip
-      input(type="text")
-      input(type="text")
-      input(type="number")
 
-    .form_group.form-horizontal
-      .form_group
-        label Prefix
+      .form_group-horizontal
         input(type="text")
+        input(type="text")
+        input(type="number")
 
-      .form_group
-        label Suffix
-        input(type="text")
+    .form_group.form_group-horizontal
+      label Prefix
+      input(type="text")
+
+    .form_group.form_group-horizontal
+      label Suffix
+      input(type="text")
 
   :markdown
     ### States
