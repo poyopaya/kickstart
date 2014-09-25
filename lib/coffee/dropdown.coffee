@@ -27,7 +27,7 @@ dropdown = ->
   # Dismiss all
   document.body.addEventListener 'click', ->
     $ul.style.display = 'none' for $ul in k$.$$('.with-submenu > ul')
-    $li.classList.remove 'open' for $li in k$.$$('.with-submenu .open')
+    $li.classList.remove 'open' for $li in k$.$$('.with-submenu.open')
 
 k$.dropdown = dropdown
 
