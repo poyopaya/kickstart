@@ -10,7 +10,7 @@ Gem::Specification.new do |spec|
   spec.email         = ["ajkochanowicz@gmail.com"]
   spec.summary       = %q{The front-end framework for clean HTML and fast websites.}
   spec.description   = %q{The front-end framework for clean HTML and fast websites.}
-  spec.homepage      = ""
+  spec.homepage      = "http://getkickstart.com"
   spec.license       = "MIT"
 
   spec.files         = Dir["app/**/*"] + Dir["lib/**/*"] + ["LICENSE", "README.md", "Rakefile"]
