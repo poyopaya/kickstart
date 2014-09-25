@@ -27,6 +27,9 @@ describe 'k$.dropdown', ->
       expect(k$.$('#ddbutton2 ul').style.display).to.equal('none')
 
   describe 'button with dropdown', ->
+    it 'should hav a .with-submenu class for parent li', ->
+      expect(k$.$('#ddbutton3 #dropdownParent').className).to.equal('with-submenu')
+
     it 'should show submenu when clicked', ->
       expect(k$.$('#ddbutton3 ul').style.display).to.equal('none')
       k$.testClick k$.$ '#ddbutton3 a.button-dropdown'
