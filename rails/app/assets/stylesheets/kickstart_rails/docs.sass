@@ -78,9 +78,10 @@
     background: map-get($white, dark)
 
 .example
+  +root-element
   padding: $space
   margin-bottom: $space
-  background: map-get($white, dark)
+  border-color: map-get($white, darker)
 
   > *:last-child
     margin-bottom: 0
@@ -111,6 +112,9 @@ h1.example-
 .hero
   ul, ul li, .navbar
     text-align: left
+
+  .button-group
+    color: $default-font-color
 
   .logo
     width: 600px

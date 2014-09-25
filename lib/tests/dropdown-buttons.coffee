@@ -7,3 +7,23 @@ describe 'k$.dropdown', ->
 
   it 'should apply to button elements', ->
     assert(k$.$('#ddbutton2').classList.contains('with-submenu'), '.with-submenu found')
+
+  describe 'button dropdown', ->
+    it 'should show submenu when clicked', ->
+      assert(false)
+
+    it 'should hide submenu when clicked again', ->
+      assert(false)
+
+    it 'should hide submenu when clicked outside', ->
+      assert(false)
+
+  describe 'button with dropdown', ->
+    it 'should show submenu when clicked', ->
+      assert(false)
+
+    it 'should hide submenu when clicked again', ->
+      assert(false)
+
+    it 'should hide submenu when clicked outside', ->
+      assert(false)
