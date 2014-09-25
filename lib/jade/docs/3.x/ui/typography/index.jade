@@ -85,7 +85,7 @@ block variations
 
     ### Unstyled vertical
 
-  ul.list-unstyled
+  ul.list.list-unstyled
     li Apples
     li Bread
     li Nuts
@@ -96,7 +96,7 @@ block variations
     :markdown
       <span>
 
-          <ul class="list-unstyled">
+          <ul class="list list-unstyled">
             <li>Apples</li>
             <li>Bread</li>
             ...
@@ -113,13 +113,14 @@ block variations
           </ul>
 
           .groceries {
+            @include list();
             @include list-unstyled();
           }
 
   :markdown
     ### Unstyled horizontal
 
-  ul.list-unstyled.list-horizontal
+  ul.list.list-unstyled.list-horizontal
     li Apples
     li Bread
     li Nuts
@@ -130,7 +131,7 @@ block variations
     :markdown
       <span>
 
-          <ul class="list-unstyled list-horizontal">
+          <ul class="list list-unstyled list-horizontal">
             <li>Apples</li>
             <li>Bread</li>
             ...
@@ -147,6 +148,7 @@ block variations
           </ul>
 
           .groceries {
+            @include list();
             @include list-unstyled();
             @include list-horizontal();
           }

@@ -64,9 +64,7 @@
   &.with-submenu
     &:after
       font-size: $size * 0.85rem
-      margin:
-        left: 1/2 * $size * $size * map-get($rootElement, paddingH)
-        right: -1/2 * $size * $size * map-get($rootElement, paddingH)
+      margin-left: $size * $size * $space/4
 
     &.open
       ul
@@ -103,6 +101,12 @@
 
         a
           color: inherit
+
+  
+  &.button-dropdown
+    padding:
+      left: map-get($rootElement, paddingV) * $size * $size
+      right: map-get($rootElement, paddingV) * $size * $size
 
 =button-dropdown-menu($size)
   +list-unstyled
