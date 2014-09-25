@@ -20,6 +20,27 @@ block hero-example
     .button.button-blue Blue
     | &nbsp;
     .button.button-violet Violet
+    | &nbsp;
+    ul.button-group
+      li
+        a(href="#") Upload
+      li
+        a.button-dropdown(href="#")
+        ul
+          li
+            a(href="#") Choose from library
+          li
+            a(href="#") Take a picture
+    | &nbsp;
+    button
+      | Add photo
+      ul
+        li
+          a(href="#") Upload
+        li
+          a(href="#") Choose from library
+        li
+          a(href="#") Take a picture
 
 block meta
   table
@@ -160,13 +181,16 @@ block granular
     This is a bit different from the above only because the button stil
     exists with the dropdown instead of as one.
 
-  button.button Upload
-  .button-dropdown
-  ul
+  ul.button-group
     li
-      a(href="#") Choose from library
+      a(href="#") Upload
     li
-      a(href="#") Take a picture
+      a.button-dropdown(href="#")
+      ul
+        li
+          a(href="#") Choose from library
+        li
+          a(href="#") Take a picture
 
   :markdown
     <span>
