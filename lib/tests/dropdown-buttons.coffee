@@ -10,20 +10,36 @@ describe 'k$.dropdown', ->
 
   describe 'button dropdown', ->
     it 'should show submenu when clicked', ->
-      assert(false)
+      expect(k$.$('#ddbutton2 ul').style.display).to.equal('none')
+      k$.testClick k$.$ '#ddbutton2'
+      expect(k$.$('#ddbutton2 ul').style.display).to.equal('block')
 
     it 'should hide submenu when clicked again', ->
-      assert(false)
+      expect(k$.$('#ddbutton2 ul').style.display).to.equal('block')
+      k$.testClick k$.$ '#ddbutton2'
+      expect(k$.$('#ddbutton2 ul').style.display).to.equal('none')
 
     it 'should hide submenu when clicked outside', ->
-      assert(false)
+      expect(k$.$('#ddbutton2 ul').style.display).to.equal('none')
+      k$.testClick k$.$ '#ddbutton2'
+      expect(k$.$('#ddbutton2 ul').style.display).to.equal('block')
+      k$.testClick document.body
+      expect(k$.$('#ddbutton2 ul').style.display).to.equal('none')
 
   describe 'button with dropdown', ->
     it 'should show submenu when clicked', ->
-      assert(false)
+      expect(k$.$('#ddbutton3 ul').style.display).to.equal('none')
+      k$.testClick k$.$ '#ddbutton3 a.button-dropdown'
+      expect(k$.$('#ddbutton3 ul').style.display).to.equal('block')
 
     it 'should hide submenu when clicked again', ->
-      assert(false)
+      expect(k$.$('#ddbutton3 ul').style.display).to.equal('block')
+      k$.testClick k$.$ '#ddbutton3 a.button-dropdown'
+      expect(k$.$('#ddbutton3 ul').style.display).to.equal('none')
 
     it 'should hide submenu when clicked outside', ->
-      assert(false)
+      expect(k$.$('#ddbutton3 ul').style.display).to.equal('none')
+      k$.testClick k$.$ '#ddbutton3 a.button-dropdown'
+      expect(k$.$('#ddbutton3 ul').style.display).to.equal('block')
+      k$.testClick document.body
+      expect(k$.$('#ddbutton3 ul').style.display).to.equal('none')
