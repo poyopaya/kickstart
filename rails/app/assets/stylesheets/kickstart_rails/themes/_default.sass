@@ -161,23 +161,6 @@ html
 =button-group($color: map-get($white, dark), $size: 1)
   +button-group-default($color, $size)
 
-// Forms
-// -----
-
-=form
-  +form-default
-
-=form-horizontal()
-  +form-horizontal
-  label, input
-    display: block
-
-=form-left
-  +form-left-default()
-
-=form_group($orientation: 'vertical')
-  +form_group-default($orientation)
-
 // HR
 // --
 
@@ -222,6 +205,22 @@ hr
 //
 
 @import ../core/_dependent_components
+
+// Forms
+// -----
+
+=form
+  +form-default
+
+=form-horizontal
+  +form-horizontal-default
+
+=form-left
+  +form-left-default()
+
+=form_group($orientation: 'vertical')
+  +form_group-default($orientation)
+
 
 // Modals
 // ------
