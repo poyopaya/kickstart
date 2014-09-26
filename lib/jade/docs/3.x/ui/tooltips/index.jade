@@ -54,24 +54,27 @@ block basic
     This defines a general hover zone where child tooltips will show.
 
   .tooltip_trigger.example
-    button.button.button-blue(data-ks-tooltip="Close the window") Close
-    | &nbsp;
-    button.button.button-blue(data-ks-tooltip="Try a different screen") Next
-
-  .alert
-    :markdown
-      # Caution
-
-      Tooltips in the `.tooltip_trigger` zone anchor themselves to `.tooltip_trigger`
-      as opposed to individual elements inside
+    ul.list.list-unstyled
+      li
+        a(href="#" data-ks-tooltip="Create a new account here") Signup
+      li Benefits to signing up include our monthly email
+      li
+        a(href="#" data-ks-tooltip="Start here if you already have an account" data-ks-tooltip-position="bottom") Login
 
   .ifnot-semantic
     :markdown
       <span>
 
           <div class="tooltip_trigger">
-            <button class="button" data-ks-tooltip="Close the window">Close</button>
-            <button class="button" data-ks-tooltip="Try a different screen">Next</button>
+            <ul class="list list-unstyled">
+              <li>
+                <a href="#" data-ks-tooltip="Create a new account here">Signup</a>
+              </li>
+              <li>Benefits to signing up include our monthly email</li>
+              <li>
+                <a href="#" data-ks-tooltip="Start here if you already have an account" data-ks-tooltip-position="bottom">Login</a>
+              </li>
+            </ul>
           </div>
 
   .if-semantic
@@ -79,15 +82,23 @@ block basic
       <span>
 
           <div class="decision">
-            <button class="close" data-ks-tooltip="Close the window">Close</button>
-            <button class="next" data-ks-tooltip="Try a different screen">Next</button>
+            <ul class="list">
+              <li>
+                <a href="#" data-ks-tooltip="Create a new account here">Signup</a>
+              </li>
+              <li>Benefits to signing up include our monthly email</li>
+              <li>
+                <a href="#" data-ks-tooltip="Start here if you already have an account" data-ks-tooltip-position="bottom">Login</a>
+              </li>
+            </ul>
           </div>
 
+          .list {
+            @include list();
+            @include list-unstyled();
+          }
           .decision {
             @include tooltip_trigger();
-          }
-          .close, .next {
-            @include button();
           }
 
   :markdown 
@@ -98,6 +109,16 @@ block basic
     only be expressed by HTML.
 
     For this, tooltips can also be created as individual HTML elements.
+
+  .alert.alert-info
+    :markdown
+      # Avoid block-level elements
+
+      Flow elements like `<div>` or `<p>` are not allowed nested in a `<p>`
+      Some browsers will even take it right out for you. Stick to phrasing
+      elements like `<span>` or `<a>`
+
+      More on [flow and phrasing](http://www.w3.org/TR/html-markup/common-models.html) elements.
 
   .example
     p 
@@ -115,7 +136,10 @@ block basic
           <p>The rain in
             <span class="tooltip_trigger">
               <a href="#">Spain</a>
-              <span class="tooltip">Spain is a country in <em>Europe</em></span>
+              <span class="tooltip">
+                <img src="/img/spain.png" style="width: 50px; margin: 0px auto; display: block;"/>
+                Spain is a country in <em>Europe</em>
+              </span>
               falls mainly on the plain.
             </span>
           </p>
@@ -127,7 +151,10 @@ block basic
           <p>The rain in
             <span class="country">
               <a href="#">Spain</a>
-              <span class="tooltip">Spain is a country in <em>Europe</em></span>
+              <span class="tooltip">
+                <img src="/img/spain.png" style="width: 50px; margin: 0px auto; display: block;"/>
+                Spain is a country in <em>Europe</em>
+              </span>
               falls mainly on the plain.
             </span>
           </p>

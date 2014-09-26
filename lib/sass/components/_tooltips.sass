@@ -50,6 +50,20 @@
       transform: translateY(-8px)
       transition: transform 0.25s
 
+  // Positioning
+
+  &[data-ks-tooltip-position="bottom"]
+    &:after
+      top: 100%
+      bottom: auto
+      margin-top: 15px
+      transform: translateY(-16px)
+
+    &:before
+      transform: rotate(180deg)
+      top: 100%
+      bottom: auto
+
 =tooltip_trigger-default($background-color: map-get($colors, blue))
   position: relative
   display: inline-block
