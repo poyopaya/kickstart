@@ -47,7 +47,7 @@
       align-items: center
       flex-wrap: wrap
 
-      li
+      > li
         list-style: none
         +root-element
         margin-bottom: 0
@@ -95,7 +95,7 @@
               border-color: map-get($white, darker)
               border-bottom-color: transparent
 
-        a:not([role=button])
+        > a:not([role=button])
           +color($background)
           text-decoration: none
           cursor: pointer

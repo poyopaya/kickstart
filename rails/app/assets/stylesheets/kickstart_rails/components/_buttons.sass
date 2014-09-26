@@ -80,27 +80,10 @@
           right: 0
         margin:
           bottom: 0
-        font-size: 0.9rem * $size
-        color: $default-font-color
-
-        a
-          color: inherit
 
   + .button-dropdown + ul
     // Button with dropdown
     +button-dropdown-menu($size)
-
-  &.open
-    + .button-dropdown + ul
-      display: block
-
-      li
-        font-size: 0.9rem * $size
-        color: $default-font-color
-
-        a
-          color: inherit
-
   
   &.button-dropdown
     padding:
@@ -108,20 +91,12 @@
       right: map-get($rootElement, paddingV) * $size * $size
 
 =button-dropdown-menu($size)
-  +list-unstyled
-  +root-element($size)
-  display: none
-  padding:
-    left: $size * $size * map-get($rootElement, paddingH)
-    right: $size * $size * map-get($rootElement, paddingH)
-  position: absolute
-  top: 100%
-  left: -1px
+  // Most of the styling actually comes from the global dropdown_menu
+  // styling, however this will provide some specifics for working
+  // with buttons.
   margin-top: 5px
   right: -$space
-  border-color: map-get($white, darker)
-  background: white
-  z-index: 10
+  border: 1px solid map-get($white, darker)
 
 =button-group-default($color, $size)
   list-style: none

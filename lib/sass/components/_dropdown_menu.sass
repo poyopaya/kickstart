@@ -25,19 +25,26 @@
         border: 0px
 
         a:not([role=button])
-          padding:
-            top: $space/4
-            bottom: $space/4
-          color: $default-font-color
+          +button
+          display: block
+          margin-bottom: 0
+          border-radius: 0
+          background: white
+          border-color: white
 
           &:hover
-            color: rgba(0, 0, 0, 0.85)
-            background: map-get($white, dark)
             border-color: map-get($white, dark)
+            background: map-get($white, dark)
+            box-shadow: none
 
           &:active
-            background: map-get($white, darker)
             border-color: map-get($white, darker)
+            background: map-get($white, darker)
+            box-shadow: none
+
+        &:last-child
+          a:not([role="button"])
+            // TODO: Get border radius from root-element
 
     &.open
       ul
