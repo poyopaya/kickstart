@@ -134,8 +134,8 @@
 .form_group
   +form_group('vertical')
 
-  &.form_group-horizontal, 
-  .form_group-horizontal, 
+  &.form_group-horizontal,
+  .form_group-horizontal,
   .form-horizontal &
     +form_group('horizontal')
 
@@ -162,14 +162,34 @@
 
 [class^="col"]
   // Pulls
-  @for $i from 1 through 12
-    &.col-pull-#{$i}
-      +pull($i)
+  @each $screen in '', 'xs-', 'sm-', 'rg-', 'md-', 'lg-', 'xl-'
+    &.col-pull-#{$screen}third
+      +pull('third')
+
+    &.col-push-#{$screen}twothirds
+      +pull('twothirds')
+
+    &.col-push-#{$screen}half
+      +pull('half')
+
+    @for $i from 1 through 12
+      &.col-pull-#{$screen}#{$i}
+        +pull($i)
 
   // Pushes
-  @for $i from 1 through 12
-    &.col-push-#{$i}
-      +push($i)
+  @each $screen in '', 'xs-', 'sm-', 'rg-', 'md-', 'lg-', 'xl-'
+    &.col-push-#{$screen}third
+      +push('third')
+
+    &.col-push-#{$screen}twothirds
+      +push('twothirds')
+
+    &.col-push-#{$screen}half
+      +push('half')
+
+    @for $i from 1 through 12
+      &.col-push-#{$screen}#{$i}
+        +push($i)
 
 // IMAGES
 // ------
