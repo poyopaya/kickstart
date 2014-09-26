@@ -32,23 +32,28 @@ block basic
     .form_group
       label Issue size
 
-      input(type="radio" name="issue" id="small")
-      label(for="small") Small issue
+      label(for="small")
+        input(type="radio" name="issue" id="small")
+        | Small issue
 
-      input(type="radio" name="issue" id="regular")
-      label(for="regular") Regular issue
+      label(for="regular")
+        input(type="radio" name="issue" id="regular")
+        | Regular issue
 
-      input(type="radio" name="issue" id="large")
-      label(for="large") Large issue
+      label(for="large")
+        input(type="radio" name="issue" id="large")
+        | Large issue
 
     .form_group
       label Shipping options
 
-      input(type="checkbox" id="fastshipping")
-      label(for="fastshipping") Fast shipping
+      label(for="fastshipping")
+        input(type="checkbox" id="fastshipping")
+        | Fast shipping
 
-      input(type="checkbox" id="giftwrapping")
-      label(for="giftwrapping") Gift wrapping
+      label(for="giftwrapping")
+        input(type="checkbox" id="giftwrapping")
+        | Gift wrapping
 
     .form_group
       label Subscription frequency
@@ -85,14 +90,20 @@ block basic
             <div class="form-group">
               <label>Issue Size</label> 
 
-              <input id="small" type="checkbox" />
-              <label for="small">Small</label>
+              <label>
+                <input id="small" type="checkbox" />
+                Small
+              </label>
 
-              <input id="regular" type="checkbox" />
-              <label for="regular">Regular</label>
+              <label>
+                <input id="small" type="checkbox" />
+                Regular
+              </label>
 
-              <input id="large" type="checkbox" />
-              <label for="large">Large</label>
+              <label>
+                <input id="small" type="checkbox" />
+                Large
+              </label>
             </div>
             ...
             <input type="submit" />
@@ -119,14 +130,20 @@ block basic
             <div class="group">
               <label>Issue Size</label> 
 
-              <input id="small" type="checkbox" />
-              <label for="small">Small</label>
+              <label>
+                <input id="small" type="checkbox" />
+                Small
+              </label>
 
-              <input id="regular" type="checkbox" />
-              <label for="regular">Regular</label>
+              <label>
+                <input id="small" type="checkbox" />
+                Regular
+              </label>
 
-              <input id="large" type="checkbox" />
-              <label for="large">Large</label>
+              <label>
+                <input id="small" type="checkbox" />
+                Large
+              </label>
             </div>
             ...
             <input type="submit" />
@@ -549,14 +566,14 @@ block variations
       label.success Issue size
       label
         input(type="radio" name="issue")
-        |  Small issue
+        | Small issue
       label.success
         input.success(type="radio" name="issue")
-        |  Regular issue 
+        | Regular issue 
       p.success Great choice!
       label
         input(type="radio" name="issue")
-        |  Large issue
+        | Large issue
 
     .form_group
       label.error Shipping options
