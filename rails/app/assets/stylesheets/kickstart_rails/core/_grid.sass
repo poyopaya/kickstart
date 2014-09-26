@@ -48,11 +48,11 @@ $grid-gutter: 15px
 
 =push($columns)
   @media screen and (min-width: $desktop)
-    margin-right: percentage($columns/$grid-columns)
+    margin-right: calc(#{percentage($columns/$grid-columns)} + #{$grid-gutter})
 
 =pull($columns)
   @media screen and (min-width: $desktop)
-    margin-left: percentage($columns/$grid-columns)
+    margin-left: calc(#{percentage($columns/$grid-columns)} + #{$grid-gutter})
 
 =set-column($columns, $pull, $push)
   width: 100%

@@ -103,6 +103,8 @@ block basic
           }
 
   :markdown
+    For more about wrappers, see the example on fixed, fluid, and fixed fluid
+    layouts in [Layout and CSS](/docs/#{docsVersion}/ui/)
 
     The **row** is a container for column elements.
 
@@ -165,7 +167,7 @@ block basic
 
 block variations
   h2 Pulls
-  
+
   .example
     .row
       .col-pull-6.col-6: .col-example six columns with six column pull
@@ -197,27 +199,66 @@ block variations
       .col-pull-2.col-10: .col-example 10 columns with 2 column pull
     .row
       .col-3: .col-example 3 columns
-      .col-6: .col-example 6 columns
+      .col-6: .col-example.col-pull-3 6 columns with 3 column pull
     .row
       .col-pull-4.col-4: .col-example 4 columns with 4 column pull
 
   :markdown
     ### Pushes
-    
-    Notice above an pull appears even though one isn't set.
-    
-    This is because the flex box grid will automatically space out elements with `space-between`.
-    This allows the grid to automatically space elements around to fill the space left to right.
 
-    However, you may want to leave part of a column unfinished while having the first columns flush like this:
+    An interesting thing happens when using CSS flexbox for a grid: When the
+    columns don't add up to 12, they space themselves out (thanks to the `space-between`
+    property).
+
+    Look at the difference between these two grids:
+
+  .example
+    .row
+      .col-3: .col-example 3 columns
+      .col-6.col-pull-3: .col-example 6 columns with 3 column pull
+      .col-3: .col-example 3 columns
+      .col-6: .col-example 6 columns
+
+  :markdown
+    They look so similar, you might say the 3 column pull isn't necessary in the first.
+
+    A pull would be necessary, however, if we didn't want the last column to
+    automatically go the very right. Maybe we just want 1 column of space
+    between the two.
+
+  .example
+    .row
+      .col-3: .col-example 3 columns
+      .col-6.col-pull-1: .col-example 6 columns with 1 column pull
+
+  :markdown
+    As you can see, it still looks the same. This is for the same reason. The
+    columns aren't adding up to 12, so they automatically create the necessary
+    space between themselves to fill the 12 column grid. Let's see what happens
+    if we add a another two column.
+
+  .example
+    .row
+      .col-3: .col-example 3 columns
+      .col-6.col-pull-1: .col-example 6 columns with 1 column pull
+      .col-2: .col-example 2 columns
+
+  :markdown
+    But what if we wanted the columns to feed in from left to right, without the
+    automatic spacing in between (with the exception of the gutters)?
+
+    This is where push is handy. Just as we can pull the columns to the right, we
+    can also push the columns to the left.
 
   .example
     .row
       .col-3: .col-example 3 columns
       .col-6.col-push-3: .col-example 6 columns with 3 column push
+      .col-3: .col-example 3 columns
+      .col-6: .col-example 6 columns
 
   :markdown
-    This is accomplished by pushing columns into the row. Because we already have 9 columns used up, we need to
+    Because we already have a total of 9 columns used up, we need to
     finish (push) the remaining three to complete 12 columns.
 
   .ifnot-semantic
@@ -330,7 +371,7 @@ block variations
           }
           .new, .updated, .archived {
             @import column(4);
-          } 
+          }
 
   .ifnot-semantic
     :markdown
@@ -462,7 +503,7 @@ block variations
 
       The pull will automatically remove itself if a `col-lg` column definition
       is declared.
-      
+
   .if-semantic
     :markdown
       Mix your grid rules into media queries to make your own responsive rules.

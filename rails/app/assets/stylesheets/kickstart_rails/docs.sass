@@ -16,10 +16,10 @@
   +column('third')
 
   h1
-    +xs-heading
+    +heading-xs
 
   h2
-    +xxs-heading
+    +xheading-xs
 
 .fullpane
   +column(12)
@@ -69,19 +69,20 @@
     background-color: map-get($colors, yellow)
 
 .col-example
+  +root-element
   padding: $space/2
-  background: white
+  background: map-get($white, dark)
   margin: $space/2 0
   text-align: center
 
   .gray
-    background: map-get($white, dark)
+    background: map-get($white, darker)
 
 .example
   +root-element
   padding: $space
   margin-bottom: $space
-  border-color: map-get($white, darker)
+  border-color: map-get($white, darkest)
 
   > *:last-child
     margin-bottom: 0
@@ -90,21 +91,21 @@
 
 h1.example-
   &xxl
-    +xxl-heading
+    +heading-xxl
   &xl
-    +xl-heading
+    +heading-xl
   &lg
-    +lg-heading
+    +heading-lg
   &md
-    +md-heading
+    +heading-md
   &rg
-    +rg-heading
+    +heading-rg
   &sm
-    +sm-heading
+    +heading-sm
   &xs
-    +xs-heading
+    +heading-xs
   &xxs
-    +xxs-heading
+    +xheading-xs
 
 .if-jquery, .ifnot-jquery, .if-semantic, .ifnot-semantic
   display: none

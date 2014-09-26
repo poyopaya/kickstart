@@ -22,19 +22,20 @@ $colors: (red: #CA3518, orange: darkorange, yellow: #ffe312, green: #58AA00, blu
 
 // Vendor libraries
 @import url(http://fonts.googleapis.com/css?family=Coming+Soon)
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:400,700)
 
 // Ten point design variables
 // --------------------------
 // Modifying just these ten variables will take care of 90% of your theme
 
 $primary-color:       #BED6AB
-$secondary-color:     map-get($white, darker)
-$space:               25px
+$secondary-color:     #F2ECC3
+$space:               50px
 $heading-font-family: 'Coming Soon', helvetica neue, sans-serif
-$body-font-family:    'Lato', helvetica neue, sans-serif
+$body-font-family:    'Open Sans', helvetica neue, sans-serif
 $base-font-size:      16px
-$default-font-color:  map-get($gray, darkest)
-$default-line-height: 1.4rem
+$default-font-color:  map-get($gray, dark)
+$default-line-height: 1.5rem
 
 // --------------------------
 
@@ -76,50 +77,50 @@ pre
 =hero
   +hero-default
 
-=xxl-heading
-  +xxl-heading-default
+=heading-xxl
+  +heading-xxl-default
 
-=xl-heading
-  +xl-heading-default
+=heading-xl
+  +heading-xl-default
 
-=lg-heading
-  +lg-heading-default
+=heading-lg
+  +heading-lg-default
 
-=md-heading
-  +md-heading-default
+=heading-md
+  +heading-md-default
 
-=rg-heading
-  +rg-heading-default
+=heading-rg
+  +heading-rg-default
 
-=sm-heading
-  +sm-heading-default
+=heading-sm
+  +heading-sm-default
 
-=xs-heading
-  +xs-heading-default
+=heading-xs
+  +heading-xs-default
 
-=xxs-heading
-  +xxs-heading-default
+=xheading-xs
+  +xheading-xs-default
 
 h1, h2, h3, h4, h5, h6
   font-family: $heading-font-family
 
 h1
-  +lg-heading
+  +heading-lg
 
 h2
-  +md-heading
+  +heading-md
 
 h3
-  +rg-heading
+  +heading-rg
 
 h4
-  +sm-heading
+  +heading-sm
 
 h5
-  +xs-heading
+  +heading-xs
 
 h6
-  +xxs-heading
+  +xheading-xs
 
 =type
   +type-default
