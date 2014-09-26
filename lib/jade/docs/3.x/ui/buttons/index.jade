@@ -306,9 +306,9 @@ block granular
           li
             ul.button-group.button-large
               li 
-                a(href="#") Large
+                button Large
               li
-                a.button-dropdown(href="#")
+                button.button-dropdown
                 ul
                   li
                     a(href="#") Option 1
@@ -318,9 +318,9 @@ block granular
           li
             ul.button-group
               li 
-                a(href="#") Regular
+                button Regular
               li
-                a.button-dropdown(href="#")
+                button.button-dropdown
                 ul
                   li
                     a(href="#") Option 1
@@ -330,9 +330,9 @@ block granular
           li
             ul.button-group.button-small
               li 
-                a(href="#") Small
+                button Small
               li
-                a.button-dropdown(href="#")
+                button.button-dropdown
                 ul
                   li
                     a(href="#") Option 1
@@ -361,6 +361,86 @@ block granular
 
           li
             button.button.button-small
+              | Small
+              ul
+                li
+                  a(href="#") Option 1
+                li
+                  a(href="#") Option 2
+
+  h2 Mixing
+
+  .example
+    .row
+      .col-4
+        ul.list-unstyled
+          li
+            button.button.button-large.button-blue Large
+          li
+            button.button.button-red Regular
+          li
+            button.button.button-small.button-orange Small
+
+      .col-4
+        ul.list-unstyled
+          li
+            ul.button-group.button-large.button-green
+              li 
+                button Large
+              li
+                button.button-dropdown
+                ul
+                  li
+                    a(href="#") Option 1
+                  li
+                    a(href="#") Option 2
+
+          li
+            ul.button-group.button-violet
+              li 
+                button Regular
+              li
+                button.button-dropdown
+                ul
+                  li
+                    a(href="#") Option 1
+                  li
+                    a(href="#") Option 2
+
+          li
+            ul.button-group.button-small.button-red
+              li 
+                button Small
+              li
+                button.button-dropdown
+                ul
+                  li
+                    a(href="#") Option 1
+                  li
+                    a(href="#") Option 2
+
+      .col-4
+        ul.list-unstyled
+          li
+            button.button.button-large.button-green
+              | Large
+              ul.button-dropdown
+                li
+                  a(href="#") Option 1
+                li
+                  a(href="#") Option 2
+
+          li
+            button.button.button-yellow
+              | Regular
+              ul
+                li
+                  a(href="#") Option 1
+                li
+                  a(href="#") Option 2
+
+          li
+            button.button.button-small.button-red
               | Small
               ul
                 li

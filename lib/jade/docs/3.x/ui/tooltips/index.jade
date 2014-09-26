@@ -82,7 +82,7 @@ block basic
       <span>
 
           <div class="decision">
-            <ul class="list">
+            <ul>
               <li>
                 <a href="#" data-ks-tooltip="Create a new account here">Signup</a>
               </li>
@@ -93,10 +93,6 @@ block basic
             </ul>
           </div>
 
-          .list {
-            @include list();
-            @include list-unstyled();
-          }
           .decision {
             @include tooltip_trigger();
           }
@@ -112,7 +108,7 @@ block basic
 
   .alert.alert-info
     :markdown
-      # Avoid block-level elements
+      # Avoid nesting flow elements in phrasing elements.
 
       Flow elements like `<div>` or `<p>` are not allowed nested in a `<p>`
       Some browsers will even take it right out for you. Stick to phrasing

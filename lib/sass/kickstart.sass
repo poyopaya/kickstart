@@ -113,11 +113,11 @@
       +button-color(map-get($colors, violet))
 
   &.button-small
-    > li > *
+    > li > *:not(ul)
       +button-size($size: 0.85)
 
   &.button-large
-    > li > *
+    > li > *:not(ul)
       +button-size($size: 1.2)
 
 // FORMS
