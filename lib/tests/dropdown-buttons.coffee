@@ -10,21 +10,21 @@ describe 'k$.dropdown', ->
 
   describe 'button dropdown', ->
     it 'should show submenu when clicked', ->
-      expect(k$.$('#ddbutton2 ul').style.display).to.equal('none')
+      assert(!k$.$('#ddbutton2').classList.contains('open'), 'Does not contain open class')
       k$.testClick k$.$ '#ddbutton2'
-      expect(k$.$('#ddbutton2 ul').style.display).to.equal('block')
+      assert(k$.$('#ddbutton2').classList.contains('open'), 'Does contain open class')
 
     it 'should hide submenu when clicked again', ->
-      expect(k$.$('#ddbutton2 ul').style.display).to.equal('block')
+      assert(k$.$('#ddbutton2').classList.contains('open'), 'Does contain open class')
       k$.testClick k$.$ '#ddbutton2'
-      expect(k$.$('#ddbutton2 ul').style.display).to.equal('none')
+      assert(!k$.$('#ddbutton2').classList.contains('open'), 'Does not contain open class')
 
     it 'should hide submenu when clicked outside', ->
-      expect(k$.$('#ddbutton2 ul').style.display).to.equal('none')
+      assert(!k$.$('#ddbutton2').classList.contains('open'), 'Does not contain open class')
       k$.testClick k$.$ '#ddbutton2'
-      expect(k$.$('#ddbutton2 ul').style.display).to.equal('block')
+      assert(k$.$('#ddbutton2').classList.contains('open'), 'Does contain open class')
       k$.testClick document.body
-      expect(k$.$('#ddbutton2 ul').style.display).to.equal('none')
+      assert(!k$.$('#ddbutton2').classList.contains('open'), 'Does not contain open class')
 
   describe 'button with dropdown', ->
     it 'should hav a .with-submenu class for parent li', ->
