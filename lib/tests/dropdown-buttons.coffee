@@ -31,9 +31,9 @@ describe 'k$.dropdown', ->
       expect(k$.$('#ddbutton3 #dropdownParent').className).to.equal('with-submenu')
 
     it 'should show submenu when clicked', ->
-      expect(k$.$('#ddbutton3 ul').style.display).to.equal('none')
+      assert(!k$.$('#ddbutton3 #dropdownParent').classList.contains('open'), 'Does not contain open class')
       k$.testClick k$.$ '#ddbutton3 a.button-dropdown'
-      expect(k$.$('#ddbutton3 ul').style.display).to.equal('block')
+      assert(k$.$('#ddbutton3 #dropdownParent').classList.contains('open'), 'Does contain open class')
 
     it 'should hide submenu when clicked again', ->
       expect(k$.$('#ddbutton3 ul').style.display).to.equal('block')
