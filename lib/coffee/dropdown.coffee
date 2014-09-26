@@ -14,8 +14,6 @@ dropdown = ->
       # single one?
       $menuItem.addEventListener 'click', (e) ->
 
-        console.log $menuItem
-
         # Just close it if it's already open
         if $menuItem.classList.contains 'open'
           $menuItem.classList.remove 'open'
