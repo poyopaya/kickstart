@@ -1,5 +1,10 @@
 extends ../../layout
 
+mixin buttonRole
+  .alert.alert-info
+    h1 Use roles
+    p Especially in navigation bars, it's important to use <code>role="button"</code> in the HTML attributes.
+
 block hero-title
   h1 Buttons
 
@@ -184,8 +189,10 @@ block granular
   :markdown
     ## Button with dropdown
 
-    This is a bit different from the above only because the button stil
+    This is a bit different from the above only because the button still
     exists with the dropdown instead of as one.
+
+  +buttonRole
 
   .example
     ul.button-group
@@ -235,6 +242,8 @@ block granular
     ## Dropdown button
 
     Dropdown buttons are simply collapsible lists that look like buttons.
+
+  +buttonRole
 
   .alert.alert-info
     h1 Use the button element.

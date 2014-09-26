@@ -5,10 +5,12 @@ nav = (el) ->
     # Prune items that don't contain uls
     _$menuItems = new Array()
     for $menuItem in $menuItems
-      _$menuItems.push $menuItem if $menuItem.querySelectorAll('ul').length
+      if $menuItem.querySelectorAll('ul').length and !$menuItem.querySelectorAll('[role="button"]').length
+        _$menuItems.push $menuItem 
 
     $menuItems = _$menuItems
     for $menuItem in $menuItems
+
       # For styling
       $menuItem.classList.add 'with-submenu'
 

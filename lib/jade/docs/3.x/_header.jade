@@ -39,18 +39,18 @@
             li: a(href="/docs/3.x") #{currentVersion} (current)
             li: a(href="/docs/4.x") 4 (Future plans)
         li
-          ul.button-group
+          ul.button-group(role="button")
             li
-              a(href="#") Upload
+              a(href="#" role="button") Upload
             li
-              button.button-dropdown
+              button.button-dropdown(role="button")
               ul
                 li
                   a(href="#") Choose from library
                 li
                   a(href="#") Take a picture
-        li(style="display: none")
-          button
+        li
+          button(role="button")
             | Add photo
             ul
               li
