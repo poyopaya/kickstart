@@ -32,6 +32,7 @@
   //       in the case of missing params.
 
   +button-color($color)
+  +root-element($size: $size)
   +button-size($size)
 
 // Separated from main mixin for access by non-semantic library.
@@ -54,7 +55,8 @@
     color: map-get($black, lighter)
 
 =button-size($size)
-  +root-element($size: $size)
+  padding: ($size * $size * map-get($rootElement, paddingV)) ($size * $size * map-get($rootElement, paddingH))
+  line-height: $size * $default-line-height
   margin-bottom: 0
   font-size: 0.9rem * $size
   border-color: hsla(0, 0%, 0%, 0.15)
@@ -72,7 +74,7 @@
         display: block
 
     ul
-      +button-dropdown-menu($size)
+      +button-dropdown-menu
 
       li
         padding:
@@ -83,14 +85,14 @@
 
   + .button-dropdown + ul
     // Button with dropdown
-    +button-dropdown-menu($size)
+    +button-dropdown-menu
   
   &.button-dropdown
     padding:
       left: map-get($rootElement, paddingV) * $size * $size
       right: map-get($rootElement, paddingV) * $size * $size
 
-=button-dropdown-menu($size)
+=button-dropdown-menu
   // Most of the styling actually comes from the global dropdown_menu
   // styling, however this will provide some specifics for working
   // with buttons.
@@ -144,5 +146,5 @@
         font-size: 90%
 
   > li > ul
-    +button-dropdown-menu($size)
+    +button-dropdown-menu
     display: none
