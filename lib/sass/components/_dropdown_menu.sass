@@ -17,6 +17,7 @@
         bottom: 1px solid map-get($white, darker)
       border-radius: map-get($rootElement, border-radius)
       box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.25)
+      background: white
 
       &:before
         display: block
@@ -43,6 +44,22 @@
             border-color: map-get($white, darker)
             background: map-get($white, darker)
             box-shadow: none
+
+        &:first-child
+          border-top-right-radius: map-get($rootElement, border-radius)
+          border-top-left-radius: map-get($rootElement, border-radius)
+
+          a:not([role=button])
+            border-top-right-radius: map-get($rootElement, border-radius)
+            border-top-left-radius: map-get($rootElement, border-radius)
+
+        &:last-child
+          border-bottom-right-radius: map-get($rootElement, border-radius)
+          border-bottom-left-radius: map-get($rootElement, border-radius)
+
+          a:not([role=button])
+            border-bottom-right-radius: map-get($rootElement, border-radius)
+            border-bottom-left-radius: map-get($rootElement, border-radius)
 
     &.open
       ul
