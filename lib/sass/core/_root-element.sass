@@ -7,7 +7,7 @@
 
 =root-element($size: 1)
   padding: ($size * $size * map-get($rootElement, paddingV)) ($size * $size * map-get($rootElement, paddingV))
-  border-radius: 3px
+  border-radius: map-get($rootElement, border-radius)
   border: 1px solid transparent
   outline: none
   margin-bottom: $space
