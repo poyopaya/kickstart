@@ -17,27 +17,22 @@ dropdown = ->
         # Just close it if it's already open
         if $menuItem.classList.contains 'open'
           $menuItem.classList.remove 'open'
-          $menuItem.querySelector('ul').style.display = 'block'
           return
 
         # Reset all
         _$menuItem.classList.remove 'open' for _$menuItem in document.querySelectorAll('.with-submenu')
         $ul = $menuItem.querySelector 'ul'
-        $subMenu.style.display = 'none' for $subMenu in document.querySelectorAll('.with-submenu ul')
 
         # Open this one
         if $ul
           $menuItem.classList.add 'open'
-
-          # TODO: Perhaps this should be set in CSS via the .open class.
-          $ul.style.display = (if $ul.style.display == 'block' then 'none' else 'block')
 
         # Prevent bubbling
         e.stopPropagation()
 
   # Dismiss all
   document.body.addEventListener 'click', ->
-    $ul.style.display = 'none' for $ul in k$.$$('.with-submenu > ul')
+    $ul.parentNode.classList.remove 'open' for $ul in k$.$$('.with-submenu > ul')
     $li.classList.remove 'open' for $li in k$.$$('.with-submenu.open')
 
 k$.dropdown = dropdown
