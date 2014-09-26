@@ -89,8 +89,6 @@
   + .button-dropdown + ul
     // Button with dropdown
     +button-dropdown-menu($size)
-    position: static
-    margin-top: -$space + 5px
 
   &.open
     + .button-dropdown + ul
@@ -134,7 +132,7 @@
   display: inline-block
   vertical-align: middle
 
-  li
+  > li
     color: inherit
     display: inline-block
 
@@ -170,4 +168,5 @@
         font-size: 90%
 
   > li > ul
+    +button-dropdown-menu($size)
     display: none
