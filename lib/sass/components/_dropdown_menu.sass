@@ -1,0 +1,44 @@
+=dropdown_menu-default
+  .with-submenu
+    ul
+      display: none
+      position: absolute
+      padding: 0
+      list-style: none
+      z-index: 10
+      background: white
+      top: 100%
+      margin-top: 1px
+      left: -1px // Compensate for border
+      min-width: 175px
+      border:
+        left: 1px solid map-get($white, darker)
+        right: 1px solid map-get($white, darker)
+        bottom: 1px solid map-get($white, darker)
+
+      &:before
+        display: block
+        position: absolute
+        content: ' '
+
+      li
+        border: 0px
+
+        a:not([role=button])
+          padding:
+            top: $space/4
+            bottom: $space/4
+          color: $default-font-color
+
+          &:hover
+            color: rgba(0, 0, 0, 0.85)
+            background: map-get($white, dark)
+            border-color: map-get($white, dark)
+
+          &:active
+            background: map-get($white, darker)
+            border-color: map-get($white, darker)
+
+    &.open
+      ul
+        display: block
