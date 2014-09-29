@@ -82,7 +82,7 @@ $grid-gutter: 15px
   @else
     +set-offset($columns, 'pull')
 
-=set-column($columns, $pull: 0, $push: 0)
+=set-column($columns, $pull, $push)
   width: 100%
   display: block
   margin-left: 0
@@ -91,27 +91,27 @@ $grid-gutter: 15px
     width: calc(#{percentage($columns/$grid-columns)} - #{$grid-gutter})
     clear: none
 
-  @if not $pull == 0
+  @if $pull != 0
     +pull($pull)
 
-  @if not $pull == 0
+  @if $pull != 0
     +push($push)
 
 =column($columns: 12, $pull: 0, $push: 0)
   +set-column(12, 0, 0)
   @if $columns == "half"
     @media screen and (min-width: $tablet)
-      +set-column($grid-columns/2, 0, 0)
+      +set-column($grid-columns/2, $pull, $push)
   @else if $columns == "third"
     @media screen and (min-width: $phablet)
-      +set-column($grid-columns/2, 0, 0)
+      +set-column($grid-columns/2, $pull, $push)
     @media screen and (min-width: $tablet)
-      +set-column($grid-columns/3, 0, 0)
+      +set-column($grid-columns/3, $pull, $push)
   @else if $columns == "twothirds"
     @media screen and (min-width: $phablet)
-      +set-column($grid-columns/2, 0, 0)
+      +set-column($grid-columns/2, $pull, $push)
     @media screen and (min-width: $tablet)
-      +set-column(($grid-columns * 2/3), 0, 0)
+      +set-column(($grid-columns * 2/3), $pull, $push)
   @else
     @media screen and (min-width: $tablet)
       +set-column($columns, $pull, $push)

@@ -8,13 +8,22 @@ build:
 	@echo "Installing ruby dependencies..."
 	@bundle
 
+	@echo "Testing..."
+	@gulp test
+
 	@echo "Building project"
 	@gulp build
 
 build-rails:
-	@make
-	@gulp test
 	@cd rails;gem build kickstart_rails.gemspec
+
+build-node:
+	@npm publish
+
+build-all:
+	@make
+	@make build-rails
+	@make build-node
 
 setup:
 	@sudo npm install -g gulp

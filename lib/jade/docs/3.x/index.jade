@@ -155,7 +155,7 @@ block fullPane
 
     In your sass or scss file, import Kickstart via the theme you prefer: 
 
-        @import node_modules/kickstart-node/lib/sass/themes/default
+        @import node_modules/kickstart-node/lib/sass/themes/_default
 
     Notice you may need a couple `../`s before `node_modules` to point
     to the node_modules directory. This all depends on how you organized your
@@ -163,5 +163,13 @@ block fullPane
 
     In the above example, node_modules is at the same level as the scss/sass
     file.
+
+    #### Autoprefixer
+
+    The chances are very good that you'll need to include [autoprefixer](https://github.com/postcss/autoprefixer).
+    This will add prefixes like `-webkit-` to bleeding edge css properties. Make sure
+    this is included as part of your CSS compilation workflow.
+
+    [Also available for Gulp](https://www.npmjs.org/package/gulp-autoprefixer)
 
 
