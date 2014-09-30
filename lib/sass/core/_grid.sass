@@ -31,6 +31,7 @@ $grid-gutter: 15px
 // be displayed
 
 $showOffsets:        $tablet-landscape // Offsets render at this breakpoint
+$showColumns:        $phablet          // Allow < 12 columns
 $showPartialColumns: $tablet           // Simpler alternative to actual columns
 $showFullColumns:    $desktop          // Actual user-defined column measurement
 
@@ -68,7 +69,7 @@ $showFullColumns:    $desktop          // Actual user-defined column measurement
 
 =set-offset($columns, $side: "margin-right")
   // Never show pushes and pulls on mobile
-  +measure-columns(0, $side)
+  // +measure-columns(0, $side)
 
   // Look for keywords
   @if $columns == "half"
@@ -134,5 +135,5 @@ $showFullColumns:    $desktop          // Actual user-defined column measurement
       
   @else
     // No keywords found, pass in values.
-    @media screen and (min-width: $showPartialColumns)
+    @media screen and (min-width: $showColumns)
       +set-column($columns, $pull, $push)
