@@ -38,7 +38,7 @@ growl = (params) ->
     if delay > 0
       do (delay, id) ->
         setTimeout ->
-          k$.$(".growl-#{id}").style.display = "none"
+          k$.$('.growl_container').removeChild k$.$(".growl-#{id}")
         , delay
 
 k$.growl = growl

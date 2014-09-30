@@ -11,12 +11,12 @@ buffer = (fn, delay) ->
     i = 1
 
     k$.bufferInterval = setInterval ->
-      k$.bufferArray[i]()
+      k$.bufferArray[i]() if k$.bufferArray[i]
       i++
       console.log i
       if i >= k$.bufferArray.length
         clearInterval k$.bufferInterval
-        k$.bufferArray = []
+        k$.bufferArray = undefined
         i = 1
     , delay
 
