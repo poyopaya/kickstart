@@ -8,7 +8,8 @@ buffer = (fn, delay) ->
     delay = delay || 2000
 
     # Create an interval to fire the fns in bufferArray
-    i = 0
+    i = 1
+
     k$.bufferInterval = setInterval ->
       k$.bufferArray[i]()
       i++
@@ -16,11 +17,16 @@ buffer = (fn, delay) ->
       if i >= k$.bufferArray.length
         clearInterval k$.bufferInterval
         k$.bufferArray = []
-        i = 0
+        i = 1
     , delay
 
   # Add this function to the array.
   k$.bufferArray.push fn
+
+  # Fire right away if it's the first in line.
+  k$.bufferArray[0]() if k$.bufferArray.length == 1
+
+  console.info "Function queued (#{k$.bufferArray.length} in queue)"
 
 k$.buffer = buffer
 

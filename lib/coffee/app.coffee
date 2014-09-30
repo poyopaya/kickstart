@@ -7,6 +7,7 @@ Throttler = require './throttler'
 Buttons   = require './buttons'
 Dropdown  = require './dropdown'
 Buffer    = require './buffer'
+Growl     = require './growl'
 
 k$.button()
 k$.dropdown()

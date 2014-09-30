@@ -61,6 +61,31 @@ block variations
           title: 'Greetings',
           text: 'We're happy to inform you your document was saved.', // Optional
           delay: 2000, // Optional, 0 = forever
-          type: 'warn', // Optional
+          type: 'alert-warn', // Optional
           id: 'token' // Optional
         })
+
+  .if-semantic
+    :markdown
+      Growls reuse the styles for alerts. Because you're using this library
+      semantically, you'll need to assign the alert styles to the `.growl` class.
+
+          .growl {
+            @include alert();
+          }
+
+      To use different stylings, just pass in a class name to the `type` property.
+      By default, this is appended as a class on `.growl`
+
+          k$.growl({
+            title: 'It worked!',
+            type: 'success'
+          })
+
+          .growl {
+            @include alert();
+
+            &.success {
+              background: map-get($colors, green);
+            }
+          }
