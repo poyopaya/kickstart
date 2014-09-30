@@ -20,7 +20,7 @@ describe "Buffer", (done) ->
     expect(xArray[2]).to.be.undefined
 
   it "Should execute all functions 2s between each other (1/2)", (done) ->
-    this.timeout 2200
+    this.timeout 520
 
     setTimeout ->
       if xArray[0] == 1 && xArray[1] == 2 && xArray[2] == undefined
@@ -30,7 +30,7 @@ describe "Buffer", (done) ->
     , 2100
 
   it "Should execute all functions 2s between each other (2/2)", (done) ->
-    this.timeout 2200
+    this.timeout 520
 
     setTimeout ->
       if xArray[0] == 1 && xArray[1] == 2 && xArray[2] == 3
