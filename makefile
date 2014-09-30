@@ -8,7 +8,7 @@ build:
 	@echo "Installing ruby dependencies..."
 	@bundle
 
-	@echo "Testing..."
+	@echo "Running tests..."
 	@gulp test
 
 	@echo "Building project"
