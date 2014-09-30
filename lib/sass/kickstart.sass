@@ -161,35 +161,35 @@
   +column('twothirds')
 
 [class^="col"]
-  // Pulls
+  // Left offsets
   @each $screen in '', 'xs-', 'sm-', 'rg-', 'md-', 'lg-', 'xl-'
-    &.col-pull-#{$screen}third
-      +pull('third')
+    &.col-left-#{$screen}third
+      +left('third')
 
-    &.col-pull-#{$screen}twothirds
-      +pull('twothirds')
+    &.col-left-#{$screen}twothirds
+      +left('twothirds')
 
-    &.col-pull-#{$screen}half
-      +pull('half')
+    &.col-left-#{$screen}half
+      +left('half')
 
     @for $i from 1 through 12
-      &.col-pull-#{$screen}#{$i}
-        +pull($i)
+      &.col-left-#{$screen}#{$i}
+        +left($i)
 
-  // Pushes
+  // Right offsets
   @each $screen in '', 'xs-', 'sm-', 'rg-', 'md-', 'lg-', 'xl-'
-    &.col-push-#{$screen}third
-      +push('third')
+    &.col-right-#{$screen}third
+      +right('third')
 
-    &.col-push-#{$screen}twothirds
-      +push('twothirds')
+    &.col-right-#{$screen}twothirds
+      +right('twothirds')
 
-    &.col-push-#{$screen}half
-      +push('half')
+    &.col-right-#{$screen}half
+      +right('half')
 
     @for $i from 1 through 12
-      &.col-push-#{$screen}#{$i}
-        +push($i)
+      &.col-right-#{$screen}#{$i}
+        +right($i)
 
 // IMAGES
 // ------

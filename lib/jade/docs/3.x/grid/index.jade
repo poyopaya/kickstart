@@ -10,7 +10,7 @@ block toc-basic
     li
       a(href="#use-numbers") Use numbers
     li
-      a(href="#pulls") Pulls
+      a(href="#lefts") lefts
 
 block toc-variations
   ul
@@ -22,7 +22,7 @@ block basic
   .example(style="display: none")
     .row
       .test-a: .col-example foo
-      .col.col-third.col-pull-xs-1.col-pull-rg-3: .col-example foo
+      .col.col-third.col-left-xs-1.col-left-rg-3: .col-example foo
 
   .example
     .row
@@ -195,16 +195,16 @@ block variations
 
     .row
       .col-3: .col-example 3 columns
-      .col-3.col-pull-6: .col-example 3 columns, 6 column pull
+      .col-3.col-left-6: .col-example 3 columns, 6 column left
 
     .row
-      .col-6.col-push-6: .col-example 6 columns, 6 column push
+      .col-6.col-right-6: .col-example 6 columns, 6 column right
 
     .row
       .col-6: .col-example 6 columns
 
     .row
-      .col-9.col-pull-3: .col-example 9 columns, 3 column pull
+      .col-9.col-left-3: .col-example 9 columns, 3 column left
 
     .row
       .col-4: .col-example 4 columns
@@ -212,13 +212,13 @@ block variations
       .col-4: .col-example 4 columns
 
     .row
-      .col-4.col-pull-4.col-push-4: .col-example 4 columns, 4 column pull, 4 column push
+      .col-4.col-left-4.col-right-4: .col-example 4 columns, 4 column left, 4 column right
 
     .row
-      .col-4.col-push-4: .col-example 4 columns, 4 column push
+      .col-4.col-right-4: .col-example 4 columns, 4 column right
 
     .row
-      .col-4.col-pull-4: .col-example 4 columns, 4 column pull
+      .col-4.col-left-4: .col-example 4 columns, 4 column left
 
     .row
       .col-6: .col-example 6 columns
@@ -229,45 +229,8 @@ block variations
     .row
       .col-12: .col-example 12 columns
 
-  h2 Pulls
-
-  .example
-    .row
-      .col-pull-6.col-6: .col-example six columns with six column pull
-
-  .ifnot-semantic
-    :markdown
-      <span>
-
-          ...
-          <div class="col-pull-6 col-6">
-            Six columns
-          </div>
-
-  .if-semantic
-    :markdown
-      <span>
-
-          ...
-          <div class="reminder">
-            Six columns
-          </div>
-
-          .reminder {
-            @include column(6, 6);
-          }
-
-  .example
-    .row
-      .col-pull-2.col-10: .col-example 10 columns with 2 column pull
-    .row
-      .col-3: .col-example 3 columns
-      .col-6: .col-example.col-pull-3 6 columns with 3 column pull
-    .row
-      .col-pull-4.col-4: .col-example 4 columns with 4 column pull
-
   :markdown
-    ### Pushes
+    ## Right offsets
 
     An interesting thing happens when using CSS flexbox for a grid: When the
     columns don't add up to 12, they space themselves out (thanks to the `space-between`
@@ -278,21 +241,21 @@ block variations
   .example
     .row
       .col-3: .col-example 3 columns
-      .col-6.col-pull-3: .col-example 6 columns with 3 column pull
+      .col-6.col-left-3: .col-example 6 columns with 3 column left
       .col-3: .col-example 3 columns
       .col-6: .col-example 6 columns
 
   :markdown
-    They look so similar, you might say the 3 column pull isn't necessary in the first.
+    They look so similar, you might say the 3 column left isn't necessary in the first.
 
-    A pull would be necessary, however, if we didn't want the last column to
-    automatically go the very right. Maybe we just want 1 column of space
+    A left would be necessary, however, if we didn't want the last column to
+    automatically go the very left. Maybe we just want 1 column of space
     between the two.
 
   .example
     .row
       .col-3: .col-example 3 columns
-      .col-6.col-pull-1: .col-example 6 columns with 1 column pull
+      .col-6.col-left-1: .col-example 6 columns with 1 column left
 
   :markdown
     As you can see, it still looks the same. This is for the same reason. The
@@ -303,26 +266,26 @@ block variations
   .example
     .row
       .col-3: .col-example 3 columns
-      .col-6.col-pull-1: .col-example 6 columns with 1 column pull
+      .col-6.col-left-1: .col-example 6 columns with 1 column left
       .col-2: .col-example 2 columns
 
   :markdown
-    But what if we wanted the columns to feed in from left to right, without the
+    But what if we wanted the columns to feed in from right to left, without the
     automatic spacing in between (with the exception of the gutters)?
 
-    This is where push is handy. Just as we can pull the columns to the right, we
-    can also push the columns to the left.
+    This is where right is handy. Just as we can left the columns to the left, we
+    can also right the columns to the right.
 
   .example
     .row
       .col-3: .col-example 3 columns
-      .col-6.col-push-3: .col-example 6 columns with 3 column push
+      .col-6.col-right-3: .col-example 6 columns with 3 column right
       .col-3: .col-example 3 columns
       .col-6: .col-example 6 columns
 
   :markdown
     Because we already have a total of 9 columns used up, we need to
-    finish (push) the remaining three to complete 12 columns.
+    finish (right) the remaining three to complete 12 columns.
 
   .ifnot-semantic
     :markdown
@@ -332,7 +295,7 @@ block variations
           <div class="col-3">
             Three columns
           </div>
-          <div class="col-6 col-push-3">
+          <div class="col-6 col-right-3">
             Six columns
           </div>
 
@@ -352,18 +315,62 @@ block variations
             @include column(3); // 3 columns
           }
           .events {
-            @include column(6, 0, 3); // 6 columns, 0 pull, 3 push
-            @include column($columns: 6, $push: 3) // Alternative way of writing the above.
+            @include column(6, 0, 3); // 6 columns, 0 left, 3 right
+            @include column($columns: 6, $right: 3) // Alternative way of writing the above.
           }
 
-  h3 Shortcuts
-  p Pulls can also use semantic shortcuts.
+  h2 Left offsets
+
+  p Right offsets will take care of most of your offset needs, but in some rare cases, a left offset is needed.
+
+  .example
+    .row
+      .col-left-6.col-6: .col-example six columns with six column left
 
   .ifnot-semantic
     :markdown
       <span>
 
-          <div class="col-third col-pull-twothirds">
+          ...
+          <div class="col-left-6 col-6">
+            Six columns
+          </div>
+
+  .if-semantic
+    :markdown
+      <span>
+
+          ...
+          <div class="reminder">
+            Six columns
+          </div>
+
+          .reminder {
+            @include column(6, 6);
+          }
+
+  .example
+    .row
+      .col-left-2.col-10: .col-example 10 columns with 2 column left
+    .row
+      .col-3: .col-example 3 columns
+      .col-6.col-left-3: .col-example 6 columns with 3 column left
+    .row
+      .col-left-4.col-4: .col-example 4 columns with 4 column left
+
+
+  h3 Shortcuts
+  p lefts can also use semantic shortcuts.
+
+  .example
+    .row
+      .col-third.col-right-twothirds: .col-example One third with two-third right
+
+  .ifnot-semantic
+    :markdown
+      <span>
+
+          <div class="col-third col-right-twothirds">
             ...
           </div>
 
@@ -376,10 +383,10 @@ block variations
           </div>
 
           .blurb {
-            @include column('third, twothirds');
+            @include column('third, 0, twothirds');
           }
 
-  p In the above example, the column and the pull will revert to 1/2 width on tablet. On mobile, the pull will disappear and the column will be full-width.
+  p In the above example, the column and the right will revert to 1/2 width on tablet. On mobile, the right offset will disappear and the column will be full-width.
 
   h2 Nesting
 
@@ -463,6 +470,7 @@ block variations
 
 
   h2#responsive Responsive
+  p Remember that using shortcut classes will automatically make your grid responsive. See "shortcuts" above.
 
   .ifnot-semantic
     :markdown
@@ -549,22 +557,22 @@ block variations
             </section>
           </div>
 
-    h3#pulls
+    h3#lefts
 
     :markdown
-      For mobile pulls, we use the form:
+      For mobile lefts, we use the form:
 
-          .col-pull-[size]-[columns]
+          .col-left-[size]-[columns]
 
-      If we wanted our "Get in touch" section above to half-sized and pull by
+      If we wanted our "Get in touch" section above to half-sized and left by
       half on a medium-sized display, we could add this:
 
-          <section class="col-12 col-md-6 col-pull-md-6 col-lg-4">
+          <section class="col-12 col-md-6 col-left-md-6 col-lg-4">
             <h1>Get in touch</h1>
             <p>...</p>
           </section>
 
-      The pull will automatically remove itself if a `col-lg` column definition
+      The left will automatically remove itself if a `col-lg` column definition
       is declared.
 
   .if-semantic
