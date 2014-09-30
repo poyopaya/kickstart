@@ -25,6 +25,15 @@ $xl-monitor: 1400px
 $grid-columns: 12
 $grid-gutter: 15px
 
+// Grid breakpoints
+// ----------------
+// Critical breakpoints where offsets and alternative grid styles will
+// be displayed
+
+$showOffsets:        $tablet-landscape // Offsets render at this breakpoint
+$showPartialColumns: $tablet           // Simpler alternative to actual columns
+$showFullColumns:    $desktop          // Actual user-defined column measurement
+
 =container
   margin: 0px auto
   display: block
@@ -33,7 +42,7 @@ $grid-gutter: 15px
     left: 25px
     right: 25px
 
-  @media screen and (min-width: $tablet-landscape)
+  @media screen and (min-width: $showOffsets)
     max-width: $desktop
 
   @media screen and (min-width: $large-monitor)
@@ -46,23 +55,34 @@ $grid-gutter: 15px
   align-items: stretch
   flex-wrap: wrap
 
+=measure-columns($columns, $prop)
+  // TODO: DRY this somehow?
+  @if $prop == "width"
+    width: calc(#{percentage($columns/$grid-columns)} - #{$grid-gutter}) 
+
+  @else if $prop == "margin-left"
+    margin-left: calc(#{percentage($columns/$grid-columns)} - #{$grid-gutter}) 
+
+  @else if $prop == "margin-right"
+    margin-right: calc(#{percentage($columns/$grid-columns)} - #{$grid-gutter}) 
+
 =set-offset($columns, $type: 'push')
   @if $type == 'push'
-    @media screen and (min-width: $desktop)
+    @media screen and (min-width: $showFullColumns)
       margin-right: calc(#{percentage($columns/$grid-columns)} + #{$grid-gutter})
   @else if $type == 'pull'
-    @media screen and (min-width: $desktop)
+    @media screen and (min-width: $showFullColumns)
       margin-left: calc(#{percentage($columns/$grid-columns)} + #{$grid-gutter})
 
 =push($columns)
   @if $columns == "half"
     +set-offset(6)
   @else if $columns == "third"
-    @media screen and (min-width: $tablet)
+    @media screen and (min-width: $showPartialColumns)
       +set-offset(6)
     +set-offset(4)
   @else if $columns == "twothirds"
-    @media screen and (min-width: $tablet)
+    @media screen and (min-width: $showPartialColumns)
       +set-offset(6)
     +set-offset(4)
   @else
@@ -72,24 +92,21 @@ $grid-gutter: 15px
   @if $columns == "half"
     +set-offset(6, 'pull')
   @else if $columns == "third"
-    @media screen and (min-width: $tablet)
+    @media screen and (min-width: $showPartialColumns)
       +set-offset(6, 'pull')
     +set-offset(4, 'pull')
   @else if $columns == "twothirds"
-    @media screen and (min-width: $tablet)
+    @media screen and (min-width: $showPartialColumns)
       +set-offset(6, 'pull')
     +set-offset(4, 'pull')
   @else
     +set-offset($columns, 'pull')
 
 =set-column($columns, $pull, $push)
-  width: 100%
+  +measure-columns($columns, "width")
+  clear: none
   display: block
   margin-left: 0
-
-  @media screen and (min-width: $phablet)
-    width: calc(#{percentage($columns/$grid-columns)} - #{$grid-gutter})
-    clear: none
 
   @if $pull != 0
     +pull($pull)
@@ -98,20 +115,27 @@ $grid-gutter: 15px
     +push($push)
 
 =column($columns: 12, $pull: 0, $push: 0)
+  // Everything is a full width column on mobile by default
   +set-column(12, 0, 0)
+
+  // Look for keywords
   @if $columns == "half"
-    @media screen and (min-width: $tablet)
+    @media screen and (min-width: $showPartialColumns)
       +set-column($grid-columns/2, $pull, $push)
+
   @else if $columns == "third"
-    @media screen and (min-width: $phablet)
+    @media screen and (min-width: $showPartialColumns)
       +set-column($grid-columns/2, $pull, $push)
-    @media screen and (min-width: $tablet)
+    @media screen and (min-width: $showFullColumns)
       +set-column($grid-columns/3, $pull, $push)
+
   @else if $columns == "twothirds"
-    @media screen and (min-width: $phablet)
+    @media screen and (min-width: $showPartialColumns)
       +set-column($grid-columns/2, $pull, $push)
-    @media screen and (min-width: $tablet)
+    @media screen and (min-width: $showFullColumns)
       +set-column(($grid-columns * 2/3), $pull, $push)
+      
   @else
-    @media screen and (min-width: $tablet)
+    // No keywords found, pass in values.
+    @media screen and (min-width: $showPartialColumns)
       +set-column($columns, $pull, $push)
