@@ -7,3 +7,4 @@ testDropdownButtons = require '../tests/dropdown-buttons'
 
 testStatus          = require '../tests/status'
 testDebouncer       = require '../tests/debouncer'
+testBuffer          = require '../tests/buffer'
