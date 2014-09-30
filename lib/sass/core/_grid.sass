@@ -58,7 +58,7 @@ $showFullColumns:    $desktop          // Actual user-defined column measurement
 =measure-columns($columns, $prop)
   // TODO: DRY this somehow?
   @if $prop == "width"
-    width: calc(#{percentage($columns/$grid-columns)} - #{$grid-gutter}) 
+    width: calc((100% - (#{$grid-gutter * ($grid-columns/$columns) + $grid-gutter}))/#{$grid-columns/$columns})
 
   @else if $prop == "margin-left"
     margin-left: calc(#{percentage($columns/$grid-columns)} - #{$grid-gutter}) 
@@ -92,6 +92,12 @@ $showFullColumns:    $desktop          // Actual user-defined column measurement
   @else
     @media screen and (min-width: $showPartialColumns)
       +measure-columns($columns, $side)
+
+// Convenience mixins
+=pull($columns)
+  +set-offset($columns, "margin-right")
+=push($columns)
+  +set-offset($columns, "margin-left")
 
 =set-column($columns, $pull, $push)
   +measure-columns($columns, "width")

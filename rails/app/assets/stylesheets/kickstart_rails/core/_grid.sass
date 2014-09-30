@@ -58,7 +58,7 @@ $showFullColumns:    $desktop          // Actual user-defined column measurement
 =measure-columns($columns, $prop)
   // TODO: DRY this somehow?
   @if $prop == "width"
-    width: calc(#{percentage($columns/$grid-columns)} - #{$grid-gutter}) 
+    width: calc((100% - (#{$grid-gutter * ($grid-columns/$columns) + $grid-gutter}))/#{$grid-columns/$columns})
 
   @else if $prop == "margin-left"
     margin-left: calc(#{percentage($columns/$grid-columns)} - #{$grid-gutter}) 
@@ -66,41 +66,38 @@ $showFullColumns:    $desktop          // Actual user-defined column measurement
   @else if $prop == "margin-right"
     margin-right: calc(#{percentage($columns/$grid-columns)} - #{$grid-gutter}) 
 
-=set-offset($columns, $type: 'push')
-  @if $type == 'push'
-    @media screen and (min-width: $showFullColumns)
-      margin-right: calc(#{percentage($columns/$grid-columns)} + #{$grid-gutter})
-  @else if $type == 'pull'
-    @media screen and (min-width: $showFullColumns)
-      margin-left: calc(#{percentage($columns/$grid-columns)} + #{$grid-gutter})
+=set-offset($columns, $side: "margin-right")
+  // Never show pushes and pulls on mobile
+  +measure-columns(0, $side)
 
-=push($columns)
+  // Look for keywords
   @if $columns == "half"
-    +set-offset(6)
+    @media screen and (min-width: $showPartialColumns)
+      +measure-columns(6, $side)
+
   @else if $columns == "third"
     @media screen and (min-width: $showPartialColumns)
-      +set-offset(6)
-    +set-offset(4)
+      +measure-columns(6, $side)
+
+    @media screen and (min-width: $showFullColumns)
+      +measure-columns(4, $side)
+
   @else if $columns == "twothirds"
     @media screen and (min-width: $showPartialColumns)
-      +set-offset(6)
-    +set-offset(4)
-  @else
-    +set-offset($columns)
+      +measure-columns(6, $side)
 
+    @media screen and (min-width: $showFullColumns)
+      +measure-columns(8, $side)
+
+  @else
+    @media screen and (min-width: $showPartialColumns)
+      +measure-columns($columns, $side)
+
+// Convenience mixins
 =pull($columns)
-  @if $columns == "half"
-    +set-offset(6, 'pull')
-  @else if $columns == "third"
-    @media screen and (min-width: $showPartialColumns)
-      +set-offset(6, 'pull')
-    +set-offset(4, 'pull')
-  @else if $columns == "twothirds"
-    @media screen and (min-width: $showPartialColumns)
-      +set-offset(6, 'pull')
-    +set-offset(4, 'pull')
-  @else
-    +set-offset($columns, 'pull')
+  +set-offset($columns, "margin-right")
+=push($columns)
+  +set-offset($columns, "margin-left")
 
 =set-column($columns, $pull, $push)
   +measure-columns($columns, "width")
@@ -109,10 +106,10 @@ $showFullColumns:    $desktop          // Actual user-defined column measurement
   margin-left: 0
 
   @if $pull != 0
-    +pull($pull)
+    +set-offset($pull, "margin-right")
 
   @if $pull != 0
-    +push($push)
+    +set-offset($push, "margin-left")
 
 =column($columns: 12, $pull: 0, $push: 0)
   // Everything is a full width column on mobile by default
