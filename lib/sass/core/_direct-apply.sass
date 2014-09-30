@@ -2,7 +2,7 @@
 // ===================
 // Regardless of semantic or non-semantic usage, some styles
 // Should be applied directly to classes or elements no matter
-// what. This include should be included near the end of the 
+// what. This include should be included near the end of the
 // import chain but before kickstart.sass to accomplish this.
 
 // Buttons
@@ -25,9 +25,13 @@ input[type="file"]::-webkit-file-upload-button
   position: fixed
   top: $space
   right: $space
+  padding: 0px $space/2
   z-index: 1000
-  width: 250px
+  width: 300px
   overflow: auto
+
+  .growl
+    box-shadow: 0px 0px $space/2 rgba(0, 0, 0, 0.5)
 
 // Tooltips
 // --------
@@ -80,7 +84,7 @@ input[type="file"]::-webkit-file-upload-button
     &:after, &:before
       opacity: 1
 
-    &:after 
+    &:after
       transform: translateY(-8px)
       transition: transform 0.25s
 

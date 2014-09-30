@@ -35,6 +35,14 @@
 .alert
   +alert
 
+  &.alert-red
+    background: map-get($colors, red)
+  &.alert-green
+    background: map-get($colors, green)
+  &.alert-yellow
+    background: map-get($colors, yellow)
+    color: $default-font-color
+
 // BUTTONS
 // -------
 .button

@@ -71,8 +71,33 @@ document.addEventListener 'DOMContentLoaded', ->
   # Show growls
   if k$.$('#example-showGrowl')
     k$.$('#example-showGrowl').addEventListener 'click', ->
-      k$.growl
-        title: "hey"
+      growls = [
+        {
+          title: 'Document Saved.',
+          text: 'Your document was successfully saved.'
+          type: 'alert-green'
+        },
+        {
+          title: 'Library book not found'
+          text: 'Sorry, we could find that library book.',
+          type: 'alert-red'
+        },
+        {
+          title: 'Wide clearance selection',
+          text: 'Remember to check out our clearance',
+          type: 'alert-blue'
+        },
+        {
+          title: 'Deadline approaching',
+          text: 'Friendly reminder that your deadline is quickly approaching.',
+          type: 'alert-yellow'
+        }
+      ]
+
+      k$.exampleCounter++
+      k$.exampleCounter = 0 if not k$.exampleCounter or k$.exampleCounter > 3
+
+      k$.growl growls[k$.exampleCounter]
 
   # Show status message
   if k$.$('#example-showStatus')
