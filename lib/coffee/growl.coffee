@@ -20,7 +20,7 @@ growl = (params) ->
     growl = document.createElement 'div'
 
     # Add appropriate classes
-    className = "alert growl #{params.type} growl-#{params.id}"
+    className = "alert growl show #{params.type} growl-#{params.id}"
     growl.className = className
 
     # Add content
@@ -38,7 +38,17 @@ growl = (params) ->
     if delay > 0
       do (delay, id) ->
         setTimeout ->
-          k$.$('.growl_container').removeChild k$.$(".growl-#{id}")
+          $growl = k$.$(".growl-#{id}")
+          $growl.classList.remove('show')
+          $newGrowl = $growl.cloneNode true
+          $growl.parentNode.replaceChild $newGrowl, $growl
+          $newGrowl.classList.add('hide')
+
+          do (delay, id) ->
+            setTimeout ->
+              # Remove ghost growls
+              k$.$('.growl_container').parentNode.removeChild k$.$('.growl_container') if not k$.$$('.growl.show').length
+            , 500
         , delay
 
 k$.growl = growl
