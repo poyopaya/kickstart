@@ -58,13 +58,13 @@ $showFullColumns:    $desktop          // Actual user-defined column measurement
 =measure-columns($columns, $prop)
   // TODO: DRY this somehow?
   @if $prop == "width"
-    width: calc(#{percentage($columns/$grid-columns)} - #{($grid-columns/$columns - 1) * $grid-columns}px)
+    width: calc(#{percentage($columns/$grid-columns)} - #{(($grid-columns/$columns - 1) * $grid-gutter)/($grid-columns/$columns)})
 
   @else if $prop == "margin-left"
-    margin-left: calc(#{percentage($columns/$grid-columns)} - #{$grid-gutter}) 
+    margin-left: calc(#{percentage($columns/$grid-columns)} - #{(($grid-columns/$columns - 1) * $grid-gutter)/($grid-columns/$columns)})
 
   @else if $prop == "margin-right"
-    margin-right: calc(#{percentage($columns/$grid-columns)} - #{$grid-gutter}) 
+    margin-right: calc(#{percentage($columns/$grid-columns)} - #{(($grid-columns/$columns - 1) * $grid-gutter)/($grid-columns/$columns)})
 
 =set-offset($columns, $side: "margin-right")
   // Never show pushes and pulls on mobile
