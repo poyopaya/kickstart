@@ -315,7 +315,7 @@ block variations
             @include column(3); // 3 columns
           }
           .events {
-            @include column(6, 0, 3); // 6 columns, 0 left, 3 right
+            @include column(6, 3); // 6 columns, 3 right
             @include column($columns: 6, $right: 3) // Alternative way of writing the above.
           }
 
@@ -346,7 +346,7 @@ block variations
           </div>
 
           .reminder {
-            @include column(6, 6);
+            @include column(6, 0, 6);
           }
 
   .example
@@ -383,7 +383,7 @@ block variations
           </div>
 
           .blurb {
-            @include column('third, 0, twothirds');
+            @include column('third, twothirds');
           }
 
   p In the above example, the column and the right will revert to 1/2 width on tablet. On mobile, the right offset will disappear and the column will be full-width.
