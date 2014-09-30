@@ -21,6 +21,7 @@ $tablet-landscape: 960px
 $desktop: 1024px
 $large-monitor: 1200px
 $xl-monitor: 1400px
+$xxl-monitor: 1800px
 
 $grid-columns: 12
 $grid-gutter: 15px
@@ -46,7 +47,7 @@ $showFullColumns:    $desktop          // Actual user-defined column measurement
   @media screen and (min-width: $showOffsets)
     max-width: $desktop
 
-  @media screen and (min-width: $large-monitor)
+  @media screen and (min-width: $xxl-monitor)
     max-width: $large-monitor
 
 =row
@@ -109,7 +110,7 @@ $showFullColumns:    $desktop          // Actual user-defined column measurement
   @if $right != 0
     +set-offset($right, "margin-right")
 
-  @if $right != 0
+  @if $left != 0
     +set-offset($left, "margin-left")
 
 =column($columns: 12, $right: 0, $left: 0)
