@@ -5,7 +5,7 @@ buffer = (fn, delay) ->
   if not k$.bufferArray.length
     k$.bufferArray = new Array()
 
-    delay = delay || 2000
+    delay = delay || 500
 
     # Create an interval to fire the fns in bufferArray
     i = 1

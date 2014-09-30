@@ -68,6 +68,12 @@ document.addEventListener 'DOMContentLoaded', ->
           console.log settings.viewOptions
           setSettings settings
 
+  # Show growls
+  if k$.$('#example-showGrowl')
+    k$.$('#example-showGrowl').addEventListener 'click', ->
+      k$.growl
+        title: "hey"
+
   # Show status message
   if k$.$('#example-showStatus')
     k$.$('#example-showStatus').addEventListener 'click', ->
@@ -126,4 +132,3 @@ document.addEventListener 'DOMContentLoaded', ->
     $targetNode.appendChild $menuItem
 
   console.log $toc
-

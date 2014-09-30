@@ -65,6 +65,12 @@ block variations
           id: 'token' // Optional
         })
 
+    Growls are also fed through `k$.buffer` as a UX concern to prevent
+    overloading the screen with messages. By default, only one growl can show per
+    half second. Subsequent growls will be buffered and shown after others have
+    been dismissed. See [buffers](/docs/#{docsVersion}/throttling) for more
+    information.
+
   .if-semantic
     :markdown
       Growls reuse the styles for alerts. Because you're using this library

@@ -1,28 +1,45 @@
 growl = (params) ->
 
-  # Create growl container
-  if not k$.$$('.growl_container').length
-    growlContainer = document.createElement 'div'
-    growlContainer.className = 'growl_container'
-    document.body.appendChild growlContainer
+  k$.buffer ->
+    defaults =
+      title: undefined
+      text: undefined
+      delay: 2000
+      type: 'alert-warn'
+      id: Date.now()
 
-  # Create growl
-  growl = document.createElement 'div'
+    params = k$.extend defaults, params
 
-  # Add appropriate classes
-  className = "alert growl"
-  className += "#{params.type}" if params.type
-  growl.className = className
+    # Create growl container
+    if not k$.$$('.growl_container').length
+      growlContainer = document.createElement 'div'
+      growlContainer.className = 'growl_container'
+      document.body.appendChild growlContainer
 
-  # Add content
-  content = ""
-  content += "<h1>#{params.title}</h1>" if params.title
-  content += "<p>#{params.text}</p>" if params.text
-  growl.innerHTML = content
+    # Create growl
+    growl = document.createElement 'div'
 
-  # Append child to container
-  k$.$('.growl_container').appendChild growl
+    # Add appropriate classes
+    className = "alert growl #{params.type} growl-#{params.id}"
+    growl.className = className
 
+    # Add content
+    content = ""
+    content += "<h1>#{params.title}</h1>" if params.title
+    content += "<p>#{params.text}</p>" if params.text
+    growl.innerHTML = content
+
+    # Append child to container
+    k$.$('.growl_container').appendChild growl
+
+    delay = params.delay
+    id = params.id
+
+    if delay > 0
+      do (delay, id) ->
+        setTimeout ->
+          k$.$(".growl-#{id}").style.display = "none"
+        , delay
 
 k$.growl = growl
 
