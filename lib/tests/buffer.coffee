@@ -27,7 +27,7 @@ describe "Buffer", (done) ->
         done()
       else
         console.error "xArray was #{xArray}"
-    , 2100
+    , 510
 
   it "Should execute all functions 2s between each other (2/2)", (done) ->
     this.timeout 520
@@ -37,4 +37,4 @@ describe "Buffer", (done) ->
         done()
       else
         console.error "xArray was #{xArray}"
-    , 2100
+    , 510
