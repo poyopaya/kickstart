@@ -58,7 +58,7 @@ $showFullColumns:    $desktop          // Actual user-defined column measurement
 =measure-columns($columns, $prop)
   // TODO: DRY this somehow?
   @if $prop == "width"
-    width: calc((100% - (#{$grid-gutter * ($grid-columns/$columns) + $grid-gutter}))/#{$grid-columns/$columns})
+    width: calc(#{percentage($columns/$grid-columns)} - #{($grid-columns/$columns - 1) * $grid-columns}px)
 
   @else if $prop == "margin-left"
     margin-left: calc(#{percentage($columns/$grid-columns)} - #{$grid-gutter}) 
