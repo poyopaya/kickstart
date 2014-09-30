@@ -13,7 +13,7 @@ Kickstart is a front-end framework for clean HTML and fast performance
 
 For deployment, read [this codeship tutorial](http://blog.codeship.io/2014/02/04/continuous-deployment-static-pages-amazon-s3.html)
 
-## Quickstart
+## Quickstart with Gulp
 
 Clone the repository and run `make` in the directory created. This is only required when starting the project.
 
@@ -21,9 +21,9 @@ Run gulp to again build and watch the project. A browser tab should open in your
 default browser automatically when ready. You'll also get an external URL you
 can use on other devices.
 
-## Building Rails Gem
+## Going further
 
-Run `make build-rails`. This will build the project and a new gem but will not push the gem to rubygems.org.
-
-To push to rubygems, simply enter (in the rails dir) `gem push kickstart_rails-X.X.X.gem`. Replace
-the Xs with the version number of course.
+If when running the `gulp` command, node warns you a module is missing, a
+dependency probably wasn't installed. It may be enough to run `npm install` again
+to catch the missing dependency. In some cases, this problem can be solved by
+deleting the `node_modules` directory and running `npm install` again.
