@@ -61,10 +61,10 @@ $showFullColumns:    $desktop          // Actual user-defined column measurement
     width: calc(#{percentage($columns/$grid-columns)} - #{(($grid-columns/$columns - 1) * $grid-gutter)/($grid-columns/$columns)})
 
   @else if $prop == "margin-left"
-    margin-left: calc(#{percentage($columns/$grid-columns)} - #{(($grid-columns/$columns - 1) * $grid-gutter)/($grid-columns/$columns)})
+    margin-left: calc(#{percentage($columns/$grid-columns)} - #{(($grid-columns/$columns - 1) * $grid-gutter)/($grid-columns/$columns) - $grid-gutter})
 
   @else if $prop == "margin-right"
-    margin-right: calc(#{percentage($columns/$grid-columns)} - #{(($grid-columns/$columns - 1) * $grid-gutter)/($grid-columns/$columns)})
+    margin-right: calc(#{percentage($columns/$grid-columns)} - #{(($grid-columns/$columns - 1) * $grid-gutter)/($grid-columns/$columns) - $grid-gutter})
 
 =set-offset($columns, $side: "margin-right")
   // Never show pushes and pulls on mobile
