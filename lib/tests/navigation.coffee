@@ -5,8 +5,10 @@ describe 'k$.nav()', ->
   it 'should return a DOM element', ->
     expect(k$.nav('#test-nav')).to.be.a('object')
 
-  it 'should create a responsive button', ->
-    expect(k$.$$('#test-nav .navbar-button').length).to.be(true)
+  it 'should add an "expand" class when the responsive button is clicked', ->
+    assert(!k$.$('#test-nav nav').classList.contains('expand'), 'Does not contain expand class')
+    k$.testClick k$.$('#test-nav .navbar-title button')
+    assert(k$.$('#test-nav nav').classList.contains('expand'), 'Does contain expand class')
 
   it 'should open submenus on click', ->
     assert(!k$.$('#test-nav #test-nav-subparent').classList.contains('open'), 'Does not contain open class')

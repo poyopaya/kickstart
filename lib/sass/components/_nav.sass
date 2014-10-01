@@ -26,6 +26,12 @@
       justify-content: space-between
       align-content: space-between
 
+
+    &.expand
+      @if $collapse == true
+        > ul > li
+          display: block
+
     h1
       margin-bottom: 0
       font-size: $base-font-size
