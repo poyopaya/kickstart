@@ -31,7 +31,6 @@ nav = (el) ->
       else
         $nav.classList.add 'expand'
 
-
 k$.nav = nav
 
 module.exports = nav

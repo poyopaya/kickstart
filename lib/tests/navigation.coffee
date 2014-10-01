@@ -2,8 +2,7 @@ assert = require("chai").assert
 expect = require("chai").expect
 
 describe 'k$.nav()', ->
-  it 'should return a DOM element', ->
-    expect(k$.nav('#test-nav')).to.be.a('object')
+  k$.nav('#test-nav')
 
   it 'should add an "expand" class when the responsive button is clicked', ->
     assert(!k$.$('#test-nav nav').classList.contains('expand'), 'Does not contain expand class')
