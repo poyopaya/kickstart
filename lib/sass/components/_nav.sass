@@ -4,7 +4,7 @@
   @else
     color: rgba(0, 0, 0, 0.5)
 
-=navbar-default($bleed-container: false, $background: map-get($white, dark), $breakpoint: $tablet)
+=navbar-default($bleed-container: false, $background: map-get($white, dark), $breakpoint: $tablet, $collapse: false)
   background: $background
   box-shadow: 0px 1px 0px darken($background, 12%) inset
   font-size: 0.9rem
@@ -12,16 +12,19 @@
   nav
     width: 100%
     border-radius: 0
-    display: flex
-    align-items: flex-start
-    flex-wrap: wrap
-    justify-content: space-between
-    align-content: space-between 
+    position: relative
 
     @if (lightness($background) < 75%)
       color: white
     @else
       color: $default-font-color
+
+    @media screen and (min-width: $breakpoint)
+      display: flex
+      align-items: flex-start
+      flex-wrap: wrap
+      justify-content: space-between
+      align-content: space-between
 
     h1
       margin-bottom: 0
@@ -31,12 +34,13 @@
     p
       margin: 0
 
-    @if ($bleed-container)
-      > ul:first-child
-        margin-left: (-1 * map-get($rootElement, paddingH))
+    @media screen and (min-width: $breakpoint)
+      @if ($bleed-container)
+        > ul:first-child
+          margin-left: (-1 * map-get($rootElement, paddingH))
 
-      > ul:last-child
-        margin-right: (-1 * map-get($rootElement, paddingH))
+        > ul:last-child
+          margin-right: (-1 * map-get($rootElement, paddingH))
 
     > ul
       margin: 0
@@ -49,7 +53,8 @@
         align-items: center
         flex-wrap: wrap
 
-        &:last-child
+      &:last-child
+        @media screen and (min-width: $breakpoint)
           > li.with-submenu.open
             ul
               left: auto
@@ -67,14 +72,25 @@
           right: map-get($rootElement, paddingH)
         position: relative
 
-        &.navbar-button
+        @if $collapse == true
+          display: none
+
+          @media screen and (min-width: $breakpoint)
+            display: block
+
+        &.navbar-title
+          display: flex
+          justify-content: space-between
+          align-items: center
+
           button
             +button(transparent)
             border-color: transparent
             color: inherit
+            display: block
 
-          @media screen and (min-width: $breakpoint)
-            display: none
+            @media screen and (min-width: $breakpoint)
+              display: none
 
         &.with-submenu // Added via k$.nav()
           padding: (2 * map-get($rootElement, paddingV) - 1) (map-get($rootElement, paddingH))
@@ -144,4 +160,3 @@
           &:active
             background: darken($background, 15%)
             border-color: darken($background, 15%)
-

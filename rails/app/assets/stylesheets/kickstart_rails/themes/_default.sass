@@ -191,8 +191,8 @@ hr
 // Navigation
 // ----------
 
-=navbar($bleed-container: false, $background: map-get($white, dark))
-  +navbar-default($bleed-container, $background)
+=navbar($bleed-container: false, $background: map-get($white, dark), $collapse: true)
+  +navbar-default($bleed-container, $background, $collapse)
 
 =dropdown_menu
   +dropdown_menu-default
