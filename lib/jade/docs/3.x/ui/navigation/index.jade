@@ -475,7 +475,25 @@ block variations
           </ul>
         </div>
 
-  h3 Other options
+  h2 Responsive
+  :markdown
+    To use a collapse button on the navbar instead of flowing the menu items, you'll need to define a few settings.
+
+        .navbar {
+          @include navbar($breakpoint: $tablet);
+        }
+
+    The `$breakpoint` is simply the screen width at which responsive styling
+    should cease to be applied. In the above example, we use one of the provided
+    screen size variables. However, you may also pass in a css measurement value.
+
+        @include navbar($breakpoint: 768px);
+        @include navbar($breakpoint: 200em);
+        @include navbar($breakpoint: 500pt);
+
+  +screen-sizes
+
+  h2 Other options
   p Adding the <code>disabled</code> attribute will signal to the user the option is not available.
 
   .pagination

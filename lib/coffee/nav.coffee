@@ -4,7 +4,8 @@ nav = (el) ->
     # Add a responsive button to the last ul
     if k$.$(el).querySelectorAll('nav > ul').length > 1
       $button = document.createElement 'li'
-      $button.innerHTML = "<button class='navbar-button' role='button'>+</button>"
+      $button.className = "navbar-button"
+      $button.innerHTML = "<button role='button'>+</button>"
       k$.$(el).querySelector('nav > ul:last-child').appendChild $button
     
     # Wire up menu items
