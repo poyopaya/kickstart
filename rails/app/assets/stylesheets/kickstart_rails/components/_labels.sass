@@ -6,5 +6,8 @@
   line-height: normal
   font-weight: bold
 
+  @if $background-color == map-get($colors, yellow)
+    color: $default-font-color
+
   &:after
     border-top-color: $background-color

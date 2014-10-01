@@ -65,6 +65,9 @@
           right: map-get($rootElement, paddingH)
         position: relative
 
+        .navbar-button
+          +button(transparent)
+
         &.with-submenu // Added via k$.nav()
           padding: (2 * map-get($rootElement, paddingV) - 1) (map-get($rootElement, paddingH))
           +color($background)

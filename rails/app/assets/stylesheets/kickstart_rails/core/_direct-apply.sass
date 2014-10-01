@@ -49,14 +49,23 @@ input[type="file"]::-webkit-file-upload-button
 .status_bar
   +status_bar
     .status_bar-status
-      &.status-red
+      &[data-type="status-red"]
         +label(map-get($colors, red))
 
-      &.status-orange
-        background-color: map-get($colors, orange)
+      &[data-type="status-orange"]
+        +label(map-get($colors, orange))
 
-      &.status-yellow
-        background-color: map-get($colors, yellow)
+      &[data-type="status-yellow"]
+        +label(map-get($colors, yellow))
+
+      &[data-type="status-green"]
+        +label(map-get($colors, green))
+
+      &[data-type="status-blue"]
+        +label(map-get($colors, blue))
+
+      &[data-type="status-violet"]
+        +label(map-get($colors, violet))
 
 // Tooltips
 // --------

@@ -368,6 +368,22 @@ block granular
                 li
                   a(href="#") Option 2
 
+  .if-semantic
+    :markdown
+      To specify a size, specify a scale for `$size` (1 = 100%)
+
+      For example,
+
+           .button {
+             @include button($size: 1); // Default size
+           }
+           .button.button-large
+             @include button($size: 1.2); // Large
+           }
+           .button.button-small
+             @include button($size: 0.85); // Small
+           }
+
   h2 Mixing
 
   .example
@@ -447,3 +463,14 @@ block granular
                   a(href="#") Option 1
                 li
                   a(href="#") Option 2
+
+  .if-semantic
+    :markdown
+      To specify a both a color and size, specify a scale for `$size` (1 = 100%)
+      and a color for `$background-color`
+
+      For example,
+
+           .button.button-large
+             @include button($background-color: #EEEEEE, $size: 1.2); // Large
+           }

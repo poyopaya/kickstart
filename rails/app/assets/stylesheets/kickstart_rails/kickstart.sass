@@ -228,7 +228,6 @@
 
   &.label-yellow
     +label(map-get($colors, yellow))
-    color: map-get($black, light)
 
   &.label-green
     +label(map-get($colors, green))
@@ -238,6 +237,12 @@
 
   &.label-violet
     +label(map-get($colors, violet))
+
+  &.label-primary
+    +label($primary-color)
+
+  &.label-secondary
+    +label($secondary-color)
 
 // NAVIGATION
 // ----------
