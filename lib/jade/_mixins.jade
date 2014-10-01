@@ -1,7 +1,14 @@
 // Mixins
-mixin available-colors
+mixin available-colors($prefix)
   :markdown
-    Available colors include: `red`, `orange`, `yellow`, `green`, `blue`, and `violet`
+    Available colors include: 
 
-    You may also use your theme's primary and secondary colors via `primary` and `secondary` 
+      - `#{$prefix}-red`
+      - `#{$prefix}-orange`
+      - `#{$prefix}-yellow`
+      - `#{$prefix}-green`
+      - `#{$prefix}-blue`
+      - `#{$prefix}-violet`
+
+    You may also use your theme's primary and secondary colors via `#{$prefix}-primary` and `#{$prefix}-secondary` 
 

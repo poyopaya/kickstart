@@ -43,6 +43,21 @@ input[type="file"]::-webkit-file-upload-button
 
     +growl
 
+// Status
+// ------
+
+.status_bar
+  +status_bar
+    .status_bar-status
+      &.status-red
+        +label(map-get($colors, red))
+
+      &.status-orange
+        background-color: map-get($colors, orange)
+
+      &.status-yellow
+        background-color: map-get($colors, yellow)
+
 // Tooltips
 // --------
 

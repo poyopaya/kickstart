@@ -115,16 +115,16 @@
         statuses = [
           {
             text: 'Document Saved.',
-            type: 'success'
+            type: 'status-green'
           }, {
             text: 'Sorry, we could find that library book.',
-            type: 'error'
+            type: 'status-red'
           }, {
             text: 'Remember to check out our clearance',
-            type: 'info'
+            type: 'status-blue'
           }, {
             text: 'Deadline is approaching!',
-            type: 'warn'
+            type: 'status-yellow'
           }
         ];
         k$.exampleCounter++;

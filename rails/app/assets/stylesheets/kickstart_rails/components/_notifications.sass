@@ -1,4 +1,4 @@
-=statusBar
+=status_bar
   position: fixed
   top: 0
   left: 0
@@ -7,7 +7,7 @@
   display: flex
   pointer-events: none
 
-  .status-bar_status
+  .status_bar-status
     +label(map-get($colors, yellow))
     color: black
     text-align: center
@@ -17,14 +17,4 @@
     +fadeInDown
     z-index: 1000
 
-    &[data-type="success"]
-      background-color: map-get($colors, green)
-      color: white
-
-    &[data-type="error"]
-      background-color: map-get($colors, red)
-      color: white
-
-    &[data-type="info"]
-      background-color: map-get($colors, blue)
-      color: white
+  @content

@@ -228,7 +228,6 @@
 
   &.label-yellow
     +label(map-get($colors, yellow))
-    color: map-get($black, light)
 
   &.label-green
     +label(map-get($colors, green))
@@ -239,6 +238,12 @@
   &.label-violet
     +label(map-get($colors, violet))
 
+  &.label-primary
+    +label($primary-color)
+
+  &.label-secondary
+    +label($secondary-color)
+
 // NAVIGATION
 // ----------
 
@@ -247,12 +252,6 @@
 
 .navbar-dark
   +navbar($background: map-get($black, lighter))
-
-// STATUS
-// ------
-
-.status-bar
-  +statusBar
 
 // TABLES
 // ------

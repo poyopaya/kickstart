@@ -19,7 +19,7 @@ block basic
 
         k$.status({
           text: 'Saved successfully',
-          type: 'success'
+          type: 'status-green'
         })
 
     ## Growls
@@ -47,10 +47,13 @@ block variations
         k$.status({
           text: 'Saved successfully', // No default
           delay: 2000, // Optional, 0 = forever
-          type: 'warn', // Optional, can choose warn/success/info/error
+          type: 'status-yellow', // Optional, yellow is default
           id: '' // Optional, for targeting with JavaScript
         })
 
+  +available-colors('status')
+
+  :markdown 
     ## Growls
 
     Growls have similar flexibility.
