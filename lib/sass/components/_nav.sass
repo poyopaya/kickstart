@@ -47,6 +47,12 @@
       align-items: center
       flex-wrap: wrap
 
+      &:last-child
+        > li.with-submenu.open
+          ul
+            left: auto
+            right: -1px
+
       > li
         list-style: none
         +root-element
