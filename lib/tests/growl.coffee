@@ -8,10 +8,10 @@ describe "Growl", ->
     expect(k$.$$('.growl').length).to.equal(1)
 
   it "should close growl after 2s (by default)", (done) ->
-    this.timeout 2500
+    this.timeout 2700
     setTimeout ->
       if k$.$$('.growl').length == 0
         done()
       else
         console.error "A growl was found."
-    , 2100
+    , 2600

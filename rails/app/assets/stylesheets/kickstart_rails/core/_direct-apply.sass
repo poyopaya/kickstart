@@ -23,15 +23,25 @@ input[type="file"]::-webkit-file-upload-button
 
 .growl_container
   position: fixed
-  top: $space
-  right: $space
-  padding: 0px $space/2
+  top: 0
+  right: 0
+  padding: $space/2
   z-index: 1000
   width: 300px
   overflow: auto
+  max-height: 100vh
 
   .growl
     box-shadow: 0px 0px $space/2 rgba(0, 0, 0, 0.5)
+    transition: all 0.5s
+
+    &.show, &.hide
+      +fadeInDown
+
+    &.hide
+      animation-direction: reverse
+
+    +growl
 
 // Tooltips
 // --------

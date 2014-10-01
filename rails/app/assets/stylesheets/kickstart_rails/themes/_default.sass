@@ -101,8 +101,8 @@ pre
 =heading-xs
   +heading-xs-default
 
-=xheading-xs
-  +xheading-xs-default
+=heading-xxs
+  +heading-xxs-default
 
 h1, h2, h3, h4, h5, h6
   font-family: $heading-font-family
@@ -123,7 +123,7 @@ h5
   +heading-xs
 
 h6
-  +xheading-xs
+  +heading-xxs
 
 =type
   +type-default
@@ -227,6 +227,11 @@ hr
 =form_group($orientation: 'vertical')
   +form_group-default($orientation)
 
+// Growls
+// ------
+
+=growl
+  +growl-default
 
 // Modals
 // ------
@@ -252,4 +257,5 @@ hr
 .status-bar
   +statusBar()
 
+@import ../core/_direct-apply.sass
 @import ../vendor/_index
