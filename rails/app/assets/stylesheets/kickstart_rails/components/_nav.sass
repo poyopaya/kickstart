@@ -9,11 +9,6 @@
   box-shadow: 0px 1px 0px darken($background, 12%) inset
   font-size: 0.9rem
 
-  @if $collapse
-    > ul
-      > li
-        display: none
-
   nav
     width: 100%
     border-radius: 0
@@ -30,6 +25,12 @@
       flex-wrap: wrap
       justify-content: space-between
       align-content: space-between
+
+
+    &.expand
+      @if $collapse == true
+        > ul > li
+          display: block
 
     h1
       margin-bottom: 0
@@ -77,6 +78,11 @@
           right: map-get($rootElement, paddingH)
         position: relative
 
+        @if $collapse == true
+          display: none
+
+          @media screen and (min-width: $breakpoint)
+            display: block
 
         &.navbar-title
           display: flex

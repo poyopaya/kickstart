@@ -3,6 +3,7 @@ nav = (el) ->
   try
     # Wire up menu items
     $menuItems = k$.$(el).querySelectorAll('ul > li')
+
     # Prune items that don't contain uls
     _$menuItems = new Array()
     for $menuItem in $menuItems
@@ -21,7 +22,14 @@ nav = (el) ->
   catch e
     console.error "Could not instantiate as a nav.", e.message
 
-  k$.$ el
+  $button = k$.$(el).querySelector('.navbar-title button')
+  if $button
+    $button.addEventListener 'click', ->
+      $nav = k$.$(el).querySelector('nav')
+      if $nav.classList.contains 'expand'
+        $nav.classList.remove 'expand'
+      else
+        $nav.classList.add 'expand'
 
 
 k$.nav = nav
