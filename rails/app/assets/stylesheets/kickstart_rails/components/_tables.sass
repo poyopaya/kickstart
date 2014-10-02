@@ -1,4 +1,4 @@
-=table-default
+=table-default($blank: false, $zebra: false, $hover: false)
   border-collapse: collapse
   background: white
   border-spacing: 0
@@ -31,5 +31,25 @@
     &:first-child
       border-left-width: 0
 
-  tbody tr:nth-child(2n)
-    background-color: lighten(map-get($gray, light), 50%)
+  @if $blank == true
+    +table-blank
+
+  @if $zebra == true
+    +table-zebra
+
+=table-blank
+  border-color: transparent
+  table, tr, td, tbody, thead, th, tfoot
+    border-color: transparent
+    background: transparent
+  th, td
+    padding:
+      left: 0px
+      right: 0px
+
+=table-hover
+
+=table-zebra
+  tbody, thead
+    tr:nth-child(2n+2)
+      background-color: map-get($white, darker)

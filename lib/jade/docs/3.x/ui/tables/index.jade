@@ -85,7 +85,7 @@ block variations
     this may not work with your theme either. For that reason, there
     is an option for blank tables.
 
-  table.table.blank
+  table.table.table-blank
     thead
       tr
         th First
@@ -101,7 +101,7 @@ block variations
   :markdown
     <span>
 
-        <table class="table blank">
+        <table class="table table-blank">
           <thead>
             <tr>
               <th>First</th>
@@ -124,7 +124,7 @@ block variations
     :markdown
       <span>
 
-          .table.blank {
+          .table.table-blank {
             @import table($blank: true);
           }
 
@@ -133,7 +133,7 @@ block variations
 
     ### Zebra-striping
 
-  table.table.zebra
+  table.table.table-zebra
     thead
       tr
         th First
@@ -155,7 +155,7 @@ block variations
   :markdown
     <span>
 
-        <table class="table zebra">
+        <table class="table table-zebra">
           <thead>
             <tr>
               <th>First</th>
@@ -192,7 +192,7 @@ block variations
 
   h3 Row hover
 
-  table.table.hover
+  table.table.table-hover
     thead
       tr
         th First
@@ -214,7 +214,7 @@ block variations
   :markdown
     <span>
 
-        <table class="table hover">
+        <table class="table table-hover">
           <thead>
             <tr>
               <th>First</th>
@@ -245,7 +245,7 @@ block variations
     :markdown
       <span>
 
-          .table.hover {
+          .table.table-hover {
             @import table($hover: true);
           }
 
@@ -253,7 +253,7 @@ block variations
 
   p Styles are designed to be decoupled, so they can be combined with others.
 
-  table.table.zebra.hover.blank
+  table.table.table-zebra.table-hover.table-blank
     thead
       tr
         th First
@@ -275,7 +275,7 @@ block variations
   :markdown
     <span>
 
-        <table class="table zebra hover blank">
+        <table class="table table-zebra table-hover table-blank">
           <thead>
             <tr>
               <th>First</th>
@@ -306,6 +306,6 @@ block variations
     :markdown
       <span>
 
-          .table.hover.zebra.blank {
+          .table.table-hover.table-zebra.table-blank {
             @import table($hover: true, $blank: true, $zebra: true);
           }
