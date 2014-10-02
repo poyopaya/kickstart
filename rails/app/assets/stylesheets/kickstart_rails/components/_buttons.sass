@@ -59,7 +59,7 @@
   padding: ($size * $size * map-get($rootElement, paddingV)) ($size * $size * map-get($rootElement, paddingH))
   line-height: $size * $default-line-height
   margin-bottom: 0
-  font-size: 0.9rem * $size
+  font-size: calc(0.9rem - #{$scalingFactor} * #{$size})
   border-color: hsla(0, 0%, 0%, 0.15)
   padding:
     left: $size * $size * map-get($rootElement, paddingH)
