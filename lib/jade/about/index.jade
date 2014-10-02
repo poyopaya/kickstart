@@ -1,22 +1,17 @@
-extends ../fullpage-layout
+extends ../layout
 
-block vars
-  - var twoPane = false
-
-block hero-title
-  h1 Philosophy
-
-block fullPane
+block mainpane
   :markdown
+    # About
 
     Kickstart is an effort to carve the process of website design down to its bare essentials.
 
     * Content-specific classes*
-      * Presentational class names like `.button.button__big` were great for 
+      * Presentational class names like `.button.button__big` were great for
         optimizing for code reuse. However, we already have a great decoupling
-        utility to prevent us from having to litter our HTML with these names. 
-        That utility is the *CSS Preprocessor*.  
-      * In addition to the CSS preprocessor, another tool came along called *source-mapping*. 
+        utility to prevent us from having to litter our HTML with these names.
+        That utility is the *CSS Preprocessor*.
+      * In addition to the CSS preprocessor, another tool came along called *source-mapping*.
         This allowed us to find out exactly where in the preprocessed code
         html elements were getting their styles.
       * Blocks and modifiers are assigned to mixins, never classes. This means
@@ -31,7 +26,7 @@ block fullPane
     * Customizable by design
       * Other frameworks were very hard to style. You would look at websites
         and immediately know they used a certain framework.
-      * I wanted to make something that was so easy to style, it just required 
+      * I wanted to make something that was so easy to style, it just required
         changing no more than ten variables.
       * The design of the Kickstart compilation system encourages creating
         themes by treating component styles as extensible classes.
