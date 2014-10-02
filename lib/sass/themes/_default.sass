@@ -57,6 +57,11 @@ $default-font-size: $base-font-size  // TODO: Why?
 
 @import ../core/_index
 
+// Grid
+
+=container($fluid: false)
+  +container-default($fluid)
+
 // Typography
 // ----------
 
@@ -191,8 +196,8 @@ hr
 // Navigation
 // ----------
 
-=navbar($bleed-container: false, $background: map-get($white, dark), $breakpoint: $tablet, $collapse: false)
-  +navbar-default($bleed-container, $background, $breakpoint, $collapse)
+=navbar($fluid: false, $background: map-get($white, dark), $breakpoint: $tablet, $collapse: false)
+  +navbar-default($fluid, $background, $breakpoint, $collapse)
 
 =dropdown_menu
   +dropdown_menu-default

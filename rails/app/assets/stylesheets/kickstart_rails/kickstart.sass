@@ -250,8 +250,11 @@
 .navbar
   +navbar
 
-.navbar-dark
-  +navbar($background: map-get($black, lighter))
+  &.navbar-fluid
+    +navbar($fluid: true)
+
+  &.navbar-dark
+    +navbar($background: map-get($black, lighter))
 
 // TABLES
 // ------

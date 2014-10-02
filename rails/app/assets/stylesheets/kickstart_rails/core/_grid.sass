@@ -36,19 +36,22 @@ $showColumns:        $phablet          // Allow < 12 columns
 $showPartialColumns: $tablet           // Simpler alternative to actual columns
 $showFullColumns:    $desktop          // Actual user-defined column measurement
 
-=container
+=container-default($fluid: false)
   margin: 0px auto
   display: block
-  max-width: $tablet
+  
+  @if $fluid == false
+    max-width: $tablet
   padding:
     left: 25px
     right: 25px
 
-  @media screen and (min-width: $showOffsets)
-    max-width: $desktop
+  @if $fluid == false
+    @media screen and (min-width: $showOffsets)
+      max-width: $desktop
 
-  @media screen and (min-width: $xxl-monitor)
-    max-width: $large-monitor
+    @media screen and (min-width: $xxl-monitor)
+      max-width: $large-monitor
 
 =row
   display: flex

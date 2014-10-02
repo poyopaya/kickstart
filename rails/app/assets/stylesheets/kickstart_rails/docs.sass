@@ -28,8 +28,7 @@
     +column(8, 2, 2)
 
 .main-navigation
-  +navbar($bleed-container: true, $collapse: true)
-  margin-bottom: 0
+  +navbar($fluid: true, $collapse: true)
 
   .logo
     height: 30px
@@ -38,8 +37,9 @@
     opacity: 0.8
 
 .docs-nav
-  +navbar($bleed-container: true, $background: map-get($black, lighter), $collapse: true)
-  margin-bottom: 0
+  +navbar($fluid: true, $background: darken(map-get($colors, blue), 5%), $collapse: true)
+  margin:
+    top: -$space
 
 // Colors
 // Kind of shitty, but there is a colors page that directly relies on this.
@@ -112,6 +112,9 @@ h1.example-
   display: none
 
 .hero
+  margin:
+    top: -$space
+
   ul, ul li, .navbar
     text-align: left
 

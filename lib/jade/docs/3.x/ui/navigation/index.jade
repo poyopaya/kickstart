@@ -49,7 +49,7 @@ block toc-variations
     li
       a(href="#combining") Combining with other elements
     li
-      a(href="#full-width") Full width
+      a(href="#fluid-width") Fluid width
 
 block basic
   :markdown
@@ -183,18 +183,18 @@ block variations
 
       Don't forget to add `role="button"` when using buttons in the navbar.
 
-  <h3 id="full-width">Full width</h3>
+  <h3 id="fluid-width">Fluid width</h3>
 
   :markdown
-    A common layout is to use the navbar at the top of the page, full width,
-    with a container. By itself, the left and right padding will prevent it from
-    lining up with the margins of the container.
+    You may want your navbar contents to be full width, but keep a healthy 
+    margin on the left and right. This is especially important on smaller
+    screens.
 
   .ifnot-semantic
     :markdown
       <span>
 
-          <div class="navbar bleed">
+          <div class="navbar navbar-fluid">
             <div class="container">
               <nav>
                 <ul>
@@ -218,7 +218,7 @@ block variations
             </div>
           </main>
 
-      Simply use the `.bleed` helper class to enable container bleed.
+      Simply use the `.fluid` helper class to enable container fluid.
 
   .if-semantic
     :markdown
@@ -252,10 +252,10 @@ block variations
             @include container();
           }
           .mynavbar {
-            @include navbar($bleed-container: true);
+            @include navbar($fluid: true);
           }
 
-      Simply pass in `true` to the `$bleed-container` parameter to enable container bleed.
+      Simply pass in `true` to the `$fluid` parameter to enable a fluid container.
 
   :markdown
     ### Dropdowns
@@ -514,7 +514,7 @@ block variations
           </nav>
         <div>
 
-    The `=` in the responsive button should automatically be changed to a three-bar icon.    
+    The `=` in the responsive button should automatically be changed to a three-bar icon.
 
     ### Define a breakpoint (optional)
 
