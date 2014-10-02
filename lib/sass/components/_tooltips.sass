@@ -1,11 +1,12 @@
-=tooltip_trigger-default($background-color: map-get($colors, blue))
+=tooltip_trigger-default($background-color: false)
   position: relative
   display: inline-block
   cursor: pointer
 
-  .tooltip
-    +label($background-color)
-  
+  @if not $background-color == false
+    .tooltip
+      +label($background-color)
+ 
   &:hover
     [data-ks-tooltip]
       &:after, &:before

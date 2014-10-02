@@ -46,7 +46,7 @@
       margin: 0
 
     @media screen and (min-width: $breakpoint)
-      @if ($fluid)
+      @if $fluid == false
         > ul:first-child
           margin-left: (-1 * map-get($rootElement, paddingH))
 
@@ -99,6 +99,7 @@
 
           button
             +button-default(transparent)
+            background: transparent
             border-color: transparent
             color: inherit
             display: block

@@ -171,44 +171,56 @@ block variations
   .example
     +colors
 
+  :markdown 
+    Choosing a color is as easy as adding a data attribute to the flow 
+    element that spawns your tooltip.
+
+        <p>
+          Feel free to check out our 
+          <span data-ks-tooltip="Gallery closes at 9pm" data-ks-tooltip-color="red">
+            Gallery
+          </span>.
+        </p>
+
+    or appending a `tooltip-[color]` class to `.tooltip`...
+
+  .example
+    p
+      | Try the colors&nbsp;
+      span(data-ks-tooltip="I'm red" data-ks-tooltip-color="red") Red
+      | ,&nbsp;
+      span(data-ks-tooltip="I'm green" data-ks-tooltip-color="green") Green
+      | , and&nbsp;
+      span(data-ks-tooltip="I'm blue" data-ks-tooltip-color="blue") Blue
+
+  :markdown
+    <span>
+
+        <div class="tooltip_trigger">
+          <div class="tooltip tooltip-red">I'm a tooltip</span>
+        </div>
+
+
+  +available-colors('tooltip')
+
+  :markdown
+    You can also set the colors of tooltips for an entire trigger area
+
+  .ifnot-semantic
+    :markdown
+      <span>
+        
+          <div class="tooltip_trigger tooltip_trigger-yellow">
+            ...
+          </div>
+
   .if-semantic
-    :markdown 
-      Tooltips use their background color for more properties than just CSS
-      background color. For this reason, it's best to feed this color into
-      the mixin for `tooltip_trigger()`.
+    :markdown
+      <span>
 
           .tooltip_trigger {
             @include tooltip_trigger(map-get($colors, yellow));
           }
-
-      However, if you need different colored tooltips in a single trigger
-      area, you will need to define this color for two places:
-
-          .tooltip_trigger {
-            
-            .tooltip1 {
-              background-color: map-get($colors, green);
-              &:after {
-                border-top-color: map-get($colors, green);
-              }
-            }
-
-            .tooltip1 {
-              background-color: map-get($colors, yellow);
-              &:after {
-                border-top-color: map-get($colors, yellow);
-              }
-            }
-
-          }
-
-  .ifnot-semantic
-    :markdown
-      To choose a color, simply add `.tooltip-[color]` with the `.tooltip` class.
-
-          <span class="tooltip tooltip-yellow">Click for more information</span>
-
-    +available-colors
 
   :markdown
     ## Positioning

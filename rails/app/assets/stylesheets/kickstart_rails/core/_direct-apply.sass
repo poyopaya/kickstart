@@ -8,7 +8,7 @@
 // Buttons
 // -------
 
-button:not(.navbar-button),
+button,
 input[type="submit"],
 input[type="button"],
   +button
@@ -184,3 +184,27 @@ input[type="file"]::-webkit-file-upload-button
 
     &:after
       top: 8px
+
+  &.tooltip-red
+    +label(map-get($colors, red))
+
+  &.tooltip-orange
+    +label(map-get($colors, orange))
+
+  &.tooltip-yellow
+    +label(map-get($colors, yellow))
+
+  &.tooltip-green
+    +label(map-get($colors, green))
+
+  &.tooltip-blue
+    +label(map-get($colors, blue))
+
+  &.tooltip-violet
+    +label(map-get($colors, violet))
+
+  &.tooltip-primary
+    +label(map-get($colors, primary))
+
+  &.tooltip-secondary
+    +label(map-get($colors, secondary))

@@ -296,6 +296,30 @@ table
 .tooltip_trigger
   +tooltip_trigger
 
+  &.tooltip_trigger-red
+    +tooltip_trigger($background: map-get($colors, red))
+
+  &.tooltip_trigger-orange
+    +tooltip_trigger($background: map-get($colors, orange))
+
+  &.tooltip_trigger-yellow
+    +tooltip_trigger($background: map-get($colors, yellow))
+
+  &.tooltip_trigger-green
+    +tooltip_trigger($background: map-get($colors, green))
+
+  &.tooltip_trigger-blue
+    +tooltip_trigger($background: map-get($colors, blue))
+
+  &.tooltip_trigger-violet
+    +tooltip_trigger($background: map-get($colors, violet))
+
+  &.tooltip_trigger-primary
+    +tooltip_trigger($background: $primary-color)
+
+  &.tooltip_trigger-secondary
+    +tooltip_trigger($background: $secondary-color)
+
 // TYPOGRAPHY
 // ----------
 

@@ -28,7 +28,7 @@
     +column(8, 2, 2)
 
 .main-navigation
-  +navbar($fluid: true, $collapse: true)
+  +navbar($fluid: false, $collapse: true)
 
   .logo
     height: 30px
@@ -37,7 +37,7 @@
     opacity: 0.8
 
 .docs-nav
-  +navbar($fluid: true, $background: darken(map-get($colors, blue), 5%), $collapse: true)
+  +navbar($fluid: false, $background: darken(map-get($colors, blue), 5%), $collapse: true)
   margin:
     top: -$space
 
