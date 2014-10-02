@@ -5,13 +5,16 @@
         li.navbar-title
           h1 Documentation
           button(role="button") =
-        li: a(href="/docs/#{docsVersion}") Quickstart
-        li: a(href="/docs/#{docsVersion}/theming/") Theming
-        li: a(href="/docs/#{docsVersion}/grid/") Grid
-        li
-          | UI
-          ul
+        li 
+          | Get Started
+          ul 
+            li: a(href="/docs/#{docsVersion}") Quickstart
+            li: a(href="/docs/#{docsVersion}/theming/") Theming
+            li: a(href="/docs/#{docsVersion}/grid/") Grid
             li: a(href="/docs/#{docsVersion}/ui/") Layout and CSS
+        li
+          | Components
+          ul
             li: a(href="/docs/#{docsVersion}/ui/alerts") Alerts
             li: a(href="/docs/#{docsVersion}/ui/buttons") Buttons
             li: a(href="/docs/#{docsVersion}/ui/forms") Forms
@@ -41,24 +44,3 @@
             li: a(href="http://getkickstrap.com.s3-website-us-east-1.amazonaws.com/2.x/") 2.0.8
             li: a(href="/docs/#{docsVersion}") #{currentVersion} (current)
             li: a(href="/docs/4.x") 4 (Future plans)
-        li(style="display: none")
-          ul.button-group(role="button")
-            li
-              a(href="#" role="button") Upload
-            li
-              button.button-dropdown(role="button")
-              ul
-                li
-                  a(href="#") Choose from library
-                li
-                  a(href="#") Take a picture
-        li(style="display: none")
-          button(role="button")
-            | Add photo
-            ul
-              li
-                a(href="#") Upload
-              li
-                a(href="#") Choose from library
-              li
-                a(href="#") Take a picture
