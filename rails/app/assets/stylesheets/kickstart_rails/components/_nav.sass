@@ -71,12 +71,14 @@
         +root-element
         margin-bottom: 0
         border-radius: 0
-        padding:
-          top: (map-get($rootElement, paddingV) - 1)
-          bottom: (map-get($rootElement, paddingV) - 1)
-          left: map-get($rootElement, paddingH)
-          right: map-get($rootElement, paddingH)
+        padding: (map-get($rootElement, paddingV) - 1) (map-get($rootElement, paddingH))
         position: relative
+        margin: 
+          left: (-1 * map-get($rootElement, paddingH))
+          right: (-1 * map-get($rootElement, paddingH))
+
+        @media screen and (min-width: $breakpoint)
+          margin: 0
 
         @if $collapse == true
           display: none
@@ -90,10 +92,22 @@
           align-items: center
 
           button
-            +button(transparent)
+            +button-default(transparent)
             border-color: transparent
             color: inherit
             display: block
+            margin-bottom: 0
+            font-family: Kickstart, 'Kickstart' 
+            padding:
+              left: 0
+              right: 0
+            opacity: 0.5
+
+            &:hover, &:active
+              box-shadow: none
+
+            &:hover
+              opacity: 1
 
             @media screen and (min-width: $breakpoint)
               display: none
@@ -103,13 +117,24 @@
           +color($background)
           cursor: pointer
 
-          &:after
-            content: '+'
+          &:before
+            content: '='
+            margin-right: 8px
+
+          &:before, &:after
             font-family: 'Kickstart', Kickstart
             display: inline-block
-            margin-left: 8px
             font-size: 0.65rem
             vertical-align: middle
+
+          @media screen and (min-width: $breakpoint)
+            &:before
+              content: ''
+              display: none
+
+            &:after
+              content: '+'
+              margin-left: 8px
 
           &:hover
             @if (lightness($background) < 75%)
@@ -133,6 +158,19 @@
               color: rgba(0, 0, 0, 0.85)
               border-color: map-get($white, darker)
               border-bottom-color: transparent
+
+          @media screen and (max-width: $breakpoint)
+            ul
+              max-width: none
+              right: -1px
+
+              li, li a:not([role=button])
+                font-size: 1rem
+
+              a:not([role=button])
+                padding: 
+                  top: 2 * map-get($rootElement, paddingV)
+                  bottom: 2 * map-get($rootElement, paddingV)
 
         ul
           border-top-left-radius: 0
