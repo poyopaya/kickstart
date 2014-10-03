@@ -24,8 +24,11 @@ block mainpane
         ## Feature-forward
         Kickstart targets the most modern browsers at the time of release. This means we've skipped over the hacks and headed straight to exciting components like using CSS flexbox for the [grid](/docs/#{docsVersion}/grid/).
 
-        ## Second thing
-        Second thing
+        ## Design across devices
+        <iframe width="700" height="320" src="//www.youtube.com/embed/Rv5f_v5gqw4" frameborder="0" allowfullscreen></iframe>
+
+        *This video is not of a Kickstart project, but does exemplify similar
+        functionality when using Gulp.*
 
         ## Third thing
         Third thing
@@ -52,7 +55,9 @@ block sidebar
 
 block postJS
   script.
-    k$.status({
-      text: "This is a work in progress. It's not in alpha or beta, it's just unfinished. How did you get this link anyway?",
-      delay: 0
+    k$.growl({
+      title: "This is a work in progress",
+      text: "An alpha version will be available at the end of October.",
+      type: "alert-green",
+      delay: 4500
     })
