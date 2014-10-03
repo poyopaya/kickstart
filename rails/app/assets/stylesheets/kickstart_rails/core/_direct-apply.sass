@@ -137,12 +137,51 @@ input[type="file"]::-webkit-file-upload-button
       top: 100%
       bottom: auto
       margin-top: 15px
-      transform: translateY(-16px)
+      transform: translateY(-6px)
 
     &:before
       transform: rotate(180deg)
       top: 100%
       bottom: auto
+
+  &[data-ks-tooltip-position="left"]
+    &:after
+      transform: translateY(6px)
+      top: 50%
+      bottom: auto
+      margin:
+        top: -19px
+        right: 12px
+      left: auto
+      right: 100%
+
+    &:before
+      transform: rotate(-90deg)
+      top: 50%
+      margin-top: -4px
+      bottom: auto
+      left: auto
+      right: 100%
+
+  &[data-ks-tooltip-position="right"]
+    &:after
+      transform: translateY(6px)
+      top: 50%
+      bottom: auto
+      margin:
+        top: -19px
+        left: 16px
+      left: 100%
+      right: auto
+
+    &:before
+      transform: rotate(90deg)
+      top: 50%
+      margin-top: -4px
+      margin-left: 4px
+      bottom: auto
+      left: 100%
+      right: auto
 
   &[data-ks-tooltip-color="red"]
     +pseudo-tooltip-color(map-get($colors, red))
@@ -166,10 +205,10 @@ input[type="file"]::-webkit-file-upload-button
   +tooltip_base
   left: -30px
   right: -30px
-  margin: 10px auto
   transform: translateY(8px)
   z-index: 10
   +label(map-get($colors, blue))
+  margin: 10px auto
 
   &:after
     +tooltip_arrow

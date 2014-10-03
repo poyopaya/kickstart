@@ -19,6 +19,8 @@
     + :not(img)
       margin-left: $space/2
 
+  @content
+
 =thumbnail-default
   +root-element
   border: 1px solid map-get($white, darker)
@@ -26,6 +28,8 @@
 
   figcaption
     font-size: 0.85rem
+
+  @content
 
 figure
   margin: 0
