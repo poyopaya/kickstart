@@ -144,7 +144,7 @@ document.addEventListener 'DOMContentLoaded', ->
     heading.id = k$.slugify heading.innerHTML
 
     # If this is a lower level.
-    if parseInt heading.nodeName.substr(1,1) > $headingLevel
+    if parseInt heading.tagName.substr(1, 2) > $headingLevel
       # Append a new submenu and make that the targetNode.
       $newSubmenu = $toc.cloneNode true
       $targetNode.appendChild $newSubmenu
@@ -156,4 +156,5 @@ document.addEventListener 'DOMContentLoaded', ->
     $menuItem.querySelector('a').innerHTML = heading.innerHTML
     $targetNode.appendChild $menuItem
 
+  k$.$('section.toc').appendChild $toc
   console.log $toc
