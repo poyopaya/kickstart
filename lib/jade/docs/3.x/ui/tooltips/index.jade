@@ -246,43 +246,32 @@ block variations
       span.tooltip.tooltip-bottom I'm on the bottom
 
   :markdown
-    By default, tooltips will be positioned "top". To position left, right, or bottom,
-    add this position as a `.tooltip-[position]` class.
+    <span>
 
         <div class="tooltip_trigger">
-          <p>Left</p>
-          <span class="tooltip tooltip-left">I'm on the left.
+          <button class="button">Top</button>
+          <span class="tooltip">I'm on top</span>
+        </div>
+        <div class="tooltip_trigger">
+          <button class="button">Left</button>
+          <span class="tooltip tooltip-left">I'm on the left</span>
         </div>
 
-  .if-semantic
-    :markdown
-      This is applied directly to the tooltip instead of the trigger to
-      allow for the possibility of multiple tooltips with different positions
-      in a single trigger area.
-
   :markdown
-    ## In blocks of text
-
-    Because of html rules concerning nesting block versus inline elements, it's
-    important to avoid using block tags (like `<p>` or `<div>`) in text tags.
+    Tooltips use a familiar format for positioning with data-attributes.
 
   .example
-    p 
-      | Here is&nbsp;
-      a.tooltip_trigger(href="#")
-        span a very long string of text which uses a tooltip but it's very long, so, you know.
-        span.tooltip That's good.
-      |  You can rest assured the block of text keeps going on and on.
+    p You can position on the <span data-ks-tooltip="I'm on the left" data-ks-tooltip-position="left">left</span> or on the <span data-ks-tooltip="I'm on the right" data-ks-tooltip-position="right">right</span>.
+    p Or on the <span data-ks-tooltip="I'm on the bottom" data-ks-tooltip-position="bottom">bottom</span> or <span data-ks-tooltip="I'm on the top" data-ks-tooltip-position="top">top</span>
 
   :markdown
     <span>
 
         <p>
-          Here is
-          <span class="tooltip-trigger">
-            a very long string of text...
-            <span class="tooltip">That's good</span>
-          </span>
+          You can position on the 
+          <span data-ks-tooltip="I'm on the left" data-ks-tooltip-position="left">left</span>
+          or on the 
+          <span data-ks-tooltip="I'm on the right" data-ks-tooltip-position="right">right</span>.
         </p>
 
     ## Multiple tooltips in one trigger
