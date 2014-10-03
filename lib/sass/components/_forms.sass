@@ -5,7 +5,7 @@ label, legend
 
 %error_message
   font-style: italic
-  margin: 
+  margin:
     top: 7px
     bottom: 14px
 
@@ -49,6 +49,8 @@ label, legend
     &.success
       border-color: map-get($colors, green)
 
+  @content
+
 =input-styles
   +root-element
   margin: 0
@@ -63,6 +65,8 @@ label, legend
   &:focus
     outline: 0px
     box-shadow: 0px 0px 0px 2px $primary-color
+
+  @content
 
 +text-inputs
   +input-styles
@@ -101,6 +105,8 @@ select
       width: 50%
       display: inline-block
 
+  @content
+
 =form_group-default($orientation)
   display: block
   margin-bottom: $space
@@ -114,6 +120,8 @@ select
     > *
       display: inline-block
       margin-right: $space/5
+
+  @content
 
 =field-colors($color)
   label, p
