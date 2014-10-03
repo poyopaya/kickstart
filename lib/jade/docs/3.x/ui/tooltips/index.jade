@@ -169,7 +169,14 @@ block variations
     ## Coloring
 
   .example
-    +colors
+    p
+      | Try the colors&nbsp;
+      span(data-ks-tooltip="I'm red" data-ks-tooltip-color="red") Red
+      | ,&nbsp;
+      span(data-ks-tooltip="I'm green" data-ks-tooltip-color="green") Green
+      | , and&nbsp;
+      span(data-ks-tooltip="I'm blue" data-ks-tooltip-color="blue") Blue
+
 
   :markdown 
     Choosing a color is as easy as adding a data attribute to the flow 
@@ -185,13 +192,7 @@ block variations
     or appending a `tooltip-[color]` class to `.tooltip`...
 
   .example
-    p
-      | Try the colors&nbsp;
-      span(data-ks-tooltip="I'm red" data-ks-tooltip-color="red") Red
-      | ,&nbsp;
-      span(data-ks-tooltip="I'm green" data-ks-tooltip-color="green") Green
-      | , and&nbsp;
-      span(data-ks-tooltip="I'm blue" data-ks-tooltip-color="blue") Blue
+    +colors
 
   :markdown
     <span>

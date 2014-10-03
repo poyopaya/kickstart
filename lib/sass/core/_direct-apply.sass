@@ -98,19 +98,27 @@ input[type="file"]::-webkit-file-upload-button
   margin-left: -8px
   opacity: 0
 
+=pseudo-tooltip-color($color: $primary-color)
+  &:after
+    +label($color)
+    margin-bottom: 0
+
+  &:before
+    border-top-color: $color
+
 [data-ks-tooltip]
   position: relative
 
+  +pseudo-tooltip-color
+
   &:after
     content: attr(data-ks-tooltip)
-    +label($primary-color)
     +tooltip_base
     transform: translateY(0px)
     z-index: 10
 
   &:before
     +tooltip_arrow
-    border-top-color: $primary-color
     bottom: 100%
     z-index: 100
 
@@ -135,6 +143,24 @@ input[type="file"]::-webkit-file-upload-button
       transform: rotate(180deg)
       top: 100%
       bottom: auto
+
+  &[data-ks-tooltip-color="red"]
+    +pseudo-tooltip-color(map-get($colors, red))
+
+  &[data-ks-tooltip-color="orange"]
+    +pseudo-tooltip-color(map-get($colors, orange))
+
+  &[data-ks-tooltip-color="yellow"]
+    +pseudo-tooltip-color(map-get($colors, yellow))
+
+  &[data-ks-tooltip-color="green"]
+    +pseudo-tooltip-color(map-get($colors, green))
+
+  &[data-ks-tooltip-color="blue"]
+    +pseudo-tooltip-color(map-get($colors, blue))
+
+  &[data-ks-tooltip-color="violet"]
+    +pseudo-tooltip-color(map-get($colors, violet))
 
 .tooltip
   +tooltip_base
