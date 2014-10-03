@@ -130,31 +130,52 @@ document.addEventListener 'DOMContentLoaded', ->
     `str.toLowerCase().replace(/ /g,'-').replace(/[^\w-]+/g,'')`
 
   # Create a table of contents
-  $toc = document.createElement 'ul'
-  $link = document.createElement('li')
-  $link.innerHTML = '<a></a>'
 
-  # Assuming proper html, start with h1.
-  $headingLevel = 1
+  if k$.$$('section#toc').length
+    k$.$('.creating-table').parentNode.removeChild k$.$('.creating-table')
+    $toc = document.createElement 'ul'
+    $toc.className = "list list-unstyled"
+    $link = document.createElement('li')
+    $link.innerHTML = '<a></a>'
 
-  # The node we're currently appending to. Always a ul.
-  $targetNode = $toc
+    # Assuming proper html, start with h1.
+    $headingLevel = 1
 
-  for heading in k$.$$ '.mainpane h1, .mainpane h2, .mainpane h3, .mainpane h4, .mainpane h5, .mainpane h6'
-    heading.id = k$.slugify heading.innerHTML
+    # The node we're currently appending to. Always a ul.
+    $targetNode = $toc
 
-    # If this is a lower level.
-    if parseInt heading.tagName.substr(1, 2) > $headingLevel
-      # Append a new submenu and make that the targetNode.
-      $newSubmenu = $toc.cloneNode true
-      $targetNode.appendChild $newSubmenu
-      $targetNode = $newSubmenu
+    for heading in k$.$$ '.mainpane h1, .mainpane h2, .mainpane h3, .mainpane h4, .mainpane h5, .mainpane h6'
+      # Ignore headings that declare themselves as exempt from the TOC
+      if not heading.classList.contains 'toc-exempt'
+        heading.id = k$.slugify heading.innerHTML
 
-    # Make a new li and append it to the target ul node.
-    $menuItem = $link.cloneNode true
-    $menuItem.querySelector('a').href = "##{heading.id}"
-    $menuItem.querySelector('a').innerHTML = heading.innerHTML
-    $targetNode.appendChild $menuItem
+        # If this is a lower level.
+        $thisHeadingLevel = parseInt(heading.tagName.substr(1, 2))
 
-  k$.$('section.toc').appendChild $toc
-  console.log $toc
+        if $thisHeadingLevel > $headingLevel
+          # Append a new submenu and make that the targetNode.
+          $newSubmenu = document.createElement 'ul'
+          $targetNode.appendChild $newSubmenu
+          $targetNode = $newSubmenu
+          $headingLevel = $thisHeadingLevel
+
+        if $thisHeadingLevel < $headingLevel
+          $stepsUp = $headingLevel - $thisHeadingLevel
+
+          console.log $stepsUp
+
+          while $stepsUp > 0
+            $targetNode = $targetNode.parentNode
+            $stepsUp--
+
+          console.log $stepsUp
+          $headingLevel = $stepsUp
+
+        # Make a new li and append it to the target ul node.
+        $menuItem = $link.cloneNode true
+        $menuItem.querySelector('a').href = "##{heading.id}"
+        $menuItem.querySelector('a').innerHTML = heading.innerHTML
+        $targetNode.appendChild $menuItem
+
+    k$.$('section#toc').appendChild $toc
+    console.log $toc

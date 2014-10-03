@@ -138,6 +138,7 @@
       return str.toLowerCase().replace(/ /g,'-').replace(/[^\w-]+/g,'');
     };
     $toc = document.createElement('ul');
+    $toc.className = "list list-unstyled";
     $link = document.createElement('li');
     $link.innerHTML = '<a></a>';
     $headingLevel = 1;
@@ -146,7 +147,8 @@
     for (_k = 0, _len2 = _ref.length; _k < _len2; _k++) {
       heading = _ref[_k];
       heading.id = k$.slugify(heading.innerHTML);
-      if (parseInt(heading.nodeName.substr(1, 1) > $headingLevel)) {
+      if (parseInt(heading.tagName.substr(1, 2)) > $headingLevel) {
+        console.log('ping');
         $newSubmenu = $toc.cloneNode(true);
         $targetNode.appendChild($newSubmenu);
         $targetNode = $newSubmenu;
@@ -156,6 +158,7 @@
       $menuItem.querySelector('a').innerHTML = heading.innerHTML;
       $targetNode.appendChild($menuItem);
     }
+    k$.$('section#toc').appendChild($toc);
     return console.log($toc);
   });
 

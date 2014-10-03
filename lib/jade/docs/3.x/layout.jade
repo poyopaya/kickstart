@@ -20,23 +20,9 @@ block container
             input#docs-jquery(type="checkbox")
             | jQuery
 
-        block meta
-
-      section.toc
-        ul
-          li
-            a(href="#basic")
-              span.fa.fa-cube
-              |  Basic Implementation
-            block toc-basic
-          li
-            a(href="#variations")
-              span.fa.fa-cubes
-              |  Variations
-            block toc-variations
-          li
-            a(href="#granular") Granular
-            block toc-granular
+      section#toc
+        h1 Table of Contents
+        p.creating-table Creating table of contents...
 
       section.troubleshooting
         block troubleshooting
