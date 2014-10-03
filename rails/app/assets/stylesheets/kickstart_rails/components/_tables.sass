@@ -15,6 +15,8 @@
     color: black
     text-align: left
     vertical-align: bottom
+    border-bottom: 1px solid transparent
+
     th
       font-weight: bold
 
@@ -48,8 +50,15 @@
       right: 0px
 
 =table-hover
+  tbody, thead
+    tr:hover
+      background-color: map-get($white, darker)
 
 =table-zebra
   tbody, thead
-    tr:nth-child(2n+2)
-      background-color: map-get($white, darker)
+    tr:nth-child(even)
+      background-color: map-get($white, dark)
+
+    tr
+      td, th
+        padding: ($space/6) ($space/4)
