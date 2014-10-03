@@ -1,6 +1,6 @@
 extends ../../layout
 
-mixin colors 
+mixin colors
   p
     span.tooltip_trigger
       a(href="#") Hover
@@ -99,18 +99,18 @@ block basic
             @include tooltip_trigger();
           }
 
-  :markdown 
+  :markdown
     ## Tooltips as elements
 
-    Adding content to the dataset of an element only allow for plaintext. 
-    However, your tooltips may need something more sophisticated that can 
+    Adding content to the dataset of an element only allow for plaintext.
+    However, your tooltips may need something more sophisticated that can
     only be expressed by HTML.
 
     For this, tooltips can also be created as individual HTML elements.
 
   .alert.alert-info
     :markdown
-      # Avoid nesting flow elements in phrasing elements.
+      <h1 class="toc-exempt">Avoid nesting flow elements in phrasing elements.</h1>
 
       Flow elements like `<div>` or `<p>` are not allowed nested in a `<p>`
       Some browsers will even take it right out for you. Stick to phrasing
@@ -119,13 +119,13 @@ block basic
       More on [flow and phrasing](http://www.w3.org/TR/html-markup/common-models.html) elements.
 
   .example
-    p 
+    p
       | The rain in&nbsp;
       span.tooltip_trigger
         a(href="#") Spain
         span.tooltip <img src="/img/spain.png" style="width: 50px; margin: 0px auto;display: block;"/>Spain is a country in <em>Europe</em>.
       |  falls mainly on the plains.
-    
+
 
   .ifnot-semantic
     :markdown
@@ -178,12 +178,12 @@ block variations
       span(data-ks-tooltip="I'm blue" data-ks-tooltip-color="blue") Blue
 
 
-  :markdown 
-    Choosing a color is as easy as adding a data attribute to the flow 
+  :markdown
+    Choosing a color is as easy as adding a data attribute to the flow
     element that spawns your tooltip.
 
         <p>
-          Feel free to check out our 
+          Feel free to check out our
           <span data-ks-tooltip="Gallery closes at 9pm" data-ks-tooltip-color="red">
             Gallery
           </span>.
@@ -210,7 +210,7 @@ block variations
   .ifnot-semantic
     :markdown
       <span>
-        
+
           <div class="tooltip_trigger tooltip_trigger-yellow">
             ...
           </div>
@@ -268,9 +268,9 @@ block variations
     <span>
 
         <p>
-          You can position on the 
+          You can position on the
           <span data-ks-tooltip="I'm on the left" data-ks-tooltip-position="left">left</span>
-          or on the 
+          or on the
           <span data-ks-tooltip="I'm on the right" data-ks-tooltip-position="right">right</span>.
         </p>
 
@@ -284,4 +284,3 @@ block variations
       li: a(href="#") Recent
       li: a(href="#") Favorites
       li: a(href="#" data-ks-tooltip-color="blue" data-ks-tooltip-position="bottom" data-ks-tooltip="New updates are waiting for you.") Updates
-

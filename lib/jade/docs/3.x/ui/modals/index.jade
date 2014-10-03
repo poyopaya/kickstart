@@ -9,7 +9,7 @@ block hero-example
 block basic
   #sampleModal.modal
     header
-      h1 Modal
+      h1.toc-exempt Modal
     main
       p Hi, I'm a modal.
     footer
@@ -17,7 +17,7 @@ block basic
         li
           a.button(href="#") Close
 
-  h3 JavaScript
+  h2 JavaScript
   p
     | Turn any element into a modal using&nbsp;
     code k$.modal()
@@ -47,7 +47,7 @@ block basic
           // Hide modal
           $($signup).hide();
 
-  h4 Events
+  h2 Events
   :markdown
     Stopping propagation on any click you don't wish to close the modal is
     required. This is as easy as:
@@ -78,7 +78,7 @@ block basic
     of it (which would close the modal.)
 
 
-  h3 Styling
+  h2 Styling
   p
     | For default modal styling (not required to function),
     span.if-semantic
@@ -120,7 +120,7 @@ block variations
   .example
     .modal.example
       header
-        h1 How would you like to pay?
+        h1.toc-exempt How would you like to pay?
 
       main
         p Please make a selection:

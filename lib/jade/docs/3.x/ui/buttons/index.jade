@@ -2,7 +2,7 @@ extends ../../layout
 
 mixin buttonRole
   .alert.alert-info
-    h1 Use roles
+    h1.toc-exempt Use roles
     p Especially in navigation bars, it's important to use <code>role="button"</code> in the HTML attributes.
 
 block hero-title
@@ -80,6 +80,8 @@ block basic
           <input type="submit" class="button" value="Sign up" />
 
 block variations
+  h2 Colors
+
   .ifnot-semantic
     :markdown
       For colored buttons, simply add the `.button-` class of one of the primary colors
@@ -239,7 +241,7 @@ block granular
   +buttonRole
 
   .alert.alert-info
-    h1 Use the button element.
+    h1.toc-exempt Use the button element.
     p Unlike other uses, this can only be applied to the HTML <code>button</code> element.
 
 
