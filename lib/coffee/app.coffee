@@ -1,6 +1,6 @@
 KS        = require './ks'
 Modal     = require './modal'
-Nav       = require './nav'
+Navbar    = require './navbar'
 Debounce  = require './debouncer'
 Status    = require './status'
 Throttler = require './throttler'

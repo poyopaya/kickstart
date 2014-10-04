@@ -408,11 +408,12 @@ block variations
     <span class="ifnot-semantic">a <code>.pagination-dark</code> class is available.</span>
     <span class="if-semantic">a <code>$background-color</code> can be passed in to <code>pagination()</code></span>.
 
-  .pagination
-    ul
-      li: a(href="#") &laquo; Prev
-    ul
-      li: a(href="#") Next &raquo;
+  .example
+    .pagination
+      ul
+        li: a(href="#") &laquo; Prev
+      ul
+        li: a(href="#") Next &raquo;
 
   :markdown
     <span>
@@ -438,13 +439,14 @@ block variations
             @include pagination();
           }
 
-  .pagination
-    ul
-      li: a(href="#") 1
-      li: a(href="#") 2
-      li: a(href="#") 3
-      li: a(href="#") 4
-      li: a(href="#") 5
+  .example
+    .pagination
+      ul
+        li: a(href="#") 1
+        li: a(href="#") 2
+        li: a(href="#") 3
+        li: a(href="#") 4
+        li: a(href="#") 5
 
   :markdown
     <span>
@@ -468,6 +470,23 @@ block variations
             </li>
           </ul>
         </div>
+
+  h3 Multiple controls
+
+  .example
+    .pagination
+      ul
+        li: a(href="#") &laquo; Prev
+
+      ul
+        li: a(href="#") 1
+        li: a(href="#") 2
+        li: a(href="#") 3
+        li: a(href="#") 4
+        li: a(href="#") 5
+
+      ul
+        li: a(href="#") Next &raquo;
 
   h2 Responsive
   :markdown

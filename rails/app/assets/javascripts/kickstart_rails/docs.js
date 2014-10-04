@@ -1,6 +1,6 @@
 (function() {
   document.addEventListener('DOMContentLoaded', function() {
-    var $headingLevel, $link, $menuItem, $newSubmenu, $targetNode, $toc, booleanViewOptions, defaults, els, extend, heading, option, options, setSettings, settings, _fn, _i, _j, _k, _len, _len1, _len2, _ref;
+    var $headingLevel, $link, $menuItem, $newSubmenu, $stepsUp, $targetNode, $thisHeadingLevel, $toc, booleanViewOptions, defaults, els, extend, heading, option, options, setSettings, settings, _fn, _i, _j, _k, _len, _len1, _len2, _ref;
     window.$$ = function(el) {
       return document.querySelectorAll(el);
     };
@@ -137,29 +137,45 @@
     k$.slugify = function(str) {
       return str.toLowerCase().replace(/ /g,'-').replace(/[^\w-]+/g,'');
     };
-    $toc = document.createElement('ul');
-    $toc.className = "list list-unstyled";
-    $link = document.createElement('li');
-    $link.innerHTML = '<a></a>';
-    $headingLevel = 1;
-    $targetNode = $toc;
-    _ref = k$.$$('.mainpane h1, .mainpane h2, .mainpane h3, .mainpane h4, .mainpane h5, .mainpane h6');
-    for (_k = 0, _len2 = _ref.length; _k < _len2; _k++) {
-      heading = _ref[_k];
-      heading.id = k$.slugify(heading.innerHTML);
-      if (parseInt(heading.tagName.substr(1, 2)) > $headingLevel) {
-        console.log('ping');
-        $newSubmenu = $toc.cloneNode(true);
-        $targetNode.appendChild($newSubmenu);
-        $targetNode = $newSubmenu;
+    if (k$.$$('section#toc').length) {
+      k$.$('.creating-table').parentNode.removeChild(k$.$('.creating-table'));
+      $toc = document.createElement('ul');
+      $toc.className = "list list-unstyled";
+      $link = document.createElement('li');
+      $link.innerHTML = '<a></a>';
+      $headingLevel = 1;
+      $targetNode = $toc;
+      _ref = k$.$$('.mainpane h1, .mainpane h2, .mainpane h3, .mainpane h4, .mainpane h5, .mainpane h6');
+      for (_k = 0, _len2 = _ref.length; _k < _len2; _k++) {
+        heading = _ref[_k];
+        if (!heading.classList.contains('toc-exempt')) {
+          heading.id = k$.slugify(heading.innerHTML);
+          $thisHeadingLevel = parseInt(heading.tagName.substr(1, 2));
+          if ($thisHeadingLevel > $headingLevel) {
+            $newSubmenu = document.createElement('ul');
+            $targetNode.appendChild($newSubmenu);
+            $targetNode = $newSubmenu;
+            $headingLevel = $thisHeadingLevel;
+          }
+          if ($thisHeadingLevel < $headingLevel) {
+            $stepsUp = $headingLevel - $thisHeadingLevel;
+            console.log($stepsUp);
+            while ($stepsUp > 0) {
+              $targetNode = $targetNode.parentNode;
+              $stepsUp--;
+            }
+            console.log($stepsUp);
+            $headingLevel = $stepsUp;
+          }
+          $menuItem = $link.cloneNode(true);
+          $menuItem.querySelector('a').href = "#" + heading.id;
+          $menuItem.querySelector('a').innerHTML = heading.innerHTML;
+          $targetNode.appendChild($menuItem);
+        }
       }
-      $menuItem = $link.cloneNode(true);
-      $menuItem.querySelector('a').href = "#" + heading.id;
-      $menuItem.querySelector('a').innerHTML = heading.innerHTML;
-      $targetNode.appendChild($menuItem);
+      k$.$('section#toc').appendChild($toc);
+      return console.log($toc);
     }
-    k$.$('section#toc').appendChild($toc);
-    return console.log($toc);
   });
 
 }).call(this);

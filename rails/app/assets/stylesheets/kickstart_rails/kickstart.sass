@@ -208,12 +208,6 @@
 .thumbnail
   +thumbnail
 
-// MODALS
-// ------
-
-.modal
-  +modal
-
 // LABELS
 // ------
 
@@ -244,6 +238,12 @@
   &.label-secondary
     +label($secondary-color)
 
+// MODALS
+// ------
+
+.modal
+  +modal
+
 // NAVIGATION
 // ----------
 
@@ -255,6 +255,9 @@
 
   &.navbar-dark
     +navbar($background: map-get($black, lighter))
+
+.pagination
+  +pagination
 
 // TABLES
 // ------
