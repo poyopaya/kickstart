@@ -495,16 +495,18 @@ block variations
     To use a collapse button on the navbar instead of flowing the menu items,
     you'll need to define a few settings.
 
+  .if-semantic
+  :markdown
     First, tell the navbar that its items should collapse.
 
-        .navbar {
+        .navbar.navbar-collapse {
           @include navbar($collapse: true);
         }
 
     At this point, all `li`s except for `.navbar-title` will disappear. Be sure to
     add this, even if you only put the responsive button inside.
 
-        <div class="mynavbar">
+        <div class="navbar navbar-collapse">
           <nav>
             <ul>
               <!-- This will be the title and
