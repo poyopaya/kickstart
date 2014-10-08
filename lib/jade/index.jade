@@ -3,55 +3,57 @@ extends layout
 block bleed
   header.hero
     img.logo(src="/img/kickstart.png")
-    h5 A front-end framework for clean HTML<br>and fast performance.
+    h5 A front-end framework that loves to be extended
 
-block mainpane
-  article.readable
+block container
+  article
 
-    main
-      h2 Lightweight
-      ul
-        li Not dependent on jQuery.
-        li Only use what you need.
+    main.first-pitch
+      .feature
+        h1 Easy to theme
+        p Who wants a framework that makes your site looks live everyone
+          | else's? You can customize the Kickstart theme with just a few
+          | variables, or by downloading a theme from the community.
 
-      h2 Designed to be customized
-      ul
-        li Functionality for 3rd party extensions are designed into the framework.
-        li Easily create themes by extending components and defining a few core variables.
+      .feature
+        h1 Semantic or class-based
+        p Kickstart is the only library to use <strong>either</strong> semantic CSS mixins or discrete CSS classes for styling.
 
-    .more
-      :markdown
-        ## Feature-forward
-        Kickstart targets the most modern browsers at the time of release. This means we've skipped over the hacks and headed straight to exciting components like using CSS flexbox for the [grid](/docs/#{docsVersion}/grid/).
+    main.second-pitch
+      .feature
+        h1 Just JS and CSS
+        p Kickstart is as simple as one JavaScript and one CSS file. 
+          | <strong>No jQuery needed.</strong>
+          | Native support for node.js and Rails is included.
 
-        ## Design across devices
-        <iframe width="700" height="320" src="//www.youtube.com/embed/Rv5f_v5gqw4" frameborder="0" allowfullscreen></iframe>
+      .feature
+        h1 For modern browsers
+        p Kickstart targets modern browsers to give you the latest, most robust features. 
+          | For targeting older browsers, former releases of Kickstart are made available
+          | via the documentation.
 
-        *This video is not of a Kickstart project, but does exemplify similar
-        functionality when using Gulp.*
+      .feature
+        h1 Design across devices
+        iframe(width="360" height="250" src="//www.youtube.com/embed/Rv5f_v5gqw4" frameborder="0" allowfullscreen)
 
-        ## Third thing
-        Third thing
+        p *This video is not of a Kickstart project, but does exemplify similar
+        p functionality when using Gulp.*
 
-  :markdown
-    ### Pitches
+    main.third-pitch
+      .feature
+        h1 One
+        p Paragraph
 
-    * X% smaller than Bootstrap, X% smaller than Foundation
-    * Option to decouple css library from classes
-      * Can be used with functional, presentational, or content-based
-    * Not dependent on any JS libraries, including jQuery
+      .feature
+        h1 Add components and themes with the Kickstart Store.
+        p Instead of offering every imaginable UI component and style, Kickstart offers a good set of core components
+          | with the ability to add more from the community via the <a href="http://kickstart-store">Kickstart Store</a>
 
-    ### CDN provided by
-    <img src="/img/maxcdn.png" style="width: 150px"/>
-
-
-block sidebar
-  h1 Table of Contents
-  ul
-    li
-      a(href="#") tl;dr
-    li
-      a(href="#") About
+      .feature
+        h1 Three
+      
+      .feature
+        h1 Four
 
 block postJS
   script.

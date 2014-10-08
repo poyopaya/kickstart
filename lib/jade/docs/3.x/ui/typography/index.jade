@@ -157,7 +157,28 @@ block variations
   p While different sizes of text can be selected with the h1-h6 tags, this fringes on using HTML for styling. The level of a heading should dictate its hierarchy, but not necessarily its size.
   p For this reason, a set of heading <span class="ifnot-semantic">classes</span><span class="if-semantic">mixins</span> are available that can be added to the heading tags. Notice in each example below, an h1 tag is used, although the sizes vary.
 
-  table
+  .show-mobile
+    - for size in ['xxl', 'xl', 'lg', 'md', 'rg', 'sm', 'xs', 'xxs']
+      h5 Size: #{size}
+      .example
+        .if-semantic
+          pre
+            code #{size}-heading()
+
+          pre.if-semantic
+            code h1.#{size} {
+              |   @include #{size}-heading();
+              | }
+              | &nbsp;
+              | &lt;h1 class="#{size}"&gt;Hello World&lt;/h1&gt;
+        .ifnot-semantic
+          pre
+            code &lt;h1 class="#{size}"&gt;Hello World&lt;/h1&gt;
+
+        h1(class="#{size} toc-exempt") Hello World
+
+
+  table.show-tablet
     thead
       tr
         th.if-semantic Mixin name

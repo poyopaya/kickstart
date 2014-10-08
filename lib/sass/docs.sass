@@ -196,3 +196,56 @@ footer.main
 
 .test-a
   +column('third', 'third', 'third')
+
+.show-mobile
+  display: inherit
+
+  @media screen and (min-width: $tablet)
+    display: none
+
+.show-tablet
+  display: none
+
+  @media screen and (min-width: $tablet)
+    display: inherit
+
+// HOME PAGE
+.first-pitch, .second-pitch, .third-pitch
+  +row
+
+.first-pitch
+  padding: 
+    top: $space * 2
+    bottom: $space * 2
+
+  p
+    +p(true)
+
+  .feature
+    +column('half')
+
+  h1
+    +heading-md
+    text-align: center
+
+.second-pitch
+  padding:
+    top: $space * 3
+    bottom: $space * 3
+
+  .feature
+    +column('third')
+
+  h1
+    +heading-rg
+
+.third-pitch
+  .feature
+    @media screen and (min-width: $tablet)
+      +column(6)
+
+    @media screen and (min-width: $desktop)
+      +column(3)
+
+  h1
+    +heading-xs
