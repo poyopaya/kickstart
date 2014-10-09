@@ -1,9 +1,9 @@
-extends ../fullpage-layout
+extends ../layout
 
 block hero-title
   h1 Layout and CSS
 
-block fullPane
+block basic
   :markdown
     # Fixed, Fluid, and Fluid-Fixed
 
@@ -230,6 +230,49 @@ block fullPane
 
     With this convention, it's clear where the modifier should be
     applied.
+
+  .if-semantic
+    h3 Using decoupled modifiers
+    :markdown
+      One of the problems you may run into when using the mixins across
+      multiple classes, is getting individual properties to stay separate.
+
+      Consider the following css:
+
+          .button { 
+            @include button(); 
+          }
+          .button.button-blue {
+            @include button($background-color: map-get($colors, blue));
+          }
+          .button.button-large {
+            @include button($size: 1.3);
+          }
+
+      If I create a big, blue button...
+
+          <button class="button button-blue button-large">Send</button>
+
+      This button will probably not show up blue. Why? Look at the third 
+      rule in the css, by including `button()` we also included the default
+      styling for a button, which is not blue.
+
+      For this reason, most mixins include decoupled sub-mixins to target
+      individual properties.
+
+          .button { 
+            @include button; 
+          }
+          .button.button-blue {
+            @include button-color(map-get($colors, blue));
+          }
+          .button.button-large {
+            @include button-size(1.3)
+          }
+
+      In the above examples, `button-size()` and `button-color` are the exact
+      same mixins called from `button()`. They are simply written outside of
+      the mixin for this exact purpose.
 
   div(style="display: none")
     :markdown

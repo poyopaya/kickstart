@@ -65,7 +65,6 @@ document.addEventListener 'DOMContentLoaded', ->
         # Listen for checkbox changes
         window["$opt#{option}"].addEventListener 'click', ->
           settings.viewOptions["#{option}"] = this.checked
-          console.log settings.viewOptions
           setSettings settings
 
   # Show growls
@@ -147,7 +146,7 @@ document.addEventListener 'DOMContentLoaded', ->
     for heading in k$.$$ '.mainpane h1, .mainpane h2, .mainpane h3, .mainpane h4, .mainpane h5, .mainpane h6'
       # Ignore headings that declare themselves as exempt from the TOC
       if not heading.classList.contains 'toc-exempt'
-        heading.id = k$.slugify heading.innerHTML
+        heading.id = "#{k$.slugify heading.innerHTML}-#{_k}"
 
         # If this is a lower level.
         $thisHeadingLevel = parseInt(heading.tagName.substr(1, 2))
@@ -159,17 +158,15 @@ document.addEventListener 'DOMContentLoaded', ->
           $targetNode = $newSubmenu
           $headingLevel = $thisHeadingLevel
 
+        # If this is a higher level
         if $thisHeadingLevel < $headingLevel
           $stepsUp = $headingLevel - $thisHeadingLevel
-
-          console.log $stepsUp
 
           while $stepsUp > 0
             $targetNode = $targetNode.parentNode
             $stepsUp--
 
-          console.log $stepsUp
-          $headingLevel = $stepsUp
+          $headingLevel = $thisHeadingLevel
 
         # Make a new li and append it to the target ul node.
         $menuItem = $link.cloneNode true
@@ -178,4 +175,3 @@ document.addEventListener 'DOMContentLoaded', ->
         $targetNode.appendChild $menuItem
 
     k$.$('section#toc').appendChild $toc
-    console.log $toc
