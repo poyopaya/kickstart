@@ -37,15 +37,6 @@ block hero-example
     ul
       li: a(href="#") Next &raquo;
 
-block toc-variations
-  ul
-    li
-      a(href="#primary-secondary") Primary and secondary menus
-    li
-      a(href="#combining") Combining with other elements
-    li
-      a(href="#fluid-width") Fluid width
-
 block basic
   :markdown
     ## Bars
@@ -221,12 +212,15 @@ block variations
 
       Don't forget to add `role="button"` when using buttons in the navbar.
 
-  <h3 id="fluid-width">Fluid width</h3>
+      ### Layout Styles
 
-  :markdown
-    You may want your navbar contents to be full width, but keep a healthy
-    margin on the left and right. This is especially important on smaller
-    screens.
+      Navbars can have either fluid, fluid-fixed, or fixed layouts.
+
+      #### Fluid
+
+      You may want your navbar contents to be full width, but keep a healthy
+      margin on the left and right. This is especially important on smaller
+      screens.
 
   .ifnot-semantic
     :markdown
@@ -290,10 +284,43 @@ block variations
             @include container();
           }
           .mynavbar {
-            @include navbar($fluid: true);
+            @include navbar($layout: 'fluid');
           }
 
-      Simply pass in `true` to the `$fluid` parameter to enable a fluid container.
+      Simply pass in `'fluid'` to the `$layout` parameter to enable a fluid container.
+
+  :markdown
+    #### Fluid-Fixed
+
+    Fluid fixed layouts allow your navbar's container to be as wide as you want, but
+    still keep the contents in the same container as any other element using `container()`.
+
+    The underlying logic for this is more tricky than it appears, as the navbar will
+    adjust itself in a way that the first and last menu items align, not by their edges, 
+    but the edges of the text inside them.
+
+  .if-semantic 
+    :markdown
+      For a fluid-fixed layout, pass in `'fluid-fixed'` to the `$layout` parameter.
+
+          .navbar { @include navbar($layout: 'fluid-fixed'); }
+
+  .ifnot-semantic
+    :markdown
+      For a fluid fixed layout, use the `.navbar-fluid_fixed` class.
+
+          <div class="navbar navbar-fluid_fixed">
+            <nav>
+              <ul>
+                ...
+              </ul>
+            </nav>
+          </div>
+
+  :markdown
+    #### Fixed
+
+    Fixed navbars 
 
   :markdown
     ### Dropdowns
@@ -366,6 +393,68 @@ block variations
             <nav>
           </div>
 
+  h3 Responsive
+  :markdown
+    #### Collapse items
+
+    To use a collapse button on the navbar instead of flowing the menu items,
+    you'll need to define a few settings.
+
+  .if-semantic
+  :markdown
+    First, tell the navbar that its items should collapse.
+
+        .navbar.navbar-collapse {
+          @include navbar($collapse: true);
+        }
+
+    At this point, all `li`s except for `.navbar-title` will disappear. Be sure to
+    add this, even if you only put the responsive button inside.
+
+        <div class="navbar navbar-collapse">
+          <nav>
+            <ul>
+              <!-- This will be the title and
+                   the responsive collapse button -->
+              <li class="navbar-title">
+                <h1>Acme Corp</h1>
+                <button role="button">=</button>
+              </li>
+
+              <!-- These are the collapsed navigation
+                   items. -->
+
+              <li>
+                <a href="/products/">Products</a>
+              </li>
+              <li>
+                <a href="/blog/">Blog</a>
+              </li>
+            </ul>
+          </nav>
+        <div>
+
+    The `=` in the responsive button should automatically be changed to a three-bar icon.
+
+    #### Define a breakpoint (optional)
+
+    By default, the navbar will collapse menu items at screen sizes narrower than a tablet
+    (according to the width defined as `$tablet`). To customize this, you can change the `$breakpoint`.
+        .navbar {
+          @include navbar($breakpoint: $tablet, $collapse: true);
+        }
+
+    The `$breakpoint` is simply the screen width at which responsive styling
+    should cease to be applied. In the above example, we use one of the provided
+    screen size variables. However, you may also pass in a css measurement value.
+
+        @include navbar($breakpoint: 768px, $collapse: true);
+        @include navbar($breakpoint: 200em, $collapse: true);
+        @include navbar($breakpoint: 500pt, $collapse: true);
+
+  +screen-sizes
+
+
   h2 Pagination 
   .example
     .pagination
@@ -416,68 +505,7 @@ block variations
       ul
         li: a(href="#") Next &raquo;
 
-  h2 Responsive
-  :markdown
-    ### Collapse items
-
-    To use a collapse button on the navbar instead of flowing the menu items,
-    you'll need to define a few settings.
-
-  .if-semantic
-  :markdown
-    First, tell the navbar that its items should collapse.
-
-        .navbar.navbar-collapse {
-          @include navbar($collapse: true);
-        }
-
-    At this point, all `li`s except for `.navbar-title` will disappear. Be sure to
-    add this, even if you only put the responsive button inside.
-
-        <div class="navbar navbar-collapse">
-          <nav>
-            <ul>
-              <!-- This will be the title and
-                   the responsive collapse button -->
-              <li class="navbar-title">
-                <h1>Acme Corp</h1>
-                <button role="button">=</button>
-              </li>
-
-              <!-- These are the collapsed navigation
-                   items. -->
-
-              <li>
-                <a href="/products/">Products</a>
-              </li>
-              <li>
-                <a href="/blog/">Blog</a>
-              </li>
-            </ul>
-          </nav>
-        <div>
-
-    The `=` in the responsive button should automatically be changed to a three-bar icon.
-
-    ### Define a breakpoint (optional)
-
-    By default, the navbar will collapse menu items at screen sizes narrower than a tablet
-    (according to the width defined as `$tablet`). To customize this, you can change the `$breakpoint`.
-        .navbar {
-          @include navbar($breakpoint: $tablet, $collapse: true);
-        }
-
-    The `$breakpoint` is simply the screen width at which responsive styling
-    should cease to be applied. In the above example, we use one of the provided
-    screen size variables. However, you may also pass in a css measurement value.
-
-        @include navbar($breakpoint: 768px, $collapse: true);
-        @include navbar($breakpoint: 200em, $collapse: true);
-        @include navbar($breakpoint: 500pt, $collapse: true);
-
-  +screen-sizes
-
-  h2 Other options
+  h3 Other options
   p Adding the <code>disabled</code> attribute will signal to the user the option is not available.
 
   .pagination

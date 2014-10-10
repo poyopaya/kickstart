@@ -71,7 +71,6 @@
         window["$opt" + option].checked = (settings.viewOptions["" + option] ? true : false);
         return window["$opt" + option].addEventListener('click', function() {
           settings.viewOptions["" + option] = this.checked;
-          console.log(settings.viewOptions);
           return setSettings(settings);
         });
       };
@@ -149,7 +148,7 @@
       for (_k = 0, _len2 = _ref.length; _k < _len2; _k++) {
         heading = _ref[_k];
         if (!heading.classList.contains('toc-exempt')) {
-          heading.id = k$.slugify(heading.innerHTML);
+          heading.id = "" + (k$.slugify(heading.innerHTML)) + "-" + _k;
           $thisHeadingLevel = parseInt(heading.tagName.substr(1, 2));
           if ($thisHeadingLevel > $headingLevel) {
             $newSubmenu = document.createElement('ul');
@@ -159,13 +158,11 @@
           }
           if ($thisHeadingLevel < $headingLevel) {
             $stepsUp = $headingLevel - $thisHeadingLevel;
-            console.log($stepsUp);
             while ($stepsUp > 0) {
               $targetNode = $targetNode.parentNode;
               $stepsUp--;
             }
-            console.log($stepsUp);
-            $headingLevel = $stepsUp;
+            $headingLevel = $thisHeadingLevel;
           }
           $menuItem = $link.cloneNode(true);
           $menuItem.querySelector('a').href = "#" + heading.id;
@@ -173,8 +170,7 @@
           $targetNode.appendChild($menuItem);
         }
       }
-      k$.$('section#toc').appendChild($toc);
-      return console.log($toc);
+      return k$.$('section#toc').appendChild($toc);
     }
   });
 

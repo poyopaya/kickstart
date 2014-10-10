@@ -4,16 +4,16 @@
   @else
     color: rgba(0, 0, 0, 0.5)
 
-=navbar-default($fluid: true, $background: map-get($white, dark), $breakpoint: $tablet, $collapse: false)
+=navbar-default($layout: 'fixed', $background: map-get($white, dark), $breakpoint: $tablet, $collapse: false)
   background: $background
   box-shadow: 0px 1px 0px darken($background, 12%) inset
   font-size: $default-font-size
   margin-bottom: $space
 
   nav
-    @if $fluid == true
+    @if $layout == 'fluid'
       +container(true)
-    @else
+    @else if $layout == 'fluid-fixed'
       +container(false)
     width: 100%
     border-radius: 0
