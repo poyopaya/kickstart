@@ -34,7 +34,7 @@ html, body
     +column(8, 2, 2)
 
 .main-navigation
-  +navbar($layout: 'fixed', $collapse: true)
+  +navbar($layout: 'fluid-fixed', $collapse: true)
 
   .logo
     height: 30px
@@ -43,7 +43,7 @@ html, body
     opacity: 0.8
 
 .docs-nav
-  +navbar($layout: 'fixed', $background: darken(map-get($colors, blue), 5%), $collapse: true)
+  +navbar($layout: 'fluid-fixed', $background: darken(map-get($colors, blue), 5%), $collapse: true)
   margin:
     top: -$space
 

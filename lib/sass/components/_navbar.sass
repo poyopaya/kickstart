@@ -4,6 +4,24 @@
   @else
     color: rgba(0, 0, 0, 0.5)
 
+=navbar-align_menus($breakpoint)
+  @media screen and (min-width: $breakpoint)
+    > ul:first-child
+      margin-left: (-1 * map-get($rootElement, paddingH))
+
+    > ul:last-child
+      margin-right: (-1 * map-get($rootElement, paddingH))
+
+=navbar-fluid($breakpoint: $tablet)
+  nav
+    +container(true)
+    +navbar-align_menus($breakpoint)
+
+=navbar-fluid_fixed($breakpoint: $tablet)
+  nav
+    +container(false)
+    +navbar-align_menus($breakpoint)
+
 =navbar-default($layout: 'none', $background: map-get($white, dark), $breakpoint: $tablet, $collapse: false)
   background: $background
   box-shadow: 0px 1px 0px darken($background, 12%) inset
@@ -11,10 +29,6 @@
   margin-bottom: $space
 
   nav
-    @if $layout == 'fluid'
-      +container(true)
-    @else if $layout == 'fixed'
-      +container(false)
     width: 100%
     border-radius: 0
     position: relative
@@ -44,14 +58,6 @@
 
     p
       margin: 0
-
-    @media screen and (min-width: $breakpoint)
-      @if not ($layout == 'none')
-        > ul:first-child
-          margin-left: (-1 * map-get($rootElement, paddingH))
-
-        > ul:last-child
-          margin-right: (-1 * map-get($rootElement, paddingH))
 
     > ul
       margin: 0
@@ -214,5 +220,11 @@
           &:active
             background: darken($background, 15%)
             border-color: darken($background, 15%)
+
+  @if $layout == 'fluid'
+    +navbar-fluid($breakpoint)
+
+  @if $layout == 'fluid-fixed'
+    +navbar-fluid_fixed($breakpoint)
 
   @content
