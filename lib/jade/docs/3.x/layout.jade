@@ -1,11 +1,12 @@
 extends ../../layout
 
 block bleed
-  include _header
-
   header.doc-hero
     block hero-title
     block hero-example
+
+block header
+  include _header
 
 block container
   .row

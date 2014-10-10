@@ -456,11 +456,28 @@ block variations
 
         .page {
           margin-top: 45px;
-        }
+        } 
 
-    **Stacked Navbars** should also choose their `z-indexes` wisely. Test your
-    dropdown menus in each to make sure they aren't overlapping. If they are, 
-    give the higher navbar a higher z-index, starting with 1000.
+    Keep in mind, the navbar's height changes just slightly, due to the responsive text
+    inside of it, so it's best to test this value on mobile.
+
+    #### Stacking navbars
+
+    For best performance with spacing and z-indexes, I highly recommend instead using a single div
+    to contain your two *non-fixed* navbars.
+
+        <div class="navbars">
+          <div class="navbar navbar-1">...</div>
+          <div class="navbar navbar-2">...</div>
+        </div>
+
+        .navbars {
+          position: fixed;
+          z-index: 1000;
+          top: 0;
+          left: 0;
+          right: 0;
+        }
 
   h2 Pagination 
   .example

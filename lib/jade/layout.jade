@@ -11,7 +11,9 @@ html(lang='en')
   body
     #screen
       #above-footer
-        include _header
+        header.fixed
+          include _header
+          block header
 
         block bleed
 
