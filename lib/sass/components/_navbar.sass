@@ -113,6 +113,12 @@
           justify-content: space-between
           align-items: center
 
+          @media screen and (min-width: $breakpoint)
+            padding: 0 
+
+            > h1, > h2, > h3, > h4, > h5, > h6
+              padding: (map-get($rootElement, paddingV) - 1) (map-get($rootElement, paddingH))
+
           button
             +button-default(transparent)
             background: transparent
