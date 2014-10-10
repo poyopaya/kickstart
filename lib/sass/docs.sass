@@ -34,7 +34,7 @@ html, body
     +column(8, 2, 2)
 
 .main-navigation
-  +navbar($fluid: false, $collapse: true)
+  +navbar($layout: 'fixed', $collapse: true)
 
   .logo
     height: 30px
@@ -43,7 +43,7 @@ html, body
     opacity: 0.8
 
 .docs-nav
-  +navbar($fluid: false, $background: darken(map-get($colors, blue), 5%), $collapse: true)
+  +navbar($layout: 'fixed', $background: darken(map-get($colors, blue), 5%), $collapse: true)
   margin:
     top: -$space
 
@@ -146,6 +146,9 @@ h1.example-
 
 .logo
   max-width: 600px
+
+img
+  max-width: 100%
 
 // Iframes
 iframe.animation

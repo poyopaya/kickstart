@@ -173,54 +173,30 @@ block variations
 
   :markdown
 
-    #### About the structure
+    Why not just have `<nav>` without the extra div above? This is to give you 
+    more separation between the flexbox elements and the container it sits in. 
+    Flexbox display settings will affect the direct descendants. The need for 
+    this separation becomes clearer as the navbar becomes more complex, such 
+    as the addition of a wrapper inside the container.
 
-    Why not just have `<nav>`? This is to give you more separation between the
-    flexbox elements and the container it sits in. Flexbox display settings will
-    affect the direct descendants. The need for this separation becomes clearer
-    as the navbar becomes more complex, such as the addition of a wrapper inside
-    the container.
+    ### Layout Styles
 
-  <h3 id="combining">Combining with other elements</h3>
+    Navbars can have either default, fluid, or fluid-fixed layouts.
 
-  :markdown
-    Try mixing and matching with other elements, especially buttons and inputs.
+    #### No style
 
-        <div class="navbar">
-          <nav>
-            <ul>
-              <li>
-                <a href="#">Home</a>
-              </li>
-              <li>
-                <a class="button" href="#" role="button">Sign Up</a>
-              </li>
-            </ul>
-          </nav>
-        </div>
+    By default, navbars have a layout parameter of "none" This is best for navigation bars
+    that are in the page itself, and not integrated into the master layout of the page.
 
-  .if-semantic
-    :markdown
-      <span>
+    ![Navbar with layout of "none" (Default)](/img/nav_none.png)
 
-          .navbar {
-            @include navbar();
-          }
-          .button {
-            @include button();
-          }
+    #### Fluid
 
-      Don't forget to add `role="button"` when using buttons in the navbar.
+    You may want your navbar contents to be full width, but keep a healthy
+    margin on the left and right. This is especially important on smaller
+    screens.
 
-      ### Layout Styles
-
-      Navbars can have either fluid, fluid-fixed, or fixed layouts.
-
-      #### Fluid
-
-      You may want your navbar contents to be full width, but keep a healthy
-      margin on the left and right. This is especially important on smaller
-      screens.
+    ![Navbar with layout of "fluid" (Default)](/img/nav_fluid.png)
 
   .ifnot-semantic
     :markdown
@@ -299,6 +275,8 @@ block variations
     adjust itself in a way that the first and last menu items align, not by their edges, 
     but the edges of the text inside them.
 
+    ![Navbar with layout of "fluid-fixed" (Default)](/img/nav_fluid-fixed.png)
+
   .if-semantic 
     :markdown
       For a fluid-fixed layout, pass in `'fluid-fixed'` to the `$layout` parameter.
@@ -316,11 +294,6 @@ block variations
               </ul>
             </nav>
           </div>
-
-  :markdown
-    #### Fixed
-
-    Fixed navbars 
 
   :markdown
     ### Dropdowns

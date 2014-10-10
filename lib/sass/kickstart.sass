@@ -254,7 +254,10 @@
     +navbar($collapse: true)
 
   &.navbar-fluid
-    +navbar($fluid: true)
+    +navbar($layout: 'fluid')
+
+  &.navbar-fixed
+    +navbar($layout: 'fixed')
 
   &.navbar-dark
     +navbar($background: map-get($black, lighter))
