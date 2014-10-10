@@ -427,6 +427,40 @@ block variations
 
   +screen-sizes
 
+  :markdown
+    ### Fixed navbar
+
+  .if-semantic
+    :markdown
+      To create a fixed navbar, pass in `true` to the `$fixed` parameter of `navbar()`.
+
+          <div class="navbar">
+            <nav>
+              <ul>
+                ...
+              </ul>
+            </nav>
+          </div> 
+
+          .navbar {
+            @include navbar($fixed: true);
+          }
+
+  :markdown
+    By default, this sticks the navbar to the left and right 
+    Be sure to specify these in your CSS if needed, especially if using stacked navbars.
+
+    You'll also need to decide on the padding you'll need on the underlying page.
+    Positioning the navbar to `fixed` will cause the content to start underneath it. Consider
+    adding a `margin-top` that is equal to the height of the navbar.
+
+        .page {
+          margin-top: 45px;
+        }
+
+    **Stacked Navbars** should also choose their `z-indexes` wisely. Test your
+    dropdown menus in each to make sure they aren't overlapping. If they are, 
+    give the higher navbar a higher z-index, starting with 1000.
 
   h2 Pagination 
   .example

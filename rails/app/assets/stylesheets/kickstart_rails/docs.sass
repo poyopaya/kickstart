@@ -12,6 +12,9 @@
 html, body
   overflow-x: hidden
 
+body
+  padding-top: 65px
+
 .mainpane
   +column('twothirds')
 
@@ -34,7 +37,8 @@ html, body
     +column(8, 2, 2)
 
 .main-navigation
-  +navbar($layout: 'fluid-fixed', $collapse: true)
+  +navbar($layout: 'fluid-fixed', $collapse: true, $fixed: true)
+  z-index: 1001
 
   .logo
     height: 30px
@@ -43,9 +47,9 @@ html, body
     opacity: 0.8
 
 .docs-nav
-  +navbar($layout: 'fluid-fixed', $background: darken(map-get($colors, blue), 5%), $collapse: true)
-  margin:
-    top: -$space
+  +navbar($layout: 'fluid-fixed', $background: darken(map-get($colors, blue), 5%), $collapse: true, $fixed: true)
+  top: 45px
+  z-index: 1000
 
 // Colors
 // Kind of shitty, but there is a colors page that directly relies on this.
@@ -117,9 +121,9 @@ h1.example-
 .if-jquery, .ifnot-jquery, .if-semantic, .ifnot-semantic
   display: none
 
-.hero
-  margin:
-    top: -$space
+header.doc-hero
+  +hero
+  margin-top: 23px
 
   ul, ul li, .navbar
     text-align: left
@@ -141,6 +145,10 @@ h1.example-
     h1
       color: map-get($black, light)
       font-size: 1.1rem
+
+.index-hero
+  +hero
+  margin-top: -23px
 
 // Images
 

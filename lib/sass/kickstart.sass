@@ -250,6 +250,9 @@
 .navbar
   +navbar
 
+  &.navbar-dark
+    +navbar($background: map-get($black, lighter))
+
   &.navbar-collapse
     +navbar($collapse: true)
 
@@ -259,8 +262,8 @@
   &.navbar-fluid_fixed
     +navbar-fluid_fixed
 
-  &.navbar-dark
-    +navbar($background: map-get($black, lighter))
+  &.navbar-fixed
+    +navbar-fixed
 
 .pagination
   +pagination

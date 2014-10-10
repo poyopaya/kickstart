@@ -25,7 +25,14 @@
     +container(false)
     +navbar-align_menus($breakpoint)
 
-=navbar-default($layout: 'none', $background: map-get($white, dark), $breakpoint: $tablet, $collapse: false)
+=navbar-fixed
+  position: fixed
+  z-index: 100
+  left: 0
+  right: 0
+  top: 0
+
+=navbar-default($layout: 'none', $background: map-get($white, dark), $breakpoint: $tablet, $collapse: false, $fixed: false)
   background: $background
   box-shadow: 0px 1px 0px darken($background, 12%) inset
   font-size: $default-font-size
@@ -112,6 +119,12 @@
           display: flex
           justify-content: space-between
           align-items: center
+
+          @media screen and (min-width: $breakpoint)
+            padding: 0 
+
+            > h1, > h2, > h3, > h4, > h5, > h6
+              padding: (map-get($rootElement, paddingV) - 1) (map-get($rootElement, paddingH))
 
           button
             +button-default(transparent)
@@ -231,10 +244,13 @@
             background: darken($background, 15%)
             border-color: darken($background, 15%)
 
-  @if $layout == 'fluid'
+  @if ($layout == 'fluid')
     +navbar-fluid($breakpoint)
 
-  @if $layout == 'fluid-fixed'
+  @if ($layout == 'fluid-fixed')
     +navbar-fluid_fixed($breakpoint)
+
+  @if ($fixed == true)
+    +navbar-fixed
 
   @content

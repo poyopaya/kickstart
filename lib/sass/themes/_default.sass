@@ -196,8 +196,8 @@ hr
 // Navigation
 // ----------
 
-=navbar($layout: 'none', $background: map-get($white, dark), $breakpoint: $tablet, $collapse: false)
-  +navbar-default($layout, $background, $breakpoint, $collapse)
+=navbar($layout: 'none', $background: map-get($white, dark), $breakpoint: $tablet, $collapse: false, $fixed: false)
+  +navbar-default($layout, $background, $breakpoint, $collapse, $fixed)
 
 =dropdown_menu
   +dropdown_menu-default
