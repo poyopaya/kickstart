@@ -12,6 +12,9 @@
     > ul:last-child
       margin-right: (-1 * map-get($rootElement, paddingH))
 
+    > ul:only-child
+      margin-right: 0
+
 =navbar-fluid($breakpoint: $tablet)
   nav
     +container(true)
@@ -76,6 +79,13 @@
             ul
               left: auto
               right: -1px
+
+      &:only-child
+        @media screen and (min-width: $breakpoint)
+          > li.with-submenu.open
+            ul
+              left: -1px
+              right: auto
 
       > li
         list-style: none
