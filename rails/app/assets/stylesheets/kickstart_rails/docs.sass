@@ -13,7 +13,7 @@ html, body
   overflow-x: hidden
 
 body
-  padding-top: 65px
+  padding-top: 60px
 
 .mainpane
   +column('twothirds')
@@ -37,8 +37,9 @@ body
     +column(8, 2, 2)
 
 .main-navigation
-  +navbar($layout: 'fluid-fixed', $collapse: true, $fixed: true)
+  +navbar($layout: 'fluid-fixed', $collapse: true)
   z-index: 1001
+  margin-bottom: 0
 
   .logo
     height: 30px
@@ -47,8 +48,16 @@ body
     opacity: 0.8
 
 .docs-nav
-  +navbar($layout: 'fluid-fixed', $background: darken(map-get($colors, blue), 5%), $collapse: true, $fixed: true)
+  +navbar($layout: 'fluid-fixed', $background-color: darken(map-get($colors, blue), 5%), $collapse: true)
   top: 45px
+  z-index: 1000
+  margin-bottom: 0
+
+header.fixed
+  position: fixed
+  top: 0
+  left: 0
+  right: 0
   z-index: 1000
 
 // Colors

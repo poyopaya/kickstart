@@ -32,9 +32,11 @@
   right: 0
   top: 0
 
-=navbar-default($layout: 'none', $background: map-get($white, dark), $breakpoint: $tablet, $collapse: false, $fixed: false)
-  background: $background
-  box-shadow: 0px 1px 0px darken($background, 12%) inset
+=navbar-color($background-color)
+  background-color: $background-color
+
+=navbar-default($layout: 'none', $background-color: map-get($white, dark), $breakpoint: $tablet, $collapse: false, $fixed: false)
+  box-shadow: 0px 1px 0px darken($background-color, 12%) inset
   font-size: $default-font-size
   margin-bottom: $space
 
@@ -43,14 +45,14 @@
     border-radius: 0
     position: relative
 
-    @if (lightness($background) < 75%)
+    @if (lightness($background-color) < 75%)
       color: white
     @else
       color: $default-font-color
 
     @media screen and (min-width: $breakpoint)
       display: flex
-      align-items: flex-start
+      align-items: center
       flex-wrap: wrap
       justify-content: space-between
       align-content: space-between
@@ -138,6 +140,8 @@
               left: 0
               right: 0
             opacity: 0.5
+            @if ($collapse == false)
+              display: none
 
             &:hover, &:active
               box-shadow: none
@@ -150,7 +154,7 @@
 
         &.with-submenu // Added via k$.nav()
           padding: (2 * map-get($rootElement, paddingV) - 1) (map-get($rootElement, paddingH))
-          +color($background)
+          +color($background-color)
           cursor: pointer
 
           &:before
@@ -173,16 +177,16 @@
               margin-left: 8px
 
           &:hover
-            @if (lightness($background) < 75%)
+            @if (lightness($background-color) < 75%)
               color: white
             @else
               color: rgba(0, 0, 0, 0.85)
-            background: darken($background, 5%)
-            border-color: darken($background, 5%)
+            background: darken($background-color, 5%)
+            border-color: darken($background-color, 5%)
 
           &:active
-            background: darken($background, 15%)
-            border-color: darken($background, 15%)
+            background: darken($background-color, 15%)
+            border-color: darken($background-color, 15%)
 
           &.open
             color: rgba(0, 0, 0, 0.85)
@@ -218,7 +222,7 @@
           display: inherit
 
         > a:not([role=button])
-          +color($background)
+          +color($background-color)
           text-decoration: none
           cursor: pointer
           display: block
@@ -233,16 +237,16 @@
             right: map-get($rootElement, paddingH)
 
           &:hover
-            @if (lightness($background) < 75%)
+            @if (lightness($background-color) < 75%)
               color: white
             @else
               color: rgba(0, 0, 0, 0.85)
-            background: darken($background, 5%)
-            border-color: darken($background, 5%)
+            background: darken($background-color, 5%)
+            border-color: darken($background-color, 5%)
 
           &:active
-            background: darken($background, 15%)
-            border-color: darken($background, 15%)
+            background: darken($background-color, 15%)
+            border-color: darken($background-color, 15%)
 
   @if ($layout == 'fluid')
     +navbar-fluid($breakpoint)
@@ -252,5 +256,7 @@
 
   @if ($fixed == true)
     +navbar-fixed
+
+  +navbar-color($background-color)
 
   @content
