@@ -3,51 +3,8 @@ label, legend
   font-weight: 500
   margin-bottom: $space/4
 
-%error_message
-  font-style: italic
-  margin:
-    top: 7px
-    bottom: 14px
-
 =form-default($layout: 'none')
   margin-bottom: $space
-
-  .errors, .warnings, .successes
-    p
-      @extend %error_message
-
-  .errors
-    +field-colors(map-get($colors, red))
-
-  .warnings
-    +field-colors(map-get($colors, yellow))
-
-  .successes
-    +field-colors(map-get($colors, green))
-
-  p
-    &.error, &.warning, &.success
-      @extend %error_message
-
-  label, span, p
-    &.error
-      color: map-get($colors, red)
-
-    &.warning
-      color: map-get($colors, yellow)
-
-    &.success
-      color: map-get($colors, green)
-
-  input, select
-    &.error
-      border-color: map-get($colors, red)
-
-    &.warning
-      border-color: map-get($colors, yellow)
-
-    &.success
-      border-color: map-get($colors, green)
 
   @if ($layout == 'horizontal')
     +form-horizontal
@@ -114,11 +71,11 @@ select
 
   @content
 
-=form_group-default($orientation)
+=form_group-default($layout)
   display: block
   margin-bottom: $space
 
-  @if $orientation == 'horizontal'
+  @if $layout == 'horizontal'
     display: inherit
     margin:
       right: $space/5

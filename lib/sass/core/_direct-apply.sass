@@ -18,6 +18,54 @@ input[type="file"]::-webkit-file-upload-button
 
 +dropdown_menu
 
+// Forms
+// -----
+
+%error_message
+  font-style: italic
+  margin:
+    top: 7px
+    bottom: 14px
+
+form
+  .errors, .warnings, .successes
+    p
+      @extend %error_message
+
+  .errors
+    +field-colors(map-get($colors, red))
+
+  .warnings
+    +field-colors(map-get($colors, yellow))
+
+  .successes
+    +field-colors(map-get($colors, green))
+
+  p
+    &.error, &.warning, &.success
+      @extend %error_message
+
+  label, span, p
+    &.error
+      color: map-get($colors, red)
+
+    &.warning
+      color: map-get($colors, yellow)
+
+    &.success
+      color: map-get($colors, green)
+
+  input, select
+    &.error
+      border-color: map-get($colors, red)
+
+    &.warning
+      border-color: map-get($colors, yellow)
+
+    &.success
+      border-color: map-get($colors, green)
+  
+
 // Growls
 // ------
 
