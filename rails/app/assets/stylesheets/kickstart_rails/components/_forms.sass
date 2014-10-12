@@ -9,7 +9,7 @@ label, legend
     top: 7px
     bottom: 14px
 
-=form-default
+=form-default($layout: 'none')
   margin-bottom: $space
 
   .errors, .warnings, .successes
@@ -48,6 +48,11 @@ label, legend
 
     &.success
       border-color: map-get($colors, green)
+
+  @if ($layout == 'horizontal')
+    +form-horizontal
+  @if ($layout == 'left')
+    +form-left
 
   @content
 
@@ -88,13 +93,13 @@ select
   height: calc(#{$default-line-height} + #{2 * map-get($rootElement, paddingV)})
   background-image: none
 
-=form-horizontal-default
+=form-horizontal
   label, input
     display: inline-block
 
   @content
 
-=form-left-default()
+=form-left
   label
     display: inline-block
     width: 50%
@@ -114,7 +119,6 @@ select
   @if $orientation == 'horizontal'
     display: inline-block
     margin:
-      bottom: 0
       right: $space/5
 
     > *

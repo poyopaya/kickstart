@@ -35,6 +35,15 @@
 =navbar-color($background-color)
   background-color: $background-color
 
+  nav
+    > ul
+      > li
+        &.with-submenu
+          +color($background-color)
+
+        > a:not([role=button])
+          +color($background-color)
+
 =navbar-default($layout: 'none', $background-color: map-get($white, dark), $breakpoint: $tablet, $collapse: false, $fixed: false)
   box-shadow: 0px 1px 0px darken($background-color, 12%) inset
   font-size: $default-font-size
@@ -154,7 +163,6 @@
 
         &.with-submenu // Added via k$.nav()
           padding: (2 * map-get($rootElement, paddingV) - 1) (map-get($rootElement, paddingH))
-          +color($background-color)
           cursor: pointer
 
           &:before
@@ -222,7 +230,6 @@
           display: inherit
 
         > a:not([role=button])
-          +color($background-color)
           text-decoration: none
           cursor: pointer
           display: block
