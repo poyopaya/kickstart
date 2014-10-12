@@ -168,36 +168,35 @@
 .col-twothirds
   +column('twothirds')
 
-[class^="col"]
-  // Left offsets
-  @each $screen in '', 'xs-', 'sm-', 'rg-', 'md-', 'lg-', 'xl-'
-    &.col-left-#{$screen}third
-      +left('third')
+// Left offsets
+@each $screen in '', 'xs-', 'sm-', 'rg-', 'md-', 'lg-', 'xl-'
+  .col-left-#{$screen}third
+    +left('third')
 
-    &.col-left-#{$screen}twothirds
-      +left('twothirds')
+  .col-left-#{$screen}twothirds
+    +left('twothirds')
 
-    &.col-left-#{$screen}half
-      +left('half')
+  .col-left-#{$screen}half
+    +left('half')
 
-    @for $i from 1 through 12
-      &.col-left-#{$screen}#{$i}
-        +left($i)
+  @for $i from 1 through 12
+    .col-left-#{$screen}#{$i}
+      +left($i)
 
-  // Right offsets
-  @each $screen in '', 'xs-', 'sm-', 'rg-', 'md-', 'lg-', 'xl-'
-    &.col-right-#{$screen}third
-      +right('third')
+// Right offsets
+@each $screen in '', 'xs-', 'sm-', 'rg-', 'md-', 'lg-', 'xl-'
+  .col-right-#{$screen}third
+    +right('third')
 
-    &.col-right-#{$screen}twothirds
-      +right('twothirds')
+  .col-right-#{$screen}twothirds
+    +right('twothirds')
 
-    &.col-right-#{$screen}half
-      +right('half')
+  .col-right-#{$screen}half
+    +right('half')
 
-    @for $i from 1 through 12
-      &.col-right-#{$screen}#{$i}
-        +right($i)
+  @for $i from 1 through 12
+    .col-right-#{$screen}#{$i}
+      +right($i)
 
 // IMAGES
 // ------

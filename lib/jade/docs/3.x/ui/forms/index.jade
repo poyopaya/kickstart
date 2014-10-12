@@ -241,33 +241,48 @@ block variations
   :markdown
     ### Left-aligned
 
-    Labels and form elements align to the center line of the form width.
+    For left-aligned forms, simply use the grid.
+    
+    - Add `row` to the `form_group`
+    - Add column styles to labels
+    - Either put inputs and text fields in column elements
+      or apply column styling directly.
 
   form.form.form-left
-    .form_group
-      label First Name
-      input(type="text" placeholder="John")
+    .form_group.row
+      label.col-third First Name
+      .col-twothirds
+        input(type="text" placeholder="John")
 
-    .form_group
-      label Last Name
-      input(type="text" placeholder="Smith")
+    .form_group.row
+      label.col-third Last Name
+      .col-twothirds
+        input(type="text" placeholder="Smith")
 
-    .form_group
-      label Bio
-      textarea
+    .form_group.row
+      label.col-third Bio
+      .col-twothirds
+        textarea
 
-    .form_group
-      label Industry
-      select
-        option Academic
-        option Automotive
-        option Finance
-        option Government
-        option Medical
-        option Restaurant
-        option Technology
+    .form_group.row
+      label.checkbox.col-third.col-left-third
+        input(type="checkbox")
+        |  Sign up for newsletter
 
-    input(type="submit" role="button")
+    .form_group.row
+      label.col-third Industry
+      .col-twothirds
+        select
+          option Academic
+          option Automotive
+          option Finance
+          option Government
+          option Medical
+          option Restaurant
+          option Technology
+
+    .row
+      input.col-third.col-left-third.button.button-primary(type="submit" role="button")
 
   :markdown
     ### Mixed
