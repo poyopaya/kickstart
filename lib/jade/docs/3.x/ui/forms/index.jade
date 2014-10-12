@@ -282,7 +282,15 @@ block variations
           option Technology
 
     .row
-      input.col-third.col-left-third.button.button-primary(type="submit" role="button")
+      .col-third.col-left-third
+        input.button.button-primary(type="submit" role="button")
+
+  :markdown
+    **Using checkboxes and radio buttons**: Because the
+    left-aligned form will right-align labels, you'll need to
+    specify your checkbox and radio button labels as either
+    `.checkbox` or `.radio` to preserve left-alignment.
+    (Or apply this via CSS.)
 
   :markdown
     ### Mixed

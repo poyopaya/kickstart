@@ -66,10 +66,12 @@ select
       right: 0
       left: 0
     display: inline-block
-    margin: 0
+    margin: 
+      top: 0
+      bottom: 0
 
   @media screen and (min-width: $tablet)
-    label:not(.checkbox)
+    label:not(.checkbox):not(.radio)
       text-align: right
 
   @content
