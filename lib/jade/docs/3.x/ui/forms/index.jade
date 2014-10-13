@@ -285,6 +285,121 @@ block variations
       .col-third.col-left-third
         input.button.button-primary(type="submit" role="button")
 
+  .ifnot-semantic
+    :markdown
+      <span>
+
+          <form class="form form-left">
+            <div class="form_group row">
+              <label for="fname" class="col-third>First name</label>
+              <div name="col-twothirds" class="input">
+                <input type="text" placeholder="john" />
+              </div>
+            </div>
+            <div class="form_group row">
+              <label for="lname" class="col-third">Last name</label>
+              <div name="lname" class="twothirds">
+                <input type="text" placeholder="Smith" />
+              </div>
+            </div>
+            <div class="form_group row">
+              <label for="bio" class="col-third">Bio</label>
+              <div name="bio" class="col-twothirds">
+                <textarea name="bio"></textarea>
+              </div>
+            </div>
+            <div class="form_group row">
+              <label class="checkbox col-left-third">
+                <input type="checkbox" />
+                Sign up for newsletter
+              </label
+            </div>
+            <div class="form_group row">
+              <label for="industry" class="col-third>Industry</label>
+              <div name="industry" class="input" class="col-twothirds">
+                <select>
+                  <option>Academic</option>
+                  ...
+                </select>
+              </div>
+            </div>
+            <footer class="row">
+              <div class="col-third col-left-third">
+                <input type="submit" role="button" class="button button-primary" />
+              </div>
+            </footer>
+          </form>
+
+  .if-semantic
+    :markdown
+      <span>
+
+          <form>
+            <div class="fname">
+              <label for="fname">First name</label>
+              <div name="fname" class="input">
+                <input type="text" placeholder="john" />
+              </div>
+            </div>
+            <div class="lname">
+              <label for="lname">Last name</label>
+              <div name="lname" class="input">
+                <input type="text" placeholder="Smith" />
+              </div>
+            </div>
+            <div class="bio">
+              <label for="bio">Bio</label>
+              <div name="bio" class="input">
+                <textarea name="bio"></textarea>
+              </div>
+            </div>
+            <div class="newsletter">
+              <label class="checkbox">
+                <input type="checkbox" />
+                Sign up for newsletter
+              </label
+            </div>
+            <div class="industry">
+              <label for="industry">Industry</label>
+              <div name="industry" class="input">
+                <select>
+                  <option>Academic</option>
+                  ...
+                </select>
+              </div>
+            </div>
+            <footer>
+              <div class="submit">
+                <input type="submit" role="button" class="button" />
+              </div>
+            </footer>
+          </form>
+
+          form {
+            @include form($layout: 'left');
+
+            footer {
+              @include row();
+            }
+          }
+          .fname, .lname, .bio, .newsletter, .industry {
+            @include form_group();
+            @include row();
+          }
+          label {
+            @include column('third');
+          }
+          .input {
+            @include column('twothirds');
+          }
+          .submit {
+            @include column('third', $left: 'third');
+
+            input {
+              +button($primary-color)
+            }
+          }
+
   :markdown
     **Using checkboxes and radio buttons**: Because the
     left-aligned form will right-align labels, you'll need to
