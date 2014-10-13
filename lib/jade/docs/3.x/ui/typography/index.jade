@@ -113,8 +113,7 @@ block variations
           </ul>
 
           .groceries {
-            @include list();
-            @include list-unstyled();
+            @include list($style: 'unstyled');
           }
 
   :markdown
@@ -148,9 +147,7 @@ block variations
           </ul>
 
           .groceries {
-            @include list();
-            @include list-unstyled();
-            @include list-horizontal();
+            @include list($style: 'unstyled horizontal');
           }
 
   h2 Decoupled

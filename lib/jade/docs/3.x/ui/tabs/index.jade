@@ -63,6 +63,15 @@ block basic
           Fish
         </article>
 
+  .if-semantic
+    :markdown
+      <span>
+
+          .tabs {
+            @include tabs();
+          }
+
+  :markdown 
     You'll also need to tell `k$.tabs()` the selector of the ul that will become the tab bar.
 
         k$.tabs('animals');

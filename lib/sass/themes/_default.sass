@@ -136,14 +136,8 @@ h6
 html
   +type-default
 
-=list
-  +list-default
-
-=list-unstyled
-  +list-unstyled-default
-
-=list-horizontal
-  +list-horizontal-default
+=list($style: 'none')
+  +list-default($style)
 
 //
 // Base Components
@@ -243,6 +237,12 @@ hr
 
 =pagination($background: map-get($white, darker))
   +pagination-default($background)
+
+// Tabs
+// ----
+
+=tabs
+  +tabs-default
 
 // Tooltips
 // --------

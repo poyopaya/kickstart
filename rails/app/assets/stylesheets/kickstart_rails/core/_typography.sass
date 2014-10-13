@@ -154,17 +154,27 @@ a
     bottom: 0.5rem
   +heading-break
 
-=list-default
+=list-default($style: 'none')
   margin-bottom: $space
 
-=list-unstyled-default
+  @if ($style == 'unstyled')
+    +list-unstyled
+
+  @if ($style == 'horizontal')
+    +list-horizontal
+
+  @if ($style == 'unstyled horizontal')
+    +list-unstyled
+    +list-horizontal
+
+=list-unstyled
   padding: 0
   list-style: none
 
   > li
     margin-bottom: 0.85rem
 
-=list-horizontal-default
+=list-horizontal
   > li
     display: inline-block
     margin-right: 5px
