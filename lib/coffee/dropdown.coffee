@@ -1,6 +1,6 @@
 dropdown = () ->
 
-  # The following should apply to both navigation elements and dropdown buttons
+  # The following should apply to several elements.
 
   $menuItems = k$.$$ '.menu-item'
 
@@ -22,7 +22,6 @@ dropdown = () ->
         # Reset all
         _$menuItem.classList.remove 'open' for _$menuItem in document.querySelectorAll('.menu-item')
         $openable = $menuItem.querySelector 'ul'
-        $openable = true if $menuItem.querySelector('a').dataset.link
 
         # Open this one
         if $openable

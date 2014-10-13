@@ -1,14 +1,19 @@
 tabs = (el) ->
-  $menuItems = k$.$(el).querySelectorAll('li')
-  $menuItem.classList.add('menu-item') for $menuItem in $menuItems
+  $tabSet = k$.$(el).querySelectorAll('li')
+  $tab.classList.add('tab-item') for $tab in $tabSet
 
-  for $menuItem in $menuItems
-    do ($menuItem) ->
-      $menuLink = $menuItem.querySelector('a')
-      $menuLink.dataset.link = $menuLink.href
-      $menuLink.href = 'javascript:void(0);'
+  for $tab in $tabSet
+    do ($tab) ->
+      $tabLink = $tab.querySelector('a')
+      $tabLink.dataset.link = $tabLink.getAttribute 'href'
+      $tabLink.href = 'javascript:void(0);'
 
-  k$.dropdown()
+      $tab.addEventListener 'click', ->
+
+        # Reset tabs only in this tabset
+        _$tab.classList.remove 'open' for _$tab in $tabSet
+        $tab.classList.add 'open'
+        document.querySelector("article#{$tabLink.dataset.link}").classList.add 'open'
 
 k$.tabs = tabs
 
