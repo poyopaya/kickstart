@@ -3,40 +3,6 @@ extends ../../layout
 block hero-title
   h1 Navigation
 
-block hero-example
-  .sample-nav.navbar
-    nav
-      ul
-        li Acme Enterprises
-        li
-          a(href="#") Home
-        li
-          | Pages
-          ul
-            li
-              a(href="#") Blog
-            li
-              a(href="#") Contact Us
-      ul
-        li
-          a(href="#") Login
-        li
-          a.button(href="#" role="button") Signup
-
-  .pagination
-    ul
-      li: a(href="#") &laquo; Prev
-
-    ul
-      li: a(href="#") 1
-      li: a(href="#") 2
-      li: a(href="#") 3
-      li: a(href="#") 4
-      li: a(href="#") 5
-
-    ul
-      li: a(href="#") Next &raquo;
-
 block basic
   :markdown
     Navigation items have been meticulously designed to be very straightforward,
@@ -176,10 +142,10 @@ block variations
 
   :markdown
 
-    Why not just have `<nav>` without the extra div above? This is to give you 
-    more separation between the flexbox elements and the container it sits in. 
-    Flexbox display settings will affect the direct descendants. The need for 
-    this separation becomes clearer as the navbar becomes more complex, such 
+    Why not just have `<nav>` without the extra div above? This is to give you
+    more separation between the flexbox elements and the container it sits in.
+    Flexbox display settings will affect the direct descendants. The need for
+    this separation becomes clearer as the navbar becomes more complex, such
     as the addition of a wrapper inside the container.
 
     ### Layout Styles
@@ -275,12 +241,12 @@ block variations
     still keep the contents in the same container as any other element using `container()`.
 
     The underlying logic for this is more tricky than it appears, as the navbar will
-    adjust itself in a way that the first and last menu items align, not by their edges, 
+    adjust itself in a way that the first and last menu items align, not by their edges,
     but the edges of the text inside them.
 
     ![Navbar with layout of "fluid-fixed" (Default)](/img/nav_fluid-fixed.png)
 
-  .if-semantic 
+  .if-semantic
     :markdown
       For a fluid-fixed layout, pass in `'fluid-fixed'` to the `$layout` parameter.
 
@@ -443,14 +409,14 @@ block variations
                 ...
               </ul>
             </nav>
-          </div> 
+          </div>
 
           .navbar {
             @include navbar($fixed: true);
           }
 
   :markdown
-    By default, this sticks the navbar to the left and right 
+    By default, this sticks the navbar to the left and right
     Be sure to specify these in your CSS if needed, especially if using stacked navbars.
 
     You'll also need to decide on the padding you'll need on the underlying page.
@@ -459,7 +425,7 @@ block variations
 
         .page {
           margin-top: 45px;
-        } 
+        }
 
     Keep in mind, the navbar's height changes just slightly, due to the responsive text
     inside of it, so it's best to test this value on mobile.
@@ -482,7 +448,7 @@ block variations
           right: 0;
         }
 
-  h2 Pagination 
+  h2 Pagination
   .example
     .pagination
       ul
@@ -558,5 +524,4 @@ block variations
 block postJS
   script.
     k$.nav('.docs-nav')
-    k$.nav('.sample-nav')
     k$.nav('.sample-dropdown-nav')

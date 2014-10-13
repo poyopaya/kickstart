@@ -17,11 +17,15 @@
 
     a
       +button
-      border: 1px solid map-get($white, darker)
+      border: 1px solid $secondary-color
       padding:
         left: map-get($rootElement, paddingH)
         right: map-get($rootElement, paddingH)
       border-bottom-left-radius: 0
       border-bottom-right-radius: 0
+
+=tab_pane_container-default
+  +root-element
+  border-color: $secondary-color
 
   @content

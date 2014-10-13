@@ -3,14 +3,6 @@ extends ../../layout
 block hero-title
   h1 Forms
 
-block hero-example
-  form.form
-    .form_group
-      label Email
-      input(type="email" placeholder="john@example.com")
-    
-    input(value="Subscribe" type="submit" role="button")
-
 block basic
   :markdown
     Forms take several orientations and have versatile validation styles.
@@ -91,7 +83,7 @@ block basic
               <input id="file" type="file" />
             </div>
             <div class="form-group">
-              <label>Issue Size</label> 
+              <label>Issue Size</label>
 
               <label>
                 <input id="small" type="checkbox" />
@@ -131,7 +123,7 @@ block basic
               <input id="file" type="file" />
             </div>
             <div class="group">
-              <label>Issue Size</label> 
+              <label>Issue Size</label>
 
               <label>
                 <input id="small" type="checkbox" />
@@ -245,7 +237,7 @@ block variations
     ### Left-aligned
 
     For left-aligned forms, simply use the grid.
-    
+
     - Add `row` to the `form_group`
     - Add column styles to labels
     - Either put inputs and text fields in column elements
@@ -451,7 +443,7 @@ block variations
               <label for="email">Email</label>
               <input id="email" type="text" />
             </div>
-            <label for="citystate">City, state, zip</label> 
+            <label for="citystate">City, state, zip</label>
             <div class="form_group form_group-horizontal">
               <input id="citystatezip" type="text" style="width: 125px" />
               <input type="text" style="width: 75px" />
@@ -479,12 +471,12 @@ block variations
               <label for="email">Email</label>
               <input id="email" type="text" />
             </div>
-            <label for="citystate">City, state, zip</label> 
+            <label for="citystate">City, state, zip</label>
             <div class="location">
               <input id="citystatezip" type="text" style="width: 125px" />
               <input type="text" style="width: 75px" />
               <input type="number" style="width: 100px" />
-            </div> 
+            </div>
             <div class="extra">
               <label for="prefix">Prefix</label>
               <input type="text" style="width: 75px" id="prefix" />
@@ -513,7 +505,7 @@ block variations
 
   :markdown
     <span>
-      
+
         <input type="email" value="john@example.com" disabled />
 
   :markdown
@@ -521,7 +513,7 @@ block variations
 
     Three classes can be used to style form components for
     validation: `error(s)`, `success(es)`, and `warning(s)`.
-    
+
     #### Singular
 
   form.form
@@ -529,7 +521,7 @@ block variations
       input.error(type="email" value="john.mail.com")
       p.error Please enter a valid email
 
-  :markdown 
+  :markdown
     The classes can be directly applied to the elements:
 
         <input class="error" type="email" />
@@ -584,7 +576,7 @@ block variations
 
           <form class="form" action="...">
             <label class="error" for="fName">
-            <input class="error" type="text" placeholder="John" id="fName"/> 
+            <input class="error" type="text" placeholder="John" id="fName"/>
             <p class="error">Please enter a valid first name</p>
           </form>
 
@@ -594,7 +586,7 @@ block variations
 
           <form action="...">
             <label class="error" for="fName">
-            <input class="error" type="text" placeholder="John" id="fName"/> 
+            <input class="error" type="text" placeholder="John" id="fName"/>
             <p class="error">Please enter a valid first name</p>
           </form>
 
@@ -617,7 +609,7 @@ block variations
           <form class="form" action="...">
             <div class="form_group">
               <label class="success" for="fName">
-              <input class="success" type="text" placeholder="John" name="fName"/> 
+              <input class="success" type="text" placeholder="John" name="fName"/>
               <p class="warning">Thanks!</p>
             </div>
           </form>
@@ -629,7 +621,7 @@ block variations
           <form class="form" action="...">
             <div class="form_group">
               <label class="success" for="fName">
-              <input class="success" type="text" placeholder="John" name="fName"/> 
+              <input class="success" type="text" placeholder="John" name="fName"/>
               <p class="warning">Thanks!</p>
             </div>
           </form>
@@ -649,20 +641,20 @@ block variations
           <form class="form" action="...">
             <div class="form_group">
               <label class="warning" for="fName">
-              <input class="warning" type="text" placeholder="John" name="fName"/> 
+              <input class="warning" type="text" placeholder="John" name="fName"/>
               <p class="warning">This information will be public</p>
             </div>
           </form>
 
   .if-semantic
     :markdown
-      For this particular use case, there is no semantic version of the 
+      For this particular use case, there is no semantic version of the
       validation coloring classes.
 
           <form action="...">
             <div class="form_group">
               <label class="warning" for="fName">
-              <input class="warning" type="text" placeholder="John" name="fName"/> 
+              <input class="warning" type="text" placeholder="John" name="fName"/>
               <p class="warning">This information will be public</p>
             </div>
           </form>
@@ -672,7 +664,7 @@ block variations
           }
           .form_group {
             @include form_group();
-          } 
+          }
 
   h4 Mixed
 
@@ -702,7 +694,7 @@ block variations
         | Small issue
       label.success
         input.success(type="radio" name="issue")
-        | Regular issue 
+        | Regular issue
       p.success Great choice!
       label
         input(type="radio" name="issue")

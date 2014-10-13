@@ -4,7 +4,7 @@
 
   li
     margin: 0
-      left: -1px
+      right: -1px
       bottom: -1px
 
     &.open
@@ -17,11 +17,21 @@
 
     a
       +button
-      border: 1px solid map-get($white, darker)
+      border: 1px solid $secondary-color
       padding:
         left: map-get($rootElement, paddingH)
         right: map-get($rootElement, paddingH)
       border-bottom-left-radius: 0
       border-bottom-right-radius: 0
+
+=tab_pane_container-default
+  +root-element
+  background: white
+  border-color: $secondary-color
+  border-top: 0
+  border-top-left-radius: 0
+  border-top-right-radius: 0
+  padding: $space
+  margin-top: -$space
 
   @content
