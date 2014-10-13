@@ -12,3 +12,8 @@ describe 'Tabs', ->
     k$.testClick k$.$('#test-tabs #tab-three')
     expect(k$.$('#test-tabs #tab-holder-one').classList.contains('open')).to.equal(false)
     expect(k$.$('#test-tabs #tab-holder-three').classList.contains('open')).to.equal(true)
+
+  it 'should set only the appropriate pane to be uniquely visible', ->
+    expect(k$.$('#panel-one').classList.contains('open')).to.equal(false)
+    expect(k$.$('#panel-two').classList.contains('open')).to.equal(false)
+    expect(k$.$('#panel-three').classList.contains('open')).to.equal(true)
