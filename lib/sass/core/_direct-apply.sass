@@ -64,7 +64,7 @@ form
 
     &.success
       border-color: map-get($colors, green)
-  
+
 
 // Growls
 // ------
@@ -114,6 +114,15 @@ form
 
       &[data-type="status-violet"]
         +label(map-get($colors, violet))
+
+// Tabs
+// ----
+
+[data-panel]
+  display: none
+
+  &.open
+    display: block
 
 // Tooltips
 // --------
