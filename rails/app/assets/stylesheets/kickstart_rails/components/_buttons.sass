@@ -13,7 +13,7 @@
     pointer-events: none
     // TODO: Cursor disabled?
 
-  &.with-submenu
+  &.menu-item
     position: relative
 
     ul
@@ -72,7 +72,7 @@
     left: $size * $size * map-get($rootElement, paddingH)
     right: $size * $size * map-get($rootElement, paddingH)
 
-  &.with-submenu
+  &.menu-item
     &:after
       font-size: $size * 0.85rem
       margin-left: $size * $size * $space/4

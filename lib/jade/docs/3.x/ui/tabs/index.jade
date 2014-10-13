@@ -7,7 +7,7 @@ block hero-title
   h1 Tabs
 
 block hero-example
-  ul.tabs
+  ul.tabs#tab-example1
     li: a(href="#land") Land
     li: a(href="#air") Air
     li: a(href="#sea") Sea
@@ -71,7 +71,7 @@ block basic
             @include tabs();
           }
 
-  :markdown 
+  :markdown
     You'll also need to tell `k$.tabs()` the selector of the ul that will become the tab bar.
 
         k$.tabs('animals');
@@ -79,10 +79,12 @@ block basic
   .if-semantic
     :markdown
       Tab styling can be applied via the `tabs()` mixin.
-          
+
           .tabs {
             @include tabs();
           }
 
-
-
+block postJS
+  script.
+    k$.nav('.docs-nav')
+    k$.tabs('#tab-example1')

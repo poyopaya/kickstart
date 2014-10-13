@@ -1,8 +1,8 @@
-dropdown = ->
+dropdown = () ->
 
   # The following should apply to both navigation elements and dropdown buttons
 
-  $menuItems = k$.$$ '.with-submenu'
+  $menuItems = k$.$$ '.menu-item'
 
   for $_menuItem in $menuItems
 
@@ -20,11 +20,12 @@ dropdown = ->
           return
 
         # Reset all
-        _$menuItem.classList.remove 'open' for _$menuItem in document.querySelectorAll('.with-submenu')
-        $ul = $menuItem.querySelector 'ul'
+        _$menuItem.classList.remove 'open' for _$menuItem in document.querySelectorAll('.menu-item')
+        $openable = $menuItem.querySelector 'ul'
+        $openable = true if $menuItem.querySelector('a').dataset.link
 
         # Open this one
-        if $ul
+        if $openable
           $menuItem.classList.add 'open'
 
         # Prevent bubbling
@@ -32,8 +33,8 @@ dropdown = ->
 
   # Dismiss all
   document.body.addEventListener 'click', ->
-    $ul.parentNode.classList.remove 'open' for $ul in k$.$$('.with-submenu > ul')
-    $li.classList.remove 'open' for $li in k$.$$('.with-submenu.open')
+    $ul.parentNode.classList.remove 'open' for $ul in k$.$$('.menu-item > ul')
+    $li.classList.remove 'open' for $li in k$.$$('.menu-item.open')
 
 k$.dropdown = dropdown
 

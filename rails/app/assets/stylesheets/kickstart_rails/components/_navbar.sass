@@ -38,7 +38,7 @@
   nav
     > ul
       > li
-        &.with-submenu
+        &.menu-item
           +color($background-color)
 
         > a:not([role=button])
@@ -93,14 +93,14 @@
 
       &:last-child
         @media screen and (min-width: $breakpoint)
-          > li.with-submenu.open
+          > li.menu-item.open
             ul
               left: auto
               right: -1px
 
       &:only-child
         @media screen and (min-width: $breakpoint)
-          > li.with-submenu.open
+          > li.menu-item.open
             ul
               left: -1px
               right: auto
@@ -161,7 +161,7 @@
             @media screen and (min-width: $breakpoint)
               display: none
 
-        &.with-submenu // Added via k$.nav()
+        &.menu-item // Added via k$.nav()
           padding: (2 * map-get($rootElement, paddingV) - 1) (map-get($rootElement, paddingH))
           cursor: pointer
 

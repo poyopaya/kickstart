@@ -67,7 +67,7 @@
 
       &:last-child
         @media screen and (min-width: $breakpoint)
-          > li.with-submenu.open
+          > li.menu-item.open
             ul
               left: auto
               right: -1px
@@ -120,7 +120,7 @@
             @media screen and (min-width: $breakpoint)
               display: none
 
-        &.with-submenu // Added via k$.nav()
+        &.menu-item // Added via k$.nav()
           padding: (2 * map-get($rootElement, paddingV) - 1) (map-get($rootElement, paddingH))
           +color($background)
           cursor: pointer

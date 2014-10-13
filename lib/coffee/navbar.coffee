@@ -14,7 +14,7 @@ nav = (el) ->
     for $menuItem in $menuItems
 
       # For styling
-      $menuItem.classList.add 'with-submenu'
+      $menuItem.classList.add 'menu-item'
 
     # Wire up the menu
     k$.dropdown()

@@ -3,10 +3,10 @@ expect = require("chai").expect
 
 describe 'k$.dropdown', ->
   it 'should not apply to elements without uls', ->
-    expect(k$.$$('#ddbutton1.with-submenu').length).to.equal(0)
+    expect(k$.$$('#ddbutton1.menu-item').length).to.equal(0)
 
   it 'should apply to button elements', ->
-    assert(k$.$('#ddbutton2').classList.contains('with-submenu'), '.with-submenu found')
+    assert(k$.$('#ddbutton2').classList.contains('menu-item'), '.menu-item found')
 
   describe 'button dropdown', ->
     it 'should show submenu when clicked', ->
@@ -27,8 +27,8 @@ describe 'k$.dropdown', ->
       assert(!k$.$('#ddbutton2').classList.contains('open'), 'Does not contain open class')
 
   describe 'button with dropdown', ->
-    it 'should hav a .with-submenu class for parent li', ->
-      expect(k$.$('#ddbutton3 #dropdownParent').className).to.equal('with-submenu')
+    it 'should hav a .menu-item class for parent li', ->
+      expect(k$.$('#ddbutton3 #dropdownParent').className).to.equal('menu-item')
 
     it 'should show submenu when clicked', ->
       assert(!k$.$('#ddbutton3 #dropdownParent').classList.contains('open'), 'Does not contain open class')
