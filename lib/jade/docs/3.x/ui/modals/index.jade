@@ -4,7 +4,7 @@ block hero-title
   h1 Modals
 
 block hero-example
-  button.button.blue#launchSampleModal Launch modal
+  button.button.button-primary#launchSampleModal Launch modal
 
 block basic
   :markdown
@@ -20,7 +20,7 @@ block basic
     footer
       ul
         li
-          a.button(href="#") Close
+          a#sampleModalClose.button.button-primary(role="button" href="#") Close
 
   h2 JavaScript
   p
@@ -136,8 +136,10 @@ block variations
 
       footer
         ul
-          li: a.button(href="#") Cancel
-          li: a.button.primary(href="#") Next &raquo;
+          li
+            a.button(role="button" href="#") Cancel
+            | &nbsp;
+          li: a.button.button-primary(role="button" href="#") Next &raquo;
 
   :markdown
     <span>
@@ -163,10 +165,10 @@ block variations
           <footer>
             <ul>
               <li>
-                <a class="button" href="#">Cancel</a>
+                <a class="button" role="button" href="#">Cancel</a>
               </li>
               <li>
-                <a class="button primary" href="#">Next &raquo;</a>
+                <a class="button button-primary" role="button" href="#">Next &raquo;</a>
               </li>
             </ul>
           </footer>
@@ -188,3 +190,6 @@ block postJS
       $sampleModal.style.display = 'block';
       e.stopPropagation();
     })
+    k$.$('#sampleModalClose').addEventListener('click', function() {
+      k$.$('#sampleModal').style.display = 'none'
+    });
