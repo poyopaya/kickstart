@@ -6,6 +6,7 @@ tabs = (el) ->
   for $_tab in $tabSet
     $id = $_tab.querySelector('a').getAttribute('href')
     $pane = k$.$("article#{$id}")
+    $pane.classList.add 'open' if $_tab.classList.contains 'open'
     $paneSet.push($pane)
     $pane.dataset.panel = 'true'
 
