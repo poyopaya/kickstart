@@ -1,0 +1,46 @@
+extends ../../_layout
+
+block page-stylesheet
+  link(rel="stylesheet" href="/css/pages/docs/index.css")
+
+block bleed
+  header.doc-hero
+    block hero-title
+    block hero-example
+
+block header
+  include _header
+
+block content
+  //- Two main containers here, each are fixed to the screen
+
+  //- Fixed sidebar
+  aside.fixed-toc
+    h1 Table of Contents
+    #toc
+      p.creating-table Creating table of contents...
+
+    h1 View Options
+    form
+      label
+        input#docs-semantic(type="checkbox" checked)
+        | Semantic Sass
+      label
+        input#docs-jquery(type="checkbox")
+        | jQuery
+
+  //- Fixed main pane
+  main.fixed-main
+
+    //- Within fixed-main, there are "Documents." Each document has both a
+    //- general content area and a code snippet.
+
+    //- Constrains width of document area
+    section.document-container
+      block documents
+
+block postJS
+  script.
+    k$.nav('.docs-nav')
+
+block postDocsJS

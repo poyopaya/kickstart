@@ -1,10 +1,10 @@
-//  Kickstart Semantic
-//  ==================
-//  This is just a starter file for using Kickstrap via Sass
-//  Rename this file to something you like (e.g. style.sass) and import it by
-//  the same .css name from your html/jade file.
+// Docs index
+// ==================
+// Generic styles that should be shared across the documentation
 
-// Choose your theme
 @import themes/_canary
 
-// Now write your own Sass
+.docs-nav
+  +navbar($collapse: true, $layout: 'fluid')
+  margin-top: -$space
+
