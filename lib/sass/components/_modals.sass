@@ -30,6 +30,10 @@
 
   > header, > footer
     +alert
+
+    > h1, > h2, > h3, > h4, > h5, > h6
+      margin-bottom: 0
+
     background: map-get($white, dark)
     color: $default-font-color
     margin: -$space
@@ -38,6 +42,15 @@
   > header
     border-bottom-left-radius: 0
     border-bottom-right-radius: 0
+    position: relative
+
+    a[data-modal-close]
+      position: absolute
+      top: $space/2
+      right: $space/2
+      line-height: 1.3rem
+      text-decoration: none
+      font-size: 1.3rem
 
   > footer
     margin:

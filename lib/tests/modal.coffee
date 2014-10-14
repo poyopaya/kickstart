@@ -28,3 +28,9 @@ describe 'k$.modal()', ->
     k$.testClick document.body
     expect($modal.style.display).to.equal('none')
     expect($modal2.style.display).to.equal('none')
+
+  it 'should close modal on "x" click', ->
+    $modal = showModal()
+    expect($modal.style.display).to.equal('block') 
+    k$.testClick '#test-modal-close'
+    expect($modal.style.display).to.equal('none') 

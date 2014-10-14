@@ -15,6 +15,8 @@ block basic
   #sampleModal.modal
     header
       h1.toc-exempt Modal
+      a(data-modal-close="true" href="#") &times;
+
     main
       p Hi, I'm a modal.
     footer
@@ -126,6 +128,7 @@ block variations
     .modal.example
       header
         h1.toc-exempt How would you like to pay?
+        a(data-modal-close="true" href="#") &times;
 
       main
         p Please make a selection:
@@ -147,6 +150,7 @@ block variations
         <aside class="modal">
           <header>
             <h1>How would you like to pay?</h1>
+            <a data-modal-close="true" href="#">&times;</a>
           </header>
           <main>
             <p>Please make a selection</p>
