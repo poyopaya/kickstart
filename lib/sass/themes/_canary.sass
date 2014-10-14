@@ -1,7 +1,11 @@
 //
-// Theme: Shabby Chic
+// Theme: Default
 // ==============
-// Old but classy.
+// Theme files wrap Kickstart's mixins into duplicate mixins without the
+// "-default". This allows theme artists to insert their own styles by
+// extending the default ones. Because the default theme just does direct
+// assignment to the final namespaces, it overrides without actually
+// changing anything.
 //
 
 // TODO: This would be the second time importing in rails. prepend this line
@@ -21,21 +25,20 @@ $black: (lightest: #444, lighter: #333, light: #222)
 $colors: (red: #CA3518, orange: darkorange, yellow: #ffe312, green: #58AA00, blue: cornflowerblue, violet: darkmagenta)
 
 // Vendor libraries
-@import url(http://fonts.googleapis.com/css?family=Coming+Soon)
-@import url(http://fonts.googleapis.com/css?family=Open+Sans:400,700)
+@import url(//fonts.googleapis.com/css?family=Lato:300,400,700,400italic)
 
 // Ten point design variables
 // --------------------------
 // Modifying just these ten variables will take care of 90% of your theme
 
-$primary-color:       #BED6AB
-$secondary-color:     #F2ECC3
-$space:               50px
-$heading-font-family: 'Coming Soon', helvetica neue, sans-serif
-$body-font-family:    'Open Sans', helvetica neue, sans-serif
+$primary-color:       map-get($colors, blue)
+$secondary-color:     map-get($white, darker)
+$space:               25px
+$heading-font-family: 'Lato', helvetica neue, sans-serif
+$body-font-family:    'Lato', helvetica neue, sans-serif
 $base-font-size:      16px
-$default-font-color:  map-get($gray, dark)
-$default-line-height: 1.5rem
+$default-font-color:  map-get($gray, darkest)
+$default-line-height: 1.4rem
 
 // --------------------------
 
@@ -53,6 +56,11 @@ $default-font-size: $base-font-size  // TODO: Why?
 //
 
 @import ../core/_index
+
+// Grid
+
+=container($fluid: false)
+  +container-default($fluid)
 
 // Typography
 // ----------
@@ -98,8 +106,8 @@ pre
 =heading-xs
   +heading-xs-default
 
-=xheading-xs
-  +xheading-xs-default
+=heading-xxs
+  +heading-xxs-default
 
 h1, h2, h3, h4, h5, h6
   font-family: $heading-font-family
@@ -120,7 +128,7 @@ h5
   +heading-xs
 
 h6
-  +xheading-xs
+  +heading-xxs
 
 =type
   +type-default
@@ -128,14 +136,8 @@ h6
 html
   +type-default
 
-=list
-  +list-default
-
-=list-unstyled
-  +list-unstyled-default
-
-=list-horizontal
-  +list-horizontal-default
+=list($style: 'none')
+  +list-default($style)
 
 //
 // Base Components
@@ -155,8 +157,8 @@ html
 // Buttons
 // -------
 
-=button($color: map-get($white, dark), $size: 1)
-  +button-default($color, $size)
+=button($background-color: map-get($white, dark), $size: 1)
+  +button-default($background-color, $size)
 
 =button-group($color: map-get($white, dark), $size: 1)
   +button-group-default($color, $size)
@@ -188,8 +190,8 @@ hr
 // Navigation
 // ----------
 
-=navbar($bleed-container: false, $background: map-get($white, dark))
-  +navbar-default($bleed-container, $background)
+=navbar($layout: 'none', $background-color: map-get($white, dark), $breakpoint: $tablet, $collapse: false, $fixed: false)
+  +navbar-default($layout, $background-color, $breakpoint, $collapse, $fixed)
 
 =dropdown_menu
   +dropdown_menu-default
@@ -197,8 +199,8 @@ hr
 // Table
 // -----
 
-=table()
-  +table-default()
+=table($blank: false, $zebra: false, $hover: false)
+  +table-default($blank, $zebra, $hover)
 
 //
 // Dependent Components
@@ -212,18 +214,17 @@ hr
 // Forms
 // -----
 
-=form
-  +form-default
+=form($layout: 'none')
+  +form-default($layout)
 
-=form-horizontal
-  +form-horizontal-default
+=form_group($layout: 'vertical')
+  +form_group-default($layout)
 
-=form-left
-  +form-left-default()
+// Growls
+// ------
 
-=form_group($orientation: 'vertical')
-  +form_group-default($orientation)
-
+=growl
+  +growl-default
 
 // Modals
 // ------
@@ -231,11 +232,20 @@ hr
 =modal()
   +modal-default()
 
-// Tiles
-// -----
+// Pagination
+// ----------
 
-=tile($color: map-get($gray, dark))
-  +tile-default($color)
+=pagination($background: map-get($white, darker))
+  +pagination-default($background)
+
+// Tabs
+// ----
+
+=tabs
+  +tabs-default
+
+=tab_pane_container
+  +tab_pane_container-default
 
 // Tooltips
 // --------
@@ -243,10 +253,5 @@ hr
 =tooltip_trigger
   +tooltip_trigger-default
 
-// Statuses
-// --------
-
-.status-bar
-  +statusBar()
-
+@import ../core/_direct-apply.sass
 @import ../vendor/_index
