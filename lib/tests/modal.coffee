@@ -32,5 +32,5 @@ describe 'k$.modal()', ->
   it 'should close modal on "x" click', ->
     $modal = showModal()
     expect($modal.style.display).to.equal('block') 
-    k$.testClick '#test-modal-close'
+    k$.testClick k$.$ '#test-modal-close'
     expect($modal.style.display).to.equal('none') 

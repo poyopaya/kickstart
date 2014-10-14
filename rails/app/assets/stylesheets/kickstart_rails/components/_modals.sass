@@ -1,5 +1,6 @@
 =modal-default()
   +root-element
+  border-width: 0
   padding: $space
   position: fixed
   box-shadow: 0px 0px 99999px 99999px rgba(0, 0, 0, 0.35), 0px 0px 25px rgba(0, 0, 0, 0.5)
@@ -27,14 +28,47 @@
     left: 50%
     margin-left: -325px
 
-  > header
+  > header, > footer
     +alert
-    background: $secondary-color
-    border-color: $secondary-color
+
+    > h1, > h2, > h3, > h4, > h5, > h6
+      margin-bottom: 0
+
+    background: map-get($white, dark)
     color: $default-font-color
-    border-bottom-left-radius: 0
-    border-bottom-right-radius: 0
     margin: -$space
       bottom: $space
+
+  > header
+    border-bottom-left-radius: 0
+    border-bottom-right-radius: 0
+    position: relative
+
+    a[data-modal-close]
+      position: absolute
+      top: $space/2
+      right: $space/2
+      line-height: 1.3rem
+      text-decoration: none
+      font-size: 1.3rem
+
+  > footer
+    margin:
+      top: $space
+      bottom: -$space
+    border-top-left-radius: 0
+    border-top-right-radius: 0
+
+    ul
+      +list($style: 'unstyled horizontal')
+      text-align: right
+
+      li
+        margin:
+          bottom: 0
+          right: 0
+
+    [role="button"]
+      text-decoration: none
 
   @content

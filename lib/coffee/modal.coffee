@@ -7,12 +7,20 @@ modal = (el) ->
 
   do (el) ->
 
+    $hideModal = ->
+      k$.$(el).style.display = 'none'
+
     # Allow modal to dismiss when clicked outside
     document.body.addEventListener 'click', ->
-      k$.$(el).style.display = 'none'
+      $hideModal()
 
     k$.$(el).addEventListener 'click', (e) ->
       return e.stopPropagation()
+
+    $closer = k$.$(el).querySelector('a[data-modal-close]')
+    if $closer
+      $closer.addEventListener 'click', ->
+        $hideModal()
 
   k$.$ el
 
