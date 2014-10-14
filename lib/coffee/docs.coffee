@@ -130,7 +130,7 @@ document.addEventListener 'DOMContentLoaded', ->
 
   # Create a table of contents
 
-  if k$.$$('section#toc').length
+  if k$.$$('#toc').length
     k$.$('.creating-table').parentNode.removeChild k$.$('.creating-table')
     $toc = document.createElement 'ul'
     $toc.className = "list list-unstyled"
@@ -143,7 +143,7 @@ document.addEventListener 'DOMContentLoaded', ->
     # The node we're currently appending to. Always a ul.
     $targetNode = $toc
 
-    for heading in k$.$$ '.mainpane h1, .mainpane h2, .mainpane h3, .mainpane h4, .mainpane h5, .mainpane h6'
+    for heading in k$.$$ '.document-container h1, .document-container h2, .document-container h3, .document-container h4, .document-container h5, .document-container h6'
       # Ignore headings that declare themselves as exempt from the TOC
       if not heading.classList.contains 'toc-exempt'
         heading.id = "#{k$.slugify heading.innerHTML}-#{_k}"
@@ -174,4 +174,4 @@ document.addEventListener 'DOMContentLoaded', ->
         $menuItem.querySelector('a').innerHTML = heading.innerHTML
         $targetNode.appendChild $menuItem
 
-    k$.$('section#toc').appendChild $toc
+    k$.$('#toc').appendChild $toc

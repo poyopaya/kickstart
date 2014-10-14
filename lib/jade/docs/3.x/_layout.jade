@@ -2,6 +2,10 @@ extends ../../_layout
 
 block page-stylesheet
   link(rel="stylesheet" href="/css/pages/docs/index.css")
+  script(src="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.2/highlight.min.js")
+  link(rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.2/styles/tomorrow-night.min.css")
+  script.
+    hljs.initHighlightingOnLoad();
 
 block bleed
   header.doc-hero
@@ -12,32 +16,35 @@ block header
   include _header
 
 block content
-  //- Two main containers here, each are fixed to the screen
+  //- Below tablet, this is a wrapping container.
+  .fixed-area
 
-  //- Fixed sidebar
-  aside.fixed-toc
-    h1 Table of Contents
-    #toc
-      p.creating-table Creating table of contents...
+    //- Two main containers here, each are fixed to the screen
 
-    h1 View Options
-    form
-      label
-        input#docs-semantic(type="checkbox" checked)
-        | Semantic Sass
-      label
-        input#docs-jquery(type="checkbox")
-        | jQuery
+    //- Fixed sidebar
+    aside.fixed-toc
+      h1 View Options
+      form
+        label
+          input#docs-semantic(type="checkbox" checked)
+          | Semantic Sass
+        label
+          input#docs-jquery(type="checkbox")
+          | jQuery
 
-  //- Fixed main pane
-  main.fixed-main
+      h1 Table of Contents
+      #toc
+        p.creating-table Creating table of contents...
 
-    //- Within fixed-main, there are "Documents." Each document has both a
-    //- general content area and a code snippet.
+    //- Fixed main pane
+    main.fixed-main
 
-    //- Constrains width of document area
-    section.document-container
-      block documents
+      //- Within fixed-main, there are "Documents." Each document has both a
+      //- general content area and a code snippet.
+
+      //- Constrains width of document area
+      section.document-container
+        block documents
 
 block postJS
   script.

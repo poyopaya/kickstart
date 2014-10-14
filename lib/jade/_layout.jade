@@ -4,8 +4,8 @@ include _mixins
 
 html(lang='en')
   head
-    link(rel="stylesheet" href="/css/docs.css")
     block page-stylesheet
+    link(rel="stylesheet" href="/css/docs.css")
     link(href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet")
     meta(name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=no")
   body
@@ -25,10 +25,6 @@ html(lang='en')
           p Made from <a href="http://everything.io">Everything</a>
         block preJS
 
-        script(src="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.2/highlight.min.js")
-        link(rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.2/styles/tomorrow.min.css")
-        script.
-          hljs.initHighlightingOnLoad();
         script(src="/js/kickstart.js")
         script(src="/js/docs.js")
 
