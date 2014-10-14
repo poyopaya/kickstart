@@ -18,12 +18,25 @@
 
 #screen
   +screen
+  max-width: $xl-monitor
+  box-shadow: 0px 0px $space map-get($black, lighter)
+  margin: 0px auto
 
 // Navigation
 // ----------
 
 .main-navigation
-  +navbar($collapse: true, $layout: 'fluid', $background-color: map-get($brown, darkest))
+  +navbar($collapse: true, $layout: 'fluid', $background-color: transparent)
+
+  nav.expand
+    background: white
+    color: map-get($black, light)
+
+    > ul > li > a:not([role=button])
+      color: map-get($black, light)
+    
+    svg
+      fill: map-get($black, light)
 
   svg
     height: 30px

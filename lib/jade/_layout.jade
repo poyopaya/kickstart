@@ -1,5 +1,8 @@
 doctype html
 
+- var showFooter = true
+block variables
+
 include _mixins
 
 html(lang='en')
@@ -20,15 +23,19 @@ html(lang='en')
         main.main
           block content
 
-      footer.main
-        .wrapper
-          p Made from <a href="http://everything.io">Everything</a>
-        block preJS
+      - if (showFooter == true)
+        footer.main
+          .wrapper
+            p Made from <a href="http://everything.io">Everything</a>
 
-        script(src="/js/kickstart.js")
-        script(src="/js/docs.js")
+      - else
+        script(src="/js/navbar-fixer.js")
+      block preJS
 
-        script.
-          k$.nav('.main-navigation')
+      script(src="/js/kickstart.js")
+      script(src="/js/docs.js")
+
+      script.
+        k$.nav('.main-navigation')
 
       block postJS
