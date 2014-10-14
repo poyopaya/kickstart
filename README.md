@@ -11,7 +11,11 @@ Kickstart is a front-end framework for clean HTML and fast performance
 
 [![Code Climate](https://codeclimate.com/github/ajkochanowicz/Kickstrap/badges/gpa.svg)](https://codeclimate.com/github/ajkochanowicz/Kickstrap)
 
-For deployment, read [this codeship tutorial](http://blog.codeship.io/2014/02/04/continuous-deployment-static-pages-amazon-s3.html)
+## Deployment
+
+- Deployed with [CodeShip](http://codeship.io)
+- 3.0-wip deploys to getkickstart.com
+- stage deploys to stage.getkickstart.com
 
 ## Quickstart with Gulp
 
