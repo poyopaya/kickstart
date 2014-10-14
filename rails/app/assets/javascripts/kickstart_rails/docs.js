@@ -136,7 +136,7 @@
     k$.slugify = function(str) {
       return str.toLowerCase().replace(/ /g,'-').replace(/[^\w-]+/g,'');
     };
-    if (k$.$$('section#toc').length) {
+    if (k$.$$('#toc').length) {
       k$.$('.creating-table').parentNode.removeChild(k$.$('.creating-table'));
       $toc = document.createElement('ul');
       $toc.className = "list list-unstyled";
@@ -144,7 +144,7 @@
       $link.innerHTML = '<a></a>';
       $headingLevel = 1;
       $targetNode = $toc;
-      _ref = k$.$$('.mainpane h1, .mainpane h2, .mainpane h3, .mainpane h4, .mainpane h5, .mainpane h6');
+      _ref = k$.$$('.document-container h1, .document-container h2, .document-container h3, .document-container h4, .document-container h5, .document-container h6');
       for (_k = 0, _len2 = _ref.length; _k < _len2; _k++) {
         heading = _ref[_k];
         if (!heading.classList.contains('toc-exempt')) {
@@ -170,7 +170,7 @@
           $targetNode.appendChild($menuItem);
         }
       }
-      return k$.$('section#toc').appendChild($toc);
+      return k$.$('#toc').appendChild($toc);
     }
   });
 

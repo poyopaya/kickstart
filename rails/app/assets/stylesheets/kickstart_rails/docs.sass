@@ -14,6 +14,7 @@
 
 #above-footer
   +above-footer
+  position: relative
 
 #screen
   +screen
@@ -22,11 +23,11 @@
 // ----------
 
 .main-navigation
-  +navbar($collapse: true, $layout: 'fluid', $background-color: white)
+  +navbar($collapse: true, $layout: 'fluid', $background-color: map-get($brown, darkest))
 
   svg
     height: 30px
-    fill: map-get($brown, darkest)
+    fill: white
 
 // Footer
 // ------
@@ -35,7 +36,6 @@ footer.main
   background: map-get($brown, light)
   padding: $space 0
   color: white
-  margin-top: $space * 4
 
   a
     color: white

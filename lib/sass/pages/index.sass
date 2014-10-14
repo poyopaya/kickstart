@@ -4,6 +4,10 @@
 
 @import themes/_canary
 
+video
+  max-width: 100%
+  margin-bottom: -$space/2
+
 .index-hero
   background: map-get($brown, darkest)
   padding: ($space * 2)
@@ -36,6 +40,9 @@
 .first-pitch, .second-pitch, .third-pitch
   +row
 
+  @media screen and (min-width: $tablet)
+    margin-bottom: $space * 3
+
   h1
     +heading-md
 
@@ -50,10 +57,16 @@
   .feature
     +column('third')
 
+  h1
+    +heading-rg
+
 .third-pitch
   .feature
     +column('half')
 
     @media screen and (min-width: $desktop)
       +column(3)
+
+    h1
+      +heading-sm
 

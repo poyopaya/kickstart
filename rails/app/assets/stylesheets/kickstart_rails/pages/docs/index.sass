@@ -8,3 +8,67 @@
   +navbar($collapse: true, $layout: 'fluid')
   margin-top: -$space
 
+.fixed-area
+  @media screen and (max-width: $tablet)
+    +container
+
+.fixed-toc, .fixed-main
+  @media screen and (min-width: $tablet)
+    position: absolute
+    top: 88px
+    bottom: 0
+    overflow: auto
+
+.fixed-toc
+  ul
+    +list($style: 'unstyled')
+
+  @media screen and (min-width: $tablet)
+    left: 0
+    right: 50%
+    padding: $space
+
+    h1
+      +heading-xxs
+
+  @media screen and (min-width: $desktop)
+    right: 75%
+
+.fixed-main
+  @media screen and (min-width: $tablet)
+    left: 50%
+    right: 0
+
+  @media screen and (min-width: $desktop)
+    left: 25%
+
+.document
+
+  .code
+    background: #1d1f21
+    padding: $space
+
+    > p:first-child
+      display: none
+
+  @media screen and (min-width: $desktop)
+    display: flex
+    justify-content: flex-start
+    align-items: stretch
+
+    .article, .code
+      width: 50%
+      padding: $space
+        left: 0
+      border-bottom: 1px solid map-get($brown, lightest)
+
+    .code
+      padding: $space
+      border-color: darken(map-get($colors, blue), 35%)
+
+// Highlight JS
+
+code, pre, kbd, samp
+  &.hljs
+    font-size: 0.9rem
+
