@@ -5,20 +5,53 @@
 @import themes/_canary
 
 .index-hero
-  background: map-get($brown, lighter)
-  padding: ($space * 2) 0
+  background: white
+  padding: ($space * 2)
   margin:
     top: -$space
     bottom: $space
+  border-bottom: 1px solid map-get($brown, light)
 
-  img
+  @media screen and (min-width: $desktop)
+    padding: ($space * 4)
+    margin-bottom: $space * 4
+
+  svg
     display: block
     margin: 0px auto
     max-width: 90%
     width: 700px
+    fill: map-get($colors, yellow)
 
   h5
-    +heading-md
+    +heading-sm
     text-align: center
-    color: white
+    color: map-get($brown, darkest)
+
+    @media screen and (min-width: $desktop)
+      +heading-md
+
+.first-pitch, .second-pitch, .third-pitch
+  +row
+
+  h1
+    +heading-md
+
+  p
+    +p(true)
+
+.first-pitch
+  .feature
+    +column('half')
+
+.second-pitch
+  .feature
+    +column('third')
+
+.third-pitch
+  .feature
+    +column('half')
+
+    @media screen and (min-width: $desktop)
+      +column(3)
 

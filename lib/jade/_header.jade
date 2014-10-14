@@ -2,7 +2,8 @@
   nav
     ul
       li.navbar-title
-        img.logo(src="/img/kickstart-black.png")
+        - var xml = fs.readFileSync('lib/img/kickstart.svg')
+        div!= xml
         button(role="button") =
       li: a(href="/") Home
       li: a(href="/docs/#{docsVersion}/") Docs
