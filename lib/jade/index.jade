@@ -1,12 +1,15 @@
-extends layout
+extends _layout
 
-block bleed
+block page-stylesheet
+  link(rel="stylesheet" href="/css/pages/index.css")
+
+block hero
   header.index-hero
     img.logo(src="/img/kickstart.png")
     h5 A front-end framework that loves to be extended
 
-block container
-  article
+block content
+  article.wrapper
 
     main.first-pitch
       .feature
@@ -54,12 +57,3 @@ block container
       
       .feature
         h1 Four
-
-block postJS
-  script.
-    k$.growl({
-      title: "This is a work in progress",
-      text: "An alpha version will be available at the end of October.",
-      type: "alert-green",
-      delay: 4500
-    })

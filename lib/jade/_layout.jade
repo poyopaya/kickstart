@@ -5,6 +5,7 @@ include _mixins
 html(lang='en')
   head
     link(rel="stylesheet" href="/css/docs.css")
+    block page-stylesheet
     link(href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet")
     meta(name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=no")
   body
@@ -14,20 +15,13 @@ html(lang='en')
           include _header
           block header
 
-        block bleed
+        block hero
 
-        .container
-          .row
-            main.mainpane
-              block mainpane
-
-            aside.sidebar
-              block sidebar
-
-          block container
+        main.main
+          block content
 
       footer.main
-        .container
+        .wrapper
           p Made from <a href="http://everything.io">Everything</a>
         block preJS
 

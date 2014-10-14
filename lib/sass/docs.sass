@@ -1,272 +1,52 @@
-/*
- *  Docs
- *  ====
- *  Generation of css for the getkickstart.com homepage.
- */
+// Docs
+// ====
+// Generation of css for the getkickstart.com homepage.
+// Page-level styling goes elsewhere.
 
 // Choose your theme
-@import themes/_default
+@import themes/_canary
 
-// Now write your own Sass
+// Basic layout
+// ------------
 
-html, body
-  overflow-x: hidden
+.wrapper
+  +container
 
-body
-  padding-top: 60px
+#above-footer
+  +above-footer
 
-.mainpane
-  +column('twothirds')
+#screen
+  +screen
 
-.sidebar
-  +column('third')
-
-  section
-    margin-bottom: $space
-
-  h1
-    +heading-xs
-
-  h2
-    +heading-xxs
-
-.fullpane
-  +column(12)
-
-  @media screen and (min-width: $tablet-landscape)
-    +column(8, 2, 2)
+// Navigation
+// ----------
 
 .main-navigation
-  +navbar($layout: 'fluid-fixed', $collapse: true)
-  z-index: 1001
-  margin-bottom: 0
+  +navbar($collapse: true, $layout: 'fluid-fixed')
 
-  .logo
+  img.logo
     height: 30px
-    margin:
-      bottom: -5px
-    opacity: 0.8
+    margin-left: 8px
 
-.docs-nav
-  +navbar($layout: 'fluid-fixed', $background-color: darken(map-get($colors, blue), 5%), $collapse: true)
-  top: 45px
-  z-index: 1000
-  margin-bottom: 0
-
-header.fixed
-  position: fixed
-  top: 0
-  left: 0
-  right: 0
-  z-index: 1000
-
-// Colors
-// Kind of shitty, but there is a colors page that directly relies on this.
-
-// TODO: Use map functions to get colors and make this a loop
-// http://sass-lang.com/documentation/Sass/Script/Functions.html
-
-.color-
-  &black
-    background-color: black
-
-  &light-black
-    background-color: map-get($black, light)
-
-  &lighter-black
-    background-color: map-get($black, lighter)
-
-  &lightest-black
-    background-color: map-get($black, lightest)
-
-  &gray
-    background-color: gray
-
-  &white
-    background-color: white
-
-  &yellow
-    background-color: map-get($colors, yellow)
-
-.col-example
-  +root-element
-  padding: $space/2
-  background: map-get($white, dark)
-  margin: $space/2 0
-  text-align: center
-
-  .gray
-    background: map-get($white, darker)
-
-.example
-  +root-element
-  padding: $space
-  margin-bottom: $space
-  border-color: map-get($white, darkest)
-
-// Also shitty
-
-h1.example-
-  &xxl
-    +heading-xxl
-  &xl
-    +heading-xl
-  &lg
-    +heading-lg
-  &md
-    +heading-md
-  &rg
-    +heading-rg
-  &sm
-    +heading-sm
-  &xs
-    +heading-xs
-  &xxs
-    +heading-xs
-
-.if-jquery, .ifnot-jquery, .if-semantic, .ifnot-semantic
-  display: none
-
-header.doc-hero
-  +hero
-  margin-top: 23px
-
-  ul, ul li, .navbar
-    text-align: left
-
-  .button-group
-    color: $default-font-color
-
-  .logo
-    width: 600px
-    max-width: 95%
-
-  form, table, .tile
-    text-align: left
-    max-width: 360px
-    margin: 0px auto
-    color: map-get($black, light)
-
-  .tile
-    h1
-      color: map-get($black, light)
-      font-size: 1.1rem
-
-.index-hero
-  +hero
-  margin-top: -23px
-
-// Images
-
-.logo
-  max-width: 600px
-
-img
-  max-width: 100%
-
-// Iframes
-iframe.animation
-  max-width: 500px
-  height: 200px
-  display: block
-  margin:
-    left: auto
-    right: auto
-    bottom: $space
-  overflow: hidden
-
-// Grid
-
-.example-column
-  background-color: map-get($white, darkest)
-  color: white
-
-// Modal
-
-.modal.example
-  display: block
-  position: static
-  box-shadow: none
-  margin: 0px auto
-  left: auto
-  top: auto
-  box-shadow: 0px 0px 5px #AAA
-
-// Root Element
-.root-element
-  +root-element
+// Footer
+// ------
 
 footer.main
+  background: map-get($brown, light)
+  padding: $space 0
+  color: white
   margin-top: $space * 4
-  background-color: $primary-color
-  padding:
-    top: $space
-    bottom: $space
 
-  p
-    margin: 0
+  a
     color: white
+    text-decoration: underline
 
-    a
-      color: white
-      text-decoration: underline
+// Components
+// ----------
 
-.test-a
-  +column('third', 'third', 'third')
-
-.show-mobile
-  display: inherit
-
-  @media screen and (min-width: $tablet)
-    display: none
-
-.show-tablet
-  display: none
-
-  @media screen and (min-width: $tablet)
-    display: inherit
-
-// Tables
-table
-  +table
-
-// HOME PAGE
-.first-pitch, .second-pitch, .third-pitch
-  +row
-
-.first-pitch
-  padding: 
-    top: $space * 2
-    bottom: $space * 2
-
-  p
-    +p(true)
-
-  .feature
-    +column('half')
-
-  h1
-    +heading-md
-    text-align: center
-
-.second-pitch
-  padding:
-    top: $space * 3
-    bottom: $space * 3
-
-  .feature
-    +column('third')
-
-  h1
-    +heading-rg
-
-.third-pitch
-  .feature
-    @media screen and (min-width: $tablet)
-      +column(6)
-
-    @media screen and (min-width: $desktop)
-      +column(3)
-
-  h1
-    +heading-xs
+// Buttons
+.button
+  +button
+  
+  &.button-primary
+    +button-color($primary-color)
