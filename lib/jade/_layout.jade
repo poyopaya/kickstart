@@ -1,16 +1,19 @@
 doctype html
 
 - var showFooter = true
+- var title = "The framework we've been waiting for"
+
 block variables
 
 include _mixins
 
 html(lang='en')
   head
-    block page-stylesheet
     link(rel="stylesheet" href="/css/docs.css")
+    block page-stylesheet
     link(href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet")
     meta(name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=no")
+    title Kickstart - #{title}
   body
     #screen
       #above-footer

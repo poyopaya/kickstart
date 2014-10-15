@@ -35,7 +35,7 @@
       +list($style: 'unstyled')
 
     h1
-      +heading-xxs 
+      +heading-xs 
 
     @media screen and(min-width: $phablet)
       padding: $space
@@ -75,7 +75,7 @@
         margin-left: 20%
 
 .document
-  margin: ($space * 3) 0
+  margin-bottom: $space * 4
 
   .code
     background: #1d1f21
@@ -85,7 +85,8 @@
       display: none
 
   @media screen and (min-width: $phablet)
-    margin-top: $space
+    .article, .code
+      padding: $space
 
   @media screen and (min-width: $desktop)
     display: flex
@@ -97,7 +98,6 @@
 
     .article, .code
       width: 50%
-      padding: $space
       border-bottom: 1px solid map-get($brown, lightest)
 
     .code
@@ -121,9 +121,32 @@
         background: black
         border-bottom: 1px solid map-get($black, light)
 
+.page_heading
+  +page_heading
+
+  h1
+    +heading-xl
+
+    @media screen and (min-width: $phablet)
+      padding-left: $space
+      margin-bottom: 0
+
+  @media screen and (min-width: $phablet)
+    margin-top: $space
+
+  @media screen and (min-width: $desktop)
+    margin-bottom: 0
+
 // Highlight JS
 
 code, pre, kbd, samp
   &.hljs
     font-size: 0.9rem
+
+// Main page overrides
+.main-navigation
+  svg
+    fill: map-get($black, lighter)
+
+  +navbar($collapse: true, $background-color: white)
 

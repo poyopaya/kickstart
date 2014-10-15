@@ -33,7 +33,7 @@ block content
           input#docs-jquery(type="checkbox")
           | jQuery
 
-      h1 Table of Contents
+      h1 #{title}
       #toc
         p.creating-table Creating table of contents...
 
@@ -45,6 +45,8 @@ block content
 
       //- Constrains width of document area
       section.document-container
+        .page_heading
+          h1.toc-exempt #{title}
         block documents
         #marker
 

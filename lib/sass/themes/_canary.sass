@@ -112,6 +112,7 @@ pre
 
 h1, h2, h3, h4, h5, h6
   font-family: $heading-font-family
+  color: map-get($black, lighter)
 
 h1
   +heading-lg
@@ -133,9 +134,10 @@ h6
 
 =type
   +type-default
+  color: map-get($gray, darker)
 
 html
-  +type-default
+  +type
 
 =list($style: 'none')
   +list-default($style)
