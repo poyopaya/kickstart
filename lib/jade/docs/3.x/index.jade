@@ -6,35 +6,48 @@ block hero-title
 block variables
   - var showFooter = false 
 
-block documents
-  .document 
-    article.article.article-full
-      :markdown
-        Choose how you'd like to get started
-
-        ### [Barebones](#barebones)
-
-        Just use the CSS/JS file.
-
-        ### [Rails](#framework)
-
-        Use in a **Rails 4+** project.
-
-        ### [Gulp](#gulp)
-
-        Use our Gulp-powered compilation boilerplate
-
-        ### [Node.js](#node)
-
-        Add Kickstart as an npm package
-
+block documents 
   .document
     article.article
       header#barebones.page-heading
         h3 Barebones
 
       :markdown
-        Use the CDN
+        Just use the CSS/JS file via a CDN.
+
+      p Or download kickstart.css and kickstart.js and include in your html file.
+
+      p
+        a.button.primary(href="http://cdn.getkickstart.com/css/kickstart.min.css")
+          span.fa.fa-cloud-download
+          |  kickstart.css
+        | &nbsp;
+        a.button.primary(href="http://cdn.getkickstart.com/js/kickstart.min.js")
+          span.fa.fa-cloud-download
+          |  kickstart.js
+    article.code 
+      :markdown
+        <span>
+
+            <!DOCTYPE HTML>
+            <html>
+              <head>
+                <link rel="stylesheet" href="css/kickstart.css" />
+              </head>
+              <body>
+                ...
+                <script src="js/kickstart.js"></script>
+              </body>
+            </html>
+
+  .document
+    article.article
+      :markdown 
+        Make sure any JavaScript code that uses `k$` goes after the script tag
+        inclusion of kickstart.js.
+
+        Notice that using this method will obviously not allow for using the
+        semantic version of the docs.
 
     article.code
       :markdown
@@ -43,36 +56,6 @@ block documents
             <link rel="stylesheet" href="//cdn.getkickstart.com/css/kickstart.min.css" />
             <script type="text/javascript" src="//cdn.getkickstart.com/js/kickstart.min.js"></script>
 
-  p Or download kickstart.css and kickstart.js and include in your html file.
-
-  p
-    a.button.primary(href="http://cdn.getkickstart.com/css/kickstart.min.css")
-      span.fa.fa-cloud-download
-      |  kickstart.css
-    | &nbsp;
-    a.button.primary(href="http://cdn.getkickstart.com/js/kickstart.min.js")
-      span.fa.fa-cloud-download
-      |  kickstart.js
-
-  :markdown
-    <span>
-
-        <!DOCTYPE HTML>
-        <html>
-          <head>
-            <link rel="stylesheet" href="css/kickstart.css" />
-          </head>
-          <body>
-            ...
-            <script src="js/kickstart.js"></script>
-          </body>
-        </html>
-
-    Make sure any JavaScript code that uses `k$` goes after the script tag
-    inclusion of kickstart.js.
-
-    Notice that using this method will obviously not allow for using the
-    semantic version of the docs.
 
   header#framework.page-heading
     h3 Rails
