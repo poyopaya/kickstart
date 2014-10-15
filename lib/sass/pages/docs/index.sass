@@ -11,17 +11,17 @@
 .fixed-area
   margin-top: -$space
 
-  @media screen and (max-width: $tablet)
+  @media screen and (max-width: $phablet)
     +container
 
   .fixed-main, .fixed-toc
     float: left
 
   .fixed-main
-    @media screen and (min-width: $tablet)
+    @media screen and (min-width: $phablet)
       width: 50%
 
-    @media screen and (min-width: $desktop)
+    @media screen and (min-width: $tablet)
       width: 75%
 
     @media screen and (min-width: $large-monitor)
@@ -36,10 +36,10 @@
     h1
       +heading-xxs 
 
-    @media screen and(min-width: $tablet)
+    @media screen and(min-width: $phablet)
       width: 50%
 
-    @media screen and (min-width: $desktop)
+    @media screen and (min-width: $tablet)
       width: 25%
 
     @media screen and (min-width: $large-monitor)
@@ -48,7 +48,7 @@
   // When in fixed position
   &.fixed 
     .fixed-toc 
-      @media screen and (min-width: $tablet)
+      @media screen and (min-width: $phablet)
         position: fixed
         top: 0px
         bottom: 0
@@ -56,17 +56,17 @@
         right: 50%
         overflow: auto
 
-      @media screen and (min-width: $desktop)
+      @media screen and (min-width: $tablet)
         right: 75%
 
       @media screen and (min-width: $large-monitor)
         right: 80% 
 
     .fixed-main
-      @media screen and (min-width: $tablet)
+      @media screen and (min-width: $phablet)
         margin-left: 50%
 
-      @media screen and (min-width: $desktop)
+      @media screen and (min-width: $tablet)
         margin-left: 25%
 
       @media screen and (min-width: $large-monitor)
@@ -89,12 +89,13 @@
     .article, .code
       width: 50%
       padding: $space
-        left: 0
       border-bottom: 1px solid map-get($brown, lightest)
 
     .code
-      padding: $space
       border-color: darken(map-get($colors, blue), 35%)
+
+    .article.article-full
+      width: 100%
 
 // Highlight JS
 

@@ -1,36 +1,47 @@
-extends fullpage-layout
+extends _layout
 
 block hero-title
   h1 Quickstart
 
-block fullPane
-  :markdown
-    Choose how you'd like to get started
+block variables
+  - var showFooter = false 
 
-    ### [Barebones](#barebones)
+block documents
+  .document 
+    article.article.article-full
+      :markdown
+        Choose how you'd like to get started
 
-    Just use the CSS/JS file.
+        ### [Barebones](#barebones)
 
-    ### [Rails](#framework)
+        Just use the CSS/JS file.
 
-    Use in a **Rails 4+** project.
+        ### [Rails](#framework)
 
-    ### [Gulp](#gulp)
+        Use in a **Rails 4+** project.
 
-    Use our Gulp-powered compilation boilerplate
+        ### [Gulp](#gulp)
 
-    ### [Node.js](#node)
+        Use our Gulp-powered compilation boilerplate
 
-    Add Kickstart as an npm package
+        ### [Node.js](#node)
 
-  header#barebones.page-heading
-    h3 Barebones
+        Add Kickstart as an npm package
 
-  :markdown
-    Use the CDN
+  .document
+    article.article
+      header#barebones.page-heading
+        h3 Barebones
 
-        <link rel="stylesheet" href="//cdn.getkickstart.com/css/kickstart.min.css" />
-        <script type="text/javascript" src="//cdn.getkickstart.com/js/kickstart.min.js"></script>
+      :markdown
+        Use the CDN
+
+    article.code
+      :markdown
+        <span>
+
+            <link rel="stylesheet" href="//cdn.getkickstart.com/css/kickstart.min.css" />
+            <script type="text/javascript" src="//cdn.getkickstart.com/js/kickstart.min.js"></script>
 
   p Or download kickstart.css and kickstart.js and include in your html file.
 
