@@ -1,150 +1,160 @@
-extends ../../layout
+extends ../../_layout
 
 mixin buttonRole
   .alert.alert-info
     h1.toc-exempt Use roles
     p Especially in navigation bars, it's important to use <code>role="button"</code> in the HTML attributes.
 
+block variables
+  - var showFooter = false
+  - var title = "Buttons" 
+
+block ui-stylesheet
+  link(rel="stylesheet" href="/css/pages/docs/ui/buttons.css")
+
 block hero-title
   h1 Buttons
 
-block basic
-  :markdown
-    Buttons are based on the most basic and reused styling in Kickstart.
-    They can easily be placed in navbars and other elements, and can be extended in
-    functionality via dropdowns and sizing.
+block documents
+  .document
+    article.article
+      :markdown
+        Buttons are based on the most basic and reused styling in Kickstart.
+        They can easily be placed in navbars and other elements, and can be extended in
+        functionality via dropdowns and sizing.
 
-    Buttons can be created from several elements:
+        Buttons can be created from several elements:
 
-  .example
-    button.button Sign Up
-    | &nbsp;
-    a.button(href="#") Sign Up
-    | &nbsp;
-    input.button(type="submit" value="Sign Up")
+      .example
+        button.button Sign Up
+        | &nbsp;
+        a.button(href="#") Sign Up
+        | &nbsp;
+        input.button(type="submit" value="Sign Up")
 
-  .if-semantic
-    :markdown
-      <span>
+    article.code
+      .if-semantic
+        :markdown
+          <span>
 
-          <button class="signup">Sign up</button>
-          <a href="#" class="signup">Sign up</a>
-          <input type="submit" class="signup" value="Sign up" />
+              <button class="signup">Sign up</button>
+              <a href="#" class="signup">Sign up</a>
+              <input type="submit" class="signup" value="Sign up" />
 
-          .signup {
-            @include button();
-          }
+              .signup {
+                @include button();
+              }
 
-  .ifnot-semantic
-    :markdown
-      <span>
+      .ifnot-semantic
+        :markdown
+          <span>
 
-          <button class="button">Sign up</button>
-          <a href="#" class="button">Sign up</a>
-          <input type="submit" class="button" value="Sign up" />
+              <button class="button">Sign up</button>
+              <a href="#" class="button">Sign up</a>
+              <input type="submit" class="button" value="Sign up" />
 
-block variations
-  h2 Colors
+  .document
+    article.article
+      h1 Colors
 
-  .ifnot-semantic
-    :markdown
-      For colored buttons, simply add the `.button-` class of one of the primary colors
-      to the `.button` class.
+      .ifnot-semantic
+        :markdown
+          For colored buttons, simply add the `.button-` class of one of the primary colors
+          to the `.button` class.
 
-    .example
-      button.button.button-green Send
-      | &nbsp;
-      button.button.button-red Delete
-      | &nbsp;
-      button.button.button-blue Info
-      | &nbsp;
-      button.button Cancel
+      .if-semantic 
+        :markdown
+          For colored buttons, simply pass in a color to `button()`.
 
-    :markdown
-      <span>
+      .example
+        button.button.button-green Send
+        | &nbsp;
+        button.button.button-red Delete
+        | &nbsp;
+        button.button.button-blue Info
+        | &nbsp;
+        button.button Cancel
 
-          <button class="button button-green">Send</button>
-          <button class="button button-red">Delete</button>
-          <button class="button button-blue">Info</button>
-          <button class="button">Cancel</button>
+    article.code
+      .ifnot-semantic
+        :markdown
+          <span>
 
-  .if-semantic
+              <button class="button button-green">Send</button>
+              <button class="button button-red">Delete</button>
+              <button class="button button-blue">Info</button>
+              <button class="button">Cancel</button> 
 
-    .example
-      button.button.button-green Send
-      | &nbsp;
-      button.button.button-red Delete
-      | &nbsp;
-      button.button.button-blue Info
-      | &nbsp;
-      button.button Cancel
+      .if-semantic
+        :markdown
+          <span>
 
-    :markdown
-      For colored buttons, simply pass in a color to `button()`.
+              <button class="send">Send</button>
+              <button class="delete">Delete</button>
+              <button class="info">Info</button>
+              <button class="cancel">Cancel</button>
 
-          <button class="send">Send</button>
-          <button class="delete">Delete</button>
-          <button class="info">Info</button>
-          <button class="cancel">Cancel</button>
+        :markdown
+          <span>
 
-    :markdown
-      <span>
+              .send {
+                @include button(map-get($colors, green));
+              }
+              .delete {
+                @include button(map-get($colors, red));
+              }
+              .info {
+                @include button(#6495ed);
+              }
+              .cancel {
+                @include button();
+              }
 
-          .send {
-            @include button(map-get($colors, green));
-          }
-          .delete {
-            @include button(map-get($colors, red));
-          }
-          .info {
-            @include button(#6495ed);
-          }
-          .cancel {
-            @include button();
-          }
+  .document
+    article.article
+      :markdown
+        # Groups
+
+      .example
+        ul.button-group
+          li
+            a(href="#") Create
+          li
+            a(href="#") Read
+          li
+            a(href="#") Update
+          li
+            a(href="#") Delete
+
+    article.code
+      :markdown
+        <span>
+
+            <ul class="button-group" role="button">
+              <li>
+                <a href="#">Create</a>
+              </li>
+              <li>
+                <a href="#">Read</a>
+              </li>
+              <li>
+                <a href="#">Update</a>
+              </li>
+              <li>
+                <a href="#">Delete</a>
+              </li>
+            </ul>
+
+      .if-semantic
+        :markdown
+          <span>
+
+              .button-group {
+                @include button-group();
+              }
+
 
 block granular
-
-  :markdown
-    ## Groups
-
-  .example
-    ul.button-group
-      li
-        a(href="#") Create
-      li
-        a(href="#") Read
-      li
-        a(href="#") Update
-      li
-        a(href="#") Delete
-
-  :markdown
-    <span>
-
-        <ul class="button-group" role="button">
-          <li>
-            <a href="#">Create</a>
-          </li>
-          <li>
-            <a href="#">Read</a>
-          </li>
-          <li>
-            <a href="#">Update</a>
-          </li>
-          <li>
-            <a href="#">Delete</a>
-          </li>
-        </ul>
-
-  .if-semantic
-    :markdown
-      <span>
-
-          .button-group {
-            @include button-group();
-          }
-
   :markdown
     ## Button with dropdown
 
