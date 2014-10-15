@@ -1,9 +1,8 @@
 .main-navigation
   nav
     ul
-      li.navbar-title
-        - var xml = fs.readFileSync('lib/img/kickstart.svg')
-        div!= xml
+      - var xml = fs.readFileSync('lib/img/kickstart.svg')
+      li.navbar-title!= xml
         button(role="button") =
       li: a(href="/") Home
       li: a(href="/docs/#{docsVersion}/") Docs

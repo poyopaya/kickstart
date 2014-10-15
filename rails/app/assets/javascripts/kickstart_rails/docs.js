@@ -1,6 +1,6 @@
 (function() {
   document.addEventListener('DOMContentLoaded', function() {
-    var $headingLevel, $link, $menuItem, $newSubmenu, $stepsUp, $targetNode, $thisHeadingLevel, $toc, booleanViewOptions, defaults, els, extend, heading, option, options, setSettings, settings, _fn, _i, _j, _k, _len, _len1, _len2, _ref;
+    var $documentContainer, $headingLevel, $link, $menuItem, $newSubmenu, $stepsUp, $targetNode, $thisHeadingLevel, $toc, booleanViewOptions, defaults, els, extend, heading, option, options, setSettings, settings, _fn, _i, _j, _k, _len, _len1, _len2, _ref;
     window.$$ = function(el) {
       return document.querySelectorAll(el);
     };
@@ -144,7 +144,8 @@
       $link.innerHTML = '<a></a>';
       $headingLevel = 1;
       $targetNode = $toc;
-      _ref = k$.$$('.document-container h1, .document-container h2, .document-container h3, .document-container h4, .document-container h5, .document-container h6');
+      $documentContainer = k$.$('.document-container');
+      _ref = $documentContainer.querySelectorAll('h1, h2, h3, h4, h5, h6');
       for (_k = 0, _len2 = _ref.length; _k < _len2; _k++) {
         heading = _ref[_k];
         if (!heading.classList.contains('toc-exempt')) {
@@ -152,13 +153,13 @@
           $thisHeadingLevel = parseInt(heading.tagName.substr(1, 2));
           if ($thisHeadingLevel > $headingLevel) {
             $newSubmenu = document.createElement('ul');
-            $targetNode.appendChild($newSubmenu);
+            $targetNode.children[$targetNode.children.length - 1].appendChild($newSubmenu);
             $targetNode = $newSubmenu;
             $headingLevel = $thisHeadingLevel;
           }
           if ($thisHeadingLevel < $headingLevel) {
             $stepsUp = $headingLevel - $thisHeadingLevel;
-            while ($stepsUp > 0) {
+            while ($stepsUp > -1) {
               $targetNode = $targetNode.parentNode;
               $stepsUp--;
             }

@@ -4,6 +4,15 @@
 
 @import themes/_canary
 
+h1
+  +heading-rg
+
+h2
+  +heading-xs
+
+h3, h4, h5, h6
+  +heading-xxs 
+
 .docs-nav
   +navbar($collapse: true, $layout: 'fluid')
   margin-top: -$space
@@ -30,12 +39,22 @@
 
   .fixed-toc
     width: 100%
+    font-size: 0.85rem
 
     ul
       +list($style: 'unstyled')
+      margin-bottom: 0
+
+      > li
+        margin-bottom: 0 
+
+        > ul
+          // border-left: 1px solid map-get($colors, blue)
+          padding-left: $space/3
+          margin-bottom: $space/3
 
     h1
-      +heading-xs 
+      +heading-xxs 
 
     @media screen and(min-width: $phablet)
       padding: $space
@@ -125,7 +144,7 @@
   +page_heading
 
   h1
-    +heading-xl
+    +heading-md
 
     @media screen and (min-width: $phablet)
       padding-left: $space
@@ -142,6 +161,7 @@
 code, pre, kbd, samp
   &.hljs
     font-size: 0.9rem
+    font-family: $mono-font-family
 
 // Main page overrides
 .main-navigation

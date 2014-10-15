@@ -143,7 +143,8 @@ document.addEventListener 'DOMContentLoaded', ->
     # The node we're currently appending to. Always a ul.
     $targetNode = $toc
 
-    for heading in k$.$$ '.document-container h1, .document-container h2, .document-container h3, .document-container h4, .document-container h5, .document-container h6'
+    $documentContainer = k$.$('.document-container')
+    for heading in $documentContainer.querySelectorAll('h1, h2, h3, h4, h5, h6')
       # Ignore headings that declare themselves as exempt from the TOC
       if not heading.classList.contains 'toc-exempt'
         heading.id = "#{k$.slugify heading.innerHTML}-#{_k}"
@@ -154,7 +155,7 @@ document.addEventListener 'DOMContentLoaded', ->
         if $thisHeadingLevel > $headingLevel
           # Append a new submenu and make that the targetNode.
           $newSubmenu = document.createElement 'ul'
-          $targetNode.appendChild $newSubmenu
+          $targetNode.children[$targetNode.children.length - 1].appendChild $newSubmenu 
           $targetNode = $newSubmenu
           $headingLevel = $thisHeadingLevel
 
@@ -162,7 +163,7 @@ document.addEventListener 'DOMContentLoaded', ->
         if $thisHeadingLevel < $headingLevel
           $stepsUp = $headingLevel - $thisHeadingLevel
 
-          while $stepsUp > 0
+          while $stepsUp > -1
             $targetNode = $targetNode.parentNode
             $stepsUp--
 

@@ -35,8 +35,9 @@ $colors: (red: #9b0000, orange: #f7a828, yellow: #fdd726, green: #a2c939, blue: 
 $primary-color:       map-get($colors, yellow)
 $secondary-color:     map-get($white, darker)
 $space:               25px
-$heading-font-family: 'Lato', helvetica neue, sans-serif
-$body-font-family:    'Lato', helvetica neue, sans-serif
+$heading-font-family: 'jaf-bernino-sans-condensed', 'Lato', helvetica neue, sans-serif
+$body-font-family:    'museo-sans', 'Lato', helvetica neue, sans-serif
+$mono-font-family:    'ubuntu-mono', monospace
 $base-font-size:      16px
 $default-font-color:  map-get($black, lightest)
 $default-line-height: 1.4rem
@@ -195,6 +196,10 @@ hr
 
 =navbar($layout: 'none', $background-color: map-get($white, dark), $breakpoint: $tablet, $collapse: false, $fixed: false)
   +navbar-default($layout, $background-color, $breakpoint, $collapse, $fixed)
+
+    nav
+      h1
+        font-family: $body-font-family
 
 =dropdown_menu
   +dropdown_menu-default
