@@ -9,38 +9,66 @@
   margin-top: -$space
 
 .fixed-area
+  margin-top: -$space
+
   @media screen and (max-width: $tablet)
     +container
 
-.fixed-toc, .fixed-main
-  @media screen and (min-width: $tablet)
-    position: absolute
-    top: 88px
-    bottom: 0
-    overflow: auto
+  .fixed-main, .fixed-toc
+    float: left
 
-.fixed-toc
-  ul
-    +list($style: 'unstyled')
+  .fixed-main
+    @media screen and (min-width: $tablet)
+      width: 50%
 
-  @media screen and (min-width: $tablet)
-    left: 0
-    right: 50%
+    @media screen and (min-width: $desktop)
+      width: 75%
+
+    @media screen and (min-width: $large-monitor)
+      width: 80%
+
+  .fixed-toc
     padding: $space
 
+    ul
+      +list($style: 'unstyled')
+
     h1
-      +heading-xxs
+      +heading-xxs 
 
-  @media screen and (min-width: $desktop)
-    right: 75%
+    @media screen and(min-width: $tablet)
+      width: 50%
 
-.fixed-main
-  @media screen and (min-width: $tablet)
-    left: 50%
-    right: 0
+    @media screen and (min-width: $desktop)
+      width: 25%
 
-  @media screen and (min-width: $desktop)
-    left: 25%
+    @media screen and (min-width: $large-monitor)
+      width: 20%
+
+  // When in fixed position
+  &.fixed 
+    .fixed-toc, .fixed-main
+      @media screen and (min-width: $tablet)
+        position: absolute
+        top: 0px
+        bottom: 0
+        overflow: auto
+
+    .fixed-toc
+      @media screen and (min-width: $tablet)
+        left: 0
+        right: 50%
+
+      @media screen and (min-width: $desktop)
+        right: 75%
+
+    .fixed-main
+      @media screen and (min-width: $tablet)
+        left: 50%
+        right: 0
+
+      @media screen and (min-width: $desktop)
+        left: 25%
 
 .document
 
