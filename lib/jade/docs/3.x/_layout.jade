@@ -1,11 +1,12 @@
 extends ../../_layout
 
 block page-stylesheet
+  block ui-stylesheet
   link(rel="stylesheet" href="/css/pages/docs/index.css")
   script(src="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.2/highlight.min.js")
   link(rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.2/styles/tomorrow-night.min.css")
   script.
-    hljs.initHighlightingOnLoad();
+    hljs.initHighlightingOnLoad(); 
 
 block bleed
   header.doc-hero
@@ -24,7 +25,7 @@ block content
 
     //- Fixed sidebar
     aside.fixed-toc
-      h1 View Options
+      h1 #{title}
       form
         label
           input#docs-semantic(type="checkbox" checked)
@@ -33,7 +34,6 @@ block content
           input#docs-jquery(type="checkbox")
           | jQuery
 
-      h1 #{title}
       #toc
         p.creating-table Creating table of contents...
 

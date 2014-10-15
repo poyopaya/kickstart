@@ -41,6 +41,12 @@ h3, h4, h5, h6
     width: 100%
     font-size: 0.85rem
 
+    a
+      color: $default-font-color
+
+      &:hover
+        color: map-get($colors, blue)
+
     ul
       +list($style: 'unstyled')
       margin-bottom: 0
@@ -54,7 +60,7 @@ h3, h4, h5, h6
           margin-bottom: $space/3
 
     h1
-      +heading-xxs 
+      +heading-xs 
 
     @media screen and(min-width: $phablet)
       padding: $space
