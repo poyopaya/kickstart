@@ -9,8 +9,7 @@ block variables
 block documents 
   .document
     article.article
-      header#barebones.page-heading
-        h3 Barebones
+      h1 Barebones
 
       :markdown
         Just use the CSS/JS file via a CDN.
@@ -56,114 +55,140 @@ block documents
             <link rel="stylesheet" href="//cdn.getkickstart.com/css/kickstart.min.css" />
             <script type="text/javascript" src="//cdn.getkickstart.com/js/kickstart.min.js"></script>
 
+  .document
+    article.article
+      h1 Rails
 
-  header#framework.page-heading
-    h3 Rails
+      :markdown
+        Install the [Kickstart gem](https://rubygems.org/gems/kickstart_rails)
 
-  :markdown
-    Install the [Kickstart gem](https://rubygems.org/gems/kickstart_rails)
+        Rails integration is Sass-only. This means you will
+        need to use the mixins instead of things like `.col-6`.
 
-        gem install "kickstart_rails"
+        Some of this is practical, some is philosophical, but if you really need the
+        regular css despite the fact you're running a full sass-compilation
+        environment, linking to kickstart.css directly is still an option.
 
-    Rails integration is Sass-only. This means you will
-    need to use the mixins instead of things like `.col-6`.
+        You can either import kickstart into application.css or into individual
+        files.
 
-    Some of this is practical, some is philosophical, but if you really need the
-    regular css despite the fact you're running a full sass-compilation
-    environment, linking to kickstart.css directly is still an option.
+    article.code
+      :markdown
+        <span>
+        
+            gem install "kickstart_rails"
 
-    You can either import kickstart into application.css or into individual
-    files.
+  .document
+    article.article 
+      :markdown
+        ## Import in application.css
 
-    #### Import in application.css
+        application.css must first be converted into .scss/.sass and not use any
+        `/* require` statements. This is because sprockets does not see the sass
+        variables. It will merely concatenate the compiled files together. 
 
-    application.css must first be converted into .scss/.sass and not use any
-    `/* require` statements. This is because sprockets does not see the sass
-    variables. It will merely concatenate the compiled files together. 
+        You can change this to use `@import ` statements with an import to
+        `kickstart_rails` at the top.
+    article.code
+      :markdown
+        <span>
 
-    You can change this to use `@import ` statements with an import to
-    `kickstart_rails` at the top.
+            @import kickstart_rails;
+            @import mysassfile1.sass;
+            @import mysassfile2.sass;
 
-        @import kickstart_rails;
-        @import mysassfile1.sass;
-        @import mysassfile2.sass;
+  .document 
+    article.article
+      :markdown
+        ## JavaScript
 
-    #### Import in separate files
+        Fortunately, adding the JavaScript is easier. Just add `//= require kickstart_rails` to the top of application.js
 
-    To use in separate files, simply add
+    article.code
+      :markdown
+        <span>
 
-        @import kickstart_rails;
+            //= require kickstart_rails
+            //= require_tree .
 
-    to the top of the file. Remember that this will also bring in some
-    non-mixin styles, such as the typography, which would be made hard
-    to override. For this reason, we recommend converting your
-    application.css file instead. (above)
+  .document
+    article.article.article-full
+      :markdown
+        ## Autoprefixing
 
-    #### JavaScript
+        The gem uses autoprefixer to automatically prefix styles. If you want to
+        specify your own autoprefixing rule, you'll just need to add a .yml file
 
-    Fortunately, adding the JavaScript is easier. Just add
+        See the instructions 
+        [at the Autoprefixer docs](https://github.com/ai/autoprefixer-rails)
 
-        //= require kickstart_rails
-    
-    to the top of application.js
+  .document
+    article.article.article-full
+      :markdown
+        ## Theming
 
-    #### Autoprefixing
+        To add a theme using the Rails implementation, see [Theming](/docs/3.x/theming#rails)
 
-    The gem uses autoprefixer to automatically prefix styles. If you want to
-    specify your own autoprefixing rule, you'll just need to add a .yml file
+  .document
+    article.article.article-full
+      h1 Gulp
 
-    See the instructions 
-    [at the Autoprefixer docs](https://github.com/ai/autoprefixer-rails)
+      :markdown
+        My tool of choice for building all of Kickstart is gulp, plus a ton of
+        extras. The easiest way to get started with a gulp implementation of
+        kickstart is to simply
+        [clone the repo](https://github.com/ajkochanowicz/Kickstrap).
 
-    #### Theming
+        Setup instructions are in the README.md file at the repo.
 
-    To add a theme using the Rails implementation, see [Theming](/docs/3.x/theming#rails)
+        Once you have your environment up and running, you should empty the jade
+        folder and use kickstart-semantic.sass. This was designed specifically as an
+        empty file with everything imported in.
 
-  header#gulp.page-heading
-    h3 Gulp
+        Rename it to whatever you like and link to the resulting .css file in your
+        html/jade
 
-  :markdown
-    My tool of choice for building all of Kickstart is gulp, plus a ton of
-    extras. The easiest way to get started with a gulp implementation of
-    kickstart is to simply
-    [clone the repo](https://github.com/ajkochanowicz/Kickstrap).
+  .document
+    article.article
+      h1 Node.js
 
-    Setup instructions are in the README.md file at the repo.
+      :markdown
+        Kickstart can easily be added as an npm package.
+        This will download the entire repo to a `node_modules` folder.
 
-    Once you have your environment up and running, you should empty the jade
-    folder and use kickstart-semantic.sass. This was designed specifically as an
-    empty file with everything imported in.
+    article.code
+      :markdown
+        <span> 
 
-    Rename it to whatever you like and link to the resulting .css file in your
-    html/jade
+            npm install --save-dev kickstart-node
 
-  header#node.page-heading
-    h3 Node.js
+  .document
+    article.article
+      :markdown
+        In your sass or scss file, import Kickstart via the theme you prefer: 
 
-  :markdown
-    Kickstart can easily be added as an npm package with
+        Notice you may need a couple `../`s before `node_modules` to point
+        to the node_modules directory. This all depends on how you organized your
+        project.
 
-        npm install --save-dev kickstart-node
+        In the example, node_modules is at the same level as the scss/sass
+        file.
 
-    This will download the entire repo to a `node_modules` folder.
+    article.code
+      :markdown
+        <span>
 
-    In your sass or scss file, import Kickstart via the theme you prefer: 
+            @import node_modules/kickstart-node/lib/sass/themes/_default
 
-        @import node_modules/kickstart-node/lib/sass/themes/_default
+  .document
+    article.article.article-full
+      :markdown 
+        ## Autoprefixer
 
-    Notice you may need a couple `../`s before `node_modules` to point
-    to the node_modules directory. This all depends on how you organized your
-    project.
+        The chances are very good that you'll need to include [autoprefixer](https://github.com/postcss/autoprefixer).
+        This will add prefixes like `-webkit-` to bleeding edge css properties. Make sure
+        this is included as part of your CSS compilation workflow.
 
-    In the above example, node_modules is at the same level as the scss/sass
-    file.
-
-    #### Autoprefixer
-
-    The chances are very good that you'll need to include [autoprefixer](https://github.com/postcss/autoprefixer).
-    This will add prefixes like `-webkit-` to bleeding edge css properties. Make sure
-    this is included as part of your CSS compilation workflow.
-
-    [Also available for Gulp](https://www.npmjs.org/package/gulp-autoprefixer)
+        [Also available for Gulp](https://www.npmjs.org/package/gulp-autoprefixer)
 
 

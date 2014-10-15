@@ -7,9 +7,12 @@
     $isFixed = $fixedArea.classList.contains('fixed');
     if ($offset < 1) {
       if (!$isFixed) {
-        $fixedArea.classList.add('fixed');
+        return $fixedArea.classList.add('fixed');
       }
-      return $marker.scrollTop = '-50px';
+    } else {
+      if ($isFixed) {
+        return $fixedArea.classList.remove('fixed');
+      }
     }
   };
 
