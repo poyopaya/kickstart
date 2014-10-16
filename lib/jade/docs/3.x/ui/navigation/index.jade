@@ -1,315 +1,327 @@
-extends ../../layout
+extends ../../_layout
 
 block hero-title
   h1 Navigation
 
-block basic
-  :markdown
-    Navigation items have been meticulously designed to be very straightforward,
-    semantic, and dependent on sensible defaults.
+block variables
+  - var showFooter = false
+  - var title = "Navigation"
 
-    ## Bars
+block ui-stylesheet
+  link(rel="stylesheet" href="/css/pages/docs/ui/navigation.css")
 
-    Navigation bars consist of three elements:
+block documents
+  .document
+    article.article
+      :markdown
+        # Bars
 
-    1. The container (Your choice of element)
-    1. The menu (`nav`)
-    1. The menu items (`ul li` structure)
+        Navigation items have been meticulously designed to be very straightforward,
+        semantic, and dependent on sensible defaults.
 
-    <span>
+      .example
+        .navbar
+          nav
+            ul
+              li: a(href="#") Home
+              li: a(href="#") Blog
+            ul
+              li: a(href="#") Login
 
-        <div class="navbar">
-          <nav>
-            <ul>
-              <li>
-                <a href="#">Home</a>
-              </li>
-              <li>
-                <a href="#">Blog</a>
-              </li>
-            </ul>
-            <ul>
-              <li>
-                <a href="#">Login</a>
-              </li>
-            </ul>
-          </nav>
-        </div>
+      :markdown 
+        Navigation bars consist of three elements:
 
-  .if-semantic
-    :markdown
-      <span>
+        1. The container (Your choice of element)
+        1. The menu (`nav`)
+        1. The menu items (`ul li` structure)
 
-          .navbar {
-            @include navbar();
-          }
+        Why not just have `<nav>` without the extra div above? This is to give you
+        more separation between the flexbox elements and the container it sits in.
+        Flexbox display settings will affect the direct descendants. The need for
+        this separation becomes clearer as the navbar becomes more complex, such
+        as the addition of a wrapper inside the container.
 
-  :markdown
-    ## Pagination
 
-    Pagination styling is very similar to the navigation bar. As such, the
-    markup is also very similar and
-    <span class="ifnot-semantic">a <code>.pagination-dark</code> class is available.</span>
-    <span class="if-semantic">a <code>$background-color</code> can be passed in to <code>pagination()</code></span>.
+    article.code
+      :markdown
+        <span>
 
-  .example
-    .pagination
-      ul
-        li: a(href="#") &laquo; Prev
-      ul
-        li: a(href="#") Next &raquo;
+            <div class="navbar">
+              <nav>
+                <ul>
+                  <li>
+                    <a href="#">Home</a>
+                  </li>
+                  <li>
+                    <a href="#">Blog</a>
+                  </li>
+                </ul>
+                <ul>
+                  <li>
+                    <a href="#">Login</a>
+                  </li>
+                </ul>
+              </nav>
+            </div>
 
-  :markdown
-    <span>
+      .if-semantic
+        :markdown
+          <span>
 
-        <div class="pagination">
-          <ul>
-            <li>
-              <a href="#">&laquo; Prev</a>
-            </li>
-            <li>
-              <a href="#">Next &raquo;</a>
-            </li>
-          </ul>
-        </div>
+              .navbar {
+                @include navbar();
+              }
 
-        <!-- laquo/raquo stand for "left and right angle quotes" -->
+  .document
+    article.article
+      h2 Primary and secondary menus
 
-  .if-semantic
-    :markdown
-      <span>
+      :markdown
+        The first `ul` is automatically left aligned. Adding another will treat the
+        second as a secondary menu and align it right. Adding more than two `ul`s
+        will simply continue to follow CSS flexbox rules.
 
-          .pagination {
-            @include pagination();
-          }
+      .navbar
+        nav
+          ul
+            li
+              a(href="#") Left
+
+      .navbar
+        nav
+          ul
+            li
+              a(href="#") Left
+          ul
+            li
+              a(href="#") Right
+
+    article.code
+      :markdown
+        <span>
+
+            <div class="navbar">
+              <nav>
+                <ul>
+                  <li>
+                    <a href="#">Left</a>
+                  </li>
+                </ul>
+              </nav>
+            </div>
+
+            <div class="navbar">
+              <nav>
+                <ul>
+                  <li>
+                    <a href="#">Left</a>
+                  </li>
+                </ul>
+                <ul>
+                  <li>
+                    <a href="#">Right</a>
+                  </li>
+                </ul>
+              </nav>
+            </div>
+
+  .document
+    article.article
+      :markdown
+        ## Layout Styles
+
+        Navbars can have either default, fluid, or fluid-fixed layouts.
+
+        ### No style
+
+        By default, navbars have a layout parameter of "none" This is best for navigation bars
+        that are in the page itself, and not integrated into the master layout of the page.
+
+        ![Navbar with layout of "none" (Default)](/img/nav_none.png)
+
+    article.code
+      .if-semantic
+        :markdown
+          <span>
+
+              @include navbar();
+
+      .ifnot-semantic
+        :markdown
+          <span>
+
+              <div class="navbar">
+                ...
+              </div>
+
+  .document
+    article.article
+      :markdown
+        ### Fluid
+
+        You may want your navbar contents to be full width, but keep a healthy
+        margin on the left and right. This is especially important on smaller
+        screens.
+
+        ![Navbar with layout of "fluid" (Default)](/img/nav_fluid.png)
+
+      .ifnot-semantic
+        :markdown
+          Simply use the `.fluid` helper class to enable container fluid.
+
+      .if-semantic
+        :markdown
+          Simply pass in `'fluid'` to the `$layout` parameter to enable a fluid container.
+
+    article.code 
+      .ifnot-semantic
+        :markdown
+          <span>
+
+              <div class="navbar navbar-fluid">
+                ...
+              </div>
+
+      .if-semantic
+        :markdown
+          <span>
+
+              @include navbar($layout: 'fluid');
+
+  .document
+    article.article
+      :markdown
+        ### Fluid-Fixed
+
+        Fluid fixed layouts allow your navbar's container to be as wide as you want, but
+        still keep the contents in the same container as any other element using `container()`.
+
+        The underlying logic for this is more tricky than it appears, as the navbar will
+        adjust itself in a way that the first and last menu items align, not by their edges,
+        but the edges of the text inside them.
+
+        ![Navbar with layout of "fluid-fixed" (Default)](/img/nav_fluid-fixed.png)
+
+      .if-semantic
+        :markdown
+          For a fluid-fixed layout, pass in `'fluid-fixed'` to the `$layout` parameter.
+
+      .ifnot-semantic
+        :markdown
+          For a fluid fixed layout, use the `.navbar-fluid_fixed` class.
+
+    article.code
+      .if-semantic
+        :markdown
+          <span>
+
+              @include navbar($layout: 'fluid-fixed');
+
+      .ifnot-semantic
+        :markdown
+          <span>
+
+              <div class="navbar navbar-fluid_fixed">
+                ...
+              </div>
+
+  .document
+    article.article
+      :markdown
+        ## Dropdowns
+
+        To create a dropdown, simply nest another `ul` in one of your `li`s.
+
+        Dropdowns require the `k$.nav(el)` function to be called on the bar. `el` is
+        the selector for the navbar container.
+
+      .navbar.sample-dropdown-nav
+        nav
+          ul
+            li
+              | Options
+              ul
+                li
+                  a(href="#") Option 1
+                li
+                  a(href="#") Option 2
+                li
+                  a(href="#") Option 3
+
+    article.code
+      :markdown
+        <span>
+
+            <div class="navbar">
+              <ul>
+                <li>Options
+                  <ul>
+                    <li>
+                      <a href="#">Option1</a>
+                    </li>
+                    <li>
+                      <a href="#">Option2</a>
+                    </li>
+                    <li>
+                      <a href="#">Option3</a>
+                    </li>
+                  </ul>
+                </li>
+              </ul>
+            </div>
+
+      :markdown
+        <span>
+
+            k$.navbar('.navbar')
+
+  .document
+    article.article
+      :markdown
+        # Pagination
+
+        Pagination styling is very similar to the navigation bar. As such, the
+        markup is also very similar and
+        <span class="ifnot-semantic">a <code>.pagination-dark</code> class is available.</span>
+        <span class="if-semantic">a <code>$background-color</code> can be passed in to <code>pagination()</code></span>.
+
+      .example
+        .pagination
+          ul
+            li: a(href="#") &laquo; Prev
+          ul
+            li: a(href="#") Next &raquo;
+
+    article.code
+      :markdown
+        <span>
+
+            <div class="pagination">
+              <ul>
+                <li>
+                  <a href="#">&laquo; Prev</a>
+                </li>
+                <li>
+                  <a href="#">Next &raquo;</a>
+                </li>
+              </ul>
+            </div>
+
+            <!-- laquo/raquo stand for "left and right angle quotes" -->
+
+      .if-semantic
+        :markdown
+          <span>
+
+              .pagination {
+                @include pagination();
+              }
+
 
 
 block variations
-  h2 Bars
 
-  h3 Primary and secondary menus
 
-  :markdown
-    The first `ul` is automatically left aligned. Adding another will treat the
-    second as a secondary menu and align it right. Adding more than two `ul`s
-    will simply continue to follow CSS flexbox rules.
-
-  .navbar
-    nav
-      ul
-        li
-          a(href="#") Left
-
-  :markdown
-    <span>
-
-        <div class="navbar">
-          <nav>
-            <ul>
-              <li>
-                <a href="#">Left</a>
-              </li>
-            </ul>
-          </nav>
-        </div>
-
-  .navbar
-    nav
-      ul
-        li
-          a(href="#") Left
-      ul
-        li
-          a(href="#") Right
-
-  :markdown
-    <span>
-
-        <div class="navbar">
-          <nav>
-            <ul>
-              <li>
-                <a href="#">Left</a>
-              </li>
-            </ul>
-            <ul>
-              <li>
-                <a href="#">Right</a>
-              </li>
-            </ul>
-          </nav>
-        </div>
-
-  :markdown
-
-    Why not just have `<nav>` without the extra div above? This is to give you
-    more separation between the flexbox elements and the container it sits in.
-    Flexbox display settings will affect the direct descendants. The need for
-    this separation becomes clearer as the navbar becomes more complex, such
-    as the addition of a wrapper inside the container.
-
-    ### Layout Styles
-
-    Navbars can have either default, fluid, or fluid-fixed layouts.
-
-    #### No style
-
-    By default, navbars have a layout parameter of "none" This is best for navigation bars
-    that are in the page itself, and not integrated into the master layout of the page.
-
-    ![Navbar with layout of "none" (Default)](/img/nav_none.png)
-
-    #### Fluid
-
-    You may want your navbar contents to be full width, but keep a healthy
-    margin on the left and right. This is especially important on smaller
-    screens.
-
-    ![Navbar with layout of "fluid" (Default)](/img/nav_fluid.png)
-
-  .ifnot-semantic
-    :markdown
-      <span>
-
-          <div class="navbar navbar-fluid">
-            <div class="container">
-              <nav>
-                <ul>
-                  <li>
-                    <a href="#">Home</a>
-                  </li>
-                </ul>
-
-                <ul>
-                  <li>
-                    <a href="#">Login</a>
-                  </li>
-                </ul>
-              </nav>
-            </div>
-          </div>
-
-          <main>
-            <div class="container">
-              <h1>Hello world</h1>
-            </div>
-          </main>
-
-      Simply use the `.fluid` helper class to enable container fluid.
-
-  .if-semantic
-    :markdown
-      <span>
-
-          <div class="mynavbar">
-            <div class="mycontainer">
-              <nav>
-                <ul>
-                  <li>
-                    <a href="#">Home</a>
-                  </li>
-                </ul>
-
-                <ul>
-                  <li>
-                    <a href="#">Login</a>
-                  </li>
-                </ul>
-              </nav>
-            </div>
-          </div>
-
-          <main>
-            <div class="mycontainer">
-              <h1>Hello world</h1>
-            </div>
-          </main>
-
-          .mycontainer {
-            @include container();
-          }
-          .mynavbar {
-            @include navbar($layout: 'fluid');
-          }
-
-      Simply pass in `'fluid'` to the `$layout` parameter to enable a fluid container.
-
-  :markdown
-    #### Fluid-Fixed
-
-    Fluid fixed layouts allow your navbar's container to be as wide as you want, but
-    still keep the contents in the same container as any other element using `container()`.
-
-    The underlying logic for this is more tricky than it appears, as the navbar will
-    adjust itself in a way that the first and last menu items align, not by their edges,
-    but the edges of the text inside them.
-
-    ![Navbar with layout of "fluid-fixed" (Default)](/img/nav_fluid-fixed.png)
-
-  .if-semantic
-    :markdown
-      For a fluid-fixed layout, pass in `'fluid-fixed'` to the `$layout` parameter.
-
-          .navbar { @include navbar($layout: 'fluid-fixed'); }
-
-  .ifnot-semantic
-    :markdown
-      For a fluid fixed layout, use the `.navbar-fluid_fixed` class.
-
-          <div class="navbar navbar-fluid_fixed">
-            <nav>
-              <ul>
-                ...
-              </ul>
-            </nav>
-          </div>
-
-  :markdown
-    ### Dropdowns
-
-    To create a dropdown, simply nest another `ul` in one of your `li`s.
-
-    Dropdowns require the `k$.nav(el)` function to be called on the bar. `el` is
-    the selector for the navbar container.
-
-  .navbar.sample-dropdown-nav
-    nav
-      ul
-        li
-          | Options
-          ul
-            li
-              a(href="#") Option 1
-            li
-              a(href="#") Option 2
-            li
-              a(href="#") Option 3
-
-  :markdown
-    <span>
-
-        <div class="navbar">
-          <ul>
-            <li>Options
-              <ul>
-                <li>
-                  <a href="#">Option1</a>
-                </li>
-                <li>
-                  <a href="#">Option2</a>
-                </li>
-                <li>
-                  <a href="#">Option3</a>
-                </li>
-              </ul>
-            </li>
-          </ul>
-        </div>
-
-  :markdown
-    <span>
-
-        k$.navbar('.navbar')
 
     ### Coloring navbar
 
