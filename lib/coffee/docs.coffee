@@ -37,6 +37,12 @@ document.addEventListener 'DOMContentLoaded', ->
     localStorage.setItem 'kickstartDocs', JSON.stringify settings
 
     for option in booleanViewOptions
+
+      if settings.viewOptions["#{option}"]
+        document.body.classList.add "show-#{option}"
+      else
+        document.body.classList.remove "show-#{option}"
+
       for $container in $$(".if-#{option}")
          $visibleStyle = if $container.nodeName == 'SPAN' then 'inline' else 'block'
          $container.style.display = (if settings.viewOptions["#{option}"] then $visibleStyle else 'none')

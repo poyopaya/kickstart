@@ -38,6 +38,11 @@
       _results = [];
       for (_i = 0, _len = booleanViewOptions.length; _i < _len; _i++) {
         option = booleanViewOptions[_i];
+        if (settings.viewOptions["" + option]) {
+          document.body.classList.add("show-" + option);
+        } else {
+          document.body.classList.remove("show-" + option);
+        }
         _ref = $$(".if-" + option);
         for (_j = 0, _len1 = _ref.length; _j < _len1; _j++) {
           $container = _ref[_j];
