@@ -152,49 +152,52 @@ block documents
               .button-group {
                 @include button-group();
               }
+  
+  .document
+    article.article
+      :markdown
+        # Button with dropdown
+
+        This is a bit different from the above only because the button still
+        exists with the dropdown instead of as one.
+
+      +buttonRole
+
+      .example
+        ul.button-group
+          li
+            a(href="#") Upload
+          li
+            button.button-dropdown
+            ul
+              li
+                a(href="#") Choose from library
+              li
+                a(href="#") Take a picture
+
+    article.code
+      :markdown
+        <span>
+
+            <ul class="button-group" role="button">
+              <li>
+                <a href="#">Upload</a>
+              </li>
+              <li>
+                <button class="button-dropdown"></button>
+                <ul>
+                  <li>
+                    <a href="#">Choose from library</a>
+                  </li>
+                  <li>
+                    <a href="#">Take a picture</a>
+                  </li>
+                </ul>
+              </li>
+            </ul>
 
 
 block granular
-  :markdown
-    ## Button with dropdown
-
-    This is a bit different from the above only because the button still
-    exists with the dropdown instead of as one.
-
-  +buttonRole
-
-  .example
-    ul.button-group
-      li
-        a(href="#") Upload
-      li
-        button.button-dropdown
-        ul
-          li
-            a(href="#") Choose from library
-          li
-            a(href="#") Take a picture
-
-  :markdown
-    <span>
-
-        <ul class="button-group" role="button">
-          <li>
-            <a href="#">Upload</a>
-          </li>
-          <li>
-            <button class="button-dropdown"></button>
-            <ul>
-              <li>
-                <a href="#">Choose from library</a>
-              </li>
-              <li>
-                <a href="#">Take a picture</a>
-              </li>
-            </ul>
-          </li>
-        </ul>
-
   p
     span.label.label-info Important!
     |  The <code>.button-dropdown</code> class is a required class
