@@ -173,3 +173,29 @@ code, pre, kbd, samp
 
   +navbar($collapse: true, $background-color: white)
 
+// Optional doc blocks toggling
+.if-semantic, .if-jquery
+  display: none
+
+span.ifnot-semantic, span.ifnot-jquery
+  display: inline
+
+body.show-semantic
+  .ifnot-semantic
+    display: none
+
+  .if-semantic
+    display: block
+
+  span.if-semantic
+    display: inline
+    
+body.show-jquery
+  .ifnot-jquery
+    display: none
+
+  .if-jquery
+    display: block
+
+  span.if-jquery
+    display: inline
