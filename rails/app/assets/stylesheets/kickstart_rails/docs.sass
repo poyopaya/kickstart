@@ -10,7 +10,7 @@
 // ------------
 
 body
-  background-color: map-get($white, dark)
+  background-color: map-get($white, darkest)
 
 .wrapper
   +container
@@ -22,8 +22,9 @@ body
 #screen
   +screen
   max-width: $xl-monitor
-  box-shadow: 0px 0px $space map-get($gray, light)
+  box-shadow: 0px 0px $space map-get($gray, darker)
   margin: 0px auto
+  background: white
 
 // Navigation
 // ----------
