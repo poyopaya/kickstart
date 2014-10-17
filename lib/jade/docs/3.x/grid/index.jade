@@ -244,232 +244,244 @@ block documents
           .col-3: .col-example 3 columns
           .col-6: .col-example 6 columns
 
-block variations
+      :markdown
+        They look so similar, you might say the 3 column left isn't necessary in the first.
 
-  :markdown
-    They look so similar, you might say the 3 column left isn't necessary in the first.
+        A left would be necessary, however, if we didn't want the last column to
+        automatically go the very left. Maybe we just want 1 column of space
+        between the two.
 
-    A left would be necessary, however, if we didn't want the last column to
-    automatically go the very left. Maybe we just want 1 column of space
-    between the two.
+      .example
+        .row
+          .col-3: .col-example 3 columns
+          .col-6.col-left-1: .col-example 6 columns with 1 column left
 
-  .example
-    .row
-      .col-3: .col-example 3 columns
-      .col-6.col-left-1: .col-example 6 columns with 1 column left
+      :markdown
+        As you can see, it still looks the same. This is for the same reason. The
+        columns aren't adding up to 12, so they automatically create the necessary
+        space between themselves to fill the 12 column grid. Let's see what happens
+        if we add a another two column.
 
-  :markdown
-    As you can see, it still looks the same. This is for the same reason. The
-    columns aren't adding up to 12, so they automatically create the necessary
-    space between themselves to fill the 12 column grid. Let's see what happens
-    if we add a another two column.
+      .example
+        .row
+          .col-3: .col-example 3 columns
+          .col-6.col-left-1: .col-example 6 columns with 1 column left
+          .col-2: .col-example 2
 
-  .example
-    .row
-      .col-3: .col-example 3 columns
-      .col-6.col-left-1: .col-example 6 columns with 1 column left
-      .col-2: .col-example 2 columns
+      :markdown
+        But what if we wanted the columns to feed in from right to left, without the
+        automatic spacing in between (with the exception of the gutters)?
 
-  :markdown
-    But what if we wanted the columns to feed in from right to left, without the
-    automatic spacing in between (with the exception of the gutters)?
+        This is where right is handy. Just as we can left the columns to the left, we
+        can also right the columns to the right.
 
-    This is where right is handy. Just as we can left the columns to the left, we
-    can also right the columns to the right.
+      .example
+        .row
+          .col-3: .col-example 3 columns
+          .col-6.col-right-3: .col-example 6 columns with 3 column right
+          .col-3: .col-example 3 columns
+          .col-6: .col-example 6 columns
 
-  .example
-    .row
-      .col-3: .col-example 3 columns
-      .col-6.col-right-3: .col-example 6 columns with 3 column right
-      .col-3: .col-example 3 columns
-      .col-6: .col-example 6 columns
+  .document
+    article.article
+      :markdown
+        Because we already have a total of 9 columns used up, we need to
+        finish (right) the remaining three to complete 12 columns.
 
-  :markdown
-    Because we already have a total of 9 columns used up, we need to
-    finish (right) the remaining three to complete 12 columns.
+    article.code
+      .ifnot-semantic
+        :markdown
+          <span>
 
-  .ifnot-semantic
-    :markdown
-      <span>
+              ...
+              <div class="col-3">
+                Three columns
+              </div>
+              <div class="col-6 col-right-3">
+                Six columns
+              </div>
 
-          ...
-          <div class="col-3">
-            Three columns
-          </div>
-          <div class="col-6 col-right-3">
-            Six columns
-          </div>
+      .if-semantic
+        :markdown
+          <span>
 
-  .if-semantic
-    :markdown
-      <span>
+              ...
+              <div class="news">
+                Three columns
+              </div>
+              <div class="events">
+                Six columns
+              </div>
 
-          ...
-          <div class="news">
-            Three columns
-          </div>
-          <div class="events">
-            Six columns
-          </div>
+              .news {
+                @include column(3); // 3 columns
+              }
+              .events {
+                @include column(6, 3); // 6 columns, 3 right
+                @include column($columns: 6, $right: 3) // Alternative way of writing the above.
+              }
 
-          .news {
-            @include column(3); // 3 columns
-          }
-          .events {
-            @include column(6, 3); // 6 columns, 3 right
-            @include column($columns: 6, $right: 3) // Alternative way of writing the above.
-          }
+  .document
+    article.article
+      h1 Left offsets
 
-  h2 Left offsets
+      p Right offsets will take care of most of your offset needs, but in some rare cases, a left offset is needed.
 
-  p Right offsets will take care of most of your offset needs, but in some rare cases, a left offset is needed.
+      .example
+        .row
+          .col-left-6.col-6: .col-example six columns with six column left
 
-  .example
-    .row
-      .col-left-6.col-6: .col-example six columns with six column left
+    article.code
+      .ifnot-semantic
+        :markdown
+          <span>
 
-  .ifnot-semantic
-    :markdown
-      <span>
+              ...
+              <div class="col-left-6 col-6">
+                Six columns
+              </div>
 
-          ...
-          <div class="col-left-6 col-6">
-            Six columns
-          </div>
+      .if-semantic
+        :markdown
+          <span>
 
-  .if-semantic
-    :markdown
-      <span>
+              ...
+              <div class="reminder">
+                Six columns
+              </div>
 
-          ...
-          <div class="reminder">
-            Six columns
-          </div>
+              .reminder {
+                @include column(6, 0, 6);
+              } 
 
-          .reminder {
-            @include column(6, 0, 6);
-          }
+  .document
+    article.article.article-full
+      .example
+        .row
+          .col-left-2.col-10: .col-example 10 columns with 2 column left
+        .row
+          .col-3: .col-example 3 columns
+          .col-6.col-left-3: .col-example 6 columns with 3 column left
+        .row
+          .col-left-4.col-4: .col-example 4 columns with 4 column left
 
-  .example
-    .row
-      .col-left-2.col-10: .col-example 10 columns with 2 column left
-    .row
-      .col-3: .col-example 3 columns
-      .col-6.col-left-3: .col-example 6 columns with 3 column left
-    .row
-      .col-left-4.col-4: .col-example 4 columns with 4 column left
+  .document
+    article.article
+      h2 Shortcuts
+      p lefts can also use semantic shortcuts.
 
+      .example
+        .row
+          .col-third.col-left-twothirds: .col-example One third with two-third left
 
-  h3 Shortcuts
-  p lefts can also use semantic shortcuts.
+      p In the above example, the column and the left will revert to 1/2 width on tablet. On mobile, the left offset will disappear and the column will be full-width.
 
-  .example
-    .row
-      .col-third.col-right-twothirds: .col-example One third with two-third right
+    article.code
+      .ifnot-semantic
+        :markdown
+          <span>
 
-  .ifnot-semantic
-    :markdown
-      <span>
+              <div class="col-third col-left-twothirds">
+                ...
+              </div>
 
-          <div class="col-third col-right-twothirds">
-            ...
-          </div>
+      .if-semantic
+        :markdown
+          <span>
 
-  .if-semantic
-    :markdown
-      <span>
+              <div class="blurb">
+                ...
+              </div>
 
-          <div class="blurb">
-            ...
-          </div>
+              .blurb {
+                @include column('third', $left: 'twothirds');
+              }
 
-          .blurb {
-            @include column('third, twothirds');
-          }
+  .document
+    article.article
+      h1 Nesting
 
-  p In the above example, the column and the right will revert to 1/2 width on tablet. On mobile, the right offset will disappear and the column will be full-width.
+      .example
+        .row
+          .col-6
+            .col-example
+              | half
+              .row
+                .col-6: .col-example.gray half
+                .col-6: .col-example.gray half
+          .col-6
+            .col-example
+              | half
+              .row
+                .col-4: .col-example.gray third
+                .col-4: .col-example.gray third
+                .col-4: .col-example.gray third
 
-  h2 Nesting
+      p When nesting, be sure to include a new row in the parent column.
 
-  .example
-    .row
-      .col-6
-        .col-example
-          | half
-          .row
-            .col-6: .col-example.gray half
-            .col-6: .col-example.gray half
-      .col-6
-        .col-example
-          | half
-          .row
-            .col-4: .col-example.gray third
-            .col-4: .col-example.gray third
-            .col-4: .col-example.gray third
+    article.code
+      .if-semantic
+        :markdown
+          <span>
 
-  p When nesting, be sure to include a new row in the parent column.
-
-  .if-semantic
-    :markdown
-      <span>
-
-          <div class="row">
-            <div class="sidebar">
-              half
-              <div class="options">
-                <div class="terms">
+              <div class="row">
+                <div class="sidebar">
                   half
+                  <div class="options">
+                    <div class="terms">
+                      half
+                    </div>
+                    <div class="definitions">
+                      half
+                    </div>
+                  </div>
                 </div>
-                <div class="definitions">
-                  half
+                <div class="main">
+                  <div class="menu">
+                    <div class="new">third</div>
+                    <div class="updated">third</div>
+                    <div class="archived">third</div>
+                  </div>
                 </div>
               </div>
-            </div>
-            <div class="main">
-              <div class="menu">
-                <div class="new">third</div>
-                <div class="updated">third</div>
-                <div class="archived">third</div>
-              </div>
-            </div>
-          </div>
 
-          .row, .menu, .options {
-            @import row();
-          }
-          .sidebar, .main, .terms, .definitions {
-            @import column(6);
-          }
-          .new, .updated, .archived {
-            @import column(4);
-          }
+              .row, .menu, .options {
+                @import row();
+              }
+              .sidebar, .main, .terms, .definitions {
+                @import column(6);
+              }
+              .new, .updated, .archived {
+                @import column(4);
+              }
 
-  .ifnot-semantic
-    :markdown
-      <span>
+      .ifnot-semantic
+        :markdown
+          <span>
 
-          <div class="row">
-            <div class="col-6">
-              half
               <div class="row">
                 <div class="col-6">
                   half
+                  <div class="row">
+                    <div class="col-6">
+                      half
+                    </div>
+                    <div class="col-6">
+                      half
+                    </div>
+                  </div>
                 </div>
                 <div class="col-6">
-                  half
+                  <div class="row">
+                    <div class="col-4">third</div>
+                    <div class="col-4">third</div>
+                    <div class="col-4">third</div>
+                  </div>
                 </div>
               </div>
-            </div>
-            <div class="col-6">
-              <div class="row">
-                <div class="col-4">third</div>
-                <div class="col-4">third</div>
-                <div class="col-4">third</div>
-              </div>
-            </div>
-          </div>
 
 
+block variations 
   h2#responsive Responsive
   p Remember that using shortcut classes will automatically make your grid responsive. See "shortcuts" above.
 

@@ -179,14 +179,6 @@ block documents
         span.notice Important!
         |  The <code>.button-dropdown</code> class is a required class
 
-      .if-semantic
-        :markdown
-          <span>
-
-              .button-group {
-                @include button-group();
-              }
-
     article.code
       :markdown
         <span>
@@ -207,6 +199,15 @@ block documents
                 </ul>
               </li>
             </ul>
+
+      .if-semantic
+        :markdown
+          <span>
+
+              .button-group {
+                @include button-group();
+              }
+
 
   .document
     article.article
