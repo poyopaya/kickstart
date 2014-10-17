@@ -1,4 +1,11 @@
-extends ../../layout
+extends ../../_layout
+
+block variables
+  - var showFooter = false
+  - var title = "Tooltips"
+
+block ui-stylesheet
+  link(rel="stylesheet" href="/css/pages/docs/ui/tooltips.css")
 
 mixin colors
   p
@@ -29,142 +36,160 @@ mixin colors
 block hero-title
   h1 Tooltips
 
+block documents
+  .document
+    article.article
+      :markdown
+        Tooltips in Kickstart come in many flavors with an optional additional element
+        for specifying the part of the html that will trigger the appearance of the
+        tooltip(s)
+
+        # Single element
+
+        Tooltips are implemented in a dataset attribute of the HTML.
+
+        Tooltips have a **trigger** (the hovered item that launches the tooltip)
+        and an **anchor** (the element the tooltip anchors to).
+
+      .example
+        button(data-ks-tooltip="I'm a tooltip") Hover over me
+
+    article.code
+      :markdown
+        <span>
+
+            <button class="button" data-ks-tooltip="I'm a tooltip">Hover over me</button>
+
+  .document
+    article.article
+      :markdown
+        ## Optional trigger
+
+        By default, the trigger and the anchor are the same element. However,
+        an optional <span class="ifnot-semantic"><code>.tooltip_trigger</code> class</span>
+        <span class="if-semantic"><code>tooltip-trigger()</code> mixin</span> is available.
+        This defines a general hover zone where child tooltips will show.
+
+      .tooltip_trigger.example
+        ul.list.list-unstyled
+          li
+            a(href="#" data-ks-tooltip="Create a new account here") Signup
+          li Benefits to signing up include our monthly email
+          li
+            a(href="#" data-ks-tooltip="Start here if you already have an account" data-ks-tooltip-position="bottom") Login
+
+    article.code
+      .ifnot-semantic
+        :markdown
+          <span>
+
+              <div class="tooltip_trigger">
+                <ul class="list list-unstyled">
+                  <li>
+                    <a href="#" data-ks-tooltip="Create a new account here">Signup</a>
+                  </li>
+                  <li>Benefits to signing up include our monthly email</li>
+                  <li>
+                    <a href="#" data-ks-tooltip="Start here if you already have an account" data-ks-tooltip-position="bottom">Login</a>
+                  </li>
+                </ul>
+              </div>
+
+      .if-semantic
+        :markdown
+          <span>
+
+              <div class="decision">
+                <ul>
+                  <li>
+                    <a href="#" data-ks-tooltip="Create a new account here">Signup</a>
+                  </li>
+                  <li>Benefits to signing up include our monthly email</li>
+                  <li>
+                    <a href="#" data-ks-tooltip="Start here if you already have an account" data-ks-tooltip-position="bottom">Login</a>
+                  </li>
+                </ul>
+              </div>
+
+              .decision {
+                @include tooltip_trigger();
+              }
+
+  .document
+    article.article
+      :markdown
+        # Tooltips as elements
+
+        Adding content to the dataset of an element only allow for plaintext.
+        However, your tooltips may need something more sophisticated that can
+        only be expressed by HTML.
+
+        For this, tooltips can also be created as individual HTML elements.
+
+        <span class="notice">Avoid nesting flow elements in phrasing elements.</span>
+
+        Flow elements like `<div>` or `<p>` are not allowed nested in a `<p>`
+        Some browsers will even take it right out for you. Stick to phrasing
+        elements like `<span>` or `<a>`
+
+        More on [flow and phrasing](http://www.w3.org/TR/html-markup/common-models.html) elements.
+
+      .example
+        p
+          | The rain in&nbsp;
+          span.tooltip_trigger
+            a(href="#") Spain
+            span.tooltip <img src="/img/spain.png" style="width: 50px; margin: 0px auto;display: block;"/>Spain is a country in <em>Europe</em>.
+          |  falls mainly on the plains.
+
+      .if-semantic
+        :markdown
+          Note there is no special mixin for `.tooltip` as the content is so specific
+          to being a tooltip, the class should be semantic already.
+
+    article.code
+      .ifnot-semantic
+        :markdown
+          <span>
+
+              <p>The rain in
+                <span class="tooltip_trigger">
+                  <a href="#">Spain</a>
+                  <span class="tooltip">
+                    <img src="/img/spain.png" style="width: 50px; margin: 0px auto; display: block;"/>
+                    Spain is a country in <em>Europe</em>
+                  </span>
+                  falls mainly on the plain.
+                </span>
+              </p>
+
+      .if-semantic
+        :markdown
+          <span>
+
+              <p>The rain in
+                <span class="country">
+                  <a href="#">Spain</a>
+                  <span class="tooltip">
+                    <img src="/img/spain.png" style="width: 50px; margin: 0px auto; display: block;"/>
+                    Spain is a country in <em>Europe</em>
+                  </span>
+                  falls mainly on the plain.
+                </span>
+              </p>
+
+              .country {
+                @include tooltip_trigger();
+              }
+
+
 block basic
-  :markdown
-    Tooltips in Kickstart come in many flavors with an optional additional element
-    for specifying the part of the html that will trigger the appearance of the
-    tooltip(s)
-
-  h2 Single element
-
-  .example
-    button(data-ks-tooltip="I'm a tooltip") Hover over me
-
-  :markdown
-    <span>
-
-        <button class="button" data-ks-tooltip="I'm a tooltip">Hover over me</button>
-
-    Tooltips are implemented in a dataset attribute of the HTML.
-
-    Tooltips have a **trigger** (the hovered item that launches the tooltip)
-    and an **anchor** (the element the tooltip anchors to).
-
-    ## Optional trigger
-
-    By default, the trigger and the anchor are the same element. However,
-    an optional <span class="ifnot-semantic"><code>.tooltip_trigger</code> class</span>
-    <span class="if-semantic"><code>tooltip-trigger()</code> mixin</span> is available.
-    This defines a general hover zone where child tooltips will show.
-
-  .tooltip_trigger.example
-    ul.list.list-unstyled
-      li
-        a(href="#" data-ks-tooltip="Create a new account here") Signup
-      li Benefits to signing up include our monthly email
-      li
-        a(href="#" data-ks-tooltip="Start here if you already have an account" data-ks-tooltip-position="bottom") Login
-
-  .ifnot-semantic
-    :markdown
-      <span>
-
-          <div class="tooltip_trigger">
-            <ul class="list list-unstyled">
-              <li>
-                <a href="#" data-ks-tooltip="Create a new account here">Signup</a>
-              </li>
-              <li>Benefits to signing up include our monthly email</li>
-              <li>
-                <a href="#" data-ks-tooltip="Start here if you already have an account" data-ks-tooltip-position="bottom">Login</a>
-              </li>
-            </ul>
-          </div>
-
-  .if-semantic
-    :markdown
-      <span>
-
-          <div class="decision">
-            <ul>
-              <li>
-                <a href="#" data-ks-tooltip="Create a new account here">Signup</a>
-              </li>
-              <li>Benefits to signing up include our monthly email</li>
-              <li>
-                <a href="#" data-ks-tooltip="Start here if you already have an account" data-ks-tooltip-position="bottom">Login</a>
-              </li>
-            </ul>
-          </div>
-
-          .decision {
-            @include tooltip_trigger();
-          }
-
-  :markdown
-    ## Tooltips as elements
-
-    Adding content to the dataset of an element only allow for plaintext.
-    However, your tooltips may need something more sophisticated that can
-    only be expressed by HTML.
-
-    For this, tooltips can also be created as individual HTML elements.
-
-  .alert.alert-info
-    :markdown
-      <h1 class="toc-exempt">Avoid nesting flow elements in phrasing elements.</h1>
-
-      Flow elements like `<div>` or `<p>` are not allowed nested in a `<p>`
-      Some browsers will even take it right out for you. Stick to phrasing
-      elements like `<span>` or `<a>`
-
-      More on [flow and phrasing](http://www.w3.org/TR/html-markup/common-models.html) elements.
-
-  .example
-    p
-      | The rain in&nbsp;
-      span.tooltip_trigger
-        a(href="#") Spain
-        span.tooltip <img src="/img/spain.png" style="width: 50px; margin: 0px auto;display: block;"/>Spain is a country in <em>Europe</em>.
-      |  falls mainly on the plains.
 
 
-  .ifnot-semantic
-    :markdown
-      <span>
 
-          <p>The rain in
-            <span class="tooltip_trigger">
-              <a href="#">Spain</a>
-              <span class="tooltip">
-                <img src="/img/spain.png" style="width: 50px; margin: 0px auto; display: block;"/>
-                Spain is a country in <em>Europe</em>
-              </span>
-              falls mainly on the plain.
-            </span>
-          </p>
 
-  .if-semantic
-    :markdown
-      <span>
 
-          <p>The rain in
-            <span class="country">
-              <a href="#">Spain</a>
-              <span class="tooltip">
-                <img src="/img/spain.png" style="width: 50px; margin: 0px auto; display: block;"/>
-                Spain is a country in <em>Europe</em>
-              </span>
-              falls mainly on the plain.
-            </span>
-          </p>
 
-          .country {
-            @include tooltip_trigger();
-          }
-
-      Note there is no special mixin for `.tooltip` as the content is so specific
-      to being a tooltip, the class should be semantic already.
 
 block variations
   :markdown
