@@ -9,6 +9,9 @@
 // Basic layout
 // ------------
 
+body
+  background-color: map-get($white, darkest)
+
 .wrapper
   +container
 
@@ -19,8 +22,9 @@
 #screen
   +screen
   max-width: $xl-monitor
-  box-shadow: 0px 0px $space map-get($black, lighter)
+  box-shadow: 0px 0px $space map-get($gray, darker)
   margin: 0px auto
+  background: white
 
 // Navigation
 // ----------

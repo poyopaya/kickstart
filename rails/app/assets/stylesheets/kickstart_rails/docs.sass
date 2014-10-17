@@ -9,6 +9,9 @@
 // Basic layout
 // ------------
 
+body
+  background-color: map-get($white, dark)
+
 .wrapper
   +container
 
@@ -19,7 +22,7 @@
 #screen
   +screen
   max-width: $xl-monitor
-  box-shadow: 0px 0px $space map-get($black, lighter)
+  box-shadow: 0px 0px $space map-get($gray, light)
   margin: 0px auto
 
 // Navigation
@@ -53,6 +56,18 @@ footer.main
   a
     color: white
     text-decoration: underline
+
+// Iframes
+// -------
+
+iframe.animation
+  max-width: 500px
+  height: 200px
+  display: block
+  margin-left: auto
+  margin-right: auto
+  margin-bottom: 25px
+  overflow: hidden
 
 // Components
 // ----------
