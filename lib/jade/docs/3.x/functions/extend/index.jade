@@ -1,4 +1,4 @@
-extends ../../layout
+extends ../../_layout
 
 block hero-title
   h1 Extend
@@ -6,48 +6,71 @@ block hero-title
 block docVars
   - var variations = false
 
-block basic
-  :markdown
-    `k$.extend()` merges two JavaScript objects.
+block variables
+  - var showFooter = false
+  - var title = "Extend Function"
 
-    ## Example
+block documents
+  .document
+    article.article
+      :markdown
+        `k$.extend()` merges two JavaScript objects.
 
-        var employee = {
-          role: 'cashier',
-          location: 'Atlanta, GA'
-        }
+        Here we have a "default" object, the `employee`. There are also two employee objects, `alex` and `jesse`.
 
-        var alex = {
-          name: 'Alex'
-        }
+    article.code
+      :markdown
+        <span>
 
-        var jesse = {
-          name: 'Jesse',
-          role: 'CEO',
-          location: 'NYC'
-        }
+            var employee = {
+              role: 'cashier',
+              location: 'Atlanta, GA'
+            }
 
-    Above, we have a "default" object, the `employee`. There are also two employee objects, `alex` and `jesse`.
-    Let's see what happens when we extend `employee` to `alex` and `jesse`.
+            var alex = {
+              name: 'Alex'
+            }
 
-        alex = k$.extend(employee, alex)
+            var jesse = {
+              name: 'Jesse',
+              role: 'CEO',
+              location: 'NYC'
+            }
 
-        jesse = k$.extend(employee, jesse)
+  .document
+    article.article
+      :markdown
+        Let's see what happens when we extend `employee` to `alex` and `jesse`.
 
-    Here's the output for each:
+    article.code
+      :markdown
+        <span>
 
-        // alex
+            alex = k$.extend(employee, alex)
 
-        {
-          role: 'cashier',
-          location: 'Atlanta, GA',
-          name: 'Alex'
-        }
+            jesse = k$.extend(employee, jesse) 
 
-        // jesse
-        
-        {
-          role: 'CEO',
-          location: 'NYC',
-          name: 'Jesse'
-        }
+  .document
+    article.article
+      :markdown
+        Here's the output for each:
+
+    article.code
+      :markdown
+        <span>
+
+            // alex
+
+            {
+              role: 'cashier',
+              location: 'Atlanta, GA',
+              name: 'Alex'
+            }
+
+            // jesse
+            
+            {
+              role: 'CEO',
+              location: 'NYC',
+              name: 'Jesse'
+            }

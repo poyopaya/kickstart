@@ -1,64 +1,80 @@
-extends ../../layout
+extends ../../_layout
 
 block hero-title
   h1 Labels
 
-block basic
-  :markdown
-    Labels are simple inline containers that share some of the base element styling in Kickstart.
-    Great for drawing attention without visual overload.
+block variables
+  - var showFooter = false
+  - var title = "Labels"
 
-  .example
-    span.label Attention
+block ui-stylesheet
+  link(rel="stylesheet" href="/css/pages/docs/ui/labels.css")
 
-  :markdown
-    Labels are pretty straightforward. Ideally, `span` elements should be labels
-    but the styling can be applied to almost anything.
+block documents
+  .document
+    article.article
+      :markdown
+        Labels are simple inline containers that share some of the base element styling in Kickstart.
+        Great for drawing attention without visual overload.
 
-  .if-semantic
-    :markdown
-      <span>
+      .example
+        span.label Attention
 
-          <span class="attention">Attention</span>
+      :markdown
+        Labels are pretty straightforward. Ideally, `span` elements should be labels
+        but the styling can be applied to almost anything.
 
-          .attention {
-            @include label();
-          }
+    article.code
+      .if-semantic
+        :markdown
+          <span>
 
-  .ifnot-semantic
-    :markdown
-      <span>
+              <span class="attention">Attention</span>
 
-          <span class="label">Attention</span>
+              .attention {
+                @include label();
+              }
 
-block variations
-  :markdown
-    Labels can also be styled much the same way you would with a button.
+      .ifnot-semantic
+        :markdown
+          <span>
 
-  .example
-    span.label.label-red Please correct
-    | &nbsp;
-    span.label.label-green New!
+              <span class="label">Attention</span>
 
-  .if-semantic
-    :markdown
-      Pass in any color to `label()`
+  .document
+    article.article
+      :markdown
+        Labels can also be styled much the same way you would with a button.
 
-          <span class="error">Please correct</span>
-          <span class="notice">New!</span>
+      .example
+        span.label.label-red Please correct
+        | &nbsp;
+        span.label.label-green New!
 
-          .error {
-            @include label(map-get($colors, red));
-          }
-          .notice {
-            @include label($primary-color);
-          }
+      .if-semantic
+        p Pass in any color to `label()`
 
-  .ifnot-semantic
-    :markdown
-      <span>
+      +available-colors('label')
 
-          <span class="label label-red">Please correct</span>
-          <span class="label label-blue">New!</span>
+    article.code
+      .if-semantic
+        :markdown
+          <span>
 
-    +available-colors('label')
+              <span class="error">Please correct</span>
+              <span class="notice">New!</span>
+
+              .error {
+                @include label(map-get($colors, red));
+              }
+              .notice {
+                @include label($primary-color);
+              }
+
+      .ifnot-semantic
+        :markdown
+          <span>
+
+              <span class="label label-red">Please correct</span>
+              <span class="label label-blue">New!</span>
+

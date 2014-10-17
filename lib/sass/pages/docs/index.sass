@@ -2,7 +2,7 @@
 // ==================
 // Generic styles that should be shared across the documentation
 
-@import themes/_canary
+@import themes/_default
 
 h1
   +heading-rg
@@ -42,10 +42,7 @@ h3, h4, h5, h6
     font-size: 0.85rem
 
     a
-      color: $default-font-color
-
-      &:hover
-        color: map-get($colors, blue)
+      color: map-get($colors, blue)
 
     ul
       +list($style: 'unstyled')
@@ -106,7 +103,7 @@ h3, h4, h5, h6
     background: #1d1f21
     padding: $space/4
 
-    > p:first-child
+    p:first-child
       display: none
 
   @media screen and (min-width: $phablet)
@@ -123,7 +120,7 @@ h3, h4, h5, h6
 
     .article, .code
       width: 50%
-      border-bottom: 1px solid map-get($brown, lightest)
+      border-bottom: 1px solid map-get($white, darker)
 
     .code
       border-color: darken(map-get($colors, blue), 35%)
@@ -175,6 +172,33 @@ code, pre, kbd, samp
     fill: map-get($black, lighter)
 
   +navbar($collapse: true, $background-color: white)
+
+// Optional doc blocks toggling
+.if-semantic, .if-jquery
+  display: none
+
+span.ifnot-semantic, span.ifnot-jquery
+  display: inline
+
+body.show-semantic
+  .ifnot-semantic
+    display: none
+
+  .if-semantic
+    display: block
+
+  span.if-semantic
+    display: inline
+    
+body.show-jquery
+  .ifnot-jquery
+    display: none
+
+  .if-jquery
+    display: block
+
+  span.if-jquery
+    display: inline
 
 .example
   margin-bottom: $space

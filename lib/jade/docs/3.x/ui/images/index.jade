@@ -1,104 +1,119 @@
-extends ../../layout
+extends ../../_layout
 
-block docVars
-  - var variations = false
+block variables
+  - var showFooter = false
+  - var title = "Icons"
 
 block hero-title
   h1 Images
 
-block basic
-  :markdown
-    All images are given some baseline styling to make them work best within content.
-    Here are some additional styles that are helpful in getting content and images to live 
-    in harmony:
+block ui-stylesheet
+  link(rel="stylesheet" href="/css/pages/docs/ui/images.css")
 
-    ## Image treatments
+block documents
+  .document
+    article.article.article-full
+      :markdown
+        All images are given some baseline styling to make them work best within content.
+        Here are some additional styles that are helpful in getting content and images to live 
+        in harmony:
 
-    ### Bordered
+  .document
+    article.article
+      :markdown
+        # Image treatments
 
-    Bordered images help separate images and their captions from the main content.
+        ## Bordered
 
-  figure.thumbnail
-    img(src="/img/mountains.png")
-    figcaption Look at these beautiful mountains!
+        Bordered images help separate images and their captions from the main content.
+        article.code
 
-  :markdown
-    <span>
+      figure.thumbnail
+        img(src="/img/mountains.png")
+        figcaption Look at these beautiful mountains!
 
-        <figure class="thumbnail">
-          <img src="mountains.png" />
-          <figcaption>Look at these beautiful mountains!</figcaption>
-        </figure>
+    article.code
+      :markdown
+        <span>
 
-  .if-semantic
-    :markdown
-      <span>
+            <figure class="thumbnail">
+              <img src="mountains.png" />
+              <figcaption>Look at these beautiful mountains!</figcaption>
+            </figure>
 
-          .thumbnail {
-            @include thumbnail();
-          }
+      .if-semantic
+        :markdown
+          <span>
 
-  h2 Thumbnail Content
-  .thumbnail-content
-    img(src="/img/mountains.png" style="width: 150px;height: 150px")
-    article
-      h1.toc-exempt Imagine living among the mountains
-      p In one of our gorgeous luxury timeshare condominiums, finally this dream can become a reality!
+              .thumbnail {
+                @include thumbnail();
+              }
 
-  .thumbnail-content
-    article
-      h1.toc-exempt Imagine living among the mountains
-      p In one of our gorgeous luxury timeshare condominiums, finally this dream can become a reality!
-    img(src="/img/mountains.png" style="width: 150px;height: 150px")
+  .document
+    article.article
+      h1 Thumbnail Content
 
-  .if-semantic
-    :markdown
-      <span>
+      .example
+        .thumbnail-content
+          img(src="/img/mountains.png" style="width: 150px;height: 150px")
+          article
+            h1.toc-exempt Imagine living among the mountains
+            p In one of our gorgeous luxury timeshare condominiums, finally this dream can become a reality!
 
-          <div class="feature">
-            <img src="mountains.png" />
-            <article>
-              <h1>Imagine living among the mountains</h1>
-              <p>...</p>
-            </article>
-          </div>
+        .thumbnail-content
+          article
+            h1.toc-exempt Imagine living among the mountains
+            p In one of our gorgeous luxury timeshare condominiums, finally this dream can become a reality!
+          img(src="/img/mountains.png" style="width: 150px;height: 150px")
 
-          <div class="feature">
-            <article>
-              <h1>Imagine living among the mountains</h1>
-              <p>...</p>
-            </article>
-            <img src="mountains.png" />
-          </div>
+        :markdown
+          The implementation of this container is pretty simple. You'll simply
+          need an image and any html element to house the content.
 
-          .feature {
-            @include thumbnail-content();
-          }
+          To float the image right, simply follow it after the content instead of
+          before.  
 
-  .ifnot-semantic
-    :markdown
-      <span>
+    article.code
+      .if-semantic
+        :markdown
+          <span>
 
-          <div class="thumbnail-content">
-            <img src="mountains.png" />
-            <article>
-              <h1>Imagine living among the mountains</h1>
-              <p>...</p>
-            </article>
-          </div>
+              <div class="feature">
+                <img src="mountains.png" />
+                <article>
+                  <h1>Imagine living among the mountains</h1>
+                  <p>...</p>
+                </article>
+              </div>
 
-          <div class="thumbnail-content">
-            <article>
-              <h1>Imagine living among the mountains</h1>
-              <p>...</p>
-            </article>
-            <img src="mountains.png" />
-          </div>
+              <div class="feature">
+                <article>
+                  <h1>Imagine living among the mountains</h1>
+                  <p>...</p>
+                </article>
+                <img src="mountains.png" />
+              </div>
 
-      The implementation of this container is pretty simple. You'll simply
-      need an image and any html element to house the content.
+              .feature {
+                @include thumbnail-content();
+              }
 
-      To float the image right, simply follow it after the content instead of
-      before.
+      .ifnot-semantic
+        :markdown
+          <span>
 
-block variations
+              <div class="thumbnail-content">
+                <img src="mountains.png" />
+                <article>
+                  <h1>Imagine living among the mountains</h1>
+                  <p>...</p>
+                </article>
+              </div>
+
+              <div class="thumbnail-content">
+                <article>
+                  <h1>Imagine living among the mountains</h1>
+                  <p>...</p>
+                </article>
+                <img src="mountains.png" />
+              </div>
