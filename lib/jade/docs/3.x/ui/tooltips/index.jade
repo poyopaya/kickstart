@@ -182,132 +182,133 @@ block documents
                 @include tooltip_trigger();
               }
 
+  .document
+    article.article
+      :markdown
+        # Coloring
 
-block basic
+      .example
+        p
+          | Try the colors&nbsp;
+          span(data-ks-tooltip="I'm red" data-ks-tooltip-color="red") Red
+          | ,&nbsp;
+          span(data-ks-tooltip="I'm green" data-ks-tooltip-color="green") Green
+          | , and&nbsp;
+          span(data-ks-tooltip="I'm blue" data-ks-tooltip-color="blue") Blue 
+          | (Hover over these)
 
+        +colors
 
+      :markdown
+        Choosing a color is as easy as adding a data attribute to the flow
+        element that spawns your tooltip or appending a `tooltip-[color]` class to `.tooltip`...
 
+      +available-colors('tooltip')
 
+    article.code
+      :markdown
+        <span>
 
+            <p>
+              Feel free to check out our
+              <span data-ks-tooltip="Gallery closes at 9pm" data-ks-tooltip-color="red">
+                Gallery
+              </span>.
+            </p>
 
+            <div class="tooltip_trigger">
+              <div class="tooltip tooltip-red">I'm a tooltip</span>
+            </div>
 
-block variations
-  :markdown
-    ## Coloring
+  .document
+    article.article
+      :markdown
+        You can also set the colors of tooltips for an entire trigger area
 
-  .example
-    p
-      | Try the colors&nbsp;
-      span(data-ks-tooltip="I'm red" data-ks-tooltip-color="red") Red
-      | ,&nbsp;
-      span(data-ks-tooltip="I'm green" data-ks-tooltip-color="green") Green
-      | , and&nbsp;
-      span(data-ks-tooltip="I'm blue" data-ks-tooltip-color="blue") Blue
+    article.code
+      .ifnot-semantic
+        :markdown
+          <span>
 
+              <div class="tooltip_trigger tooltip_trigger-yellow">
+                ...
+              </div>
 
-  :markdown
-    Choosing a color is as easy as adding a data attribute to the flow
-    element that spawns your tooltip.
+      .if-semantic
+        :markdown
+          <span>
 
-        <p>
-          Feel free to check out our
-          <span data-ks-tooltip="Gallery closes at 9pm" data-ks-tooltip-color="red">
-            Gallery
-          </span>.
-        </p>
+              .tooltip_trigger {
+                @include tooltip_trigger(map-get($colors, yellow));
+              } 
 
-    or appending a `tooltip-[color]` class to `.tooltip`...
+  .document
+    article.article
+      :markdown
+        # Positioning
 
-  .example
-    +colors
+        Tooltips can be positioned to the top, left, right, or bottom.
 
-  :markdown
-    <span>
+      .example
+        .tooltip_trigger
+          button.button Top
+          span.tooltip I'm on top
+          | &nbsp;
+        .tooltip_trigger
+          button.button Left
+          span.tooltip.tooltip-left I'm on the left
+          | &nbsp;
+        .tooltip_trigger
+          button.button Right
+          span.tooltip.tooltip-right I'm on the right
+          | &nbsp;
+        .tooltip_trigger
+          button.button Bottom
+          span.tooltip.tooltip-bottom I'm on the bottom
 
-        <div class="tooltip_trigger">
-          <div class="tooltip tooltip-red">I'm a tooltip</span>
-        </div>
+    article.code
+      :markdown
+        <span>
 
+            <div class="tooltip_trigger">
+              <button class="button">Top</button>
+              <span class="tooltip">I'm on top</span>
+            </div>
+            <div class="tooltip_trigger">
+              <button class="button">Left</button>
+              <span class="tooltip tooltip-left">I'm on the left</span>
+            </div>
 
-  +available-colors('tooltip')
+  .document
+    article.article
+      :markdown
+        Tooltips use a familiar format for positioning with data-attributes.
 
-  :markdown
-    You can also set the colors of tooltips for an entire trigger area
+      .example
+        p You can position on the <span data-ks-tooltip="I'm on the left" data-ks-tooltip-position="left">left</span> or on the <span data-ks-tooltip="I'm on the right" data-ks-tooltip-position="right">right</span>.
+        p Or on the <span data-ks-tooltip="I'm on the bottom" data-ks-tooltip-position="bottom">bottom</span> or <span data-ks-tooltip="I'm on the top" data-ks-tooltip-position="top">top</span>
 
-  .ifnot-semantic
-    :markdown
-      <span>
+    article.code
+      :markdown
+        <span>
 
-          <div class="tooltip_trigger tooltip_trigger-yellow">
-            ...
-          </div>
+            <p>
+              You can position on the
+              <span data-ks-tooltip="I'm on the left" data-ks-tooltip-position="left">left</span>
+              or on the
+              <span data-ks-tooltip="I'm on the right" data-ks-tooltip-position="right">right</span>.
+            </p>
 
-  .if-semantic
-    :markdown
-      <span>
+  .document
+    article.article.article-full
+      :markdown
+        ## Combining
 
-          .tooltip_trigger {
-            @include tooltip_trigger(map-get($colors, yellow));
-          }
-
-  :markdown
-    ## Positioning
-
-    Tooltips can be positioned to the top, left, right, or bottom.
-
-  .example
-    .tooltip_trigger
-      button.button Top
-      span.tooltip I'm on top
-      | &nbsp;
-    .tooltip_trigger
-      button.button Left
-      span.tooltip.tooltip-left I'm on the left
-      | &nbsp;
-    .tooltip_trigger
-      button.button Right
-      span.tooltip.tooltip-right I'm on the right
-      | &nbsp;
-    .tooltip_trigger
-      button.button Bottom
-      span.tooltip.tooltip-bottom I'm on the bottom
-
-  :markdown
-    <span>
-
-        <div class="tooltip_trigger">
-          <button class="button">Top</button>
-          <span class="tooltip">I'm on top</span>
-        </div>
-        <div class="tooltip_trigger">
-          <button class="button">Left</button>
-          <span class="tooltip tooltip-left">I'm on the left</span>
-        </div>
-
-  :markdown
-    Tooltips use a familiar format for positioning with data-attributes.
-
-  .example
-    p You can position on the <span data-ks-tooltip="I'm on the left" data-ks-tooltip-position="left">left</span> or on the <span data-ks-tooltip="I'm on the right" data-ks-tooltip-position="right">right</span>.
-    p Or on the <span data-ks-tooltip="I'm on the bottom" data-ks-tooltip-position="bottom">bottom</span> or <span data-ks-tooltip="I'm on the top" data-ks-tooltip-position="top">top</span>
-
-  :markdown
-    <span>
-
-        <p>
-          You can position on the
-          <span data-ks-tooltip="I'm on the left" data-ks-tooltip-position="left">left</span>
-          or on the
-          <span data-ks-tooltip="I'm on the right" data-ks-tooltip-position="right">right</span>.
-        </p>
-
-    ## Combining
-
-  .example.tooltip_trigger
-    ul
-      li: a(href="#") My account
-      li: a(href="#" data-ks-tooltip="You need to update your profile." data-ks-tooltip-color="red" data-ks-tooltip-position="left") Dashboard
-      li: a(href="#") Settings
-      li: a(href="#") Recent
-      li: a(href="#") Favorites
-      li: a(href="#" data-ks-tooltip-color="blue" data-ks-tooltip-position="bottom" data-ks-tooltip="New updates are waiting for you.") Updates
+      .example.tooltip_trigger
+        ul
+          li: a(href="#") My account
+          li: a(href="#" data-ks-tooltip="You need to update your profile." data-ks-tooltip-color="red" data-ks-tooltip-position="left") Dashboard
+          li: a(href="#") Settings
+          li: a(href="#") Recent
+          li: a(href="#") Favorites
+          li: a(href="#" data-ks-tooltip-color="blue" data-ks-tooltip-position="bottom" data-ks-tooltip="New updates are waiting for you.") Updates
