@@ -1,9 +1,9 @@
 extends ../../_layout
 
 mixin buttonRole
-  .alert.alert-info
-    h1.toc-exempt Use roles
-    p Especially in navigation bars, it's important to use <code>role="button"</code> in the HTML attributes.
+  p 
+    span.notice Use roles
+    |  Especially in navigation bars, it's important to use <code>role="button"</code> in the HTML attributes.
 
 block variables
   - var showFooter = false
@@ -161,7 +161,6 @@ block documents
         This is a bit different from the above only because the button still
         exists with the dropdown instead of as one.
 
-      +buttonRole
 
       .example
         ul.button-group
@@ -174,6 +173,19 @@ block documents
                 a(href="#") Choose from library
               li
                 a(href="#") Take a picture
+
+      +buttonRole
+      p
+        span.notice Important!
+        |  The <code>.button-dropdown</code> class is a required class
+
+      .if-semantic
+        :markdown
+          <span>
+
+              .button-group {
+                @include button-group();
+              }
 
     article.code
       :markdown
@@ -198,17 +210,6 @@ block documents
 
 
 block granular
-  p
-    span.label.label-info Important!
-    |  The <code>.button-dropdown</code> class is a required class
-
-  .if-semantic
-    :markdown
-      <span>
-
-          .button-group {
-            @include button-group();
-          }
 
   :markdown
     ## Dropdown button
