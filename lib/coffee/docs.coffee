@@ -145,7 +145,10 @@ document.addEventListener 'DOMContentLoaded', ->
     for heading in $documentContainer.querySelectorAll('h1, h2, h3, h4, h5, h6')
       # Ignore headings that declare themselves as exempt from the TOC
       if not heading.classList.contains 'toc-exempt'
-        heading.id = "#{k$.slugify heading.innerHTML}-#{_k}"
+        # For extra unique names.
+        # heading.id = "#{k$.slugify heading.innerHTML}-#{_k}"
+
+        heading.id = k$.slugify heading.innerHTML
 
         # If this is a lower level.
         $thisHeadingLevel = parseInt(heading.tagName.substr(1, 2))

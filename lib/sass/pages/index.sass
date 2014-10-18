@@ -55,8 +55,16 @@ video
     +p(true)
 
 .first-pitch
+  .feature-image
+    +column('third')
+
+    img
+      max-width: 100%
+
   .feature
-    +column('half')
+    +column('twothirds')
+    margin:
+      bottom: $space * 2
 
 .second-pitch
   .feature
@@ -74,4 +82,24 @@ video
 
     h1
       +heading-sm
+
+.specs
+  +row
+
+  h1
+    +heading-xs
+
+  .spec
+    +column(6)
+
+    @media screen and (min-width: $desktop)
+      +column(3)
+
+dl
+  font-size: 0.85rem
+
+  dt
+    font-weight: bold
+  dd
+    margin-left: 0
 
