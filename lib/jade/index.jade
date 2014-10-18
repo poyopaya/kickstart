@@ -56,3 +56,11 @@ block content
 
       .feature
         h1 Four
+
+block postJS
+  script.
+    k$.growl({
+      title: "Warning: Alpha Release",
+      text: "This is an alpha release of Kickstart, please do not use in a production environment",
+      type: "warning"
+    });
