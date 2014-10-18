@@ -1,17 +1,26 @@
-extends ../../layout
+extends ../../_layout
 
 block hero-title
   h1 Notifications
 
-block hero-example
-  a.button.blue#example-showStatus Show Status
-  | &nbsp;
-  a.button.blue#example-showGrowl Show Growl
+block variables
+  - var showFooter = false
+  - var title = "Notifications" 
+
+block documents
+  .document 
+    article.article 
+      :markdown
+        Notifications give your site an application-like feel by providing dynamic
+        messaging components that work in real time and organize themselves.
+      a.button.blue#example-showStatus Show Status
+      | &nbsp;
+      a.button.blue#example-showGrowl Show Growl
+
+    article.code
 
 block basic
   :markdown
-    Notifications give your site an application-like feel by providing dynamic
-    messaging components that work in real time and organize themselves.
 
     ## Statuses
 
