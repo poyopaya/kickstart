@@ -1,72 +1,132 @@
-extends ../fullpage-layout
+extends ../_layout
 
 block hero-title
   h1 Theming
 
-block fullPane
-  :markdown
-    Theming is design to be very straightforward in Kickstart as every component
-    works like an extensible class.
+block variables
+  - var showFooter = false
+  - var title = "Theming"
 
-    The easiest way to get started is to simply make a copy of
-    `lib/themes/_default.sass` and rename it as your own.
+block documents
+  .document
+    article.article
+      :markdown
+        # Anatomy of a theme
 
-    You'll notice `_default.sass` has a very repetitive structure like this:
+        Theming is design to be very straightforward in Kickstart as every component
+        works like an extensible class.
 
-        =some-component
-          +some-component-default
+        The easiest way to get started is to simply make a copy of
+        `lib/themes/_default.sass` and rename it as your own.
 
-    This allows you to style `some-component` by either leaning on the styles
-    already provided...
+        You'll notice `_default.sass` has a very repetitive structure like this:
 
-        =some-component
-          +some-component-default
-          background-color: red
-          font-family: courier, monospace
+    article.code
+      :markdown
+        <span>
 
-    ...or completely replace it with your own.
+            =some-component
+              +some-component-default
 
-        =some-component
-          background-color: red
-          font-family: courier, monospoace
-          padding: 20px
-          margin-bottom: 15px
+  .document
+    article.article
+      :markdown
+        This allows you to style `some-component` by either leaning on the styles
+        already provided...
 
-    ## Why do it this way?
+    article.code
+      :markdown
+        <span>
 
-    By decoupling the default styling from the final component name, you get the
-    following benefits:
+            =some-component
+              +some-component-default
+              background-color: red
+              font-family: courier, monospace
 
-    ### Keep the Kickstart core library up-to-date
+  .document
+    article.article
+      :markdown
+        ...or completely replace it with your own.
 
-    Updates to the core styles of Kickstart don't get overwritten when extending
-    the component.
+    article.code
+      :markdown
+        <span>
 
-    ### End-user entry points remain untouched
+            =some-component
+              background-color: red
+              font-family: courier, monospoace
+              padding: 20px
+              margin-bottom: 15px
 
-    End users don't need to use any custom name that belongs only to the theme.
-    They can flip through theme libraries and keep their library names the same.
+  .document
+    article.article.article-full 
+      :markdown 
+        # Why do it this way?
 
-    That's really all there is to writing a Kickstart theme. Enjoy!
+        By decoupling the default styling from the final component name, you get the
+        following benefits:
 
-  h2#rails In Rails
+        ## Keep the Kickstart core library up-to-date
 
-  :markdown
-    In a pure sass implementation, you could create your own theme by just
-    dropping it in the theme directory. However, because this sits in a vendor
-    location and probably (hopefully) not committed to your repo, it should
-    make more sense to just copy the theme sass file into assets/stylesheets
-    directory.
+        Updates to the core styles of Kickstart don't get overwritten when extending
+        the component.
 
-    Here's how to do this without breaking links.
+        ## End-user entry points remain untouched
 
-    1. If using a theme not included with kickstart, add your theme to assets/stylesheets. 
-       If you want to make one from scratch, you can 
-       also [Copy one of the themes from the repo](https://github.com/ajkochanowicz/Kickstrap/tree/master/lib/sass/themes)
-       into assets/stylesheets of your project.  
-    2. In application.css.sass/scss, import that theme and any other of
-       your stylesheets afterwards.
-       - If using a theme included with kickstart, be sure to point to it instead of 
-         kickstart_rails itself. `@import kickstart_rails/themes/themename`
-    3. In your theme, make sure each import is pointing to `kickstart_rails`, not `../`
-       as the base directory.
+        End users don't need to use any custom name that belongs only to the theme.
+        They can flip through theme libraries and keep their library names the same.
+
+        That's really all there is to writing a Kickstart theme. Enjoy!
+
+  .document
+    article.article.article-full
+      h1#rails In Rails
+
+      :markdown
+        In a pure sass implementation, you could create your own theme by just
+        dropping it in the theme directory. However, because this sits in a vendor
+        location and probably (hopefully) not committed to your repo, it should
+        make more sense to just copy the theme sass file into assets/stylesheets
+        directory.
+
+        Here's how to do this without breaking links.
+
+  .document
+    article.article.article-full
+      :markdown 
+        If using a theme not included with kickstart, add your theme to assets/stylesheets. 
+        
+        If you want to make one from scratch, you can 
+        also [Copy one of the themes from the repo](https://github.com/ajkochanowicz/Kickstrap/tree/master/lib/sass/themes)
+        into assets/stylesheets of your project.  
+
+  .document
+    article.article
+      :markdown
+        In application.css.sass/scss, import that theme and any other of
+        your stylesheets afterwards.
+        
+        If using a theme included with kickstart, be sure to point to it instead of 
+        kickstart_rails itself.
+
+    article.code
+      :markdown
+        <span>
+
+            @import kickstart_rails/themes/themename;
+
+  .document
+    article.article
+      :markdown
+        In your theme, make sure each import is pointing to `kickstart_rails`, not `../`
+        as the base directory.
+
+    article.code
+      :markdown
+        <span>
+
+            // For all of these
+            @import ../some/file;
+
+            // Change to this
+            @import kickstart_rails/some/_file;

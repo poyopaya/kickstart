@@ -1,167 +1,214 @@
-extends ../../layout
+extends ../../_layout
 
 block hero-title
   h1 Typography
 
-block basic
-  p By default, the standard set of typography tags will look like this:
+block variables
+  - var showFooter = false
+  - var title = "Typography"
 
-  .example
-    h1.toc-exempt Heading 1
-    h2.toc-exempt Heading 2
-    h3.toc-exempt Heading 3
-    h4.toc-exempt Heading 4
-    h5.toc-exempt Heading 5
-    h6.toc-exempt Heading 6
-    p Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-    p
-      em Emphasized
-    p
-      strong Strong
+block ui-stylesheet
+  link(rel="stylesheet" href="/css/pages/docs/ui/typography.css") 
 
-block variations
-  h2 Responsive
-  p Font sizes and line-heights are set with responsive sizing based on the viewport width. Try changing the size of this screen or view on a different-sized screen for an example.
+block documents
+  .document
+    article.article
+      p By default, the standard set of typography tags will look like this:
 
-  h2 Content-optimized
-  p.if-semantic
-    | To use content-optimized default paragraph text, simply pass in&nbsp;
-    code true
-    |  to&nbsp;
-    code p()
-  p.if-semantic Direct descendants will also acquire these styles, so this can be applied to a parent container as well.
-  p.ifnot-semantic
-    | Classes with&nbsp;
-    code .semantic
-    |  and their direct descendants will be optimized for content.
+      .example
+        h1.toc-exempt Heading 1
+        h2.toc-exempt Heading 2
+        h3.toc-exempt Heading 3
+        h4.toc-exempt Heading 4
+        h5.toc-exempt Heading 5
+        h6.toc-exempt Heading 6
+        p Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+        p
+          em Emphasized
+        p
+          strong Strong
 
-
-  .example
-    p.readable Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-    p.readable Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-
-    pre.if-semantic
-      code p.readable {
-        |   @include p(true);
-        | }
-
-    .ifnot-semantic
+    article.code
       :markdown
         <span>
 
-            <p class="readable">Lorem...</p>
+            <h1>Heading 1</h1>
+            <h2>Heading 2</h2>
+            <h3>Heading 3</h3>
+            <h4>Heading 4</h4>
+            <h5>Heading 5</h5>
+            <h6>Heading 6</h6>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+            <p>
+              <em>Emphasized</em>
+            <p>
+            <p>
+              <strong>Strong</strong>
+            <p>
 
-        or
+  .document
+    article.article.article-full
+      h1 Responsive
+      p Font sizes and line-heights are set with responsive sizing based on the viewport width. Try changing the size of this screen or view on a different-sized screen for an example.
 
-            <div class="readable">
-              <p>Lorem...</p>
-            </div>
+  .document
+    article.article 
+      h1 Content-optimized
+      p.if-semantic
+        | To use content-optimized default paragraph text, simply pass in&nbsp;
+        code true
+        |  to&nbsp;
+        code p()
+      p.if-semantic Direct descendants will also acquire these styles, so this can be applied to a parent container as well.
+      p.ifnot-semantic
+        | Classes with&nbsp;
+        code .semantic
+        |  and their direct descendants will be optimized for content.
 
-  h2 Headers
-  p Create spacious, dominating header lines
-
-  .example
-    header.page-heading
-      h1.toc-exempt How to cook a pie
-    p The first step to cooking a pie is to choose a fancy tin.
-
-    :markdown
-      <h3 class="toc-exempt">Code</h3>
-
-          <header class="page-heading">
-            <h1>How to cook a pie</h1>
-          </header>
-          <p>The first step to cooking a pie is to choose a fancy pie tin.</p>
-
-          .page-heading {
-            @include page-heading();
-          }
-
-
-  :markdown
-    ## Lists
-
-    Sometimes bullets are annoying. Kickstart provides a couple ways of displaying unstyled lists:
-
-    ### Unstyled vertical
-
-  ul.list.list-unstyled
-    li Apples
-    li Bread
-    li Nuts
-    li Sugar
-    li Flour
-
-  .ifnot-semantic
-    :markdown
-      <span>
-
-          <ul class="list list-unstyled">
-            <li>Apples</li>
-            <li>Bread</li>
-            ...
-          </ul>
-
-  .if-semantic
-    :markdown
-      <span>
-
-          <ul class="groceries">
-            <li>Apples</li>
-            <li>Bread</li>
-            ...
-          </ul>
-
-          .groceries {
-            @include list($style: 'unstyled');
-          }
-
-  :markdown
-    ### Unstyled horizontal
-
-  ul.list.list-unstyled.list-horizontal
-    li Apples
-    li Bread
-    li Nuts
-    li Sugar
-    li Flour
-
-  .ifnot-semantic
-    :markdown
-      <span>
-
-          <ul class="list list-unstyled list-horizontal">
-            <li>Apples</li>
-            <li>Bread</li>
-            ...
-          </ul>
-
-  .if-semantic
-    :markdown
-      <span>
-
-          <ul class="groceries">
-            <li>Apples</li>
-            <li>Bread</li>
-            ...
-          </ul>
-
-          .groceries {
-            @include list($style: 'unstyled horizontal');
-          }
-
-  h2 Decoupled
-  p While different sizes of text can be selected with the h1-h6 tags, this fringes on using HTML for styling. The level of a heading should dictate its hierarchy, but not necessarily its size.
-  p For this reason, a set of heading <span class="ifnot-semantic">classes</span><span class="if-semantic">mixins</span> are available that can be added to the heading tags. Notice in each example below, an h1 tag is used, although the sizes vary.
-
-  .show-mobile
-    - for size in ['xxl', 'xl', 'lg', 'md', 'rg', 'sm', 'xs', 'xxs']
-      h5 Size: #{size}
       .example
-        .if-semantic
-          pre
-            code #{size}-heading()
+        p.readable Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+        p.readable Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 
+    article.code
+      .if-semantic
+        :markdown
+          <span>
+
+              <p class="readable">Lorem...</p>
+
+              p.readable {
+                @include p(true);
+              }
+
+      .ifnot-semantic
+        :markdown
+          <span>
+
+              <p class="readable">Lorem...</p>
+
+          or
+
+              <div class="readable">
+                <p>Lorem...</p>
+              </div>
+
+  .document
+    article.article
+      h1 Headers
+      p Create spacious, dominating header lines
+
+      .example
+        header.page-heading
+          h1.toc-exempt How to cook a pie
+        p The first step to cooking a pie is to choose a fancy tin.
+
+    article.code
+      :markdown
+        <span>
+
+            <header class="page-heading">
+              <h1>How to cook a pie</h1>
+            </header>
+            <p>The first step to cooking a pie is to choose a fancy pie tin.</p>
+
+            .page-heading {
+              @include page-heading();
+            }
+
+  .document
+    article.article
+      :markdown
+        # Lists
+
+        Sometimes bullets are annoying. Kickstart provides a couple ways of displaying unstyled lists:
+
+        ### Unstyled vertical
+
+      ul.list.list-unstyled
+        li Apples
+        li Bread
+        li Nuts
+        li Sugar
+        li Flour
+
+    article.code
+      .ifnot-semantic
+        :markdown
+          <span>
+
+              <ul class="list list-unstyled">
+                <li>Apples</li>
+                <li>Bread</li>
+                ...
+              </ul>
+
+      .if-semantic
+        :markdown
+          <span>
+
+              <ul class="groceries">
+                <li>Apples</li>
+                <li>Bread</li>
+                ...
+              </ul>
+
+              .groceries {
+                @include list($style: 'unstyled');
+              }
+
+  .document
+    article.article
+      :markdown
+        ### Unstyled horizontal
+
+      ul.list.list-unstyled.list-horizontal
+        li Apples
+        li Bread
+        li Nuts
+        li Sugar
+        li Flour
+
+    article.code
+      .ifnot-semantic
+        :markdown
+          <span>
+
+              <ul class="list list-unstyled list-horizontal">
+                <li>Apples</li>
+                <li>Bread</li>
+                ...
+              </ul>
+
+      .if-semantic
+        :markdown
+          <span>
+
+              <ul class="groceries">
+                <li>Apples</li>
+                <li>Bread</li>
+                ...
+              </ul>
+
+              .groceries {
+                @include list($style: 'unstyled horizontal');
+              }
+
+  .document
+    article.article.article-full
+      h1 Decoupled
+      p While different sizes of text can be selected with the h1-h6 tags, this fringes on using HTML for styling. The level of a heading should dictate its hierarchy, but not necessarily its size.
+      p For this reason, a set of heading <span class="ifnot-semantic">classes</span><span class="if-semantic">mixins</span> are available that can be added to the heading tags. Notice in each example below, an h1 tag is used, although the sizes vary.
+
+  - for size in ['xxl', 'xl', 'lg', 'md', 'rg', 'sm', 'xs', 'xxs']
+    .document
+      article.article
+        h2 Size: #{size}
+
+        .example
+          h1(class="#{size} toc-exempt") Hello World
+
+      article.code 
+        .if-semantic
           pre.if-semantic
             code h1.#{size} {
               |   @include #{size}-heading();
@@ -171,67 +218,3 @@ block variations
         .ifnot-semantic
           pre
             code &lt;h1 class="#{size}"&gt;Hello World&lt;/h1&gt;
-
-        h1(class="#{size} toc-exempt") Hello World
-
-
-  table.show-tablet
-    thead
-      tr
-        th.if-semantic Mixin name
-        th Implementation
-        th Sample
-    tbody
-      - for size in ['xxl', 'xl', 'lg', 'md', 'rg', 'sm', 'xs', 'xxs']
-        tr
-          td.if-semantic
-            code #{size}-heading()
-          td
-            pre.if-semantic
-              code h1.#{size} {
-                |   @include #{size}-heading();
-                | }
-                | &nbsp;
-                | &lt;h1 class="#{size}"&gt;Hello World&lt;/h1&gt;
-            pre.ifnot-semantic
-              code &lt;h1 class="#{size}"&gt;Hello World&lt;/h1&gt;
-          td
-            h1(class="#{size} toc-exempt") Hello World
-
-  :markdown
-    ## Heros
-
-    Heros are large containers for showcasing content. Headings are automatically bumped up
-    a notch and elements tend to be centered.
-
-  .hero
-    h1.toc-exempt Thanks for visiting.
-
-    .thumbnail-content(style="width: 80%")
-      img(src="/img/mountains.png" style="width: 150px;height: 150px;")
-      article
-        h1.toc-exempt Don't to forget to check out the slopes
-        p You won't regret it.
-
-  :markdown
-    <span>
-
-        <div class="hero">
-          <h1>Thanks for visiting</h1>
-
-          <div class="thumbnail-content">
-            <img src="mountains.png" style="width: 150px; height: 150px;" />
-            <article>
-              <h2>Don't forget to check out the slopes</h2>
-              <p>You won't regret it</p>
-            </article>
-          </div>
-        </div>
-
-  .if-semantic
-    :markdown
-      <span>
-
-           .hero {
-             @include hero();
-           }

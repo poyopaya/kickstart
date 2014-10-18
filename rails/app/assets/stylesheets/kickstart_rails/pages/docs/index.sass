@@ -70,7 +70,7 @@ h3, h4, h5, h6
       width: 20%
 
   // When in fixed position
-  &.fixed 
+  &.fixed
     .fixed-toc 
       @media screen and (min-width: $phablet)
         position: fixed
@@ -85,6 +85,9 @@ h3, h4, h5, h6
 
       @media screen and (min-width: $large-monitor)
         right: 80% 
+
+      @media screen and (min-width: $xl-monitor)
+        left: calc(50vw - #{$xl-monitor/2})
 
     .fixed-main
       @media screen and (min-width: $phablet)

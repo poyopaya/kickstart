@@ -179,14 +179,6 @@ block documents
         span.notice Important!
         |  The <code>.button-dropdown</code> class is a required class
 
-      .if-semantic
-        :markdown
-          <span>
-
-              .button-group {
-                @include button-group();
-              }
-
     article.code
       :markdown
         <span>
@@ -208,242 +200,331 @@ block documents
               </li>
             </ul>
 
+      .if-semantic
+        :markdown
+          <span>
 
-block granular
-
-  :markdown
-    ## Dropdown button
-
-    Dropdown buttons are simply collapsible lists that look like buttons.
-
-  +buttonRole
-
-  .alert.alert-info
-    h1.toc-exempt Use the button element.
-    p Unlike other uses, this can only be applied to the HTML <code>button</code> element.
+              .button-group {
+                @include button-group();
+              }
 
 
-  .example
-    button
-      | Add photo
-      ul
-        li
-          a(href="#") Upload
-        li
-          a(href="#") Choose from library
-        li
-          a(href="#") Take a picture
+  .document
+    article.article
+      :markdown
+        # Dropdown button
 
-  :markdown
-    <span>
+        Dropdown buttons are simply collapsible lists that look like buttons.
 
-        <button class="button" role="button">
-          Add photo
-          <ul>
-            <li>
-              <a href="#">Upload</a>
-            </li>
-            <li>
-              <a href="#">Choose from library</a>
-            </li>
-            <li>
-              <a href="#">Take a picture</a>
-            </li>
-          </ul>
-        </button>
+      +buttonRole
+
+      .alert.alert-info
+        p
+          span.notice Use the button element.
+          |  Unlike other uses, this can only be applied to the HTML <code>button</code> element.
+
+
+      .example
+        button
+          | Add photo
+          ul
+            li
+              a(href="#") Upload
+            li
+              a(href="#") Choose from library
+            li
+              a(href="#") Take a picture
+
+    article.code
+      :markdown
+        <span>
+
+            <button class="button" role="button">
+              Add photo
+              <ul>
+                <li>
+                  <a href="#">Upload</a>
+                </li>
+                <li>
+                  <a href="#">Choose from library</a>
+                </li>
+                <li>
+                  <a href="#">Take a picture</a>
+                </li>
+              </ul>
+            </button>
+
+      .if-semantic
+        :markdown
+          <span>
+
+              .button {
+                @include button();
+              }
+
+  .document
+    article.article
+      :markdown
+        # Sizes
+        
+      .if-semantic
+        :markdown
+          Button sizes are expressed as a multiple of the button's current size.
+          For example, a size of 2 would be 2x the size of a default button.
+
+      .ifnot-semantic
+        :markdown
+          Use `button-small` or `button-large` for large and small buttons.
+
+      .example
+        .row
+          .col-4
+            ul.list-unstyled
+              li
+                button.button.button-large Large
+              li
+                button.button Regular
+              li
+                button.button.button-small Small
+
+          .col-4
+            ul.list-unstyled
+              li
+                ul.button-group.button-large
+                  li
+                    button Large
+                  li
+                    button.button-dropdown
+                    ul
+                      li
+                        a(href="#") Option 1
+                      li
+                        a(href="#") Option 2
+
+              li
+                ul.button-group
+                  li
+                    button Regular
+                  li
+                    button.button-dropdown
+                    ul
+                      li
+                        a(href="#") Option 1
+                      li
+                        a(href="#") Option 2
+
+              li
+                ul.button-group.button-small
+                  li
+                    button Small
+                  li
+                    button.button-dropdown
+                    ul
+                      li
+                        a(href="#") Option 1
+                      li
+                        a(href="#") Option 2
+
+          .col-4
+            ul.list-unstyled
+              li
+                button.button.button-large
+                  | Large
+                  ul.button-dropdown
+                    li
+                      a(href="#") Option 1
+                    li
+                      a(href="#") Option 2
+
+              li
+                button.button
+                  | Regular
+                  ul
+                    li
+                      a(href="#") Option 1
+                    li
+                      a(href="#") Option 2
+
+              li
+                button.button.button-small
+                  | Small
+                  ul
+                    li
+                      a(href="#") Option 1
+                    li
+                      a(href="#") Option 2
+
+    article.code
+      .if-semantic
+        :markdown
+          <span>
+
+               .button {
+                 @include button($size: 1); // Default size
+               }
+               .button.button-large
+                 @include button($size: 1.2); // Large
+               }
+               .button.button-small
+                 @include button($size: 0.85); // Small
+               }
+
+      :markdown
+        <span>
+
+            <button class="button button-large">Large</button>
+            <button class="button">Regular</button>
+            <button class="button button-small">Small</button>
+
+            <ul class="button-group button-large">
+              <li>
+                <button class="button">Large</button>
+              </li>
+              <li>
+                <button class="button-dropdown"></button>
+                <ul>
+                  ...
+                </ul>
+            </ul>
+
+            <ul class="button-group">
+              <li>
+                <button class="button">Regular</button>
+              </li>
+              <li>
+                <button class="button-dropdown"></button>
+                <ul>
+                  ...
+                </ul>
+            </ul>
+
+            <ul class="button-group button-small">
+              <li>
+                <button class="button">Small</button>
+              </li>
+              <li>
+                <button class="button-dropdown"></button>
+                <ul>
+                  ...
+                </ul>
+            </ul>
+
+            <button class="button button-large">
+              Large
+              <ul class="button-dropdown">
+                ...
+              </ul>
+            </button>
+
+            <button class="button">
+              Regular
+              <ul class="button-dropdown">
+                ...
+              </ul>
+            </button>
+
+            <button class="button button-small">
+              Small
+              <ul class="button-dropdown">
+                ...
+              </ul>
+            </button>
+
+  .document
+    article.article.article-full
+      h1 Mixing
+      p Mix colors, sizes, and button types.
+
+      .example
+        .row
+          .col-4
+            ul.list-unstyled
+              li
+                button.button.button-large.button-blue Large
+              li
+                button.button.button-red Regular
+              li
+                button.button.button-small.button-orange Small
+
+          .col-4
+            ul.list-unstyled
+              li
+                ul.button-group.button-large.button-green
+                  li
+                    button Large
+                  li
+                    button.button-dropdown
+                    ul
+                      li
+                        a(href="#") Option 1
+                      li
+                        a(href="#") Option 2
+
+              li
+                ul.button-group.button-violet
+                  li
+                    button Regular
+                  li
+                    button.button-dropdown
+                    ul
+                      li
+                        a(href="#") Option 1
+                      li
+                        a(href="#") Option 2
+
+              li
+                ul.button-group.button-small.button-red
+                  li
+                    button Small
+                  li
+                    button.button-dropdown
+                    ul
+                      li
+                        a(href="#") Option 1
+                      li
+                        a(href="#") Option 2
+
+          .col-4
+            ul.list-unstyled
+              li
+                button.button.button-large.button-green
+                  | Large
+                  ul.button-dropdown
+                    li
+                      a(href="#") Option 1
+                    li
+                      a(href="#") Option 2
+
+              li
+                button.button.button-yellow
+                  | Regular
+                  ul
+                    li
+                      a(href="#") Option 1
+                    li
+                      a(href="#") Option 2
+
+              li
+                button.button.button-small.button-red
+                  | Small
+                  ul
+                    li
+                      a(href="#") Option 1
+                    li
+                      a(href="#") Option 2
 
   .if-semantic
-    :markdown
-      <span>
+    .document
+      article.article
+        :markdown
+          To specify a both a color and size, specify a scale for `$size` (1 = 100%)
+          and a color for `$background-color`
 
-          .button {
-            @include button();
-          }
+      article.code
+        :markdown
+          <span>
 
-  :markdown
-    ## Sizes
+               .button.button-large
+                 @include button($background-color: #EEEEEE, $size: 1.2); // Large
+               }
 
-  .example
-    .row
-      .col-4
-        ul.list-unstyled
-          li
-            button.button.button-large Large
-          li
-            button.button Regular
-          li
-            button.button.button-small Small
-
-      .col-4
-        ul.list-unstyled
-          li
-            ul.button-group.button-large
-              li
-                button Large
-              li
-                button.button-dropdown
-                ul
-                  li
-                    a(href="#") Option 1
-                  li
-                    a(href="#") Option 2
-
-          li
-            ul.button-group
-              li
-                button Regular
-              li
-                button.button-dropdown
-                ul
-                  li
-                    a(href="#") Option 1
-                  li
-                    a(href="#") Option 2
-
-          li
-            ul.button-group.button-small
-              li
-                button Small
-              li
-                button.button-dropdown
-                ul
-                  li
-                    a(href="#") Option 1
-                  li
-                    a(href="#") Option 2
-
-      .col-4
-        ul.list-unstyled
-          li
-            button.button.button-large
-              | Large
-              ul.button-dropdown
-                li
-                  a(href="#") Option 1
-                li
-                  a(href="#") Option 2
-
-          li
-            button.button
-              | Regular
-              ul
-                li
-                  a(href="#") Option 1
-                li
-                  a(href="#") Option 2
-
-          li
-            button.button.button-small
-              | Small
-              ul
-                li
-                  a(href="#") Option 1
-                li
-                  a(href="#") Option 2
-
-  .if-semantic
-    :markdown
-      To specify a size, specify a scale for `$size` (1 = 100%)
-
-      For example,
-
-           .button {
-             @include button($size: 1); // Default size
-           }
-           .button.button-large
-             @include button($size: 1.2); // Large
-           }
-           .button.button-small
-             @include button($size: 0.85); // Small
-           }
-
-  h2 Mixing
-
-  .example
-    .row
-      .col-4
-        ul.list-unstyled
-          li
-            button.button.button-large.button-blue Large
-          li
-            button.button.button-red Regular
-          li
-            button.button.button-small.button-orange Small
-
-      .col-4
-        ul.list-unstyled
-          li
-            ul.button-group.button-large.button-green
-              li
-                button Large
-              li
-                button.button-dropdown
-                ul
-                  li
-                    a(href="#") Option 1
-                  li
-                    a(href="#") Option 2
-
-          li
-            ul.button-group.button-violet
-              li
-                button Regular
-              li
-                button.button-dropdown
-                ul
-                  li
-                    a(href="#") Option 1
-                  li
-                    a(href="#") Option 2
-
-          li
-            ul.button-group.button-small.button-red
-              li
-                button Small
-              li
-                button.button-dropdown
-                ul
-                  li
-                    a(href="#") Option 1
-                  li
-                    a(href="#") Option 2
-
-      .col-4
-        ul.list-unstyled
-          li
-            button.button.button-large.button-green
-              | Large
-              ul.button-dropdown
-                li
-                  a(href="#") Option 1
-                li
-                  a(href="#") Option 2
-
-          li
-            button.button.button-yellow
-              | Regular
-              ul
-                li
-                  a(href="#") Option 1
-                li
-                  a(href="#") Option 2
-
-          li
-            button.button.button-small.button-red
-              | Small
-              ul
-                li
-                  a(href="#") Option 1
-                li
-                  a(href="#") Option 2
-
-  .if-semantic
-    :markdown
-      To specify a both a color and size, specify a scale for `$size` (1 = 100%)
-      and a color for `$background-color`
-
-      For example,
-
-           .button.button-large
-             @include button($background-color: #EEEEEE, $size: 1.2); // Large
-           }
