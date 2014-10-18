@@ -1,10 +1,13 @@
-extends fullpage-layout
+extends ../../_fullpage-layout
 
-block hero-title
-  h1 Kickstart Future
+block variables
+  - var showFooter = true
+  - var title = "Future"
 
-block fullPane
+block content
   :markdown
+    # Kickstart Future
+
     With the future of Kickstart, I'm taking an unconventional approach by
     actively prototyping the next version via documentation.
 
