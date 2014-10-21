@@ -27,12 +27,18 @@ block content
     aside.fixed-toc
       h1 #{title}
       form
-        label
-          input#docs-semantic(type="checkbox" checked)
-          | Semantic Sass
-        label
-          input#docs-jquery(type="checkbox")
-          | jQuery
+        p
+          .switch
+            input#docs-semantic(type="checkbox")
+            label(for="docs-semantic")
+          | &nbsp;
+          span Semantic Sass
+        p
+          .switch
+            input#docs-jquery(type="checkbox")
+            label(for="docs-jquery")
+          | &nbsp;
+          span jQuery
 
       #toc
         p.creating-table Creating table of contents...
