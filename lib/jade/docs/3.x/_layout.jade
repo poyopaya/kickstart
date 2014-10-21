@@ -26,14 +26,14 @@ block content
     //- Fixed sidebar
     aside.fixed-toc
       h1 #{title}
-      form
-        p
+      form.switches
+        .form_group
           .switch
             input#docs-semantic(type="checkbox")
             label(for="docs-semantic")
           | &nbsp;
           span Semantic Sass
-        p
+        .form_group
           .switch
             input#docs-jquery(type="checkbox")
             label(for="docs-jquery")
