@@ -80,6 +80,31 @@ block documents
             gem install "kickstart_rails"
 
   .document
+    article.article
+      :markdown
+        ## Sample Gemfile
+
+        In your Gemfile, it's important to use Sass 3.4 or above.
+        This means you should remove `sass-rails` as it uses an earlier
+        version of Sass at the time of this writing.
+
+    article.code
+      :markdown
+        <span> 
+            
+            # Do not use sass-rails
+            # gem 'sass-rails'
+
+            # Use Sass 3.4 and above.
+            gem 'sass', '~> 3.4'
+
+            # Add the kickstart_rails gem
+            gem 'kickstart_rails', '~> 3'
+
+            # Add autoprefixer
+            gem 'autoprefixer-rails'
+
+  .document
     article.article 
       :markdown
         ## Import in application.css

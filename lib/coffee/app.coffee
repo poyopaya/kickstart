@@ -10,5 +10,8 @@ Buttons   = require './buttons'
 Buffer    = require './buffer'
 Growl     = require './growl'
 
-k$.button()
-k$.dropdown()
+k$.ready = ->
+  k$.button()
+  k$.dropdown()
+
+document.addEventListener 'DOMContentLoaded', -> k$.ready()

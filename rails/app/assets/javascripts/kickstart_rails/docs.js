@@ -137,7 +137,7 @@
       for (_k = 0, _len2 = _ref.length; _k < _len2; _k++) {
         heading = _ref[_k];
         if (!heading.classList.contains('toc-exempt')) {
-          heading.id = "" + (k$.slugify(heading.innerHTML)) + "-" + _k;
+          heading.id = k$.slugify(heading.innerHTML);
           $thisHeadingLevel = parseInt(heading.tagName.substr(1, 2));
           if ($thisHeadingLevel > $headingLevel) {
             $newSubmenu = document.createElement('ul');

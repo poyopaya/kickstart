@@ -12,13 +12,19 @@ block hero
 block content
   article.wrapper 
     main.first-pitch
+      .feature-image
+        img(src="http://placehold.it/500x300") 
       .feature
-        h1 Extendible
-        p The library is just the core. Kickstart is designed to be extended and themed via the [Kickstart Store](http://kickstart-store.com).
+        :markdown
+          # Extendible 
+          The library is just the core. Kickstart is designed to be extended and themed via the [Kickstart Store](http://kickstart-store.com).
 
+      .feature-image
+        img(src="http://placehold.it/500x300") 
       .feature
-        h1 Semantic or class-based
-        p Kickstart is the only library to use <strong>either</strong> semantic CSS mixins or discrete CSS classes for styling.
+        :markdown
+          # Semantic or class-based 
+          Kickstart is the only library to use <strong>either</strong> semantic CSS mixins or discrete CSS classes for styling.
 
     main.second-pitch
       .feature
@@ -50,7 +56,42 @@ block content
           | with the ability to add more from the community via the <a href="http://kickstart-store">Kickstart Store</a>
 
       .feature
-        h1 Three
+        :markdown
+          # Native Support for Node.js and Rails
+          p The Kickstart library is maintained [with Gulp](/docs/#{docsVersion}/#nodejs) and ported as a [Rails Gem](/docs/#{docsVersion}/#rails).
 
       .feature
         h1 Four
+
+    footer.specs
+      h1 Specifications
+      
+      .spec
+        dl
+          dt Browser Support
+          dd IE 11+, Chrome, Firefox 30+, Safari 7+
+
+      .spec
+        dl
+          dt Filesize
+          dd n/a
+
+      .spec
+        dl
+          dt License
+          dd 
+            a(href="http://opensource.org/licenses/MIT") MIT
+
+      .spec
+        dl
+          dt Source Files
+          dd Sass, Jade, CoffeeScript
+
+block postJS
+  script.
+    k$.growl({
+      title: "Warning: Alpha Release",
+      text: "This is an alpha release of Kickstart, please do not use in a production environment",
+      type: "warning",
+      delay: 2500
+    });
