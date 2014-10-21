@@ -1,103 +1,151 @@
-extends ../../layout
+extends ../../_layout
 
 block hero-title
   h1 Notifications
 
-block hero-example
-  a.button.blue#example-showStatus Show Status
-  | &nbsp;
-  a.button.blue#example-showGrowl Show Growl
+block variables
+  - var showFooter = false
+  - var title = "Notifications" 
 
-block basic
-  :markdown
-    Notifications give your site an application-like feel by providing dynamic
-    messaging components that work in real time and organize themselves.
+block ui-stylesheet
+  link(rel="stylesheet" href="/css/pages/docs/ui/notifications.css") 
 
-    ## Statuses
+block documents
+  .document 
+    article.article.article-full
+      :markdown
+        Notifications give your site an application-like feel by providing dynamic
+        messaging components that work in real time and organize themselves.
+      a.button.blue#example-showStatus Show Status
+      | &nbsp;
+      a.button.blue#example-showGrowl Show Growl 
 
-    Statuses are once-only notifications best for streaming system information.
-    Once-only means each new status replaces its previous one and only one shows
-    at a time. See [throttling](/docs/3.x/functions/throttling/) for more
-    information
+  .document
+    article.article
+      :markdown
 
-        k$.status({
-          text: 'Saved successfully',
-          type: 'status-green'
-        })
+        # Statuses
 
-    ## Growls
+        Statuses are once-only notifications best for streaming system information.
+        Once-only means each new status replaces its previous one and only one shows
+        at a time. See [throttling](/docs/3.x/functions/throttling/) for more
+        information
 
-    Growls are stackable, right-aligned notifications. Unlike statuses, creating
-    one growl does not replace the existing one. Each Growl has its own delay
-    and styling properties. Unlike statuses, they are also dismissable like a
-    modal.
+    article.code
+      :markdown
+        <span>
 
-        // Defaults are shown
+            k$.status({
+              text: 'Saved successfully',
+              type: 'status-green'
+            })
 
-        k$.growl({
-          title: 'Greetings'
-        })
+  .document
+    article.article
+      :markdown
+        ## Options
 
-block variations
-  :markdown
-    ## Statuses
+        Statuses take additional parameters to allow you to hold on to them for
+        longer, even forever, and style them appropriately.
 
-    Statuses take additional parameters to allow you to hold on to them for
-    longer, even forever, and style them appropriately.
+      +available-colors('status')
 
-        // Defaults are shown
+    article.code
+      :markdown
+        <span>
 
-        k$.status({
-          text: 'Saved successfully', // No default
-          delay: 2000, // Optional, 0 = forever
-          type: 'status-yellow', // Optional, yellow is default
-          id: '' // Optional, for targeting with JavaScript
-        })
+            // Defaults are shown
 
-  +available-colors('status')
+            k$.status({
+              text: 'Saved successfully', // No default
+              delay: 2000, // Optional, 0 = forever
+              type: 'status-yellow', // Optional, yellow is default
+              id: '' // Optional, for targeting with JavaScript
+            }) 
 
-  :markdown 
-    ## Growls
+  .document
+    article.article
+      :markdown
+        # Growls
 
-    Growls have similar flexibility.
+        Growls are stackable, right-aligned notifications. Unlike statuses, creating
+        one growl does not replace the existing one. Each Growl has its own delay
+        and styling properties. Unlike statuses, they are also dismissable like a
+        modal.
 
-        // Defaults are shown
+    article.code
+      :markdown
+        <span>
 
-        k$.growl({
-          title: 'Greetings',
-          text: 'We're happy to inform you your document was saved.', // Optional
-          delay: 2000, // Optional, 0 = forever
-          type: 'alert-warn', // Optional
-          id: 'token' // Optional
-        })
+            // Defaults are shown
 
-    Growls are also fed through `k$.buffer` as a UX concern to prevent
-    overloading the screen with messages. By default, only one growl can show per
-    half second. Subsequent growls will be buffered and shown after others have
-    been dismissed. See [buffers](/docs/#{docsVersion}/throttling) for more
-    information.
+            k$.growl({
+              title: 'Greetings'
+            })
 
-  .if-semantic
-    :markdown
-      Growls reuse the styles for alerts. Because you're using this library
-      semantically, you'll need to assign the alert styles to the `.growl` class.
+  .document
+    article.article
+      :markdown
+        # Options
 
-          .growl {
-            @include alert();
-          }
+        Growls have similar flexibility as statuses.
 
-      To use different stylings, just pass in a class name to the `type` property.
-      By default, this is appended as a class on `.growl`
+    article.code
+      :markdown
+        <span>
 
-          k$.growl({
-            title: 'It worked!',
-            type: 'success'
-          })
+            // Defaults are shown
 
-          .growl {
-            @include alert();
+            k$.growl({
+              title: 'Greetings',
+              text: 'We're happy to inform you your document was saved.', // Optional
+              delay: 2000, // Optional, 0 = forever
+              type: 'alert-warn', // Optional
+              id: 'token' // Optional
+            })
 
-            &.success {
-              background: map-get($colors, green);
+  .document
+    article.article.article-full
+      :markdown
+        Growls are also fed through `k$.buffer` as a UX concern to prevent
+        overloading the screen with messages. By default, only one growl can show per
+        half second. Subsequent growls will be buffered and shown after others have
+        been dismissed. See [buffers](/docs/#{docsVersion}/throttling) for more
+        information.
+
+  .document
+    article.article
+      :markdown
+        Growls reuse the styles for alerts. Because you're using this library
+        semantically, you'll need to assign the alert styles to the `.growl` class.
+
+    article.code
+      :markdown
+        <span>
+
+            .growl {
+              @include alert();
             }
-          }
+
+  .document
+    article.article
+      :markdown 
+        To use different stylings, just pass in a class name to the `type` property.
+        By default, this is appended as a class on `.growl`
+
+    article.code
+      :markdown
+        <span>
+
+            k$.growl({
+              title: 'It worked!',
+              type: 'success'
+            })
+
+            .growl {
+              @include alert();
+
+              &.success {
+                background: map-get($colors, green);
+              }
+            }
