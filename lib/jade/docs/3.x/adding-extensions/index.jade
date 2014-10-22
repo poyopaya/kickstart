@@ -70,12 +70,29 @@ block documents
       :markdown
         <span>
 
-            $(~) git submodule update --recursive
+            $(~) git submodule foreach git pull
 
             Submodule path 'switch': checked out 'e9a72c2fddd41a0a4e25089790e3907582feb538'
             Submodule path 'foo': checked out 'sd92j0vaskdjfjsdkfjna290304ud8sjf202ksdk'
             Submodule path 'bar': checked out '293js0qjlkdsfj02jasdfkj20s9ij2ji2kjdlskj'
             Submodule path 'toaster': checked out 'sdij29j20jdjfsldjkkkbbzxv982893jh034jjk'
+
+  .document
+    article.article
+      :markdown
+        ## Checking out submodules
+        
+        By design, submodules are not pulled down with your main project when cloned. However, information
+        on where to find the submodules and at what state should be committed in your repository in a `.gitmodules`
+        file and else where.
+
+        To checkout your submodules simply run this command from the root of your project.
+
+    article.code
+      :markdown
+        <span>
+
+            $(~) git submodule update --recursive
 
   .document
     article.article
