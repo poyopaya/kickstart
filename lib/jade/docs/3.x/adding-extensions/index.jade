@@ -11,6 +11,8 @@ block documents
   .document
     article.article.article-full
       :markdown 
+        # Submodules
+
         Kickstart extensions are [Git Submodules](http://git-scm.com/book/en/Git-Tools-Submodules).
         Git Submodules are a neat way of including other git repositories in your own. You can keep
         them up-to-date with the main repo while not committing the entire contents of the repo with
@@ -19,63 +21,23 @@ block documents
         It's best to show how this works first, as there are some variations based on your environment 
         and type of extension you'd like to install.
 
-  .document
-    article.article
-      :markdown
-        # Shimming for rails
-
-        ## Add the shim
-
-        If you are using the kickstart_rails gem and wish to take advantage of the Kickstart store, 
-        you'll just need to do some shimming first so Sass `@import` directories continue to work.
-
-        For convenience, we've provided this shim in the store. Find this shim and install it as a 
-        submodule in app/assets/stylesheets
-
-    article.code
-      :markdown
-        <span>
-
-            $(~) cd app/assets/stylesheets 
-            $(stylesheets) git submodule add git://github.com/ajkochanowicz/core.git
-
-  .document
-    article.article.article-full
-      :markdown
-        You should now have a directory called "core" in your stylesheets. The files in this directory
-        simply reroute `@imports` to your kickstart_rails gem. There is no duplication of code here.
-
-        This also means you won't need to update this shim when you update kickstart, unless otherwise
-        noted.
+      p
+        span.notice Rails users
+        |  Using third-party components/themes is optional, but you'll need to add the Rails shim to do
+        | so. See "Shimming rails" below before doing anything else.
 
   .document
     article.article
       :markdown
-        ## Prepare for 3rd party components
-        
-        Make two other directories in stylesheets, `themes` and `vendor`. These will be the two directories
-        you will use for components and themes.
-
-        In vendor, create a sass file called `_index.sass`. This does not have to contain any content.
-
-    article.code
-      :markdown
-        <span>
-
-            $(stylesheets) mkdir themes vendor
-            $(stylesheets) touch vendor/_index.sass
-
-  .document
-    article.article
-      :markdown
-        ## Adding a submodule
+        ## Adding submodules
 
         All submodules should be installed *at the same level as core/*
 
         On the [Kickstart Store](http://kickstart-store.com), each extension has a submodule creation
-        command that should look something like this.
+        command that should look something like the code you see here.
 
-        Running this in the terminal will create a folder (in this case "switch")
+        Running this in the terminal will create a folder (in this case "switch") and will download the
+        contents of the repo much like `git clone`.
 
     article.code
       :markdown
@@ -88,6 +50,9 @@ block documents
       :markdown
         If we cd into this folder, it acts just like a regular git repo. You can pull from the source
         and even push if you have permission.
+
+        All this directory changing and pulling can get hairy when using multiple submodules. Don't
+        worry, there is a better way. Keep reading.
 
     article.code
       :markdown
@@ -106,33 +71,42 @@ block documents
       :markdown
         ## Updating submodules
 
-        Managing multiple submodules is very easy. Besides controlling each as an individual repo, we can
-        also run this update commmand to sync our entire directory of 3rd part components.
+        There are a few ways to update your submodules, depending on what you want to do.
+        If you are cloning your project on another machine, you should refer to the documentation
+        on cloning below.
 
-        No longer do you have to wait for major updates to the core CSS framework. Updates come in as 
-        the community produces them.
+        To run a git pull for each submodule, you can use the `foreach` operator.
+
+        The second example achieves the same thing, but is wrapped up in your project's
+        regular git pull.
+
+        The last command actually checks out the commits you just pulled down.
 
     article.code
       :markdown
         <span>
 
-            $(~) git submodule foreach git pull
+            # Do one of these:
+            $(~) git submodule foreach git pull origin master 
+            $(~) git pull origin master --recurse-submodules
 
             Submodule path 'switch': checked out 'e9a72c2fddd41a0a4e25089790e3907582feb538'
             Submodule path 'foo': checked out 'sd92j0vaskdjfjsdkfjna290304ud8sjf202ksdk'
             Submodule path 'bar': checked out '293js0qjlkdsfj02jasdfkj20s9ij2ji2kjdlskj'
             Submodule path 'toaster': checked out 'sdij29j20jdjfsldjkkkbbzxv982893jh034jjk'
 
+            # Then do this:
+            $(~) git submodule update --recursive
+
   .document
     article.article
       :markdown
-        ## Checking out submodules
-        
-        By design, submodules are not pulled down with your main project when cloned. However, information
-        on where to find the submodules and at what state should be committed in your repository in a `.gitmodules`
-        file and else where.
+        ## Cloning your project
 
-        To checkout your submodules simply run this command from the root of your project.
+        When pulling down your project for the first time on a machine, the instructions for submodules
+        are actually not the same as updating.  
+
+        After cloning your project, you'll need to run the last two commands shown
 
         [Official documentation](http://git-scm.com/book/en/Git-Tools-Submodules#Cloning-a-Project-with-Submodules)
 
@@ -140,7 +114,11 @@ block documents
       :markdown
         <span>
 
-            $(~) git submodule update --init --recursive
+            $(~) git clone git@github.com:user/myrepo.git 
+            ...
+            $(~) cd myrepo
+            $(myrepo) git submodule init
+            $(myrepo) git submodule update
 
   .document
     article.article
@@ -319,6 +297,53 @@ block documents
             // Choose your theme
             @import themes/mynewtheme/theme.sass
 
-            // Now write your own Sass
+            // Now write your own Sass 
 
+  .document
+    article.article
+      :markdown
+        # Shimming for rails
 
+        ## Add the shim
+
+        If you are using the kickstart_rails gem and wish to take advantage of the Kickstart store, 
+        you'll just need to do some shimming first so Sass `@import` directories continue to work.
+
+        For convenience, we've provided this shim in the store. Find this shim and install it as a 
+        submodule in app/assets/stylesheets
+
+    article.code
+      :markdown
+        <span>
+
+            $(~) cd app/assets/stylesheets 
+            $(stylesheets) git submodule add git://github.com/ajkochanowicz/core.git
+
+  .document
+    article.article.article-full
+      :markdown
+        You should now have a directory called "core" in your stylesheets. The files in this directory
+        simply reroute `@imports` to your kickstart_rails gem. There is no duplication of code here.
+
+        This also means you won't need to update this shim when you update kickstart, unless otherwise
+        noted.
+
+  .document
+    article.article
+      :markdown
+        ## Prepare for 3rd party components
+        
+        Make two other directories in stylesheets, `themes` and `vendor`. These will be the two directories
+        you will use for components and themes.
+
+        In vendor, create a sass file called `_index.sass`. This does not have to contain any content.
+
+        That's it, you're now ready to use 3rd party components. Follow the same instructions on adding
+        components or themes as a node.js user.
+
+    article.code
+      :markdown
+        <span>
+
+            $(stylesheets) mkdir themes vendor
+            $(stylesheets) touch vendor/_index.sass
