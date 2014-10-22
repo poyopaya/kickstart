@@ -4,7 +4,7 @@
 // Page-level styling goes elsewhere.
 
 // Choose your theme
-@import themes/_default
+@import themes/default/theme
 
 // Basic layout
 // ------------
@@ -38,7 +38,7 @@ body
 
     > ul > li > a:not([role=button])
       color: map-get($black, light)
-    
+
     svg
       fill: map-get($black, light)
 
@@ -84,6 +84,6 @@ iframe.animation
 // Buttons
 .button
   +button
-  
+
   &.button-primary
     +button-color($primary-color)
