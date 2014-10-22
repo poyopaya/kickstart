@@ -106,7 +106,7 @@ block documents
         When pulling down your project for the first time on a machine, the instructions for submodules
         are actually not the same as updating.  
 
-        After cloning your project, you'll need to run the last two commands shown
+        After cloning your project, you'll need to run the last command shown
 
         [Official documentation](http://git-scm.com/book/en/Git-Tools-Submodules#Cloning-a-Project-with-Submodules)
 
@@ -117,8 +117,7 @@ block documents
             $(~) git clone git@github.com:user/myrepo.git 
             ...
             $(~) cd myrepo
-            $(myrepo) git submodule init
-            $(myrepo) git submodule update
+            $(myrepo) git submodule update --recursive --init
 
   .document
     article.article.article-full
