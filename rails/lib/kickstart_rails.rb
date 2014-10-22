@@ -1,9 +1,7 @@
 module Kickstart_rails
-  module Rails
-    class Engine < Rails::Engine
-      initializer 'kickstart_rails.assets.precompile' do |app|
-        app.config.assets.paths << root.join('assets', sub)
-      end
+  class Engine < Rails::Engine
+    initializer 'kickstart_rails.assets.precompile' do |app|
+      app.config.assets.paths << root.join('assets', sub)
     end
   end
 
