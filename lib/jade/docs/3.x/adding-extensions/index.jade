@@ -127,8 +127,8 @@ block documents
 
       p
         span.notice Use the right directory
-        | From here on, these directions will assume you are working at the directory where
-        | <code>core/<code> is located. In Node.js, this should be <code>lib/sass/</code>.
+        |  From here on, these directions will assume you are working at the directory where
+        | <code>core</code> is located. In Node.js, this should be <code>lib/sass/</code>.
 
       :markdown
         In Rails, this should be the parent directory of your Rails shim (see Shimming below.)
@@ -161,46 +161,6 @@ block documents
         For the component you're using, pay close attention to the actual sass file you need
         to import.
 
-        **Skip to "Add a component (continued)"**
-
-    article.code
-      :markdown
-        <span>
-
-            @import switch/switch
-
-  .document
-    article.article.article-full
-      :markdown
-        ## In Rails
-
-        Adding a third-party component in Rails will require access to your theme file.
-        If you're using the default theme, this will not be easily available for editing in
-        your project. For this reason, it is recommended to add a theme first
-        (you can still use the default theme from the [Kickstart Store](http://kickstart-store.com))
-
-        Return to this section after you have done this.
-
-  .document
-    article.article
-      :markdown
-         Add your chosen component as a submodule in `app/assets/stylesheets`. It will automatically
-         create a directory for your theme.  
-
-    article.code
-      :markdown
-        <span>
-
-            $(stylesheets) git submodule add git://github.com/ajkochanowicz/switch.git 
-
-  .document
-    article.article
-      :markdown
-        `@import` the component's sass/scss file in application.css.sass
-
-        Note that the first `switch` here refers to the directory. the second refers to the .sass file
-        inside of it.
-
     article.code
       :markdown
         <span>
@@ -210,22 +170,6 @@ block documents
   .document
     article.article
       :markdown
-        You now have the component's core mixin available. At this point, you can extend it in
-        your theme file (shown in the next section) or just use the core mixin in one of the classes
-        (shown here).
-
-    article.code
-      :markdown
-        <span>
-
-            .switch
-              +switch-default 
-
-  .document
-    article.article
-      :markdown
-        ## Add a component (continued)
-
         At this point, you should have the component available, but we need to extend it in our theme.
 
         Open your theme and add a mixin that extends the component. For switch, we would do this (see code)
