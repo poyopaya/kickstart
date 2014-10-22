@@ -121,27 +121,37 @@ block documents
             $(myrepo) git submodule update
 
   .document
-    article.article
+    article.article.article-full
       :markdown
         # Add a component
 
-        ## In Gulp/Node.js
+      p
+        span.notice Use the right directory
+        | From here on, these directions will assume you are working at the directory where
+        | <code>core/<code> is located. In Node.js, this should be <code>lib/sass/</code>.
 
-        If you're using a clone of the repo, submodule the theme into `lib/sass/vendor`
+      :markdown
+        In Rails, this should be the parent directory of your Rails shim (see Shimming below.)
+        Most likely, this is `app/assets/stylesheets/`
+
+  .document
+    article.article
+      :markdown 
+        If you're using a clone of the repo, submodule the theme into `vendor`
         This will automatically create a folder with the name of the repository.
 
     article.code
       :markdown
         <span>
         
-            $(~) cd lib/sass/vendor
+            $(~) cd vendor
 
             $(vendor) git submodule add git://github.com/ajkochanowicz/switch.git
 
   .document
     article.article
       :markdown
-        Now let's add this to `lib/sass/vendor/_index.sass` so your theme automatically
+        Now let's add this to `vendor/_index.sass` so your theme automatically
         picks it up.
 
         Notice here we have switch written twice (`switch/switch`) This is because we're
