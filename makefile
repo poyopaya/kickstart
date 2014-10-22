@@ -18,6 +18,7 @@ build-rails:
 	@cd rails;gem build kickstart_rails.gemspec
 
 build-node:
+	@npm version patch
 	@npm publish
 
 build-all:
