@@ -10,9 +10,7 @@ block variables
 block documents
   .document
     article.article.article-full
-      :markdown
-        # Add an extension to your project
-
+      :markdown 
         Kickstart extensions are [Git Submodules](http://git-scm.com/book/en/Git-Tools-Submodules).
         Git Submodules are a neat way of including other git repositories in your own. You can keep
         them up-to-date with the main repo while not committing the entire contents of the repo with
@@ -24,7 +22,55 @@ block documents
   .document
     article.article
       :markdown
+        # Shimming for rails
+
+        ## Add the shim
+
+        If you are using the kickstart_rails gem and wish to take advantage of the Kickstart store, 
+        you'll just need to do some shimming first so Sass `@import` directories continue to work.
+
+        For convenience, we've provided this shim in the store. Find this shim and install it as a 
+        submodule in app/assets/stylesheets
+
+    article.code
+      :markdown
+        <span>
+
+            $(~) cd app/assets/stylesheets 
+            $(stylesheets) git submodule add git://github.com/ajkochanowicz/core.git
+
+  .document
+    article.article.article-full
+      :markdown
+        You should now have a directory called "core" in your stylesheets. The files in this directory
+        simply reroute `@imports` to your kickstart_rails gem. There is no duplication of code here.
+
+        This also means you won't need to update this shim when you update kickstart, unless otherwise
+        noted.
+
+  .document
+    article.article
+      :markdown
+        ## Prepare for 3rd party components
+        
+        Make two other directories in stylesheets, `themes` and `vendor`. These will be the two directories
+        you will use for components and themes.
+
+        In vendor, create a sass file called `_index.sass`. This does not have to contain any content.
+
+    article.code
+      :markdown
+        <span>
+
+            $(stylesheets) mkdir themes vendor
+            $(stylesheets) touch vendor/_index.sass
+
+  .document
+    article.article
+      :markdown
         ## Adding a submodule
+
+        All submodules should be installed *at the same level as core/*
 
         On the [Kickstart Store](http://kickstart-store.com), each extension has a submodule creation
         command that should look something like this.
