@@ -12,15 +12,15 @@ module Kickstart_rails
   end
 
   def assets_path
-    @assets_path ||= File.join gem_path, 'assets'
+    @assets_path ||= File.join gem_path, 'app/assets'
   end
 
   def stylesheets_path
-    File.join assets_path, 'stylesheets'
+    File.join assets_path, 'stylesheets/kickstart_rails'
   end
 
   def javascripts_path
-    File.join assets_path, 'javascripts'
+    File.join assets_path, 'javascripts/kickstart_rails'
   end
 
   def configure_sass
