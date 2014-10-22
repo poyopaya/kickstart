@@ -1,0 +1,105 @@
+// Index Page
+// ==========
+// Homepage for getkickstart.com
+
+@import themes/default/theme
+
+video
+  max-width: 100%
+  margin-bottom: -$space/2
+
+.index-hero
+  background-color: white
+  background: url('/img/hero.jpg')
+  background-repeat: no-repeat
+  background-position: center center
+  background-size: 200% 100%
+  padding: ($space * 2)
+  margin:
+    top: -70px
+    bottom: $space
+  padding-top: 70px
+
+  @media screen and (min-width: $desktop)
+    padding: ($space * 4)
+    margin-bottom: $space * 4
+    height: 500px
+    background-size: 1400px 100%
+
+  svg
+    display: block
+    margin: 0px auto
+    max-width: 70%
+    width: 700px
+    fill: white
+
+  h2
+    +heading-sm
+    text-align: center
+    color: white
+    opacity: 0.75
+
+    @media screen and (min-width: $desktop)
+      +heading-md
+
+.first-pitch, .second-pitch, .third-pitch
+  +row
+
+  @media screen and (min-width: $tablet)
+    margin-bottom: $space * 3
+
+  h1
+    +heading-md
+
+  p
+    +p(true)
+
+.first-pitch
+  .feature-image
+    +column('third')
+
+    img
+      max-width: 100%
+
+  .feature
+    +column('twothirds')
+    margin:
+      bottom: $space * 2
+
+.second-pitch
+  .feature
+    +column('third')
+
+  h1
+    +heading-rg
+
+.third-pitch
+  .feature
+    +column('half')
+
+    @media screen and (min-width: $desktop)
+      +column(3)
+
+    h1
+      +heading-sm
+
+.specs
+  +row
+
+  h1
+    +heading-xs
+    +column(12)
+
+  .spec
+    +column(6)
+
+    @media screen and (min-width: $desktop)
+      +column(3)
+
+dl
+  font-size: 0.85rem
+
+  dt
+    font-weight: bold
+  dd
+    margin-left: 0

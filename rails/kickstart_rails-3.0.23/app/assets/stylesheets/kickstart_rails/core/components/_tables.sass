@@ -1,0 +1,70 @@
+=table-default($blank: false, $zebra: false, $hover: false)
+  border-collapse: collapse
+  background: white
+  border-spacing: 0
+  empty-cells: show
+  border: 1px solid map-get($gray, light)
+  width: 100%
+  margin-bottom: $space
+
+  pre
+    margin: 0
+
+  thead
+    background: map-get($white, dark)
+    color: black
+    text-align: left
+    vertical-align: bottom
+    border-bottom: 1px solid transparent
+
+    th
+      font-weight: bold
+      text-align: left
+
+  th, td
+    background-color: transparent
+    border-left: 1px solid map-get($gray, light)
+    border-width: 0 0 0 1px
+    font-size: inherit
+    margin: 0
+    overflow: visible
+    padding: ($space/6) ($space/4)
+    line-height: normal
+
+    &:first-child
+      border-left-width: 0
+
+  @if $blank == true
+    +table-blank
+
+  @if $zebra == true
+    +table-zebra
+
+  @content
+
+=table-blank
+  border-color: transparent
+  table, tr, td, tbody, thead, th, tfoot
+    border-color: transparent
+    background: transparent
+  th, td
+    padding:
+      left: 0px
+      right: 0px
+
+=table-hover
+  tbody, thead
+    tr:hover
+      background-color: $primary-color
+
+      td, th
+        color: white
+
+=table-zebra
+  tbody, thead
+    tr:nth-child(even)
+      background-color: map-get($white, dark)
+
+    tr
+      td, th
+        padding: ($space/6) ($space/4)

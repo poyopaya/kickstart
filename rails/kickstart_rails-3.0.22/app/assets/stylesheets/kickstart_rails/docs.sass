@@ -1,0 +1,99 @@
+// Docs
+// ====
+// Generation of css for the getkickstart.com homepage.
+// Page-level styling goes elsewhere.
+
+// Choose your theme
+@import themes/default/theme
+
+// Basic layout
+// ------------
+
+body
+  background-color: map-get($white, darkest)
+
+.wrapper
+  +container
+
+#above-footer
+  +above-footer
+  position: relative
+
+#screen
+  +screen
+  max-width: $xl-monitor
+  box-shadow: 0px 0px $space map-get($gray, darker)
+  margin: 0px auto
+  background: white
+
+// Navigation
+// ----------
+
+.main-navigation
+  +navbar($collapse: true, $layout: 'fluid', $background-color: transparent)
+
+  nav.expand
+    background: white
+    color: map-get($black, light)
+
+    > ul > li > a:not([role=button])
+      color: map-get($black, light)
+
+    svg
+      fill: map-get($black, light)
+
+  svg
+    height: 30px
+    fill: white
+
+// Footer
+// ------
+
+footer.main
+  background: map-get($gray, light)
+  padding: $space 0
+  color: white
+
+  a
+    color: white
+    text-decoration: underline
+
+// Growl
+.growl
+  +alert
+
+  &.warning
+    background-color: map-get($colors, yellow)
+    color: black
+
+// Iframes
+// -------
+
+iframe.animation
+  max-width: 500px
+  height: 200px
+  display: block
+  margin-left: auto
+  margin-right: auto
+  margin-bottom: 25px
+  overflow: hidden
+
+// Components
+// ----------
+
+// Buttons
+.button
+  +button
+
+  &.button-primary
+    +button-color($primary-color)
+
+// Notices
+.notice
+  +label
+
+// Switches
+// --------
+
+.switch
+  +switch

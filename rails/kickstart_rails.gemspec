@@ -13,7 +13,8 @@ Gem::Specification.new do |spec|
   spec.homepage      = "http://getkickstart.com"
   spec.license       = "MIT"
 
-  spec.files         = Dir["app/**/*"] + Dir["lib/**/*"] + ["README.md", "Rakefile"] - ["LICENSE"]
+  # spec.files         = Dir["app/**/*"] + Dir["lib/**/*"] + ["README.md", "Rakefile"] + ["LICENSE"]
+  spec.files         = Dir.glob(["{app,lib}/**/*"]).reject{ |f| f['LICENSE']} + %w(README.md Rakefile)
   spec.executables   = spec.files.grep(%r{^bin/}) { |f| File.basename(f) }
   spec.test_files    = spec.files.grep(%r{^(test|spec|features)/})
   spec.require_paths = ["lib"]
