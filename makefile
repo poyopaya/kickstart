@@ -15,6 +15,7 @@ build:
 	@gulp build
 
 build-rails:
+	@gem bump
 	@cd rails;gem build kickstart_rails.gemspec
 
 build-node:
