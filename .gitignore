@@ -10,10 +10,9 @@ bower_components
 *.so
 *.o
 *.a
-./rails
+/rails
 mkmf.log
 kickstart.js
-!rails/app/assets/javascripts/kickstart_rails/kickstart.js
 kickstart.min.js
 kickstart.css
 kickstart.min.css
