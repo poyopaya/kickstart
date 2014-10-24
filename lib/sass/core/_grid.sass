@@ -109,7 +109,7 @@ $showFullColumns:    $desktop          // Actual user-defined column measurement
 =left($columns)
   +set-offset($columns, "margin-left")
 
-=set-column($columns, $right, $left)
+=set-column($columns, $left, $right)
   +measure-columns($columns, "width")
   clear: none
   display: block
@@ -121,28 +121,28 @@ $showFullColumns:    $desktop          // Actual user-defined column measurement
   @if $left != 0
     +set-offset($left, "margin-left")
 
-=column($columns: 12, $right: 0, $left: 0)
+=column($columns: 12, $left: 0, $right: 0)
   // Everything is a full width column on mobile by default
   +set-column(12, 0, 0)
 
   // Look for keywords
   @if $columns == "half"
     @media screen and (min-width: $showPartialColumns)
-      +set-column($grid-columns/2, $right, $left)
+      +set-column($grid-columns/2, $left, $right)
 
   @else if $columns == "third"
     @media screen and (min-width: $showPartialColumns)
-      +set-column($grid-columns/2, $right, $left)
+      +set-column($grid-columns/2, $left, $right)
     @media screen and (min-width: $showFullColumns)
-      +set-column($grid-columns/3, $right, $left)
+      +set-column($grid-columns/3, $left, $right)
 
   @else if $columns == "twothirds"
     @media screen and (min-width: $showPartialColumns)
-      +set-column($grid-columns/2, $right, $left)
+      +set-column($grid-columns/2, $left, $right)
     @media screen and (min-width: $showFullColumns)
-      +set-column(($grid-columns * 2/3), $right, $left)
+      +set-column(($grid-columns * 2/3), $left, $right)
 
   @else
     // No keywords found, pass in values.
     @media screen and (min-width: $showColumns)
-      +set-column($columns, $right, $left)
+      +set-column($columns, $left, $right)
