@@ -183,21 +183,6 @@
     .col-left-#{$screen}#{$i}
       +left($i)
 
-// Right offsets
-@each $screen in '', 'xs-', 'sm-', 'rg-', 'md-', 'lg-', 'xl-'
-  .col-right-#{$screen}third
-    +right('third')
-
-  .col-right-#{$screen}twothirds
-    +right('twothirds')
-
-  .col-right-#{$screen}half
-    +right('half')
-
-  @for $i from 1 through 12
-    .col-right-#{$screen}#{$i}
-      +right($i)
-
 // IMAGES
 // ------
 
