@@ -10,8 +10,6 @@ dropdown = () ->
     $_menuItem.parentNode.replaceChild $menuItem, $_menuItem
 
     do ($menuItem) ->
-      # TODO: Is there a way we could not have an event listener for every
-      # single one?
       $menuItem.addEventListener 'click', (e) ->
 
         # Just close it if it's already open
