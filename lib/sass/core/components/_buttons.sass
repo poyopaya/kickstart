@@ -37,9 +37,9 @@
   // TODO: Done this way, these properties are not mutex
   //       in the case of missing params.
 
-  +button-color($background-color)
   +root-element($size: $size)
   +button-size($size)
+  +button-color($background-color)
 
   @content
 
@@ -47,6 +47,7 @@
 
 =button-color($background-color)
   background-color: $background-color
+  border-color: $background-color
 
   &.open
     background-color: darken($background-color, 5%)
@@ -67,7 +68,6 @@
   line-height: $size * $default-line-height
   margin-bottom: 0
   font-size: ($default-font-size - 2) * $size
-  border-color: transparent
   padding:
     left: $size * $size * map-get($rootElement, paddingH)
     right: $size * $size * map-get($rootElement, paddingH)

@@ -44,8 +44,21 @@
         > a:not([role=button])
           +color($background-color)
 
-=navbar-default($layout: 'none', $background-color: map-get($white, dark), $breakpoint: $tablet, $collapse: false, $fixed: false)
-  box-shadow: 0px 1px 0px darken($background-color, 12%) inset
+          &:hover
+            @if (lightness($background-color) < 75%)
+              color: white
+            @else
+              color: rgba(0, 0, 0, 0.85)
+            background: darken($background-color, 5%)
+            border-color: darken($background-color, 5%)
+
+          &:active
+            background: darken($background-color, 15%)
+            border-color: darken($background-color, 15%)
+
+
+=navbar-default($layout: 'none', $background-color: map-get($white, darker), $breakpoint: $tablet, $collapse: false, $fixed: false)
+  // box-shadow: 0px 1px 0px darken($background-color, 12%) inset
   font-size: $default-font-size
   margin-bottom: $space
 
@@ -243,18 +256,6 @@
             bottom: (2 * map-get($rootElement, paddingV))
             left: map-get($rootElement, paddingH)
             right: map-get($rootElement, paddingH)
-
-          &:hover
-            @if (lightness($background-color) < 75%)
-              color: white
-            @else
-              color: rgba(0, 0, 0, 0.85)
-            background: darken($background-color, 5%)
-            border-color: darken($background-color, 5%)
-
-          &:active
-            background: darken($background-color, 15%)
-            border-color: darken($background-color, 15%)
 
   @if ($layout == 'fluid')
     +navbar-fluid($breakpoint)
