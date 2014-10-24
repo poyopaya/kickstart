@@ -21,7 +21,7 @@ build-rails:
 	@cp -r lib/rails/app rails/
 	@cp -r lib/rails/lib rails/
 	@cp lib/rails/Gemfile lib/rails/kickstart_rails.gemspec lib/rails/LICENSE lib/rails/Rakefile lib/rails/README.md rails/
-	@cd rails;gem build kickstart_rails.gemspec
+	@cd rails;gem release
 
 build-node:
 	@npm version patch
