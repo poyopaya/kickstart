@@ -58,14 +58,20 @@ $showFullColumns:    $desktop          // Actual user-defined column measurement
   justify-content: flex-start
   align-items: stretch
   flex-wrap: wrap
+  margin:
+    left: -$grid-gutter/2
+    right: -$grid-gutter/2
 
 =measure-columns($columns, $prop)
   // TODO: DRY this somehow?
   @if $prop == "width"
-    width: calc(#{percentage($columns/$grid-columns)} - #{(($grid-columns/$columns - 1) * $grid-gutter)/($grid-columns/$columns)})
+    width: calc(#{percentage($columns/$grid-columns)} - #{$grid-gutter})
+    margin:
+      left: $grid-gutter/2
+      right: $grid-gutter/2
 
   @else if $prop == "margin-left"
-    margin-left: calc(#{percentage($columns/$grid-columns)} - #{(($grid-columns/$columns - 1) * $grid-gutter)/($grid-columns/$columns) - $grid-gutter})
+    margin-left: calc(#{percentage($columns/$grid-columns)} + #{$grid-gutter/2})
 
   @else if $prop == "margin-right"
     margin-right: calc(#{percentage($columns/$grid-columns)} - #{(($grid-columns/$columns - 1) * $grid-gutter)/($grid-columns/$columns) - $grid-gutter})
