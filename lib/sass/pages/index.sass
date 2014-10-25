@@ -118,13 +118,43 @@ section.blue
   .extension
     background: white
     height: 100px
+    max-width: 350px
+    margin: 0px auto
+      bottom: $space
+
+    h1
+      +heading-xs
+        margin: 5px 0
+
+    h2
+      +heading-xxs
+      margin: 0
+      color: map-get($gray, light)
 
     img
       width: 100px
       height: 100px
 
+    article h1:first-child
+      margin-top: 5px 
+
     +thumbnail-content
-    
+
+    @media screen and (min-width: $tablet)
+      position: absolute
+      width: 350px
+      box-shadow: 5px 5px 0px rgba(0, 0, 0, 0.1)
+
+      &.extension-one
+        right: 60px
+        top: 50px
+
+      &.extension-two
+        top: 73%
+        right: 0
+
+      &.extension-three
+        top: 70%
 
 .last-pitch
   .use-in-any-project,
