@@ -4,10 +4,6 @@
 
 @import themes/default/theme
 
-video
-  max-width: 100%
-  margin-bottom: -$space/2
-
 .index-hero
   background-color: white
   background: url('/img/hero.jpg')
@@ -42,46 +38,21 @@ video
     @media screen and (min-width: $desktop)
       +heading-md
 
-.first-pitch, .second-pitch, .third-pitch
+.a-simple-core,
+.loves-to-be-extended,
+.last-pitch
   +row
-
-  @media screen and (min-width: $tablet)
-    margin-bottom: $space * 3
-
-  h1
-    +heading-md
 
   p
     +p(true)
 
-.first-pitch
-  .feature-image
-    +column('third')
+.a-simple-core
+  > h1
+    +column(12)
+    text-align: center
 
-    img
-      max-width: 100%
-
-  .feature
-    +column('twothirds')
-    margin:
-      bottom: $space * 2
-
-.second-pitch
-  .feature
-    +column('third')
-
-  h1
-    +heading-rg
-
-.third-pitch
-  .feature
+  .code, .no-jquery-required
     +column('half')
-
-    @media screen and (min-width: $desktop)
-      +column(3)
-
-    h1
-      +heading-sm
 
 .specs
   +row

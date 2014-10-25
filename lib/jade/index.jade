@@ -10,58 +10,38 @@ block hero
     h2 The framework we've been waiting for.
 
 block content
-  article.wrapper 
-    main.first-pitch
-      .feature-image
-        img(src="http://placehold.it/500x300") 
-      .feature
-        :markdown
-          # Extendible 
-          The library is just the core. Kickstart is designed to be extended and themed via the [Kickstart Store](http://kickstart-store.com).
+  article.wrapper
+    section.a-simple-core
+      h1 A Simple Core
+      
+      .code
+        // Insert iframe'd animation here
+        p Kickstart is the only library to use <strong>either</strong> semantic CSS mixins or discrete CSS classes for styling.
+      
+      .no-jquery-required
+        img(src="#")
+        h1 No jQuery Required
+        p Lorem ipsum dolor
 
-      .feature-image
-        img(src="http://placehold.it/500x300") 
-      .feature
-        :markdown
-          # Semantic or class-based 
-          Kickstart is the only library to use <strong>either</strong> semantic CSS mixins or discrete CSS classes for styling.
+    section.loves-to-be-extended
+      h1 Loves to be Extended
+      img(src="#")
+      p 
+        | The library is just the core. Kickstart is designed to be extended and themed via the&nbsp;
+        a(href="http://kickstart-store.com") Kickstart Store
 
-    main.second-pitch
-      .feature
-        video(src="/videos/overriding-component.mp4" autoplay="autoplay" loop)
-        h1 Modular and clean
-        p Kickstart components are defined as modules, which can be overriden or extended.
+    section.last-pitch
 
-      .feature
-        video(src="/videos/overriding-component.mp4" autoplay="autoplay" loop)
-        h1 Easy to theme
-        p Who wants a framework that makes your site looks live everyone
-          | else's?&nbsp;
-          a(href="/docs/#{docsVersion}/theming/") More on Themes
+      .use-in-any-project
+        h1 Use in any project
+        img(src="#")
+        p The Kickstart library is maintained [with Gulp](/docs/#{docsVersion}/#nodejs) and ported as a [Rails Gem](/docs/#{docsVersion}/#rails).
 
-      .feature
-        video(src="/videos/overriding-component.mp4" autoplay="autoplay" loop)
-        h1 Design across devices 
-
-    main.third-pitch
-      .feature
-        h1 Just JS and CSS
-        p Kickstart is as simple as one JavaScript and one CSS file.
-          | <strong>No jQuery needed.</strong>
-          | Native support for node.js and Rails is included.
-
-      .feature
-        h1 Add components and themes with the Kickstart Store.
-        p Instead of offering every imaginable UI component and style, Kickstart offers a good set of core components
-          | with the ability to add more from the community via the <a href="http://kickstart-store">Kickstart Store</a>
-
-      .feature
-        :markdown
-          # Native Support for Node.js and Rails
-          p The Kickstart library is maintained [with Gulp](/docs/#{docsVersion}/#nodejs) and ported as a [Rails Gem](/docs/#{docsVersion}/#rails).
-
-      .feature
-        h1 Four
+      .faster-and-lighter-than-bootstrap
+        h1 Faster and lighter than Bootstrap
+        img(src="#")
+        img(src="#")
+        p ...and even smaller when used semantically.
 
     footer.specs
       h1 Specifications
