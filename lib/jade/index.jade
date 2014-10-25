@@ -10,26 +10,32 @@ block hero
     h2 The framework we've been waiting for.
 
 block content
-  article.wrapper
+  article.home-wrapper
     section.a-simple-core
-      h1 A Simple Core
-      
+      h1 A Simple Core 
       .code
-        // Insert iframe'd animation here
-        p Kickstart is the only library to use <strong>either</strong> semantic CSS mixins or discrete CSS classes for styling.
-      
+        // Insert iframe'd animation here 
+        
       .no-jquery-required
-        img(src="#")
+        img(src="img/jscss.jpg")
+
+    .captions
+      .caption
+        p Kickstart is the only library to use <strong>either</strong> semantic CSS mixins or discrete CSS classes for styling.  
+
+      .caption
         h1 No jQuery Required
-        p Lorem ipsum dolor
 
-    section.loves-to-be-extended
-      h1 Loves to be Extended
-      img(src="#")
-      p 
-        | The library is just the core. Kickstart is designed to be extended and themed via the&nbsp;
-        a(href="http://kickstart-store.com") Kickstart Store
+  section.blue
+    article.home-wrapper
+      section.loves-to-be-extended
+        h1 Loves to be Extended
+        img(src="img/ui.png")
+        p 
+          | The library is just the core. Kickstart is designed to be extended and themed via the&nbsp;
+          a(href="http://kickstart-store.com") Kickstart Store
 
+  article.home-wrapper
     section.last-pitch
 
       .use-in-any-project

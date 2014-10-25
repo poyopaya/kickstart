@@ -4,6 +4,12 @@
 
 @import themes/default/theme
 
+.home-wrapper
+  +container 
+  margin: 
+    top: 12vw
+    bottom: 12vw
+
 .index-hero
   background-color: white
   background: url('/img/hero.jpg')
@@ -38,8 +44,11 @@
     @media screen and (min-width: $desktop)
       +heading-md
 
+section.blue
+  background: map-get($colors, blue)
+  overflow: hidden
+
 .a-simple-core,
-.loves-to-be-extended,
 .last-pitch
   +row
 
@@ -47,12 +56,68 @@
     +p(true)
 
 .a-simple-core
+  margin-bottom: $space
+
   > h1
     +column(12)
     text-align: center
+    +heading-xxl
+    margin-bottom: $space*2
 
   .code, .no-jquery-required
     +column('half')
+
+  .no-jquery-required
+    img
+      max-width: 300px
+      margin: 0px auto
+      display: block
+
+.captions
+  +row
+
+  .caption
+    +column('half')
+
+    h1
+      +heading-rg
+      text-align: center
+
+.loves-to-be-extended 
+  margin-bottom: $space*2
+
+  > h1 
+    +heading-xxl
+    text-align: center
+    display: block
+    color: white
+
+  p
+    +p(true)
+    color: white
+    max-width: 400px
+    text-align: center
+    margin: 0px auto
+
+    a
+      color: white
+      text-decoration: underline
+
+  img
+    max-width: 100%
+    margin: 0px auto
+    display: block
+    margin-bottom: $space
+
+.last-pitch
+  .use-in-any-project,
+  .faster-and-lighter-than-bootstrap
+    +column('half')
+
+    > h1
+      +heading-sm
+      text-align: center
+
 
 .specs
   +row
