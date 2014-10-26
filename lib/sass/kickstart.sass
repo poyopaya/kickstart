@@ -8,16 +8,6 @@
 // Import the semantic index
 @import themes/default/theme
 
-// Generate color classes (This is as close as I can get to being dry.)
-=color-classes($prefix, $background-color: false, $color: false)
-  $color-names: "red", "orange", "yellow", "green", "blue", "violet"
-  @each $name, $value in $colors
-    .#{$prefix}-#{unquote($name)}
-      @if $background-color
-        background-color: $value
-      @if $color
-        color: $value
-
 // LAYOUT
 // ------
 
@@ -37,8 +27,10 @@
 
   &.alert-red
     background: map-get($colors, red)
+
   &.alert-green
     background: map-get($colors, green)
+
   &.alert-yellow
     background: map-get($colors, yellow)
     color: $default-font-color
@@ -199,28 +191,29 @@
   +label
 
   &.label-red
-    +label(map-get($colors, red))
+    background: map-get($colors, red)
 
   &.label-orange
-    +label(map-get($colors, orange))
+    background: map-get($colors, orange)
 
   &.label-yellow
-    +label(map-get($colors, yellow))
+    color: map-get($gray, darkest)
+    background: map-get($colors, yellow)
 
   &.label-green
-    +label(map-get($colors, green))
+    background: map-get($colors, green)
 
   &.label-blue
-    +label(map-get($colors, blue))
+    background: map-get($colors, blue)
 
   &.label-violet
-    +label(map-get($colors, violet))
+    background: map-get($colors, violet)
 
   &.label-primary
-    +label($primary-color)
+    background: $primary-color
 
   &.label-secondary
-    +label($secondary-color)
+    background: $secondary-color
 
 // MODALS
 // ------
@@ -238,7 +231,7 @@
     +navbar-color($background-color: map-get($black, lighter))
 
   &.navbar-collapse
-    +navbar($collapse: true)
+    +navbar-collapse
 
   &.navbar-fluid
     +navbar-fluid

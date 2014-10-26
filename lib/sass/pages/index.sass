@@ -4,6 +4,9 @@
 
 @import themes/default/theme
 
+img
+  max-width: 100%
+
 .home-wrapper
   +container 
   margin: 
@@ -54,6 +57,7 @@ section.blue
 
   p
     +p(true)
+    color: map-get($gray, lighter)
 
 .a-simple-core
   margin-bottom: $space
@@ -61,17 +65,23 @@ section.blue
   > h1
     +column(12)
     text-align: center
-    +heading-xxl
     margin-bottom: $space*2
+    +heading-md
+
+    @media screen and (min-width: $tablet)
+      +heading-xxl
 
   .code, .no-jquery-required
     +column('half')
 
   .no-jquery-required
     img
-      max-width: 300px
+      max-width: 100%
       margin: 0px auto
       display: block
+
+      @media screen and (min-width: $tablet)
+        max-width: 300px
 
 .captions
   +row
@@ -81,6 +91,7 @@ section.blue
 
     p
       +p(true)
+      color: map-get($gray, lighter)
 
     h1
       +heading-rg
@@ -90,10 +101,13 @@ section.blue
   margin-bottom: $space*2
 
   > h1 
-    +heading-xxl
     text-align: center
     display: block
     color: white
+    +heading-md
+
+    @media screen and (min-width: $tablet)
+      +heading-xxl
 
   p
     +p(true)
@@ -119,8 +133,12 @@ section.blue
     background: white
     height: 100px
     max-width: 350px
+    display: none
     margin: 0px auto
       bottom: $space
+
+    @media screen and (min-width: $tablet)
+      +thumbnail-content
 
     h1
       +heading-xs
@@ -137,8 +155,6 @@ section.blue
 
     article h1:first-child
       margin-top: 5px 
-
-    +thumbnail-content
 
     @media screen and (min-width: $tablet)
       position: absolute

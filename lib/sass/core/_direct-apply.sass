@@ -15,8 +15,6 @@ body
 button,
 input[type="submit"],
 input[type="button"],
-  +button
-
 input[type="file"]::-webkit-file-upload-button
   +button
 
@@ -101,23 +99,25 @@ form
 .status_bar
   +status_bar
     .status_bar-status
+      +label
+
       &[data-type="status-red"]
-        +label(map-get($colors, red))
+        background: map-get($colors, red)
 
       &[data-type="status-orange"]
-        +label(map-get($colors, orange))
+        background: map-get($colors, orange)
 
       &[data-type="status-yellow"]
-        +label(map-get($colors, yellow))
+        background: map-get($colors, yellow)
 
       &[data-type="status-green"]
-        +label(map-get($colors, green))
+        background: map-get($colors, green)
 
       &[data-type="status-blue"]
-        +label(map-get($colors, blue))
+        background: map-get($colors, blue)
 
       &[data-type="status-violet"]
-        +label(map-get($colors, violet))
+        background: map-get($colors, violet)
 
 // Tabs
 // ----
@@ -313,25 +313,25 @@ form
       top: 8px
 
   &.tooltip-red
-    +label(map-get($colors, red))
+    background-color: map-get($colors, red)
 
   &.tooltip-orange
-    +label(map-get($colors, orange))
+    background-color: map-get($colors, orange)
 
   &.tooltip-yellow
-    +label(map-get($colors, yellow))
+    background-color: map-get($colors, yellow)
 
   &.tooltip-green
-    +label(map-get($colors, green))
+    background-color: map-get($colors, green)
 
   &.tooltip-blue
-    +label(map-get($colors, blue))
+    background-color: map-get($colors, blue)
 
   &.tooltip-violet
-    +label(map-get($colors, violet))
+    background-color: map-get($colors, violet)
 
   &.tooltip-primary
-    +label(map-get($colors, primary))
+    background-color: $primary-color
 
   &.tooltip-secondary
-    +label(map-get($colors, secondary))
+    background-color: $secondary-color

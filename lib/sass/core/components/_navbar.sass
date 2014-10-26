@@ -25,6 +25,29 @@
     +container(false)
     +navbar-align_menus($breakpoint)
 
+=navbar-collapse($breakpoint: $tablet)
+  nav 
+    &.expand
+      > ul > li
+        display: block
+
+        &.navbar-title
+          display: flex
+
+    > ul
+      > li
+        display: none
+
+        @media screen and (min-width: $breakpoint)
+          display: block
+
+        &.navbar-title
+          button
+            display: block 
+
+            @media screen and (min-width: $breakpoint)
+              display: none
+
 =navbar-fixed
   position: fixed
   z-index: 100
@@ -79,12 +102,6 @@
       justify-content: space-between
       align-content: space-between
 
-
-    &.expand
-      @if $collapse == true
-        > ul > li
-          display: block
-
     h1
       +heading-xxs
       margin-bottom: 0
@@ -134,12 +151,6 @@
         @media screen and (min-width: $breakpoint)
           margin: 0
 
-        @if $collapse == true
-          display: none
-
-          @media screen and (min-width: $breakpoint)
-            display: block
-
         &.navbar-title
           display: flex
           justify-content: space-between
@@ -156,15 +167,13 @@
             background: transparent
             border-color: transparent
             color: inherit
-            display: block
             margin-bottom: 0
             font-family: Kickstart, 'Kickstart'
             padding:
               left: 0
               right: 0
             opacity: 0.5
-            @if ($collapse == false)
-              display: none
+            display: none
 
             &:hover, &:active
               box-shadow: none
@@ -265,6 +274,9 @@
 
   @if ($fixed == true)
     +navbar-fixed
+
+  @if ($collapse == true)
+    +navbar-collapse($breakpoint)
 
   +navbar-color($background-color)
 
