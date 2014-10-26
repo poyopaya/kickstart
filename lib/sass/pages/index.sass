@@ -181,13 +181,57 @@ section.blue
       +heading-sm
       text-align: center
 
+    > h2
+      +heading-xs
+
+    img
+      margin: 0px auto
+
+
   .graph
     width: 100%
     height: 300px
     border:
       left: 1px solid map-get($gray, darkest)
       bottom: 1px solid map-get($gray, darkest)
+    margin:
+      bottom: $space
+    clear: both
 
+    .kickstart, .bootstrap, .foundation
+      width: calc(33% - #{$space})
+      margin-left: $space
+      display: inline-block
+      vertical-align: bottom
+
+    .kickstart
+      background: map-get($colors, blue)
+
+    .bootstrap
+      background: map-get($gray, lighter)
+
+    .foundation
+      background: map-get($white, darkest)
+
+    &.graph-css
+      .kickstart
+        height: (100% * (73/148))
+
+      .bootstrap
+        height: (100% * (110/148))
+
+      .foundation
+        height: 100%
+
+    &.graph-js
+      .kickstart
+        height: (100% * (8/271))
+
+      .bootstrap
+        height: (100% * (116/271))
+
+      .foundation
+        height: 100%
 
 .specs
   +row
