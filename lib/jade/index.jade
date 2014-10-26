@@ -58,23 +58,29 @@ block content
           | The library is just the core. Kickstart is designed to be extended and themed via the&nbsp;
           a(href="http://kickstart-store.com") Kickstart Store
 
+  article.home-wrapper 
+    .use-in-any-project
+      h1 Use in any project
+      .logos
+        img(src="img/rubyonrails.png")
+        img(src="img/nodejs.png")
+        img(src="img/html5css3.jpg")
+      :markdown
+        The Kickstart library is maintained [with Gulp](/docs/#{docsVersion}/#nodejs) and ported as a [Rails Gem](/docs/#{docsVersion}/#rails).
+
   article.home-wrapper
-    section.last-pitch
+    .faster-and-lighter-than-bootstrap
+      h1 Faster and lighter than Bootstrap
 
-      .use-in-any-project
-        h1 Use in any project
-        img(src="img/framework_logos.jpg")
-        :markdown
-          The Kickstart library is maintained [with Gulp](/docs/#{docsVersion}/#nodejs) and ported as a [Rails Gem](/docs/#{docsVersion}/#rails).
-
-      .faster-and-lighter-than-bootstrap
-        h1 Faster and lighter than Bootstrap
+      .css
         h2 CSS
         .graph.graph-css
           .kickstart
           .bootstrap
           .foundation
+        p ...and even smaller when used semantically.
 
+      .js
         h2 JavaScript
         .graph.graph-js
           .kickstart
@@ -84,9 +90,7 @@ block content
 
           .group
             .jquery
-            .foundation
-
-        p ...and even smaller when used semantically.
+            .foundation 
 
     footer.specs
       h1 Specifications
