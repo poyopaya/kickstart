@@ -74,6 +74,31 @@ section.blue
   .code, .no-jquery-required
     +column('half')
 
+  .code
+    display: flex
+    flex-direction: row
+    flex-wrap: wrap
+    align-content: stretch
+
+    .preview
+      +root-element
+      border-bottom-left-radius: 0
+      border-bottom-right-radius: 0
+      border-color: map-get($white, darker)
+      width: 100%
+      margin-bottom: 0
+      text-align: center
+
+      a
+        margin-top: 49%
+
+    .source
+      +root-element
+      background: map-get($colors, blue)
+      width: 100%
+      border-top-left-radius: 0
+      border-top-right-radius: 0
+
   .no-jquery-required
     img
       max-width: 100%
