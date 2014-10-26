@@ -33,6 +33,7 @@
     "browserify-shim": "^3.7.0",
     "chai": "^1.9.1",
     "coffeeify": "^0.7.0",
+    "css-purge": "^1.1.1",
     "flexbox-grid": "^1.0.0",
     "gulp": "^3.8.6",
     "gulp-autoprefixer": "0.0.10",
