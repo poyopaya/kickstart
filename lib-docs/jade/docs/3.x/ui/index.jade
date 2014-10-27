@@ -112,63 +112,6 @@ block documents
               </div>
 
   .document
-    article.article
-      :markdown
-        # Sticky footer
-
-        The sticky footer is very easy to implement. First, wrap all the page content
-        excluding the footer in a <span class="if-semantic">div and include the mixin
-        <code>above-footer();</code></span><span class="ifnot-semantic">div with the
-        id `#above-footer`
-
-        Then, <span class="if-semantic">include the `screen()` mixin on</span>
-        <span class="ifnot-semantic">add `#screen` to</span>
-        an element just below the `<body>`.
-
-        It's best practice not to use the body as the `screen`. This is because the
-        page's JavaScript will often append html elements to it, causing the flexbox
-        rules to include these elements when spacing out the page.
-
-    article.code
-      .if-semantic
-        :markdown
-          <span>
-
-              <body>
-                <div id="screen">
-
-                  <main id="main">
-                    ...
-                  </main>
-                  <footer>
-                    <p>Copyright, all rights reserved</p>
-                  </footer>
-
-                </div>
-              </body>
-
-              #main {
-                @include above-footer();
-              }
-              #screen {
-                @include screen();
-              }
-
-      .ifnot-semantic
-        :markdown
-          <span>
-
-              <body id="screen">
-                <main id="above-footer">
-                  ...
-                </main>
-
-                <footer>
-                  <p>Copyright, all rights reserved</p>
-                </footer>
-              </body>
-
-  .document
     article.article.article-full
       :markdown
         # HTML styles

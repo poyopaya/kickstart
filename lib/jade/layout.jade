@@ -8,13 +8,11 @@ html(lang='en')
     meta(name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=no")
     title My Website - #{title}
   body
-    #screen
-      #above-footer
-        main.main
-          block content
+    main.main
+      block content
 
-        footer.main
-          .wrapper
-            p Made from <a href="http://twitter.com/everythingdotio">Everything</a>
+    footer.main
+      .wrapper
+        p Made from <a href="http://twitter.com/everythingdotio">Everything</a>
 
-      script(src="/js/script.min.js")
+    script(src="/js/script.min.js")
