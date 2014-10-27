@@ -1,2 +1,2 @@
-KS          = require '../../lib/coffee/app'
+KS          = require '../../lib-core/coffee/app'
 Docs        = require './docs'
