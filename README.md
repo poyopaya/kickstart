@@ -11,12 +11,6 @@ Kickstart is a front-end framework for clean HTML and fast performance
 
 [![Code Climate](https://codeclimate.com/github/ajkochanowicz/Kickstrap/badges/gpa.svg)](https://codeclimate.com/github/ajkochanowicz/Kickstrap)
 
-## Deployment
-
-- Deployed with [CodeShip](http://codeship.io)
-- 3.0-wip deploys to getkickstart.com
-- stage deploys to stage.getkickstart.com
-
 ## Quickstart with Gulp
 
 Clone the repository and run `make` in the directory created. This is only required when starting the project.
@@ -31,3 +25,21 @@ If when running the `gulp` command, node warns you a module is missing, a
 dependency probably wasn't installed. It may be enough to run `npm install` again
 to catch the missing dependency. In some cases, this problem can be solved by
 deleting the `node_modules` directory and running `npm install` again.
+
+# Building getkickstart.com and Kickstart core
+
+## Gulp
+
+Directions are similar to the above, however, you should run `gulp build:docs` exclusively for
+docs creation. This will output to /docs instead of /public.
+
+## Rails gem and Node.js package
+
+To build gem/package, run `make build-all`. This will automatically fire up gulp
+to compile files, bump version numbers, and deploy to NPM/RubyGems.org respectively.
+
+## Deployment
+
+- Deployed with [CodeShip](http://codeship.io)
+- 3.0-wip deploys to getkickstart.com
+- stage deploys to stage.getkickstart.com
