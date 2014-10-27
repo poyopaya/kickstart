@@ -5,13 +5,13 @@ var gulp           = require('gulp');
 var handleErrors   = require('../util/handleErrors');
 var source         = require('vinyl-source-stream');
 
-// Bundle's the end user's scripts with kickstart.js
-gulp.task('browserify', function() {
+// Bundles kickstart.js
+gulp.task('bundleKickstart', function() {
   var bundler = browserify({
     // Required watchify args
     cache: {}, packageCache: {}, fullPaths: true,
     // Specify the entry point of your app
-    entries: ['./lib/coffee/app.coffee'],
+    entries: ['./lib-core/coffee/app.coffee'],
     // Add file extentions to make optional in your requires
     extensions: ['.coffee'],
     // Enable source maps!
@@ -29,7 +29,7 @@ gulp.task('browserify', function() {
       // Use vinyl-source-stream to make the
       // stream gulp compatible. Specifiy the
       // desired output filename here.
-      .pipe(source('script.js'))
+      .pipe(source('kickstart.js'))
       // Specify the output destination
       .pipe(gulp.dest('./public/js/'))
       // Log when bundling completes!

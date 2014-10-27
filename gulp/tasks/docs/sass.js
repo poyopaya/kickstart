@@ -8,9 +8,9 @@ gulp.task('docs:sass', ['docs:images'], function() {
     .pipe(sass({
       sourcemapPath: process.cwd() + './lib-docs/sass',
       loadPath: [
-        process.cwd() + '/lib-docs/sass'
-      ],
-      style: 'compressed'
+        process.cwd() + '/lib-docs/sass',
+        process.cwd() + '/lib-core/sass'
+      ]
     }))
     .pipe(prefix('last 2 versions'))
     .pipe(gulp.dest('./docs/css'));

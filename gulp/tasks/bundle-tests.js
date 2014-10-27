@@ -8,6 +8,7 @@ var handleErrors = require('../util/handleErrors');
 var source       = require('vinyl-source-stream');
 var todo         = require('gulp-todos');
 
+// Bundles tests with kickstart.js
 gulp.task('bundle-tests', function() {
   var bundler = browserify({
     // Required watchify args
