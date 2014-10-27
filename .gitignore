@@ -1,5 +1,6 @@
 .DS_Store
 /public
+/docs
 npm-debug.log
 node_modules
 /raw/publish
