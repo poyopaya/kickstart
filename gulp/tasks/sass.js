@@ -8,7 +8,8 @@ gulp.task('sass', ['images'], function() {
     .pipe(sass({
       sourcemapPath: process.cwd() + './lib/sass',
       loadPath: [
-        process.cwd() + '/lib/sass'
+        process.cwd() + '/lib/sass',
+        process.cwd() + '/lib-core/sass'
       ],
       style: 'compressed'
     }))

@@ -8,12 +8,12 @@ var handleErrors = require('../util/handleErrors');
 var source       = require('vinyl-source-stream');
 var todo         = require('gulp-todos');
 
-gulp.task('docs:bundle-tests', function() {
+gulp.task('bundle-tests', function() {
   var bundler = browserify({
     // Required watchify args
     cache: {}, packageCache: {}, fullPaths: true,
     // Specify the entry point of your app
-    entries: ['./lib-docs/coffee/tests.coffee'],
+    entries: ['./lib/coffee/tests.coffee'],
     // Add file extentions to make optional in your requires
     extensions: ['.coffee'],
     // Enable source maps!
@@ -32,7 +32,7 @@ gulp.task('docs:bundle-tests', function() {
       // desired output filename here.
       // Specify the output destination
       .pipe(source('test.js'))
-      .pipe(gulp.dest('./docs/js/'))
+      .pipe(gulp.dest('./public/js/'))
       // Log when bundling completes!
       .on('end', bundleLogger.end);
   };
