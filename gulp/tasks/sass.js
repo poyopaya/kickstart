@@ -10,8 +10,7 @@ gulp.task('sass', ['images'], function() {
       loadPath: [
         process.cwd() + '/lib/sass',
         process.cwd() + '/lib-core/sass'
-      ],
-      style: 'compressed'
+      ]
     }))
     .pipe(prefix('last 2 versions'))
     .pipe(gulp.dest('./public/css'));
