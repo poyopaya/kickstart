@@ -44,8 +44,10 @@ import at the top of the file.
 
 ## Gulp
 
-Directions are similar to the above, however, you should run `gulp build:docs` exclusively for
+Directions are similar to the above, however, you should run `gulp watch:docs` exclusively for
 docs creation. This will output to /docs instead of /public.
+
+Alternatively, run `gulp build:docs` to build without watching.
 
 ## Rails gem and Node.js package
 
