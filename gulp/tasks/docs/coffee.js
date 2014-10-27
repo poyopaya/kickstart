@@ -4,6 +4,7 @@ var gulp = require('gulp'),
   coffee = require('gulp-coffee');
 
 gulp.task('docs:coffee', function() {
-  return
-  // Coffeescript files are being compiled directly through browserify.
+  gulp.src(['./lib-docs/coffee/navbar-fixer.coffee', './lib-docs/coffee/index.coffee'])
+    .pipe(gulpif(/[.]coffee$/, coffee()))
+    .pipe(gulp.dest('./docs/js'));
 })

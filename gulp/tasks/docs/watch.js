@@ -1,9 +1,9 @@
 var gulp = require('gulp');
 
-gulp.task('watch', ['setWatch', 'browserSync'], function() {
-    gulp.watch('./lib/sass/**/*.sass', ['sass']);
-    gulp.watch('./lib/images/**', ['images']);
-    gulp.watch(['./lib/coffee/docs.coffee', './lib/coffee/navbar-fixer.coffee', './lib/coffee/index.coffee'], ['coffee']);
-    gulp.watch('./lib/jade/**/*.jade', ['jade']);
-    gulp.watch(['./lib/jade/tests/**', './lib/tests/**'], ['test']);
+gulp.task('watch:docs', ['docs:setWatch', 'docs:browserSync'], function() {
+  gulp.watch('./lib-docs/sass/**/*.sass', ['docs:sass']);
+  gulp.watch('./lib-docs/images/**', ['docs:images']);
+  gulp.watch(['./lib-docs/coffee/**/*.coffee'], ['docs:coffee']);
+  gulp.watch('./lib-docs/jade/**/*.jade', ['docs:jade']);
+  gulp.watch(['./lib-docs/jade/tests/**', './lib-docs/tests/**'], ['docs:test']);
 });

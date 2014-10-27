@@ -1,6 +1,6 @@
 var gulp = require('gulp');
 
-gulp.task('iframes', function() {
-  gulp.src(['./lib/iframes/**'])
-    .pipe(gulp.dest('./public/iframes'));
+gulp.task('docs:iframes', function() {
+  gulp.src(['./lib-docs/iframes/**'])
+    .pipe(gulp.dest('./docs/iframes'));
 })
