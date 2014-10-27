@@ -6,14 +6,14 @@ var gulp = require('gulp'),
   uglify = require('gulp-uglify');
 
 gulp.task('docs:minify', ['docs:coffee', 'docs:browserify', 'docs:sass'], function() {
-  gulp.src(['./docs/js/**/*.js'])
+  gulp.src(['./docs/js/**/*.js', '!./docs/js/**/*.min.js'])
     .pipe(uglify())
     .pipe(rename(function(path) {
       path.basename += ".min"
     }))
     .pipe(gulp.dest('./docs/js'));
 
-  gulp.src(['./docs/css/**/*.css'])
+  gulp.src(['./docs/css/**/*.css', '!./docs/css/**/*.min.css'])
     .pipe(minify())
     .pipe(rename(function(path) {
       path.basename += ".min"
