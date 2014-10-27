@@ -1,0 +1,60 @@
+extends ../../_layout
+
+block page-stylesheet
+  block ui-stylesheet
+  link(rel="stylesheet" href="/css/pages/docs/index.css")
+  script(src="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.2/highlight.min.js")
+  link(rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.2/styles/tomorrow-night.min.css")
+  script.
+    hljs.initHighlightingOnLoad(); 
+
+block bleed
+  header.doc-hero
+    block hero-title
+    block hero-example
+
+block header
+  include _header
+
+block content
+  //- Below tablet, this is a wrapping container.
+  .fixed-area
+    #marker
+
+    //- Two main containers here, each are fixed to the screen
+
+    //- Fixed sidebar
+    aside.fixed-toc
+      h1 #{title}
+      form.switches
+        .form_group
+          .switch
+            input#docs-semantic(type="checkbox")
+            label(for="docs-semantic")
+          | &nbsp;
+          span Semantic Sass
+        .form_group
+          .switch
+            input#docs-jquery(type="checkbox")
+            label(for="docs-jquery")
+          | &nbsp;
+          span jQuery
+
+      #toc
+        p.creating-table Creating table of contents...
+
+    //- Fixed main pane
+    main.fixed-main
+
+      //- Within fixed-main, there are "Documents." Each document has both a
+      //- general content area and a code snippet.
+
+      //- Constrains width of document area
+      section.document-container
+        block documents
+
+block postJS
+  script.
+    k$.nav('.docs-nav')
+
+  block postDocsJS

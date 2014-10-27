@@ -1,0 +1,119 @@
+extends ../../_layout
+
+block variables
+  - var showFooter = false
+  - var title = "Icons"
+
+block hero-title
+  h1 Images
+
+block ui-stylesheet
+  link(rel="stylesheet" href="/css/pages/docs/ui/images.css")
+
+block documents
+  .document
+    article.article.article-full
+      :markdown
+        All images are given some baseline styling to make them work best within content.
+        Here are some additional styles that are helpful in getting content and images to live 
+        in harmony:
+
+  .document
+    article.article
+      :markdown
+        # Image treatments
+
+        ## Bordered
+
+        Bordered images help separate images and their captions from the main content.
+        article.code
+
+      figure.thumbnail
+        img(src="/img/mountains.png")
+        figcaption Look at these beautiful mountains!
+
+    article.code
+      :markdown
+        <span>
+
+            <figure class="thumbnail">
+              <img src="mountains.png" />
+              <figcaption>Look at these beautiful mountains!</figcaption>
+            </figure>
+
+      .if-semantic
+        :markdown
+          <span>
+
+              .thumbnail {
+                @include thumbnail();
+              }
+
+  .document
+    article.article
+      h1 Thumbnail Content
+
+      .example
+        .thumbnail-content
+          img(src="/img/mountains.png" style="width: 150px;height: 150px")
+          article
+            h1.toc-exempt Imagine living among the mountains
+            p In one of our gorgeous luxury timeshare condominiums, finally this dream can become a reality!
+
+        .thumbnail-content
+          article
+            h1.toc-exempt Imagine living among the mountains
+            p In one of our gorgeous luxury timeshare condominiums, finally this dream can become a reality!
+          img(src="/img/mountains.png" style="width: 150px;height: 150px")
+
+        :markdown
+          The implementation of this container is pretty simple. You'll simply
+          need an image and any html element to house the content.
+
+          To float the image right, simply follow it after the content instead of
+          before.  
+
+    article.code
+      .if-semantic
+        :markdown
+          <span>
+
+              <div class="feature">
+                <img src="mountains.png" />
+                <article>
+                  <h1>Imagine living among the mountains</h1>
+                  <p>...</p>
+                </article>
+              </div>
+
+              <div class="feature">
+                <article>
+                  <h1>Imagine living among the mountains</h1>
+                  <p>...</p>
+                </article>
+                <img src="mountains.png" />
+              </div>
+
+              .feature {
+                @include thumbnail-content();
+              }
+
+      .ifnot-semantic
+        :markdown
+          <span>
+
+              <div class="thumbnail-content">
+                <img src="mountains.png" />
+                <article>
+                  <h1>Imagine living among the mountains</h1>
+                  <p>...</p>
+                </article>
+              </div>
+
+              <div class="thumbnail-content">
+                <article>
+                  <h1>Imagine living among the mountains</h1>
+                  <p>...</p>
+                </article>
+                <img src="mountains.png" />
+              </div>

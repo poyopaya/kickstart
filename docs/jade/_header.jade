@@ -1,0 +1,19 @@
+.main-navigation
+  nav
+    ul
+      - var xml = fs.readFileSync('lib/img/kickstart.svg')
+      li.navbar-title!= xml
+        button(role="button") =
+      li: a(href="/") Home
+      li: a(href="/docs/#{docsVersion}/") Docs
+      li: a(href="/about/") About
+
+    ul
+      li
+        a(href="http://kickstart-store.com") 
+          span.fa.fa-cubes
+          | Store
+      li
+        a.button.button-primary(href="/docs/#{docsVersion}/" role="button")
+          span.fa.fa-cloud-download
+          |  Download
