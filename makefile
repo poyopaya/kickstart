@@ -9,7 +9,7 @@ build:
 	@bundle
 	
 	@echo "Running tests..."
-	@gulp test
+	@gulp docs:test
 	
 	@echo "Building project"
 	@gulp build
