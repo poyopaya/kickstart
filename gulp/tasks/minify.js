@@ -6,13 +6,19 @@ var gulp = require('gulp'),
   uglify = require('gulp-uglify');
 
 gulp.task('minify', ['coffee', 'browserify', 'sass'], function() {
-  gulp.src(['./public/js/kickstart.js'])
+  gulp.src(['./public/js/**/*.js'])
     .pipe(uglify())
-    .pipe(rename('kickstart.min.js'))
-    .pipe(gulp.dest('./public/js'));
+    .pipe(rename(function(path) {
+      path.basename += ".min"
+    }))
+    .pipe(gulp.dest('./public/js/'));
 
-  gulp.src(['./public/css/kickstart.css'])
+  gulp.src(['./public/css/**/*.css'])
     .pipe(minify())
-    .pipe(rename('kickstart.min.css'))
-    .pipe(gulp.dest('./public/css'));
+    .pipe(rename(
+      function(path) {
+        path.basename += ".min"
+      }
+    ))
+    .pipe(gulp.dest('./public/css/'));
 })
