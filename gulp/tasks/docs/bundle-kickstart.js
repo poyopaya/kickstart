@@ -31,7 +31,7 @@ gulp.task('bundleKickstart', function() {
       // desired output filename here.
       .pipe(source('kickstart.js'))
       // Specify the output destination
-      .pipe(gulp.dest('./public/js/'))
+      .pipe(gulp.dest('./docs/js/'))
       // Log when bundling completes!
       .on('end', bundleLogger.end);
   };
