@@ -124,14 +124,14 @@
 
       &:last-child
         @media screen and (min-width: $breakpoint)
-          > li.menu-item.open
+          > li.menu-item.open, > li > .menu-item.open[role="button"]
             ul
               left: auto
               right: -1px
 
       &:only-child
         @media screen and (min-width: $breakpoint)
-          > li.menu-item.open
+          > li.menu-item.open, > li > .menu-item.open[role="button"]
             ul
               left: -1px
               right: auto
