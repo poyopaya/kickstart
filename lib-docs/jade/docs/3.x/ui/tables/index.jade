@@ -85,6 +85,11 @@ block documents
         this may not work with your theme either. For that reason, there
         is an option for blank tables.
 
+      .if-semantic
+        :markdown
+          The standalone `table-blank()` mixin available if the element
+          already has `table()` applied to it elsewhere.
+
       table.table.table-blank
         thead
           tr
@@ -135,6 +140,11 @@ block documents
         # Readability tweaks
 
         ## Zebra-striping
+
+      .if-semantic
+        :markdown
+          The standalone `table-zebra()` is also available for elements
+          that already have `table()` applied.
 
       table.table.table-zebra
         thead
@@ -197,6 +207,11 @@ block documents
   .document
     article.article
       h1 Row hover
+
+      .if-semantic
+        :markdown
+          The standalone `table-hover()` is also available for elements that
+          already have `table()` applied.
 
       table.table.table-hover
         thead
