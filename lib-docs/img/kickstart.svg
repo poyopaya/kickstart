@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Generator: Adobe Illustrator 18.1.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
-<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-	 viewBox="6.9 10.5 612.8 142" enable-background="new 6.9 10.5 612.8 142" xml:space="preserve">
+<svg version="1.1" style="display: none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" enable-background="new 6.9 10.5 612.8 142" xml:space="preserve">
+	<symbol id="svg-logo" viewBox="6.9 10.5 612.8 142">
 <path d="M397.4,228.5"/>
 <g>
 	<ellipse cx="156.5" cy="50.6" rx="10.7" ry="11"/>
@@ -73,4 +73,5 @@
 		c-0.5,2.6-0.5,4.4-0.5,5.6c0,13.3,6.5,20,19.6,20c18.6,0,43.4-29.6,43.4-38.2C620.8,104.4,619.2,103,617.5,102.5z M457.4,80.4
 		l-2.6,21.2l-2.3,17.7c-3.3,1.2-8.2,2.6-9.6,2.6c-4.7,0-6.8-2.8-6.8-9.3c0-14.5,9.1-29.1,17.7-34.7l4.4-2.8L457.4,80.4z"/>
 </g>
+</symbol>
 </svg>
