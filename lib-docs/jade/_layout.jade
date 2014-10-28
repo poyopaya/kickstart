@@ -42,9 +42,14 @@ html(lang='en')
       block content
 
     - if (showFooter == true)
-      footer.main
+      footer.main 
+        - var xml = fs.readFileSync('lib-docs/img/everythingio.svg')
+        
         .wrapper
-          p Made from <a href="http://twitter.com/everythingdotio">Everything</a>
+          p
+            span.eio-logo!= xml
+            |  Made from&nbsp;
+            a(href="http://twitter.com/everythingdotio") Everything
 
     - else
       script(src="/js/navbar-fixer.js")
