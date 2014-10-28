@@ -45,6 +45,22 @@ h3, h4, h5, h6
     font-size: 1rem
     line-height: 2rem
 
+    @media screen and (max-width: $phablet)
+      #toc
+        background: map-get($white, darker)
+        margin: ($space) (-$space)
+        padding: $space
+
+        a
+          color: darken(map-get($colors, blue), 15%)
+          text-decoration: underline
+
+        &:before
+          content: 'Table of Contents'
+          display: block
+          text-align: center
+          font-weight: bold
+
     @media screen and (min-width: $tablet)
       font-size: 0.85rem
 
