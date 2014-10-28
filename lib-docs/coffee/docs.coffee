@@ -147,7 +147,7 @@ document.addEventListener 'DOMContentLoaded', ->
       if not heading.classList.contains 'toc-exempt'
         # For extra unique names.
         # heading.id = "#{k$.slugify heading.innerHTML}-#{_k}"
-
+        
         heading.id = k$.slugify heading.innerHTML
 
         # If this is a lower level.
