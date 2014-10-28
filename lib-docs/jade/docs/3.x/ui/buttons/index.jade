@@ -75,6 +75,13 @@ block documents
         | &nbsp;
         button.button Cancel
 
+      .if-semantic
+        :markdown
+          If you have already defined the element as a button, it is
+          better to use the `button-color()` mixin. This is the same
+          mixin used from inside of `button()`. Using this method avoids
+          repetitive CSS.
+
     article.code
       .ifnot-semantic
         :markdown
@@ -104,7 +111,11 @@ block documents
                 @include button(map-get($colors, red));
               }
               .info {
-                @include button(#6495ed);
+                @include button();
+                @include button-color('#6495ed');
+                // Just to show an example of button-color().
+                // The color could also be passed in to the $color
+                // parameter of button()
               }
               .cancel {
                 @include button();
@@ -272,6 +283,11 @@ block documents
           Button sizes are expressed as a multiple of the button's current size.
           For example, a size of 2 would be 2x the size of a default button.
 
+          If you have already defined this element as a button, it is better to use
+          the `button-size()` mixin. This is the same mixin called from inside of
+          `button()` to generate sizing styles. Using this method avoids duplicate
+          CSS.
+
       .ifnot-semantic
         :markdown
           Use `button-small` or `button-large` for large and small buttons.
@@ -363,10 +379,10 @@ block documents
                  @include button($size: 1); // Default size
                }
                .button.button-large
-                 @include button($size: 1.2); // Large
+                 @include button-size(1.2); // Large
                }
                .button.button-small
-                 @include button($size: 0.85); // Small
+                 @include button-size(0.85); // Small
                }
 
       :markdown

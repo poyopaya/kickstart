@@ -154,17 +154,13 @@ a
     bottom: 0.5rem
   +heading-break
 
-=list-default($style: 'none')
+=list-default($style: 'none', $layout: 'vertical')
   margin-bottom: $space
 
   @if ($style == 'unstyled')
     +list-unstyled
 
-  @if ($style == 'horizontal')
-    +list-horizontal
-
-  @if ($style == 'unstyled horizontal')
-    +list-unstyled
+  @if ($layout == 'horizontal')
     +list-horizontal
 
 =list-unstyled
