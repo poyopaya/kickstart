@@ -138,18 +138,21 @@
 .row
   +row
 
+[class~="col-"]
+  +column-universals
+
 @for $i from 1 through 12
   .col-#{$i}
-    +column($i)
+    +column($i, $constants: false)
 
 .col-half
-  +column('half')
+  +column('half', $constants: false)
 
 .col-third
-  +column('third')
+  +column('third', $constants: false)
 
 .col-twothirds
-  +column('twothirds')
+  +column('twothirds', $constants: false)
 
 // Left offsets
 @each $screen in '', 'xs-', 'sm-', 'rg-', 'md-', 'lg-', 'xl-'

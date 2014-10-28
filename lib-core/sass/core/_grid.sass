@@ -62,13 +62,19 @@ $showFullColumns:    $desktop          // Actual user-defined column measurement
     left: -$grid-gutter/2
     right: -$grid-gutter/2
 
+=column-universals
+  // For smaller CSS, this can be applied in one rule, rather
+  // than in a loop for every type of column.
+  clear: none
+  display: block
+  margin:
+    left: $grid-gutter/2
+    right: $grid-gutter/2
+
 =measure-columns($columns, $prop)
   // TODO: DRY this somehow?
   @if $prop == "width"
     width: calc(#{percentage($columns/$grid-columns)} - #{$grid-gutter})
-    margin:
-      left: $grid-gutter/2
-      right: $grid-gutter/2
 
   @else if $prop == "margin-left"
     margin-left: calc(#{percentage($columns/$grid-columns)} + #{$grid-gutter/2})
@@ -111,9 +117,6 @@ $showFullColumns:    $desktop          // Actual user-defined column measurement
 
 =set-column($columns, $left, $right)
   +measure-columns($columns, "width")
-  clear: none
-  display: block
-  // margin-left: 0
 
   @if $right != 0
     +set-offset($right, "margin-right")
@@ -121,9 +124,12 @@ $showFullColumns:    $desktop          // Actual user-defined column measurement
   @if $left != 0
     +set-offset($left, "margin-left")
 
-=column($columns: 12, $left: 0, $right: 0)
+=column($columns: 12, $left: 0, $right: 0, $constants: true)
   // Everything is a full width column on mobile by default
   +set-column(12, 0, 0)
+
+  @if $constants == true
+    +column-universals 
 
   // Look for keywords
   @if $columns == "half"
