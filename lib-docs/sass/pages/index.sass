@@ -312,14 +312,14 @@ section.blue
 
   &.graph-css
     .kickstart
-      height: (100% * (72/148))
+      height: (100% * (70/148))
 
       &:before
         content: "Kickstart"
         color: map-get($colors, blue)
 
       &:after
-        content: "72kb"
+        content: "70kb"
 
     .bootstrap
       height: (100% * (110/148))
@@ -421,3 +421,19 @@ dl
     font-weight: bold
   dd
     margin-left: 0
+
+.github-stars
+  display: none
+  padding: 0
+  margin: 0px auto
+  width: 170px
+
+  &.mobile
+    display: block
+    width: 110px
+
+  @media screen and (min-width: $tablet)
+    display: block
+
+    &.mobile
+      display: none
