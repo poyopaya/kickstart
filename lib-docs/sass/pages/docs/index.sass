@@ -65,10 +65,12 @@ h3, h4, h5, h6
           font-weight: bold
 
     @media screen and (min-width: $tablet)
-      font-size: 0.85rem
+      +p
 
     a
       color: map-get($colors, blue)
+      margin-bottom: $space/4
+      display: block
 
     ul
       +list($style: 'unstyled')

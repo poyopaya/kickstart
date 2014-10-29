@@ -172,6 +172,7 @@ document.addEventListener 'DOMContentLoaded', ->
 
         # Make a new li and append it to the target ul node.
         $menuItem = $link.cloneNode true
+        $menuItem.classList.add "if-semantic" if heading.classList.contains "only-semantic"
         $menuItem.querySelector('a').href = "##{heading.id}"
         $menuItem.querySelector('a').innerHTML = heading.innerHTML
         $targetNode.appendChild $menuItem
