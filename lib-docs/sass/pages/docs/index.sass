@@ -13,6 +13,9 @@ h2
 h3, h4, h5, h6
   +heading-xxs 
 
+.alert
+  +alert
+
 .docs-nav
   +navbar($collapse: true, $layout: 'fluid')
   margin-top: -$space
@@ -131,6 +134,11 @@ h3, h4, h5, h6
   h1, h2, h3, h4, h5, h6
     margin-top: -25px
     padding-top: 25px
+
+  .alert, .thumbnail-content article
+    h1:first-child
+      margin-top: 0
+      padding-top: 0
 
   .code
     background: #1d1f21

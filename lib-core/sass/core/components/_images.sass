@@ -1,26 +1,32 @@
 =thumbnail-content-default
-  display: flex
+  display: block
   overflow: hidden
   margin-bottom: $space
   align-items: flex-start
 
-  img, figure
-    flex-grow: 0
-    flex-shrink: 0
-
-  > :not(img)
-    width: 100%
-
-    + img, + figure
-      margin-left: $space/2
+  img
+    margin-bottom: $space
 
   h1
     +heading-xs
 
-  > img, > figure
-    + :not(img)
-      margin-left: $space/2
+  @media screen and (min-width: $desktop)
+    display: flex
+
+    img, figure
+      flex-grow: 0
+      flex-shrink: 0
+
+    > :not(img)
       width: 100%
+
+      + img, + figure
+        margin-left: $space/2
+
+    > img, > figure
+      + :not(img)
+        margin-left: $space/2
+        width: 100%
 
   @content
 

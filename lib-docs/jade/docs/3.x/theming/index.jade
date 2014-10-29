@@ -10,6 +10,14 @@ block variables
 block documents
   .document
     article.article
+      .ifnot-semantic
+        .alert
+          h1 Please note
+          p 
+            | You have indicated you are not using Semantic Sass for your project.
+            | This means you will not be able to edit theme files, as they will
+            | be baked into the CSS file.
+
       :markdown
         # Anatomy of a theme
 
