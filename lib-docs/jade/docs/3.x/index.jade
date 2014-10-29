@@ -141,6 +141,24 @@ block documents
             //= require_tree .
 
   .document
+    article.article
+      :markdown
+        ### Firing on ready
+
+        Some of your JavaScript will need to run once the DOM is ready. In Rails, this can be a little mysterious, 
+        especially when using jquery-ujs. Here's one way to ensure this code fires at the right time.
+
+    article.code
+      :markdown
+        <span>
+
+            var ready = function() {
+              // Your code
+            }
+            $(document).ready(ready);
+            $(document).on("page:load", ready);
+
+  .document
     article.article.article-full
       :markdown
         ## Autoprefixing
@@ -150,13 +168,6 @@ block documents
 
         See the instructions 
         [at the Autoprefixer docs](https://github.com/ai/autoprefixer-rails)
-
-  .document
-    article.article.article-full
-      :markdown
-        ## Theming
-
-        To add a theme using the Rails implementation, see [Theming](/docs/3.x/theming#rails)
 
   .document
     article.article
