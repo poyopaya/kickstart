@@ -32,11 +32,11 @@ block documents
             <!DOCTYPE HTML>
             <html>
               <head>
-                <link rel="stylesheet" href="css/kickstart.css" />
+                <link rel="stylesheet" href="//cdn.getkickstart.com/css/kickstart.min.css" />
               </head>
               <body>
                 ...
-                <script src="js/kickstart.js"></script>
+                <script type="text/javascript" src="//cdn.getkickstart.com/js/kickstart.min.js"></script>
               </body>
             </html>
 
@@ -55,6 +55,9 @@ block documents
 
             <link rel="stylesheet" href="//cdn.getkickstart.com/css/kickstart.min.css" />
             <script type="text/javascript" src="//cdn.getkickstart.com/js/kickstart.min.js"></script>
+            <script>
+              k$.tabs('.tabs');
+            </script>
 
   .document
     article.article
@@ -156,7 +159,7 @@ block documents
         To add a theme using the Rails implementation, see [Theming](/docs/3.x/theming#rails)
 
   .document
-    article.article.article-full
+    article.article
       h1 Gulp
 
       :markdown
@@ -173,6 +176,12 @@ block documents
 
         Rename it to whatever you like and link to the resulting .css file in your
         html/jade
+
+    article.code
+      :markdown
+        <span>
+
+            $(~) git clone git@github.com:ajkochanowicz/kickstart.git --depth 1
 
   .document
     article.article
