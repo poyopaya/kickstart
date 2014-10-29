@@ -1,9 +1,9 @@
-=table-default($blank: false, $zebra: false, $hover: false)
+=table-default($blank: false, $zebra: false, $hover: false, $border-color: map-get($gray, lighter))
   border-collapse: collapse
   background: white
   border-spacing: 0
   empty-cells: show
-  border: 1px solid map-get($gray, light)
+  border: 1px solid $border-color
   width: 100%
   margin-bottom: $space
 
@@ -23,13 +23,13 @@
 
   th, td
     background-color: transparent
-    border-left: 1px solid map-get($gray, light)
     border-width: 0 0 0 1px
     font-size: inherit
     margin: 0
     overflow: visible
     padding: ($space/6) ($space/4)
     line-height: normal
+    border-left: 1px solid $border-color
 
     &:first-child
       border-left-width: 0
@@ -41,6 +41,10 @@
     +table-zebra
 
   @content
+
+=table-bordered
+  th, td
+    border-bottom: 1px solid $border-color
 
 =table-blank
   border-color: transparent
