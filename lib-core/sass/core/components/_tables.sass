@@ -1,4 +1,4 @@
-=table-default($blank: false, $zebra: false, $hover: false, $border-color: map-get($gray, lighter))
+=table-default($blank: false, $zebra: false, $hover: false, $border-color: map-get($gray, lighter), $bordered: false)
   border-collapse: collapse
   background: white
   border-spacing: 0
@@ -34,11 +34,17 @@
     &:first-child
       border-left-width: 0
 
+  @if $hover == true
+    +table-hover
+
   @if $blank == true
     +table-blank
 
   @if $zebra == true
     +table-zebra
+
+  @if $bordered == true
+    +table-bordered
 
   @content
 
