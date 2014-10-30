@@ -1,4 +1,5 @@
 assert = require("chai").assert
+expect = require("chai").expect
 
 k$.testClick = (el) ->
   event = document.createEvent 'MouseEvents'
@@ -12,7 +13,3 @@ describe 'Kickstart main function', ->
     assert.typeOf k$.$, 'function', 'k$.$ is a function'
   it 'should contain basic selectors', ->
     assert.typeOf k$.$$, 'function', 'k$.$$ is a function'
-
-describe 'Event listeners', ->
-  it 'on body should not be more than 1.', ->
-    expect(getEventListeners(document.body).click.length).to.be.below(2)
