@@ -1,4 +1,5 @@
 assert = require("chai").assert
+expect = require("chai").expect
 
 k$.testClick = (el) ->
   event = document.createEvent 'MouseEvents'
