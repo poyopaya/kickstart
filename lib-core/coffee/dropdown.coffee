@@ -10,7 +10,9 @@ dropdown = () ->
     $_menuItem.parentNode.replaceChild $menuItem, $_menuItem
 
     do ($menuItem) ->
-      $menuItem.addEventListener 'click', (e) ->
+
+      # TODO make only one event listener for the parent.
+      # $menuItem.addEventListener 'click', (e) ->
 
         # Just close it if it's already open
         if $menuItem.classList.contains 'open'
