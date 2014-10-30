@@ -1,4 +1,4 @@
-=thumbnail-content-default
+=thumbnail-content-default($breakpoint: $desktop)
   display: block
   overflow: hidden
   margin-bottom: $space
@@ -10,7 +10,7 @@
   h1
     +heading-xs
 
-  @media screen and (min-width: $desktop)
+  @media screen and (min-width: $breakpoint)
     display: flex
 
     img, figure
