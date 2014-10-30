@@ -20,13 +20,13 @@ nav = (el) ->
     console.error "Could not instantiate as a nav.", e.message
 
   $button = k$.$(el).querySelector('.navbar-title button')
-  # if $button 
-  #   $button.addEventListener 'click', ->
-  #     $nav = k$.$(el).querySelector('nav')
-  #     if $nav.classList.contains 'expand'
-  #       $nav.classList.remove 'expand'
-  #     else
-  #       $nav.classList.add 'expand'
+  if $button 
+    $button.addEventListener 'click', ->
+      $nav = k$.$(el).querySelector('nav')
+      if $nav.classList.contains 'expand'
+        $nav.classList.remove 'expand'
+      else
+        $nav.classList.add 'expand'
 
 k$.nav = nav
 
