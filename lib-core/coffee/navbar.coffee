@@ -13,23 +13,20 @@ nav = (el) ->
     $menuItems = _$menuItems
     for $menuItem in $menuItems
 
-      # For styling
+      # Mark as a menu item
       $menuItem.classList.add 'menu-item'
-
-    # Wire up the menu
-    k$.dropdown()
 
   catch e
     console.error "Could not instantiate as a nav.", e.message
 
   $button = k$.$(el).querySelector('.navbar-title button')
-  if $button
-    $button.addEventListener 'click', ->
-      $nav = k$.$(el).querySelector('nav')
-      if $nav.classList.contains 'expand'
-        $nav.classList.remove 'expand'
-      else
-        $nav.classList.add 'expand'
+  # if $button 
+  #   $button.addEventListener 'click', ->
+  #     $nav = k$.$(el).querySelector('nav')
+  #     if $nav.classList.contains 'expand'
+  #       $nav.classList.remove 'expand'
+  #     else
+  #       $nav.classList.add 'expand'
 
 k$.nav = nav
 
