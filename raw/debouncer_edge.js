@@ -40,14 +40,14 @@
                             id: 'cloud-up',
                             type: 'image',
                             rect: ['76px', '11px', '128px', '128px', 'auto', 'auto'],
-                            opacity: 0.2549542784690857,
+                            opacity: 0.25495427846909,
                             fill: ["rgba(0,0,0,0)",im+"cloud-up.png",'0px','0px']
                         },
                         {
                             id: 'cloud-down',
                             type: 'image',
                             rect: ['320px', '11px', '128px', '128px', 'auto', 'auto'],
-                            opacity: 0.2492060512304306,
+                            opacity: 0.24920605123043,
                             fill: ["rgba(0,0,0,0)",im+"cloud-down.png",'0px','0px']
                         }
                     ],
@@ -61,13 +61,13 @@
                     }
                 },
                 timeline: {
-                    duration: 4501,
+                    duration: 3500,
                     autoPlay: true,
                     data: [
                         [
                             "eid40",
                             "opacity",
-                            3000,
+                            2250,
                             250,
                             "linear",
                             "${cloud-down}",
@@ -77,7 +77,7 @@
                         [
                             "eid41",
                             "opacity",
-                            3250,
+                            2500,
                             250,
                             "linear",
                             "${cloud-down}",
@@ -147,7 +147,7 @@
                         [
                             "eid42",
                             "opacity",
-                            4501,
+                            3500,
                             0,
                             "linear",
                             "${cloud-up}",
