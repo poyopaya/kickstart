@@ -143,7 +143,7 @@ h3, h4, h5, h6
       padding-top: 0
 
   .code
-    background: #1d1f21
+    background: darken(map-get($colors, blue), 40%)
     padding: $space/4
 
     p:first-child
@@ -203,6 +203,9 @@ h3, h4, h5, h6
     margin-bottom: 0
 
 // Highlight JS
+
+.hljs
+  background: transparent
 
 code, pre, kbd, samp
   &.hljs
