@@ -105,15 +105,67 @@ block documents
               <div class="thumbnail-content">
                 <img src="mountains.png" />
                 <article>
-                  <h1>Imagine living among the mountains</h1>
+                  <h1>imagine living among the mountains</h1>
                   <p>...</p>
                 </article>
               </div>
 
               <div class="thumbnail-content">
                 <article>
-                  <h1>Imagine living among the mountains</h1>
+                  <h1>imagine living among the mountains</h1>
                   <p>...</p>
                 </article>
                 <img src="mountains.png" />
               </div>
+
+  .document
+    article.article
+      :markdown
+        If you don't want to use the `img` element for your image
+        (say you want to set the image as a background image), simply
+        use the `figure` element instead.
+
+    article.code
+      .ifnot-semantic
+        :markdown
+          <span> 
+            
+              <div class="thumbnail-content">
+                <figure style="background-image: url('mountains.png');" />
+                <article>
+                  <h1>imagine living among the mountains</h1>
+                  <p>...</p>
+                </article>
+              </div>
+
+              <div class="thumbnail-content">
+                <article>
+                  <h1>imagine living among the mountains</h1>
+                  <p>...</p>
+                </article>
+                <figure style="background-image: url('mountains.png');" />
+              </div>
+
+      .if-semantic
+        :markdown
+          <span>
+
+              <div class="feature">
+                <figure style="background-image: url('mountains.png');" />
+                <article>
+                  <h1>Imagine living among the mountains</h1>
+                  <p>...</p>
+                </article>
+              </div>
+
+              <div class="feature">
+                <article>
+                  <h1>Imagine living among the mountains</h1>
+                  <p>...</p>
+                </article>
+                <figure style="background-image: url('mountains.png');" />
+              </div>
+
+              .feature {
+                @include thumbnail-content();
+              }

@@ -26,12 +26,12 @@ block documents
         .row
           .col-third
             .col-example
-              h5 News
+              h5.toc-exempt News
               p Breaking news
 
           .col-twothirds
             .col-example
-              h1 Top Story
+              h1.toc-exempt Top Story
               p Here are today's top stories
 
     article.code
@@ -402,6 +402,16 @@ block documents
       .ifnot-semantic
         :markdown
           <span>
+
+              <div class="row">
+                <section class="col-third">
+                  <p>Sidebar</p>
+                </section>
+
+                <section class="col-twothirds">
+                  <p>Main pane</p>
+                </section>
+              </div>
 
               <div class="row">
                 <section class="col-12">
