@@ -128,6 +128,81 @@ block documents
   .document
     article.article
       :markdown
+        ## Active states
+
+        Active states are great for showing where in the navigation the user currently resides.
+        Simply add the `active` class to the `<a>` for menu links, or `<li>` for dropdowns.
+
+      .navbar.sample-dropdown-nav1
+        nav
+          ul
+            li: a(href="#") Home
+            li: a.active(href="#") Blog
+            li
+              | Archives
+              ul
+                li: a(href="#") This year
+                li: a(href="#") Last year
+                li: a(href="#") Previous years
+
+      .navbar.sample-dropdown-nav2
+        nav
+          ul
+            li: a(href="#") Home
+            li: a(href="#") Blog
+            li.active
+              | Archives
+              ul
+                li: a(href="#") This year
+                li: a(href="#") Last year
+                li: a(href="#") Previous years
+
+    article.code
+      :markdown
+        <span>
+
+            <div class="navbar">
+              <nav>
+                <ul>
+                  <li>
+                    <a href="#">Home</a>
+                  </li>
+                  <li>
+                    <a class="active" href="#">Blog</a>
+                  </li>
+                  <li>
+                    Archives
+                    <ul>
+                      ...
+                    </ul>
+                  </li>
+                </ul>
+              </nav>
+            </div>
+
+            <div class="navbar">
+              <nav>
+                <ul>
+                  <li>
+                    <a href="#">Home</a>
+                  </li>
+                  <li>
+                    <a href="#">Blog</a>
+                  </li>
+                  <li class="active">
+                    Archives
+                    <ul>
+                      ...
+                    </ul>
+                  </li>
+                </ul>
+              </nav>
+            </div>
+
+
+  .document
+    article.article
+      :markdown
         ## Layout Styles
 
         Navbars can have either default, fluid, or fluid-fixed layouts.
@@ -235,7 +310,7 @@ block documents
         Dropdowns require the `k$.nav(el)` function to be called on the bar. `el` is
         the selector for the navbar container.
 
-      .navbar.sample-dropdown-nav
+      .navbar.sample-dropdown-nav3
         nav
           ul
             li
@@ -631,4 +706,6 @@ block documents
 
 block postDocsJS
   script.
-    k$.nav('.sample-dropdown-nav')
+    k$.nav('.sample-dropdown-nav1')
+    k$.nav('.sample-dropdown-nav2')
+    k$.nav('.sample-dropdown-nav3')
