@@ -1,10 +1,13 @@
 extends ../../_layout
 
+block menuVars
+  - var menuItem = "docs" 
+
 block page-stylesheet
   block ui-stylesheet
-  link(rel="stylesheet" href="/css/pages/docs/index.css")
   script(src="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.2/highlight.min.js")
-  link(rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.2/styles/tomorrow-night.min.css")
+  link(rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.2/styles/solarized_dark.min.css")
+  link(rel="stylesheet" href="/css/pages/docs/index.css")
   script.
     hljs.initHighlightingOnLoad(); 
 

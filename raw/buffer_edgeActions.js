@@ -14,7 +14,7 @@ var Composition = Edge.Composition, Symbol = Edge.Symbol; // aliases for commonl
       
       
       Symbol.bindTriggerAction(compId, symbolName, "Default Timeline", 4000, function(sym, e) {
-         this.play (0);
+           this.play (0);
 
       });
       //Edge binding end
@@ -22,4 +22,4 @@ var Composition = Edge.Composition, Symbol = Edge.Symbol; // aliases for commonl
    })("stage");
    //Edge symbol end:'stage'
 
-})(jQuery, AdobeEdge, "EDGE-116087028");
+})(window.jQuery || AdobeEdge.$, AdobeEdge, "EDGE-112562383");

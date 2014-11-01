@@ -67,7 +67,7 @@
         > a:not([role=button])
           +color($background-color)
 
-          &:hover
+          &:hover, &.active
             @if (lightness($background-color) < 75%)
               color: white
             @else

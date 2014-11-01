@@ -137,13 +137,13 @@ h3, h4, h5, h6
     margin-top: -25px
     padding-top: 25px
 
-  .alert, .thumbnail-content article
+  .alert, .thumbnail-content article, .modal, .modal-example
     h1:first-child
       margin-top: 0
       padding-top: 0
 
   .code
-    background: #1d1f21
+    background: darken(map-get($colors, blue), 40%)
     padding: $space/4
 
     p:first-child
@@ -203,6 +203,9 @@ h3, h4, h5, h6
     margin-bottom: 0
 
 // Highlight JS
+
+.hljs
+  background: transparent
 
 code, pre, kbd, samp
   &.hljs

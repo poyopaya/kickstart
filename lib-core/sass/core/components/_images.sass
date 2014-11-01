@@ -1,30 +1,30 @@
-=thumbnail-content-default
+=thumbnail-content-default($breakpoint: $desktop)
   display: block
   overflow: hidden
   margin-bottom: $space
   align-items: flex-start
 
-  img
+  img, figure
     margin-bottom: $space
 
   h1
     +heading-xs
 
-  @media screen and (min-width: $desktop)
+  @media screen and (min-width: $breakpoint)
     display: flex
 
     img, figure
       flex-grow: 0
       flex-shrink: 0
 
-    > :not(img)
+    > :not(img):not(figure)
       width: 100%
 
       + img, + figure
         margin-left: $space/2
 
     > img, > figure
-      + :not(img)
+      + :not(img):not(figure)
         margin-left: $space/2
         width: 100%
 

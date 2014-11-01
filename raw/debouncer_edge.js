@@ -1,133 +1,165 @@
-/**
- * Adobe Edge: symbol definitions
- */
-(function($, Edge, compId){
-//images folder
-var im='images/';
+/*jslint */
+/*global AdobeEdge: false, window: false, document: false, console:false, alert: false */
+(function (compId) {
 
-var fonts = {};
-var opts = {
-    'gAudioPreloadPreference': 'auto',
-
-    'gVideoPreloadPreference': 'auto'
-};
-var resources = [
-];
-var symbols = {
-"stage": {
-    version: "4.0.1",
-    minimumCompatibleVersion: "4.0.1",
-    build: "4.0.1.365",
-    baseState: "Base State",
-    scaleToFit: "width",
-    centerStage: "none",
-    initialState: "Base State",
-    gpuAccelerate: false,
-    resizeInstances: false,
-    content: {
-            dom: [
-            {
-                id: 'Ellipse',
-                type: 'ellipse',
-                rect: ['39px', '61px','128px','128px','auto', 'auto'],
-                borderRadius: ["50%", "50%", "50%", "50%"],
-                fill: ["rgba(192,192,192,1)"],
-                stroke: [0,"rgba(0,0,0,1)","none"]
-            },
-            {
-                id: 'EllipseCopy',
-                type: 'ellipse',
-                rect: ['432px', '61px','128px','128px','auto', 'auto'],
-                borderRadius: ["50%", "50%", "50%", "50%"],
-                fill: ["rgba(192,192,192,1)"],
-                stroke: [0,"rgba(0,0,0,1)","none"]
-            },
-            {
-                id: 'Text',
-                type: 'text',
-                rect: ['1px', '154px','139px','20px','auto', 'auto'],
-                text: "Input",
-                align: "center",
-                font: ['Courier, Courier New, monospace', [24, ""], "rgba(0,0,0,1)", "normal", "none", ""]
-            },
-            {
-                id: 'TextCopy',
-                type: 'text',
-                rect: ['398px', '154px','139px','20px','auto', 'auto'],
-                text: "Output",
-                align: "center",
-                font: ['Courier, Courier New, monospace', 24, "rgba(0,0,0,1)", "normal", "none", ""]
-            }],
-            symbolInstances: [
-
-            ]
+    "use strict";
+    var im='images/',
+        aud='media/',
+        vid='media/',
+        js='js/',
+        fonts = {
         },
-    states: {
-        "Base State": {
-            "${_Text}": [
-                ["style", "top", '154px'],
-                ["style", "font-family", 'Courier, Courier New, monospace'],
-                ["style", "left", '1px'],
-                ["style", "text-align", 'center']
-            ],
-            "${_Ellipse}": [
-                ["style", "top", '11px'],
-                ["style", "left", '10px'],
-                ["color", "background-color", 'rgba(216,205,180,1.00)']
-            ],
-            "${_Stage}": [
-                ["color", "background-color", 'rgba(255,255,255,1)'],
-                ["style", "width", '540px'],
-                ["style", "height", '190px'],
-                ["style", "overflow", 'hidden']
-            ],
-            "${_EllipseCopy}": [
-                ["style", "top", '11px'],
-                ["style", "left", '403px'],
-                ["color", "background-color", 'rgba(216,205,180,1.00)']
-            ],
-            "${_TextCopy}": [
-                ["style", "top", '154px'],
-                ["style", "font-family", 'Courier, Courier New, monospace'],
-                ["style", "left", '398px'],
-                ["style", "text-align", 'center']
-            ]
-        }
-    },
-    timelines: {
-        "Default Timeline": {
-            fromState: "Base State",
-            toState: "",
-            duration: 3000,
-            autoPlay: true,
-            timeline: [
-                { id: "eid20", tween: [ "style", "${_Ellipse}", "top", '11px', { fromValue: '11px'}], position: 2000, duration: 0, easing: "swing" },
-                { id: "eid18", tween: [ "style", "${_EllipseCopy}", "top", '11px', { fromValue: '11px'}], position: 2000, duration: 0, easing: "swing" },
-                { id: "eid23", tween: [ "style", "${_Ellipse}", "left", '10px', { fromValue: '10px'}], position: 2000, duration: 0, easing: "swing" },
-                { id: "eid26", tween: [ "color", "${_EllipseCopy}", "background-color", 'rgba(216,205,180,1.00)', { animationColorSpace: 'RGB', valueTemplate: undefined, fromValue: 'rgba(216,205,180,1.00)'}], position: 0, duration: 0, easing: "swing" },
-                { id: "eid17", tween: [ "color", "${_EllipseCopy}", "background-color", 'rgba(253,215,38,1.00)', { animationColorSpace: 'RGB', valueTemplate: undefined, fromValue: 'rgba(216,205,180,1.00)'}], position: 2500, duration: 250, easing: "swing" },
-                { id: "eid27", tween: [ "color", "${_EllipseCopy}", "background-color", 'rgba(216,205,180,1.00)', { animationColorSpace: 'RGB', valueTemplate: undefined, fromValue: 'rgba(253,215,38,1.00)'}], position: 2750, duration: 250, easing: "swing" },
-                { id: "eid22", tween: [ "style", "${_EllipseCopy}", "left", '403px', { fromValue: '403px'}], position: 2000, duration: 0, easing: "swing" },
-                { id: "eid4", tween: [ "color", "${_Ellipse}", "background-color", 'rgba(253,215,38,1.00)', { animationColorSpace: 'RGB', valueTemplate: undefined, fromValue: 'rgba(216,205,180,1.00)'}], position: 0, duration: 250, easing: "swing" },
-                { id: "eid5", tween: [ "color", "${_Ellipse}", "background-color", 'rgba(216,205,180,1.00)', { animationColorSpace: 'RGB', valueTemplate: undefined, fromValue: 'rgba(253,215,38,1.00)'}], position: 250, duration: 250, easing: "swing" },
-                { id: "eid6", tween: [ "color", "${_Ellipse}", "background-color", 'rgba(253,215,38,1.00)', { animationColorSpace: 'RGB', valueTemplate: undefined, fromValue: 'rgba(216,205,180,1.00)'}], position: 500, duration: 250, easing: "swing" },
-                { id: "eid7", tween: [ "color", "${_Ellipse}", "background-color", 'rgba(216,205,180,1.00)', { animationColorSpace: 'RGB', valueTemplate: undefined, fromValue: 'rgba(253,215,38,1.00)'}], position: 750, duration: 250, easing: "swing" },
-                { id: "eid8", tween: [ "color", "${_Ellipse}", "background-color", 'rgba(253,215,38,1.00)', { animationColorSpace: 'RGB', valueTemplate: undefined, fromValue: 'rgba(216,205,180,1.00)'}], position: 1000, duration: 250, easing: "swing" },
-                { id: "eid9", tween: [ "color", "${_Ellipse}", "background-color", 'rgba(216,205,180,1.00)', { animationColorSpace: 'RGB', valueTemplate: undefined, fromValue: 'rgba(253,215,38,1.00)'}], position: 1250, duration: 250, easing: "swing" },
-                { id: "eid10", tween: [ "color", "${_Ellipse}", "background-color", 'rgba(216,205,180,1.00)', { animationColorSpace: 'RGB', valueTemplate: undefined, fromValue: 'rgba(216,205,180,1.00)'}], position: 1500, duration: 0, easing: "swing" },
-                { id: "eid11", tween: [ "color", "${_Ellipse}", "background-color", 'rgba(216,205,180,1.00)', { animationColorSpace: 'RGB', valueTemplate: undefined, fromValue: 'rgba(216,205,180,1.00)'}], position: 3000, duration: 0, easing: "swing" }            ]
-        }
-    }
-}
-};
+        opts = {
+            'gAudioPreloadPreference': 'auto',
+            'gVideoPreloadPreference': 'auto'
+        },
+        resources = [
+        ],
+        scripts = [
+            js+"jquery-2.0.3.min.js"
+        ],
+        symbols = {
+            "stage": {
+                version: "5.0.0",
+                minimumCompatibleVersion: "5.0.0",
+                build: "5.0.0.375",
+                scaleToFit: "width",
+                centerStage: "none",
+                resizeInstances: false,
+                content: {
+                    dom: [
+                        {
+                            id: 'Text',
+                            type: 'text',
+                            rect: ['1', '154', '139px', '20px', 'auto', 'auto'],
+                            text: "<br>",
+                            align: "center",
+                            font: ['Courier, Courier New, monospace', [24, ""], "rgba(0,0,0,1)", "normal", "none", "", "break-word", ""]
+                        },
+                        {
+                            id: 'cloud-up',
+                            type: 'image',
+                            rect: ['76px', '11px', '128px', '128px', 'auto', 'auto'],
+                            opacity: 0.25495427846909,
+                            fill: ["rgba(0,0,0,0)",im+"cloud-up.png",'0px','0px']
+                        },
+                        {
+                            id: 'cloud-down',
+                            type: 'image',
+                            rect: ['320px', '11px', '128px', '128px', 'auto', 'auto'],
+                            opacity: 0.24920605123043,
+                            fill: ["rgba(0,0,0,0)",im+"cloud-down.png",'0px','0px']
+                        }
+                    ],
+                    style: {
+                        '${Stage}': {
+                            isStage: true,
+                            rect: ['null', 'null', '540', '190', 'auto', 'auto'],
+                            overflow: 'hidden',
+                            fill: ["rgba(255,255,255,1)"]
+                        }
+                    }
+                },
+                timeline: {
+                    duration: 3500,
+                    autoPlay: true,
+                    data: [
+                        [
+                            "eid40",
+                            "opacity",
+                            2250,
+                            250,
+                            "linear",
+                            "${cloud-down}",
+                            '0.249206',
+                            '1'
+                        ],
+                        [
+                            "eid41",
+                            "opacity",
+                            2500,
+                            250,
+                            "linear",
+                            "${cloud-down}",
+                            '1',
+                            '0.25225482723577'
+                        ],
+                        [
+                            "eid30",
+                            "opacity",
+                            0,
+                            250,
+                            "linear",
+                            "${cloud-up}",
+                            '0.254954',
+                            '1'
+                        ],
+                        [
+                            "eid31",
+                            "opacity",
+                            250,
+                            250,
+                            "linear",
+                            "${cloud-up}",
+                            '1',
+                            '0.254954'
+                        ],
+                        [
+                            "eid36",
+                            "opacity",
+                            500,
+                            250,
+                            "linear",
+                            "${cloud-up}",
+                            '0.254954',
+                            '1'
+                        ],
+                        [
+                            "eid34",
+                            "opacity",
+                            750,
+                            250,
+                            "linear",
+                            "${cloud-up}",
+                            '1',
+                            '0.254954'
+                        ],
+                        [
+                            "eid37",
+                            "opacity",
+                            1000,
+                            250,
+                            "linear",
+                            "${cloud-up}",
+                            '0.254954',
+                            '1'
+                        ],
+                        [
+                            "eid35",
+                            "opacity",
+                            1250,
+                            250,
+                            "linear",
+                            "${cloud-up}",
+                            '1',
+                            '0.254954'
+                        ],
+                        [
+                            "eid42",
+                            "opacity",
+                            3500,
+                            0,
+                            "linear",
+                            "${cloud-up}",
+                            '0.254954',
+                            '0.254954'
+                        ]
+                    ]
+                }
+            }
+        };
 
+    AdobeEdge.registerCompositionDefn(compId, symbols, fonts, scripts, resources, opts);
 
-Edge.registerCompositionDefn(compId, symbols, fonts, resources, opts);
-
-/**
- * Adobe Edge DOM Ready Event Handler
- */
-$(window).ready(function() {
-     Edge.launchComposition(compId);
-});
-})(jQuery, AdobeEdge, "EDGE-112562383");
+    if (!window.edge_authoring_mode) AdobeEdge.getComposition(compId).load("debouncer_edgeActions.js");
+})("EDGE-112562383");
