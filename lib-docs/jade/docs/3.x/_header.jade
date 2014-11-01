@@ -4,7 +4,7 @@
       li.navbar-title
         h1 Documentation
         button(role="button") =
-      li
+      li(class="#{subMenuItem == 'getstarted' ? 'active' : ''}")
         | Get Started
         ul
           li: a(href="/docs/#{docsVersion}") Quickstart
@@ -12,7 +12,7 @@
           li: a(href="/docs/#{docsVersion}/grid/") Grid
           li: a(href="/docs/#{docsVersion}/ui/") Layout and CSS
           li: a(href="/docs/#{docsVersion}/adding-extensions/") Adding extensions
-      li
+      li(class="#{subMenuItem == 'components' ? 'active' : ''}")
         | Components
         ul
           li: a(href="/docs/#{docsVersion}/ui/alerts") Alerts
@@ -28,7 +28,7 @@
           li: a(href="/docs/#{docsVersion}/ui/tabs") Tabs
           li: a(href="/docs/#{docsVersion}/ui/tooltips") Tooltips
           li: a(href="/docs/#{docsVersion}/ui/typography") Typography
-      li
+      li(class="#{subMenuItem == 'functions' ? 'active' : ''}")
         | Functions
         ul
           li: a(href="/docs/#{docsVersion}/functions/throttling") Throttling
