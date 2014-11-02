@@ -2,6 +2,7 @@ doctype html5
 html
   head
     link(rel="stylesheet" href="/css/kickstart.css")
+    script(src="/js/kickstart.js")
     style.
       .column-example { 
         background: black; 
@@ -43,5 +44,69 @@ html
           ul
             li: a(href="#") Home
 
+      .navbar
+        nav
+          ul
+            li: a.button.button-primary(role="button" href="#") Home
 
+      .navbar
+        nav
+          ul
+            li Home
+            li: a(href="#") Home
+            li: a.button.button-primary(role="button" href="#") Home
 
+      .navbar
+        nav
+          ul
+            li
+              ul.button-group.button-primary(role="button")
+                li: a(href="#") Foo
+                li: a(href="#") Bar
+
+      .navbar
+        nav
+          ul
+            li Home
+            li: a(href="#") Home
+            li: a.button.button-primary(role="button" href="#") Home
+            li
+              ul.button-group.button-primary(role="button")
+                li: a(href="#") Foo
+                li: a(href="#") Bar
+            li
+              ul.button-group.button-primary(role="button")
+                li: a(href="#") Foo
+                li
+                  button.button-dropdown
+                  ul
+                    li: a(href="#") Bar
+                    li: a(href="#") Bar
+            li
+              button.button.button-primary(role="button")
+                | Foo
+                ul
+                  li: a(href="#") Bar
+                  li: a(href="#") Bar
+
+      .navbar
+        nav
+          ul
+            li
+              ul.button-group.button-primary(role="button")
+                li: a(href="#") Foo
+                li
+                  button.button-dropdown
+                  ul
+                    li: a(href="#") Bar
+                    li: a(href="#") Bar
+
+      .navbar
+        nav
+          ul
+            li
+              button.button.button-primary(role="button")
+                | Foo
+                ul
+                  li: a(href="#") Bar
+                  li: a(href="#") Bar

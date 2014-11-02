@@ -142,7 +142,7 @@
         +root-element
         margin-bottom: 0
         border-radius: 0
-        padding: (map-get($rootElement, paddingV) - 1) (map-get($rootElement, paddingH))
+        padding: (2 * map-get($rootElement, paddingV)) (map-get($rootElement, paddingH))
         position: relative
         margin:
           left: (-1 * map-get($rootElement, paddingH))
@@ -279,7 +279,11 @@
             border-top: 1px solid map-get($white, darker)
 
         ul[role=button]
-          display: inherit
+          display: flex
+
+        ul[role=button], > [role=button]
+          margin: (-2 * map-get($rootElement, paddingV)) + 2
+          vertical-align: text-bottom
 
         > a:not([role=button])
           text-decoration: none
@@ -288,7 +292,7 @@
           +root-element
           margin-bottom: 0
           border-radius: 0
-          margin: (-1 * map-get($rootElement, paddingV)) (-1 * map-get($rootElement, paddingH))
+          margin: (-2 * map-get($rootElement, paddingV) - 1) (-1 * map-get($rootElement, paddingH))
           padding:
             top: (2 * map-get($rootElement, paddingV))
             bottom: (2 * map-get($rootElement, paddingV))
