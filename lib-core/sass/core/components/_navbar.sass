@@ -81,7 +81,6 @@
 
 
 =navbar-default($layout: 'none', $background-color: map-get($white, darker), $breakpoint: $tablet, $collapse: false, $fixed: false)
-  // box-shadow: 0px 1px 0px darken($background-color, 12%) inset
   font-size: $default-font-size
   margin-bottom: $space
 
@@ -128,7 +127,6 @@
             ul
               left: auto
               right: -1px
-              // box-shadow: -2px 2px 0px 2px rgba(0, 0, 0, 0.1)
 
       &:only-child
         @media screen and (min-width: $breakpoint)
@@ -144,9 +142,9 @@
         border-radius: 0
         padding: (2 * map-get($rootElement, paddingV)) (map-get($rootElement, paddingH))
         position: relative
-        margin:
-          left: (-1 * map-get($rootElement, paddingH))
-          right: (-1 * map-get($rootElement, paddingH))
+        // margin:
+        //   left: (-1 * map-get($rootElement, paddingH))
+        //   right: (-1 * map-get($rootElement, paddingH))
         user-select: none
 
         @media screen and (min-width: $breakpoint)
@@ -168,7 +166,7 @@
             background: transparent
             border-color: transparent
             color: inherit
-            margin-bottom: 0
+            // margin-bottom: 0
             font-family: Kickstart, 'Kickstart'
             padding:
               left: 0
@@ -190,7 +188,7 @@
           cursor: pointer
 
           ul
-            box-shadow: 0px 2px 2px 2px rgba(0, 0, 0, 0.1)
+            box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.1)
           //
           //   li
           //     border-color: white
@@ -272,7 +270,6 @@
         ul
           border-top-left-radius: 0
           border-top-right-radius: 0
-          // box-shadow: 2px 2px 0px 2px rgba(0, 0, 0, 0.1)
           display: none
 
           @media screen and (min-width: $breakpoint)
@@ -281,8 +278,9 @@
         ul[role=button]
           display: flex
 
-        ul[role=button], > [role=button]
+        ul[role=button], > [role=button], &.navbar-title button[role="button"]
           margin: (-2 * map-get($rootElement, paddingV)) + 2
+            bottom: (-2 * map-get($rootElement, paddingV)) + 2 // Repeated to override navbar-title
           vertical-align: text-bottom
 
         > a:not([role=button])
