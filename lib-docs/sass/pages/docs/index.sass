@@ -20,12 +20,13 @@ h3, h4, h5, h6
   +navbar($collapse: true, $layout: 'fluid', $background-color: map-get($colors, blue))
   margin-top: -$space
 
-  &.fixed
+  body.fixed-nav &
     position: fixed
     top: 0
     margin-top: 0
     left: 0
     right: 0
+    z-index: 10
 
 .fixed-area
   margin-top: -$space
@@ -105,7 +106,7 @@ h3, h4, h5, h6
       width: 20%
 
   // When in fixed position
-  &.fixed
+  body.fixed-nav &
     .fixed-toc 
       @media screen and (min-width: $phablet)
         position: fixed
