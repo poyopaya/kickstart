@@ -142,8 +142,8 @@ h3, h4, h5, h6
   margin-bottom: $space * 4
 
   h1, h2, h3, h4, h5, h6
-    margin-top: -25px
-    padding-top: 25px
+    margin-top: -60px
+    padding-top: 60px
 
   .alert, .thumbnail-content article, .modal, .modal-example
     h1:first-child
@@ -152,14 +152,25 @@ h3, h4, h5, h6
 
   .code
     background: darken(map-get($colors, blue), 40%)
-    padding: $space/4
+    padding: $space/4 $space/2
+    margin:
+      left: -$space
+      right: -$space
 
     p:first-child
       display: none
 
+    pre
+      margin-bottom: 0
+
   @media screen and (min-width: $phablet)
     .article, .code
       padding: $space
+
+    .code
+      margin:
+        left: 0px
+        right: 0px
 
   @media screen and (min-width: $desktop)
     display: flex
