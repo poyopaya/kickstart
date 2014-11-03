@@ -131,17 +131,27 @@
       > a, > button, > input
         border-radius: 0
         border-left: 0
+        @if (lightness($background-color) < 75%)
+          border-right: 1px solid rgba(255, 255, 255, 0.1)
+        @else
+          border-right: 1px solid rgba(0, 0, 0, 0.1)
 
     &:first-child:not(:only-child)
       > a, > button, > input
         border-top-right-radius: 0
         border-bottom-right-radius: 0
+        @if (lightness($background-color) < 75%)
+          border-right: 1px solid rgba(255, 255, 255, 0.1)
+        @else
+          border-right: 1px solid rgba(0, 0, 0, 0.1)
+
 
     &:last-child:not(:only-child)
       > a, > button, > input
         border-top-left-radius: 0
         border-bottom-left-radius: 0
         border-left: 0
+        
 
     .button-dropdown
 

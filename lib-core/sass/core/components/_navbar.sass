@@ -142,10 +142,12 @@
         border-radius: 0
         padding: (2 * map-get($rootElement, paddingV)) (map-get($rootElement, paddingH))
         position: relative
-        margin:
-          left: (-1 * map-get($rootElement, paddingH))
-          right: (-1 * map-get($rootElement, paddingH))
         user-select: none
+
+        @if ($collapse == true)
+          margin:
+            left: (-1 * map-get($rootElement, paddingH))
+            right: (-1 * map-get($rootElement, paddingH))
 
         @media screen and (min-width: $breakpoint)
           margin: 0
@@ -276,7 +278,7 @@
             border-top: 1px solid map-get($white, darker)
 
         ul[role=button]
-          display: flex
+          display: inline-flex
 
         ul[role=button], > [role=button], &.navbar-title button[role="button"]
           margin: (-2 * map-get($rootElement, paddingV)) + 2
