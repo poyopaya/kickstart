@@ -20,13 +20,18 @@ h3, h4, h5, h6
   +navbar($collapse: true, $layout: 'fluid', $background-color: map-get($colors, blue))
   margin-top: -$space
 
-  body.fixed-nav &
-    position: fixed
-    top: 0
-    margin-top: 0
-    left: 0
-    right: 0
-    z-index: 10
+  @media screen and (min-height: $phablet)
+    // Notice this is min-height, not min-width
+    // The issue is that the dropdowns are too tall for shorter
+    // screens. Once deployed, a fixed nature prevents scrolling
+    // through.
+    body.fixed-nav &
+      position: fixed
+      top: 0
+      margin-top: 0
+      left: 0
+      right: 0
+      z-index: 10
 
 .fixed-area
   margin-top: -$space
