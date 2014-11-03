@@ -17,7 +17,22 @@ body
 
 button,
 input[type="submit"],
-input[type="button"],
+input[type="button"]
+  +button
+
+input[type="file"]
+  background: transparent
+
+// Doesn't work with commas. WTF?
+// http://stackoverflow.com/questions/16982449/why-isnt-it-possible-to-combine-vendor-specific-pseudo-elements-classes-into-on
+input[type="file"]::-ms-browse
+  +button
+
+input[type="file"]::-ms-value
+  +input-styles
+  background: white
+  margin-right: $space/4
+
 input[type="file"]::-webkit-file-upload-button
   +button
 

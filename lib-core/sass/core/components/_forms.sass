@@ -1,6 +1,6 @@
 label, legend
   display: block
-  font-weight: 500
+  font-weight: normal
   margin-bottom: $space/4
 
 =form-default($layout: 'none')
@@ -33,6 +33,11 @@ label, legend
 
 +text-inputs
   +input-styles
+
+input[disabled]
+  pointer-events: all
+  cursor: not-allowed
+  color: map-get($gray, light)
 
 textarea
   +input-styles
