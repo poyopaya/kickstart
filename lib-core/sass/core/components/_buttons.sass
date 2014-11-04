@@ -35,14 +35,14 @@
     text-decoration: none
 
   +root-element($size: $size)
-  +button-size($size)
-  +button-color($background-color)
+  +button-size-default($size)
+  +button-color-default($background-color)
 
   @content
 
 // Separated from main mixin for access by non-semantic library.
 
-=button-color($background-color)
+=button-color-default($background-color)
   background-color: $background-color
   border-color: $background-color
 
@@ -60,7 +60,7 @@
   @if $background-color == transparent
     color: map-get($black, lighter)
 
-=button-size($size)
+=button-size-default($size)
   padding: ($size * $size * map-get($rootElement, paddingV)) ($size * $size * map-get($rootElement, paddingH))
   line-height: $size * $default-line-height
   margin-bottom: 0
