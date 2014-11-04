@@ -126,6 +126,11 @@ block documents
       :markdown
         # Groups
 
+        Button groups are nothing more than `<ul>`s with button styling applied to each
+        `<li>`. Border rounding is automatically removed on sandwiched buttons.
+
+        This is also used to create dropdown buttons.
+
       .example
         ul.button-group
           li
@@ -232,7 +237,7 @@ block documents
       .alert.alert-info
         p
           span.notice Use the button element.
-          |  Unlike other uses, this can only be applied to the HTML <code>button</code> element.
+          |  Unlike regular buttons, dropdown buttons must actually be created with the <code>&lt;button&gt;</code> element.
 
 
       .example
