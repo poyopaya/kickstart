@@ -16,7 +16,12 @@ status = (opts) ->
   $statusBar = k$.$('#status_bar')
 
   hideStatusBar = ->
-    $statusBar.parentNode.removeChild $statusBar
+    $statusBar.classList.add 'hide'
+    setTimeout -> 
+      $statusBar.parentNode.removeChild $statusBar
+      $statusBar.classList.remove 'hide'
+    , 250
+
 
   if status.delay > 0
     k$.debounce hideStatusBar, 'hideStatusBar', status.delay
