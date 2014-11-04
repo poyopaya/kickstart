@@ -99,17 +99,17 @@ form
   overflow: auto
   max-height: 100vh
 
-  .growl
-    box-shadow: 0px 0px $space/2 rgba(0, 0, 0, 0.5)
-    transition: all 0.5s
+.growl
+  box-shadow: 0px 0px $space/2 rgba(0, 0, 0, 0.5)
+  transition: all 0.5s
 
-    &.show, &.hide
-      +fadeInDown
+  &.show, &.hide
+    +fadeInDown
 
-    &.hide
-      animation-direction: reverse
+  &.hide
+    animation-direction: reverse
 
-    +growl
+  +growl
 
 // Status
 // ------

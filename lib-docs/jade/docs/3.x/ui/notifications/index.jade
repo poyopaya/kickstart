@@ -115,23 +115,15 @@ block documents
 
   .document
     article.article
-      :markdown
-        Growls reuse the styles for alerts. Because you're using this library
-        semantically, you'll need to assign the alert styles to the `.growl` class.
+      .if-semantic
+        :markdown 
+          To use different stylings, just pass in a class name to the `type` property.
+          By default, this is appended as a class on `.growl`
 
-    article.code
-      :markdown
-        <span>
-
-            .growl {
-              @include alert();
-            }
-
-  .document
-    article.article
-      :markdown 
-        To use different stylings, just pass in a class name to the `type` property.
-        By default, this is appended as a class on `.growl`
+      .ifnot-semantic
+        :markdown
+          To use different stylings, just borrow from one of the alert color classes.
+          (Growls inherit from the alert styles)
 
     article.code
       :markdown
@@ -139,13 +131,15 @@ block documents
 
             k$.growl({
               title: 'It worked!',
-              type: 'success'
+              type: 'alert-success'
             })
 
-            .growl {
-              @include alert();
+      .if-semantic
+        :markdown
+          <span>
 
-              &.success {
-                background: map-get($colors, green);
+              .growl {
+                &.alert-success {
+                  background: map-get($colors, green);
+                }
               }
-            }
