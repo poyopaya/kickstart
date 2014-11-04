@@ -161,7 +161,8 @@
           align-items: center
 
           @media screen and (min-width: $breakpoint)
-            padding: 0 
+            padding: 0
+              left: (2 * map-get($rootElement, paddingV) - 1)
 
             > h1, > h2, > h3, > h4, > h5, > h6
               padding: (map-get($rootElement, paddingV) - 1) (map-get($rootElement, paddingH))
@@ -197,13 +198,6 @@
 
           ul
             box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.1)
-          //
-          //   li
-          //     border-color: white
-          //
-          //     a:not([role=button])
-          //       background: inherit
-          //       border-color: inherit
 
           &:before
             content: '='
@@ -291,7 +285,7 @@
             bottom: (-2 * map-get($rootElement, paddingV)) + 2 // Repeated to override navbar-title
           vertical-align: text-bottom
 
-        > a:not([role=button])
+        > a:not([role=button]), &.navbar-title > h1
           text-decoration: none
           cursor: pointer
           display: block
