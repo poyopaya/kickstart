@@ -242,11 +242,11 @@ block documents
 
       .ifnot-semantic
         :markdown
-          Simply use the `.fluid` helper class to enable container fluid.
+          Simply use the `.fluid` helper class to enable wrapping fluidly.
 
       .if-semantic
         :markdown
-          Simply pass in `'fluid'` to the `$layout` parameter to enable a fluid container.
+          Simply pass in `'fluid'` to the `$layout` parameter to enable a fluid wrapper.
 
     article.code 
       .ifnot-semantic
@@ -269,7 +269,7 @@ block documents
         ### Fluid-Fixed
 
         Fluid fixed layouts allow your navbar's container to be as wide as you want, but
-        still keep the contents in the same container as any other element using `container()`.
+        still keep the contents in the same container as any other element using `wrapper()`.
 
         The underlying logic for this is more tricky than it appears, as the navbar will
         adjust itself in a way that the first and last menu items align, not by their edges,

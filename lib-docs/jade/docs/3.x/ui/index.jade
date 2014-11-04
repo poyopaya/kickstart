@@ -28,9 +28,9 @@ block documents
   .document
     article.article
       :markdown
-        Create a container around your content <span class="if-semantic">and use the mixin
-        <code>container($fixed: true)</code></span><span class="ifnot-semantic">and
-        use the <code>.container-fixed</code> class.
+        Create a wrapper around your content <span class="if-semantic">and use the mixin
+        <code>wrapper($fixed: true)</code></span><span class="ifnot-semantic">and
+        use the <code>.wrapper-fixed</code> class.
 
         The default max-width is about 768px, however, you can define your own by adding
         a `max-width` property.
@@ -40,12 +40,12 @@ block documents
         :markdown
           <span>
 
-              <div class="container">
+              <div class="wrapper">
                 <h1>Hello world</h1>
               </div>
 
-              .container {
-                @include container($fixed: true);
+              .wrapper{
+                @include wrapper($fixed: true);
                 max-width: 700px;
               }
 
@@ -53,7 +53,7 @@ block documents
         :markdown
           <span>
 
-              <div class="container container-fixed">
+              <div class="wrapper wrapper-fixed">
                 <h1>Hello world</h1>
               </div>
 
@@ -68,17 +68,17 @@ block documents
 
       :markdown
         This one is probably the easiest to implement of all, because it is
-        default behavior of HTML content. Simply omit the container styling.
+        default behavior of HTML content. Simply omit the wrapper styling.
 
-        To have elements break out of a container (called "bleeding"), just
-        end the container before the bleed content and open it back up afterwards.
+        To have elements break out of a wrapper (called "bleeding"), just
+        end the wrapper before the bleed content and open it back up afterwards.
 
   .document
     article.article.article-full
       :markdown
         ## Fluid-fixed layout
 
-        This layout is the default behavior for a container in Kickstart and
+        This layout is the default behavior for a wrapper in Kickstart and
         combines the best of both worlds.
 
         Instead of constantly resizing to the size of the viewport, a new fixed
@@ -89,28 +89,28 @@ block documents
   .document
     article.article
       :markdown
-        Create a container around your content <span class="if-semantic">and use the mixin
-        <code>container()</code></span><span class="ifnot-semantic">and
-        use the <code>.container</code> class.
+        Create a wrapper around your content <span class="if-semantic">and use the mixin
+        <code>wrapper()</code></span><span class="ifnot-semantic">and
+        use the <code>.wrapper</code> class.
 
     article.code
       .if-semantic
         :markdown
           <span>
 
-              <div class="container">
+              <div class="wrapper">
                 <h1>Hello world</h1>
               </div>
 
-              .container {
-                @include container();
+              .wrapper{
+                @include wrapper();
               }
 
       .ifnot-semantic
         :markdown
           <span>
 
-              <div class="container">
+              <div class="wrapper">
                 <h1>Hello world</h1>
               </div>
 

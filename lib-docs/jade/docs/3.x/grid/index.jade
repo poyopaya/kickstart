@@ -81,7 +81,7 @@ block documents
     article.article
       :markdown
 
-        The **container** is optional. This creates a fixed width container for the
+        The **wrapper** is optional. This creates a fixed width wrapper for the
         grid elements. The fixed width automatically resizes based on screen width.
 
         For more about wrappers, see the example on fixed, fluid, and fixed fluid
@@ -96,7 +96,7 @@ block documents
         :markdown
           <span>
 
-              <div class="container">
+              <div class="wrapper">
                 ...
               </div>
 
@@ -109,7 +109,7 @@ block documents
               </div>
 
               .wrapper {
-                @include container();
+                @include wrapper();
               }
 
   .document
