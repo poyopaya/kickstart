@@ -31,13 +31,13 @@ block content
       h1 #{title}
       form.switches
         .form_group
-          .switch
+          .switch(data-ks-tooltip="Turn on if you're using the Sass mixins" data-ks-tooltip-color="green")
             input#docs-semantic(type="checkbox")
             label(for="docs-semantic")
           | &nbsp;
           span Semantic Sass
         .form_group
-          .switch
+          .switch(data-ks-tooltip="Turn on if you're using jQuery" data-ks-tooltip-position="bottom" data-ks-tooltip-color="green")
             input#docs-jquery(type="checkbox")
             label(for="docs-jquery")
           | &nbsp;
