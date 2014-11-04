@@ -72,22 +72,22 @@ document.addEventListener 'DOMContentLoaded', ->
         {
           title: 'Document Saved.',
           text: 'Your document was successfully saved.'
-          type: 'alert-green'
+          type: 'growl-green'
         },
         {
           title: 'Library book not found'
           text: 'Sorry, we could find that library book.',
-          type: 'alert-red'
+          type: 'growl-red'
         },
         {
           title: 'Wide clearance selection',
           text: 'Remember to check out our clearance',
-          type: 'alert-blue'
+          type: 'growl-blue'
         },
         {
           title: 'Deadline approaching',
           text: 'Friendly reminder that your deadline is quickly approaching.',
-          type: 'alert-yellow'
+          type: 'growl-yellow'
         }
       ]
 

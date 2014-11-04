@@ -5,7 +5,7 @@ growl = (params) ->
       title: undefined
       text: undefined
       delay: 2000
-      type: 'alert-warn'
+      type: 'growl-warn'
       id: Date.now()
 
     params = k$.extend defaults, params
