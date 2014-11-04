@@ -12,15 +12,15 @@ describe 'Status', ->
       type: 'error'
     expect(k$.$$('#status_bar #status_bar-status[data-type="error"]').length).to.be.above(0)
   it 'should disappear via debouncer.', (done) ->
-    this.timeout 2500
+    this.timeout 3500 # Taking into account show/hide animation extensions
     setTimeout ->
       if (k$.$$('#status_bar').length == 0)
         done()
       else
         console.error "Found #{k$.$$('#status_bar').length}"
-    , 2200
+    , 3000
   it 'should dethrottle the hiding of the status bar.', (done) ->
-    this.timeout 3000
+    this.timeout 3500
     k$.status
       text: 'A' # Should disappear after 2000
     

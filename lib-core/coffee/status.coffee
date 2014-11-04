@@ -17,11 +17,10 @@ status = (opts) ->
 
   hideStatusBar = ->
     $statusBar.classList.add 'hide'
-    setTimeout -> 
-      $statusBar.parentNode.removeChild $statusBar
+    setTimeout ->
       $statusBar.classList.remove 'hide'
+      $statusBar.parentNode.removeChild $statusBar
     , 250
-
 
   if status.delay > 0
     k$.debounce hideStatusBar, 'hideStatusBar', status.delay
