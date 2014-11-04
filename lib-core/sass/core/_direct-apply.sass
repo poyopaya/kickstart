@@ -239,7 +239,7 @@ form
     &:before
       transform: rotate(-90deg)
       top: 50%
-      margin-top: -4px
+      margin-top: -6px
       bottom: auto
       left: auto
       right: 100%
@@ -258,7 +258,7 @@ form
     &:before
       transform: rotate(90deg)
       top: 50%
-      margin-top: -4px
+      margin-top: -6px
       margin-left: 4px
       bottom: auto
       left: 100%
@@ -307,13 +307,24 @@ form
       top: auto
       transform: rotate(180deg)
 
+  &.tooltip-left,
+  &.tooltip-right
+    top: 50%
+    margin: 0
+      top: -18px
+    bottom: auto
+
   &.tooltip-left
     right: 100%
     left: auto
+    margin:
+      left: -8px
 
     &:after
       transform: rotate(-90deg)
       left: 100%
+      margin-left: -8px
+      top: 5px
 
   &.tooltip-right
     left: 100%
@@ -326,14 +337,7 @@ form
       margin:
         left: 0
         right: -8px
-
-  &.tooltip-right, &.tooltip-left
-    top: 0
-    bottom: auto
-    margin: 0
-
-    &:after
-      top: 8px
+      top: 5px
 
   &.tooltip-red
     background-color: map-get($colors, red)
