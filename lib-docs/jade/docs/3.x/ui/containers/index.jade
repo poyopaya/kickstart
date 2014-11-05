@@ -45,12 +45,52 @@ block documents
 
   .document
     article.article
+      :markdown
+        ## Colors
+
+      .container.container-blue
+        header New message
+        main Hello world
+        footer All rights reserved
+
+      .ifnot-semantic
+        :markdown
+          To add a color, use the additional `.container-[color]` class
+
+        +available-colors('container')
+
+      .if-semantic
+        :markdown
+          Pass in a value to the `$color` parameter to apply different colors to
+          a container.
+
+    article.code
+      :markdown
+        <span>
+            
+            <div class="container container-blue">
+              <header>New message</header>
+              <main>Hello world</main>
+              <footer>All rights reserved</footer>
+            </div>
+
+      .if-semantic
+        :markdown
+          <span>
+
+              .container.container-blue {
+                @include container(map-get($colors, blue));
+              }
+
+  .document
+    article.article
       :markdown 
-        ## Header
+        ## Subcontainers
+        ### Header
 
       .container
         header New message
-        | Hello world
+        main Hello world
 
     article.code
       :markdown
@@ -58,7 +98,7 @@ block documents
 
             <div class="container">
               <header>New message</header> 
-              Hello World
+              <main>Hello World</body>
             </div>
 
       .if-semantic
@@ -72,10 +112,10 @@ block documents
   .document
     article.article
       :markdown 
-        ## Footer
+        ### Footer
 
       .container
-        | Hello world
+        <main>Hello world</main>
         <footer>&copy; Copyright, all right reserved</footer>
 
     article.code
@@ -83,7 +123,7 @@ block documents
         <span>
 
             <div class="container">
-              Hello World
+              <main>Hello World</main>
               <footer>&copy; Copyright all rights reserved</footer>
             </div>
 
@@ -98,7 +138,7 @@ block documents
   .document
     article.article
       :markdown 
-        ## Left sidebar
+        ### Left sidebar
 
       .container
         aside.right
@@ -136,7 +176,7 @@ block documents
   .document
     article.article
       :markdown 
-        ## Right sidebar
+        ### Right sidebar
 
       .container
         | Hello world

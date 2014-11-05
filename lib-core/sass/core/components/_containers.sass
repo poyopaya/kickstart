@@ -1,5 +1,41 @@
-=container-default
+=container-color-default($color: map-get($white, darker))
+  border-color: $color
+
+  > header, > footer
+    background: $color
+
+    @if lightness($color) > 75%
+      color: map-get($black, lighter)
+    @else
+      color: white
+
+=container-default($color: map-get($white, darker))
   +root-element
+  background: white
+
+  > header, > main, > footer
+    +root-element
+    margin: -1 * map-get($rootElement, paddingV) 
+
+  > header, > footer
+    padding: 
+      left: $space/2
+      right: $space/2
+
+  > header 
+    margin-bottom: map-get($rootElement, paddingV)
+    border-bottom-left-radius: 0px
+    border-bottom-right-radius: 0px
+
+  > main
+    padding: $space/2
+
+  > footer
+    margin-top: map-get($rootElement, paddingV)
+    border-top-left-radius: 0px
+    border-top-right-radius: 0px
+
+  +container-color-default($color)
 
 =thumbnail-content-default($breakpoint: $desktop)
   display: block
