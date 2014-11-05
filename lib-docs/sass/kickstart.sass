@@ -111,6 +111,36 @@
     > li > *:not(ul)
       +button-size($size: 1.2)
 
+// CONTAINERS
+// ----------
+
+.container
+  +container
+
+  &.container-red
+    +container-color(map-get($colors, red))
+
+  &.container-orange
+    +container-color(map-get($colors, orange))
+
+  &.container-yellow
+    +container-color(map-get($colors, yellow))
+
+  &.container-green
+    +container-color(map-get($colors, green))
+
+  &.container-blue
+    +container-color(map-get($colors, blue))
+
+  &.container-violet
+    +container-color(map-get($colors, violet))
+
+  &.container-secondary
+    +container-color($secondary-color)
+
+  &.container-primary
+    +container-color($primary-color)
+
 // FORMS
 // -----
 .form
