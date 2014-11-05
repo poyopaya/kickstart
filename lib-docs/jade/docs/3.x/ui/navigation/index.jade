@@ -133,7 +133,7 @@ block documents
         Active states are great for showing where in the navigation the user currently resides.
         Simply add the `active` class to the `<a>` for menu links, or `<li>` for dropdowns.
 
-      .navbar.sample-dropdown-nav1
+      .navbar(data-ks-navbar)
         nav
           ul
             li: a(href="#") Home
@@ -145,7 +145,7 @@ block documents
                 li: a(href="#") Last year
                 li: a(href="#") Previous years
 
-      .navbar.sample-dropdown-nav2
+      .navbar(data-ks-navbar)
         nav
           ul
             li: a(href="#") Home
@@ -307,10 +307,11 @@ block documents
 
         To create a dropdown, simply nest another `ul` in one of your `li`s.
 
-        Dropdowns require the `k$.nav(el)` function to be called on the bar. `el` is
+        Dropdowns require the `data-ks-navbar` attribute. Optionally, these can
+        be instantiated manually via the `k$.nav(el)` function. `el` is
         the selector for the navbar container.
 
-      .navbar.sample-dropdown-nav3
+      .navbar(data-ks-navbar)
         nav
           ul
             li
@@ -703,9 +704,3 @@ block documents
                 </li>
               </ul>
             </div>
-
-block postDocsJS
-  script.
-    k$.nav('.sample-dropdown-nav1')
-    k$.nav('.sample-dropdown-nav2')
-    k$.nav('.sample-dropdown-nav3')
