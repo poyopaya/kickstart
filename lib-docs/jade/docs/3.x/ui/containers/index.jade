@@ -135,98 +135,145 @@ block documents
                 @include container();
               }
 
+  // .document
+  //   article.article
+  //     :markdown 
+  //       ### Left sidebar
+  //
+  //     .container
+  //       main
+  //         aside.right
+  //           h1 Table of contents
+  //           ul
+  //             li Page one
+  //             li Page two
+  //             li Page three
+  //         | Hello world
+  //
+  //   article.code
+  //     :markdown
+  //       <span>
+  //
+  //           <div class="container">
+  //             Hello World
+  //             <aside>
+  //               <h1>Table of contents</h1>
+  //               <ul>
+  //                 <li>Page 1</li>
+  //                 <li>Page 2</li>
+  //                 <li>Page 3</li>
+  //               </ul>
+  //             </aside>
+  //           </div>
+  //
+  //     .if-semantic
+  //       :markdown
+  //         <span>
+  //
+  //             .container {
+  //               @include container();
+  //             }
+  //
+  // .document
+  //   article.article
+  //     :markdown 
+  //       ### Right sidebar
+  //
+  //     .container
+  //       | Hello world
+  //       aside.right
+  //         h1 Table of contents
+  //         ul
+  //           li Page one
+  //           li Page two
+  //           li Page three
+  //
+  //   article.code
+  //     .ifnot-semantic
+  //       :markdown
+  //         <span>
+  //
+  //             <div class="container">
+  //               Hello World
+  //               <aside class="right">
+  //                 <h1>Table of contents</h1>
+  //                 <ul>
+  //                   <li>Page 1</li>
+  //                   <li>Page 2</li>
+  //                   <li>Page 3</li>
+  //                 </ul>
+  //               </aside>
+  //             </div>
+  //
+  //     .if-semantic
+  //       :markdown
+  //         <span>
+  //
+  //             <div class="container">
+  //               Hello World
+  //               <aside>
+  //                 <h1>Table of contents</h1>
+  //                 <ul>
+  //                   <li>Page 1</li>
+  //                   <li>Page 2</li>
+  //                   <li>Page 3</li>
+  //                 </ul>
+  //               </aside>
+  //             </div>
+  //
+  //             .container {
+  //               @include container();
+  //
+  //               aside {
+  //                 flex-whatever: right;
+  //               }
+  //             }
+
+  // .document
+  //   article.article
+  //     :markdown
+  //       ## Mixing
+  //
+  //   article.code
+  //     :markdown
+  //       <span>
+  //
+  //           // See examples above
+
   .document
-    article.article
-      :markdown 
-        ### Left sidebar
-
-      .container
-        aside.right
-          h1 Table of contents
-          ul
-            li Page one
-            li Page two
-            li Page three
-        | Hello world
-
-    article.code
+    article.article.article-full
       :markdown
-        <span>
-
-            <div class="container">
-              Hello World
-              <aside>
-                <h1>Table of contents</h1>
-                <ul>
-                  <li>Page 1</li>
-                  <li>Page 2</li>
-                  <li>Page 3</li>
-                </ul>
-              </aside>
-            </div>
-
-      .if-semantic
-        :markdown
-          <span>
-
-              .container {
-                @include container();
-              }
-
-  .document
-    article.article
-      :markdown 
-        ### Right sidebar
+        ## With other components
 
       .container
-        | Hello world
-        aside.right
-          h1 Table of contents
-          ul
-            li Page one
-            li Page two
-            li Page three
+        header.navigation
+          nav
+            ul
+              li.navbar-title
+                h1 Edit your profile
 
-    article.code
-      .ifnot-semantic
-        :markdown
-          <span>
+            ul
+              li
+                | More options
+                ul
+                  li: a(href="#") One
+                  li: a(href="#") Two
+                  li: a(href="#") Three
 
-              <div class="container">
-                Hello World
-                <aside class="right">
-                  <h1>Table of contents</h1>
-                  <ul>
-                    <li>Page 1</li>
-                    <li>Page 2</li>
-                    <li>Page 3</li>
-                  </ul>
-                </aside>
-              </div>
+        main
+          .profile
+            img(src="/img/mountains.png" style="width: 150px;height: 150px")
 
-      .if-semantic
-        :markdown
-          <span>
+            article
+              form
+                .form_group
+                  input(type="text" placeholder="Name")
 
-              <div class="container">
-                Hello World
-                <aside>
-                  <h1>Table of contents</h1>
-                  <ul>
-                    <li>Page 1</li>
-                    <li>Page 2</li>
-                    <li>Page 3</li>
-                  </ul>
-                </aside>
-              </div>
+                .form_group
+                  textarea(placeholder="Tell us a bit about yourself.")
 
-              .container {
-                @include container();
-
-                aside {
-                  flex-whatever: right;
-                }
-              }
+        footer
+          button.button.button-primary Save
 
   .document
     article.article.article-full

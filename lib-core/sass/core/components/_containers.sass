@@ -1,7 +1,7 @@
 =container-color-default($color: map-get($white, darker))
   border-color: $color
 
-  > header, > footer
+  header, footer, aside
     background: $color
 
     @if lightness($color) > 75%
@@ -12,25 +12,55 @@
 =container-default($color: map-get($white, darker))
   +root-element
   background: white
+  display: flex
+  flex-direction: column
+  flex-wrap: wrap
 
-  > header, > main, > footer
+  header, main, footer
     +root-element
-    margin: -1 * map-get($rootElement, paddingV) 
+    margin: (-1 * map-get($rootElement, paddingV)) - 1
 
-  > header, > footer
+  header, footer
+    h1
+      +heading-xs
+
+    h2, h3, h4, h5, h6
+      +heading-xxs
+
+    h1, h2, h3, h4, h5, h6
+      margin-top: 0
+
+  header, footer
+    display: flex
+    align-items: center
+    justify-content: space-between
+
     padding: 
       left: $space/2
       right: $space/2
 
-  > header 
+  header 
     margin-bottom: map-get($rootElement, paddingV)
     border-bottom-left-radius: 0px
     border-bottom-right-radius: 0px
 
-  > main
+    h1, h2, h3, h4, h5, h6
+      margin-bottom: 0
+
+      &:first-child
+        margin-top: 0
+
+  main
     padding: $space/2
 
-  > footer
+  main
+    border-radius: 0px
+
+    + main
+      border-top-color: inherit
+      margin-top: 0
+
+  footer
     margin-top: map-get($rootElement, paddingV)
     border-top-left-radius: 0px
     border-top-right-radius: 0px
