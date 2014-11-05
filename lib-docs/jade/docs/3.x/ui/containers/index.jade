@@ -2,7 +2,7 @@ extends ../../_layout
 
 block variables
   - var showFooter = false
-  - var title = "Icons"
+  - var title = "Containers"
 
 block hero-title
   h1 Containers
@@ -14,6 +14,185 @@ block documents
   .document
     article.article.article-full
       :markdown
+        # Generic containers
+        
+        Containers are both simple pieces of UI for organizing content, and part of a
+        core common language for third party components to speak.
+
+  .document
+    article.article
+      :markdown
+        ## Simple container
+
+        The simplest container has a familiar padding used with other components and 
+        rounded borders (varies with theme, of course.)
+
+      .container Hello world
+
+    article.code
+      :markdown
+        <span>
+
+            <div class="container">Hello World</div>
+
+      .if-semantic
+        :markdown
+          <span>
+
+              .container {
+                @include container();
+              }
+
+  .document
+    article.article
+      :markdown 
+        ## Header
+
+      .container
+        header New message
+        | Hello world
+
+    article.code
+      :markdown
+        <span>
+
+            <div class="container">
+              <header>New message</header> 
+              Hello World
+            </div>
+
+      .if-semantic
+        :markdown
+          <span>
+
+              .container {
+                @include container();
+              }
+
+  .document
+    article.article
+      :markdown 
+        ## Footer
+
+      .container
+        | Hello world
+        <footer>&copy; Copyright, all right reserved</footer>
+
+    article.code
+      :markdown
+        <span>
+
+            <div class="container">
+              Hello World
+              <footer>&copy; Copyright all rights reserved</footer>
+            </div>
+
+      .if-semantic
+        :markdown
+          <span>
+
+              .container {
+                @include container();
+              }
+
+  .document
+    article.article
+      :markdown 
+        ## Left sidebar
+
+      .container
+        aside.right
+          h1 Table of contents
+          ul
+            li Page one
+            li Page two
+            li Page three
+        | Hello world
+
+    article.code
+      :markdown
+        <span>
+
+            <div class="container">
+              Hello World
+              <aside>
+                <h1>Table of contents</h1>
+                <ul>
+                  <li>Page 1</li>
+                  <li>Page 2</li>
+                  <li>Page 3</li>
+                </ul>
+              </aside>
+            </div>
+
+      .if-semantic
+        :markdown
+          <span>
+
+              .container {
+                @include container();
+              }
+
+  .document
+    article.article
+      :markdown 
+        ## Right sidebar
+
+      .container
+        | Hello world
+        aside.right
+          h1 Table of contents
+          ul
+            li Page one
+            li Page two
+            li Page three
+
+    article.code
+      .ifnot-semantic
+        :markdown
+          <span>
+
+              <div class="container">
+                Hello World
+                <aside class="right">
+                  <h1>Table of contents</h1>
+                  <ul>
+                    <li>Page 1</li>
+                    <li>Page 2</li>
+                    <li>Page 3</li>
+                  </ul>
+                </aside>
+              </div>
+
+      .if-semantic
+        :markdown
+          <span>
+
+              <div class="container">
+                Hello World
+                <aside>
+                  <h1>Table of contents</h1>
+                  <ul>
+                    <li>Page 1</li>
+                    <li>Page 2</li>
+                    <li>Page 3</li>
+                  </ul>
+                </aside>
+              </div>
+
+              .container {
+                @include container();
+
+                aside {
+                  flex-whatever: right;
+                }
+              }
+
+  .document
+    article.article.article-full
+      :markdown
+        # Images
+
         All images are given some baseline styling to make them work best within content.
         Here are some additional styles that are helpful in getting content and images to live 
         in harmony:
@@ -21,9 +200,9 @@ block documents
   .document
     article.article
       :markdown
-        # Image treatments
+        ## Treatments
 
-        ## Bordered
+        ### Bordered
 
         Bordered images help separate images and their captions from the main content.
         article.code
@@ -51,7 +230,7 @@ block documents
 
   .document
     article.article
-      h1 Thumbnail Content
+      h2 Thumbnail Content
 
       .example
         .thumbnail-content
