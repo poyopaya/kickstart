@@ -77,10 +77,8 @@ h3, h4, h5, h6
           text-align: center
           font-weight: bold
 
-    @media screen and (min-width: $tablet)
-      +p
-
     a
+      +p
       color: map-get($colors, blue)
       margin-bottom: $space/4
       display: block
@@ -129,9 +127,12 @@ h3, h4, h5, h6
 
       @media screen and (min-width: $xl-monitor)
         left: calc(50vw - #{$xl-monitor/2})
+        width: calc(.2 * #{$xl-monitor})
+        right: auto
 
       @media screen and (min-width: $xxl-monitor)
         left: calc(50vw - #{$xxl-monitor/2})
+        width: calc(.2 * #{$xxl-monitor})
 
     .fixed-main
       @media screen and (min-width: $phablet)
