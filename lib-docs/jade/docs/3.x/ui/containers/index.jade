@@ -86,6 +86,10 @@ block documents
     article.article
       :markdown 
         ## Subcontainers
+
+        For subcontainers, simply use the `<header>`, `<main>`, and `<footer>`
+        HTML5 tags.
+
         ### Header
 
       .container
@@ -241,7 +245,7 @@ block documents
   //           // See examples above
 
   .document
-    article.article.article-full
+    article.article
       :markdown
         ## With other components
 
@@ -274,6 +278,45 @@ block documents
 
         footer
           button.button.button-primary Save
+
+    article.code
+      :markdown
+        <span>
+
+            <div class="container">
+              <header class="navigation">
+                <nav>
+                  <ul>
+                    <li class="navbar-title">
+                      <h1>Edit your profile</h1>
+                    </li>
+                  </ul>
+                  <ul>
+                    <li>More options
+                      <ul>
+                        ...
+                      </ul>
+                    </li>
+                  </ul>
+                </nav>
+              </header>
+
+              <main>
+                <!-- See thumbnail content below -->
+              </main>
+
+              <footer>
+                <button class="button button-primary">Save</button>
+              </footer>
+            </div>
+
+      .if-semantic
+        :markdown
+          <span>
+
+              .container { @include container; }
+              .navigation { @include navigation; }
+              .button.button-primary { @include button($primary-color)
 
   .document
     article.article.article-full
