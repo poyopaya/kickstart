@@ -167,6 +167,21 @@ html
 =button-group($args...)
   +button-group-default($args...)
 
+=button-color($args...)
+  +button-color-default($args...)
+
+=button-size($args...)
+  +button-size-default($args...)
+
+// Containers
+// ----------
+
+=container($args...)
+  +container-default($args...)
+
+=container-color($args...)
+  +container-color-default($args...)
+
 // HR
 // --
 
@@ -197,6 +212,9 @@ hr
 =navbar($args...)
   +navbar-default($args...)
 
+=navbar-color($args...)
+  +navbar-color-default($args...)
+
 =dropdown_menu
   +dropdown_menu-default
 
@@ -205,6 +223,18 @@ hr
 
 =table($args...)
   +table-default($args...)
+
+=table-zebra($args...)
+  +table-zebra-default($args...)
+
+=table-hover($args...)
+  +table-hover-default($args...)
+
+=table-bordered($args...)
+  +table-bordered-default($args...)
+
+=table-blank($args...)
+  +table-blank-default($args...)
 
 //
 // Dependent Components
@@ -257,11 +287,9 @@ hr
 =tooltip_trigger
   +tooltip_trigger-default
 
+// Switch
+=switch
+  +switch-default(map-get($colors, blue))
+
 @import core/_direct-apply.sass
 @import vendor/_index
-
-// Switches
-// --------
-
-=switch($args...)
-  +switch-default($args...)
