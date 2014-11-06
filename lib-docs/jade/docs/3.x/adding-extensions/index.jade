@@ -248,6 +248,15 @@ block documents
 
   .document
     article.article.article-full
+      p
+        span.notice Don't edit 3rd party themes
+        |  As git submodules, there is significant risk that changes to a third-party
+        | will be lost, both from your code and from your version control. It's much safer
+        | to override the CSS rules in a separate file in your version control that comes 
+        | after the third-party theme in your import flow.
+
+  .document
+    article.article.article-full
       :markdown
         # Shimming for rails
 
