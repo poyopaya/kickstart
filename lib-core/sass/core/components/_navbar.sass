@@ -191,6 +191,9 @@
         ul
           display: none
 
+        &.menu-item.open ul
+          display: block
+
         &.menu-item // Added via k$.nav()
           padding: (2 * map-get($rootElement, paddingV) - 1) (map-get($rootElement, paddingH))
           cursor: pointer
