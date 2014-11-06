@@ -25,6 +25,7 @@ build-rails:
 	@cp -r lib-docs/rails/lib rails/
 	# @cp -r lib/sass/* rails/app/assets/stylesheets/
 	@rsync -av --exclude-from 'rsync-exclude.txt' lib-core/sass/ rails/app/assets/stylesheets/
+	@cp lib-docs/sass/themes/default/theme.sass lib-core/sass/themes/default/
 	@cp -r public/js/kickstart.js rails/app/assets/javascripts/kickstart_rails
 	@cp lib-docs/rails/Gemfile lib-docs/rails/kickstart_rails.gemspec lib-docs/rails/LICENSE lib-docs/rails/Rakefile lib-docs/rails/README.md rails/
 	@cd rails;gem release
