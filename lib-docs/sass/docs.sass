@@ -9,6 +9,11 @@
 // Basic layout
 // ------------
 
+$footerHeight: 75px
+
+html, body
+  height: 100%
+
 body
   // background-color: map-get($white, darkest)
 
@@ -20,6 +25,8 @@ body
   margin: 0px auto
   display: block
   position: relative
+  margin-bottom: -$footerHeight
+  min-height: 100%
 
   @media screen and (min-width: $xxl-monitor)
     max-width: $xxl-monitor
@@ -48,6 +55,9 @@ body
 
 // Footer
 // ------
+
+footer.main, .push
+  height: $footerHeight
 
 footer.main
   background: darken(map-get($colors, blue), 15%)
