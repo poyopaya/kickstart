@@ -161,7 +161,7 @@
           align-items: center
 
           @media screen and (min-width: $breakpoint)
-            padding: 0 (map-get($rootElement, paddingH))
+            // padding: 0 (map-get($rootElement, paddingH))
 
             > h1, > h2, > h3, > h4, > h5, > h6
               padding: (map-get($rootElement, paddingV) - 1) (map-get($rootElement, paddingH))
@@ -300,6 +300,7 @@
             bottom: (2 * map-get($rootElement, paddingV))
             left: map-get($rootElement, paddingH)
             right: map-get($rootElement, paddingH)
+          line-height: normal
 
   @if ($layout == 'fluid')
     +navbar-fluid($breakpoint)
