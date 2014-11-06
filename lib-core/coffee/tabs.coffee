@@ -1,5 +1,9 @@
 tabs = (el) ->
-  $tabSet = k$.$(el).querySelectorAll('li')
+
+  # Accept both strings and elements.
+  $tabContainer = if typeof el == 'string' then k$.$(el) else el
+
+  $tabSet = $tabContainer.querySelectorAll('li')
   $tab.classList.add('tab-item') for $tab in $tabSet
 
   $paneSet = new Array()

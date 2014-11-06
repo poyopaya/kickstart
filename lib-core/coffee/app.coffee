@@ -14,5 +14,6 @@ k$.ready = ->
   k$.button()
   k$.dropdown()
   k$.nav($navbar) for $navbar in k$.$$('[data-ks-navbar]')
+  k$.tabs($tabSet) for $tabSet in k$.$$('[data-ks-tabs]')
 
 document.addEventListener 'DOMContentLoaded', -> k$.ready()
