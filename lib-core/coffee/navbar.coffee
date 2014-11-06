@@ -1,8 +1,11 @@
 nav = (el) ->
 
+  # Accept both strings and elements.
+  $navbar = if typeof el == 'string' then k$.$(el) else el
+
   try
     # Wire up menu items
-    $menuItems = k$.$(el).querySelectorAll('ul > li')
+    $menuItems = $navbar.querySelectorAll('ul > li')
 
     # Prune items that don't contain uls
     _$menuItems = new Array()
@@ -19,10 +22,10 @@ nav = (el) ->
   catch e
     console.error "Could not instantiate as a nav.", e.message
 
-  $button = k$.$(el).querySelector('.navbar-title button')
+  $button = $navbar.querySelector('.navbar-title button')
   if $button 
     $button.addEventListener 'click', ->
-      $nav = k$.$(el).querySelector('nav')
+      $nav = $navbar.querySelector('nav')
       if $nav.classList.contains 'expand'
         $nav.classList.remove 'expand'
       else

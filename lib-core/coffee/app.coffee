@@ -13,5 +13,6 @@ Dropdown  = require './dropdown'
 k$.ready = ->
   k$.button()
   k$.dropdown()
+  k$.nav($navbar) for $navbar in k$.$$('[data-ks-navbar]')
 
 document.addEventListener 'DOMContentLoaded', -> k$.ready()
