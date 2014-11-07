@@ -8,7 +8,7 @@ var source         = require('vinyl-source-stream');
 gulp.task('docs:browserify', function() {
   var bundler = browserify({
     // Required watchify args
-    cache: {}, packageCache: {}, fullPaths: true,
+    cache: {}, packageCache: {}, fullPaths: false, insertGlobals: false, basedir: './',
     // Specify the entry point of your app
     entries: ['./lib-docs/coffee/app.coffee'],
     // Add file extentions to make optional in your requires
