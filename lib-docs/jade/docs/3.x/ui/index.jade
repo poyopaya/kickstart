@@ -238,29 +238,30 @@ block documents
 
             <button class="button foo button-yellow foo-blue">...</button>
 
-  .document.if-semantic
-    article.article
-      .if-semantic
-        h3.only-semantic Using decoupled modifiers
+  .if-semantic
+    .document
+      article.article
+        .if-semantic
+          h3.only-semantic Using decoupled modifiers
+          :markdown
+            One of the problems you may run into when using the mixins across
+            multiple classes, is getting individual properties to stay separate.
+
+            Consider the following css:
+
+      article.code
         :markdown
-          One of the problems you may run into when using the mixins across
-          multiple classes, is getting individual properties to stay separate.
+          <span>
 
-          Consider the following css:
-
-    article.code
-      :markdown
-        <span>
-
-            .button { 
-              @include button(); 
-            }
-            .button.button-blue {
-              @include button($background-color: map-get($colors, blue));
-            }
-            .button.button-large {
-              @include button($size: 1.3);
-            }
+              .button { 
+                @include button(); 
+              }
+              .button.button-blue {
+                @include button($background-color: map-get($colors, blue));
+              }
+              .button.button-large {
+                @include button($size: 1.3);
+              }
 
   .document
     article.article
@@ -275,25 +276,26 @@ block documents
 
             <button class="button button-blue button-large">Send</button>
 
-  .document.if-semantic
-    article.article
-      :markdown
-        For this reason, most mixins include decoupled sub-mixins to target
-        individual properties.
+  .if-semantic
+    .document
+      article.article
+        :markdown
+          For this reason, most mixins include decoupled sub-mixins to target
+          individual properties.
 
-    article.code
-      :markdown
-        <span>
+      article.code
+        :markdown
+          <span>
 
-            .button { 
-              @include button; 
-            }
-            .button.button-blue {
-              @include button-color(map-get($colors, blue));
-            }
-            .button.button-large {
-              @include button-size(1.3)
-            }
+              .button { 
+                @include button; 
+              }
+              .button.button-blue {
+                @include button-color(map-get($colors, blue));
+              }
+              .button.button-large {
+                @include button-size(1.3)
+              }
 
   .document
     article.article.article-full
