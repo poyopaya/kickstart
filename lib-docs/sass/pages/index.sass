@@ -32,9 +32,10 @@ img
     background-size: $xxl-monitor 100%
 
   svg
-    display: none
+    // display: none
     margin: 0px auto
     max-width: 70%
+    height: 150px
     width: 700px
     fill: white
     max-height: 300px
@@ -43,8 +44,11 @@ img
   .svg-logo-k
     display: block
 
+  .svg-logo
+    display: none
+
   @media screen and (min-width: $tablet)
-    svg
+    .svg-logo
       display: block
 
     .svg-logo-k
