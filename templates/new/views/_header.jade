@@ -19,6 +19,9 @@ div(ng-controller="LoginCtrl")
 						.form-group
 							a.btn.btn-primary#install(href="docs.html#first-steps") Install 
 					ul.navbar-right.nav.navbar-nav
+						li
+							a.twitter-button(href="https://twitter.com/everythingdotio" class="twitter-follow-button" data-show-count="false" data-size="large") Follow @everythingdotio
+							script !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');
 						each menuItem in [{url: '/cart.html', slug:'cart', icon: 'glyphicon-shopping-cart', badge: '3'}, {url: '/messages.html', slug: 'messages', icon: 'glyphicon-envelope', badge: '10'}]
 							li(class=(active === menuItem.slug ? 'active' : ''))
 								a(href=menuItem.url) 
