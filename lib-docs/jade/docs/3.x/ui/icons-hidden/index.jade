@@ -26,7 +26,10 @@ block documents
         You can use any single icon in a single fidelity or show the icon responsively, meaning
         the level of fidelity increases with the space available in the screen.
 
-      a.button.button-primary(href="#") Download Kickstart SVGs
+      p
+        a.button.button-primary(href="#") Download Kickstart SVGs
+
+      p Resize your browser to view the different fidelities.
 
       .row
         each icon in icons
@@ -45,7 +48,8 @@ block documents
         To use the individual SVG files, download them from the Kickstart Store or via
         the button above.
 
-      img.icon(src="/svgs/rg/foo.svg")
+      p
+        img.icon(src="/svgs/rg/foo.svg")
 
     article.code
       :markdown
@@ -67,8 +71,9 @@ block documents
         Keep in mind, when loading several icons from the same definition file, you'll only need
         to make the request once!
 
-      svg.icon
-        use(xlink:href="/svgs/icons-sm.svg#foo")
+      p
+        svg.icon
+          use(xlink:href="/svgs/icons-sm.svg#foo")
 
     article.code
       :markdown
@@ -100,8 +105,9 @@ block documents
         Simply add the id of the icon you wish to use to the `xlink:href` attribute of the
         `<use>` tag.
 
-      svg.icon
-        use(xlink:href="#foo")
+      p
+        svg.icon
+          use(xlink:href="#foo")
 
     article.code
       :markdown
@@ -135,8 +141,9 @@ block documents
         file must be included to shim the svg tag in all browsers. This may cause a microscopic delay
         in the icons displaying.
 
-      svg.icon
-        use(xlink:href="/svgs/icons-responsive.svg#foo")
+      p
+        svg.icon
+          use(xlink:href="/svgs/icons-responsive.svg#foo")
 
     article.code
       :markdown
