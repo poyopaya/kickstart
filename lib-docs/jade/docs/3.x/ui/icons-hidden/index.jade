@@ -3,6 +3,9 @@ extends ../../_layout
 block hero-title
   h1 Icons
 
+block ui-stylesheet
+  link(rel="stylesheet" href="/css/pages/docs/ui/icons.css")
+
 block variables
   - var showFooter = false
   - var title = "Icons"
@@ -21,6 +24,13 @@ block documents
         the level of fidelity increases with the space available in the screen.
 
       a.button.button-primary(href="#") Download Kickstart SVGs
+
+      .row
+        each icon in icons
+          .icon-holder
+            svg.icon
+              use(xlink:href="##{icon}")
+            p= icon
 
   .document
     article.article

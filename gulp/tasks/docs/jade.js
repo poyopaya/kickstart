@@ -1,6 +1,8 @@
 var gulp = require('gulp'),
   jade = require('gulp-jade'),
-  changed = require('gulp-changed')
+  icons = require('../../../docs/icons.js'),
+  changed = require('gulp-changed'),
+  fs = require('fs');
 
 var dest = './docs';
 
@@ -11,7 +13,8 @@ gulp.task('docs:jade', function() {
         locals: {
           currentVersion: '3.0 alpha',
           docsVersion: '3.x',
-          fs: require('fs')
+          fs: fs,
+          icons: icons
         }
       })
     )
