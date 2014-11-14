@@ -32,13 +32,13 @@ block documents
         To use the individual SVG files, download them from the Kickstart Store or via
         the button above.
 
-      img.icon(src="/svgs/rg/cloud.svg")
+      img.icon(src="/svgs/rg/foo.svg")
 
     article.code
       :markdown
         <span>
 
-            <img class="icon" src="/svgs/rg/cloud.svg" />
+            <img class="icon" src="/svgs/rg/foo.svg" />
 
   .document
     article.article
@@ -59,7 +59,7 @@ block documents
         <span>
 
             <svg class="icon">
-              <use xlink:href="/svgs/icons-small.svg#cloud" />
+              <use xlink:href="/svgs/icons-small.svg#foo" />
             </svg>
 
   .document
@@ -85,7 +85,7 @@ block documents
         `<use>` tag.
 
       svg.icon
-        use(xlink:href="#cloud")
+        use(xlink:href="#foo")
 
     article.code
       :markdown
@@ -93,7 +93,7 @@ block documents
 
             <!-- Put the contents of the icons-responsive.svg anywhere in your markup -->
             <svg style="display: none" xmlns="...">
-              <symbol id="cloud">
+              <symbol id="foo">
                 ...
               </symbol>
               ...
@@ -101,7 +101,7 @@ block documents
 
             <!-- Refer to the icon ids wherever you want with this syntax. -->
             <svg class="icon">
-              <use xlink:href="#cloud" />
+              <use xlink:href="#foo" />
             </svg>
 
   .document
@@ -119,10 +119,13 @@ block documents
         file must be included to shim the svg tag in all browsers. This may cause a microscopic delay
         in the icons displaying.
 
+      svg.icon
+        use(xlink:href="/svgs/icons-responsive.svg#foo")
+
     article.code
       :markdown
         <span>
 
             <svg class="icon">
-              <use xlink:href="/svgs/icons-responsive.svg#cloud" />
+              <use xlink:href="/svgs/icons-responsive.svg#foo" />
             </svg>

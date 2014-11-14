@@ -21,7 +21,7 @@ def build
 end
 
 def createIconList
-  File.open("./public/icons.js", "w+") do |f|
+  File.open("./docs/icons.js", "w+") do |f|
     f.puts "var icons = #{@svg_names.to_json}"
     f.puts "\n"
     f.puts "module.exports = icons;"
@@ -30,7 +30,7 @@ end
 
 def createResponsiveSVG
   # Write to responsive svg file
-  File.open("./public/svgs/icons-responsive.svg", "w+") do |f|
+  File.open("./docs/svgs/icons-responsive.svg", "w+") do |f|
     f.truncate 0
     f.puts "<svg xmlns=\"http://www.w3.org/2000/svg\" style=\"display: none\">\n"
     @svg_names.each do |svg_name|
@@ -47,7 +47,7 @@ def createResponsiveSVG
 end
 
 def createSingleFidelitySVG(fidelity = 'sm')
-  File.open("./public/svgs/icons-#{fidelity}.svg", "w+") do |f|
+  File.open("./docs/svgs/icons-#{fidelity}.svg", "w+") do |f|
     f.truncate 0
     f.puts "<svg xmlns=\"http://www.w3.org/2000/svg\" style=\"display: none\">\n"
     @svg_names.each do |svg_name|
