@@ -1,0 +1,128 @@
+extends ../../_layout
+
+block hero-title
+  h1 Icons
+
+block variables
+  - var showFooter = false
+  - var title = "Icons"
+
+block documents
+  .document
+    article.article.article-full
+      :markdown
+        # SVG Icons from PixelBuddha
+
+        [PixelBuddha](http://pixelbuddha.net) has designed a free set of responsive SVG
+        icons specifically for Kickstart. This has also been made available as a [standalone open source repository](http://todo.example.com)
+
+        Each icon is available in three different levels of fidelity (meaning "level of detail").
+        You can use any single icon in a single fidelity or show the icon responsively, meaning
+        the level of fidelity increases with the space available in the screen.
+
+      a.button.button-primary(href="#") Download Kickstart SVGs
+
+  .document
+    article.article
+      :markdown
+        ## Use a single fidelity
+
+        Icons come in the fidelities Small, Regular, and Large.
+
+        To use the individual SVG files, download them from the Kickstart Store or via
+        the button above.
+
+      img.icon(src="/svgs/rg/cloud.svg")
+
+    article.code
+      :markdown
+        <span>
+
+            <img class="icon" src="/svgs/rg/cloud.svg" />
+
+  .document
+    article.article
+      :markdown 
+        ### Use linked SVG definition
+
+        Img tags aren't ideal when using multiple icons on a page because it adds to the number
+        of HTTP requests needed to display the entire page.
+
+        As an alternative, link to the definition file for the fidelity size you want and add the icon
+        id as an anchor to the end of the url.
+
+        Keep in mind, when loading several icons from the same definition file, you'll only need
+        to make the request once!
+
+    article.code
+      :markdown
+        <span>
+
+            <svg class="icon">
+              <use xlink:href="/svgs/icons-small.svg#cloud" />
+            </svg>
+
+  .document
+    article.article.article-full
+      :markdown
+        ## Use responsive icons
+
+        Responsive icons vary in level of fidelity based on the width of the screen. There are several 
+        ways to load these. All of which work with IE, Chrome, Firefox, and Safari and preserve cacheability.
+
+  .document
+    article.article
+      :markdown
+        #### Inline SVG definition
+
+        This method requires you to [add the contents](#) of `icons-responsive.svg` to your HTML file
+        in which you intend to use the icon or icons.
+
+        This requires no extra HTTP request for the icon but adds a lot of markup
+        to your HTML file, causing it to take slightly longer to download.
+
+        Simply add the id of the icon you wish to use to the `xlink:href` attribute of the
+        `<use>` tag.
+
+      svg.icon
+        use(xlink:href="#cloud")
+
+    article.code
+      :markdown
+        <span>
+
+            <!-- Put the contents of the icons-responsive.svg anywhere in your markup -->
+            <svg style="display: none" xmlns="...">
+              <symbol id="cloud">
+                ...
+              </symbol>
+              ...
+            </svg>
+
+            <!-- Refer to the icon ids wherever you want with this syntax. -->
+            <svg class="icon">
+              <use xlink:href="#cloud" />
+            </svg>
+
+  .document
+    article.article
+      :markdown 
+        ### Use linked SVG definition
+
+        This method is identical to what we did with the single fidelity icon above, however
+        there are important performance considerations to make here.
+
+        By linking directly to the svg definition file, we only need to make one HTTP request
+        and we don't add a lot of markup to the HTML file.
+
+        However, in order to get the responsive classes to work correctly, the kickstart.js
+        file must be included to shim the svg tag in all browsers. This may cause a microscopic delay
+        in the icons displaying.
+
+    article.code
+      :markdown
+        <span>
+
+            <svg class="icon">
+              <use xlink:href="/svgs/icons-responsive.svg#cloud" />
+            </svg>

@@ -1,4 +1,10 @@
 build:
+	@make build-icons
+	@make build-default
+	@make build-rails
+	@make build-node
+
+build-default:
 	@echo "Getting latest..."
 	@git pull
 	
@@ -26,7 +32,7 @@ build-rails:
 	# @cp -r lib/sass/* rails/app/assets/stylesheets/
 	@rsync -av --exclude-from 'rsync-exclude.txt' lib-core/sass/ rails/app/assets/stylesheets/
 	@cp lib-docs/sass/themes/default/theme.sass lib-core/sass/themes/default/
-	@cp -r public/js/kickstart.js rails/app/assets/javascripts/kickstart_rails
+	@cp public/js/kickstart.js rails/app/assets/javascripts/kickstart_rails
 	@cp lib-docs/rails/Gemfile lib-docs/rails/kickstart_rails.gemspec lib-docs/rails/LICENSE lib-docs/rails/Rakefile lib-docs/rails/README.md rails/
 	@cd rails;gem release
 
@@ -34,10 +40,11 @@ build-node:
 	@npm version patch
 	@npm publish
 
-build-all:
-	@make
-	@make build-rails
-	@make build-node
+build-icons:
+	@mkdir -p public
+	@mkdir -p public/svgs
+	@echo "Generating SVGs"
+	@./build.rb
 
 setup:
 	@sudo npm install -g gulp
