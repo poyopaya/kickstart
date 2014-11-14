@@ -10,6 +10,6 @@ gulp.task('docs:icons', function() {
 
   dest = './docs/svgs/';
 
-  return gulp.src('./lib/svgs/**/*')
+  return gulp.src('./lib-core/svgs/**/*')
     .pipe(gulp.dest(dest));
 });
