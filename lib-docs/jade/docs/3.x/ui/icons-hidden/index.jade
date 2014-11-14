@@ -67,12 +67,15 @@ block documents
         Keep in mind, when loading several icons from the same definition file, you'll only need
         to make the request once!
 
+      svg.icon
+        use(xlink:href="/svgs/icons-sm.svg#foo")
+
     article.code
       :markdown
         <span>
 
             <svg class="icon">
-              <use xlink:href="/svgs/icons-small.svg#foo" />
+              <use xlink:href="/svgs/icons-sm.svg#foo" />
             </svg>
 
   .document

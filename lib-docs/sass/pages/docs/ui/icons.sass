@@ -1,0 +1,23 @@
+@import ../../chosen-theme
+
+svg.icon
+  +icon
+
+.row
+  +row
+
+.icon-holder
+  +column('third')
+  margin: $space/4 0
+
+  svg
+    display: inline-block
+    vertical-align: middle
+
+  p
+    margin-bottom: 0
+    vertical-align: middle
+    display: inline-block
+
+  @media screen and (min-width: $desktop)
+    +column(3)
