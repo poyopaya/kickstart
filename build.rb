@@ -67,9 +67,10 @@ def addPathsToFile(f, dir = nil, className = nil, responsive = false)
       line = line.gsub %r{<svg([^<]+)>}, ''
       line = line.gsub '</svg>', ''
       if responsive
-        line = line.gsub 'path fill', "path class=\"#{dir}\" fill"
-        line = line.gsub 'g fill', "g class=\"#{dir}\" fill"
-        line = line.gsub 'rect fill', "rect class=\"#{dir}\" fill"
+        line = line.gsub '<path ', "<path class=\"#{dir}\" "
+        line = line.gsub '<g ', "<g class=\"#{dir}\" "
+        line = line.gsub '<rect ', "<rect class=\"#{dir}\" "
+        line = line.gsub '<polygon ', "<polygon class=\"#{dir}\" "
       end
       f.puts "    #{line}"
     end
