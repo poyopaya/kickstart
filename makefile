@@ -47,6 +47,8 @@ build-icons:
 	@./build.rb
 
 setup:
+	@make build-icons
 	@sudo npm install -g gulp
 	@sudo npm install
 	@bundle install
+	@make build-default
