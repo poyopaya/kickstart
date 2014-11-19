@@ -13,7 +13,7 @@ Kickstart is a modern front-end framework for clean HTML and fast performance
 
 ## Quickstart with Gulp
 
-Clone the repository and run `make` in the directory created. This is only required when starting the project.
+Clone the repository and run `make setup` in the directory created. This is only required when starting the project.
 
 Run gulp to again build and watch the project. A browser tab should open in your
 default browser automatically when ready. You'll also get an external URL you
