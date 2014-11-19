@@ -14,6 +14,28 @@ block documents
   .document
     article.article
       h1 Barebones
+      h2 Head code
+
+      :markdown
+        In order to serve your site responsively, and with good SEO practice, I recommend
+        adding the following to your `<head>`
+
+        See [this article](http://css-tricks.com/snippets/html/responsive-meta-tag/) for
+        more information on building a responsive HTML meta tag.
+
+    article.code
+      :markdown
+        <span>
+
+            <!DOCTYPE HTML>
+            <html>
+              <head>
+                <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+                <meta name="viewport" content="width=device-width, initial-scale=1">
+              </head>
+
+  .document
+    article.article
       h2 JS/CSS
 
       :markdown
