@@ -42,6 +42,7 @@ block documents
     article.article
       :markdown
         ## Use a single fidelity
+        ### Link directly
 
         Icons come in the fidelities Small, Regular, and Large.
 
@@ -60,13 +61,14 @@ block documents
   .document
     article.article
       :markdown 
-        ### Use linked SVG definition
+        ### Use a "sprite"
 
         Img tags aren't ideal when using multiple icons on a page because it adds to the number
         of HTTP requests needed to display the entire page.
 
         As an alternative, link to the definition file for the fidelity size you want and add the icon
-        id as an anchor to the end of the url.
+        id as an anchor to the end of the url. This has the same performance effect as using an image
+        sprite.
 
         Keep in mind, when loading several icons from the same definition file, you'll only need
         to make the request once!
