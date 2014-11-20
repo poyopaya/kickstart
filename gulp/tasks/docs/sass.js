@@ -1,10 +1,13 @@
 var gulp       = require('gulp'),
   sass         = require('gulp-ruby-sass'),
   browserSync  = require('browser-sync'),
+  changed      = require('gulp-cached'),
   prefix        = require('gulp-autoprefixer');
 
 gulp.task('docs:sass', ['docs:images'], function() {
+  var dest = './docs/css'
   return gulp.src(['lib-docs/sass/**/*.{sass, scss}', '!lib-docs/sass/vendor', '!lib-docs/sass/vendor/**'])
+    .pipe(changed(dest))
     .pipe(sass({
       sourcemapPath: process.cwd() + './lib-docs/sass',
       loadPath: [
@@ -13,5 +16,5 @@ gulp.task('docs:sass', ['docs:images'], function() {
       ]
     }))
     .pipe(prefix('last 2 versions'))
-    .pipe(gulp.dest('./docs/css'));
+    .pipe(gulp.dest(dest));
 });

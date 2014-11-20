@@ -1,6 +1,6 @@
 var gulp = require('gulp'),
   jade = require('gulp-jade'),
-  changed = require('gulp-changed'),
+  changed = require('gulp-cached'),
   browserSync  = require('browser-sync');
 
 var dest = './public';
