@@ -51,6 +51,8 @@ block documents
 
       p
         img.icon(src="/svgs/rg/foo.svg")
+        img.icon(src="/svgs/rg/bar.svg")
+        img.icon(src="/svgs/rg/fizz.svg")
 
     article.code
       :markdown
@@ -76,12 +78,16 @@ block documents
       p
         svg.icon
           use(xlink:href="/svgs/icons-sm.svg#foo")
+        svg.icon
+          use(xlink:href="/svgs/icons-sm.svg#bar")
+        svg.icon
+          use(xlink:href="/svgs/icons-sm.svg#fizz")
 
     article.code
       :markdown
         <span>
 
-            <svg class="icon">
+            <svg class="icon" data-ks-svg="/svgs/icons-sm.svg#foo">
               <use xlink:href="/svgs/icons-sm.svg#foo" />
             </svg>
 
@@ -96,7 +102,7 @@ block documents
   .document
     article.article
       :markdown
-        #### Inline SVG definition
+        #### Method 1: Inline SVG definition
 
         This method requires you to [add the contents](#) of `icons-responsive.svg` to your HTML file
         in which you intend to use the icon or icons.
@@ -110,6 +116,10 @@ block documents
       p
         svg.icon
           use(xlink:href="#foo")
+        svg.icon
+          use(xlink:href="#bar")
+        svg.icon
+          use(xlink:href="#fizz")
 
     article.code
       :markdown
@@ -131,7 +141,7 @@ block documents
   .document
     article.article
       :markdown 
-        ### Use linked SVG definition
+        #### Method 2: Use linked SVG definition
 
         This method is identical to what we did with the single fidelity icon above, however
         there are important performance considerations to make here.
@@ -146,6 +156,10 @@ block documents
       p
         svg.icon
           use(xlink:href="/svgs/icons-responsive.svg#foo")
+        svg.icon
+          use(xlink:href="/svgs/icons-responsive.svg#bar")
+        svg.icon
+          use(xlink:href="/svgs/icons-responsive.svg#fizz")
 
     article.code
       :markdown
