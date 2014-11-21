@@ -3,15 +3,18 @@
 var gulp = require('gulp'),
   rename = require('gulp-rename'),
   minify = require('gulp-minify-css'),
+  changed = require('gulp-cached'),
   uglify = require('gulp-uglify');
 
 gulp.task('minify', ['coffee', 'browserify', 'sass'], function() {
+  var dest = './public/js/';
   gulp.src(['./public/js/**/*.js', '!./public/js/**/*.min.js'])
+    .pipe(changed(dest))
     .pipe(uglify())
     .pipe(rename(function(path) {
       path.basename += ".min"
     }))
-    .pipe(gulp.dest('./public/js/'));
+    .pipe(gulp.dest(dest));
 
   gulp.src(['./public/css/**/*.css', '!./public/css/**/*.min.css'])
     .pipe(minify())

@@ -2,6 +2,7 @@ var gulp       = require('gulp'),
   sass         = require('gulp-ruby-sass'),
   browserSync  = require('browser-sync'),
   changed      = require('gulp-cached'),
+  purge         = require('gulp-css-purge'),
   prefix        = require('gulp-autoprefixer');
 
 gulp.task('sass', ['images'], function() {
@@ -16,5 +17,6 @@ gulp.task('sass', ['images'], function() {
       ]
     }))
     .pipe(prefix('last 2 versions'))
+    .pipe(purge())
     .pipe(gulp.dest(dest));
 });
