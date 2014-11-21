@@ -27,7 +27,7 @@
         border: 0px
 
         a:not([role=button])
-          +button-default
+          +button-size-default(1)
           display: block
           margin-bottom: 0
           border-radius: 0
@@ -39,6 +39,7 @@
             border-color: map-get($white, dark)
             background: map-get($white, dark)
             box-shadow: none
+            text-decoration: none
 
           &:active
             border-color: map-get($white, darker)
