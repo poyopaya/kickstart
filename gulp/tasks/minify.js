@@ -16,12 +16,14 @@ gulp.task('minify', ['coffee', 'browserify', 'sass'], function() {
     }))
     .pipe(gulp.dest(dest));
 
+  var dest = './public/css/';
   gulp.src(['./public/css/**/*.css', '!./public/css/**/*.min.css'])
+    .pipe(changed(dest))
     .pipe(minify())
     .pipe(rename(
       function(path) {
         path.basename += ".min"
       }
     ))
-    .pipe(gulp.dest('./public/css/'));
+    .pipe(gulp.dest(dest));
 })
