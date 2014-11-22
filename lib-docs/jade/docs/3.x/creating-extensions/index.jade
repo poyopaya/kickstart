@@ -1,0 +1,17 @@
+extends ../_layout
+
+block hero-title
+  h1 Adding Extensions
+
+block variables
+  - var showFooter = false
+  - var title = "Creating Extensions"
+
+block subMenuVars
+  - var subMenuItem = "getstarted"
+
+block documents
+  .document
+    article.article.article-full
+      :markdown 
+        # How to create an extension

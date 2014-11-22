@@ -15,12 +15,35 @@ block documents
     article.article
       .ifnot-semantic
         .alert
-          h1 Please note
+          h1.toc-exempt Please note
           p 
             | You have indicated you are not using Semantic Sass for your project.
             | This means you will not be able to edit theme files, as they will
             | be baked into the CSS file.
 
+      :markdown
+        # How to select a theme
+
+        Kickstart only requires you to import one single sass file to use the library
+        (The CSS portion, anyway.) This one file is your chosen theme!
+
+        To switch themes, you'll need to find this `@import` and make it point to the
+        theme you'd like to use.
+
+        If using a clone of the repository, you can find this in style.sass. If using
+         Rails, this can be found in application.css.sass. See [shimming for Rails](/docs/#{docsVersion}/adding-extensions/#shimming-for-rails)
+         for more information
+
+    article.code
+      :markdown
+        <span>
+
+            // Change "default" to the theme you wish to use. This must be
+            // In your themes directory.
+            @import themes/default/theme
+
+  .document
+    article.article
       :markdown
         # Anatomy of a theme
 
