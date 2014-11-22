@@ -236,7 +236,14 @@ block documents
       :markdown
         <span>
 
-            $(~) git clone git@github.com:ajkochanowicz/kickstart.git --depth 1
+            $(~) git clone git@github.com:ajkochanowicz/kickstart.git mywebsite --depth 1
+
+            # Install the dependencies
+            $(~) cd mywebsite
+            $(mywebsite) sudo npm install -g gulp && npm install . && bundle
+
+            # If all goes well, this should launch your project.
+            $(mywebsite) gulp
 
   .document
     article.article
