@@ -107,7 +107,7 @@ block documents
   .document
     article.article
       :markdown
-        Let's create an extension with the name "foo-extension"
+        Let's create an extension with the name "status-text"
 
         You should then see this directory created alongside the `switch` extension.
 
@@ -115,10 +115,10 @@ block documents
       :markdown
         <span>
 
-            $(vendor) git init foo-extension
+            $(vendor) git init status-text
 
             $(vendor) ls
-            _index.sass switch foo-extension
+            _index.sass switch status-text
 
   .document
     article.article
@@ -139,7 +139,7 @@ block documents
 
             // e.g. @import datepicker
             @import switch/switch
-            @import foo-extension/index.sass
+            @import status-text/index.sass
 
             body
               display: inherit
@@ -147,25 +147,25 @@ block documents
   .document
     article.article
       :markdown
-        Now we just need to add that "index.sass" in foo-extension.
+        Now we just need to add that "index.sass" in status-text.
 
-        `cd` into foo-extension and create it. For now, it doesn't 
+        `cd` into status-text and create it. For now, it doesn't 
         need to create anything. It just needs to exist.
 
     article.code
       :markdown
         <span>
 
-            $(vendor) cd foo-extension && touch index.sass
+            $(vendor) cd status-text && touch index.sass
 
   .document
-    article.article.article-full
+    article.article
       :markdown
         ### Save extension on GitHub
 
         Now let's save this extension as its own standalone GitHub repo.
         This will allow users to install it as a submodule without getting
-        any of the code above your `foo-extension` directory.
+        any of the code above your `status-text` directory.
 
         A great way to do this is to simply create a new repo on GitHub 
         without a license or readme, and follow the "Push an existing repository"
@@ -177,13 +177,22 @@ block documents
 
         Extensionless files create issues in your Rails end users
 
+    article.code
+      :markdown
+        <span>
+
+            $(status-text) git init
+            $(status-text) git add -A .
+            $(status-text) git commit -am "Starting my new extension"
+            # Now you can push this up to Github.
+
   .document
     article.article.article-full
       :markdown
         ### Start coding
 
         You're now fully setup to write the code for your extension.
-        Anything you write to `foo-extension/index.sass` will be availble
+        Anything you write to `status-text/index.sass` will be availble
         to your end user.
 
         Let's write some code in index.sass to get started.
@@ -191,27 +200,56 @@ block documents
   .document
     article.article
       :markdown
-        In this example, foo-extension will be a sass mixin that
+        In this example, status-text will be a sass mixin that
         uses the colors defined in the user's Kickstart theme and applies them
         to text.
 
-        Let's create the mixin that does that. We'll also leave the user with
-        some documentation in `foo-extension` that helps them get set up.
+        We'll let them use the keywords "good," "okay," and "bad" to denote
+        the status.
+
+        Let's create the mixin that does that.
 
     article.code
       :markdown
         <span>
 
-            // In foo-extension/index.sass
+            // In status-text/index.sass
 
             =status-text($type: 'good')
-              color: $color
+              @if $type == 'good'
+                color: map-get($colors, green)
 
-            // In foo-extension/README.md
+              @if $type == 'okay'
+                color: map-get($colors, yellow)
 
-            # STATUS TEXT
+              @if $type == 'bad'
+                color: map-get($colors, red)
 
-            Status text applies Kickstart colors to text.
+  .document
+    article.article
+      :markdown
+        At this point, the end user can easily just use your
+        extension in their project as such:
 
-            After @importing foo-extension/index.sass to your vendor/_index.sass
-            file, use the status-text mixin in your sass files.
+        Of course, this is too simple an extension to be useful, but
+        with the entire core of Kickstart at your disposal, you can
+        build it out to do much more.
+
+    article.code
+      :markdown
+        <span>
+
+            // In lib/sass/style.sass
+            
+            @import themes/default/theme
+
+            // Write your styles here.
+
+            p.stable
+              +status-text('good')
+
+            p.error
+              +status-text('bad')
+
+            p.warning
+              +status-text('okay')
