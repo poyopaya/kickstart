@@ -263,11 +263,34 @@ block documents
   .document
     article.article
       :markdown
+        At this point, it may be helpful to read about the [anatomy of a theme](/docs/#{docsVersion}/theming/#anatomy-of-a-theme)
+        to understand how a theme works in Kickstart.
+
+        If you understand that, getting started writing your own theme should be
+          straightforward.
+
+        Before you start, however, you should probably change your project theme
+        to the new one you're now creating. Open `lib/style.sass` and change the `@import`
+        to point to your new theme.
+
+    article.code
+      :markdown
+        <span>
+
+            // lib/sass/style.sass
+
+            @import themes/dark/theme
+
+            // Write your styles here.
+
+  .document
+    article.article
+      :markdown
         ## Save extension on GitHub
 
         Now let's save this extension as its own standalone GitHub repo.
         This will allow users to install it as a submodule without getting
-        any of the code above your `status-text` directory.
+        any of the code above the directory where your extension lives.
 
         A great way to do this is to simply create a new repo on GitHub 
         without a license or readme, and follow the "Push an existing repository"
@@ -286,5 +309,10 @@ block documents
             $(status-text) git init
             $(status-text) git add -A .
             $(status-text) git commit -am "Starting my new extension"
+            # Now you can push this up to Github.
+
+            $(dark) git init
+            $(dark) git add -A .
+            $(dark) git commit -am "Starting new theme"
             # Now you can push this up to Github.
 
