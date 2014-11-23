@@ -11,7 +11,7 @@ Kickstart is a modern front-end framework for clean HTML and fast performance
 
 [![Code Climate](https://codeclimate.com/github/ajkochanowicz/Kickstrap/badges/gpa.svg)](https://codeclimate.com/github/ajkochanowicz/Kickstrap)
 
-## Quickstart with Gulp
+## Quickstart with Gulp 
 
 Clone the repository and run `make setup` in the directory created. This is only required when starting the project.
 
