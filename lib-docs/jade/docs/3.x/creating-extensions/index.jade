@@ -56,7 +56,7 @@ block documents
         <span>
 
             # Create a "My Extensions" directory and cd into it.
-            $(~) git clone git@github.com:ajkochanowicz/kickstart.git myextensions --depth 1 && cd myextensions
+            $(~) git clone git@github.com:ajkochanowicz/kickstart.git myextensions && cd myextensions
 
   .document
     article.article
@@ -67,7 +67,7 @@ block documents
       :markdown
         <span>
 
-            $(myextensions) sudo npm install -g gulp && npm install . && bundle && make
+            $(myextensions) sudo npm install -g gulp && sudo npm install . && bundle && make
 
   .document
     article.article
