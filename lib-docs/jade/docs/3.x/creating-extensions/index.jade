@@ -27,6 +27,9 @@ block documents
         As Kickstart is maintained primarily as a Gulp project, this guide will
         show you how to make extensions by cloning Kickstart itself.
 
+        Because of there is some overlap, this guide documents how to create both 
+        a component and a theme.
+
     article.code
       :markdown
         <span>
@@ -89,7 +92,9 @@ block documents
 
         You can now use the following steps for your first and every new extension you wish to create.
 
-        Take a look in the `lib/sass/vendor` directory. This is where you'll create your first
+        ### Components
+
+        For **components**, take a look in the `lib/sass/vendor` directory. This is where you'll create your first
         extension. You should see there is already an extension there called "switch."
 
         You're welcome to simply copy and rename this extension if you need inspiration. Otherwise,
@@ -159,37 +164,9 @@ block documents
             $(vendor) cd status-text && touch index.sass
 
   .document
-    article.article
-      :markdown
-        ### Save extension on GitHub
-
-        Now let's save this extension as its own standalone GitHub repo.
-        This will allow users to install it as a submodule without getting
-        any of the code above your `status-text` directory.
-
-        A great way to do this is to simply create a new repo on GitHub 
-        without a license or readme, and follow the "Push an existing repository"
-        instructions.
-
-        <span class="notice">Beware of extensionless files</span> Please
-        avoid using files that do not have extensions. For example, `LICENSE`
-        should be renamed to `LICENSE.md`
-
-        Extensionless files create issues in your Rails end users
-
-    article.code
-      :markdown
-        <span>
-
-            $(status-text) git init
-            $(status-text) git add -A .
-            $(status-text) git commit -am "Starting my new extension"
-            # Now you can push this up to Github.
-
-  .document
     article.article.article-full
       :markdown
-        ### Start coding
+        #### Start coding
 
         You're now fully setup to write the code for your extension.
         Anything you write to `status-text/index.sass` will be availble
@@ -253,3 +230,61 @@ block documents
 
             p.warning
               +status-text('okay')
+
+  .document
+    article.article
+      :markdown
+        ### Themes
+
+        For **themes**, look in `lib/sass/themes/`. There you'll see a directory called "default"
+          and a sass file called theme.sass.
+
+        If you look at theme.sass, you'll notice the content is unremarkable. To reduce
+          code duplication, we've just routed it to the default theme from kickstart-core.
+
+        To create your theme, you'll want to have a directory with your theme's name
+        next to the "default" directory. In that directory you'll also want a `theme.sass`
+        file.
+
+        But to do this, we should really start out with the default theme and evolve it into
+        something new. Let's copy the default theme from the core and add it to your theme
+        directory in lib.
+
+    article.code
+      :markdown
+        <span>
+
+            # In this example, our theme will be called "Dark"
+            $(myextensions) mkdir lib/sass/themes/dark
+
+            # Copy the core theme into "dark"
+            $(myextensions) cp lib-core/sass/themes/default/theme.sass lib/sass/themes/dark/
+
+  .document
+    article.article
+      :markdown
+        ## Save extension on GitHub
+
+        Now let's save this extension as its own standalone GitHub repo.
+        This will allow users to install it as a submodule without getting
+        any of the code above your `status-text` directory.
+
+        A great way to do this is to simply create a new repo on GitHub 
+        without a license or readme, and follow the "Push an existing repository"
+        instructions.
+
+        <span class="notice">Beware of extensionless files</span> Please
+        avoid using files that do not have extensions. For example, `LICENSE`
+        should be renamed to `LICENSE.md`
+
+        Extensionless files create issues in your Rails end users
+
+    article.code
+      :markdown
+        <span>
+
+            $(status-text) git init
+            $(status-text) git add -A .
+            $(status-text) git commit -am "Starting my new extension"
+            # Now you can push this up to Github.
+
