@@ -110,9 +110,24 @@ block documents
             drwxr-xr-x  switch
 
   .document
-    article.article
+    article.article.article-full
       :markdown
         Let's create an extension with the name "status-text"
+
+        Because submodules are inherently remote repositories, we need to actually create
+        repository in GitHub first.
+
+        Create a new repo in GitHub and initiate with a README.md file. In this example,
+        we'll say we created a repo called "status-text"
+
+  .document
+    article.article
+      :markdown
+        Now that you have your `status-text` repo, you'll need to add it as a submodule
+        in your project.
+
+        <span class="notice">Don't clone!</p> It's tempting to just `git clone` your repo, here,
+        but you won't be able to maintain it as easily from within your project.
 
         You should then see this directory created alongside the `switch` extension.
 
@@ -120,10 +135,10 @@ block documents
       :markdown
         <span>
 
-            $(vendor) git init status-text
+            $(vendor) git submodule add git@github.com:mygithubaccount/status-text.git
 
             $(vendor) ls
-            _index.sass switch status-text
+            switch status-text _index.sass
 
   .document
     article.article
