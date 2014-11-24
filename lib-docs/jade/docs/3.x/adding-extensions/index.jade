@@ -34,13 +34,14 @@ block documents
       :markdown
         ## Adding submodules
 
-        All submodules should be installed *at the same level as core/*
-
         On the [Kickstart Store](http://kickstart.everything.io), each extension has a submodule creation
         command that should look something like the code you see here.
 
         Running this in the terminal will create a folder (in this case "switch") and will download the
         contents of the repo much like `git clone`.
+
+        For components, you'll want to add submodules to your vendor directory. Themes should be added
+          to the themes directory.
 
     article.code
       :markdown
