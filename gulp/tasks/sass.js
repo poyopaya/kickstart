@@ -13,6 +13,7 @@ gulp.task('sass', ['images'], function() {
       sourcemapPath: process.cwd() + './lib/sass',
       loadPath: [
         process.cwd() + '/lib/sass',
+        process.cwd() + '/lib/sass/vendor',
         process.cwd() + '/lib-core/sass'
       ]
     }))
