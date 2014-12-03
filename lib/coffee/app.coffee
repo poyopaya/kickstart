@@ -1,4 +1,4 @@
-KS        = require '../../lib-core/coffee/ks'
+KS        = require '../../lib-core/coffee/app'
 myScript  = require './myscript'
 
 document.addEventListener 'DOMContentLoaded', ->
