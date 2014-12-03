@@ -8,10 +8,11 @@
         | Get Started
         ul
           li: a(href="/docs/#{docsVersion}") Quickstart
-          li: a(href="/docs/#{docsVersion}/theming/") Theming
-          li: a(href="/docs/#{docsVersion}/grid/") Grid
           li: a(href="/docs/#{docsVersion}/ui/") Layout and CSS
+          li: a(href="/docs/#{docsVersion}/grid/") Grid
+          li: a(href="/docs/#{docsVersion}/theming/") Theming
           li: a(href="/docs/#{docsVersion}/adding-extensions/") Adding extensions
+          li: a(href="/docs/#{docsVersion}/creating-extensions/") Creating extensions
       li(class="#{subMenuItem == 'components' ? 'active' : ''}")
         | Components
         ul
@@ -28,6 +29,8 @@
           li: a(href="/docs/#{docsVersion}/ui/tabs") Tabs
           li: a(href="/docs/#{docsVersion}/ui/tooltips") Tooltips
           li: a(href="/docs/#{docsVersion}/ui/typography") Typography
+          li: a(href="http://kickstart.everything.io/components") More...
+
       li(class="#{subMenuItem == 'functions' ? 'active' : ''}")
         | Functions
         ul

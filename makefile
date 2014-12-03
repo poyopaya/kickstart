@@ -1,4 +1,5 @@
 build:
+	@git submodule update --init --recursive
 	@make build-icons
 	@make build-default
 	@make build-rails

@@ -26,21 +26,22 @@ block documents
 
       p
         span.notice Rails users
-        |  Using third-party components/themes is optional, but you'll need to add the Rails shim to do
-        | so. See "Shimming rails" below before doing anything else.
+        |  Using third-party components/themes is optional, but you'll need to do a few things
+        | first. See "Shimming rails" below before doing anything else.
 
   .document
     article.article
       :markdown
         ## Adding submodules
 
-        All submodules should be installed *at the same level as core/*
-
         On the [Kickstart Store](http://kickstart.everything.io), each extension has a submodule creation
         command that should look something like the code you see here.
 
         Running this in the terminal will create a folder (in this case "switch") and will download the
         contents of the repo much like `git clone`.
+
+        For components, you'll want to add submodules to your vendor directory. Themes should be added
+          to the themes directory.
 
     article.code
       :markdown
@@ -237,7 +238,7 @@ block documents
 
             //  Kickstart Semantic
             //  ==================
-            //  This is just a starter file for using Kickstrap via Sass
+            //  This is just a starter file for using Kickstart via Sass
             //  Rename this file to something you like (e.g. style.sass) and import it by
             //  the same .css name from your html/jade file.
 
@@ -249,7 +250,7 @@ block documents
   .document
     article.article.article-full
       p
-        span.notice Don't edit 3rd party themes
+        span.notice-warning Don't edit 3rd party themes
         |  As git submodules, there is significant risk that changes to a third-party
         | will be lost, both from your code and from your version control. It's much safer
         | to override the CSS rules in a separate file in your version control that comes 

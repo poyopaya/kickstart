@@ -29,7 +29,7 @@ gulp.task('browserify', function() {
       // Use vinyl-source-stream to make the
       // stream gulp compatible. Specifiy the
       // desired output filename here.
-      .pipe(source('kickstart.js'))
+      .pipe(source('script.js'))
       // Specify the output destination
       .pipe(gulp.dest('./public/js/'))
       // Log when bundling completes!

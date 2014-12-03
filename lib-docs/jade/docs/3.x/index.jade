@@ -32,7 +32,7 @@ block documents
               <head>
                 <meta http-equiv="X-UA-Compatible" content="IE=Edge">
                 <meta name="viewport" content="width=device-width, initial-scale=1">
-              </head>
+                ...
 
   .document
     article.article
@@ -55,17 +55,13 @@ block documents
       :markdown
         <span>
 
-            <!DOCTYPE HTML>
-            <html>
-              <head>
-                ...
+              ...
                 <link rel="stylesheet" href="//cdn.getkickstart.com/css/kickstart.min.css" />
               </head>
               <body>
                 ...
                 <script type="text/javascript" src="//cdn.getkickstart.com/js/kickstart.min.js"></script>
               </body>
-            </html>
 
   .document
     article.article
@@ -80,7 +76,6 @@ block documents
       :markdown
         <span>
 
-            <link rel="stylesheet" href="//cdn.getkickstart.com/css/kickstart.min.css" />
             <script type="text/javascript" src="//cdn.getkickstart.com/js/kickstart.min.js"></script>
             <script>
               k$.tabs('.tabs');
@@ -226,7 +221,7 @@ block documents
         My tool of choice for building all of Kickstart is gulp, plus a ton of
         extras. The easiest way to get started with a gulp implementation of
         kickstart is to simply
-        [clone the repo](https://github.com/ajkochanowicz/Kickstrap).
+        [clone the repo](https://github.com/ajkochanowicz/kickstart).
 
         Setup instructions are in the README.md file at the repo.
 
@@ -241,7 +236,14 @@ block documents
       :markdown
         <span>
 
-            $(~) git clone git@github.com:ajkochanowicz/kickstart.git --depth 1
+            $(~) git clone git@github.com:ajkochanowicz/kickstart.git mywebsite --depth 1
+
+            # Install the dependencies
+            $(~) cd mywebsite
+            $(mywebsite) sudo npm install -g gulp && npm install . && bundle
+
+            # If all goes well, this should launch your project.
+            $(mywebsite) gulp
 
   .document
     article.article
