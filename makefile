@@ -7,7 +7,7 @@ build:
 
 build-default:
 	@echo "Getting latest..."
-	@git pull
+	@git pull origin master
 	
 	@echo "Installing node dependencies..."
 	@npm install
