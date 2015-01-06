@@ -240,7 +240,7 @@ block documents
 
             # Install the dependencies
             $(~) cd mywebsite
-            $(mywebsite) sudo npm install -g gulp && npm install . && bundle
+            $(mywebsite) make setup
 
             # If all goes well, this should launch your project.
             $(mywebsite) gulp

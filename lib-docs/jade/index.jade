@@ -7,72 +7,19 @@ block hero
   header.index-hero
     <svg class="svg-logo"><use xlink:href="#svg-logo"></use></svg>
     <svg class="svg-logo-k"><use xlink:href="#svg-logo-k"></use></svg>
-    h2 The framework we've been waiting for.
+    h2 The CSS Framework that Loves to Be Extended
     <iframe class="github-stars" src="http://ghbtns.com/github-btn.html?user=ajkochanowicz&repo=kickstart&type=watch&count=true&size=large" allowtransparency="true" frameborder="0" scrolling="0" width="170" height="30"></iframe>
     <iframe class="github-stars mobile" src="http://ghbtns.com/github-btn.html?user=ajkochanowicz&repo=kickstart&type=watch&count=true" allowtransparency="true" frameborder="0" scrolling="0" width="110" height="20"></iframe>
 
 block content
   article.home-wrapper
-    section.a-simple-core
-      h1 A Simple Core 
-      .code
-        .preview
-          h1 Welcome
-          a#preview-button(href="#") Call to Action!
-        .source#source
-
-      .no-jquery-required
-        img(src="img/jscss.jpg")
-
-      .captions
-        .caption
-          p Kickstart is the only library to use <strong>either</strong> semantic CSS mixins or CSS classes for styling.  
-
-        .caption
-          h1 No jQuery Required
+    section.preview
+      h1 [This is what it looks like]
 
   section.blue
     article.home-wrapper
-      section.loves-to-be-extended
-        h1 Loves to be Extended
-
-        .ui
-          img(src="img/ui.png")
-
-          .extension.extension-one
-            img(src="img/avatar-core.png")
-
-            article
-              h1 Navigation Bar
-              h2 Core Library
-
-          .extension.extension-two
-            img(src="img/avatar2.png")
-
-            article
-              h1 Datepicker
-              h2 by Ponsonby Britt
-
-          .extension.extension-three
-            img(src="img/avatar1.png")
-
-            article
-              h1 Progress Bar
-              h2 by Claire Maddox
-        p 
-          | The library is just the core. Kickstart is designed to be extended and themed via the&nbsp;
-          a(href="http://kickstart.everything.io") Kickstart Store
-          | .
-
-  article.home-wrapper 
-    .use-in-any-project
-      h1 Use in any project
-      .logos
-        img(src="img/rubyonrails.png")
-        img(src="img/nodejs.png")
-        img(src="img/html5css3.jpg")
-      :markdown
-        The Kickstart library is available for basic HTML as well as official [Gulp](/docs/#{docsVersion}/#nodejs) and [Rails](/docs/#{docsVersion}/#rails) integrations.
+      section.checklist
+        h1 [Checklist]
 
   article.home-wrapper
     .faster-and-lighter-than-bootstrap
@@ -97,6 +44,29 @@ block content
           .group
             .jquery
             .foundation 
+
+  section.blue
+    article.home-wrapper
+      section.loves-to-be-extended
+        h1 Loves to be Extended
+
+        p 
+          | The library is just the core. Kickstart is designed to be extended and themed via the&nbsp;
+          a(href="http://kickstart.everything.io") Kickstart Store
+          | .
+
+  article.home-wrapper 
+    section.static-or-with-mixins
+      h1 [Use statically or with mixins]
+
+    section.use-in-any-project
+      h1 Use in any project
+      .logos
+        img(src="img/rubyonrails.png")
+        img(src="img/nodejs.png")
+        img(src="img/html5css3.jpg")
+      :markdown
+        The Kickstart library is available for basic HTML as well as official [Gulp](/docs/#{docsVersion}/#nodejs) and [Rails](/docs/#{docsVersion}/#rails) integrations.
 
   article.home-wrapper
     section.follow-everything-for-updates
