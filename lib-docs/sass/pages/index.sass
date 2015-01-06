@@ -64,11 +64,15 @@ img
     @media screen and (min-width: $desktop)
       +heading-md
 
+section.preview
+  @media screen and (min-width: $desktop)
+    img
+      margin-top: -250px
+
 section.blue
   background: map-get($colors, blue)
   overflow: hidden
 
-.a-simple-core,
 .last-pitch
   +row
 
@@ -76,70 +80,6 @@ section.blue
     +p(true)
     color: map-get($gray, lighter)
 
-.a-simple-core
-  margin-bottom: $space
-
-  > h1
-    +column(12)
-    text-align: center
-    +heading-md
-    margin-bottom: $space*2
-
-    @media screen and (min-width: $tablet)
-      +heading-xxl
-      margin-bottom: $space*4
-
-  .code, .no-jquery-required
-    +column('half')
-
-  .code
-    display: inline-flex
-    flex-direction: row
-    flex-wrap: wrap
-    align-content: stretch
-
-    .preview
-      +root-element
-      border-bottom-left-radius: 0
-      border-bottom-right-radius: 0
-      border-color: map-get($white, darkest)
-      width: 100%
-      margin-bottom: 0
-      text-align: center
-      padding-top: $space
-      min-height: 150px
-
-      h1
-        +heading-rg
-        display: block
-
-      a
-        display: inline-block
-        margin:
-          bottom: $space 
-
-    .source
-      +root-element
-      background: map-get($black, lightest)
-      width: 100%
-      border-top-left-radius: 0
-      border-top-right-radius: 0
-      color: map-get($colors, blue)
-      padding: $space
-      font-family: $mono-font-family
-      min-height: 250px
-
-      span.color
-        color: white
-
-  .no-jquery-required
-    img
-      max-width: 100%
-      margin: 0px auto
-      display: block
-
-      @media screen and (min-width: $phablet)
-        max-width: 300px
 
 .captions
   +row

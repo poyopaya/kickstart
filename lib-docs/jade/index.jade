@@ -14,15 +14,8 @@ block hero
 block content
   article.home-wrapper
     section.preview
-      h1 [This is what it looks like]
-      img(src="img/preview.bpg")
+      img(src="img/preview.png")
 
-  section.blue
-    article.home-wrapper
-      section.checklist
-        h1 [Checklist]
-
-  article.home-wrapper
     .faster-and-lighter-than-bootstrap
       h1 Faster and lighter than Bootstrap
 
@@ -32,7 +25,7 @@ block content
           .kickstart
           .bootstrap
           .foundation
-        p ...and even smaller when used semantically.
+        p Kickstart's CSS is only 80kb and even smaller when you roll your own from the Sass mixins.
 
       .js
         h2 JavaScript
@@ -46,6 +39,15 @@ block content
             .jquery
             .foundation 
 
+        p Not only is the Kickstart JS smaller than Bootstrap and Foundation, it also doesn't require jQuery--drastically reducing page load times.
+
+
+  section.blue
+    article.home-wrapper
+      section.checklist
+        h1 [Checklist]
+
+  article.home-wrapper
   section.blue
     article.home-wrapper
       section.loves-to-be-extended
@@ -96,4 +98,3 @@ block content
 
 block postJS
   script(src="js/index.js")
-  script(src="js/post.js")
