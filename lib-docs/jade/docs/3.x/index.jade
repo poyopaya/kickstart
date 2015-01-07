@@ -247,6 +247,55 @@ block documents
 
   .document
     article.article
+      h1 Jekyll
+
+      :markdown
+        To add Kickstart to Jeykll 2, you'll of course need to start a new Jekyll project
+        following the instructions on the [Jekyll Docs](http://jekyll.rb)
+
+        Afterwards, `cd` into the root of your Jekyll project and add Kickstart as a submodule.
+
+    article.code
+      :markdown
+        <span>
+
+            git submodule add https://github.com/ajkochanowicz/kickstart.git _kickstart
+
+  .document
+    article.article
+      :markdown
+        You should now have a directory called _kickstart at the root of your project.
+
+        Now, open _config.yml and add the following to the bottom:
+
+    article.code
+      :markdown
+        <span>
+
+            sass:
+              load_paths:
+                - "_sass"
+                - "_kickstart"
+                - "_kickstart/lib-core/sass"
+
+  .document
+    article.article
+      :markdown
+        Open css/main.scss and add this just below the `@charset "utf-8";` line:
+
+        You can now add any Kickstart CSS you want to files imported from css/main.scss
+
+        If you're feeling daring, wipe out main.scss completely except for that `@import` line you added.
+        You'll be running pure Kickstart, but will have to redesign your site a bit.
+      
+    article.code
+      :markdown
+        <span>
+
+            `@import "lib/sass/themes/default/theme.sass";`
+
+  .document
+    article.article
       h1 Node.js
 
       :markdown
