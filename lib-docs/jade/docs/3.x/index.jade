@@ -300,6 +300,17 @@ block documents
             `@import "lib/sass/themes/default/theme.sass";`
 
   .document
+    article.article-full
+      :markdown
+        <span class="notice">Don't edit the submodule</span> Any edits you make to the submodule, 
+        (i.e. the kickstart directory you just created) can vanish without being retrievable
+        in Git. 
+
+        To avoid this, simply write your own CSS in the _sass directory. If you're editing a theme,
+        you can simply copy the theme into _sass and import it from there. If you're creating
+        a new theme, just copy the default theme from lib-core.
+
+  .document
     article.article
       h1 Node.js
 
