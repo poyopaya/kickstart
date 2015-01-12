@@ -251,8 +251,8 @@ block documents
 
       p
         span.notice Not yet compatible with GitHub Pages
-        |  This must run with Sass 3.4 or higher. Unfortunately, GitHub Pages currently uses 3.2
-        | and will return Sass syntax errors with Kickstart.
+        |  Unfortunately, GitHub runs Jekyll in safe mode which prevents it from loading
+        | the custom `load_paths` needed by Kickstart. Hopefully this will change soon.
 
       :markdown
         To add Kickstart to Jeykll 2, you'll of course need to start a new Jekyll project
@@ -303,7 +303,7 @@ block documents
     article.article-full
       :markdown
         <span class="notice">Don't edit the submodule</span> Any edits you make to the submodule, 
-        (i.e. the kickstart directory you just created) can vanish without being retrievable
+        (i.e. the _kickstart directory you just created) can vanish without being retrievable
         in Git. 
 
         To avoid this, simply write your own CSS in the _sass directory. If you're editing a theme,
