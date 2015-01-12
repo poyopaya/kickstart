@@ -27,10 +27,15 @@ block documents
 
   .document
     article.article
-      :markdown
-        For a fixed wrapper, create a wrapper around your content <span class="if-semantic">with no parameters</span>
-        <span class="ifnot-semantic">and use the <code>.wrapper-fixed</code> class.
+      .if-semantic
+        :markdown
+          For a fixed wrapper, create a fluid wrapper around your content with `$fluid; true`.
+            Now you just need to limit that fluidity with a max-width property.
 
+      .ifnot-semantic
+        :markdown
+          For a fixed wrapper, use the `.wrapper.wrapper-fixed` classes.
+      :markdown
         The default max-width is about 768px, however, you can define your own by adding
         a `max-width` property.
 
@@ -44,7 +49,7 @@ block documents
               </div>
 
               .wrapper{
-                @include wrapper();
+                @include wrapper($fluid: true);
                 max-width: 700px;
               }
 
@@ -55,6 +60,10 @@ block documents
               <div class="wrapper wrapper-fixed">
                 <h1>Hello world</h1>
               </div>
+
+              .wrapper.wrapper-fixed {
+                max-width: 700px; // if 768px is not sufficient
+              }
 
   .document
     article.article
@@ -119,7 +128,7 @@ block documents
               </div>
 
               .wrapper{
-                @include wrapper();
+                @include wrapper($fluid: false);
               }
 
       .ifnot-semantic
