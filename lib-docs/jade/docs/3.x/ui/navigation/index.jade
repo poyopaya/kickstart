@@ -519,6 +519,24 @@ block documents
                 @include navbar($fixed: true);
               }
 
+  .if-semantic
+    .document
+      article.article
+        :markdown
+          To apply a fixed navbar one-off, use the `navbar-fixed` mixin.
+
+      article.code
+        :markdown
+          <span>
+
+              .navbar1, .navbar2 {
+                @include navbar();
+              }
+
+              .navbar1 {
+                @include navbar-fixed();
+              }
+
   .document
     article.article 
       :markdown
