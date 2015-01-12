@@ -28,9 +28,8 @@ block documents
   .document
     article.article
       :markdown
-        Create a wrapper around your content <span class="if-semantic">and use the mixin
-        <code>wrapper($fixed: true)</code></span><span class="ifnot-semantic">and
-        use the <code>.wrapper-fixed</code> class.
+        For a fixed wrapper, create a wrapper around your content <span class="if-semantic">with no parameters</span>
+        <span class="ifnot-semantic">and use the <code>.wrapper-fixed</code> class.
 
         The default max-width is about 768px, however, you can define your own by adding
         a `max-width` property.
@@ -45,7 +44,7 @@ block documents
               </div>
 
               .wrapper{
-                @include wrapper($fixed: true);
+                @include wrapper();
                 max-width: 700px;
               }
 
@@ -58,7 +57,7 @@ block documents
               </div>
 
   .document
-    article.article.article-full
+    article.article
       :markdown
         ## Fluid layout
 
@@ -67,11 +66,28 @@ block documents
       iframe.animation(scrolling="no" src="/iframes/layout-fluid/fluid.html")
 
       :markdown
-        This one is probably the easiest to implement of all, because it is
-        default behavior of HTML content. Simply omit the wrapper styling.
+        For a fluid wrapper <span class="if-semantic"> use the mixin
+        <code>wrapper($fluid: true)</code></span>
 
         To have elements break out of a wrapper (called "bleeding"), just
         end the wrapper before the bleed content and open it back up afterwards.
+
+    article.code
+      .if-semantic
+        :markdown
+          <span>
+
+              .wrapper {
+                @include wrapper($fluid: true);
+              }
+
+      .ifnot-semantic
+        :markdown
+          <span>
+
+              <div class="wrapper wrapper-fluid">
+                ...
+              </div>
 
   .document
     article.article.article-full
