@@ -76,25 +76,37 @@ section.blue
 section.checklist
   color: white
 
+  h1
+    text-align: center
+
   table
-    +table
+    +table($zebra: true) 
     color: $default-font-color
     width: 100%
     display: inline-block
 
-    th, td
-      width: 20%
+    thead tr th
+      text-align: center
 
     td
       text-align: center
+
+      span.fa.fa-check
+        color: map-get($colors, green)
 
       &:first-child
         text-align: left
 
     th, td
+      width: 20%
+      padding: ($space/2) ($space/4)
+
       &:nth-child(2)
         background: map-get($colors, green)
         color: white
+
+        span.fa.fa-check
+          color: white
 
 .last-pitch
   +row
