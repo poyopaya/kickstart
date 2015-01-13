@@ -79,11 +79,22 @@ section.checklist
   table
     +table
     color: $default-font-color
-    width: 50%
+    width: 100%
     display: inline-block
 
     th, td
-      width: 25%
+      width: 20%
+
+    td
+      text-align: center
+
+      &:first-child
+        text-align: left
+
+    th, td
+      &:nth-child(2)
+        background: map-get($colors, green)
+        color: white
 
 .last-pitch
   +row
