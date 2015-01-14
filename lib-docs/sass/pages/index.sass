@@ -73,6 +73,12 @@ section.blue
   background: map-get($colors, blue)
   overflow: hidden
 
+.optimized-for-developer-happiness
+  display: none
+  
+  @media screen and (min-width: ($phablet + 50))
+    display: block
+
 section.checklist
   color: white
 
@@ -130,12 +136,34 @@ section.checklist
       +heading-rg
       text-align: center
 
+.static-or-with-mixins
+  +row
+
+  .title
+    +column('third')
+
+  .example
+    +column('twothirds')
+
+    .navbar
+      +navbar
+
+      .button
+        +button($primary-color)
+
+    .tabs
+      +tabs
+
+    .examples
+      +tab_pane_container
+
 .loves-to-be-extended 
   margin-bottom: $space*2
 
   > h1 
     text-align: center
     display: block
+    color: white
     +heading-md
 
     @media screen and (min-width: $tablet)
@@ -146,9 +174,11 @@ section.checklist
     max-width: 400px
     text-align: center
     margin: 0px auto
+    color: white
 
     a
       text-decoration: underline
+      color: white
 
   img
     max-width: 100%

@@ -42,10 +42,10 @@ block content
         p Not only is the Kickstart JS smaller than Bootstrap and Foundation, it also doesn't require jQuery--drastically reducing page load times.
 
 
-  section.blue
+  section.blue.optimized-for-developer-happiness
     article.home-wrapper
       section.checklist
-        h1 Optimized for Developer Happiness
+        h1 Optimized for developer happiness
         table
           thead
             tr
@@ -145,21 +145,92 @@ block content
               td &nbsp;
 
   article.home-wrapper
-    section.loves-to-be-extended
-      .ui
-        img(src="img/ui.png")
+    section.static-or-with-mixins
+      .title
+        h1 Use statically or with mixins
+        p Look how easy it is to create this Navbar. Most components in Kickstart require only one mixin to bring markup to life.
+        p For users preferring a static CSS file, simple CSS classes are available to quickly write up components.
+        p
+          span.notice Did you know?
+          |  The Kickstart documentation can be toggled between static- and mixin-usage.
 
-      h1 Loves to be Extended
-      p 
-        | The library is just the core. Kickstart is designed to be extended and themed via the&nbsp;
-        a(href="http://kickstart.everything.io") Kickstart Store
-        | .
+      .example
+
+        .navbar
+          nav
+            ul
+              li: a(href="#") Home
+              li: a(href="#") Blog
+            ul
+              li: a.button(href="#" role="button") Login
+
+        ul.tabs(data-ks-tabs="true")
+          li.open: a(href="#static") Static
+          li: a(href="#mixins") With Mixins
+        
+        .examples
+          article#static
+            :markdown
+              <span>
+
+                  <!-- Just use a CSS class -->
+                  <div class="navbar">
+                    <nav>
+                      <ul>
+                        <li>
+                          <a href="#">Home</a>
+                        </li>
+                        <li>
+                          <a href="#">Blog</a>
+                        </li>
+                      </ul>
+                      <ul>
+                        <li>
+                          <a class="button button-primary" role="button" href="#">Login</a>
+                        </li>
+                      </ul>
+                    </nav>
+                  </div>
+
+          article#mixins
+            :markdown
+              <span>
+
+                  // Just one mixin does the trick!
+                  // Use whatever CSS class you want.
+                  .info-bar { @include navbar(); }
+                  .button { @include button($primary-color); }
+
+                  <div class="info-bar">
+                    <nav>
+                      <ul>
+                        <li>
+                          <a href="#">Home</a>
+                        </li>
+                        <li>
+                          <a href="#">Blog</a>
+                        </li>
+                      </ul>
+                      <ul>
+                        <li>
+                          <a role="button" href="#">Login</a>
+                        </li>
+                      </ul>
+                    </nav>
+                  </div>
 
 
   section.blue
     article.home-wrapper
-      section.static-or-with-mixins
-        h1 [Use statically or with mixins]
+      section.loves-to-be-extended
+        .ui
+          img(src="img/ui.png")
+
+        h1 Loves to be extended
+        p 
+          | The library is just the core. Kickstart is designed to be extended and themed via the&nbsp;
+          a(href="http://kickstart.everything.io") Kickstart Store
+          | .
 
   article.home-wrapper
     section.use-in-any-project
@@ -168,6 +239,7 @@ block content
         img(src="img/rubyonrails.png")
         img(src="img/nodejs.png")
         img(src="img/html5css3.jpg")
+        img(src="img/jekyll.png")
       :markdown
         The Kickstart library is available for basic HTML as well as official [Gulp](/docs/#{docsVersion}/#nodejs) and [Rails](/docs/#{docsVersion}/#rails) integrations.
 
