@@ -13,7 +13,7 @@ gulp.task('docs:jade', function() {
         locals: {
           currentVersion: '3.0 beta',
           docsVersion: '3.x',
-          nextDocsVersion: '3.x',
+          nextDocsVersion: '4.x',
           fs: fs,
           icons: icons
         }
