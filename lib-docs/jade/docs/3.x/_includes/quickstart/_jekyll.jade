@@ -1,0 +1,79 @@
+.document
+  article.article
+    h1 Jekyll
+
+    p
+      span.notice Not yet compatible with GitHub Pages
+      |  Unfortunately, GitHub runs Jekyll in safe mode which prevents it from loading
+      | the custom `load_paths` needed by Kickstart. Hopefully this will change soon.
+
+    :markdown
+      To add Kickstart to Jeykll 2, you'll of course need to start a new Jekyll project
+      following the instructions on the [Jekyll Docs](http://jekyll.rb)
+
+      Afterwards, `cd` into the root of your Jekyll project and add Kickstart as a submodule.
+
+  article.code
+    :markdown
+      <span>
+
+          $(myjekyllproject) git submodule add https://github.com/ajkochanowicz/kickstart.git _kickstart
+
+.document
+  article.article
+    :markdown
+      You should now have a directory called _kickstart at the root of your project.
+
+      Now, open _config.yml and add the following to the bottom:
+
+  article.code
+    :markdown
+      <span>
+
+          sass:
+            load_paths:
+              - "_sass"
+              - "_kickstart"
+              - "_kickstart/lib-core/sass"
+
+.document
+  article.article
+    :markdown
+      Open css/main.scss and add this just below the `@charset "utf-8";` line:
+
+      You can now add any Kickstart CSS you want to files imported from css/main.scss
+
+      If you're feeling daring, wipe out main.scss completely except for that `@import` line you added.
+      You'll be running pure Kickstart, but will have to redesign your site a bit.
+    
+  article.code
+    :markdown
+      <span>
+
+          @import "lib/sass/themes/default/theme.sass";
+
+.document
+  article.article.article-full
+    :markdown
+      <span class="notice">Don't edit the submodule</span> Any edits you make to the submodule, 
+      (i.e. the _kickstart directory you just created) can vanish without being retrievable
+      in Git. 
+
+      To avoid this, simply write your own CSS in the _sass directory. If you're editing a theme,
+      you can simply copy the theme into _sass and import it from there. If you're creating
+      a new theme, just copy the default theme from lib-core.
+
+.document
+  article.article
+    :markdown
+      You should also install autoprefixer so Kickstart works across modern browsers. To do this,
+      simply add the following to your gemfile
+
+  article.code
+    :markdown
+      <span>
+      
+          source "http://rubygems.org"
+
+          gem "jekyll-assets"
+          gem "autoprefixer-rails"
