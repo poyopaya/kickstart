@@ -55,6 +55,12 @@ body
     fill: white
     margin-bottom: -4px
 
+  +gt($tablet)
+    nav>ul>li>a:not([role=button]).active.blue-link
+      background: map-get($colors, blue)
+      color: white
+      border-color: map-get($colors, blue)
+
 // Footer
 // ------
 
