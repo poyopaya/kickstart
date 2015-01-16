@@ -34,6 +34,10 @@
     :markdown
       <span>
 
+          gems:
+            - "autoprefixer-rails"
+            - "jekyll-assets"
+
           sass:
             load_paths:
               - "_sass"
@@ -121,6 +125,8 @@
   article.article
     :markdown
       In `_assets/stylesheets`, move in your main.scss file, renamed as main.css.scss
+
+      Also, remove any frontmatter (The ---s) from the file.
 
   article.code
     :markdown
