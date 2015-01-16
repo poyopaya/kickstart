@@ -7,6 +7,8 @@
       |  Unfortunately, GitHub runs Jekyll in safe mode which prevents it from loading
       | the custom `load_paths` needed by Kickstart. Hopefully this will change soon.
 
+    h2 Add Kickstart submodule
+
     :markdown
       To add Kickstart to Jeykll 2, you'll of course need to start a new Jekyll project
       following the instructions on the [Jekyll Docs](http://jekyll.rb)
@@ -22,6 +24,8 @@
 .document
   article.article
     :markdown
+      ## Edit load paths
+
       You should now have a directory called _kickstart at the root of your project.
 
       Now, open _config.yml and add the following to the bottom:
@@ -36,9 +40,19 @@
               - "_kickstart"
               - "_kickstart/lib-core/sass"
 
+          assets:
+            sources:
+              - "_assets/javascripts"
+              - "_assets/stylesheets"
+              - "_sass"
+              - "_kickstart"
+              - "_kickstart/lib-core/sass"
+
 .document
   article.article
     :markdown
+      # Import Kickstart
+
       Open css/main.scss and add this just below the `@charset "utf-8";` line:
 
       You can now add any Kickstart CSS you want to files imported from css/main.scss
@@ -66,6 +80,7 @@
 .document
   article.article
     :markdown
+      ## Add autoprefixer
       You should also install autoprefixer so Kickstart works across modern browsers. To do this,
       simply add the following to your gemfile
 
@@ -77,3 +92,64 @@
 
           gem "jekyll-assets"
           gem "autoprefixer-rails"
+          gem "therubyracer", platforms: :ruby
+
+.document
+  article.article
+    :markdown
+      ## Create an asset pipeline
+
+      To use Jekyll Assets, we'll need to edit the directory structure a bit. If you use Rails, this will
+      be very familiar.
+
+      In the root of your Jekyll project, add an `_assets` directory with two children, `stylesheets`
+      and `javascripts`.
+
+  article.code
+    :markdown
+      <span>
+
+          _assets
+            stylesheets
+            javascripts
+          _includes
+          _layouts
+          _sass
+          ...
+
+.document
+  article.article
+    :markdown
+      In `_assets/stylesheets`, move in your main.scss file, renamed as main.css.scss
+
+  article.code
+    :markdown
+      <span>
+
+          _assets
+            stylesheets
+            javascripts
+          _includes
+          _layouts
+          _sass
+          ...
+          
+
+.document
+  article.article
+    :markdown
+      ## Reference your assets in the markup
+
+      Now we need to reference the post-processed CSS files that will be created.
+      Open `_includes/head.html` and replace the `link` to main.css as follows.
+
+  article.code
+    :markdown
+      <span>
+
+          <!-- Change this -->
+          <link rel="stylesheet" href="{{ "/css/main.css" | prepend: site.baseurl }}">
+
+          <!-- To this -->
+          {% stylesheet main.css %}
+
