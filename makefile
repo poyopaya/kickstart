@@ -53,3 +53,7 @@ setup:
 	@sudo npm install
 	@bundle install
 	@make build-default
+
+# # This will move over only the docs from 3.x that haven't changed in 4.x
+# sync-docs:
+# 	@rsync -av --exclude-from '4.x-pages.txt' lib-docs/jade/docs/3.x/ lib-docs/jade/docs/4.x/

@@ -22,6 +22,10 @@ h3, h4, h5, h6
   position: relative
   z-index: 10
 
+  +gt($tablet)
+    > nav > ul > li.navbar-title
+      display: none
+
   @media screen and (min-height: $phablet)
     // Notice this is min-height, not min-width
     // The issue is that the dropdowns are too tall for shorter

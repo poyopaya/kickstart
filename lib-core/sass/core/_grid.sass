@@ -23,6 +23,11 @@ $large-monitor: 1200px
 $xl-monitor: 1400px
 $xxl-monitor: 1800px
 
+// Media query generator
+=gt($query: $phone)
+  @media screen and (min-width: $query)
+    @content
+
 $grid-columns: 12
 $grid-gutter: 15px
 

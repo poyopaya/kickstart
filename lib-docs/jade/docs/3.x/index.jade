@@ -240,64 +240,12 @@ block documents
 
             # Install the dependencies
             $(~) cd mywebsite
-            $(mywebsite) sudo npm install -g gulp && npm install . && bundle
+            $(mywebsite) make setup
 
             # If all goes well, this should launch your project.
             $(mywebsite) gulp
 
-  .document
-    article.article
-      h1 Jekyll
-
-      p
-        span.notice Not yet compatible with GitHub Pages
-        |  This must run with Sass 3.4 or higher. Unfortunately, GitHub Pages currently uses 3.2
-        | and will return Sass syntax errors with Kickstart.
-
-      :markdown
-        To add Kickstart to Jeykll 2, you'll of course need to start a new Jekyll project
-        following the instructions on the [Jekyll Docs](http://jekyll.rb)
-
-        Afterwards, `cd` into the root of your Jekyll project and add Kickstart as a submodule.
-
-    article.code
-      :markdown
-        <span>
-
-            $(myjekyllproject) git submodule add https://github.com/ajkochanowicz/kickstart.git _kickstart
-
-  .document
-    article.article
-      :markdown
-        You should now have a directory called _kickstart at the root of your project.
-
-        Now, open _config.yml and add the following to the bottom:
-
-    article.code
-      :markdown
-        <span>
-
-            sass:
-              load_paths:
-                - "_sass"
-                - "_kickstart"
-                - "_kickstart/lib-core/sass"
-
-  .document
-    article.article
-      :markdown
-        Open css/main.scss and add this just below the `@charset "utf-8";` line:
-
-        You can now add any Kickstart CSS you want to files imported from css/main.scss
-
-        If you're feeling daring, wipe out main.scss completely except for that `@import` line you added.
-        You'll be running pure Kickstart, but will have to redesign your site a bit.
-      
-    article.code
-      :markdown
-        <span>
-
-            `@import "lib/sass/themes/default/theme.sass";`
+  include _includes/quickstart/_jekyll.jade
 
   .document
     article.article
