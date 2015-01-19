@@ -320,7 +320,7 @@ block documents
 
         Because there are several places you'd need to change the theme (The docs use
         a long list of css files.) the chosen theme can be changed in all files from
-        `lib-docs/sass/chosen-theme.sass`.
+        `lib-docs/sass/_chosen-theme.sass`.
 
         If you want to run both the `lib` and `lib-docs` directories, no problem.
           Gulp will automatically use different ports for each.
@@ -329,6 +329,6 @@ block documents
       :markdown
         <span>
 
-            // In lib-docs/sass/chosen-themes.sass
+            // In lib-docs/sass/_chosen-themes.sass
             // We need to reach up a couple directories to get to our theme in lib.
             @import ../../lib/sass/themes/mytheme/theme.sass
