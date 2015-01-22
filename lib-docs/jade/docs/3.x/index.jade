@@ -93,6 +93,8 @@ block documents
         <span>
 
             $(~) git clone git@github.com:ajkochanowicz/kickstart.git --depth 1
+            # Omit the depth option if you intend to keep up to date with the
+            # Kickstart repo. Otherwise, this makes the cloning a lot faster.
 
   .document
     article.article.article-full
@@ -238,6 +240,8 @@ block documents
         <span>
 
             $(~) git clone git@github.com:ajkochanowicz/kickstart.git mywebsite --depth 1
+            # Omit the depth option if you intend to keep up to date with the
+            # Kickstart repo. Otherwise, this makes the cloning a lot faster.
 
             # Install the dependencies
             $(~) cd mywebsite
