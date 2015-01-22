@@ -262,7 +262,7 @@ block documents
         <iframe width="420" height="315" src="//www.youtube.com/embed/eEJsNpAqex4" frameborder="0" allowfullscreen></iframe>
 
         For **themes**, look in `lib/sass/themes/`. There you'll see a directory called "default"
-          and a sass file called theme.sass.
+          and a sass file called _theme.sass.
 
         We'll need to create a structure similar to `default`. First, we'll need to create
         an empty repository on GitHub so we can create a submodule from it.
@@ -282,7 +282,7 @@ block documents
 
             # Copy the core theme into "dark"
             $(themes) cd ../../../
-            $(myextensions) cp lib-core/sass/themes/default/theme.sass lib/sass/themes/mytheme/
+            $(myextensions) cp lib-core/sass/themes/default/_theme.sass lib/sass/themes/mytheme/
 
   .document
     article.article
@@ -320,7 +320,7 @@ block documents
 
         Because there are several places you'd need to change the theme (The docs use
         a long list of css files.) the chosen theme can be changed in all files from
-        `lib-docs/sass/chosen-theme.sass`.
+        `lib-docs/sass/_chosen-theme.sass`.
 
         If you want to run both the `lib` and `lib-docs` directories, no problem.
           Gulp will automatically use different ports for each.
@@ -331,4 +331,4 @@ block documents
 
             // In lib-docs/sass/chosen-themes.sass
             // We need to reach up a couple directories to get to our theme in lib.
-            @import ../../lib/sass/themes/mytheme/theme.sass
+            @import ../../lib/sass/themes/mytheme/_theme.sass
