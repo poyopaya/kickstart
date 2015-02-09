@@ -6,7 +6,7 @@ var gulp = require('gulp'),
 gulp.task('coffee', function() {
   // Regular JS copying
   gulp.src(['./lib/js/**/*.js'])
-    .pipe(gulp.dest('./public'))
+    .pipe(gulp.dest('./public/js'))
 
   // Use this space to compile one-off coffeescript files instead of using require.
 });
