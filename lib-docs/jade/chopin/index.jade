@@ -20,4 +20,4 @@ block content
       p Please wait while we load that for you.
 
 block postJS
-  script k$.ready = function() {k$.loadReadme('chopin')}
+  script document.addEventListener('DOMContentLoaded', function() {k$.loadReadme('chopin')})
