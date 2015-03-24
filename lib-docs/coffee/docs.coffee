@@ -196,4 +196,4 @@ document.addEventListener 'DOMContentLoaded', ->
 
     req.send()
   
-  k$.ready()
+  # k$.ready()
