@@ -178,3 +178,22 @@ document.addEventListener 'DOMContentLoaded', ->
         $targetNode.appendChild $menuItem
 
     k$.$('#toc').appendChild $toc
+
+  k$.loadReadme = (projectName) ->
+    $url = "https://api.github.com/repos/ajkochanowicz/#{projectName}/contents/README.md"
+    req = new XMLHttpRequest()
+    req.open('GET', $url, true)
+    req.onload = ->
+      if req.status >= 200 and req.status < 400
+        console.log req.responseText
+        content = k$.markdown.toHTML(window.atob(JSON.parse(req.responseText).content.replace(/\s/g, '')))
+        k$.$('[data-render="docs"]').innerHTML = content
+      else
+        console.error "Received an error when trying to load"
+
+    req.onerror = ->
+      console.error "Connection error"
+
+    req.send()
+  
+  k$.ready()
