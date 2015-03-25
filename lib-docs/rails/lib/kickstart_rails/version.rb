@@ -1,3 +1,3 @@
 module Kickstart_rails
-  VERSION = "3.0.85"
+  VERSION = "3.0.86"
 end
