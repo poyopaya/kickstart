@@ -66,9 +66,17 @@
     border-color: transparent
     background: transparent
   th, td
-    padding:
-      left: 0px
-      right: 0px
+    border-color: transparent
+
+    &:first-child
+      border-color: transparent
+      padding:
+        left: 0px
+
+    &:last-child
+      border-color: transparent
+      padding:
+        right: 0px
 
 =table-hover-default
   tbody, thead
