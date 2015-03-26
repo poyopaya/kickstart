@@ -57,5 +57,5 @@ to compile files, bump version numbers, and deploy to NPM/RubyGems.org respectiv
 ## Deployment
 
 - Deployed with [CodeShip](http://codeship.io)
-- 3.0-wip deploys to getkickstart.com
+- master deploys to getkickstart.com
 - stage deploys to stage.getkickstart.com
