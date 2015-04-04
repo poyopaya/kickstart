@@ -1,7 +1,7 @@
 Kickstart
 =========
 
-Kickstart is a modern front-end framework for clean HTML and fast performance.
+Kickstart is a modern front-end CSS library for clean HTML and fast performance.
 
 [getkickstart.com](http://getkickstart.com)
 
