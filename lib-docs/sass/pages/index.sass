@@ -471,3 +471,22 @@ dl
   .twitter-timeline
     margin: 0px auto !important
     display: block !important
+
+.step-by-step
+  h1, h2, p
+    color: white
+
+  p
+    max-width: $phablet
+
+  [data-component="step"]
+    padding:
+      bottom: $space*2
+
+    h2
+      +heading_sm
+
+    +gt($tablet)
+      h2
+        +heading_rg
+
