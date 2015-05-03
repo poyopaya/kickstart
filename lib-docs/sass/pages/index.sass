@@ -480,8 +480,16 @@ dl
     max-width: $phablet
 
   [data-component="step"]
+    +row
+
     padding:
-      bottom: $space*2
+      bottom: $space
+      top: $space
+
+    +gt($tablet)
+      padding:
+        bottom: $space*3
+        top: $space*3
 
     h2
       +heading_sm
@@ -490,3 +498,30 @@ dl
       h2
         +heading_rg
 
+    h3
+      +heading_xxs
+
+    .code
+      +column('half')
+
+      p
+        display: none
+
+      pre
+        margin-bottom: $space/4
+
+      code
+        font-size: 0.85rem
+
+      .highlight
+        code
+          color: lighten(yellow, 50%)
+
+    .rendering
+      +column('half')
+
+    h1, h2, h3, h4, h5, h6
+      width: 100%
+
+    h3
+      color: rgba(255, 255, 255, 0.5)

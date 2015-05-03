@@ -51,97 +51,362 @@ block content
         | This means you only use the CSS you need instead of slowing down your site with a complete UI library.
 
       div(data-component="step")
-        h2 First, let's make a navigation bar for our website.
+        h2 First, let's make a navigation bar for our website. 
+        .code
+
+          h3 HTML
+          .highlight
+            :markdown
+              <span>
+
+                  <header class="main-nav">
+                    <nav>
+                      <ul>
+                        <li> <a href="/">Home</a> </li>
+                      </ul>
+
+                      <ul>
+                        <li> <a href="/products">Products</a> </li>
+                        <li> <a href="/blog">Blog</a> </li>
+                      </ul>
+                    </nav>
+                  </header>
+
+          :markdown
+            <span>
+
+                <h1 class="title">Welcome</h1>
+
+          h3 SCSS
+          .highlight
+            :markdown
+              <span>
+
+                  .main-nav {
+                    @include navbar();
+                  }
+
         .rendering
           p [ Rendering ]
-
-        .code
-          :markdown
-            <span>
-
-                <header class="main-nav">
-                  <nav>
-                    <ul>
-                      <li> <a href="/">Home</a> </li>
-                    </ul>
-
-                    <ul>
-                      <li> <a href="/products">Products</a> </li>
-                      <li> <a href="/blog">Blog</a> </li>
-                    </ul>
-                  </nav>
-                </header>
-
-                <h1>Welcome</h1>
-
-          :markdown
-            <span>
-
-                .main-nav {
-                  @include navbar();
-                }
 
       div(data-component="step")
         h2 Great. But it would look better darker.
+        .code
+
+          h3 SCSS
+          .highlight
+            :markdown
+              <span>
+
+                  .main-nav {
+                    @include navbar(#333);
+                  }
 
         .rendering
           p [ Rendering ]
 
+
+      div(data-component="step")
+
+        h2 Now let's create a sidebar for news.
+        .code
+          h3 HTML
+          :markdown
+            <span>
+
+                <body>
+                  <header class="main-nav">...</header>
+
+          .highlight
+            :markdown
+              <span>
+
+                    <main class="content">
+                      <aside class="content-news">
+                        <h1>News</h1>
+                        <button id="all-news">All News</button>
+                      </aside>
+
+                      <main class="content-articles">
+                        <h1 class="title">Welcome</h1>
+                      </main>
+                    </main>
+
+          :markdown
+            <span>
+
+                </body>
+
+          h3 SCSS
+          :markdown
+            <span>
+
+                .main-nav         { @include navbar(); }
+
+          .highlight
+            :markdown
+              <span>
+
+                  .content          { @include row(); }
+                  .content-news     { @include column('third'); }
+                  .content-articles { @include column('twothirds'); }
+
+        .rendering
+          p [ Rendering ]
+
+      div(data-component="step")
+        h2 Let's add a picture. But I don't think I want it to show on small devices
+        .code
+          h3 HTML
+          :markdown
+            <span>
+
+                <body>
+                  <header class="main-nav">...</header>
+
+                  <h1 class="title">Welcome</h1>
+
+                  <main class="content">
+                    <aside class="content-news">
+                      <h1>News</h1>
+                      <button id="all-news">All News</button>
+                    </aside>
+
+          .highlight
+            :markdown
+              <span>
+
+                      <main class="content-articles">
+                        <h1 class="title">Welcome</h1>
+                        <img class="hero-img" src="mountains.jpg" />
+                      </main>
+
+          :markdown
+            <span>
+
+                  </main>
+                </body>
+
+          h3 SCSS
+          .highlight
+            :markdown
+              <span>
+
+                  .hero-img {
+                    display: none;
+
+                    @include gt($tablet) {
+                      display: block;
+                    }
+                  }
+
+        .rendering
+          p [ Rendering ]
+
+
+      div(data-component="step")
+        h2 It would be great to make that title bigger
+        .code
+          h3 HTML
+          :markdown
+            <span>
+
+                <body>
+                  <header class="main-nav">...</header>
+
+                  <h1 class="title">Welcome</h1>
+
+                  <main class="content">
+                    <aside class="content-news">
+                      <h1>News</h1>
+                      <button id="all-news">All News</button>
+                    </aside>
+
+          .highlight
+            :markdown
+              <span>
+
+                      <main class="content-articles">
+                        <h1 class="title">Welcome</h1>
+                        <img class="hero-img" src="mountains.jpg" />
+                      </main>
+
+          :markdown
+            <span>
+
+                  </main>
+                </body>
+
+          h3 SCSS
+          .highlight
+            :markdown
+              <span>
+
+                  h1.title { @include heading_xl;}
+
+        .rendering
+          p [ Rendering ]
+
+      div(data-component="step")
+        h2 Let's have that button open a modal
+        h3 HTML
         .code
           :markdown
             <span>
 
-                .main-nav {
-                  @include navbar(#333);
-                }
+                <body>
+                  <header class="main-nav">...</header>
+                  <main class="content">
 
-      div(data-component="step")
-        h2 Now let's create a sidebar for news.
-        p [ Rendering ]
-        p [ HTML ]
-        p [ Sass ]
+          .highlight
+            :markdown
+              <span>
 
-      div(data-component="step")
-        h2 Let's add a picture. But I don't think I want it to show on small devices
-        p [ Rendering of mobile and desktop ]
-        p [ HTML ]
-        p [ Sass ]
+                      <aside class="content-news">
+                        <h1>News</h1>
+                        <button id="all-news">All News</button>
+                      </aside>
 
-      div(data-component="step")
-        h2 It would be great to make that title bigger
-        p [ Rendering ]
-        p [ HTML ]
-        p [ Sass ]
+          :markdown
+            <span>
 
-      div(data-component="step")
-        h2 Let's have that button open a modal
-        p [ Rendering ]
-        p [ HTML ]
-        p [ Sass ]
-        p [ JS ]
+                    <main class="content-articles">
+                      <h1 class="title">Welcome</h1>
+                      <img class="hero-img" src="mountains.jpg" />
+                    </main>
+
+          :markdown
+            <span>
+
+                  </main>
+
+          .highlight
+            :markdown
+              <span>
+
+                    <!-- This will be our modal -->
+                    <div class="all-news-modal">
+                      <header>
+                        <h1>All News</h1>
+                      </header>
+                      <main>...</main>
+                      <footer>...</footer>
+                    </div>
+
+          :markdown
+            <span>
+
+                </body>
+
+          h3 SCSS
+          .highlight
+            :markdown
+              <span>
+
+                  .all-news-modal {
+                    @include modal();
+                  }
+
+          h3 JavaScript
+          .highlight
+            :markdown
+              <span>
+
+                  // No jQuery required, but use it if you want.
+                  $('#all-news').click(function() {
+                    $('.all-news-modal').show();
+                  });
+
+        .rendering
+          p [ Rendering ]
 
       div(data-component="step")
         h2 If we're using the optional Gulp framework, we can also stream our code to a browser and a remote URL.
-        p [ Rendering of localhost ]
-        p [ Rendering of remote localhost ]
-        p [ Sample output when running gulp watch ]
+
+        .code
+          h3 Terminal
+          .highlight
+            :markdown
+              <span>
+
+                  $ gulp watch
+                  ...
+                  [BS] Local URL: http://localhost:3001
+                  [BS] External URL: http://10.0.1.7:3001
+                  [BS] Serving files from: lib
+
+        .rendering
+          p [ Rendering of localhost ]
+          p [ Rendering of remote localhost ]
 
       div(data-component="step")
         h2 We can also keep our JS modular.
-        p [ Directory Structure ]
-        p [ JS ]
+
+        .code
+          h3 CoffeeScript
+          .highlight
+            :markdown
+              <span>
+            
+                  KS             = require '../../lib-core/coffee/app'
+                  $              = require './jquery'
+                  datepicker     = require './pikaday'
+                  moment         = require './moment'
+
+        .rendering
+          p [ Directory Structure ]
 
       div(data-component="step")
         h2 And write mocha/phantom JS tests on the fly.
-        p [ JS test ]
-        p [ Sample output when running gulp test ]
+
+        .code
+          h3 CoffeeScript
+          .highlight
+            :markdown
+              <span>
+
+                  assert = require("chai").assert
+                  expect = require("chai").expect
+
+                  describe 'Kickstart', ->
+                    it 'is present', ->
+                      expect(k$).to.not.equal(undefined)
+
+        .rendering
+          :markdown
+            <span>
+
+                √ Kickstart is present
+
+                  1 passing (9ms)
 
       div(data-component="step")
         h2 Kickstart has a lot of components, but it's also extendible. So we can add third party UIs from the community in the Kickstart Store.
-        p [ Rendering of 3rd Party Component integrated ]
-        p [ Git submodule addition ]
-        p [ Inclusion in vnedor file ]
-        p [ Using component in code ]
+
+        .code
+          h3 Terminal
+          .highlight
+            :markdown
+              <span>
+
+                  $ git submodule add git://github.com/ajkochanowicz/switch.git
+
+          h3 SCSS vendor/_index.sass
+          .highlight
+            :markdown
+              <span>
+
+                  @import switch/switch
+
+          h3 SCSS any of your project's SCSS files.
+          .highlight
+            :markdown
+              <span>
+
+                  .switch { @include switch(); }
+
+        .rendering
+          p [ Rendering of 3rd Party Component integrated ]
 
   section.blue.optimized-for-developer-happiness
     article.home-wrapper
