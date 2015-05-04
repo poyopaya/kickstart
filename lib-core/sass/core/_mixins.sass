@@ -20,3 +20,15 @@
   animation-fill-mode: both
   animation-name: fadeInDown
 
+// Block, component, etc. selector shortcuts
+
+=b($name)
+  [data-block="#{$name}"]
+    @content
+
+=c($name)
+  [data-component="#{$name}"]
+    @content
+
+=page($controller, $action)
+  // TODO
