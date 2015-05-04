@@ -43,6 +43,391 @@ block content
 
         p Not only is the Kickstart JS smaller than Bootstrap and Foundation, it also doesn't require jQuery--drastically reducing page load times.
 
+  section.blue.step-by-step
+    article.home-wrapper
+      h1 How it works
+      p 
+        | Kickstart has been used in production websites for over three years. Kickstart is a library, not a framework.
+        | This means you only use the CSS you need instead of slowing down your site with a complete UI library.
+
+      div(data-component="step")
+        h2 First, let's make a navigation bar for our website. 
+        .code
+
+          h3 HTML
+          .highlight
+            :markdown
+              <span>
+
+                  <header class="main-nav">
+                    <nav>
+                      <ul>
+                        <li> <a href="/">Home</a> </li>
+                      </ul>
+
+                      <ul>
+                        <li> <a href="/products">Products</a> </li>
+                        <li> <a href="/blog">Blog</a> </li>
+                      </ul>
+                    </nav>
+                  </header>
+
+          :markdown
+            <span>
+
+                <h1>Welcome</h1>
+
+          h3 SCSS
+          .highlight
+            :markdown
+              <span>
+
+                  .main-nav {
+                    @include navbar();
+                  }
+
+        .rendering
+          img(src="img/steps/1.png")
+
+      div(data-component="step")
+        h2 Great. But it would look better darker.
+        .code
+
+          h3 SCSS
+          .highlight
+            :markdown
+              <span>
+
+                  .main-nav {
+                    @include navbar($background-color: #333);
+                  }
+
+        .rendering
+          img(src="img/steps/2.png")
+
+
+      div(data-component="step")
+
+        h2 Now let's create a sidebar for news.
+        .code
+          h3 HTML
+          :markdown
+            <span>
+
+                <body>
+                  <header class="main-nav">...</header>
+
+          .highlight
+            :markdown
+              <span>
+
+                    <main class="content">
+                      <aside class="content-news">
+                        <h1>News</h1>
+                        <button id="all-news">All News</button>
+                      </aside>
+
+                      <main class="content-articles">
+                        <h1>Welcome</h1>
+                      </main>
+                    </main>
+
+          :markdown
+            <span>
+
+                ...
+
+          h3 SCSS
+          :markdown
+            <span>
+
+                .main-nav         { @include navbar(); }
+
+          .highlight
+            :markdown
+              <span>
+
+                  .content          { @include row(); }
+                  .content-news     { @include column('third'); }
+                  .content-articles { @include column('twothirds'); }
+
+        .rendering
+          img(src="img/steps/3.png")
+
+      div(data-component="step")
+        h2 Let's add a picture. But I don't think I want it to show on small devices
+        .code
+          h3 HTML
+          :markdown
+            <span>
+
+                <body>
+                  <header class="main-nav">...</header>
+
+                  <h1 class="title">Welcome</h1>
+
+                  <main class="content">
+                    <aside class="content-news">
+                      <h1>News</h1>
+                      <button id="all-news">All News</button>
+                    </aside>
+
+          .highlight
+            :markdown
+              <span>
+
+                      <main class="content-articles">
+                        <h1>Welcome</h1>
+                        <img class="hero-img" src="mountains.jpg" />
+                      </main>
+
+          :markdown
+            <span>
+
+                ...
+
+          h3 SCSS
+          .highlight
+            :markdown
+              <span>
+
+                  .hero-img {
+                    display: none;
+
+                    @include gt($tablet) {
+                      display: block;
+                    }
+                  }
+
+        .rendering
+          img(src="img/steps/4.png")
+          img(src="img/steps/5.png")
+
+      div(data-component="step")
+        h2 This page could use a wrapper to create margins on either side.
+        .code
+          h3 HTML
+          :markdown
+            <span>
+
+                <body>
+                  <header class="main-nav">...</header>
+
+          .highlight
+            :markdown
+              <span>
+
+                    <div class="wrapper">
+                      <main class="content">
+                        ...
+                      </main>
+                    </div>
+
+                  ...
+
+          h3 SCSS
+          .highlight
+            :markdown
+              <span>
+
+                  .wrapper {
+                    @include wrapper();
+                  }
+
+        .rendering
+          img(src="img/steps/6.png")
+
+      div(data-component="step")
+        h2 Let's have that button open a modal
+        h3 HTML
+        .code
+          :markdown
+            <span>
+
+                <body>
+                  <header class="main-nav">...</header>
+                  <div class="wrapper">
+                    <main class="content">
+
+          .highlight
+            :markdown
+              <span>
+
+                        <aside class="content-news">
+                          <h1>News</h1>
+                          <button id="all-news">All News</button>
+                        </aside>
+
+          :markdown
+            <span>
+
+                ...
+
+          .highlight
+            :markdown
+              <span>
+
+                    <!-- This will be our modal -->
+                    <div class="all-news-modal">
+                      <header>
+                        <h1>All News</h1>
+                      </header>
+                      <main>...</main>
+                      <footer>...</footer>
+                    </div>
+
+          :markdown
+            <span>
+
+                ...
+
+          h3 SCSS
+          .highlight
+            :markdown
+              <span>
+
+                  .all-news-modal {
+                    @include modal();
+                  }
+
+          h3 JavaScript
+          .highlight
+            :markdown
+              <span>
+
+                  // No jQuery required, but use it if you want.
+                  $('#all-news').click(function() {
+                    $('.all-news-modal').show();
+                  });
+
+        .rendering
+          img(src="img/steps/8.png")
+
+      div(data-component="step")
+        h2 It would be great to make that "News" title smaller
+        .code
+          h3 HTML
+          :markdown
+            <span>
+
+                <body>
+                  <header class="main-nav">...</header>
+
+                  <div class="wrapper">
+                    <main class="content">
+
+          .highlight
+            :markdown
+              <span>
+
+                        <aside class="content-news">
+                          <h1>News</h1>
+                          <button id="all-news">All News</button>
+                        </aside>
+
+          :markdown
+            <span>
+
+                ...
+
+          h3 SCSS
+          .highlight
+            :markdown
+              <span>
+
+                  .content-news h1 { @include heading_sm;}
+
+        .rendering
+          img(src="img/steps/11.png")
+
+
+      div(data-component="step")
+        h2 If we're using the optional Gulp framework, we can also stream our code to a browser and a remote URL.
+
+        .code
+          h3 Terminal
+          .highlight
+            :markdown
+              <span>
+
+                  $ gulp watch
+                  ...
+                  [BS] Local URL: http://localhost:3001
+                  [BS] External URL: http://10.0.1.7:3001
+                  [BS] Serving files from: lib
+
+        .rendering
+          img(src="img/steps/9.png")
+          p
+            em 
+              | Notice how we've created two servers here. The external server allows 
+              | us to test the page as a public website. This is great for live mobile testing.
+
+      div(data-component="step")
+        h2 We can also keep our JS modular.
+
+        .code
+          h3 CoffeeScript
+          .highlight
+            :markdown
+              <span>
+            
+                  KS             = require '../../lib-core/coffee/app'
+                  $              = require './jquery'
+                  datepicker     = require './pikaday'
+                  moment         = require './moment'
+
+        .rendering
+          img(src="img/steps/10.png")
+
+      div(data-component="step")
+        h2 And write mocha/phantom JS tests on the fly.
+
+        .code
+          h3 CoffeeScript
+          .highlight
+            :markdown
+              <span>
+
+                  assert = require("chai").assert
+                  expect = require("chai").expect
+
+                  describe 'Kickstart', ->
+                    it 'is present', ->
+                      expect(k$).to.not.equal(undefined)
+
+        .rendering
+          .code-preview
+            p √ Kickstart is present
+            p 1 passing (9ms)
+
+      div(data-component="step")
+        h2 Kickstart has a lot of components, but it's also extendible. So we can add third party UIs from the community in the Kickstart Store.
+
+        .code
+          h3 Terminal
+          .highlight
+            :markdown
+              <span>
+
+                  $ git submodule add git://github.com/ajkochanowicz/switch.git
+
+          h3 SCSS vendor/_index.sass
+          .highlight
+            :markdown
+              <span>
+
+                  @import switch/switch
+
+          h3 SCSS any of your project's SCSS files.
+          .highlight
+            :markdown
+              <span>
+
+                  .switch { @include switch(); }
+
+        .rendering
+          img(src="img/steps/12.png")
 
   section.blue.optimized-for-developer-happiness
     article.home-wrapper
@@ -226,7 +611,7 @@ block content
     article.home-wrapper
       section.loves-to-be-extended
         .ui
-          img(src="img/ui.png")
+          img(src="http://cdn.everything.io/kickstart/3.x/img/ui.png")
 
         h1 Loves to be extended
         p 

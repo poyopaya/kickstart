@@ -1,6 +1,7 @@
 GEM
   remote: https://rubygems.org/
   specs:
+    fssm (0.2.10)
     gem-release (0.7.3)
     sass (3.4.5)
 
@@ -8,5 +9,6 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  fssm
   gem-release
   sass (= 3.4.5)

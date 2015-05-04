@@ -471,3 +471,71 @@ dl
   .twitter-timeline
     margin: 0px auto !important
     display: block !important
+
+.step-by-step
+  h1, h2, p
+    color: white
+
+  p
+    max-width: $phablet
+
+  [data-component="step"]
+    +row
+
+    padding:
+      bottom: $space
+      top: $space
+
+    +gt($tablet)
+      padding:
+        bottom: $space*3
+        top: $space*3
+
+    h2
+      +heading_sm
+
+    +gt($tablet)
+      h2
+        +heading_rg
+
+        margin-bottom: 2rem
+
+    h3
+      +heading_xxs
+
+    .code
+      +column('half')
+
+      p
+        display: none
+
+      pre
+        margin-bottom: $space/4
+
+      code
+        font-size: 0.85rem
+
+      .highlight
+        code
+          color: lighten(yellow, 50%)
+
+    .rendering
+      +column('half')
+
+      .code-preview
+        background: map-get($black, lighter)
+        color: white
+        padding: $space/2
+        border-radius: 3px
+
+        p
+          color: map-get($colors, green)
+
+          &:last-child
+            margin-bottom: 0
+
+    h1, h2, h3, h4, h5, h6
+      width: 100%
+
+    h3
+      color: rgba(255, 255, 255, 0.5)
