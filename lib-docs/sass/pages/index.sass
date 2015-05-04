@@ -498,6 +498,8 @@ dl
       h2
         +heading_rg
 
+        margin-bottom: 2rem
+
     h3
       +heading_xxs
 
@@ -519,6 +521,18 @@ dl
 
     .rendering
       +column('half')
+
+      .code-preview
+        background: map-get($black, lighter)
+        color: white
+        padding: $space/2
+        border-radius: 3px
+
+        p
+          color: map-get($colors, green)
+
+          &:last-child
+            margin-bottom: 0
 
     h1, h2, h3, h4, h5, h6
       width: 100%

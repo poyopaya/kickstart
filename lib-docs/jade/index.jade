@@ -75,7 +75,7 @@ block content
           :markdown
             <span>
 
-                <h1 class="title">Welcome</h1>
+                <h1>Welcome</h1>
 
           h3 SCSS
           .highlight
@@ -87,7 +87,7 @@ block content
                   }
 
         .rendering
-          p [ Rendering ]
+          img(src="img/steps/1.png")
 
       div(data-component="step")
         h2 Great. But it would look better darker.
@@ -99,11 +99,11 @@ block content
               <span>
 
                   .main-nav {
-                    @include navbar(#333);
+                    @include navbar($background-color: #333);
                   }
 
         .rendering
-          p [ Rendering ]
+          img(src="img/steps/2.png")
 
 
       div(data-component="step")
@@ -128,14 +128,14 @@ block content
                       </aside>
 
                       <main class="content-articles">
-                        <h1 class="title">Welcome</h1>
+                        <h1>Welcome</h1>
                       </main>
                     </main>
 
           :markdown
             <span>
 
-                </body>
+                ...
 
           h3 SCSS
           :markdown
@@ -152,7 +152,7 @@ block content
                   .content-articles { @include column('twothirds'); }
 
         .rendering
-          p [ Rendering ]
+          img(src="img/steps/3.png")
 
       div(data-component="step")
         h2 Let's add a picture. But I don't think I want it to show on small devices
@@ -177,15 +177,14 @@ block content
               <span>
 
                       <main class="content-articles">
-                        <h1 class="title">Welcome</h1>
+                        <h1>Welcome</h1>
                         <img class="hero-img" src="mountains.jpg" />
                       </main>
 
           :markdown
             <span>
 
-                  </main>
-                </body>
+                ...
 
           h3 SCSS
           .highlight
@@ -201,11 +200,11 @@ block content
                   }
 
         .rendering
-          p [ Rendering ]
-
+          img(src="img/steps/4.png")
+          img(src="img/steps/5.png")
 
       div(data-component="step")
-        h2 It would be great to make that title bigger
+        h2 This page could use a wrapper to create margins on either side.
         .code
           h3 HTML
           :markdown
@@ -214,38 +213,29 @@ block content
                 <body>
                   <header class="main-nav">...</header>
 
-                  <h1 class="title">Welcome</h1>
-
-                  <main class="content">
-                    <aside class="content-news">
-                      <h1>News</h1>
-                      <button id="all-news">All News</button>
-                    </aside>
-
           .highlight
             :markdown
               <span>
 
-                      <main class="content-articles">
-                        <h1 class="title">Welcome</h1>
-                        <img class="hero-img" src="mountains.jpg" />
+                    <div class="wrapper">
+                      <main class="content">
+                        ...
                       </main>
+                    </div>
 
-          :markdown
-            <span>
-
-                  </main>
-                </body>
+                  ...
 
           h3 SCSS
           .highlight
             :markdown
               <span>
 
-                  h1.title { @include heading_xl;}
+                  .wrapper {
+                    @include wrapper();
+                  }
 
         .rendering
-          p [ Rendering ]
+          img(src="img/steps/6.png")
 
       div(data-component="step")
         h2 Let's have that button open a modal
@@ -256,29 +246,22 @@ block content
 
                 <body>
                   <header class="main-nav">...</header>
-                  <main class="content">
+                  <div class="wrapper">
+                    <main class="content">
 
           .highlight
             :markdown
               <span>
 
-                      <aside class="content-news">
-                        <h1>News</h1>
-                        <button id="all-news">All News</button>
-                      </aside>
+                        <aside class="content-news">
+                          <h1>News</h1>
+                          <button id="all-news">All News</button>
+                        </aside>
 
           :markdown
             <span>
 
-                    <main class="content-articles">
-                      <h1 class="title">Welcome</h1>
-                      <img class="hero-img" src="mountains.jpg" />
-                    </main>
-
-          :markdown
-            <span>
-
-                  </main>
+                ...
 
           .highlight
             :markdown
@@ -296,7 +279,7 @@ block content
           :markdown
             <span>
 
-                </body>
+                ...
 
           h3 SCSS
           .highlight
@@ -318,7 +301,45 @@ block content
                   });
 
         .rendering
-          p [ Rendering ]
+          img(src="img/steps/8.png")
+
+      div(data-component="step")
+        h2 It would be great to make that "News" title smaller
+        .code
+          h3 HTML
+          :markdown
+            <span>
+
+                <body>
+                  <header class="main-nav">...</header>
+
+                  <div class="wrapper">
+                    <main class="content">
+
+          .highlight
+            :markdown
+              <span>
+
+                        <aside class="content-news">
+                          <h1>News</h1>
+                          <button id="all-news">All News</button>
+                        </aside>
+
+          :markdown
+            <span>
+
+                ...
+
+          h3 SCSS
+          .highlight
+            :markdown
+              <span>
+
+                  .content-news h1 { @include heading_sm;}
+
+        .rendering
+          img(src="img/steps/11.png")
+
 
       div(data-component="step")
         h2 If we're using the optional Gulp framework, we can also stream our code to a browser and a remote URL.
@@ -336,8 +357,11 @@ block content
                   [BS] Serving files from: lib
 
         .rendering
-          p [ Rendering of localhost ]
-          p [ Rendering of remote localhost ]
+          img(src="img/steps/9.png")
+          p
+            em 
+              | Notice how we've created two servers here. The external server allows 
+              | us to test the page as a public website. This is great for live mobile testing.
 
       div(data-component="step")
         h2 We can also keep our JS modular.
@@ -354,7 +378,7 @@ block content
                   moment         = require './moment'
 
         .rendering
-          p [ Directory Structure ]
+          img(src="img/steps/10.png")
 
       div(data-component="step")
         h2 And write mocha/phantom JS tests on the fly.
@@ -373,12 +397,9 @@ block content
                       expect(k$).to.not.equal(undefined)
 
         .rendering
-          :markdown
-            <span>
-
-                √ Kickstart is present
-
-                  1 passing (9ms)
+          .code-preview
+            p √ Kickstart is present
+            p 1 passing (9ms)
 
       div(data-component="step")
         h2 Kickstart has a lot of components, but it's also extendible. So we can add third party UIs from the community in the Kickstart Store.
@@ -406,7 +427,7 @@ block content
                   .switch { @include switch(); }
 
         .rendering
-          p [ Rendering of 3rd Party Component integrated ]
+          img(src="img/steps/12.png")
 
   section.blue.optimized-for-developer-happiness
     article.home-wrapper
