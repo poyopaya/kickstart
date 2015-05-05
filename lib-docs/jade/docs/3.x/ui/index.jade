@@ -169,6 +169,8 @@ block documents
         elements, and modifiers" Kickstart simply distinguishes "Components
         and modifiers."
 
+        Also see [Chopin](/chopin/) a spec sheet we created for advanced CSS selectors
+
   .document
     article.article
       :markdown
@@ -333,9 +335,9 @@ block documents
     .document
       article.article
         h1.only-semantic Colors
-        :markdown
-          <h2 class="only-semantic">Rainbow colors</h2>
+        h2.only-semantic Rainbow colors
 
+        :markdown
           To use a color variable, refer to the `$color` Sass map and retrieve one of red, orange, yellow, green, blue, or violet.
 
           [Read more about Sass maps](http://sass-lang.com/documentation/file.SASS_REFERENCE.html#maps)
@@ -444,3 +446,5 @@ block documents
           Two semantic colors, `$primary-color` and `$secondary-color` are assigned to the colors/grayscale 
           values above via the chosen theme. These are used throughout Kickstart to denote hierarchy in the
           interface.
+
+  include ../_includes/layout/_blocks_and_components.jade
