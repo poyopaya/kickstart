@@ -11,7 +11,7 @@ gulp.task('docs:jade', function() {
     .pipe(changed(dest))
     .pipe(jade({
         locals: {
-          currentVersion: '3.0 beta',
+          currentVersion: '3.1 beta',
           docsVersion: '3.x',
           nextDocsVersion: '4.x',
           fs: fs,
