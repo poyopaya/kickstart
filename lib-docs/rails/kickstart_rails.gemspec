@@ -8,8 +8,8 @@ Gem::Specification.new do |spec|
   spec.version       = Kickstart_rails::VERSION
   spec.authors       = ["Adam Kochanowicz"]
   spec.email         = ["ajkochanowicz@gmail.com"]
-  spec.summary       = %q{The front-end framework for clean HTML and fast websites.}
-  spec.description   = %q{The front-end framework for clean HTML and fast websites.}
+  spec.summary       = %q{The front-end library for clean HTML and fast websites.}
+  spec.description   = %q{The front-end library for clean HTML and fast websites.}
   spec.homepage      = "http://getkickstart.com"
   spec.license       = "MIT"
 

@@ -1,7 +1,7 @@
 {
   "name": "kickstart-node",
-  "version": "3.0.73",
-  "description": "A front-end framework for clean HTML and fast performance",
+  "version": "3.0.76",
+  "description": "A front-end library for clean HTML and fast performance",
   "keywords": [
     "CoffeeScript",
     "Jade",
@@ -54,7 +54,7 @@
     "gulp-newer": "^0.3.0",
     "gulp-notify": "^1.5.0",
     "gulp-rename": "^1.2.0",
-    "gulp-ruby-sass": "^0.7.0",
+    "gulp-ruby-sass": "^0.7.1",
     "gulp-todos": "^0.1.0",
     "gulp-uglify": "^1.0.1",
     "gulp-util": "^3.0.1",

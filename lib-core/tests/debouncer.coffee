@@ -54,3 +54,29 @@ describe 'Debouncer', ->
       else
         console.error "Found #{one}"
     , 2100
+
+
+  it 'should not clear a neighbor\'s timer', (done) ->
+    this.timeout 3500
+    a = ''
+    fn1 = ->
+      a = 'foo'
+
+    fn2 = ->
+      a = 'bar'
+
+    k$.debounce fn1, 'f'
+      
+    setTimeout ->
+      k$.debounce fn2, 'b'
+    , 500
+
+    setTimeout ->
+      if a == 'bar' or a == 'foo'
+        console.error "One function fired too early"
+    , 700
+
+    setTimeout ->
+      if a == 'bar'
+        done()
+    , 1700

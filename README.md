@@ -1,11 +1,9 @@
 Kickstart
 =========
 
-Kickstart is a modern front-end framework for clean HTML and fast performance.
+Kickstart is a modern front-end CSS library for clean HTML and fast performance.
 
 [getkickstart.com](http://getkickstart.com)
-
-[![NPM](https://nodei.co/npm/kickstart-node.png)](https://nodei.co/npm/kickstart-node/)
 
 [ ![Codeship Status for ajkochanowicz/kickstart](https://www.codeship.io/projects/bf939ac0-1a88-0132-7edc-6605d664157f/status)](https://www.codeship.io/projects/34696)
 
@@ -57,5 +55,5 @@ to compile files, bump version numbers, and deploy to NPM/RubyGems.org respectiv
 ## Deployment
 
 - Deployed with [CodeShip](http://codeship.io)
-- 3.0-wip deploys to getkickstart.com
+- master deploys to getkickstart.com
 - stage deploys to stage.getkickstart.com
