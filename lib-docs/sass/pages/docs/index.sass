@@ -106,7 +106,11 @@ h3, h4, h5, h6
 
           &.active
             background: white
-            color: map-get($colors, blue)
+            color: $default-font-color
+            font-weight: bold
+
+            &:hover
+              text-decoration: none
 
         > ul
           // border-left: 1px solid map-get($colors, blue)
@@ -126,6 +130,7 @@ h3, h4, h5, h6
         > li
           > a
             padding: 4px $space
+            margin-bottom: 0
 
           > ul, > li > ul > li > ul
             padding-left: 0
@@ -134,11 +139,13 @@ h3, h4, h5, h6
             > li
               > a
                 padding: 4px $space+5px
+                margin-bottom: 0
 
               > ul
                 > li
                   > a
                     padding: 4px $space+10px
+                    margin-bottom: 0
 
     h1
       +heading-xs 

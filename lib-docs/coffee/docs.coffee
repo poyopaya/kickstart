@@ -126,6 +126,16 @@ document.addEventListener 'DOMContentLoaded', ->
   k$.slugify = (str) ->
     `str.toLowerCase().replace(/ /g,'-').replace(/[^\w-]+/g,'')`
 
+  k$.markLink = ($link) ->
+    $href = $link.getAttribute('href')
+
+    for $tocLink in k$.$$('#toc a')
+      $tocLink.classList.remove 'active'
+
+    window.onhashchange = ->
+      if $href.substr(1, $href.length) == window.location.hash.substring(1)
+        $link.classList.add 'active'
+
   # Create a table of contents
 
   if k$.$$('#toc').length
@@ -178,6 +188,10 @@ document.addEventListener 'DOMContentLoaded', ->
         $targetNode.appendChild $menuItem
 
     k$.$('#toc').appendChild $toc
+
+    # Now that we have a TOC, let's do some ghetto scroll spy for now.
+    $toc.addEventListener 'click', (e) ->
+      k$.markLink(e.target)
 
   k$.loadReadme = (projectName) ->
     $url = "https://api.github.com/repos/ajkochanowicz/#{projectName}/contents/README.md"
