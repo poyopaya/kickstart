@@ -24,7 +24,7 @@ h3, h4, h5, h6
 
   +gt($tablet)
     > nav > ul > li.navbar-title
-      // display: none
+      display: none
 
   @media screen and (min-height: $phablet)
     // Notice this is min-height, not min-width
@@ -295,7 +295,7 @@ code, pre, kbd, samp
   .svg-logo, .svg-logo-small
     fill: map-get($colors, blue)
 
-  +navbar($collapse: true, $background-color: white)
+  +navbar($collapse: true, $layout: 'fluid', $background-color: white)
 
 // Optional doc blocks toggling
 .if-semantic, .if-jquery

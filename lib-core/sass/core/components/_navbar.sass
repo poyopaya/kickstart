@@ -15,15 +15,30 @@
     > ul:only-child
       margin-right: 0
 
+=navbar-mobile-depadding($breakpoint: $tablet)
+  > ul
+    margin:
+      left: -1*map-get($rootElement, paddingH)
+      right: -1*map-get($rootElement, paddingH)
+
+    > li
+      ul[role=button], > [role=button], &.navbar-title button[role="button"]
+        @media screen and (max-width: #{$breakpoint+1px})
+          margin:
+            left: 0
+            right: 0
+
 =navbar-fluid($breakpoint: $tablet)
   nav
     +wrapper(true)
     +navbar-align_menus($breakpoint)
+    +navbar-mobile-depadding($breakpoint)
 
 =navbar-fluid_fixed($breakpoint: $tablet)
   nav
     +wrapper(false)
     +navbar-align_menus($breakpoint)
+    +navbar-mobile-depadding($breakpoint)
 
 =navbar-collapse($breakpoint: $tablet)
   nav 
@@ -147,10 +162,10 @@
           left: 0px
           right: 0px
 
-        @if ($collapse == true)
-          margin:
-            left: (-1 * map-get($rootElement, paddingH))
-            right: (-1 * map-get($rootElement, paddingH))
+        // @if ($collapse == true)
+        //   margin:
+        //     left: (-1 * map-get($rootElement, paddingH))
+        //     right: (-1 * map-get($rootElement, paddingH))
 
         @media screen and (min-width: $breakpoint)
           margin: 0
@@ -211,7 +226,7 @@
           &:before, &:after
             font-family: 'Kickstart', Kickstart
             display: inline-block
-            font-size: 0.65rem
+            font-size: .65*$default-font-size
             vertical-align: middle
 
           @media screen and (min-width: $breakpoint)
@@ -267,7 +282,7 @@
               right: -1px
 
               li, li a:not([role=button])
-                font-size: 1rem
+                font-size: $default-font-size
 
               a:not([role=button])
                 padding:
