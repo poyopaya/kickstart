@@ -175,8 +175,13 @@ document.addEventListener 'DOMContentLoaded', ->
           $stepsUp = $headingLevel - $thisHeadingLevel
 
           while $stepsUp > 0
-            $targetNode = $targetNode.parentNode.parentNode
-            $stepsUp--
+            console.log($targetNode)
+            try
+              $targetNode = $targetNode.parentNode.parentNode
+            catch error
+              console.error error
+            finally
+              $stepsUp--
 
           $headingLevel = $thisHeadingLevel
 
