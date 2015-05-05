@@ -65,6 +65,8 @@ h3, h4, h5, h6
     width: 100%
     font-size: 1rem
     line-height: 2rem
+    background: desaturate(lighten(map-get($colors, blue), 38%), 30%)
+    min-height: 100vh
 
     @media screen and (max-width: $phablet)
       #toc
@@ -87,17 +89,28 @@ h3, h4, h5, h6
       color: map-get($colors, blue)
       margin-bottom: $space/4
       display: block
+      font-size: 0.9rem
+      line-height: 1.2rem
 
     ul
       +list($style: 'unstyled')
-      margin-bottom: 0
+      margin:
+        bottom: 0
 
       > li
         margin-bottom: 0 
 
         a
           font-weight: bold
-          color: $default-font-color
+          color: desaturate(darken(map-get($colors, blue), 15%), 25%)
+
+          &.active
+            background: white
+            color: $default-font-color
+            font-weight: bold
+
+            &:hover
+              text-decoration: none
 
         > ul
           // border-left: 1px solid map-get($colors, blue)
@@ -106,7 +119,33 @@ h3, h4, h5, h6
 
           a
             font-weight: normal
-            color: map-get($colors, blue)
+            color: desaturate(darken(map-get($colors, blue), 25%), 30%)
+
+    #toc
+      > ul
+        margin:
+          left: -$space
+          right: -$space
+
+        > li
+          > a
+            padding: 4px $space
+            margin-bottom: 0
+
+          > ul, > li > ul > li > ul
+            padding-left: 0
+
+          > ul
+            > li
+              > a
+                padding: 4px $space+5px
+                margin-bottom: 0
+
+              > ul
+                > li
+                  > a
+                    padding: 4px $space+10px
+                    margin-bottom: 0
 
     h1
       +heading-xs 
