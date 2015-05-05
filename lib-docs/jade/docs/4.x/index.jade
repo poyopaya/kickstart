@@ -185,23 +185,7 @@ block documents
             //= require kickstart_rails
             //= require_tree .
 
-  .document
-    article.article
-      :markdown
-        ### Firing on ready
-
-        Some of your JavaScript will need to run once the DOM is ready. In Rails, this can be a little mysterious, 
-        especially when using jquery-ujs. Here's one way to ensure this code fires at the right time.
-
-    article.code
-      :markdown
-        <span>
-
-            var ready = function() {
-              // Your code
-            }
-            $(document).ready(ready);
-            $(document).on("page:load", ready);
+  include ../3.x/_includes/quickstart/_firing_on_ready.jade
 
   .document
     article.article.article-full
