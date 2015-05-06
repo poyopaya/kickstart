@@ -23,7 +23,7 @@
 
     > li
       ul[role=button], > [role=button], &.navbar-title button[role="button"]
-        @media screen and (max-width: #{$breakpoint-1px})
+        @media screen and (max-width: #{$breakpoint - 1px})
           margin:
             left: 0
             right: 0
@@ -41,7 +41,7 @@
     +navbar-mobile-depadding($breakpoint)
 
 =navbar-collapse($breakpoint: $tablet)
-  nav 
+  nav
     &.expand
       > ul > li
         display: block
@@ -58,7 +58,7 @@
 
         &.navbar-title
           button
-            display: block 
+            display: block
 
             @media screen and (min-width: $breakpoint)
               display: none
@@ -245,7 +245,7 @@
                 height: 2px
                 background: inherit
                 margin: 0
-                z-index: 15 
+                z-index: 15
 
             &:after
               content: '+'
