@@ -138,65 +138,68 @@ document.addEventListener 'DOMContentLoaded', ->
 
   # Create a table of contents
 
-  if k$.$$('#toc').length
-    k$.$('.creating-table').parentNode.removeChild k$.$('.creating-table')
-    $toc = document.createElement 'ul'
-    $toc.className = "list list-unstyled"
-    $link = document.createElement('li')
-    $link.innerHTML = '<a></a>'
+  generateToc = ->
+    if k$.$$('#toc').length && k$.$$('.creating-table').length
+      $toc = document.createElement 'ul'
+      $toc.className = "list list-unstyled"
+      $link = document.createElement('li')
+      $link.innerHTML = '<a></a>'
 
-    # Assuming proper html, start with h1.
-    $headingLevel = 1
+      # Assuming proper html, start with h1.
+      $headingLevel = 1
 
-    # The node we're currently appending to. Always a ul.
-    $targetNode = $toc
+      # The node we're currently appending to. Always a ul.
+      $targetNode = $toc
 
-    $documentContainer = k$.$('.document-container')
-    for heading in $documentContainer.querySelectorAll('h1, h2, h3, h4, h5, h6')
-      # Ignore headings that declare themselves as exempt from the TOC
-      if not heading.classList.contains 'toc-exempt'
-        # For extra unique names.
-        # heading.id = "#{k$.slugify heading.innerHTML}-#{_k}"
-        
-        heading.id = k$.slugify heading.innerHTML
+      $documentContainer = k$.$('.document-container')
+      for heading in $documentContainer.querySelectorAll('h1, h2, h3, h4, h5, h6')
+        # Ignore headings that declare themselves as exempt from the TOC
+        if not heading.classList.contains 'toc-exempt'
+          # For extra unique names.
+          # heading.id = "#{k$.slugify heading.innerHTML}-#{_k}"
+          
+          heading.id = k$.slugify heading.innerHTML
 
-        # If this is a lower level.
-        $thisHeadingLevel = parseInt(heading.tagName.substr(1, 2))
+          # If this is a lower level.
+          $thisHeadingLevel = parseInt(heading.tagName.substr(1, 2))
 
-        if $thisHeadingLevel > $headingLevel
-          # Append a new submenu and make that the targetNode.
-          $newSubmenu = document.createElement 'ul'
-          $targetNode.children[$targetNode.children.length - 1].appendChild $newSubmenu 
-          $targetNode = $newSubmenu
-          $headingLevel = $thisHeadingLevel
+          if $thisHeadingLevel > $headingLevel
+            # Append a new submenu and make that the targetNode.
+            $newSubmenu = document.createElement 'ul'
+            $targetNode.children[$targetNode.children.length - 1].appendChild $newSubmenu 
+            $targetNode = $newSubmenu
+            $headingLevel = $thisHeadingLevel
 
-        # If this is a higher level
-        if $thisHeadingLevel < $headingLevel
-          $stepsUp = $headingLevel - $thisHeadingLevel
+          # If this is a higher level
+          if $thisHeadingLevel < $headingLevel
+            $stepsUp = $headingLevel - $thisHeadingLevel
 
-          while $stepsUp > 0
-            console.log($targetNode)
-            try
-              $targetNode = $targetNode.parentNode.parentNode
-            catch error
-              console.error error
-            finally
-              $stepsUp--
+            while $stepsUp > 0
+              console.log($targetNode)
+              try
+                $targetNode = $targetNode.parentNode.parentNode
+              catch error
+                console.error error
+              finally
+                $stepsUp--
 
-          $headingLevel = $thisHeadingLevel
+            $headingLevel = $thisHeadingLevel
 
-        # Make a new li and append it to the target ul node.
-        $menuItem = $link.cloneNode true
-        $menuItem.classList.add "if-semantic" if heading.classList.contains "only-semantic"
-        $menuItem.querySelector('a').href = "##{heading.id}"
-        $menuItem.querySelector('a').innerHTML = heading.innerHTML
-        $targetNode.appendChild $menuItem
+          # Make a new li and append it to the target ul node.
+          $menuItem = $link.cloneNode true
+          $menuItem.classList.add "if-semantic" if heading.classList.contains "only-semantic"
+          $menuItem.querySelector('a').href = "##{heading.id}"
+          $menuItem.querySelector('a').innerHTML = heading.innerHTML
+          $targetNode.appendChild $menuItem
 
-    k$.$('#toc').appendChild $toc
+      k$.$('.creating-table').parentNode.removeChild k$.$('.creating-table') if $toc.childNodes.length
+      k$.$('#toc').appendChild $toc
 
-    # Now that we have a TOC, let's do some ghetto scroll spy for now.
-    $toc.addEventListener 'click', (e) ->
-      k$.markLink(e.target)
+      # Now that we have a TOC, let's do some ghetto scroll spy for now.
+      $toc.addEventListener 'click', (e) ->
+        k$.markLink(e.target)
+
+  generateToc()
 
   k$.loadReadme = (projectName) ->
     $url = "https://api.github.com/repos/ajkochanowicz/#{projectName}/contents/README.md"
@@ -206,9 +209,13 @@ document.addEventListener 'DOMContentLoaded', ->
       if req.status >= 200 and req.status < 400
         content = k$.markdown.toHTML(window.atob(JSON.parse(req.responseText).content.replace(/\s/g, '')).replace(/<!--[\s\S]*?-->/g, ""))
         k$.$('[data-render="docs"]').innerHTML = content
+
+        # Remove generated TOC
         $ul = k$.$('[data-render="docs"] ul')
         $ul.parentNode.removeChild($ul)
-        k$.$('#toc').appendChild($ul)
+
+        generateToc()
+
       else
         console.error "Received an error when trying to load"
 
