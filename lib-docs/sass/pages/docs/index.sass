@@ -22,6 +22,11 @@ h3, h4, h5, h6
   position: relative
   z-index: 10
 
+  &.amadeus
+    +gt($tablet)
+      > nav > ul > li.navbar-title
+        display: block
+
   +gt($tablet)
     > nav > ul > li.navbar-title
       display: none
@@ -263,6 +268,16 @@ h3, h4, h5, h6
         bottom: -1px
         background: darken(map-get($colors, blue), 40%)
         border-bottom: 1px solid darken(map-get($colors, blue), 45%)
+
+      &.article-blank
+        padding:
+          right: $space
+        margin:
+          bottom: $space*2
+        max-width: 650px
+
+        &:after
+          display: none
 
 .page_heading
   +page_heading

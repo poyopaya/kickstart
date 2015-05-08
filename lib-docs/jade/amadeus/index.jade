@@ -1,7 +1,7 @@
 extends ../_layout
 
 block variables
-  - var showFooter = true
+  - var showFooter = false
   - var title = "Amadeus"
 
 block menuVars
@@ -11,13 +11,24 @@ block page-stylesheet
   link(rel="stylesheet" href="/css/pages/docs/index.css")
 
 block content
-  .wrapper
-    div(data-render="docs")
-      h1 Amadeus
-      p Amadeus is a set of CSS variable naming conventions written for any application and originall yinvented for the Kickstart Library.
+  div.docs-nav.amadeus(data-ks-navbar)
+    nav
+      ul
+        li.navbar-title Amadeus
 
-      p The docs are hosted in the GitHub readme.
-      p Please wait while we load that for you.
+  main.main
+    .fixed-area
+      #marker
+      aside.fixed-toc
+        #toc
+          p.creating-table Creating table of contents...
+
+      main.fixed-main
+        section.document-container
+          .document
+            article.article.article-full.article-blank(data-render="docs")
+
+    .push
 
 block postJS
   script document.addEventListener('DOMContentLoaded', function() {k$.loadReadme('amadeus')})
