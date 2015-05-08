@@ -204,8 +204,8 @@ document.addEventListener 'DOMContentLoaded', ->
     req.open('GET', $url, true)
     req.onload = ->
       if req.status >= 200 and req.status < 400
-        console.log req.responseText
-        content = k$.markdown.toHTML(window.atob(JSON.parse(req.responseText).content.replace(/\s/g, '')))
+        content = k$.markdown.toHTML(window.atob(JSON.parse(req.responseText).content.replace(/\s/g, '')).replace(/<!--[\s\S]*?-->/g, ""))
+        console.log(content)
         k$.$('[data-render="docs"]').innerHTML = content
       else
         console.error "Received an error when trying to load"
