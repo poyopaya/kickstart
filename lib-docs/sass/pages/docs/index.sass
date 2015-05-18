@@ -119,14 +119,6 @@ h3, h4, h5, h6
             &:hover
               text-decoration: none
 
-        > ul
-          // border-left: 1px solid map-get($colors, blue)
-          padding-left: $space/3
-          margin-bottom: $space/3
-
-          a
-            font-weight: normal
-            color: desaturate(darken(map-get($colors, blue), 25%), 30%)
 
     #toc
       > ul
@@ -143,6 +135,14 @@ h3, h4, h5, h6
             padding-left: 0
 
           > ul
+            // border-left: 1px solid map-get($colors, blue)
+            padding-left: $space/3
+            margin-bottom: $space/3
+
+            a
+              font-weight: normal
+              color: desaturate(darken(map-get($colors, blue), 25%), 30%)
+
             > li
               > a
                 padding: 4px $space+5px
@@ -151,19 +151,19 @@ h3, h4, h5, h6
               > ul
                 > li
                   > a
-                    padding: 4px $space+10px
+                    padding: 4px $space+15px
                     margin-bottom: 0
 
                   > ul
                     > li
                       > a
-                        padding: 4px $space+15px
+                        padding: 4px $space+25px
                         margin-bottom: 0
 
                       > ul
                         > li
                           > a
-                            padding: 4px $space+20px
+                            padding: 4px $space+35px
                             margin-bottom: 0
 
     h1
