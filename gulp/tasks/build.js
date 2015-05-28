@@ -6,7 +6,6 @@ gulp.task('build', [
   'jade',
   'images',
   'sass',
-  'coffee',
   'minify'
 ]);
 
