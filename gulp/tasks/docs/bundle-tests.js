@@ -13,9 +13,9 @@ gulp.task('docs:bundle-tests', ['docs:js'], function() {
     // Required watchify args
     cache: {}, packageCache: {}, fullPaths: true,
     // Specify the entry point of your app
-    entries: ['./lib-docs/coffee/tests.coffee'],
+    entries: ['./docs/js-alc/tests.js'],
     // Add file extentions to make optional in your requires
-    extensions: ['.coffee'],
+    // extensions: ['.coffee'],
     // Enable source maps!
     debug: true
   });

@@ -9,12 +9,12 @@ var source       = require('vinyl-source-stream');
 var todo         = require('gulp-todos');
 
 // Bundles tests with kickstart.js
-gulp.task('bundle-tests', function() {
+gulp.task('bundle-tests', ['js'], function() {
   var bundler = browserify({
     // Required watchify args
     cache: {}, packageCache: {}, fullPaths: true,
     // Specify the entry point of your app
-    entries: ['./lib/coffee/tests.coffee'],
+    entries: ['./public/js-alc/tests.js'],
     // Add file extentions to make optional in your requires
     extensions: ['.coffee'],
     // Enable source maps!

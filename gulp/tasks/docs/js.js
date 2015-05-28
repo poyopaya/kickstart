@@ -8,6 +8,8 @@ gulp.task('core:js', function() {
   return gulp.src([
     './lib-core/js/**/*.js',
     './lib-core/coffee/**/*.coffee',
+    './lib-core/tests/**/*.coffee',
+    './lib-core/tests/**/*.js'
   ])
   .pipe(gulpif(/[.]coffee$/, coffee()))
   .pipe(babel())

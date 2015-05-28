@@ -7,7 +7,9 @@ var gulp = require('gulp'),
 gulp.task('js', function() {
   gulp.src([
     './lib/js/**/*.js',
-    './lib/coffee/**/*.coffee'
+    './lib/coffee/**/*.coffee',
+    './lib/tests/**/*.coffee',
+    './lib/tests/**/*.js'
   ])
   .pipe(gulpif(/[.]coffee$/, coffee()))
   .pipe(babel())
