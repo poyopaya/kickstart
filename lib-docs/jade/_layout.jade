@@ -1,7 +1,7 @@
 doctype html
 
 - var showFooter = true
-- var title = "The CSS Library we've been waiting for" 
+- var title = "The CSS Library we've been waiting for"
 
 block variables
 block menuVars
@@ -49,9 +49,9 @@ html(lang='en')
         .push
 
     - if (showFooter == true)
-      footer.main 
+      footer.main
         - var xml = fs.readFileSync('lib-docs/img/everythingio.svg')
-        
+
         .wrapper
           p
             span.eio-logo!= xml
@@ -59,7 +59,7 @@ html(lang='en')
             a(href="http://twitter.com/everythingdotio") Everything
 
     - else
-      script(src="/js/navbar-fixer.js")
+      script(src="/js-alc/navbar-fixer.js")
     block preJS
 
     script(src="/js/docs.js")

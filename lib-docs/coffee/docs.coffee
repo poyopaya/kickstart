@@ -157,7 +157,7 @@ document.addEventListener 'DOMContentLoaded', ->
         if not heading.classList.contains 'toc-exempt'
           # For extra unique names.
           # heading.id = "#{k$.slugify heading.innerHTML}-#{_k}"
-          
+
           heading.id = k$.slugify heading.innerHTML
 
           # If this is a lower level.
@@ -166,7 +166,7 @@ document.addEventListener 'DOMContentLoaded', ->
           if $thisHeadingLevel > $headingLevel
             # Append a new submenu and make that the targetNode.
             $newSubmenu = document.createElement 'ul'
-            $targetNode.children[$targetNode.children.length - 1].appendChild $newSubmenu 
+            $targetNode.children[$targetNode.children.length - 1].appendChild $newSubmenu
             $targetNode = $newSubmenu
             $headingLevel = $thisHeadingLevel
 
@@ -175,7 +175,6 @@ document.addEventListener 'DOMContentLoaded', ->
             $stepsUp = $headingLevel - $thisHeadingLevel
 
             while $stepsUp > 0
-              console.log($targetNode)
               try
                 $targetNode = $targetNode.parentNode.parentNode
               catch error
@@ -223,5 +222,5 @@ document.addEventListener 'DOMContentLoaded', ->
       console.error "Connection error"
 
     req.send()
-  
+
   # k$.ready()
