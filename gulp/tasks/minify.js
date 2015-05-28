@@ -6,7 +6,7 @@ var gulp = require('gulp'),
   changed = require('gulp-cached'),
   uglify = require('gulp-uglify');
 
-gulp.task('minify', ['coffee', 'browserify', 'sass'], function() {
+gulp.task('minify', ['browserify', 'sass'], function() {
   var dest = './public/js/';
   gulp.src(['./public/js/**/*.js', '!./public/js/**/*.min.js'])
     .pipe(changed(dest))

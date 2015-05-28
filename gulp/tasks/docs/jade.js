@@ -1,6 +1,7 @@
 var gulp = require('gulp'),
   jade = require('gulp-jade'),
   icons = require('../../../docs/icons.js'),
+  settings = require('../../../docs/settings.js'),
   changed = require('gulp-cached'),
   fs = require('fs');
 
@@ -11,9 +12,9 @@ gulp.task('docs:jade', function() {
     .pipe(changed(dest))
     .pipe(jade({
         locals: {
-          currentVersion: '3.1 beta',
-          docsVersion: '3.x',
-          nextDocsVersion: '4.x',
+          currentVersion: settings.currentV,
+          docsVersion: settings.docsV,
+          nextDocsVersion: settings.nextV,
           fs: fs,
           icons: icons
         }
