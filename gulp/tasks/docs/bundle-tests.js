@@ -8,7 +8,7 @@ var handleErrors = require('../../util/handleErrors');
 var source       = require('vinyl-source-stream');
 var todo         = require('gulp-todos');
 
-gulp.task('docs:bundle-tests', ['docs:js'], function() {
+gulp.task('docs:bundle-tests', ['docs:js', 'docs:test:js'], function() {
   var bundler = browserify({
     // Required watchify args
     cache: {}, packageCache: {}, fullPaths: true,

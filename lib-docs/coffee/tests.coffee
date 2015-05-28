@@ -1,3 +1,2 @@
-Tests       = require '../../lib-core/coffee/tests'
+Tests       = require '../../core/js-alc/tests'
 Docs        = require './docs'
-
