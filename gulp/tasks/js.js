@@ -5,13 +5,21 @@ var gulp = require('gulp'),
   babel  = require('gulp-babel');
 
 gulp.task('js', function() {
-  gulp.src([
+  return gulp.src([
     './lib/js/**/*.js',
-    './lib/coffee/**/*.coffee',
+    './lib/coffee/**/*.coffee'
+  ])
+  .pipe(gulpif(/[.]coffee$/, coffee()))
+  .pipe(babel())
+  .pipe(gulp.dest('./public/js-alc/'))
+});
+
+gulp.task('test:js', function() {
+  return gulp.src([
     './lib/tests/**/*.coffee',
     './lib/tests/**/*.js'
   ])
   .pipe(gulpif(/[.]coffee$/, coffee()))
   .pipe(babel())
-  .pipe(gulp.dest('./public/js-alc/'))
+  .pipe(gulp.dest('./public/js-alc/tests/'))
 });

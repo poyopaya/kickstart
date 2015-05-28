@@ -9,7 +9,7 @@ var source       = require('vinyl-source-stream');
 var todo         = require('gulp-todos');
 
 // Bundles tests with kickstart.js
-gulp.task('bundle-tests', ['js'], function() {
+gulp.task('bundle-tests', ['js', 'test:js'], function() {
   var bundler = browserify({
     // Required watchify args
     cache: {}, packageCache: {}, fullPaths: true,

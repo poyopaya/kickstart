@@ -1,2 +1,2 @@
 App                 = require './app'
-testDef             = require '../tests/default'
+testDef             = require './tests/default'
