@@ -5,14 +5,14 @@ var gulp           = require('gulp');
 var handleErrors   = require('../../util/handleErrors');
 var source         = require('vinyl-source-stream');
 
-gulp.task('docs:browserify', function() {
+gulp.task('docs:browserify', ['docs:js'], function() {
   var bundler = browserify({
     // Required watchify args
     cache: {}, packageCache: {}, fullPaths: true,
     // Specify the entry point of your app
-    entries: ['./lib-docs/coffee/app.coffee'],
+    entries: ['./docs/js-alc/app.js'], // alc = A La Carte
     // Add file extentions to make optional in your requires
-    extensions: ['.coffee'],
+    // extensions: ['.coffee'],
     // Enable source maps!
     debug: true
   });

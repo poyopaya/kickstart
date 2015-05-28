@@ -6,12 +6,12 @@ var handleErrors   = require('../../util/handleErrors');
 var source         = require('vinyl-source-stream');
 
 // Bundles kickstart.js
-gulp.task('bundleKickstart', function() {
+gulp.task('bundleKickstart', ['docs:js'], function() {
   var bundler = browserify({
     // Required watchify args
     cache: {}, packageCache: {}, fullPaths: true,
     // Specify the entry point of your app
-    entries: ['./lib-core/coffee/app.coffee'],
+    entries: ['./core/js-alc/app.js'],
     // Add file extentions to make optional in your requires
     extensions: ['.coffee'],
     // Enable source maps!

@@ -6,9 +6,12 @@ var gulp = require('gulp'),
   changed = require('gulp-cached'),
   uglify = require('gulp-uglify');
 
-gulp.task('docs:minify', ['docs:coffee', 'docs:browserify', 'docs:sass'], function() {
+gulp.task('docs:minify', ['docs:js', 'docs:browserify', 'docs:sass'], function() {
   var dest = './docs/js';
-  gulp.src(['./docs/js/**/*.js', '!./docs/js/**/*.min.js'])
+  gulp.src([
+    './docs/js/**/*.js',
+    '!./docs/js/**/*.min.js'
+  ])
     .pipe(changed(dest))
     .pipe(uglify())
     .pipe(rename(function(path) {
@@ -24,4 +27,4 @@ gulp.task('docs:minify', ['docs:coffee', 'docs:browserify', 'docs:sass'], functi
       path.basename += ".min"
     }))
     .pipe(gulp.dest(dest));
-})
+});

@@ -1,6 +1,7 @@
 .DS_Store
 /public
 /docs
+/core
 npm-debug.log
 node_modules
 /raw/publish
@@ -17,6 +18,7 @@ kickstart.js
 kickstart.min.js
 kickstart.css
 kickstart.min.css
+js-alc
 
 lib-docs/sass/themes/serenity
 lib-docs/sass/themes/strands
