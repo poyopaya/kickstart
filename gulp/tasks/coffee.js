@@ -4,6 +4,9 @@ var gulp = require('gulp'),
   coffee = require('gulp-coffee');
 
 gulp.task('coffee', function() {
-  return
-  // For one-off coffeescript files not included in bundler
-})
+  // Regular JS copying
+  gulp.src(['./lib/js/**/*.js'])
+    .pipe(gulp.dest('./public/js'))
+
+  // Use this space to compile one-off coffeescript files instead of using require.
+});

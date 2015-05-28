@@ -11,6 +11,17 @@ block subMenuVars
   - var subMenuItem = "getstarted"
 
 block documents
+  .if-semantic
+    .document
+      article.article.article-full
+        :markdown
+          # Sass Variable Naming
+
+          As of Version 4, Kickstart uses [Amadeus](https://github.com/ajkochanowicz/Amadeus) conventions
+          for naming variables.
+
+          This helps to establish consistency and predictability with the naming of variables.
+
   .document
     article.article.article-full
       :markdown
@@ -444,3 +455,5 @@ block documents
           Two semantic colors, `$primary-color` and `$secondary-color` are assigned to the colors/grayscale 
           values above via the chosen theme. These are used throughout Kickstart to denote hierarchy in the
           interface.
+
+  include ../../3.x/_includes/layout/_blocks_and_components.jade

@@ -22,6 +22,11 @@ h3, h4, h5, h6
   position: relative
   z-index: 10
 
+  &.amadeus
+    +gt($tablet)
+      > nav > ul > li.navbar-title
+        display: block
+
   +gt($tablet)
     > nav > ul > li.navbar-title
       display: none
@@ -66,6 +71,10 @@ h3, h4, h5, h6
     font-size: 1rem
     line-height: 2rem
 
+    +gt($phablet)
+      background: desaturate(lighten(map-get($colors, blue), 38%), 30%)
+      min-height: 100vh
+
     @media screen and (max-width: $phablet)
       #toc
         background: map-get($white, darker)
@@ -87,18 +96,75 @@ h3, h4, h5, h6
       color: map-get($colors, blue)
       margin-bottom: $space/4
       display: block
+      font-size: 0.9rem
+      line-height: 1.2rem
 
     ul
       +list($style: 'unstyled')
-      margin-bottom: 0
+      margin:
+        bottom: 0
 
       > li
         margin-bottom: 0 
 
-        > ul
-          // border-left: 1px solid map-get($colors, blue)
-          padding-left: $space/3
-          margin-bottom: $space/3
+        a
+          font-weight: bold
+          color: desaturate(darken(map-get($colors, blue), 15%), 25%)
+
+          &.active
+            background: white
+            color: $default-font-color
+            font-weight: bold
+
+            &:hover
+              text-decoration: none
+
+
+    #toc
+      > ul
+        margin:
+          left: -$space
+          right: -$space
+
+        > li
+          > a
+            padding: 4px $space
+            margin-bottom: 0
+
+          > ul, > li > ul > li > ul
+            padding-left: 0
+
+          > ul
+            // border-left: 1px solid map-get($colors, blue)
+            padding-left: $space/3
+            margin-bottom: $space/3
+
+            a
+              font-weight: normal
+              color: desaturate(darken(map-get($colors, blue), 25%), 30%)
+
+            > li
+              > a
+                padding: 4px $space+5px
+                margin-bottom: 0
+
+              > ul
+                > li
+                  > a
+                    padding: 4px $space+15px
+                    margin-bottom: 0
+
+                  > ul
+                    > li
+                      > a
+                        padding: 4px $space+25px
+                        margin-bottom: 0
+
+                      > ul
+                        > li
+                          > a
+                            padding: 4px $space+35px
+                            margin-bottom: 0
 
     h1
       +heading-xs 
@@ -215,6 +281,16 @@ h3, h4, h5, h6
         background: darken(map-get($colors, blue), 40%)
         border-bottom: 1px solid darken(map-get($colors, blue), 45%)
 
+      &.article-blank
+        padding:
+          right: $space
+        margin:
+          bottom: $space*2
+        max-width: 650px
+
+        &:after
+          display: none
+
 .page_heading
   +page_heading
 
@@ -246,7 +322,7 @@ code, pre, kbd, samp
   .svg-logo, .svg-logo-small
     fill: map-get($colors, blue)
 
-  +navbar($collapse: true, $background-color: white)
+  +navbar($collapse: true, $layout: 'fluid', $background-color: white)
 
 // Optional doc blocks toggling
 .if-semantic, .if-jquery

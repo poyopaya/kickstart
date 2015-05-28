@@ -14,7 +14,9 @@
         a(href="http://kickstart.everything.io") 
           span.fa.fa-cubes
           | Store
+
     ul
+      li: a(href="/amadeus" class="#{menuItem == 'amadeus' ? 'active' : ''}") Amadeus
       li
         a.button.button-primary(href="/docs/#{docsVersion}/" role="button")
           span.fa.fa-cloud-download
