@@ -18,13 +18,13 @@
       k$.button();
       k$.dropdown();
 
-      k$.$$('[data-ks-navbar]').map(
+      Array.prototype.map.call(k$.$$('[data-ks-navbar]'),
         navbar => {
           k$.nav(navbar);
         }
       );
 
-      k$.$$('[data-ks-tabs]').map(
+      Array.prototype.map.call(k$.$$('[data-ks-tabs]'), 
         tabSet => {
           k$.tabs(tabSet);
         }
@@ -33,4 +33,4 @@
 
     document.addEventListener('DOMContentLoaded', k$.ready);
   }
-)()
+)();
