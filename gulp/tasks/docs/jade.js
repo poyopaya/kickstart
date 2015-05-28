@@ -1,7 +1,7 @@
 var gulp = require('gulp'),
   jade = require('gulp-jade'),
   icons = require('../../../docs/icons.js'),
-  settings = require('../../../docs/settings.js'),
+  settings = require('./settings'),
   changed = require('gulp-cached'),
   fs = require('fs');
 
