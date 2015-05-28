@@ -8,7 +8,7 @@
         Status    = require('./status'),
         Tabs      = require('./tabs'),
         Throttler = require('./throttler'),
-        Buttons   = require('.buttons'),
+        Buttons   = require('./buttons'),
         Buffer    = require('./buffer'),
         Growl     = require('./growl'),
         Dropdown  = require('./dropdown')
