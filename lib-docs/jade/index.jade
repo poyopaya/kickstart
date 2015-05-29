@@ -1,4 +1,4 @@
-extends _layout
+extends 3.x-layouts/_layout
 
 block page-stylesheet
   link(rel="stylesheet" href="/css/pages/index.min.css")
@@ -39,19 +39,19 @@ block content
 
           .group
             .jquery
-            .foundation 
+            .foundation
 
         p Not only is the Kickstart JS smaller than Bootstrap and Foundation, it also doesn't require jQuery--drastically reducing page load times.
 
   section.blue.step-by-step
     article.home-wrapper
       h1 How it works
-      p 
+      p
         | Kickstart has been used in production websites for over three years. Kickstart is a library, not a framework.
         | This means you only use the CSS you need instead of slowing down your site with a complete UI library.
 
       div(data-component="step")
-        h2 First, let's make a navigation bar for our website. 
+        h2 First, let's make a navigation bar for our website.
         .code
 
           h3 HTML
@@ -359,8 +359,8 @@ block content
         .rendering
           img(src="img/steps/9.png")
           p
-            em 
-              | Notice how we've created two servers here. The external server allows 
+            em
+              | Notice how we've created two servers here. The external server allows
               | us to test the page as a public website. This is great for live mobile testing.
 
       div(data-component="step")
@@ -371,7 +371,7 @@ block content
           .highlight
             :markdown
               <span>
-            
+
                   KS             = require '../../lib-core/coffee/app'
                   $              = require './jquery'
                   datepicker     = require './pikaday'
@@ -561,7 +561,7 @@ block content
         ul.tabs(data-ks-tabs="true")
           li.open: a(href="#static") Static
           li: a(href="#mixins") With Mixins
-        
+
         .examples
           article#static
             :markdown
@@ -621,7 +621,7 @@ block content
           img(src="http://cdn.everything.io/kickstart/3.x/img/ui.png")
 
         h1 Loves to be extended
-        p 
+        p
           | The library is just the core. Kickstart is designed to be extended and themed via the&nbsp;
           a(href="http://kickstart.everything.io") Kickstart Store
           | .
@@ -645,7 +645,7 @@ block content
   article.home-wrapper
     footer.specs
       h1 Specifications
-      
+
       .spec
         dl
           dt Browser Support
@@ -654,7 +654,7 @@ block content
       .spec
         dl
           dt License
-          dd 
+          dd
             a(href="http://opensource.org/licenses/MIT") MIT
 
       .spec
