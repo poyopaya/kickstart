@@ -1,11 +1,11 @@
-extends ../../_layout
+extends ../../../_layout
 
 block hero-title
   h1 Alerts
 
 block variables
   - var showFooter = false
-  - var title = "Alerts" 
+  - var title = "Alerts"
 
 block ui-stylesheet
   link(rel="stylesheet" href="/css/pages/docs/ui/alerts.min.css")
@@ -15,7 +15,7 @@ block documents
     article.article
       :markdown
         Alerts are simple colored containers with opinionated type hierarchy.
-        These are great for drawing attention within content or showing the 
+        These are great for drawing attention within content or showing the
         user notices above the page. Alerts styles are reused for showing [growls](/docs/#{docsVersion}/ui/notifications).
 
       .example
@@ -59,4 +59,3 @@ block documents
               .button {
                 @include button();
               }
-

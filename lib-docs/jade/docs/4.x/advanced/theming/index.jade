@@ -1,4 +1,4 @@
-extends ../_layout
+extends ../../_layout
 
 block hero-title
   h1 Theming
@@ -10,13 +10,16 @@ block variables
 block subMenuVars
   - var subMenuItem = "getstarted"
 
+block menuVars
+  - var docCategory = "advanced"
+
 block documents
   .document
     article.article
       .ifnot-semantic
         .alert
           h1.toc-exempt Please note
-          p 
+          p
             | You have indicated you are not using Semantic Sass for your project.
             | This means you will not be able to edit theme files, as they will
             | be baked into the CSS file.
@@ -93,8 +96,8 @@ block documents
               margin-bottom: 15px
 
   .document
-    article.article.article-full 
-      :markdown 
+    article.article.article-full
+      :markdown
         # Why do it this way?
 
         By decoupling the default styling from the final component name, you get the

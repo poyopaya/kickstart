@@ -1,4 +1,4 @@
-extends ../../_layout
+extends ../../../_layout
 
 block hero-title
   h1 Navigation
@@ -28,7 +28,7 @@ block documents
             ul
               li: a(href="#") Login
 
-      :markdown 
+      :markdown
         Navigation bars consist of three elements:
 
         1. The container (Your choice of element)
@@ -248,7 +248,7 @@ block documents
         :markdown
           Simply pass in `'fluid'` to the `$layout` parameter to enable a fluid wrapper.
 
-    article.code 
+    article.code
       .ifnot-semantic
         :markdown
           <span>
@@ -300,7 +300,7 @@ block documents
                 ...
               </div>
 
-  include ../../../3.x/_includes/navigation/_dropdowns.jade
+  include ../../../../3.x/_includes/navigation/_dropdowns.jade
 
   .document
     article.article
@@ -327,7 +327,7 @@ block documents
         :markdown
           <span>
 
-              @include navbar($background: #333) 
+              @include navbar($background: #333)
 
       .ifnot-semantic
         :markdown
@@ -339,7 +339,7 @@ block documents
                 <nav>
               </div>
 
-  include ../../../3.x/_includes/navigation/_responsive.jade
+  include ../../../../3.x/_includes/navigation/_responsive.jade
 
   .document
     article.article
@@ -412,14 +412,14 @@ block documents
               }
 
   .document
-    article.article 
+    article.article
       :markdown
         #### Stacking navbars
 
         For best performance with spacing and z-indexes, I highly recommend instead using a single div
         to contain your two *non-fixed* navbars.
 
-    article.code 
+    article.code
       :markdown
         <span>
 

@@ -2,6 +2,7 @@ extends ../../4.x-layouts/_layout
 
 block menuVars
   - var menuItem = "docs"
+  - var docCategory = "ui"
 
 block page-stylesheet
   block ui-stylesheet
@@ -17,7 +18,14 @@ block bleed
     block hero-example
 
 block header
-  include _header
+  - if (docCategory == "ui")
+    include headers/_ui_library
+
+  - if (docCategory == "advanced")
+    include headers/_advanced
+    
+  - if (docCategory == "page-generator")
+    include headers/_page-generator
 
 block content
   //- Below tablet, this is a wrapping container.

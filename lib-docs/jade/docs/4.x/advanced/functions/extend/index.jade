@@ -1,4 +1,4 @@
-extends ../../_layout
+extends ../../../_layout
 
 block hero-title
   h1 Extend
@@ -8,6 +8,9 @@ block docVars
 
 block subMenuVars
   - var subMenuItem = "functions"
+
+block menuVars
+  - var docCategory = "advanced"
 
 block variables
   - var showFooter = false
@@ -51,7 +54,7 @@ block documents
 
             alex = k$.extend(employee, alex)
 
-            jesse = k$.extend(employee, jesse) 
+            jesse = k$.extend(employee, jesse)
 
   .document
     article.article
@@ -71,7 +74,7 @@ block documents
             }
 
             // jesse
-            
+
             {
               role: 'CEO',
               location: 'NYC',

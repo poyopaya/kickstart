@@ -1,4 +1,4 @@
-extends ../../_layout
+extends ../../../_layout
 
 block hero-title
   h1 Throttling
@@ -6,6 +6,9 @@ block hero-title
 block variables
   - var showFooter = false
   - var title = "Throttling"
+
+block menuVars
+  - var docCategory = "advanced"
 
 block subMenuVars
   - var subMenuItem = "functions"
@@ -55,7 +58,7 @@ block documents
       :markdown
         # Debouncing
 
-        You can also debounce a component with `k$.debounce()` 
+        You can also debounce a component with `k$.debounce()`
 
         A debouncer prevents a single function from being executed until
         X milliseconds have elapsed since it was last sent through the
@@ -64,8 +67,8 @@ block documents
       iframe.animation(scrolling="no" src="/iframes/debouncer/debouncer.html")
 
       :markdown
-        An example usage of the debouncer is 
-        [the status component](../../ui/notifications), which delays 
+        An example usage of the debouncer is
+        [the status component](../../ui/notifications), which delays
         hiding itself until the function hasn't been called for 2000ms
 
     article.code
@@ -74,7 +77,7 @@ block documents
 
             k$.debounce(myfunc, 'save name')
 
-block basic 
+block basic
   div(style="display: none")
     :markdown
       ## Throttling
@@ -88,4 +91,3 @@ block basic
       X milliseconds.
 
     iframe.animation(scrolling="no" src="/iframes/throttler/throttler.html")
-

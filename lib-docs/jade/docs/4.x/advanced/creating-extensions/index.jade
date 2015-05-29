@@ -1,4 +1,4 @@
-extends ../_layout
+extends ../../_layout
 
 block hero-title
   h1 Adding Extensions
@@ -10,10 +10,13 @@ block variables
 block subMenuVars
   - var subMenuItem = "getstarted"
 
+block menuVars
+  - var docCategory = "advanced"
+
 block documents
   .document
     article.article
-      :markdown 
+      :markdown
         # How to create an extension
 
         An extension is simply a Git repository that a user clones into their
@@ -27,7 +30,7 @@ block documents
         As Kickstart is maintained primarily as a Gulp project, this guide will
         show you how to make extensions by cloning Kickstart itself.
 
-        Because of there is some overlap, this guide documents how to create both 
+        Because of there is some overlap, this guide documents how to create both
         a component and a theme.
 
     article.code
@@ -74,11 +77,11 @@ block documents
   .document
     article.article
       :markdown
-        If everything worked correctly, you should be able to launch the project with the  `gulp` 
+        If everything worked correctly, you should be able to launch the project with the  `gulp`
           command. This will automatically launch a browser with a basic sample webpage.
 
         If you'd like to save your project environment on github, you can remove the existing
-          `origin` remote from `.git/config` and add your own (Using the instructions provided 
+          `origin` remote from `.git/config` and add your own (Using the instructions provided
           on Github after creating a new repo is a great way to do this.)
 
     article.code
@@ -125,7 +128,7 @@ block documents
 
         <span class="notice-error">Beware of extensionless files</span> Please
         avoid using files that do not have extensions. For example, `LICENSE`
-        should be renamed to `LICENSE.md`. Extensionless files create issues 
+        should be renamed to `LICENSE.md`. Extensionless files create issues
         in your Rails end users
 
   .document
@@ -177,7 +180,7 @@ block documents
       :markdown
         Now we just need to add that "index.sass" in status-text.
 
-        `cd` into status-text and create it. For now, it doesn't 
+        `cd` into status-text and create it. For now, it doesn't
         need to create anything. It just needs to exist.
 
     article.code
@@ -240,7 +243,7 @@ block documents
         <span>
 
             // In lib/sass/style.sass
-            
+
             @import themes/default/theme
 
             // Write your styles here.
@@ -267,7 +270,7 @@ block documents
         We'll need to create a structure similar to `default`. First, we'll need to create
         an empty repository on GitHub so we can create a submodule from it.
 
-        Create a repository with the name of your theme, including a README.md file, and add 
+        Create a repository with the name of your theme, including a README.md file, and add
         it as a submodule to your lib/sass/themes directory.
 
         Then copy in the default theme from the core directory. This will be the sass file
