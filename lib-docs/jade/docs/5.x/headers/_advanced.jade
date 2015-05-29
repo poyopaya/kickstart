@@ -1,0 +1,26 @@
+.docs-nav(data-ks-navbar)
+  nav
+    ul
+      li.navbar-title
+        h1 Documentation
+        button(role="button") =
+      li(class="#{subMenuItem == 'adding-extensions' ? 'active' : ''}")
+        a(href="/docs/4.x/advanced/adding-extensions") Adding Extensions
+      li(class="#{subMenuItem == 'creating-extensions' ? 'active' : ''}")
+        a(href="/docs/4.x/advanced/creating-extensions") Creating Extensions
+      li(class="#{subMenuItem == 'throttling' ? 'active' : ''}")
+        a(href="/docs/4.x/advanced/throttling") Throttling
+      li(class="#{subMenuItem == 'element-inspector' ? 'active' : ''}")
+        a(href="/docs/4.x/advanced/element-inspector") Element Inspector
+      li(class="#{subMenuItem == 'extend' ? 'active' : ''}")
+        a(href="/docs/4.x/advanced/extend") Extend
+
+    ul
+      li
+        | #{nextDocsVersion}
+        ul
+          li: a(href="http://getkickstrap.com.s3-website-us-east-1.amazonaws.com/1.x/") 1.5.0
+          li: a(href="http://getkickstrap.com.s3-website-us-east-1.amazonaws.com/2.x/") 2.0.8
+          li: a(href="/docs/3.x") 3.2
+          li: a(href="/docs/#{docsVersion}") #{currentVersion} (Latest)
+          li: a(href="/docs/#{nextDocsVersion}") #{nextDocsVersion}* (Future plans)
