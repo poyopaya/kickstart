@@ -4,13 +4,13 @@ block hero-title
   h1 Quickstart
 
 block variables
-  - var showFooter = false 
+  - var showFooter = false
   - var title = 'Quickstart'
 
 block subMenuVars
   - var subMenuItem = "getstarted"
 
-block documents 
+block documents
   include ../3.x/_includes/quickstart/_quickstart_header.jade
   .document
     article.article
@@ -52,7 +52,7 @@ block documents
         a.button.button-primary(href="http://cdn.everything.io/kickstart/3.x/js/kickstart.min.js")
           span.fa.fa-cloud-download
           |  kickstart.js
-    article.code 
+    article.code
       :markdown
         <span>
 
@@ -66,7 +66,7 @@ block documents
 
   .document
     article.article
-      :markdown 
+      :markdown
         Make sure any JavaScript code that uses `k$` goes after the script tag
         inclusion of kickstart.js.
 
@@ -124,7 +124,7 @@ block documents
     article.code
       :markdown
         <span>
-        
+
             gem install "kickstart_rails"
 
   .document
@@ -138,8 +138,8 @@ block documents
 
     article.code
       :markdown
-        <span> 
-            
+        <span>
+
             # Do not use sass-rails
             # gem 'sass-rails'
 
@@ -153,13 +153,13 @@ block documents
             gem 'autoprefixer-rails'
 
   .document
-    article.article 
+    article.article
       :markdown
         ## Import in application.css
 
         application.css must first be converted into .scss/.sass and not use any
         `/* require` statements. This is because sprockets does not see the sass
-        variables. It will merely concatenate the compiled files together. 
+        variables. It will merely concatenate the compiled files together.
 
         You can change this to use `@import ` statements with an import to
         `kickstart_rails` at the top.
@@ -171,7 +171,7 @@ block documents
             @import mysassfile1.sass;
             @import mysassfile2.sass;
 
-  .document 
+  .document
     article.article
       :markdown
         ## JavaScript
@@ -195,7 +195,7 @@ block documents
         The gem uses autoprefixer to automatically prefix styles. If you want to
         specify your own autoprefixing rule, you'll just need to add a .yml file
 
-        See the instructions 
+        See the instructions
         [at the Autoprefixer docs](https://github.com/ai/autoprefixer-rails)
 
   .document
@@ -230,7 +230,7 @@ block documents
             # If all goes well, this should launch your project.
             $(mywebsite) gulp
 
-  
+
   include ../3.x/_includes/quickstart/_jekyll.jade
 
   .document
@@ -243,14 +243,14 @@ block documents
 
     article.code
       :markdown
-        <span> 
+        <span>
 
             npm install --save-dev kickstart-node
 
   .document
     article.article
       :markdown
-        In your sass or scss file, import Kickstart via the theme you prefer: 
+        In your sass or scss file, import Kickstart via the theme you prefer:
 
         Notice you may need a couple `../`s before `node_modules` to point
         to the node_modules directory. This all depends on how you organized your
@@ -267,7 +267,7 @@ block documents
 
   .document
     article.article.article-full
-      :markdown 
+      :markdown
         ## Autoprefixer
 
         The chances are very good that you'll need to include [autoprefixer](https://github.com/postcss/autoprefixer).
@@ -275,4 +275,3 @@ block documents
         this is included as part of your CSS compilation workflow.
 
         [Also available for Gulp](https://www.npmjs.org/package/gulp-autoprefixer)
-

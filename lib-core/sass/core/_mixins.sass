@@ -46,3 +46,10 @@
     $selector: "#{$selector}[data-action='#{$action}']"
   #{$selector}
     @content
+
+@function color($key)
+  @if map-has-key($colors, $key)
+    @return map-get($colors, $key)
+
+  @warn "#{$key} was not found in the map of colors."
+  @return null

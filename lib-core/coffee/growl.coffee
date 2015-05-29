@@ -1,4 +1,4 @@
-growl = (params) ->
+growl = () ->
 
   k$.buffer ->
     defaults =
@@ -8,7 +8,7 @@ growl = (params) ->
       type: 'growl-warn'
       id: Date.now()
 
-    params = k$.extend defaults, params
+    params = k$.extend defaults, arguments
 
     # Create growl container
     if not k$.$$('.growl_container').length
