@@ -1,7 +1,7 @@
 doctype html
 
 - var showFooter = true
-- var title = "The CSS Library we've been waiting for" 
+- var title = "The CSS Library we've been waiting for"
 
 block variables
 block menuVars
@@ -10,7 +10,7 @@ block menuVars
 block subMenuVars
   - var subMenuItem = "components"
 
-include _mixins
+include ../_mixins
 
 html(lang='en')
   head
@@ -49,9 +49,9 @@ html(lang='en')
         .push
 
     - if (showFooter == true)
-      footer.main 
+      footer.main
         - var xml = fs.readFileSync('lib-docs/img/everythingio.svg')
-        
+
         .wrapper
           p
             span.eio-logo!= xml

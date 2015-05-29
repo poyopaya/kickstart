@@ -13,7 +13,7 @@ block subMenuVars
 block documents
   .document
     article.article.article-full
-      :markdown 
+      :markdown
         # Submodules
 
         Kickstart extensions are [Git Submodules](http://git-scm.com/book/en/Git-Tools-Submodules).
@@ -21,7 +21,7 @@ block documents
         them up-to-date with the main repo while not committing the entire contents of the repo with
         your project.
 
-        It's best to show how this works first, as there are some variations based on your environment 
+        It's best to show how this works first, as there are some variations based on your environment
         and type of extension you'd like to install.
 
       p
@@ -91,7 +91,7 @@ block documents
         <span>
 
             # Do one of these:
-            $(~) git submodule foreach git pull origin master 
+            $(~) git submodule foreach git pull origin master
             $(~) git pull origin master --recurse-submodules
 
             Submodule path 'switch': checked out 'e9a72c2fddd41a0a4e25089790e3907582feb538'
@@ -108,7 +108,7 @@ block documents
         ## Cloning your project
 
         When pulling down your project for the first time on a machine, the instructions for submodules
-        are actually not the same as updating.  
+        are actually not the same as updating.
 
         After cloning your project, you'll need to run the last command shown
 
@@ -118,7 +118,7 @@ block documents
       :markdown
         <span>
 
-            $(~) git clone git@github.com:user/myrepo.git 
+            $(~) git clone git@github.com:user/myrepo.git
             ...
             $(~) cd myrepo
             $(myrepo) git submodule update --recursive --init
@@ -139,14 +139,14 @@ block documents
 
   .document
     article.article
-      :markdown 
+      :markdown
         If you're using a clone of the repo, submodule the theme into `vendor`
         This will automatically create a folder with the name of the repository.
 
     article.code
       :markdown
         <span>
-        
+
             $(~) cd vendor
 
             $(vendor) git submodule add git://github.com/ajkochanowicz/switch.git
@@ -178,7 +178,7 @@ block documents
         Open your theme and add a mixin that extends the component. For switch, we would do this (see code)
 
         We add the `$color` parameter only because that's one of the params in the actual mixin. If the
-        author writes good documentation on their component, this information should be available on the 
+        author writes good documentation on their component, this information should be available on the
         component detail page. Otherwise, you may need to dig into the sass file itself to understand how
         to integrate it.
 
@@ -214,13 +214,13 @@ block documents
       :markdown
         # Add a theme
 
-        Submodule your theme (See "Adding a submodule at the top") into the `themes` directory.  
+        Submodule your theme (See "Adding a submodule at the top") into the `themes` directory.
 
     article.code
       :markdown
         <span>
 
-            $(themes) git submodule add git://github.com/ajkochanowicz/mynewtheme.git 
+            $(themes) git submodule add git://github.com/ajkochanowicz/mynewtheme.git
 
   .document
     article.article
@@ -245,7 +245,7 @@ block documents
             // Choose your theme
             @import themes/mynewtheme/theme.sass
 
-            // Now write your own Sass 
+            // Now write your own Sass
 
   .document
     article.article.article-full
@@ -253,7 +253,7 @@ block documents
         span.notice-warning Don't edit 3rd party themes
         |  As git submodules, there is significant risk that changes to a third-party
         | will be lost, both from your code and from your version control. It's much safer
-        | to override the CSS rules in a separate file in your version control that comes 
+        | to override the CSS rules in a separate file in your version control that comes
         | after the third-party theme in your import flow.
 
   .document
@@ -276,13 +276,13 @@ block documents
         gem. If you want to add components, you'll need to create the `vendor` directory
         in `app/assets/stylesheets`.
 
-        Now create `_index.sass` in `vendor.` The complete commands to do this are shown.  
+        Now create `_index.sass` in `vendor.` The complete commands to do this are shown.
 
     article.code
       :markdown
         <span>
 
-            $(~) cd app/assets/stylesheets 
+            $(~) cd app/assets/stylesheets
             $(stylesheets) mkdir vendor
             $(stylesheets) touch vendor/_index.sass
 

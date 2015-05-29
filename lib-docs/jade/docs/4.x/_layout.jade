@@ -1,7 +1,7 @@
-extends ../../_layout
+extends ../../3.x-layouts/_layout
 
 block menuVars
-  - var menuItem = "docs" 
+  - var menuItem = "docs"
 
 block page-stylesheet
   block ui-stylesheet
@@ -9,7 +9,7 @@ block page-stylesheet
   link(rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.2/styles/solarized_dark.min.css")
   link(rel="stylesheet" href="/css/pages/docs/index.min.css")
   script.
-    hljs.initHighlightingOnLoad(); 
+    hljs.initHighlightingOnLoad();
 
 block bleed
   header.doc-hero
