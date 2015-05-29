@@ -1,4 +1,4 @@
-extends ../_layout
+extends ../../../_layout
 
 block hero-title
   h1 Grid
@@ -11,7 +11,7 @@ block subMenuVars
   - var subMenuItem = "getstarted"
 
 block ui-stylesheet
-  link(rel="stylesheet" href="/css/pages/docs/grid.css") 
+  link(rel="stylesheet" href="/css/pages/docs/grid.css")
 
 block documents
   .document
@@ -113,15 +113,15 @@ block documents
               }
 
   .document
-    article.article 
-      :markdown 
+    article.article
+      :markdown
         # Use Shortcuts
 
         Columns can be expressed by a number or one of three English words
         These are passed into the `column()` mixin.
 
         These are not just for convenience, they automatically set breakpoints to
-        change column widths on various screen sizes.  
+        change column widths on various screen sizes.
 
     article.code
       .if-semantic
@@ -138,11 +138,11 @@ block documents
 
               .col-third
               .col-twothirds
-              .col-half 
+              .col-half
 
   .document
     article.article
-      :markdown 
+      :markdown
         # Use numbers
 
         Passing in numbers, choose a column width from 1-12:
@@ -168,7 +168,7 @@ block documents
               </div>
               <div class="article col-10">
                 ...
-              </div> 
+              </div>
 
   .document
     article.article.article-full
@@ -215,7 +215,7 @@ block documents
           .col-4.col-left-4: .col-example 4 columns, 4 column left
 
         .row
-          .col-4: .col-example 4 columns 
+          .col-4: .col-example 4 columns
 
         .row
           .col-4.col-left-4: .col-example 4 columns, 4 column left
@@ -259,7 +259,7 @@ block documents
 
               .reminder {
                 @include column(6, 6);
-              } 
+              }
 
   .document
     article.article.article-full
@@ -387,7 +387,7 @@ block documents
                 </div>
               </div>
 
-  include ../../3.x/_includes/grid/_responsive.jade
+  include ../../../../3.x/_includes/grid/_responsive.jade
 
   .document
     article.article
@@ -407,7 +407,7 @@ block documents
             </div>
             <div class="getting-in-touch">
               ...
-            </div> 
+            </div>
 
   .document
     article.article
@@ -449,7 +449,7 @@ block documents
 
   .document
     article.article
-      :markdown 
+      :markdown
         Notice, we don't have to write anything for `.getting-in-touch` because
         we inherit its full-width from the phone's rule.
 

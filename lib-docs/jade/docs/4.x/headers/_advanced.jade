@@ -4,40 +4,16 @@
       li.navbar-title
         h1 Documentation
         button(role="button") =
-      li(class="#{subMenuItem == 'tutorial' ? 'active' : ''}")
-        | Tutorial
-        ul
-          li: a(href="/docs/4.x") 1. Quickstart
-          li: a(href="/docs/4.x/tutorial/layout") 2. Laying out page
-          li: a(href="/docs/4.x/tutorial/setting-typography") 3. Setting typography
-          li: a(href="/docs/4.x/tutorial/adding-ui-components") 4. Adding UI components
-          li: a(href="/docs/4.x/tutorial/using-media-queries") 5. Using media queries
-      li(class="#{subMenuItem == 'ui-library' ? 'active' : ''}")
-        | Components
-        ul
-          li: a(href="/docs/4.x/ui/alerts") Alerts
-          li: a(href="/docs/4.x/ui/buttons") Buttons
-          li: a(href="/docs/4.x/ui/containers") Containers
-          li: a(href="/docs/4.x/ui/forms") Forms
-          li: a(href="/docs/4.x/ui/icons") Icons
-          li: a(href="/docs/4.x/ui/labels") Labels
-          li: a(href="/docs/4.x/ui/modals") Modals
-          li: a(href="/docs/4.x/ui/navigation") Navigation
-          li: a(href="/docs/4.x/ui/notifications") Notifications
-          li: a(href="/docs/4.x/ui/tables") Tables
-          li: a(href="/docs/4.x/ui/tabs") Tabs
-          li: a(href="/docs/4.x/ui/tooltips") Tooltips
-          li: a(href="/docs/4.x/ui/typography") Typography
-          li: a(href="http://kickstart.everything.io/components") More...
-      li(class="#{subMenuItem == 'layout' ? 'active' : ''}")
-        | Layout
-        ul
-          li: a(href="/docs/4.x/layout/grid") Grid
-          li: a(href="/docs/4.x/layout/media-queries") Media Queries
-          li: a(href="/docs/4.x/layout/layouts") Layouts
-          li: a(href="/docs/4.x/layout/themes") Themes
-      li(class="#{subMenuItem == 'typography' ? 'active' : ''}")
-        a(href="/docs/4.x/typography") Typography
+      li(class="#{subMenuItem == 'adding-extensions' ? 'active' : ''}")
+        a(href="/docs/4.x/advanced/adding-extensions") Adding Extensions
+      li(class="#{subMenuItem == 'creating-extensions' ? 'active' : ''}")
+        a(href="/docs/4.x/advanced/creating-extensions") Creating Extensions
+      li(class="#{subMenuItem == 'throttling' ? 'active' : ''}")
+        a(href="/docs/4.x/advanced/throttling") Throttling
+      li(class="#{subMenuItem == 'element-inspector' ? 'active' : ''}")
+        a(href="/docs/4.x/advanced/element-inspector") Element Inspector
+      li(class="#{subMenuItem == 'extend' ? 'active' : ''}")
+        a(href="/docs/4.x/advanced/extend") Extend
 
     ul
       li
