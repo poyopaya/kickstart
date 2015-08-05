@@ -202,7 +202,7 @@ document.addEventListener 'DOMContentLoaded', ->
   generateToc()
 
   k$.loadReadme = (projectName) ->
-    $url = "https://api.github.com/repos/ajkochanowicz/#{projectName}/contents/README.md"
+    $url = "https://api.github.com/repos/adamjgrant/#{projectName}/contents/README.md"
     req = new XMLHttpRequest()
     req.open('GET', $url, true)
     req.onload = ->

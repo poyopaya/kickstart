@@ -5,9 +5,9 @@ Kickstart is a modern front-end CSS library for clean HTML and fast performance.
 
 [getkickstart.com](http://getkickstart.com)
 
-[ ![Codeship Status for ajkochanowicz/kickstart](https://www.codeship.io/projects/bf939ac0-1a88-0132-7edc-6605d664157f/status)](https://www.codeship.io/projects/34696)
+[ ![Codeship Status for adamjgrant/kickstart](https://www.codeship.io/projects/bf939ac0-1a88-0132-7edc-6605d664157f/status)](https://www.codeship.io/projects/34696)
 
-[![Code Climate](https://codeclimate.com/github/ajkochanowicz/Kickstrap/badges/gpa.svg)](https://codeclimate.com/github/ajkochanowicz/Kickstrap)
+[![Code Climate](https://codeclimate.com/github/adamjgrant/Kickstrap/badges/gpa.svg)](https://codeclimate.com/github/adamjgrant/Kickstrap)
 
 ## Quickstart with Gulp 
 
